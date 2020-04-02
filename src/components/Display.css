@@ -1,0 +1,24 @@
+.display-wrapper{
+    position: absolute;
+    height: 30vh;
+    width: 30vw;
+    bottom: 0vh;
+    left: 15vw;
+    margin: 1vw;
+    padding: 1vw;
+
+    border: solid 3px black;
+    border-radius: 3vw;
+
+    background-color: rgb(8, 20, 7);
+}
+
+.display-wrapper #title{
+    text-align: center;
+    color: seashell;
+    padding: 1vw;
+}
+
+.display-wrapper #desc{
+    color: seashell;
+}

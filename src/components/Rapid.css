@@ -1,0 +1,36 @@
+#background{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+
+#header{
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, 0%);
+}
+
+#rapid-name{
+    text-align: center;
+    font-size: 2em;
+}
+
+#rapid-desc{
+    text-align: center;
+}
+
+
+
+#gauge{
+    position: absolute;
+    right: 10%;
+    top: 10%;
+}
+
+.line{
+    position: absolute;
+    
+}
+
+

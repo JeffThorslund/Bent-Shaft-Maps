@@ -1,0 +1,51 @@
+#level-container{
+    display: flex;
+    flex-direction: column;
+    
+    text-align: center;
+}
+
+
+#gauge-container{
+    background-color: honeydew;
+    border-radius: 1em;
+    padding: 10px;
+    border: solid 0.2vw black;
+}
+
+
+.level{
+border: solid 0.2vw black;
+border-radius: 2vw;
+margin: 5px 0px;
+padding: 5px 13px;
+cursor: pointer;
+
+}
+
+#title{
+    font-size: 2vw;
+    text-align: center;
+    font-weight: bold;
+}
+
+.name{
+    font-size: 1.5vw
+
+}
+
+.desc{
+    font-size: 1vw;
+}
+
+#high{
+    background-color: rgb(255, 0, 0);
+}
+
+#medium{
+    background-color: rgb(255, 100, 100);
+}
+
+#low{
+    background-color: rgb(255, 200, 200);
+}
