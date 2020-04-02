@@ -58,7 +58,7 @@ const App = () => {
         lines={[
           {
             name: "Thread The Needle",
-            vector: (
+            vector: 
               <path
                 d="
             M -22,37 
@@ -70,8 +70,11 @@ const App = () => {
                 stroke="black"
                 stroke-width="0.5"
               />
-            )
+            ,
+            range: [0, 20]
           }
+
+
         ]}
       />
 
