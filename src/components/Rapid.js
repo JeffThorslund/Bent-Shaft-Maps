@@ -1,15 +1,12 @@
 import React, { useState } from "react";
 
 import Hydraulic from "./Hydraulic";
-import WaterLevel from "./WaterLevel";
 import Line from "./Line";
 import Display from "./Display";
 
 import "./Rapid.css";
 
-
 const Rapid = props => {
-
   //Hold state of what is shown in display box
   const [title, setTitle] = useState("Click on Something!");
   const [description, setDescription] = useState(
@@ -28,36 +25,28 @@ const Rapid = props => {
 
   // render array of hydraulics based on selected water level (App state)
   let hydraulic = [];
-  let base = {};
 
   for (let i = 0; i < props.hydraulics.length; i++) {
-    if (props.level === "high") {
-      base = { ...props.hydraulics[i].high };
-    } else if (props.level === "low") {
-      base = { ...props.hydraulics[i].low };
-    } else {
-      console.log("oopsie");
+    if (
+      props.level[0] <= props.hydraulics[i].range[1] &&
+      props.level[1] >= props.hydraulics[i].range[0]
+    ) {
+      hydraulic.push(
+        <Hydraulic
+          level={props.level}
+          desc={props.hydraulics[i].desc}
+          name={props.hydraulics[i].name}
+          top={props.hydraulics[i].top}
+          left={props.hydraulics[i].left}
+          height={props.hydraulics[i].height}
+          width={props.hydraulics[i].width}
+          rotation={props.hydraulics[i].rotation}
+          displayData={displayData}
+          key={i}
+        />
+      );
     }
-
-    hydraulic.push(
-      <Hydraulic
-        level={props.level}
-        desc={props.hydraulics[i].desc}
-        name={props.hydraulics[i].name}
-        top={base.top}
-        left={base.left}
-        height={base.height}
-        width={base.width}
-        rotation={base.rotation}
-        displayData={displayData}
-        key={i}
-      />
-    );
   }
-
-  //Add a function that creates an array based on the range that it is in. 
-
-
 
   return (
     <div>
@@ -66,15 +55,11 @@ const Rapid = props => {
         <div id="rapid-desc">{props.desc}</div>
       </div>
 
-      <Line/>
+      <Line />
 
       {hydraulic}
 
       <Display title={title} description={description} />
-
-      <div id="gauge">
-        <WaterLevel selectLevel={props.selectLevel} />
-      </div>
 
       <img src={props.map} alt={props.name} id="background" />
     </div>

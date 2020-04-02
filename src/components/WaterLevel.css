@@ -29,23 +29,11 @@ cursor: pointer;
     font-weight: bold;
 }
 
-.name{
-    font-size: 1.5vw
-
+#subtitle{
+    font-size: 1vw;
+    text-align: center;
 }
 
 .desc{
     font-size: 1vw;
-}
-
-#high{
-    background-color: rgb(255, 0, 0);
-}
-
-#medium{
-    background-color: rgb(255, 100, 100);
-}
-
-#low{
-    background-color: rgb(255, 200, 200);
 }
