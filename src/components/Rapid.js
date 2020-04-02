@@ -7,8 +7,10 @@ import Display from "./Display";
 
 import "./Rapid.css";
 
-//Hold state of what is shown in display box
+
 const Rapid = props => {
+
+  //Hold state of what is shown in display box
   const [title, setTitle] = useState("Click on Something!");
   const [description, setDescription] = useState(
     "Choose a wave, hole, line or eddy for more information!"
@@ -16,10 +18,10 @@ const Rapid = props => {
 
   //set disply box state to title and desc
   const displayData = data => {
-    for (let i = 0; i < props.features.length; i++) {
-      if (data === props.features[i].name) {
-        setTitle(props.features[i].name);
-        setDescription(props.features[i].desc);
+    for (let i = 0; i < props.hydraulics.length; i++) {
+      if (data === props.hydraulics[i].name) {
+        setTitle(props.hydraulics[i].name);
+        setDescription(props.hydraulics[i].desc);
       }
     }
   };
@@ -28,11 +30,11 @@ const Rapid = props => {
   let hydraulic = [];
   let base = {};
 
-  for (let i = 0; i < props.features.length; i++) {
+  for (let i = 0; i < props.hydraulics.length; i++) {
     if (props.level === "high") {
-      base = { ...props.features[i].high };
+      base = { ...props.hydraulics[i].high };
     } else if (props.level === "low") {
-      base = { ...props.features[i].low };
+      base = { ...props.hydraulics[i].low };
     } else {
       console.log("oopsie");
     }
@@ -40,8 +42,8 @@ const Rapid = props => {
     hydraulic.push(
       <Hydraulic
         level={props.level}
-        desc={props.features[i].desc}
-        name={props.features[i].name}
+        desc={props.hydraulics[i].desc}
+        name={props.hydraulics[i].name}
         top={base.top}
         left={base.left}
         height={base.height}
@@ -53,6 +55,10 @@ const Rapid = props => {
     );
   }
 
+  //Add a function that creates an array based on the range that it is in. 
+
+
+
   return (
     <div>
       <div id="header">
@@ -60,7 +66,7 @@ const Rapid = props => {
         <div id="rapid-desc">{props.desc}</div>
       </div>
 
-      <Line />
+      <Line/>
 
       {hydraulic}
 

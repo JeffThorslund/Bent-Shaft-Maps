@@ -2,6 +2,7 @@ import React from "react";
 import "./WaterLevel.css";
 
 const WaterLevel = props => {
+
   const handleClick = e => {
     props.selectLevel(e.currentTarget.id);
   };
@@ -15,10 +16,7 @@ const WaterLevel = props => {
           <div className="name">High</div>
           <div className="desc">10 and above</div>
         </div>
-        {/*<div id="medium" className="level" onClick={handleClick}>
-          <div className='name'>Medium</div>
-          <div className='desc'>0 to 9</div>
-  </div>*/}
+      
         <div id="low" className="level" onClick={handleClick}>
           <div className="name">Low</div>
           <div className="desc">0 and below</div>
