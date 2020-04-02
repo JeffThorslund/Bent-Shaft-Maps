@@ -55,6 +55,7 @@ const App = () => {
             range: [3, 20]
           }
         ]}
+        
         lines={[
           {
             name: "Thread The Needle",
