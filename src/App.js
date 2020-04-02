@@ -30,7 +30,7 @@ const App = () => {
             height: "1vh",
             width: "6vh",
             rotation: "rotate(100deg)",
-            range: [1, 5]
+            range: [-10, 13]
           },
           {
             //Sattlers
@@ -46,19 +46,19 @@ const App = () => {
           {
             //Baby Face
             name: "baby-face",
-            desc: "surfs upj",
+            desc: "surfs up",
             top: "63vh",
             left: "64vw",
             height: "1vh",
             width: "4vh",
             rotation: "rotate(150deg)",
-            range: [3, 20]
+            range: [-10, 1]
           }
         ]}
         lines={[
           {
             name: "Thread The Needle",
-            vector: (
+            vector: 
               <path
                 d="
             M -22,37 
@@ -70,7 +70,8 @@ const App = () => {
                 stroke="black"
                 stroke-width="0.5"
               />
-            )
+            ,
+            range: [-10, 1]
           }
         ]}
       />
