@@ -24,14 +24,14 @@ const Rapid = props => {
   };
 
   // render array of hydraulics based on selected water level (App state)
-  let hydraulic = [];
+  let hydraulicArray = [];
 
   for (let i = 0; i < props.hydraulics.length; i++) {
     if (
       props.level[0] <= props.hydraulics[i].range[1] &&
       props.level[1] >= props.hydraulics[i].range[0]
     ) {
-      hydraulic.push(
+      hydraulicArray.push(
         <Hydraulic
           level={props.level}
           desc={props.hydraulics[i].desc}
@@ -48,6 +48,25 @@ const Rapid = props => {
     }
   }
 
+  // render array of lines based on selected water level (App state)
+  let lineArray = [];
+
+  for (let i = 0; i < props.lines.length; i++) {
+    if (
+      props.level[0] <= props.lines[i].range[1] &&
+      props.level[1] >= props.lines[i].range[0]
+    ) {
+      lineArray.push(
+        <Line 
+          vector = {props.lines[i].vector}
+          key={i}
+        />
+      );
+    }
+  }
+
+
+
   return (
     <div>
       <div id="header">
@@ -55,9 +74,9 @@ const Rapid = props => {
         <div id="rapid-desc">{props.desc}</div>
       </div>
 
-      <Line />
+      {lineArray}
 
-      {hydraulic}
+      {hydraulicArray}
 
       <Display title={title} description={description} />
 
