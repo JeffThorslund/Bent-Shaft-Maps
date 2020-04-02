@@ -1,8 +1,8 @@
 .App {
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
 }
 
-#gauge{
+#gauge {
   position: absolute;
   right: 10vh;
   top: 10vh;
