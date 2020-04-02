@@ -7,20 +7,29 @@ const WaterLevel = props => {
     props.selectLevel(e.currentTarget.id);
   };
 
+  
+  const increment = 6 //Change this to change what guage increments
+  const range = [0, 20] //Indicates minimum and maximum yearly river levels
+
+  let levelMarker = []
+
+  for (let i=range[0]; i<range[1]; i += increment){
+    levelMarker.push(
+      <div id={[i,i+increment]} className="level" onClick={handleClick}>  
+          <div className="desc">{i}ft to {i+increment}ft</div>
+        </div>
+    )
+  }
+
   return (
     <div id="gauge-container">
       <div id="title"> Water Level</div>
+      <div id="subtitle"> Owl Gauge</div>
 
       <div id="level-container">
-        <div id="high" className="level" onClick={handleClick}>
-          <div className="name">High</div>
-          <div className="desc">10 and above</div>
-        </div>
-      
-        <div id="low" className="level" onClick={handleClick}>
-          <div className="name">Low</div>
-          <div className="desc">0 and below</div>
-        </div>
+        
+      {levelMarker}
+        
       </div>
     </div>
   );
