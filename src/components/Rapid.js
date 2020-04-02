@@ -72,9 +72,7 @@ const Rapid = props => {
 
       <Display title={title} description={description} />
 
-      <div id="gauge">
-        <WaterLevel selectLevel={props.selectLevel} />
-      </div>
+      
 
       <img src={props.map} alt={props.name} id="background" />
     </div>

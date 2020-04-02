@@ -7,7 +7,6 @@ const WaterLevel = props => {
     props.selectLevel(e.currentTarget.id);
   };
 
-  
   const increment = 6 //Change this to change what guage increments
   const range = [0, 20] //Indicates minimum and maximum yearly river levels
 

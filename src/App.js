@@ -3,9 +3,10 @@ import Rapid from "./components/Rapid";
 import McCoysMap from "./components/basemaps/McCoys.png";
 
 import "./App.css";
+import WaterLevel from "./components/WaterLevel";
 
 const App = () => {
-  const [level, setLevel] = useState("high");
+  const [level, setLevel] = useState(null);
 
   const selectLevel = (info) => {
     setLevel(info)
@@ -98,6 +99,8 @@ const App = () => {
           }
         ]}
       />
+
+      <div id='gauge'><WaterLevel selectLevel={selectLevel}/></div>
     </div>
   );
 };
