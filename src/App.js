@@ -102,6 +102,8 @@ const App = () => {
             t 20,30"
                 stroke="black"
                 stroke-width="0.5"
+                width='100'
+                height='100'
               />
             ),
             range: [-10, 12]

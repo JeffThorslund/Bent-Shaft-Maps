@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import Hydraulic from "./Hydraulic";
 import Line from "./Line";
 import Display from "./Display";
+import SvgLineTest from './SvgLineTest'
 
 import "./Rapid.css";
 
@@ -77,9 +78,13 @@ const Rapid = props => {
 
       {hydraulicArray}
 
+    
+
       <Display title={title} description={description} />
 
       <img src={props.map} alt={props.name} id="background" />
+
+       <SvgLineTest />
     </div>
   );
 };
