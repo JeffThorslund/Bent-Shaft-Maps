@@ -1,30 +1,24 @@
-.display-wrapper{
-    position: absolute;
-    height: auto;
-    width: 30vw;
-    top: 63vh;
-    left: 24vw;
-   
-    padding-left: 3vw;
-    padding-right: 3vw;
-    padding-top: 1.8vw;
-    padding-bottom: 2.2vw;
+.Display {
+  position: absolute;
+  height: auto;
+  width: 30vw;
+  top: 63vh;
+  left: 24vw;
+  padding: 1.8vw 3vw 2.2vw 3vw;
 
-    border: solid 3px black;
-    border-radius: 2vw;
-
-    background-color: white;
+  border: solid 3px black;
+  border-radius: 2vw;
+  background-color: white;
 }
 
-.display-wrapper #title{
-    text-align: center;
-    color: black;
-    
-    padding-bottom: 1vw;
-    font-size: 2vw;
+.display-wrapper #title {
+  text-align: center;
+  color: black;
+  padding-bottom: 1vw;
+  font-size: 2vw;
 }
 
-.display-wrapper #desc{
-    color: black;
-    font-size: 1.2vw;
+.display-wrapper #desc {
+  color: black;
+  font-size: 1.2vw;
 }

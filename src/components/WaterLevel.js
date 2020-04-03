@@ -24,7 +24,7 @@ const WaterLevel = props => {
   }
 
   return (
-    <div id="gauge-container-wrapper">
+    <div className="WaterLevel">
       <div id="gauge-container">
         <div id="title"> Water Level</div>
         <div id="level-container">{levelMarker}</div>

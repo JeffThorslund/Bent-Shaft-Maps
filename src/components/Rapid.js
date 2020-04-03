@@ -60,18 +60,18 @@ const Rapid = props => {
   }
 
   return (
-    <div>
-      <div id="header">
-        <div id="rapid-name">{props.name}</div>
-      </div>
+    <div className="Rapid">
+      
+      <div id="rapid-name"> {props.name} </div>
+      
+      <div id="line-array"> {lineArray} </div>
 
-      {lineArray}
-
-      {hydraulicArray}
+      <div id="hydraulic-array"> {hydraulicArray} </div>
 
       <Display title={title} description={description} />
 
       <img src={props.map} alt={props.name} id="background" />
+
     </div>
   );
 };

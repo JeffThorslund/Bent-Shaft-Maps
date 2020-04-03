@@ -1,47 +1,37 @@
-#gauge-container-wrapper {
-    position: absolute;
-    right: 3vh;
-    top: 3vh;
-  }
-  
-
-
-#level-container{
-    display: flex;
-    flex-direction: column;
-    text-align: center;
+.WaterLevel {
+  position: absolute;
+  right: 3vh;
+  top: 3vh;
 }
 
-
-#gauge-container{
-    background-color: honeydew;
-    border-radius: 1em;
-    padding: 15px;
-    border: solid 0.2vw black;
+#gauge-container {
+  background-color: honeydew;
+  border-radius: 1em;
+  padding: 15px;
+  border: solid 0.2vw black;
 }
 
-
-.level{
-border: solid 0.2vw black;
-border-radius: 2vw;
-margin: 5px 0px;
-padding: 5px 13px;
-cursor: pointer;
-
+#title {
+  font-size: 2vw;
+  text-align: center;
+  font-weight: bold;
+  padding-bottom: 8px;
 }
 
-#title{
-    font-size: 2vw;
-    text-align: center;
-    font-weight: bold;
-    padding-bottom: 8px;
+#level-container {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
 }
 
-#subtitle{
-    font-size: 1vw;
-    text-align: center;
+.level {
+  border: solid 0.2vw black;
+  border-radius: 2vw;
+  margin: 5px 0px;
+  padding: 5px 13px;
+  cursor: pointer;
 }
 
-.desc{
-    font-size: 1vw;
+.desc {
+  font-size: 1vw;
 }

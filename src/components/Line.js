@@ -3,14 +3,16 @@ import "./Line.css";
 
 const Line = props => {
   return (
-    <svg
-      id="line"
-      viewBox="0 0 100 100"
+    <div>
+      {/* <svg
       fill="none"
-      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 153 50"
+      preserveAspectRatio='none'
+      
     >
       {props.vector}
-    </svg>
+    </svg>*/}
+    </div>
   );
 };
 
