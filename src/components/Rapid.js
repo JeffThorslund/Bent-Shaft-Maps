@@ -3,8 +3,6 @@ import React, { useState } from "react";
 import Hydraulic from "./Hydraulic";
 import Line from "./Line";
 import Display from "./Display";
-import SvgLineTest from './SvgLineTest'
-
 import "./Rapid.css";
 
 const Rapid = props => {
@@ -57,16 +55,9 @@ const Rapid = props => {
       props.level[0] <= props.lines[i].range[1] &&
       props.level[1] >= props.lines[i].range[0]
     ) {
-      lineArray.push(
-        <Line 
-          vector = {props.lines[i].vector}
-          key={i}
-        />
-      );
+      lineArray.push(<Line vector={props.lines[i].vector} key={i} />);
     }
   }
-
-
 
   return (
     <div>
@@ -78,13 +69,9 @@ const Rapid = props => {
 
       {hydraulicArray}
 
-    
-
       <Display title={title} description={description} />
 
       <img src={props.map} alt={props.name} id="background" />
-
-       <SvgLineTest />
     </div>
   );
 };
