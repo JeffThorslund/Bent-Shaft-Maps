@@ -45,13 +45,35 @@ const App = () => {
             range: [-10, 13]
           },
           {
-            //Baby Face
-            name: "Baby Face",
-            desc: "Fantastic Beginner surf wave for learning the basics.",
+            //Horse Shoe (Right Side)
+            name: "Horse Shoe (Right Side)",
+            desc: "You better be good kid",
             top: "61vh",
             left: "80vw",
             height: "1vh",
-            width: "4vh",
+            width: "5vh",
+            rotation: "rotate(130deg)",
+            range: [-10, 5]
+          },
+          {
+            //Horse Shoe (Left Side)
+            name: "Horse Shoe (Left Side)",
+            desc: "You better be good kid",
+            top: "66vh",
+            left: "75.8vw",
+            height: "1vh",
+            width: "5vh",
+            rotation: "rotate(160deg)",
+            range: [-10, 7]
+          },
+          {
+            //Baby Face
+            name: "Baby Face",
+            desc: "A great beginner wave.",
+            top: "69vh",
+            left: "79.5vw",
+            height: "1vh",
+            width: "5vh",
             rotation: "rotate(150deg)",
             range: [-10, 1]
           },
