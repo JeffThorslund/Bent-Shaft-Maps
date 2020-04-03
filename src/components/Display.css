@@ -1,24 +1,30 @@
 .display-wrapper{
     position: absolute;
-    height: 30vh;
+    height: auto;
     width: 30vw;
-    bottom: 0vh;
+    top: 50vh;
     left: 15vw;
-    margin: 1vw;
-    padding: 1vw;
+    margin: 3vw;
+    padding-left: 3vw;
+    padding-right: 3vw;
+    padding-top: 1.8vw;
+    padding-bottom: 2.2vw;
 
     border: solid 3px black;
-    border-radius: 3vw;
+    border-radius: 2vw;
 
-    background-color: rgb(8, 20, 7);
+    background-color: white;
 }
 
 .display-wrapper #title{
     text-align: center;
-    color: seashell;
-    padding: 1vw;
+    color: black;
+    
+    padding-bottom: 1vw;
+    font-size: 2vw;
 }
 
 .display-wrapper #desc{
-    color: seashell;
+    color: black;
+    font-size: 1.3vw;
 }

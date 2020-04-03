@@ -10,7 +10,7 @@ const Rapid = props => {
   //Hold state of what is shown in display box
   const [title, setTitle] = useState("Click on Something!");
   const [description, setDescription] = useState(
-    "Choose a wave, hole, line or eddy for more information!"
+    "Click on a white wave or hole too see more information."
   );
 
   //set disply box state to title and desc
@@ -71,7 +71,6 @@ const Rapid = props => {
     <div>
       <div id="header">
         <div id="rapid-name">{props.name}</div>
-        <div id="rapid-desc">{props.desc}</div>
       </div>
 
       {lineArray}

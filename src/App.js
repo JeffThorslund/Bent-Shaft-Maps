@@ -15,7 +15,7 @@ const App = () => {
   return (
     <div className="App">
       <Rapid
-        name="McCoys"
+        name="McCoy's Chute Rapid"
         desc="A great start to the day"
         map={McCoysMap}
         level={level}
@@ -23,8 +23,9 @@ const App = () => {
         hydraulics={[
           {
             //Phils Hole
-            name: "phils-hole",
-            desc: "a big scary thing",
+            name: "Phil's Hole",
+            desc:
+              "Phil's Hole is the first hole on the Ottawa River at the top of McCoys. At high water, the hole is not present, only a large surf wave. At lower water levels, a large hole is formed with a tongue a little left of centre.",
             top: "40vh",
             left: "30vw",
             height: "1vh",
@@ -34,8 +35,8 @@ const App = () => {
           },
           {
             //Sattlers
-            name: "sattlers",
-            desc: "punch it of you want",
+            name: "Sattler's Hole",
+            desc: "This wave is at the center of the river. Make sure to clip it when threading the needle!",
             top: "31vh",
             left: "25vw",
             height: "1vh",
@@ -45,8 +46,8 @@ const App = () => {
           },
           {
             //Baby Face
-            name: "baby-face",
-            desc: "surfs upj",
+            name: "Baby Face",
+            desc: "Fantastic Beginner surf wave for learning the basics.",
             top: "63vh",
             left: "64vw",
             height: "1vh",
@@ -55,7 +56,6 @@ const App = () => {
             range: [3, 20]
           }
         ]}
-        
         lines={[
           {
             name: "Thread The Needle",
@@ -66,13 +66,12 @@ const App = () => {
             q 18,5 30,0
             q 15,-5 30,2
             t 28,7
-            q 10,1 20,30
-          "
+            q 10,1 20,30"
                 stroke="black"
                 stroke-width="0.5"
               />
             ),
-            range: [0, 20]
+            range: [0, 5]
           }
         ]}
       />

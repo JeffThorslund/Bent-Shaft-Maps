@@ -9,20 +9,22 @@
     position: absolute;
     left: 50%;
     transform: translate(-50%, 0%);
+    margin: 1vw;
+    
 }
 
 #rapid-name{
     text-align: center;
-    font-size: 2em;
+    font-size: 3em;
+    font-weight: bold;
+    font-family: 'Sen', sans-serif;
 }
 
 #rapid-desc{
     text-align: center;
+    font-size: 1.5em;
+    font-family: 'Raleway', sans-serif;
 }
-
-
-
-
 
 .line{
     position: absolute;

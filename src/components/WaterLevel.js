@@ -8,8 +8,8 @@ const WaterLevel = props => {
     props.selectLevel(newLevel);
   };
 
-  const increment = 6; //Change this to change what guage increments
-  const range = [0, 20]; //Indicates minimum and maximum yearly river levels
+  const increment = 3; //Change this to change what guage increments
+  const range = [-2, 13]; //Indicates minimum and maximum yearly river levels
 
   let levelMarker = [];
 
