@@ -9,7 +9,7 @@ const WaterLevel = props => {
   };
 
   const increment = 3; //Change this to change what guage increments
-  const range = [-2, 13]; //Indicates minimum and maximum yearly river levels
+  const range = [-2, 15]; //Indicates minimum and maximum yearly river levels
 
   let levelMarker = [];
 
@@ -24,11 +24,11 @@ const WaterLevel = props => {
   }
 
   return (
-    <div id="gauge-container">
-      <div id="title"> Water Level</div>
-      <div id="subtitle"> Owl Gauge</div>
-
-      <div id="level-container">{levelMarker}</div>
+    <div id="gauge-container-wrapper">
+      <div id="gauge-container">
+        <div id="title"> Water Level</div>
+        <div id="level-container">{levelMarker}</div>
+      </div>
     </div>
   );
 };

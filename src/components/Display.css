@@ -2,9 +2,9 @@
     position: absolute;
     height: auto;
     width: 30vw;
-    top: 50vh;
-    left: 15vw;
-    margin: 3vw;
+    top: 63vh;
+    left: 24vw;
+   
     padding-left: 3vw;
     padding-right: 3vw;
     padding-top: 1.8vw;
@@ -26,5 +26,5 @@
 
 .display-wrapper #desc{
     color: black;
-    font-size: 1.3vw;
+    font-size: 1.2vw;
 }

@@ -1,7 +1,14 @@
+#gauge-container-wrapper {
+    position: absolute;
+    right: 3vh;
+    top: 3vh;
+  }
+  
+
+
 #level-container{
     display: flex;
     flex-direction: column;
-    
     text-align: center;
 }
 
@@ -9,7 +16,7 @@
 #gauge-container{
     background-color: honeydew;
     border-radius: 1em;
-    padding: 10px;
+    padding: 15px;
     border: solid 0.2vw black;
 }
 
@@ -27,6 +34,7 @@ cursor: pointer;
     font-size: 2vw;
     text-align: center;
     font-weight: bold;
+    padding-bottom: 8px;
 }
 
 #subtitle{

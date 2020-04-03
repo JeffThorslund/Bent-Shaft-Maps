@@ -9,15 +9,16 @@
     position: absolute;
     left: 50%;
     transform: translate(-50%, 0%);
-    margin: 1vw;
+    margin-top: 2vw;
     
 }
 
 #rapid-name{
     text-align: center;
-    font-size: 3em;
+    font-size: 3vw;
     font-weight: bold;
     font-family: 'Sen', sans-serif;
+    
 }
 
 #rapid-desc{
