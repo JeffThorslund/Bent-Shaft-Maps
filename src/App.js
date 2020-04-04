@@ -36,7 +36,8 @@ const App = () => {
           {
             //Sattlers
             name: "Sattler's Hole",
-            desc: "This wave is at the center of the river. Make sure to clip it when threading the needle!",
+            desc:
+              "This wave is at the center of the river. Make sure to clip it when threading the needle!",
             top: "39vh",
             left: "34vw",
             height: "2vh",
@@ -92,8 +93,18 @@ const App = () => {
         lines={[
           {
             name: "Thread The Needle",
-            vector: 
+            vector: (
               <path
+                d="
+                M 5,45
+                q 80, -3 80,40
+                "
+                stroke="black"
+                stroke-width="0.3"
+              />
+            ),
+
+            /*<path
                 d="
             M 3,3
             q 30,4 50,1
@@ -102,16 +113,13 @@ const App = () => {
             t 20,30"
                 stroke="black"
                 stroke-width="0.5"
-              />
-            ,
+              />*/
             range: [-10, 12]
           }
         ]}
       />
 
-      
-        <WaterLevel selectLevel={selectLevel} />
-      
+      <WaterLevel selectLevel={selectLevel} />
     </div>
   );
 };
