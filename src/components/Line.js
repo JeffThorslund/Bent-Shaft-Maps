@@ -2,6 +2,12 @@ import React from "react";
 import "./Line.css";
 
 const Line = props => {
+
+
+  const line = props.vector
+
+
+
   return (
     <div className="Line">
       <svg
@@ -12,7 +18,7 @@ const Line = props => {
         xmlns="http://www.w3.org/2000/svg"
       >
 
-        {props.vector}
+        {line}
 
       </svg>
 
