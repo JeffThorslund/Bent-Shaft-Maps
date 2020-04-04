@@ -96,8 +96,10 @@ const App = () => {
             vector: (
               <path
                 d="
-                M 5,45
-                q 80, -3 80,40
+                M 5,60
+                q 15,-15 31,-14
+                q 2.5,0.3 8, -1
+                q 32,-10 41,40
                 "
                 stroke="black"
                 stroke-width="0.3"
