@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import Hydraulic from "./Hydraulic";
 import Line from "./Line";
 import Display from "./Display";
+
 import "./Rapid.css";
 
 const Rapid = props => {
@@ -27,8 +28,8 @@ const Rapid = props => {
 
   for (let i = 0; i < props.hydraulics.length; i++) {
     if (
-      props.level[0] <= props.hydraulics[i].range[1] &&
-      props.level[1] >= props.hydraulics[i].range[0]
+      props.level <= props.hydraulics[i].range[1] &&
+      props.level >= props.hydraulics[i].range[0]
     ) {
       hydraulicArray.push(
         <Hydraulic
@@ -52,8 +53,8 @@ const Rapid = props => {
 
   for (let i = 0; i < props.lines.length; i++) {
     if (
-      props.level[0] <= props.lines[i].range[1] &&
-      props.level[1] >= props.lines[i].range[0]
+      props.level <= props.lines[i].range[1] &&
+      props.level >= props.lines[i].range[0]
     ) {
       lineArray.push(<Line vector={props.lines[i].vector} key={i} />);
     }
@@ -61,16 +62,23 @@ const Rapid = props => {
 
   return (
     <div className="Rapid">
+
+       <div id="line-array"> {lineArray} </div>
       
       <div id="rapid-name"> {props.name} </div>
+
       
-      <div id="line-array"> {lineArray} </div>
+      
+     
 
       <div id="hydraulic-array"> {hydraulicArray} </div>
 
       <Display title={title} description={description} />
 
       <img src={props.map} alt={props.name} id="background" />
+
+
+      
 
     </div>
   );

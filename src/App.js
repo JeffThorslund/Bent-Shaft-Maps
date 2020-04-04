@@ -1,15 +1,15 @@
-import React, { useState } from "react";
+import React from "react";
 import Rapid from "./components/Rapid";
 import McCoysMap from "./components/basemaps/McCoys1.png";
-
+import Slider from "./components/Slider"
 import "./App.css";
-import WaterLevel from "./components/WaterLevel";
 
 const App = () => {
-  const [level, setLevel] = useState([0, 1]);
+
+  let level = 5
 
   const selectLevel = info => {
-    setLevel(info);
+    level=info;
   };
 
   return (
@@ -105,23 +105,11 @@ const App = () => {
                 stroke-width="0.3"
               />
             ),
-
-            /*<path
-                d="
-            M 3,3
-            q 30,4 50,1
-            q 13,-2 25,-2.5
-            q 40,-1 55,9
-            t 20,30"
-                stroke="black"
-                stroke-width="0.5"
-              />*/
             range: [-10, 12]
           }
         ]}
       />
-
-      <WaterLevel selectLevel={selectLevel} />
+      <Slider selectLevel={selectLevel}/>
     </div>
   );
 };
