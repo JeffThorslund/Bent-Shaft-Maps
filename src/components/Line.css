@@ -10,3 +10,7 @@ svg {
   height: 99vh;
   width: 99vw;
 }
+
+path {
+  cursor: pointer;
+}

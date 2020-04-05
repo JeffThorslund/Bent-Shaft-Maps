@@ -63,13 +63,13 @@ const Rapid = props => {
   return (
     <div className="Rapid">
 
-       <div id="line-array"> {lineArray} </div>
+       
       
       <div id="rapid-name"> {props.name} </div>
 
       
       
-     
+     <div id="line-array"> {lineArray} </div>
 
       <div id="hydraulic-array"> {hydraulicArray} </div>
 

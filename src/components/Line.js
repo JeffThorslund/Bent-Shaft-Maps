@@ -12,6 +12,7 @@ const Line = props => {
         xmlns="http://www.w3.org/2000/svg"
       >
         {props.vector}
+        <circle cx="15" cy="40" r="1" stroke-width="0.2" fill="black" />
       </svg>
     </div>
   );
