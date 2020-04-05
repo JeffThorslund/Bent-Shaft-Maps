@@ -2,7 +2,7 @@
     position: absolute;
     top: 3vh;
     right: 2vw;
-    width: 9vw;
+    width: 10vw;
 }
 
 .value {
@@ -65,8 +65,8 @@
   */
   .rangeslider-vertical {
     margin: 20px auto;
-    height: 50vh;
-    max-width: 20px;
+    height: 30vh;
+    max-width: 0.8vw;
     background-color: gray;
     border: black 2px solid;
   }
@@ -84,9 +84,12 @@
     background-image: url(https://i.ibb.co/P9zp8gD/Kayak.png);
     background-repeat: no-repeat;
     background-size: cover;
-    height: 40px;
-    width: 143px;
-    left: -62px;
+    /*height: 40px;
+    width: 143px;*/
+    height: 4vh;
+    width: 14.4vh;
+
+    left: -6.9vh;
     transform-origin: center;
     box-shadow: none;
   }

@@ -7,7 +7,7 @@ class Vertical extends Component {
   constructor(props, context) {
     super(props, context);
     this.state = {
-      value: 10
+      value: 0
     };
   }
 
@@ -37,7 +37,7 @@ class Vertical extends Component {
           min={0}
           max={12}
           value={value}
-          step={0.5}
+          step={1}
           tooltip={false}
           orientation="vertical"
           //labels={{0: 'Boney', 5: 'Prime', 12: 'Flooded'}}
