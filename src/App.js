@@ -106,7 +106,7 @@ const App = () => {
             range: [-10, 4]
           }, 
           {
-            name: "Punch the Hole",
+            name: "Punch Phils",
             vector: (
               <path
                 d="
@@ -118,7 +118,22 @@ const App = () => {
                 stroke-width="0.3"
               />
             ),
-            range: [4, 12]
+            range: [4, 8]
+          }, 
+          {
+            name: "Punch Sattlers",
+            vector: (
+              <path
+                d="
+                M 15,40
+                q 40,-6 72,-1
+                Q 120,43 138,75
+                "
+                stroke="black"
+                stroke-width="0.3"
+              />
+            ),
+            range: [8, 12]
           }
         ]}
       />
