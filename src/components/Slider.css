@@ -1,16 +1,14 @@
 .slider {
     position: absolute;
-    top: 7vh;
-    right: 3vw;
-    width: 3vw;
+    top: 3vh;
+    right: 2vw;
+    width: 10vw;
 }
 
 .value {
-    font-size: 1.2em;
+    font-size: 1.5vw;
     text-align: center;
-    border: black 3px solid;
-    padding: 10px;
-    border-radius: 10px;
+    padding: 5px;
 }
 
 .rangeslider {
@@ -26,8 +24,7 @@
     box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.4);
   }
   .rangeslider .rangeslider__handle {
-    background: rgb(255, 255, 255);
-    border: 1px solid #ccc;
+    /*border: 2px solid #ccc;*/
     cursor: pointer;
     display: inline-block;
     position: absolute;
@@ -68,9 +65,10 @@
   */
   .rangeslider-vertical {
     margin: 20px auto;
-    height: 50vh;
-    max-width: 20px;
+    height: 30vh;
+    max-width: 0.8vw;
     background-color: gray;
+    border: black 2px solid;
   }
   .rangeslider-vertical .rangeslider__fill,
   .rangeslider-vertical .rangeslider__handle {
@@ -78,21 +76,33 @@
   }
   .rangeslider-vertical .rangeslider__fill {
     width: 100%;
-    background-color: #d1cf3c;
+    background-color: #bb1d1d;
     box-shadow: none;
-    bottom: 0;
+    bottom: 0px;
   }
   .rangeslider-vertical .rangeslider__handle {
-    width: 40px;
-    height: 20px;
-    left: -10px;
+    background-image: url(https://i.ibb.co/P9zp8gD/Kayak.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    /*height: 40px;
+    width: 143px;*/
+    height: 4vh;
+    width: 14.4vh;
+
+    left: -6.9vh;
+    transform-origin: center;
     box-shadow: none;
-    border-radius: 10px;
   }
+
+  div:focus{
+    outline: red auto 0px;
+  }
+
   .rangeslider-vertical .rangeslider__handle-tooltip {
     left: -100%;
     top: 50%;
     transform: translate3d(-50%, -50%, 0);
+    user-select: none;
   }
   .rangeslider-vertical .rangeslider__handle-tooltip:after {
     border-top: 8px solid transparent;
@@ -116,15 +126,16 @@
     text-align: left;
     width: auto;
     height: 100%;
-    left: 10px;
+    right: 10px;
   }
   .rangeslider-vertical .rangeslider__labels .rangeslider__label-item {
     position: absolute;
     transform: translate3d(0, -50%, 0);
+    font-size: 14px;
   }
   .rangeslider-vertical .rangeslider__labels .rangeslider__label-item::before {
     content: '';
-    width: 10px;
+    width: 20px;
     height: 2px;
     background: black;
     position: absolute;

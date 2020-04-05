@@ -1,12 +1,13 @@
 import React, { Component } from "react";
 import Slider from "react-rangeslider";
 import "./Slider.css";
+import Kayak from "../Kayak.png"
 
 class Vertical extends Component {
   constructor(props, context) {
     super(props, context);
     this.state = {
-      value: 10
+      value: 0
     };
   }
 
@@ -29,19 +30,25 @@ class Vertical extends Component {
     const { value } = this.state;
     return (
       <div className="slider">
-        <div className="value">{value}</div>
+
+        <div className="value">Level: {value}"</div>
 
         <Slider
-          min={-5}
-          max={14}
+          min={0}
+          max={12}
           value={value}
           step={1}
+          tooltip={false}
           orientation="vertical"
-          //labels={{0: 'Low', 5: 'Medium', 10: 'High'}}
+          //labels={{0: 'Boney', 5: 'Prime', 12: 'Flooded'}}
           onChangeStart={this.handleChangeStart}
           onChange={this.handleChange}
           onChangeComplete={this.handleChangeComplete}
         />
+
+        <div>
+        
+        </div>
       </div>
     );
   }
