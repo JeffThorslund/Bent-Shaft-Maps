@@ -96,28 +96,29 @@ const App = () => {
               <path
                 d="
                 M 15,40
-                q 40,2 50,0
-                q 45,-7 65,24
+                q 35,3 50,0
+                Q 116,33 138,75
                 "
                 stroke="black"
                 stroke-width="0.3"
               />
             ),
-            range: [-10, 12]
+            range: [-10, 4]
           }, 
           {
             name: "Punch the Hole",
             vector: (
               <path
                 d="
-                M 20,40
-                q 40,2 50,10
+                M 15,40
+                q 40,6 72,4
+                Q 120,40 138,75
                 "
                 stroke="black"
                 stroke-width="0.3"
               />
             ),
-            range: [-10, 12]
+            range: [4, 12]
           }
         ]}
       />
