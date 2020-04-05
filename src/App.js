@@ -1,15 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 import Rapid from "./components/Rapid";
 import McCoysMap from "./components/basemaps/McCoys1.png";
-import Slider from "./components/Slider"
+import Slider from "./components/Slider";
 import "./App.css";
 
 const App = () => {
-
-  let level = 5
+  const [level, setLevel] = useState(5);
 
   const selectLevel = info => {
-    level=info;
+    setLevel(info);
   };
 
   return (
@@ -96,6 +95,21 @@ const App = () => {
             vector: (
               <path
                 d="
+                M 15,40
+                q 40,2 50,0
+                q 45,-7 65,24
+                "
+                stroke="black"
+                stroke-width="0.3"
+              />
+            ),
+            range: [-10, 12]
+          } /*,
+          {
+            name: "Punch Phils Hole",
+            vector: (
+              <path
+                d="
                 M 5,60
                 q 15,-15 31,-14
                 q 2.5,0.3 8, -1
@@ -106,10 +120,10 @@ const App = () => {
               />
             ),
             range: [-10, 12]
-          }
+          }*/
         ]}
       />
-      <Slider selectLevel={selectLevel}/>
+      <Slider selectLevel={selectLevel} />
     </div>
   );
 };

@@ -11,14 +11,14 @@
   background-color: white;
 }
 
-.display-wrapper #title {
+.Display #title {
   text-align: center;
   color: black;
   padding-bottom: 1vw;
   font-size: 2vw;
 }
 
-.display-wrapper #desc {
+.Display #desc {
   color: black;
   font-size: 1.2vw;
 }
