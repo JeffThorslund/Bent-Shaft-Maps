@@ -124,18 +124,18 @@ const Data = [
       }
     ],
     arrows: [
-      {
+      {//right
         name: "Iron Ring",
-        rotation: "30deg",
-        bottom: "120px",
-        right: "60px"
+        rotation: "160deg",
+        bottom: "7vh",
+        right: "7vw"
       },
 
-      {
+      {//left
         name: "Iron Ring",
-        rotation: "90deg",
-        bottom: "20px",
-        right: "200px"
+        rotation: "200deg",
+        bottom: "7vh",
+        right: "13vw"
       }
     ]
   },

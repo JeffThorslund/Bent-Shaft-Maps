@@ -1,30 +1,90 @@
-import React from "react";
+import React, { useState } from "react";
 import "./NextRapid.css";
-import Data from '../Data'
 
-const NextRapid = (props) => {
+const NextRapid = props => {
+  const [style, setStyle] = useState({
+    bottom: props.bottom,
+    right: props.right,
+    opacity: "70%"
+  });
 
-    const selectRapid = (e) => {
-        props.selectRapid(e.currentTarget.id)
-    }
+  const globalAngle = rotation => {
+    let rot = Number(
+      rotation
+        .split("")
+        .filter(x => {
+          if (/[^deg]/.test(x)) {
+            return x;
+          }
+        })
+        .join("")
+    );
+    console.log(rot);
+    return rot;
+  };
 
-    let style={
-        transform: `rotate(${props.rotation})`,
-        bottom: props.bottom,
-        right: props.right
-    }
+  let global = globalAngle(props.rotation);
+
+  const [leftSpine, setLeftSpine] = useState({
+    transform: `rotate(${38.66 + global}deg)`
+  });
+
+  const [rightSpine, setRightSpine] = useState({
+    transform: `rotate(${-38.66 + global}deg)`
+  });
+
+  const handleMouseEnter = () => {
+    setStyle({
+      bottom: props.bottom,
+      right: props.right,
+      opacity: "100%",
+      transition: "0.2s"
+    });
+
+    setLeftSpine({
+      transform: `rotate(${90}deg)`,
+      transition: "0.3s"
+    });
+    setRightSpine({
+      transform: `rotate(${-90}deg)`,
+      transition: "0.3s"
+    });
+  };
+
+  const handleMouseLeave = () => {
+    setStyle({
+      bottom: props.bottom,
+      right: props.right,
+      opacity: "70%",
+      transition: "0.2s"
+    });
+
+    setLeftSpine({
+      transform: `rotate(${38.66 + global}deg)`,
+      transition: "0.2s"
+    });
+    setRightSpine({
+      transform: `rotate(${-38.66 + global}deg)`,
+      transition: "0.2s"
+    });
+  };
 
   return (
-    <div className="NextRapid" style={style} >
-      <svg viewBox="0 0 11 11" onClick={selectRapid} id={props.name}>
-        <polyline
-          fill="none"
-          stroke-width="2"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          points="
-            2,2 8,5 2,8 "
-        />
+    <div
+      className="NextRapid"
+      style={style}
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
+    >
+      <svg
+        viewBox="-7 -8 15 15"
+        onClick={e => {
+          props.selectRapid(e.currentTarget.id);
+        }}
+        id={props.name}
+      >
+        <polyline id="left" style={leftSpine} points="0,0 0,6" />
+        <polyline id="right" style={rightSpine} points="0,0 0,6" />
       </svg>
     </div>
   );
@@ -32,4 +92,4 @@ const NextRapid = (props) => {
 
 export default NextRapid;
 
-//Make arrow flatten and show next rapid name. 
+//Make arrow flatten and show next rapid name.
