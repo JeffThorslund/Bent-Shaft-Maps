@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import Slider from "react-rangeslider";
 import "./Slider.css";
-import Kayak from "../Kayak.png"
 
 class Vertical extends Component {
   constructor(props, context) {

@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import Rapid from "./components/Rapid";
 import McCoysMap from "./components/basemaps/McCoys1.png";
-import Slider from "./components/Slider";
 import "./App.css";
+import Slider from './components/Slider'
 
 const App = () => {
   const [level, setLevel] = useState(5);
