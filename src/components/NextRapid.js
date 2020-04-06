@@ -1,10 +1,11 @@
 import React from "react";
 import "./NextRapid.css";
+import Data from '../Data'
 
 const NextRapid = (props) => {
 
-    const handleClick = (e) => {
-        alert(e.currentTarget.id)
+    const selectRapid = (e) => {
+        props.selectRapid(e.currentTarget.id)
     }
 
     let style={
@@ -15,7 +16,7 @@ const NextRapid = (props) => {
 
   return (
     <div className="NextRapid" style={style} >
-      <svg viewBox="0 0 11 11" onClick={handleClick} id={props.name}>
+      <svg viewBox="0 0 11 11" onClick={selectRapid} id={props.name}>
         <polyline
           fill="none"
           stroke-width="2"

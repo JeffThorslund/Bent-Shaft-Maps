@@ -72,6 +72,7 @@ const Rapid = props => {
         bottom={props.arrows[i].bottom}
         right={props.arrows[i].right}
         name={props.arrows[i].name}
+        selectRapid={props.selectRapid}
         key={i}
       />
     );
