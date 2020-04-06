@@ -1,0 +1,14 @@
+.NextRapid{
+    position: absolute;
+    height: 3vh;
+    width: 3vw;
+    stroke: black;
+    stroke-opacity: 75%;
+    
+    /*transform: rotate(45deg);*/
+}
+
+.NextRapid:hover {
+    transition: 0.2s;
+    stroke-opacity: 100%;
+}

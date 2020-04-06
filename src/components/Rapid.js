@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import Hydraulic from "./Hydraulic";
 import Line from "./Line";
 import Display from "./Display";
+import NextRapid from "./NextRapid";
 
 import "./Rapid.css";
 
@@ -60,26 +61,35 @@ const Rapid = props => {
     }
   }
 
+  // render array of "next rapid arrows" based on selected water level (App state)
+
+  let arrowArray = [];
+
+  for (let i = 0; i < props.arrows.length; i++) {
+    arrowArray.push(
+      <NextRapid
+        rotation={props.arrows[i].rotation}
+        bottom={props.arrows[i].bottom}
+        right={props.arrows[i].right}
+        name={props.arrows[i].name}
+        key={i}
+      />
+    );
+  }
+
   return (
     <div className="Rapid">
-
-       
-      
       <div id="rapid-name"> {props.name} </div>
 
-      
-      
-     <div id="line-array"> {lineArray} </div>
+      <div id="line-array"> {lineArray} </div>
 
       <div id="hydraulic-array"> {hydraulicArray} </div>
+
+      <div id="arrow-array"> {arrowArray} </div>
 
       <Display title={title} description={description} />
 
       <img src={props.map} alt={props.name} id="background" />
-
-
-      
-
     </div>
   );
 };

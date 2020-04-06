@@ -136,6 +136,21 @@ const App = () => {
             range: [8, 12]
           }
         ]}
+        arrows={[
+          {
+            name: "Butterfly",
+            rotation: '30deg',
+            bottom: '120px',
+            right: '60px'
+          },
+
+          {
+            name: "Iron Ring",
+            rotation: '90deg',
+            bottom: '20px',
+            right: '200px'
+          }
+        ]}
       />
       <Slider selectLevel={selectLevel} />
     </div>
