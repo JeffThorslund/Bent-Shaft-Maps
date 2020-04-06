@@ -1,5 +1,6 @@
 .Rapid {
     user-select: none;
+    overflow: hidden;
 }
 
 #rapid-name{

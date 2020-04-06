@@ -2,12 +2,6 @@ import React, { useState } from "react";
 import "./NextRapid.css";
 
 const NextRapid = props => {
-  const [style, setStyle] = useState({
-    bottom: props.bottom,
-    right: props.right,
-    opacity: "70%"
-  });
-
   const globalAngle = rotation => {
     let rot = Number(
       rotation
@@ -25,12 +19,22 @@ const NextRapid = props => {
 
   let global = globalAngle(props.rotation);
 
+  const [style, setStyle] = useState({
+    bottom: props.bottom,
+    right: props.right,
+    opacity: "70%"
+  });
+
   const [leftSpine, setLeftSpine] = useState({
     transform: `rotate(${38.66 + global}deg)`
   });
 
   const [rightSpine, setRightSpine] = useState({
     transform: `rotate(${-38.66 + global}deg)`
+  });
+
+  const [fade, setFade] = useState({
+    opacity: "0%"
   });
 
   const handleMouseEnter = () => {
@@ -45,9 +49,15 @@ const NextRapid = props => {
       transform: `rotate(${90}deg)`,
       transition: "0.3s"
     });
+
     setRightSpine({
       transform: `rotate(${-90}deg)`,
       transition: "0.3s"
+    });
+
+    setFade({
+      opacity: "100%",
+      transition: "0.4"
     });
   };
 
@@ -67,6 +77,13 @@ const NextRapid = props => {
       transform: `rotate(${-38.66 + global}deg)`,
       transition: "0.2s"
     });
+
+
+
+    setFade({
+      opacity: "0%",
+      transition: "0.4"
+    });
   };
 
   return (
@@ -76,6 +93,7 @@ const NextRapid = props => {
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
+      <div className="rapid-name" style={fade}>{props.name}</div>
       <svg
         viewBox="-7 -8 15 15"
         onClick={e => {
