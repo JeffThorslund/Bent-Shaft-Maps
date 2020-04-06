@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "./NextRapid.css";
 
 const NextRapid = props => {
+
   const globalAngle = rotation => {
     let rot = Number(
       rotation
@@ -10,10 +11,10 @@ const NextRapid = props => {
           if (/[^deg]/.test(x)) {
             return x;
           }
+          else return null
         })
         .join("")
     );
-    console.log(rot);
     return rot;
   };
 

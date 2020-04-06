@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import PropTypes from "prop-types";
 
 import Hydraulic from "./Hydraulic";
 import Line from "./Line";
@@ -96,3 +97,38 @@ const Rapid = props => {
 };
 
 export default Rapid;
+
+Rapid.propTypes = {
+  name: PropTypes.string,
+  desc: PropTypes.string,
+  hydraulics: PropTypes.arrayOf(
+    PropTypes.shape({
+      name: PropTypes.string,
+      desc: PropTypes.string,
+      top: PropTypes.string,
+      left: PropTypes.string,
+      height: PropTypes.string,
+      width: PropTypes.string,
+      rotation: PropTypes.string,
+      range: PropTypes.arrayOf(PropTypes.number)
+    })
+  ),
+  lines: PropTypes.arrayOf(
+    PropTypes.shape({
+      name: PropTypes.string,
+      vector: PropTypes.element,
+      range: PropTypes.arrayOf(PropTypes.number)
+    })
+  ),
+  arrows: PropTypes.arrayOf(
+    PropTypes.shape({
+      name: PropTypes.string,
+      rotation: PropTypes.string,
+      bottom: PropTypes.string,
+      right: PropTypes.string
+    })
+  ),
+  level: PropTypes.number,
+  selectLevel: PropTypes.func,
+  selectRapid: PropTypes.func
+};
