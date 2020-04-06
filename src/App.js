@@ -1,12 +1,14 @@
 import React, { useState } from "react";
-import Rapid from "./components/Rapid";
 import "./App.css";
+
+import Rapid from "./components/Rapid";
 import Slider from "./components/Slider";
 import Data from "./Data";
 
 const App = () => {
   const [level, setLevel] = useState(5);
   const [rapid, setRapid] = useState("McCoy's Chute Rapid");
+  const [map, setMap] = useState(false)
 
   const selectLevel = info => {
     setLevel(info);
@@ -16,10 +18,12 @@ const App = () => {
     setRapid(name)
   }
 
+  const openMap = () => {
+    setMap(!map)
+  }
+
   //Create Rapid Instance
-
   let rapidInstance;
-
   for (let i = 0; i < Data.length; i++) {
     if (rapid === Data[i].name) {
       rapidInstance = (
@@ -40,8 +44,10 @@ const App = () => {
 
   return (
     <div className="App">
+      <div onClick={openMap} id='map-toggle'>Map</div>
       {rapidInstance}
       <Slider selectLevel={selectLevel} />
+      
     </div>
   );
 };
