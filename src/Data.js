@@ -74,6 +74,28 @@ const Data = [
         width: "7vh",
         rotation: "rotate(110deg)",
         range: [-10, 12]
+      },
+      {
+        //6/8
+        name: "6/8",
+        desc: "Near football eddy.",
+        top: "34vh",
+        left: "62vw",
+        height: "1.4vh",
+        width: "7vh",
+        rotation: "rotate(90deg)",
+        range: [6, 8]
+      },
+      {
+        //Hero Wave
+        name: "Hero Wave",
+        desc: "You gotta be a hero.",
+        top: "48vh",
+        left: "24vw",
+        height: "1.4vh",
+        width: "7vh",
+        rotation: "rotate(130deg)",
+        range: [-4, 6]
       }
     ],
     lines: [
@@ -98,8 +120,8 @@ const Data = [
           <path
             d="
                 M 15,40
-                q 40,6 72,4
-                Q 120,40 138,75
+                q 40,5 72,4
+                Q 124,41 138,75
                 "
             stroke="black"
             stroke-width="0.3"
