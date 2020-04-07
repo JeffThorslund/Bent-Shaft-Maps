@@ -151,14 +151,9 @@ const Data = [
         rotation: "160deg",
         bottom: "9vh",
         right: "11vw"
-      },
-
-      {//left
-        name: "Iron Ring",
-        rotation: "200deg",
-        bottom: "9vh",
-        right: "17vw"
       }
+
+      
     ]
     
   },
@@ -285,18 +280,13 @@ const Data = [
     ],
     arrows: [
       {//right
-        name: "Iron Ring",
+        name: "McCoy's Chute Rapid",
         rotation: "160deg",
         bottom: "9vh",
         right: "13vw"
-      },
-
-      {//left
-        name: "Iron Ring",
-        rotation: "200deg",
-        bottom: "9vh",
-        right: "13vw"
       }
+
+
     ]
   }
 ];

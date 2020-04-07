@@ -98,7 +98,8 @@ const NextRapid = props => {
       <svg
         viewBox="-7 -8 15 15"
         onClick={e => {
-          props.selectRapid(e.currentTarget.id);
+          props.selectRapid(e.currentTarget.id)
+          alert(e.currentTarget.id);
         }}
         id={props.name}
       >
