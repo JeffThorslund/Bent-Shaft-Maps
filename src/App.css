@@ -13,6 +13,7 @@
     font-size: 1.3rem;
     background-color: blanchedalmond;
     cursor: pointer;
+    user-select: none
 }
 
 .App #map-toggle:hover{

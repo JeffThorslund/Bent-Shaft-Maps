@@ -31,7 +31,6 @@ class Vertical extends Component {
     const { value } = this.state;
     return (
       <div className="slider">
-
         <div className="value">Level: {value}"</div>
 
         <Slider
@@ -47,9 +46,7 @@ class Vertical extends Component {
           onChangeComplete={this.handleChangeComplete}
         />
 
-        <div>
-        
-        </div>
+        <div></div>
       </div>
     );
   }
@@ -59,4 +56,4 @@ export default Vertical;
 
 Slider.propTypes = {
   selectLevel: PropTypes.func
-}
+};

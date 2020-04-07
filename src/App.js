@@ -3,6 +3,7 @@ import "./App.css";
 
 import Rapid from "./components/Rapid";
 import Slider from "./components/Slider";
+import Map from "./components/Map"
 import Data from "./Data";
 
 const App = () => {
@@ -42,9 +43,25 @@ const App = () => {
     }
   }
 
+  //Map Toggle Text
+  const mapTest = (map) => {
+    if (map) {
+      return "Close Map"
+    }
+
+    else if (!map) {
+      return "Open Map"
+    }
+
+    else{
+      console.log('oops')
+    }
+  }
+
   return (
     <div className="App">
-      <div onClick={openMap} id='map-toggle'>Map</div>
+      <div onClick={openMap} id='map-toggle'>{mapTest(map)}</div>
+      <Map map={map} />
       {rapidInstance}
       <Slider selectLevel={selectLevel} />
       
