@@ -1,4 +1,21 @@
- App {
+ .App {
      overflow: hidden;
-    
  }
+
+.App #map-toggle{
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    z-index: 1;
+    border: black 2px solid;
+    border-radius: 10px;
+    padding: 10px;
+    font-size: 1.3rem;
+    background-color: blanchedalmond;
+    cursor: pointer;
+    user-select: none
+}
+
+.App #map-toggle:hover{
+    background-color: cornsilk;
+}

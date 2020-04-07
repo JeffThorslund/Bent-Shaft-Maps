@@ -160,6 +160,7 @@ const Data = [
         right: "17vw"
       }
     ]
+    
   },
   { //"Iron Ring"
     name: "Iron Ring",
@@ -300,4 +301,8 @@ const Data = [
   }
 ];
 
+
 export default Data
+
+
+
