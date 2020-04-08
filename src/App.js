@@ -5,7 +5,7 @@ import Slider from './components/Slider';
 import Map from './components/Map';
 import Data from './Data';
 
-export class App extends Component {
+class App extends Component {
   constructor(props) {
     super(props);
 
@@ -38,12 +38,7 @@ export class App extends Component {
       if (this.state.rapid === Data[i].name) {
         rapidInstance = (
           <Rapid
-            name={Data[i].name}
-            desc={Data[i].desc}
-            map={Data[i].map}
-            hydraulics={Data[i].hydraulics}
-            lines={Data[i].lines}
-            arrows={Data[i].arrows}
+            data={Data[i]}
             level={this.state.level}
             selectLevel={this.selectLevel}
             selectRapid={this.selectRapid}
