@@ -1,10 +1,9 @@
-import React, { Component } from "react";
-import "./App.css";
-
-import Rapid from "./components/Rapid";
-import Slider from "./components/Slider";
-import Map from "./components/Map";
-import Data from "./Data";
+import React, { Component } from 'react';
+import './App.css';
+import Rapid from './components/Rapid';
+import Slider from './components/Slider';
+import Map from './components/Map';
+import Data from './Data';
 
 export class App extends Component {
   constructor(props) {
@@ -17,31 +16,25 @@ export class App extends Component {
     };
   }
 
-  //Use slider to select a river level
+  // Use slider to select a river level
   selectLevel = (level) => {
-    this.setState(() => {
-      return { level: level };
-    });
+    this.setState(() => ({ level }));
   };
 
-  //Set a rapid as current rapid
+  // Set a rapid as current rapid
   selectRapid = (rapid) => {
-    this.setState(() => {
-      return { rapid: rapid };
-    });
+    this.setState(() => ({ rapid }));
   };
 
-  //Toggles map overlay
+  // Toggles map overlay
   toggleMap = () => {
-    this.setState((prevState) => {
-      return { map: !prevState.map };
-    });
+    this.setState((prevState) => ({ map: !prevState.map }));
   };
 
   render() {
-    //Create Rapid Instance
+    // Create Rapid Instance
     let rapidInstance;
-    for (let i = 0; i < Data.length; i++) {
+    for (let i = 0; i < Data.length; i += 1) {
       if (this.state.rapid === Data[i].name) {
         rapidInstance = (
           <Rapid
@@ -62,7 +55,7 @@ export class App extends Component {
     return (
       <div className="App">
         <div id="toggle-map-button" onClick={this.toggleMap}>
-          {this.state.map ? "Open Map" : "Close Map"}
+          {this.state.map ? 'Open Map' : 'Close Map'}
         </div>
         {this.state.map && (
           <Map
