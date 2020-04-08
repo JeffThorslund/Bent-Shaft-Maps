@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { Component } from "react";
 import "./App.css";
 
 import Rapid from "./components/Rapid";
@@ -6,70 +6,76 @@ import Slider from "./components/Slider";
 import Map from "./components/Map";
 import Data from "./Data";
 
-const App = () => {
-  const [level, setLevel] = useState(5);
-  const [rapid, setRapid] = useState("McCoy's Chute Rapid");
-  const [map, setMap] = useState(false);
+export class App extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      level: 5,
+      rapid: "McCoy's Chute Rapid",
+      map: false,
+    };
+  }
 
   //Use slider to select a river level
-  const selectLevel = info => {
-    setLevel(info);
+  selectLevel = (level) => {
+    this.setState(() => {
+      return { level: level };
+    });
   };
 
   //Set a rapid as current rapid
-  const selectRapid = name => {
-    setRapid(name);
+  selectRapid = (rapid) => {
+    this.setState(() => {
+      return { rapid: rapid };
+    });
   };
 
   //Toggles map overlay
-  const toggleMap = () => {
-    setMap(!map);
+  toggleMap = () => {
+    this.setState((prevState) => {
+      return { map: !prevState.map };
+    });
   };
 
-  //Toggles map button between "Open" and "Close"
-  const mapText = map => {
-    if (map) {
-      return "Close Map";
-    } else if (!map) {
-      return "Open Map";
-    } else {
-      console.log("oops");
+  render() {
+    //Create Rapid Instance
+    let rapidInstance;
+    for (let i = 0; i < Data.length; i++) {
+      if (this.state.rapid === Data[i].name) {
+        rapidInstance = (
+          <Rapid
+            name={Data[i].name}
+            desc={Data[i].desc}
+            map={Data[i].map}
+            hydraulics={Data[i].hydraulics}
+            lines={Data[i].lines}
+            arrows={Data[i].arrows}
+            level={this.state.level}
+            selectLevel={this.selectLevel}
+            selectRapid={this.selectRapid}
+          />
+        );
+      }
     }
-  };
 
-  //Create Rapid Instance
-  let rapidInstance;
-  for (let i = 0; i < Data.length; i++) {
-    if (rapid === Data[i].name) {
-      rapidInstance = (
-        <Rapid
-          name={Data[i].name}
-          desc={Data[i].desc}
-          map={Data[i].map}
-          hydraulics={Data[i].hydraulics}
-          lines={Data[i].lines}
-          arrows={Data[i].arrows}
-          level={level}
-          selectLevel={selectLevel}
-          selectRapid={selectRapid}
-        />
-      );
-    }
+    return (
+      <div className="App">
+        <div id="toggle-map-button" onClick={this.toggleMap}>
+          {this.state.map ? "Open Map" : "Close Map"}
+        </div>
+        {this.state.map && (
+          <Map
+            map={this.state.map}
+            toggleMap={this.toggleMap}
+            selectRapid={this.selectRapid}
+          />
+        )}
+        {rapidInstance}
+        <Slider selectLevel={this.selectLevel} />
+      </div>
+    );
   }
-
-  return (
-    <div className="App">
-      <div onClick={toggleMap} id="map-toggle">
-        {mapText(map)}
-      </div>
-
-      <div style={{ display: map ? "block" : "none" }}>
-        <Map map={map} toggleMap={toggleMap} selectRapid={selectRapid} />
-      </div>
-      {rapidInstance}
-      <Slider selectLevel={selectLevel} />
-    </div>
-  );
-};
+}
 
 export default App;

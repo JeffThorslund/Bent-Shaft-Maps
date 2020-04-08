@@ -2,7 +2,7 @@
      overflow: hidden;
  }
 
-.App #map-toggle{
+.App #toggle-map-button{
     position: absolute;
     top: 5px;
     left: 5px;
