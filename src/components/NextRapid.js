@@ -99,7 +99,7 @@ const NextRapid = props => {
         viewBox="-7 -8 15 15"
         onClick={e => {
           props.selectRapid(e.currentTarget.id)
-          alert(e.currentTarget.id);
+          alert('Soon. my friend.');
         }}
         id={props.name}
       >
