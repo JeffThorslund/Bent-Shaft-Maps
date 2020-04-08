@@ -3,13 +3,13 @@ import "./App.css";
 
 import Rapid from "./components/Rapid";
 import Slider from "./components/Slider";
-import Map from "./components/Map"
+import Map from "./components/Map";
 import Data from "./Data";
 
 const App = () => {
   const [level, setLevel] = useState(5);
   const [rapid, setRapid] = useState("McCoy's Chute Rapid");
-  const [map, setMap] = useState(false)
+  const [map, setMap] = useState(false);
 
   //Use slider to select a river level
   const selectLevel = info => {
@@ -18,28 +18,24 @@ const App = () => {
 
   //Set a rapid as current rapid
   const selectRapid = name => {
-    setRapid(name)
-  }
+    setRapid(name);
+  };
 
   //Toggles map overlay
   const toggleMap = () => {
-    setMap(!map)
-  }
+    setMap(!map);
+  };
 
   //Toggles map button between "Open" and "Close"
-  const mapTest = (map) => {
+  const mapText = map => {
     if (map) {
-      return "Close Map"
+      return "Close Map";
+    } else if (!map) {
+      return "Open Map";
+    } else {
+      console.log("oops");
     }
-
-    else if (!map) {
-      return "Open Map"
-    }
-
-    else{
-      console.log('oops')
-    }
-  }
+  };
 
   //Create Rapid Instance
   let rapidInstance;
@@ -63,15 +59,15 @@ const App = () => {
 
   return (
     <div className="App">
-      <div onClick={toggleMap} id='map-toggle'>{mapTest(map)}</div>
-      <Map 
-        map={map}
-        toggleMap={toggleMap}
-        selectRapid={selectRapid}
-         />
+      <div onClick={toggleMap} id="map-toggle">
+        {mapText(map)}
+      </div>
+
+      <div style={{ display: map ? "block" : "none" }}>
+        <Map map={map} toggleMap={toggleMap} selectRapid={selectRapid} />
+      </div>
       {rapidInstance}
       <Slider selectLevel={selectLevel} />
-      
     </div>
   );
 };

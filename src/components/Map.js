@@ -7,22 +7,6 @@ import PropTypes from "prop-types";
 import Data from "../Data";
 
 const Map = props => {
-  const mapToggle = map => {//This could be moved to App. Also poorly named
-    let style;
-    if (map) {
-      style = {
-        display: "block"
-      };
-    } else if (!map) {
-      style = {
-        display: "none"
-      };
-    } else {
-      console.log("error");
-    }
-
-    return style;
-  };
 
   
 
@@ -39,7 +23,7 @@ const Map = props => {
   }
 
   return (
-    <div className="Map" style={mapToggle(props.map)}>
+    <div className="Map">
       <div className="maplabel-array">{mapLabelArray}</div>
       <img id="overview" src={Overview} alt="Italian Trulli" />
     </div>
