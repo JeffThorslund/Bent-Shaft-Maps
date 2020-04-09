@@ -45,9 +45,7 @@ class Rapid extends Component {
     // render array of "next rapid arrows" based on selected water level (App state)
     const arrowArray = this.props.data.arrows.map((element, key) => (
       <NextRapid
-        rotation={element.rotation}
-        bottom={element.bottom}
-        right={element.right}
+        arrows={element}
         name={element.name}
         selectRapid={this.props.selectRapid}
         key={`arrow${key}`}

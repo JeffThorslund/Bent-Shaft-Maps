@@ -184,11 +184,16 @@ const Data = [
     ],
     arrows: [
       {
-        // right
-        name: "McCoy's Chute Rapid",
+        name: "Iron Ring",
         rotation: "160deg",
-        bottom: "9vh",
-        right: "11vw",
+        bottom: "8vh",
+        right: "2vw",
+      },
+      {
+        name: "Magical Mystery Tour",
+        rotation: "160deg",
+        bottom: "8vh",
+        right: "10vw",
       },
     ],
     mapLabel: {
