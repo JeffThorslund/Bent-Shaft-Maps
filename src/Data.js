@@ -101,6 +101,7 @@ const Data = [
     eddys: [
       {
         name: 'Football Eddy',
+        desc: 'A large eddy that can sometimes collect gear and swimmmers. This can sometimes be hard to get out of.',
         vector: (
           <path d="M 93,19
                     q 2.5  ,-2 5,0
@@ -113,6 +114,7 @@ const Data = [
       },
       {
         name: 'Baby Face Lineup',
+        desc: 'This is where you lineup to surf Baby Face. Remember to wait your turn!',
         vector: (
           <path d="M 135.5,57.5
                     q 1,0 2,4
@@ -126,6 +128,7 @@ const Data = [
     lines: [
       {
         name: 'Thread The Needle',
+        desc: 'A commonly taken line through McCoys. Start center-right coming into the rapid with your boat pointed slightly left. When approaching the Sattlers, paddle towards river left, clip Sattlers and paddle for your life away from Phils',
         vector: (
           <path
             d="
@@ -141,6 +144,7 @@ const Data = [
       },
       {
         name: 'Punch Phils',
+        desc: 'Scout to see the point in phils hole is greening out and turning in to a crashy wave. Follow some upstream bubbles to see where you need to be. Line it up and punch it baby!',
         vector: (
           <path
             d="
@@ -156,6 +160,7 @@ const Data = [
       },
       {
         name: 'Punch Sattlers',
+        desc: 'Line up with Sattlers and gun it right through. You will be clear of Phils Hole on this line.',
         vector: (
           <path
             d="

@@ -12,7 +12,11 @@ const Features = (props) => {
             props.level <= element.range[1]
             && props.level >= element.range[0]
         ) {
-            return <Line vector={element.vector} name={element.name} key={`line${key}`} />;
+            return <Line
+                lines={element}
+                displayData={props.displayData}
+                key={`line${key}`}
+            />;
         }
         return null;
     });
@@ -23,7 +27,10 @@ const Features = (props) => {
             props.level <= element.range[1]
             && props.level >= element.range[0]
         ) {
-            return <Eddy vector={element.vector} name={element.name} key={`line${key}`} />;
+            return <Eddy
+                eddys={element}
+                displayData={props.displayData}
+                key={`line${key}`} />;
         }
         return null;
     });

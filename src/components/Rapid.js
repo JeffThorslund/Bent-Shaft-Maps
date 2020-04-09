@@ -17,17 +17,10 @@ class Rapid extends Component {
     };
   }
 
-  // Sets the current display with clicked line or hydraulic
-  displayData = (name) => {
-    let result = '';
-    for (let i = 0; i < this.props.data.hydraulics.length; i += 1) {
-      if (name === this.props.data.hydraulics[i].name) {
-        result = { ...this.props.data.hydraulics[i] };
-      }
-    }
+  displayData = (title, desc) => {
     this.setState(() => ({
-      title: result.name,
-      desc: result.desc,
+      title,
+      desc,
     }));
   };
 
@@ -67,6 +60,7 @@ class Rapid extends Component {
         <Features
           level={this.props.level}
           data={this.props.data}
+          displayData={this.displayData}
         />
 
         <div id="hydraulic-array"> {hydraulicArray} </div>

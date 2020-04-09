@@ -11,10 +11,6 @@ const Hydraulic = (props) => {
     width: props.hydraulics.width,
   };
 
-  const displayData = (e) => {
-    props.displayData(e.currentTarget.id);
-  };
-
   return (
     <div
       id={props.hydraulics.name}
@@ -22,7 +18,7 @@ const Hydraulic = (props) => {
       style={
         style
       }
-      onClick={displayData}
+      onClick={() => { props.displayData(props.hydraulics.name, props.hydraulics.desc); }}
     ></div>
   );
 };
