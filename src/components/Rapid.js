@@ -1,7 +1,9 @@
+/* eslint-disable */
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import './Rapid.css';
 import Hydraulic from './Hydraulic';
+import Eddy from './Eddy'
 import Line from './Line';
 import Display from './Display';
 import NextRapid from './NextRapid';
@@ -58,6 +60,17 @@ class Rapid extends Component {
       return null;
     });
 
+    // render array of eddys based on selected water level (App state)
+    const eddyArray = this.props.data.eddys.map((element, key) => {
+      if (
+        this.props.level <= element.range[1]
+        && this.props.level >= element.range[0]
+      ) {
+        return <Eddy vector={element.vector} key={`line${key}`} />;
+      }
+      return null;
+    });
+
     // render array of "next rapid arrows" based on selected water level (App state)
     const arrowArray = this.props.data.arrows.map((element, key) => <NextRapid
       rotation={element.rotation}
@@ -71,8 +84,10 @@ class Rapid extends Component {
     return (
       <div className="Rapid" >
         <div id="rapid-name"> {this.props.data.name} </div>
+        <div id="eddy-array"> {eddyArray} </div>
         <div id="line-array"> {lineArray} </div>
         <div id="hydraulic-array"> {hydraulicArray} </div>
+
         <div id="arrow-array"> {arrowArray} </div>
         <Display title={this.state.title} desc={this.state.desc} />
         <img src={this.props.data.riverMap} alt={this.props.data.name} id="background" />

@@ -98,6 +98,31 @@ const Data = [
         range: [-4, 6],
       },
     ],
+    eddys: [
+      {
+        name: 'Football Eddy',
+        vector: (
+          <path d="M 50,19
+                    q 2.5  ,-2 5,0
+                    t 2,5
+                    q -1,4 -4,1
+                    q 0,0 -3,-4
+                    q -0.5,-1 0,-2" />
+        ),
+        range: [-10, 10],
+      },
+      {
+        name: 'Baby Face Lineup',
+        vector: (
+          <path d="M 75.5,56.5
+                    q 1,0 2,4
+                    q 0.5,3 -1,1
+                    q 0,0 -1,-1
+                    q -2,-2 0,-4" />
+        ),
+        range: [-10, 10],
+      },
+    ],
     lines: [
       {
         name: 'Thread The Needle',
@@ -124,7 +149,7 @@ const Data = [
                 Q 124,41 138,75
                 "
             stroke="black"
-            strokeWidth="0.3"
+            strokeWidth="0.4"
           />
         ),
         range: [4, 8],

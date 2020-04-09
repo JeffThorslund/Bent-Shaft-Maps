@@ -8,7 +8,7 @@ class Vertical extends Component {
   constructor(props, context) {
     super(props, context);
     this.state = {
-      value: 0,
+      value: 5,
     };
   }
 
