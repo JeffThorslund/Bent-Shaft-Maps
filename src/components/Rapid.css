@@ -1,23 +1,23 @@
 .Rapid {
-    user-select: none;
-    overflow: hidden;
+  user-select: none;
+  overflow: hidden;
 }
 
-#rapid-name{
-    position: absolute;
-    left: 50%;
-    transform: translate(-50%, 0%);
-    margin-top: 2vw;
+#rapid-name {
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, 0%);
+  margin-top: 2vw;
 
-    text-align: center;
-    font-size: 3vw;
-    font-weight: bold;
-    font-family: 'Sen', sans-serif; 
+  text-align: center;
+  font-size: 3vw;
+  font-weight: bold;
+  font-family: "Sen", sans-serif;
 }
 
-#background{
-    position: absolute;
-    width: 100vw;
-    height: 100vh;
-    z-index: -1;
+#background {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  z-index: -1;
 }

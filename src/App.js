@@ -1,9 +1,9 @@
-import React, { Component } from 'react';
-import './App.css';
-import Rapid from './components/Rapid';
-import Slider from './components/Slider';
-import Map from './components/Map';
-import Data from './Data';
+import React, { Component } from "react";
+import "./App.css";
+import Rapid from "./components/Rapid";
+import Slider from "./components/Slider";
+import Map from "./components/Map";
+import Data from "./Data";
 
 class App extends Component {
   constructor(props) {
@@ -35,21 +35,23 @@ class App extends Component {
     // Create Rapid Instance
     const rapidInstance = Data.map((element, key) => {
       if (this.state.rapid === element.name) {
-        return <Rapid
-          data={element}
-          level={this.state.level}
-          selectLevel={this.selectLevel}
-          selectRapid={this.selectRapid}
-          key={`rapid${key}`}
-        />;
+        return (
+          <Rapid
+            data={element}
+            level={this.state.level}
+            selectLevel={this.selectLevel}
+            selectRapid={this.selectRapid}
+            key={`rapid${key}`}
+          />
+        );
       }
       return null;
     });
 
     return (
-      <div className="App" >
+      <div className="App">
         <div id="toggle-map-button" onClick={this.toggleMap}>
-          {this.state.mapBool ? 'Close' : 'Open'}
+          {this.state.mapBool ? "Close" : "Open"}
         </div>
         {this.state.mapBool && (
           <Map
@@ -60,7 +62,7 @@ class App extends Component {
         )}
         {rapidInstance}
         <Slider selectLevel={this.selectLevel} />
-      </div >
+      </div>
     );
   }
 }

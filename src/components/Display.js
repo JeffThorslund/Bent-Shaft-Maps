@@ -1,7 +1,6 @@
-import React from 'react';
-import './Display.css';
-import PropTypes from 'prop-types';
-
+import React from "react";
+import "./Display.css";
+import PropTypes from "prop-types";
 
 const Display = (props) => (
   <div className="Display">

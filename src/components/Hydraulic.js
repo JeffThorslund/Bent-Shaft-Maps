@@ -1,6 +1,6 @@
-import React from 'react';
-import './Hydraulic.css';
-import PropTypes from 'prop-types';
+import React from "react";
+import "./Hydraulic.css";
+import PropTypes from "prop-types";
 
 const Hydraulic = (props) => {
   const style = {
@@ -15,10 +15,10 @@ const Hydraulic = (props) => {
     <div
       id={props.hydraulics.name}
       className="hydraulic"
-      style={
-        style
-      }
-      onClick={() => { props.displayData(props.hydraulics.name, props.hydraulics.desc); }}
+      style={style}
+      onClick={() => {
+        props.displayData(props.hydraulics.name, props.hydraulics.desc);
+      }}
     ></div>
   );
 };

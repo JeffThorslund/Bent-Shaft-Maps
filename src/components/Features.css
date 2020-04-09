@@ -1,17 +1,16 @@
 .Features {
-    margin: 0;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-  }
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
 
-  #vector-container {
-    height: 99vh;
-    width: 99vw;
-  }
+#vector-container {
+  height: 99vh;
+  width: 99vw;
+}
 
-  .clickable {
-    cursor: pointer
-  }
-
+.clickable {
+  cursor: pointer;
+}

@@ -1,6 +1,6 @@
-import React from 'react';
-import './MapLabel.css';
-import PropTypes from 'prop-types';
+import React from "react";
+import "./MapLabel.css";
+import PropTypes from "prop-types";
 
 const MapLabel = (props) => {
   const style = {
@@ -26,7 +26,10 @@ const MapLabel = (props) => {
           width="20vw"
           xmlns="http://www.w3.org/2000/svg"
         >
-          <polyline className="pointer" points={props.mapLabel.pointerCoordinates} />
+          <polyline
+            className="pointer"
+            points={props.mapLabel.pointerCoordinates}
+          />
         </svg>
       </div>
     </div>

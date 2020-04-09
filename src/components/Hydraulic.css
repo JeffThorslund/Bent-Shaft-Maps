@@ -1,13 +1,11 @@
-
-.hydraulic{
-    position: absolute;
-    border: solid 2px black;
-    background-color: seashell;
-    border-radius: 100px;
+.hydraulic {
+  position: absolute;
+  border: solid 2px black;
+  background-color: seashell;
+  border-radius: 100px;
 }
 
-.hydraulic:hover{
-    background-color: rgb(255, 225, 204);
-    cursor: pointer;
+.hydraulic:hover {
+  background-color: rgb(255, 225, 204);
+  cursor: pointer;
 }
-
