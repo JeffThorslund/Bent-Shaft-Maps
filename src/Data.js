@@ -5,7 +5,7 @@ const Data = [
   { // "McCoy's Chute Rapid"
     name: "McCoy's Chute Rapid",
     desc: 'A great start to the day',
-    map: McCoysMap,
+    riverMap: McCoysMap,
     hydraulics: [
       {
         // Phils Hole

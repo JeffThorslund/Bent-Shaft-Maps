@@ -1,15 +1,16 @@
-import React from "react";
-import "./MapLabel.css";
+import React from 'react';
+import './MapLabel.css';
+import PropTypes from 'prop-types';
 
-const MapLabel = props => {
+const MapLabel = (props) => {
   const style = {
-    top: props.top,
-    left: props.left
+    top: props.mapLabel.titleTop,
+    left: props.mapLabel.titleLeft,
   };
 
-  const pickFromMap = name => {
-    props.selectRapid(name);
+  const pickFromMap = (name) => {
     props.toggleMap();
+    props.selectRapid(name);
   };
 
   return (
@@ -25,7 +26,7 @@ const MapLabel = props => {
           width="20vw"
           xmlns="http://www.w3.org/2000/svg"
         >
-          <polyline className="pointer" points={props.pointer} />
+          <polyline className="pointer" points={props.mapLabel.pointerCoordinates} />
         </svg>
       </div>
     </div>
@@ -33,3 +34,10 @@ const MapLabel = props => {
 };
 
 export default MapLabel;
+
+MapLabel.propTypes = {
+  name: PropTypes.string.isRequired,
+  mapLabel: PropTypes.object.isRequired,
+  toggleMap: PropTypes.func.isRequired,
+  selectRapid: PropTypes.func.isRequired,
+};

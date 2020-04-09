@@ -81,7 +81,7 @@ class Rapid extends Component {
         <div id="hydraulic-array"> {hydraulicArray} </div>
         <div id="arrow-array"> {arrowArray} </div>
         <Display title={this.state.title} desc={this.state.desc} />
-        <img src={this.props.data.map} alt={this.props.data.name} id="background" />
+        <img src={this.props.data.riverMap} alt={this.props.data.name} id="background" />
       </div>
     );
   }

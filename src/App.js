@@ -12,7 +12,7 @@ class App extends Component {
     this.state = {
       level: 5,
       rapid: "McCoy's Chute Rapid",
-      map: false,
+      mapBool: false,
     };
   }
 
@@ -33,35 +33,34 @@ class App extends Component {
 
   render() {
     // Create Rapid Instance
-    let rapidInstance;
-    for (let i = 0; i < Data.length; i += 1) {
-      if (this.state.rapid === Data[i].name) {
-        rapidInstance = (
-          <Rapid
-            data={Data[i]}
-            level={this.state.level}
-            selectLevel={this.selectLevel}
-            selectRapid={this.selectRapid}
-          />
-        );
+    const rapidInstance = Data.map((element, key) => {
+      if (this.state.rapid === element.name) {
+        return <Rapid
+          data={element}
+          level={this.state.level}
+          selectLevel={this.selectLevel}
+          selectRapid={this.selectRapid}
+          key={`rapid${key}`}
+        />;
       }
-    }
+      return null;
+    });
 
     return (
-      <div className="App">
+      <div className="App" >
         <div id="toggle-map-button" onClick={this.toggleMap}>
-          {this.state.map ? 'Open Map' : 'Close Map'}
+          {this.state.mapBool ? 'Open Map' : 'Close Map'}
         </div>
         {this.state.map && (
           <Map
-            map={this.state.map}
             toggleMap={this.toggleMap}
             selectRapid={this.selectRapid}
+            mapLabel={Data}
           />
         )}
         {rapidInstance}
         <Slider selectLevel={this.selectLevel} />
-      </div>
+      </div >
     );
   }
 }

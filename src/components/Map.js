@@ -1,26 +1,18 @@
-import React from "react";
-import MapLabel from "./MapLabel";
+import React from 'react';
+import PropTypes from 'prop-types';
+import './Map.css';
+import MapLabel from './MapLabel';
+import Overview from './basemaps/Overview.png';
 
-import "./Map.css";
-import Overview from "./basemaps/Overview.png";
-import PropTypes from "prop-types";
-import Data from "../Data";
-
-const Map = props => {
-
-  
-
-  const mapLabelArray = [];
-  for (let i = 0; i < Data.length; i++) {
-    mapLabelArray.push(<MapLabel
-    name={Data[i].name}
-    top={Data[i].mapLabel.titleTop}
-    left={Data[i].mapLabel.titleLeft}
-    pointer={Data[i].mapLabel.pointerCoordinates}
-    selectRapid={props.selectRapid}
-    toggleMap={props.toggleMap}
-    key={i} />);
-  }
+const Map = (props) => {
+  const mapLabelArray = props.mapLabel.map(
+    (element, key) => <MapLabel
+      name={element.name}
+      mapLabel={element.mapLabel}
+      toggleMap={props.toggleMap}
+      selectRapid={props.selectRapid}
+      key={`mapLabel${key}`} />,
+  );
 
   return (
     <div className="Map">
@@ -33,5 +25,7 @@ const Map = props => {
 export default Map;
 
 Map.propTypes = {
-  map: PropTypes.bool
+  mapLabel: PropTypes.array,
+  toggleMap: PropTypes.func.isRequired,
+  selectRapid: PropTypes.func.isRequired,
 };
