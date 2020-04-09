@@ -1,18 +1,15 @@
-/* eslint-disable */
-import React from 'react'
-import './Eddy.css'
+import React from 'react';
+import PropTypes from 'prop-types';
 
-function Eddy(props) {
-    return (
+const Eddy = (props) => (
+    <g className={props.name}>
+        {props.vector}
+    </g>
+);
 
-        <div className="Eddy">
-            <svg xmlns="http://www.w3.org/2000/svg" id="svg" preserveAspectRatio="none" viewBox="0 0 90 90" fill="#696969" >
-                {props.vector}
-            </svg>
-        </div>
-    );
+export default Eddy;
 
-}
-
-export default Eddy
-
+Eddy.propTypes = {
+    name: PropTypes.string.isRequired,
+    vector: PropTypes.element.isRequired,
+};

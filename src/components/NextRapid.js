@@ -1,4 +1,5 @@
 // Dont work on this, its mostly shit.
+/*eslint-disable*/
 
 import React, { useState } from 'react';
 import './NextRapid.css';

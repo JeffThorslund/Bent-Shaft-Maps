@@ -3,10 +3,9 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import './Rapid.css';
 import Hydraulic from './Hydraulic';
-import Eddy from './Eddy'
-import Line from './Line';
 import Display from './Display';
 import NextRapid from './NextRapid';
+import Features from './Features';
 
 class Rapid extends Component {
   constructor(props) {
@@ -49,28 +48,6 @@ class Rapid extends Component {
       return null;
     });
 
-    // render array of lines based on selected water level (App state)
-    const lineArray = this.props.data.lines.map((element, key) => {
-      if (
-        this.props.level <= element.range[1]
-        && this.props.level >= element.range[0]
-      ) {
-        return <Line vector={element.vector} key={`line${key}`} />;
-      }
-      return null;
-    });
-
-    // render array of eddys based on selected water level (App state)
-    const eddyArray = this.props.data.eddys.map((element, key) => {
-      if (
-        this.props.level <= element.range[1]
-        && this.props.level >= element.range[0]
-      ) {
-        return <Eddy vector={element.vector} key={`line${key}`} />;
-      }
-      return null;
-    });
-
     // render array of "next rapid arrows" based on selected water level (App state)
     const arrowArray = this.props.data.arrows.map((element, key) => <NextRapid
       rotation={element.rotation}
@@ -84,8 +61,14 @@ class Rapid extends Component {
     return (
       <div className="Rapid" >
         <div id="rapid-name"> {this.props.data.name} </div>
-        <div id="eddy-array"> {eddyArray} </div>
-        <div id="line-array"> {lineArray} </div>
+
+        {/* Vector elements rendered in this component
+        Eventually Hydraulics will be too */}
+        <Features
+          level={this.props.level}
+          data={this.props.data}
+        />
+
         <div id="hydraulic-array"> {hydraulicArray} </div>
 
         <div id="arrow-array"> {arrowArray} </div>

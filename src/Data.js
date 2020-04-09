@@ -102,7 +102,7 @@ const Data = [
       {
         name: 'Football Eddy',
         vector: (
-          <path d="M 50,19
+          <path d="M 93,19
                     q 2.5  ,-2 5,0
                     t 2,5
                     q -1,4 -4,1
@@ -114,7 +114,7 @@ const Data = [
       {
         name: 'Baby Face Lineup',
         vector: (
-          <path d="M 75.5,56.5
+          <path d="M 135.5,57.5
                     q 1,0 2,4
                     q 0.5,3 -1,1
                     q 0,0 -1,-1

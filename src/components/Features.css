@@ -1,18 +1,17 @@
-.Eddy {
+.Features {
     margin: 0;
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
   }
-  
-  #svg {
+
+  #vector-container {
     height: 99vh;
     width: 99vw;
-    
   }
-  
-  path {
-    cursor: pointer;
+
+  .clickable {
+    cursor: pointer
   }
-  
+
