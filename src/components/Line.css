@@ -9,6 +9,7 @@
 #svg {
   height: 99vh;
   width: 99vw;
+  pointer-events: stroke;
 }
 
 path {
