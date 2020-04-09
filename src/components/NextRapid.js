@@ -1,64 +1,64 @@
-import React, { useState } from "react";
-import "./NextRapid.css";
+// Dont work on this, its mostly shit.
 
-const NextRapid = props => {
+import React, { useState } from 'react';
+import './NextRapid.css';
 
-  const globalAngle = rotation => {
-    let rot = Number(
+const NextRapid = (props) => {
+  const globalAngle = (rotation) => {
+    const rot = Number(
       rotation
-        .split("")
-        .filter(x => {
+        .split('')
+        .filter((x) => {
           if (/[^deg]/.test(x)) {
             return x;
-          }
-          else return null
+          } return null;
         })
-        .join("")
+        .join(''),
     );
     return rot;
   };
 
-  let global = globalAngle(props.rotation);
+  const global = globalAngle(props.rotation);
 
   const [style, setStyle] = useState({
     bottom: props.bottom,
     right: props.right,
-    opacity: "70%"
+    opacity: '70%',
   });
 
   const [leftSpine, setLeftSpine] = useState({
-    transform: `rotate(${38.66 + global}deg)`
+    transform: `rotate(${38.66 + global}deg)`,
   });
 
   const [rightSpine, setRightSpine] = useState({
-    transform: `rotate(${-38.66 + global}deg)`
+    transform: `rotate(${-38.66 + global}deg)`,
   });
 
   const [fade, setFade] = useState({
-    opacity: "0%"
+    opacity: '0%',
   });
 
   const handleMouseEnter = () => {
     setStyle({
       bottom: props.bottom,
       right: props.right,
-      opacity: "100%",
-      transition: "0.2s"
+      opacity: '100%',
+      transition: '0.2s',
     });
 
     setLeftSpine({
       transform: `rotate(${90}deg)`,
-      transition: "0.3s"
+      transition: '0.3s',
     });
 
     setRightSpine({
       transform: `rotate(${-90}deg)`,
-      transition: "0.3s"
+      transition: '0.3s',
     });
 
     setFade({
-      opacity: "100%",
-      transition: "0.4"
+      opacity: '100%',
+      transition: '0.4',
     });
   };
 
@@ -66,24 +66,23 @@ const NextRapid = props => {
     setStyle({
       bottom: props.bottom,
       right: props.right,
-      opacity: "70%",
-      transition: "0.2s"
+      opacity: '70%',
+      transition: '0.2s',
     });
 
     setLeftSpine({
       transform: `rotate(${38.66 + global}deg)`,
-      transition: "0.2s"
+      transition: '0.2s',
     });
     setRightSpine({
       transform: `rotate(${-38.66 + global}deg)`,
-      transition: "0.2s"
+      transition: '0.2s',
     });
 
 
-
     setFade({
-      opacity: "0%",
-      transition: "0.4"
+      opacity: '0%',
+      transition: '0.4',
     });
   };
 
@@ -97,8 +96,8 @@ const NextRapid = props => {
       <div className="rapid-name" style={fade}>{props.name}</div>
       <svg
         viewBox="-7 -8 15 15"
-        onClick={e => {
-          props.selectRapid(e.currentTarget.id)
+        onClick={(e) => {
+          props.selectRapid(e.currentTarget.id);
           alert('Soon. my friend.');
         }}
         id={props.name}
@@ -112,4 +111,4 @@ const NextRapid = props => {
 
 export default NextRapid;
 
-//Make arrow flatten and show next rapid name.
+// Make arrow flatten and show next rapid name.

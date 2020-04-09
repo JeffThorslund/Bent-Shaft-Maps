@@ -1,30 +1,36 @@
-import React from "react";
+import React from 'react';
 import './Hydraulic.css';
+import PropTypes from 'prop-types';
 
-const Hydraulic = props => {
+const Hydraulic = (props) => {
+  const style = {
+    top: props.hydraulics.top,
+    left: props.hydraulics.left,
+    transform: props.hydraulics.rotation,
+    height: props.hydraulics.height,
+    width: props.hydraulics.width,
+  };
 
-    const style = {
-        top: props.top,
-        left: props.left,
-        transform: props.rotation,
-        height: props.height,
-        width: props.width
-    }
-
-    const displayData = (e) => {
-      props.displayData(e.currentTarget.id)
-    }
+  const displayData = (e) => {
+    props.displayData(e.currentTarget.id);
+  };
 
   return (
-      <div 
-      id={props.name} 
+    <div
+      id={props.hydraulics.name}
       className="hydraulic"
       style={
         style
       }
       onClick={displayData}
-      ></div>
+    ></div>
   );
 };
 
 export default Hydraulic;
+
+Hydraulic.propTypes = {
+  level: PropTypes.number.isRequired,
+  hydraulics: PropTypes.object.isRequired,
+  displayData: PropTypes.func.isRequired,
+};

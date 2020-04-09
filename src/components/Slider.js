@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-
-import Slider from 'react-rangeslider';
 import './Slider.css';
+import Slider from 'react-rangeslider';
+
 
 class Vertical extends Component {
   constructor(props, context) {
@@ -40,6 +40,6 @@ class Vertical extends Component {
 
 export default Vertical;
 
-Slider.propTypes = {
+Vertical.propTypes = {
   selectLevel: PropTypes.func,
 };

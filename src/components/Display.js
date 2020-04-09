@@ -6,7 +6,6 @@ import PropTypes from 'prop-types';
 const Display = (props) => (
   <div className="Display">
     <div id="title">{props.title}</div>
-
     <div id="desc">{props.desc}</div>
   </div>
 );

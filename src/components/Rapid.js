@@ -38,14 +38,8 @@ class Rapid extends Component {
         && this.props.level >= element.range[0]
       ) {
         return <Hydraulic
+          hydraulics={element}
           level={this.props.level}
-          desc={element.desc}
-          name={element.name}
-          top={element.top}
-          left={element.left}
-          height={element.height}
-          width={element.width}
-          rotation={element.rotation}
           displayData={this.displayData}
           key={`hydraulic${key}`}
         />;

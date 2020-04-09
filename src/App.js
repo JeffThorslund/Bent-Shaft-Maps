@@ -28,7 +28,7 @@ class App extends Component {
 
   // Toggles map overlay
   toggleMap = () => {
-    this.setState((prevState) => ({ map: !prevState.map }));
+    this.setState((prevState) => ({ mapBool: !prevState.mapBool }));
   };
 
   render() {
@@ -49,9 +49,9 @@ class App extends Component {
     return (
       <div className="App" >
         <div id="toggle-map-button" onClick={this.toggleMap}>
-          {this.state.mapBool ? 'Open Map' : 'Close Map'}
+          {this.state.mapBool ? 'Close' : 'Open'}
         </div>
-        {this.state.map && (
+        {this.state.mapBool && (
           <Map
             toggleMap={this.toggleMap}
             selectRapid={this.selectRapid}
