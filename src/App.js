@@ -3,6 +3,7 @@ import "./App.css";
 import Rapid from "./components/Rapid";
 import Slider from "./components/Slider";
 import Map from "./components/Map";
+import BuildPDF from "./components/BuildPDF";
 import Data from "./Data";
 
 class App extends Component {
@@ -53,6 +54,7 @@ class App extends Component {
         <div id="toggle-map-button" onClick={this.toggleMap}>
           {this.state.mapBool ? "Close" : "Open"}
         </div>
+        <BuildPDF data={Data} level={this.state.level} />
         {this.state.mapBool && (
           <Map
             toggleMap={this.toggleMap}

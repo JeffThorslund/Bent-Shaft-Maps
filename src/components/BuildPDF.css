@@ -1,0 +1,13 @@
+.button {
+  position: absolute;
+  top: 5px;
+  left: 6vw;
+  z-index: 1;
+  border: black 2px solid;
+  border-radius: 10px;
+  padding: 10px;
+  font-size: 1.3rem;
+  background-color: blanchedalmond;
+  cursor: pointer;
+  user-select: none;
+}
