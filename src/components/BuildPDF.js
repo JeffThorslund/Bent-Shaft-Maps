@@ -3,7 +3,7 @@
 import React from "react";
 import "./BuildPDF.css";
 import * as jsPDF from "jspdf";
-import domtoimage from "dom-to-image";
+
 import PropTypes from "prop-types";
 
 const BuildPDF = (props) => {

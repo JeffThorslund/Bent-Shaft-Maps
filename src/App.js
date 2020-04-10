@@ -55,6 +55,7 @@ class App extends Component {
           {this.state.mapBool ? "Close" : "Open"}
         </div>
         <BuildPDF data={Data} level={this.state.level} />
+        
         {this.state.mapBool && (
           <Map
             toggleMap={this.toggleMap}
