@@ -3,6 +3,7 @@
 import React from "react";
 import "./BuildPDF.css";
 import * as jsPDF from "jspdf";
+import domtoimage from "dom-to-image";
 import PropTypes from "prop-types";
 
 const BuildPDF = (props) => {
@@ -48,24 +49,28 @@ const BuildPDF = (props) => {
           props.level >= rapid.hydraulics[i].range[0]
         ) {
           //prints rapid name
-          doc.setFont("helvetica", "bold").text(20, top, rapid.hydraulics[i].name, {
-            maxWidth: `${pageWidth - 2 * margin}`,
-          });
+          doc
+            .setFont("helvetica", "bold")
+            .text(20, top, rapid.hydraulics[i].name, {
+              maxWidth: `${pageWidth - 2 * margin}`,
+            });
 
           //space after name
           top += 10;
 
-
-          console.log(doc.getFontList())
+          console.log(doc.getFontList());
 
           //prints rapid desc
-          doc.setFont("helvetica", "normal").text(20, top, rapid.hydraulics[i].desc, {
-            maxWidth: `${pageWidth - 2 * margin}`,
-          });
+          doc
+            .setFont("helvetica", "normal")
+            .text(20, top, rapid.hydraulics[i].desc, {
+              maxWidth: `${pageWidth - 2 * margin}`,
+            });
 
           //space after desc
           top =
-            top + 10 +
+            top +
+            10 +
             Math.ceil(
               doc.getTextDimensions(rapid.hydraulics[i].desc).w /
                 (pageWidth - 2 * margin)
@@ -73,11 +78,13 @@ const BuildPDF = (props) => {
               doc.getTextDimensions(rapid.hydraulics[i].desc).h;
         }
       }
+
+      doc.addPage();
+      doc.text(20, 20, "Do you like that?");
     }
 
     doc.save(`Jeffs Ottawa River Guide`);
   };
-
   return (
     <div className="button" onClick={handleClick}>
       Export to PDF
