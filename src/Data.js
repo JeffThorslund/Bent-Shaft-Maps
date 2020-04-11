@@ -17,10 +17,10 @@ const Data = [
         name: "Phil's Hole",
         desc:
           "Phil's Hole is the first hole on the Ottawa River at the top of McCoys. At high water, the hole is not present, only a large surf wave. At lower water levels, a large hole is formed with a tongue a little left of centre. ",
-        top: "51vh",
-        left: "39vw",
-        height: "10px",
-        width: "10px",
+        top: "463.55",
+        left: "589.11",
+        height: "58.73",
+        width: "13.44",
         rotation: "rotate(95deg)",
         range: [-10, 12],
       },
@@ -29,77 +29,77 @@ const Data = [
         name: "Sattler's Hole",
         desc:
           "This wave is at the center of the river. Make sure to clip it when threading the needle!",
-        top: "43vh",
-        left: "30vw",
-        height: "4vh",
-        width: "10vh",
-        rotation: "rotate(95deg)",
+        top: "408",
+        left: "505.3",
+        height: "70.97",
+        width: "13.44",
+        rotation: "rotate(0deg)",
         range: [-10, 13],
       },
       {
         // Horse Shoe (Right Side)
         name: "Horse Shoe (Right Side)",
         desc: "You better be good kid",
-        top: "73vh",
-        left: "65vw",
-        height: "2.5vh",
-        width: "6vh",
-        rotation: "rotate(165deg)",
+        top: "651.94",
+        left: "1081.06",
+        height: "42.72",
+        width: "15.7",
+        rotation: 71.32,
         range: [-10, 5],
       },
       {
         // Horse Shoe (Left Side)
         name: "Horse Shoe (Left Side)",
         desc: "You better be good kid",
-        top: "70vh",
-        left: "71vw",
-        height: "2.5vh",
-        width: "6vh",
-        rotation: "rotate(160deg)",
+        top: "625.94",
+        left: "1174.86",
+        height: "42.72",
+        width: "15.7",
+        rotation: 71.32,
         range: [-10, 7],
       },
       {
         // Baby Face
         name: "Baby Face",
         desc: "A great beginner wave.",
-        top: "80vh",
-        left: "70vw",
-        height: "3vh",
-        width: "6vh",
-        rotation: "rotate(160deg)",
+        top: "685.65",
+        left: "1148.9",
+        height: "42.72",
+        width: "11.02",
+        rotation: 68.5,
         range: [-10, 1],
       },
       {
         // Corner Wave
         name: "Corner Wave",
         desc: "It comes off a corner and can be harder for beginners.",
-        top: "54vh",
-        left: "69.5vw",
-        height: "1.4vh",
-        width: "7vh",
-        rotation: "rotate(110deg)",
+        top: "470.79",
+        left: "905.32",
+        height: "90.52",
+        width: "13.44",
+        rotation: -11.41,
         range: [-10, 12],
       },
       {
         // 6/8
         name: "6/8",
         desc: "Near football eddy.",
-        top: "34vh",
-        left: "62vw",
-        height: "1.4vh",
-        width: "7vh",
-        rotation: "rotate(90deg)",
+        top: "367.83",
+        left: "748.9",
+        height: "57.31",
+        width: "13.44",
+        rotation: -5.6,
         range: [6, 8],
       },
       {
         // Hero Wave
         name: "Hero Wave",
         desc: "You gotta be a hero.",
-        top: "48vh",
-        left: "24vw",
-        height: "1.4vh",
-        width: "7vh",
-        rotation: "rotate(130deg)",
+        top: "483.55",
+        left: "431.82",
+        height: "54.97",
+        width: "13.44",
+        rotation: -16,
         range: [-4, 6],
       },
     ],
@@ -110,12 +110,12 @@ const Data = [
           "A large eddy that can sometimes collect gear and swimmmers. This can sometimes be hard to get out of.",
         vector: (
           <path
-            d="M 93,19
-                    q 2.5  ,-2 5,0
-                    t 2,5
-                    q -1,4 -4,1
-                    q 0,0 -3,-4
-                    q -0.5,-1 0,-2"
+            d="M 930,190
+                    q 25,-20 50,0
+                    t 20,50
+                    q -10,40 -40,10
+                    q 0,0 -30,-40
+                    q -5,-10 0,-20"
           />
         ),
         range: [-10, 10],
@@ -126,11 +126,11 @@ const Data = [
           "This is where you lineup to surf Baby Face. Remember to wait your turn!",
         vector: (
           <path
-            d="M 135.5,57.5
-                    q 1,0 2,4
-                    q 0.5,3 -1,1
-                    q 0,0 -1,-1
-                    q -2,-2 0,-4"
+            d="M 1350.5,570.5
+                    q 10,0 20,40
+                    q 5,30 -10,10
+                    q 0,0 -10,-10
+                    q -20,-20 0,-40"
           />
         ),
         range: [-10, 10],
@@ -144,9 +144,9 @@ const Data = [
         vector: (
           <path
             d="
-                M 150,400
-                q 350,30 500,0
-                Q 1160,330 1380,750
+                M 150,455
+                q 300,58 500,-10
+                Q 1000,340 1180,800
                 "
             stroke="black"
           />
@@ -160,10 +160,10 @@ const Data = [
         vector: (
           <path
             d="
-                M 150,400
-                q 400,50 720,40
-                Q 1240,410 1380,750
-                "
+              M 150,455
+              q 350,58 500,30
+              Q 1000,400 1180,800
+              "
             stroke="black"
           />
         ),
@@ -176,9 +176,9 @@ const Data = [
         vector: (
           <path
             d="
-                M 150,400
-                q 400,-60 720,-10
-                Q 1200,430 1380,750
+                M 150,455
+                q 300,-30 500,-20
+                Q 1000,450 1180,800
                 "
             stroke="black"
           />

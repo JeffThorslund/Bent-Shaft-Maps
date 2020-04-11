@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import "./Rapid.css";
-import Hydraulic from "./Hydraulic";
 import Display from "./Display";
 import NextRapid from "./NextRapid";
 import Features from "./Features";
@@ -25,24 +24,6 @@ class Rapid extends Component {
   };
 
   render() {
-    // render array of hydraulics based on selected water level (App state)
-    const hydraulicArray = this.props.data.hydraulics.map((element, key) => {
-      if (
-        this.props.level <= element.range[1] &&
-        this.props.level >= element.range[0]
-      ) {
-        return (
-          <Hydraulic
-            hydraulics={element}
-            level={this.props.level}
-            displayData={this.displayData}
-            key={`hydraulic${key}`}
-          />
-        );
-      }
-      return null;
-    });
-
     // render array of "next rapid arrows" based on selected water level (App state)
     const arrowArray = this.props.data.arrows.map((element, key) => (
       <NextRapid
@@ -67,11 +48,9 @@ class Rapid extends Component {
           displayData={this.displayData}
         />
 
-        <div id="hydraulic-array"> {hydraulicArray} </div>
-
         <div id="arrow-array"> {arrowArray} </div>
         <Display title={this.state.title} desc={this.state.desc} />
-        
+
         {/*<img
           src={this.props.data.riverMap}
           alt={this.props.data.name}
