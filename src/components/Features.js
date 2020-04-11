@@ -64,11 +64,7 @@ const Features = (props) => {
         {eddyArray}
       </g>
 
-      <g
-        id="hydraulic-array"
-        style={{ position: "absolute" }}
-        className="clickable"
-      >
+      <g id="hydraulic-array" className="clickable">
         {hydraulicArray}
       </g>
     </svg>
