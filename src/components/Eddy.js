@@ -8,7 +8,7 @@ const Eddy = (props) => (
       props.displayData(props.eddys.name, props.eddys.desc);
     }}
   >
-    ;{props.eddys.vector}
+    {props.eddys.vector}
   </g>
 );
 

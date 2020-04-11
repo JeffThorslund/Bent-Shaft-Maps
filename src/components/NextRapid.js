@@ -15,7 +15,7 @@ const NextRapid = (props) => {
         alert("Coming soon!");
       }}
     >
-      {props.arrows.name}
+      <div className="name"> {props.arrows.name}</div>
     </div>
   );
 };

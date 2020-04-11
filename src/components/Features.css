@@ -1,14 +1,17 @@
 .Features {
-  margin: 0;
   position: absolute;
+  height: 100vh;
+  width: 100vw;
+  top: 0px;
+  left: 0px;
+  /*
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  margin: 0; */
 }
 
 #vector-container {
-  height: 99vh;
-  width: 99vw;
 }
 
 .clickable {

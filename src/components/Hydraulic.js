@@ -1,8 +1,11 @@
 import React from "react";
+import BaseHydraulic from "./VectorAssets/Elements/BaseHydraulic";
 import "./Hydraulic.css";
 import PropTypes from "prop-types";
 
 const Hydraulic = (props) => {
+  
+
   const style = {
     top: props.hydraulics.top,
     left: props.hydraulics.left,
@@ -12,14 +15,22 @@ const Hydraulic = (props) => {
   };
 
   return (
-    <div
+    <g
       id={props.hydraulics.name}
       className="hydraulic"
-      style={style}
+      
       onClick={() => {
         props.displayData(props.hydraulics.name, props.hydraulics.desc);
       }}
-    ></div>
+    >
+      <rect
+        x="0.734436"
+        y="0.706421"
+        style={style}
+        rx="20"
+        fill="black"
+      />
+    </g>
   );
 };
 
