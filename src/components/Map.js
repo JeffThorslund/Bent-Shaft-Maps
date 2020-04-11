@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import "./Map.css";
 import MapLabel from "./MapLabel";
-import Overview from "./basemaps/Overview.png";
+import Overview from "./VectorAssets/Vector/Overview.png";
 
 const Map = (props) => {
   const mapLabelArray = props.mapLabel.map((element, key) => (

@@ -3,8 +3,7 @@ import PropTypes from "prop-types";
 
 const Line = (props) => (
   <g
-    className={props.lines.name}
-    strokeWidth="0.4"
+    strokeWidth="3"
     onClick={() => {
       props.displayData(props.lines.name, props.lines.desc);
     }}

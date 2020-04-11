@@ -1,22 +1,26 @@
 import React from "react";
-import McCoysMap from "./components/basemaps/McCoys.png";
+import BaseMapMcCoys from "./components/VectorAssets/Basemaps/McCoysChuteRapid";
 
 const Data = [
   {
     // "McCoy's Chute Rapid"
     name: "McCoy's Chute Rapid",
     desc: "A great start to the day",
-    riverMap: McCoysMap,
+    //build map at 1600x900
+    riverMap: {
+      viewBox: "0 0 1600 900",
+      path: BaseMapMcCoys,
+    },
     hydraulics: [
       {
         // Phils Hole
         name: "Phil's Hole",
         desc:
-          "Phil's Hole is the first hole on the Ottawa River at the top of McCoys. At high water, the hole is not present, only a large surf wave. At lower water levels, a large hole is formed with a tongue a little left of centre. Phil's Hole is the first hole on the Ottawa River at the top of McCoys. At high water, the hole is not present, only a large surf wave. At lower water levels, a large hole is formed with a tongue a little left of centre. ",
-        top: "48vh",
-        left: "45vw",
-        height: "2vh",
-        width: "10vh",
+          "Phil's Hole is the first hole on the Ottawa River at the top of McCoys. At high water, the hole is not present, only a large surf wave. At lower water levels, a large hole is formed with a tongue a little left of centre. ",
+        top: "51vh",
+        left: "39vw",
+        height: "10px",
+        width: "10px",
         rotation: "rotate(95deg)",
         range: [-10, 12],
       },
@@ -25,9 +29,9 @@ const Data = [
         name: "Sattler's Hole",
         desc:
           "This wave is at the center of the river. Make sure to clip it when threading the needle!",
-        top: "39vh",
-        left: "34vw",
-        height: "2vh",
+        top: "43vh",
+        left: "30vw",
+        height: "4vh",
         width: "10vh",
         rotation: "rotate(95deg)",
         range: [-10, 13],
@@ -36,21 +40,21 @@ const Data = [
         // Horse Shoe (Right Side)
         name: "Horse Shoe (Right Side)",
         desc: "You better be good kid",
-        top: "61vh",
-        left: "80vw",
-        height: "1vh",
-        width: "5vh",
-        rotation: "rotate(130deg)",
+        top: "73vh",
+        left: "65vw",
+        height: "2.5vh",
+        width: "6vh",
+        rotation: "rotate(165deg)",
         range: [-10, 5],
       },
       {
         // Horse Shoe (Left Side)
         name: "Horse Shoe (Left Side)",
         desc: "You better be good kid",
-        top: "66vh",
-        left: "75.8vw",
-        height: "1vh",
-        width: "5vh",
+        top: "70vh",
+        left: "71vw",
+        height: "2.5vh",
+        width: "6vh",
         rotation: "rotate(160deg)",
         range: [-10, 7],
       },
@@ -58,11 +62,11 @@ const Data = [
         // Baby Face
         name: "Baby Face",
         desc: "A great beginner wave.",
-        top: "69vh",
-        left: "79.5vw",
-        height: "1vh",
-        width: "5vh",
-        rotation: "rotate(150deg)",
+        top: "80vh",
+        left: "70vw",
+        height: "3vh",
+        width: "6vh",
+        rotation: "rotate(160deg)",
         range: [-10, 1],
       },
       {
@@ -140,9 +144,9 @@ const Data = [
         vector: (
           <path
             d="
-                M 15,40
-                q 35,3 50,0
-                Q 116,33 138,75
+                M 150,400
+                q 350,30 500,0
+                Q 1160,330 1380,750
                 "
             stroke="black"
           />
@@ -156,9 +160,9 @@ const Data = [
         vector: (
           <path
             d="
-                M 15,40
-                q 40,5 72,4
-                Q 124,41 138,75
+                M 150,400
+                q 400,50 720,40
+                Q 1240,410 1380,750
                 "
             stroke="black"
           />
@@ -172,9 +176,9 @@ const Data = [
         vector: (
           <path
             d="
-                M 15,40
-                q 40,-6 72,-1
-                Q 120,43 138,75
+                M 150,400
+                q 400,-60 720,-10
+                Q 1200,430 1380,750
                 "
             stroke="black"
           />
@@ -186,14 +190,14 @@ const Data = [
       {
         name: "Iron Ring",
         rotation: "160deg",
-        bottom: "8vh",
-        right: "2vw",
+        bottom: "2vh",
+        right: "5vw",
       },
       {
         name: "Magical Mystery Tour",
         rotation: "160deg",
-        bottom: "8vh",
-        right: "10vw",
+        bottom: "2vh",
+        right: "17vw",
       },
     ],
     mapLabel: {

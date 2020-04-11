@@ -1,6 +1,7 @@
 import React from "react";
 import Line from "./Line";
 import Eddy from "./Eddy";
+import Hydraulic from "./Hydraulic";
 import "./Features.css";
 import PropTypes from "prop-types";
 
@@ -26,7 +27,21 @@ const Features = (props) => {
         <Eddy
           eddys={element}
           displayData={props.displayData}
-          key={`line${key}`}
+          key={`eddy${key}`}
+        />
+      );
+    }
+    return null;
+  });
+
+  // render array of hydraulics based on selected water level (App state)
+  const hydraulicArray = props.data.hydraulics.map((element, key) => {
+    if (props.level <= element.range[1] && props.level >= element.range[0]) {
+      return (
+        <Hydraulic
+          hydraulics={element}
+          displayData={props.displayData}
+          key={`hydraulic${key}`}
         />
       );
     }
@@ -34,22 +49,29 @@ const Features = (props) => {
   });
 
   return (
-    <div className="Features">
-      <svg
-        id="vector-container"
-        viewBox="0 0 160 90"
-        xmlns="http://www.w3.org/2000/svg"
-        preserveAspectRatio="none"
-      >
-        <g id="line-array" className="clickable" fill="none">
-          {lineArray}
-        </g>
+    <svg
+      className="Features"
+      id="vector-container"
+      viewBox="0 0 1600 900"
+      xmlns="http://www.w3.org/2000/svg"
+      preserveAspectRatio="none"
+    >
+      <g id="line-array" className="clickable" fill="none">
+        {lineArray}
+      </g>
 
-        <g id="eddy-array" className="clickable">
-          {eddyArray}
-        </g>
-      </svg>
-    </div>
+      <g id="eddy-array" className="clickable">
+        {eddyArray}
+      </g>
+
+      <g
+        id="hydraulic-array"
+        style={{ position: "absolute" }}
+        className="clickable"
+      >
+        {hydraulicArray}
+      </g>
+    </svg>
   );
 };
 
