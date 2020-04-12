@@ -6,13 +6,14 @@ import NextRapid from "./NextRapid";
 import Features from "./Features";
 import Basemap from "./Basemap";
 
+
 class Rapid extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
       title: "Click on Something!",
-      desc: "Click on a white wave or hole too see more information.",
+      desc: null,
     };
   }
 
@@ -36,6 +37,7 @@ class Rapid extends Component {
 
     return (
       <div className="Rapid">
+        
         <div id="rapid-name"> {this.props.data.name} </div>
 
         <Basemap map={this.props.data.riverMap} />
@@ -51,11 +53,8 @@ class Rapid extends Component {
         <div id="arrow-array"> {arrowArray} </div>
         <Display title={this.state.title} desc={this.state.desc} />
 
-        {/*<img
-          src={this.props.data.riverMap}
-          alt={this.props.data.name}
-          id="background"
-        />*/}
+        
+
       </div>
     );
   }

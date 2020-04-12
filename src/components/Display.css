@@ -2,7 +2,7 @@
   position: absolute;
   height: auto;
   width: 32vw;
-  top: 71vh;
+  top: 68vh;
   left: 21vw;
   padding: 1vw 2vw;
   box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.25);
@@ -16,8 +16,8 @@
   font-family: Rock Salt;
   font-style: normal;
   font-weight: normal;
-  font-size: 1.4vw;
-  padding-bottom: 0.8vw;
+  font-size: 1.8vw;
+  padding-bottom: 0.5vw;
 }
 
 .Display #desc {

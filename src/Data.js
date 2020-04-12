@@ -8,7 +8,7 @@ const Data = [
     desc: "A great start to the day",
     //build map at 1600x900
     riverMap: {
-      viewBox: "0 0 1600 900",
+      viewBox: "0 50 1600 900", //Eeeeek watch out for this
       path: BaseMapMcCoys,
     },
     hydraulics: [
@@ -108,31 +108,20 @@ const Data = [
         name: "Football Eddy",
         desc:
           "A large eddy that can sometimes collect gear and swimmmers. This can sometimes be hard to get out of.",
-        vector: (
-          <path
-            d="M 930,190
-                    q 25,-20 50,0
-                    t 20,50
-                    q -10,40 -40,10
-                    q 0,0 -30,-40
-                    q -5,-10 0,-20"
-          />
-        ),
+        vector:
+          "M57.7367 100.472C112.332 100.472 150.868 97.0028 157.209 77.01C164.801 53.0702 161.941 37.64 106.045 30.2237C36.1735 20.9535 8.56346 41.3981 12.9053 63.0286C17.2471 84.6591 30.113 100.472 57.7367 100.472Z",
+        x: "725",
+        y: "250",
         range: [-10, 10],
       },
       {
         name: "Baby Face Lineup",
         desc:
           "This is where you lineup to surf Baby Face. Remember to wait your turn!",
-        vector: (
-          <path
-            d="M 1350.5,570.5
-                    q 10,0 20,40
-                    q 5,30 -10,10
-                    q 0,0 -10,-10
-                    q -20,-20 0,-40"
-          />
-        ),
+        vector:
+          "M22.9304 64.2715C42.747 103.103 71.7515 101.303 83.3053 93.7738C97.14 84.7583 102.113 75.7178 76.7682 48.66C45.0867 14.8377 22.5248 13.7363 15.7227 26.5483C8.92069 39.3604 14.6745 48.0937 22.9304 64.2715Z",
+        x: "1165.1",
+        y: "640.17",
         range: [-10, 10],
       },
     ],
