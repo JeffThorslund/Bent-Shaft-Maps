@@ -11,7 +11,7 @@ class App extends Component {
     super(props);
 
     this.state = {
-      level: 0,
+      level: 6,
       rapid: "McCoy's Chute Rapid",
       mapBool: false,
     };

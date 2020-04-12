@@ -17,7 +17,6 @@
   font-style: normal;
   font-weight: normal;
   font-size: 1.8vw;
-  padding-bottom: 0.5vw;
 }
 
 .Display #desc {
@@ -25,6 +24,7 @@
   font-family: Ruda;
   font-style: normal;
   font-weight: normal;
-  font-size: 1vw;
+  font-size: 1.2vw;
   padding-bottom: 0.4vw;
+  padding-top: 0.5vw;
 }

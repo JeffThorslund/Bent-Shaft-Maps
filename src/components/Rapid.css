@@ -8,11 +8,23 @@
   left: 50%;
   transform: translate(-50%, 0%);
   margin-top: 3vw;
-
+  font-family: Ruda;
+  font-style: normal;
+  font-weight: normal;
   text-align: center;
   font-size: 3vw;
-  font-weight: bold;
-  font-family: "Sen", sans-serif;
+}
+
+#level-display {
+  position: absolute;
+  right: 8vw;
+  top: 5vh;
+
+  font-family: Ruda;
+  font-style: normal;
+  font-weight: normal;
+
+  font-size: 2vw;
 }
 
 #background {
