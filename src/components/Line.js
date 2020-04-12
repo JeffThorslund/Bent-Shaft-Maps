@@ -1,15 +1,16 @@
 import React from "react";
 import PropTypes from "prop-types";
+import "./Line.css";
 
 const Line = (props) => (
   <g
-    strokeWidth="3"
     onClick={() => {
       props.displayData(props.lines.name, props.lines.desc);
     }}
+    className="line-hover"
   >
     {props.lines.vector}
-    <circle cx="15" cy="40" r="1.3" fill="black" />
+    <circle cx="150" cy="455" r="10" fill="black" stroke="black" />
   </g>
 );
 

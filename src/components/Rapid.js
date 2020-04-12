@@ -6,7 +6,6 @@ import NextRapid from "./NextRapid";
 import Features from "./Features";
 import Basemap from "./Basemap";
 
-
 class Rapid extends Component {
   constructor(props) {
     super(props);
@@ -37,24 +36,19 @@ class Rapid extends Component {
 
     return (
       <div className="Rapid">
-        
-        <div id="rapid-name"> {this.props.data.name} </div>
-
         <Basemap map={this.props.data.riverMap} />
-
-        {/* Vector elements rendered in this component
-        Eventually Hydraulics will be too */}
+        <div id="rapid-name"> {this.props.data.name} </div>
+        <div id="level-display">
+          <div id="feet"> {this.props.level} ft</div>
+          <div id="cfs">{this.props.level * 140 + 600} mm</div>
+        </div>
         <Features
           level={this.props.level}
           data={this.props.data}
           displayData={this.displayData}
         />
-
         <div id="arrow-array"> {arrowArray} </div>
         <Display title={this.state.title} desc={this.state.desc} />
-
-        
-
       </div>
     );
   }
