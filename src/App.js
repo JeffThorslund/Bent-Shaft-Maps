@@ -3,6 +3,7 @@ import "./App.css";
 import Rapid from "./components/Rapid";
 import Slider from "./components/Slider";
 import Map from "./components/Map";
+import SymbolToggle from "./components/SymbolToggle";
 
 import Data from "./Data";
 
@@ -51,9 +52,9 @@ class App extends Component {
 
     return (
       <div className="App">
-        {/*<div id="toggle-map-button" onClick={this.toggleMap}>
-          {this.state.mapBool ? "Close" : "Open"}
-    </div>*/}
+        <div id="toggle-map-button" onClick={this.toggleMap}>
+          <div id="text">{this.state.mapBool ? "Close" : "Open"} Map </div>
+        </div>
 
         {/*<BuildPDF data={Data} level={this.state.level} />*/}
 
@@ -66,6 +67,7 @@ class App extends Component {
         )}
         {rapidInstance}
         <Slider selectLevel={this.selectLevel} />
+        <SymbolToggle />
       </div>
     );
   }
