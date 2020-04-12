@@ -52,18 +52,16 @@ const Features = (props) => {
     <svg
       className="Features"
       id="vector-container"
-      viewBox="0 0 1600 900"
+      viewBox="0 50 1600 900" //that 50 is very bad and scary
       xmlns="http://www.w3.org/2000/svg"
       preserveAspectRatio="none"
     >
       <g id="line-array" className="clickable" fill="none">
         {lineArray}
       </g>
-
       <g id="eddy-array" className="clickable">
         {eddyArray}
       </g>
-
       <g id="hydraulic-array" className="clickable">
         {hydraulicArray}
       </g>

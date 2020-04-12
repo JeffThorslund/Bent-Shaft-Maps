@@ -22,7 +22,6 @@ class Vertical extends Component {
     const { value } = this.state;
     return (
       <div className="slider">
-        <div className="value">Level: {value}&ldquo;</div>
         <Slider
           min={0}
           max={12}
