@@ -9,7 +9,7 @@ const MapLabel = (props) => {
   };
 
   const pickFromMap = (name) => {
-    props.toggleMap();
+    props.toggleSetting(props.setting);
     props.selectRapid(name);
   };
 

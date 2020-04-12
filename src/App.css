@@ -34,3 +34,15 @@
   font-style: normal;
   font-weight: normal;
 }
+
+.toggle-board #symbol-bool {
+  position: absolute;
+  top: 2vh;
+  left: 1vw;
+}
+
+.toggle-board #map-bool {
+  position: absolute;
+  top: 8vh;
+  left: 1vw;
+}
