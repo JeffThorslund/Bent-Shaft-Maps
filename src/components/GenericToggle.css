@@ -1,0 +1,68 @@
+.GenericToggle {
+  cursor: pointer;
+}
+
+.wrapper {
+  border-radius: 30px;
+  display: flex;
+  justify-content: space-between;
+  padding: 7px;
+}
+
+.false-wrapper {
+  flex-direction: row;
+  background-color: #232020;
+  transition: 0.3s;
+}
+
+.true-wrapper {
+  flex-direction: row-reverse;
+  background-color: honeydew;
+  transition: 0.3s;
+}
+
+.dot {
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+
+  /*margin: 0;
+  top: 50%;
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);*/
+}
+
+.false-dot {
+  background-color: honeydew;
+  transition: 0.3s;
+}
+
+.true-dot {
+  background-color: #232020;
+  transition: 0.3s;
+}
+
+.text {
+  font-size: 16px;
+  font-family: Ruda;
+  display: inline-block;
+  padding: 0px 8px;
+}
+
+.false-text {
+  color: honeydew;
+}
+
+.true-text {
+  color: #232020;
+}
+
+.noselect {
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none; /* Safari */
+  -khtml-user-select: none; /* Konqueror HTML */
+  -moz-user-select: none; /* Old versions of Firefox */
+  -ms-user-select: none; /* Internet Explorer/Edge */
+  user-select: none; /* Non-prefixed version, currently
+                                    supported by Chrome, Opera and Firefox */
+}

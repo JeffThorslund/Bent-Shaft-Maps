@@ -9,7 +9,8 @@ const Map = (props) => {
     <MapLabel
       name={element.name}
       mapLabel={element.mapLabel}
-      toggleMap={props.toggleMap}
+      toggleSetting={props.toggleSetting}
+      setting={props.setting}
       selectRapid={props.selectRapid}
       key={`mapLabel${key}`}
     />

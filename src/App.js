@@ -3,7 +3,7 @@ import "./App.css";
 import Rapid from "./components/Rapid";
 import Slider from "./components/Slider";
 import Map from "./components/Map";
-import SymbolToggle from "./components/SymbolToggle";
+import GenericToggle from "./components/GenericToggle";
 
 import Data from "./Data";
 
@@ -15,6 +15,7 @@ class App extends Component {
       level: 6,
       rapid: "McCoy's Chute Rapid",
       mapBool: false,
+      symbolBool: false,
     };
   }
 
@@ -29,8 +30,8 @@ class App extends Component {
   };
 
   // Toggles map overlay
-  toggleMap = () => {
-    this.setState((prevState) => ({ mapBool: !prevState.mapBool }));
+  toggleSetting = (setting) => {
+    this.setState((prevState) => ({ [setting]: !prevState[setting] }));
   };
 
   render() {
@@ -52,22 +53,37 @@ class App extends Component {
 
     return (
       <div className="App">
-        <div id="toggle-map-button" onClick={this.toggleMap}>
-          <div id="text">{this.state.mapBool ? "Close" : "Open"} Map </div>
-        </div>
-
-        {/*<BuildPDF data={Data} level={this.state.level} />*/}
-
         {this.state.mapBool && (
           <Map
-            toggleMap={this.toggleMap}
+            toggleSetting={this.toggleSetting}
+            setting="mapBool"
             selectRapid={this.selectRapid}
             mapLabel={Data}
           />
         )}
         {rapidInstance}
         <Slider selectLevel={this.selectLevel} />
-        <SymbolToggle />
+
+        <div className="toggle-board">
+          <div id="symbol-bool">
+            <GenericToggle
+              toggle={this.state.symbolBool}
+              toggleSetting={this.toggleSetting}
+              setting="symbolBool"
+              false="Show Symbols"
+              true="Hide Symbols"
+            />
+          </div>
+          <div id="map-bool">
+            <GenericToggle
+              toggle={this.state.mapBool}
+              toggleSetting={this.toggleSetting}
+              setting="mapBool"
+              false="Show Map"
+              true="Hide Map"
+            />
+          </div>
+        </div>
       </div>
     );
   }
