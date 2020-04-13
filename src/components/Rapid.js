@@ -12,7 +12,7 @@ class Rapid extends Component {
 
     this.state = {
       title: "Click on Something!",
-      desc: null,
+      desc: "",
     };
   }
 

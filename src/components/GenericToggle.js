@@ -3,7 +3,6 @@ import "./GenericToggle.css";
 import PropTypes from "prop-types";
 
 const GenericToggle = (props) => {
-
   const falseStyles = {
     wrapper: "false-wrapper wrapper",
     dot: "false-dot dot",
