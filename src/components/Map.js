@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import "./Map.css";
 import MapLabel from "./MapLabel";
-import Overview from "./VectorAssets/Basemaps/Overview.png";
+import OverviewMap from "./VectorAssets/Basemaps/OverviewMap";
 
 const Map = (props) => {
   const mapLabelArray = props.mapLabel.map((element, key) => (
@@ -18,8 +18,15 @@ const Map = (props) => {
 
   return (
     <div className="Map">
-      <div className="maplabel-array">{mapLabelArray}</div>
-      <img id="overview" src={Overview} alt="Italian Trulli" />
+      <div
+        className="fade"
+        onClick={() => {
+          props.toggleSetting(props.setting);
+        }}
+      ></div>
+
+      <div className="overview-map">{OverviewMap}</div>
+      {/*<div className="maplabel-array">{mapLabelArray}</div>*/}
     </div>
   );
 };
