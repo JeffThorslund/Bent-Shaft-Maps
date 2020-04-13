@@ -13,13 +13,13 @@
 .false-wrapper {
   flex-direction: row;
   background-color: #232020;
-  transition: 0.3s;
+  transition: 0.5s;
 }
 
 .true-wrapper {
   flex-direction: row-reverse;
   background-color: honeydew;
-  transition: 0.3s;
+  transition: 0.5s;
 }
 
 .dot {
@@ -30,12 +30,12 @@
 
 .false-dot {
   background-color: honeydew;
-  transition: 0.3s;
+  transition: 0.5s;
 }
 
 .true-dot {
   background-color: #232020;
-  transition: 0.3s;
+  transition: 0.5s;
 }
 
 .text {

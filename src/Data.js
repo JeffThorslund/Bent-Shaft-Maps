@@ -6,7 +6,6 @@ const Data = [
     // "McCoy's Chute Rapid"
     name: "McCoy's Chute Rapid",
     desc: "A great start to the day",
-    //build map at 1600x900
     riverMap: {
       viewBox: "0 50 1600 900", //Eeeeek watch out for this
       path: BaseMapMcCoys,
@@ -21,7 +20,7 @@ const Data = [
         left: "589.11",
         height: "58.73",
         width: "13.44",
-        rotation: "rotate(95deg)",
+        rotation: 1,
         range: [-10, 12],
       },
       {
@@ -33,7 +32,7 @@ const Data = [
         left: "505.3",
         height: "70.97",
         width: "13.44",
-        rotation: "rotate(0deg)",
+        rotation: 1,
         range: [-10, 13],
       },
       {

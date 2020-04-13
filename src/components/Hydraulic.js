@@ -35,7 +35,6 @@ const Hydraulic = (props) => {
 export default Hydraulic;
 
 Hydraulic.propTypes = {
-  level: PropTypes.number.isRequired,
   hydraulics: PropTypes.object.isRequired,
   displayData: PropTypes.func.isRequired,
 };
