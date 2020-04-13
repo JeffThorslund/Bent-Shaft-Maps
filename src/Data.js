@@ -187,7 +187,7 @@ const Data = [
       },
     ],
     mapLabel: {
-      titleTop: "13vh",
+      titleTop: "40vh",
       titleLeft: "1vw",
       pointerCoordinates: "-56,50 10,0",
     },
