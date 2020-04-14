@@ -5,7 +5,7 @@ const Data = [
   {
     // "McCoy's Chute Rapid"
     name: "McCoy's Chute Rapid",
-    desc: "A great start to the day",
+    desc: "Class III",
     riverMap: {
       viewBox: "0 50 1600 900", //Eeeeek watch out for this
       path: BaseMapMcCoys,
@@ -175,13 +175,13 @@ const Data = [
       {
         name: "Iron Ring",
         rotation: "160deg",
-        bottom: "2vh",
+        bottom: "3vh",
         right: "5vw",
       },
       {
         name: "Magical Mystery Tour",
         rotation: "160deg",
-        bottom: "2vh",
+        bottom: "3vh",
         right: "17vw",
       },
     ],

@@ -4,7 +4,7 @@
   width: 32vw;
   top: 68vh;
   left: 21vw;
-  padding: 1vw 2vw;
+  /*padding: 1vw 2vw;*/
   box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.25);
   border-radius: 17px;
   background-color: #eee9e9;
@@ -14,17 +14,13 @@
   text-align: center;
   color: black;
   font-family: Rock Salt;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 1.8vw;
+  font-size: 1.5vw;
+  padding: 2vh 3vh;
 }
 
 .Display #desc {
   color: black;
   font-family: Ruda;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 1.2vw;
-  padding-bottom: 0.4vw;
-  padding-top: 0.5vw;
+  font-size: 1.1vw;
+  padding: 0vh 3vh 3vh 3vh;
 }

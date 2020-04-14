@@ -7,7 +7,7 @@
   display: flex;
   justify-content: space-between;
   padding: 7px;
-  border: black 3px solid;
+  border: #232020 3px solid;
 }
 
 .false-wrapper {

@@ -1,21 +1,15 @@
 .slider {
   position: absolute;
   top: 4vh;
-  right: 0.5vw;
-  width: 10vw;
-}
-
-.value {
-  font-size: 1.5vw;
-  text-align: center;
-  padding: 5px;
+  right: 1.7vw;
+  width: 1.5vw;
 }
 
 /**
 * Rangeslider
 */
 .rangeslider {
-  margin: 20px 0;
+  margin: 15px 0;
   position: relative;
   background: #e6e6e6;
   -ms-touch-action: none;
@@ -43,8 +37,8 @@
 * Rangeslider - Vertical slider
 */
 .rangeslider-vertical {
-  margin: 10px auto;
-  height: 40vh;
+  margin: 8px auto;
+  height: 30vh;
   max-width: 25px;
   background-color: #d9dcd6;
   border-radius: 8px;
