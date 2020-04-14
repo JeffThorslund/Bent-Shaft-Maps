@@ -26,7 +26,7 @@ const Map = (props) => {
       ></div>
 
       <div className="overview-map">{OverviewMap}</div>
-      {/*<div className="maplabel-array">{mapLabelArray}</div>*/}
+      <div className="maplabel-array">{mapLabelArray}</div>
     </div>
   );
 };
@@ -35,6 +35,6 @@ export default Map;
 
 Map.propTypes = {
   mapLabel: PropTypes.array,
-  toggleMap: PropTypes.func.isRequired,
+  toggleSetting: PropTypes.func.isRequired,
   selectRapid: PropTypes.func.isRequired,
 };

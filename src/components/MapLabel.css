@@ -1,17 +1,24 @@
 .MapLabel {
   position: absolute;
-
   display: flex;
-  flex-direction: row;
   justify-content: center;
   align-items: center;
+  font-family: Ruda;
 }
 
 .MapLabel .name {
-  border: black 2px solid;
-  padding: 1vh;
-  font-size: 2.5vh;
+  font-size: 2.3vh;
   cursor: pointer;
+  background-color: honeydew;
+  color: #232020;
+  border-radius: 30px;
+  padding: 0.9vh 1.4vh;
+}
+
+.MapLabel .name:hover {
+  background-color: #232020;
+  color: honeydew;
+  transition: 0.3s;
 }
 
 .MapLabel .pointer {
@@ -20,4 +27,24 @@
   stroke-width: 0.1vh;
   stroke-linecap: round;
   stroke-linejoin: round;
+}
+
+.svg-box {
+  border: black 1px solid;
+}
+
+.top {
+  flex-direction: column-reverse;
+}
+
+.right {
+  flex-direction: row;
+}
+
+.bottom {
+  flex-direction: column;
+}
+
+.left {
+  flex-direction: row-reverse;
 }
