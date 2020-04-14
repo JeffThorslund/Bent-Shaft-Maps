@@ -37,7 +37,11 @@ class Rapid extends Component {
     return (
       <div className="Rapid">
         <Basemap map={this.props.data.riverMap} />
-        <div id="rapid-name"> {this.props.data.name} </div>
+        <div className="rapid-header">
+          <div id="rapid-name"> {this.props.data.name} </div>
+          <div id="rapid-desc"> {this.props.data.desc} </div>
+        </div>
+
         <div id="level-display">
           <div id="feet"> {this.props.level} ft</div>
           <div id="cfs">{this.props.level * 140 + 600} mm</div>

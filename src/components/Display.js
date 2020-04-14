@@ -5,7 +5,7 @@ import PropTypes from "prop-types";
 const Display = (props) => (
   <div className="Display">
     <div id="title">{props.title}</div>
-    <div id="desc">{props.desc}</div>
+    {props.desc.length > 0 && <div id="desc">{props.desc}</div>}
   </div>
 );
 

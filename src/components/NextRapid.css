@@ -3,7 +3,7 @@
   cursor: pointer;
   padding: 0.8vw;
   background: rgba(255, 255, 255, 0.6);
-  border: 0.2vw solid #000000;
+  border: 0.1vw solid #000000;
   box-sizing: border-box;
   border-radius: 1vw;
 }
@@ -12,7 +12,7 @@
   font-family: Ruda;
   font-style: normal;
   font-weight: normal;
-  font-size: 1.3vw;
+  font-size: 1.1vw;
   text-align: center;
   /* or 133% */
 }

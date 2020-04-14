@@ -3,28 +3,41 @@
   overflow: hidden;
 }
 
-#rapid-name {
+.rapid-header {
   position: absolute;
   left: 50%;
   transform: translate(-50%, 0%);
-  margin-top: 3vw;
+  margin-top: 2vw;
   font-family: Ruda;
   font-style: normal;
-  font-weight: bold;
+
   text-align: center;
+}
+
+#rapid-name {
+  font-weight: bold;
   font-size: 3vw;
+  padding: 0.3vh;
+}
+
+#rapid-desc {
+  font-size: 2vw;
 }
 
 #level-display {
   position: absolute;
-  right: 8vw;
+  right: 5vw;
   top: 5vh;
 
   font-family: Ruda;
   font-style: normal;
   font-weight: normal;
 
-  font-size: 2vw;
+  background-color: rgba(255, 255, 255, 0.5);
+  padding: 0.7vw 0.9vw;
+  border-radius: 10px;
+
+  font-size: 1.5vw;
 }
 
 #background {
