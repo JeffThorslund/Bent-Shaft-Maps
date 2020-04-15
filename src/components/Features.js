@@ -52,7 +52,7 @@ const Features = (props) => {
     <svg
       className="Features"
       id="vector-container"
-      viewBox="0 50 1600 900" //that 50 is very bad and scary
+      viewBox={props.data.riverMap.viewBox} //that 50 is very bad and scary
       xmlns="http://www.w3.org/2000/svg"
       preserveAspectRatio="none"
     >

@@ -12,7 +12,7 @@ const NextRapid = (props) => {
       className="NextRapid"
       style={style}
       onClick={() => {
-        alert("Coming soon!");
+        props.selectRapid(props.arrows.name);
       }}
     >
       <div className="name"> {props.arrows.name}</div>
