@@ -1,11 +1,17 @@
 import React from "react";
 import BaseMapMcCoys from "./components/VectorAssets/Basemaps/McCoysChuteRapid";
+import BaseIronRing from "./components/VectorAssets/Basemaps/IronRingRapid";
 
 const Data = [
   {
     // "McCoy's Chute Rapid"
     name: "McCoy's Chute Rapid",
     desc: "Class III",
+    displayPosition: {
+      top: "70vh",
+      left: "22vw",
+      width: "35vw",
+    },
     riverMap: {
       viewBox: "0 50 1600 900", //Eeeeek watch out for this
       path: BaseMapMcCoys,
@@ -190,6 +196,80 @@ const Data = [
       titleLeft: "15vw",
       pointerDirection: "bottom",
       pointerCoordinates: "60,50",
+    },
+  },
+  {
+    // "Iron Ring"
+    name: "Iron Ring",
+    desc: "Class III",
+    displayPosition: {
+      top: "72vh",
+      left: "32vw",
+      width: "40vw",
+    },
+    riverMap: {
+      viewBox: "0 0 1600 900",
+      path: BaseIronRing,
+    },
+    hydraulics: [
+      {
+        // Phils Hole
+        name: "Main Wave",
+        desc: "Follow the tounge that goes straight down the center!",
+        top: "362.54",
+        left: "498.11",
+        height: "58.73",
+        width: "13.44",
+        rotation: "-1",
+        range: [-10, 12],
+      },
+    ],
+    eddys: [
+      {
+        name: "Room of Doom",
+        desc: "A very bad place for a swimmer to be in.",
+        vector:
+          "M28.3707 92.6862C48.1874 131.518 72.9544 133.242 84.5083 125.713C98.343 116.697 146.964 66.2616 111.653 54.963C67.8403 40.9439 17.4949 37.6564 10.6929 50.4684C3.89083 63.2805 20.1149 76.5084 28.3707 92.6862Z",
+        x: "495",
+        y: "425",
+        range: [-10, 10],
+      },
+    ],
+    lines: [
+      {
+        name: "Punch the Wave",
+        desc: "Go straight through the hole at the bottom of the drop",
+        vector: (
+          <path
+            d="
+                M 150,400
+                q 300,-20 500,0
+                Q 1000,430 1200,400
+                "
+          />
+        ),
+        range: [-10, 12],
+      },
+    ],
+    arrows: [
+      {
+        name: "Little Trickle",
+        rotation: "160deg",
+        bottom: "70vh",
+        right: "10vw",
+      },
+      {
+        name: "S-Bend",
+        rotation: "160deg",
+        bottom: "30vh",
+        right: "12vw",
+      },
+    ],
+    mapLabel: {
+      titleTop: "30vh",
+      titleLeft: "35vw",
+      pointerDirection: "bottom",
+      pointerCoordinates: "80,45",
     },
   },
 ];

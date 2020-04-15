@@ -52,7 +52,11 @@ class Rapid extends Component {
           displayData={this.displayData}
         />
         <div id="arrow-array"> {arrowArray} </div>
-        <Display title={this.state.title} desc={this.state.desc} />
+        <Display
+          title={this.state.title}
+          desc={this.state.desc}
+          displayPosition={this.props.data.displayPosition}
+        />
       </div>
     );
   }

@@ -3,6 +3,23 @@ import PropTypes from "prop-types";
 import "./Line.css";
 
 const Line = (props) => {
+  //Finds starting point of vector and sets circle to that
+  const vector = props.lines.vector.props.d;
+  let x = "";
+  let y = "";
+
+  for (let i = vector.search(/M/i) + 2, count = 0; i < vector.length; i++) {
+    if (/[0-9]/.test(vector[i]) && count === 0) {
+      x = x.concat(vector[i]);
+    } else if (/[0-9]/.test(vector[i]) && count === 1) {
+      y = y.concat(vector[i]);
+    } else if (count === 2) {
+      break;
+    } else {
+      count++;
+    }
+  }
+
   return (
     <g
       onClick={() => {
@@ -11,7 +28,7 @@ const Line = (props) => {
       className="line-hover"
     >
       {props.lines.vector}
-      <circle cx="150" cy="455" r="10" stroke="none" fill="black" />
+      <circle cx={x} cy={y} r="10" stroke="none" fill="black" />
     </g>
   );
 };
