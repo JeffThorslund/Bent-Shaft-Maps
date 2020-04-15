@@ -1,10 +1,10 @@
 import React from "react";
 import BaseMapMcCoys from "./components/VectorAssets/Basemaps/McCoysChuteRapid";
 import BaseIronRing from "./components/VectorAssets/Basemaps/IronRingRapid";
+import BaseMagicalMysteryTour from "./components/VectorAssets/Basemaps/MagicalMysteryTourRapid";
 
 const Data = [
   {
-    // "McCoy's Chute Rapid"
     name: "McCoy's Chute Rapid",
     desc: "Class III",
     displayPosition: {
@@ -193,11 +193,88 @@ const Data = [
     ],
     mapLabel: {
       titleTop: "45vh",
-      titleLeft: "15vw",
+      titleLeft: "11vw",
       pointerDirection: "bottom",
-      pointerCoordinates: "60,50",
+      pointerCoordinates: "35,47",
     },
-  },
+  }, // "McCoy's Chute Rapid"
+
+  {
+    name: "Magical Mystery Tour",
+    desc: "Class II",
+    displayPosition: {
+      top: "72vh",
+      left: "15vw",
+      width: "50vw",
+    },
+    riverMap: {
+      viewBox: "0 0 1600 900",
+      path: BaseMagicalMysteryTour,
+    },
+    hydraulics: [
+      /*{
+        // Phils Hole
+        name: "Main Wave",
+        desc: "Follow the tounge that goes straight down the center!",
+        top: "362.54",
+        left: "498.11",
+        height: "58.73",
+        width: "13.44",
+        rotation: "-1",
+        range: [-10, 12],
+      },*/
+    ],
+    eddys: [
+      /*{
+        name: "Room of Doom",
+        desc: "A very bad place for a swimmer to be in.",
+        vector:
+          "M28.3707 92.6862C48.1874 131.518 72.9544 133.242 84.5083 125.713C98.343 116.697 146.964 66.2616 111.653 54.963C67.8403 40.9439 17.4949 37.6564 10.6929 50.4684C3.89083 63.2805 20.1149 76.5084 28.3707 92.6862Z",
+        x: "495",
+        y: "425",
+        range: [-10, 10],
+      },*/
+    ],
+    lines: [
+      {
+        name: "Chill Out",
+        desc: "Follow the current and enjoy the lazy river-esque ride.",
+        vector: (
+          <path
+            d="
+                M 100,370
+                q 140,-100 250,-60
+                q 150, 60 380, 15
+                q 165, -20 380, 100
+                Q 1250,500 1350,650
+                "
+          />
+        ),
+        range: [-10, 12],
+      },
+    ],
+    arrows: [
+      {
+        name: "Butterfly",
+        rotation: "160deg",
+        bottom: "21vh",
+        right: "3vw",
+      },
+      {
+        name: "McCoy's Chute Rapid",
+        rotation: "160deg",
+        bottom: "47vh",
+        right: "87vw",
+      },
+    ],
+    mapLabel: {
+      titleTop: "30vh",
+      titleLeft: "23vw",
+      pointerDirection: "right",
+      pointerCoordinates: "40,50",
+    },
+  }, //Magical Mystery Tour
+
   {
     // "Iron Ring"
     name: "Iron Ring",
@@ -264,6 +341,12 @@ const Data = [
         bottom: "30vh",
         right: "12vw",
       },
+      {
+        name: "McCoy's Chute Rapid",
+        rotation: "160deg",
+        bottom: "65vh",
+        right: "85vw",
+      },
     ],
     mapLabel: {
       titleTop: "30vh",
@@ -271,7 +354,7 @@ const Data = [
       pointerDirection: "bottom",
       pointerCoordinates: "80,45",
     },
-  },
+  }, //Iron Ring
 ];
 
 export default Data;
