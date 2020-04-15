@@ -29,10 +29,6 @@
   stroke-linejoin: round;
 }
 
-.svg-box {
-  border: black 1px solid;
-}
-
 .top {
   flex-direction: column-reverse;
 }
