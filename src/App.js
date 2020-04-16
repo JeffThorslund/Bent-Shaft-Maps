@@ -13,8 +13,8 @@ class App extends Component {
 
     this.state = {
       level: 6,
-      rapid: "Magical Mystery Tour",//"McCoy's Chute Rapid"
-      mapBool: true,
+      rapid: "McCoy's Chute Rapid",//"McCoy's Chute Rapid"
+      mapBool: false,
       symbolBool: false,
     };
   }
