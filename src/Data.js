@@ -1,7 +1,14 @@
 import React from "react";
-import BaseMapMcCoys from "./components/VectorAssets/Basemaps/McCoysChuteRapid";
-import BaseIronRing from "./components/VectorAssets/Basemaps/IronRingRapid";
-import BaseMagicalMysteryTour from "./components/VectorAssets/Basemaps/MagicalMysteryTourRapid";
+import McCoysChuteRapid from "./components/VectorAssets/Basemaps/McCoysChuteRapid";
+import IronRingRapid from "./components/VectorAssets/Basemaps/IronRingRapid";
+import MagicalMysteryTourRapid from "./components/VectorAssets/Basemaps/MagicalMysteryTourRapid";
+import SBendRapid from "./components/VectorAssets/Basemaps/SBendRapid";
+import ButteryflyRapid from "./components/VectorAssets/Basemaps/ButteryflyRapid";
+import LittleTrickleRapid from "./components/VectorAssets/Basemaps/LittleTrickleRapid";
+import BigKahunaRapid from "./components/VectorAssets/Basemaps/BigKahunaRapid";
+import GarvinsRapid from "./components/VectorAssets/Basemaps/GarvinsRapid";
+import UpperNoNameRapid from "./components/VectorAssets/Basemaps/UpperNoNameRapid";
+import LowerNoNameRapid from "./components/VectorAssets/Basemaps/LowerNoNameRapid";
 
 const Data = [
   {
@@ -14,7 +21,7 @@ const Data = [
     },
     riverMap: {
       viewBox: "0 50 1600 900", //Eeeeek watch out for this
-      path: BaseMapMcCoys,
+      path: McCoysChuteRapid,
     },
     hydraulics: [
       {
@@ -181,15 +188,21 @@ const Data = [
       {
         name: "Iron Ring",
         rotation: "160deg",
-        bottom: "3vh",
+        bottom: "4vh",
         right: "5vw",
-      },
+      }, //Iron Ring
       {
         name: "Magical Mystery Tour",
         rotation: "160deg",
-        bottom: "3vh",
+        bottom: "25vh",
+        right: "2vw",
+      }, //Magical Mystery Tour
+      {
+        name: "Little Trickle",
+        rotation: "160deg",
+        bottom: "4vh",
         right: "17vw",
-      },
+      }, //Little Trickle
     ],
     mapLabel: {
       titleTop: "45vh",
@@ -209,7 +222,7 @@ const Data = [
     },
     riverMap: {
       viewBox: "0 0 1600 900",
-      path: BaseMagicalMysteryTour,
+      path: MagicalMysteryTourRapid,
     },
     hydraulics: [
       /*{
@@ -259,13 +272,13 @@ const Data = [
         rotation: "160deg",
         bottom: "21vh",
         right: "3vw",
-      },
+      }, //Butterfly
       {
         name: "McCoy's Chute Rapid",
         rotation: "160deg",
         bottom: "47vh",
         right: "87vw",
-      },
+      }, //McCoy's Chute Rapid
     ],
     mapLabel: {
       titleTop: "30vh",
@@ -286,7 +299,7 @@ const Data = [
     },
     riverMap: {
       viewBox: "0 0 1600 900",
-      path: BaseIronRing,
+      path: IronRingRapid,
     },
     hydraulics: [
       {
@@ -330,23 +343,18 @@ const Data = [
     ],
     arrows: [
       {
-        name: "Little Trickle",
+        name: "S-Bend",
         rotation: "160deg",
         bottom: "70vh",
         right: "10vw",
-      },
-      {
-        name: "S-Bend",
-        rotation: "160deg",
-        bottom: "30vh",
-        right: "12vw",
-      },
+      }, //S-Bend
+
       {
         name: "McCoy's Chute Rapid",
         rotation: "160deg",
         bottom: "65vh",
         right: "85vw",
-      },
+      }, //McCoy's Chute Rapid
     ],
     mapLabel: {
       titleTop: "30vh",
@@ -355,6 +363,530 @@ const Data = [
       pointerCoordinates: "80,45",
     },
   }, //Iron Ring
+
+  {
+    name: "S-Bend",
+    desc: "Class III",
+    displayPosition: {
+      top: "72vh",
+      left: "32vw",
+      width: "40vw",
+    },
+    riverMap: {
+      viewBox: "0 0 1600 900",
+      path: SBendRapid,
+    },
+    hydraulics: [
+      {
+        name: "Main Wave",
+        desc: "Follow the tounge that goes straight down the center!",
+        top: "362.54",
+        left: "498.11",
+        height: "58.73",
+        width: "13.44",
+        rotation: "-1",
+        range: [-10, 12],
+      },
+    ],
+    eddys: [
+      {
+        name: "Room of Doom",
+        desc: "A very bad place for a swimmer to be in.",
+        vector:
+          "M28.3707 92.6862C48.1874 131.518 72.9544 133.242 84.5083 125.713C98.343 116.697 146.964 66.2616 111.653 54.963C67.8403 40.9439 17.4949 37.6564 10.6929 50.4684C3.89083 63.2805 20.1149 76.5084 28.3707 92.6862Z",
+        x: "495",
+        y: "425",
+        range: [-10, 10],
+      },
+    ],
+    lines: [
+      {
+        name: "Punch the Wave",
+        desc: "Go straight through the hole at the bottom of the drop",
+        vector: (
+          <path
+            d="
+                M 150,400
+                q 300,-20 500,0
+                Q 1000,430 1200,400
+                "
+          />
+        ),
+        range: [-10, 12],
+      },
+    ],
+    arrows: [
+      {
+        name: "Butterfly",
+        rotation: "160deg",
+        bottom: "70vh",
+        right: "10vw",
+      }, //Butterfly
+
+      {
+        name: "Iron Ring",
+        rotation: "160deg",
+        bottom: "65vh",
+        right: "87vw",
+      }, //Iron Ring
+    ],
+    mapLabel: {
+      titleTop: "30vh",
+      titleLeft: "43vw",
+      pointerDirection: "bottom",
+      pointerCoordinates: "80,45",
+    },
+  }, //S-Bend
+
+  {
+    name: "Butterfly",
+    desc: "Class III",
+    displayPosition: {
+      top: "72vh",
+      left: "32vw",
+      width: "40vw",
+    },
+    riverMap: {
+      viewBox: "0 0 1600 900",
+      path: ButteryflyRapid,
+    },
+    hydraulics: [
+      {
+        name: "Main Wave",
+        desc: "Follow the tounge that goes straight down the center!",
+        top: "362.54",
+        left: "498.11",
+        height: "58.73",
+        width: "13.44",
+        rotation: "-1",
+        range: [-10, 12],
+      },
+    ],
+    eddys: [
+      {
+        name: "Room of Doom",
+        desc: "A very bad place for a swimmer to be in.",
+        vector:
+          "M28.3707 92.6862C48.1874 131.518 72.9544 133.242 84.5083 125.713C98.343 116.697 146.964 66.2616 111.653 54.963C67.8403 40.9439 17.4949 37.6564 10.6929 50.4684C3.89083 63.2805 20.1149 76.5084 28.3707 92.6862Z",
+        x: "495",
+        y: "425",
+        range: [-10, 10],
+      },
+    ],
+    lines: [
+      {
+        name: "Punch the Wave",
+        desc: "Go straight through the hole at the bottom of the drop",
+        vector: (
+          <path
+            d="
+                M 150,400
+                q 300,-20 500,0
+                Q 1000,430 1200,400
+                "
+          />
+        ),
+        range: [-10, 12],
+      },
+    ],
+    arrows: [
+      {
+        name: "Garvins",
+        rotation: "160deg",
+        bottom: "70vh",
+        right: "10vw",
+      }, //Garvins
+
+      {
+        name: "S-Bend",
+        rotation: "160deg",
+        bottom: "65vh",
+        right: "87vw",
+      }, //S-Bend
+
+      {
+        name: "Magical Mystery Tour",
+        rotation: "160deg",
+        bottom: "55vh",
+        right: "87vw",
+      }, //Magical Mystery Tour
+    ],
+    mapLabel: {
+      titleTop: "30vh",
+      titleLeft: "43vw",
+      pointerDirection: "bottom",
+      pointerCoordinates: "80,45",
+    },
+  }, //Butterfly
+
+  {
+    name: "Little Trickle",
+    desc: "Class III",
+    displayPosition: {
+      top: "72vh",
+      left: "32vw",
+      width: "40vw",
+    },
+    riverMap: {
+      viewBox: "0 0 1600 900",
+      path: LittleTrickleRapid,
+    },
+    hydraulics: [
+      {
+        name: "Main Wave",
+        desc: "Follow the tounge that goes straight down the center!",
+        top: "362.54",
+        left: "498.11",
+        height: "58.73",
+        width: "13.44",
+        rotation: "-1",
+        range: [-10, 12],
+      },
+    ],
+    eddys: [
+      {
+        name: "Room of Doom",
+        desc: "A very bad place for a swimmer to be in.",
+        vector:
+          "M28.3707 92.6862C48.1874 131.518 72.9544 133.242 84.5083 125.713C98.343 116.697 146.964 66.2616 111.653 54.963C67.8403 40.9439 17.4949 37.6564 10.6929 50.4684C3.89083 63.2805 20.1149 76.5084 28.3707 92.6862Z",
+        x: "495",
+        y: "425",
+        range: [-10, 10],
+      },
+    ],
+    lines: [
+      {
+        name: "Punch the Wave",
+        desc: "Go straight through the hole at the bottom of the drop",
+        vector: (
+          <path
+            d="
+                M 150,400
+                q 300,-20 500,0
+                Q 1000,430 1200,400
+                "
+          />
+        ),
+        range: [-10, 12],
+      },
+    ],
+    arrows: [
+      {
+        name: "Big Kahuna",
+        rotation: "160deg",
+        bottom: "70vh",
+        right: "10vw",
+      }, //Big Kahuna
+
+      {
+        name: "McCoy's Chute Rapid",
+        rotation: "160deg",
+        bottom: "65vh",
+        right: "87vw",
+      }, //McCoy's Chute Rapid
+    ],
+    mapLabel: {
+      titleTop: "30vh",
+      titleLeft: "43vw",
+      pointerDirection: "bottom",
+      pointerCoordinates: "80,45",
+    },
+  }, //Little Trickle
+
+  {
+    name: "Big Kahuna",
+    desc: "Class III",
+    displayPosition: {
+      top: "72vh",
+      left: "32vw",
+      width: "40vw",
+    },
+    riverMap: {
+      viewBox: "0 0 1600 900",
+      path: BigKahunaRapid,
+    },
+    hydraulics: [
+      {
+        name: "Main Wave",
+        desc: "Follow the tounge that goes straight down the center!",
+        top: "362.54",
+        left: "498.11",
+        height: "58.73",
+        width: "13.44",
+        rotation: "-1",
+        range: [-10, 12],
+      },
+    ],
+    eddys: [
+      {
+        name: "Room of Doom",
+        desc: "A very bad place for a swimmer to be in.",
+        vector:
+          "M28.3707 92.6862C48.1874 131.518 72.9544 133.242 84.5083 125.713C98.343 116.697 146.964 66.2616 111.653 54.963C67.8403 40.9439 17.4949 37.6564 10.6929 50.4684C3.89083 63.2805 20.1149 76.5084 28.3707 92.6862Z",
+        x: "495",
+        y: "425",
+        range: [-10, 10],
+      },
+    ],
+    lines: [
+      {
+        name: "Punch the Wave",
+        desc: "Go straight through the hole at the bottom of the drop",
+        vector: (
+          <path
+            d="
+                M 150,400
+                q 300,-20 500,0
+                Q 1000,430 1200,400
+                "
+          />
+        ),
+        range: [-10, 12],
+      },
+    ],
+    arrows: [
+      {
+        name: "Garvins",
+        rotation: "160deg",
+        bottom: "70vh",
+        right: "10vw",
+      }, //Garvins
+
+      {
+        name: "Little Trickle",
+        rotation: "160deg",
+        bottom: "65vh",
+        right: "87vw",
+      }, //Little Trickle
+    ],
+    mapLabel: {
+      titleTop: "30vh",
+      titleLeft: "43vw",
+      pointerDirection: "bottom",
+      pointerCoordinates: "80,45",
+    },
+  }, //Big Kahuna
+
+  {
+    name: "Garvins",
+    desc: "Class IV",
+    displayPosition: {
+      top: "72vh",
+      left: "32vw",
+      width: "40vw",
+    },
+    riverMap: {
+      viewBox: "0 0 1600 900",
+      path: GarvinsRapid,
+    },
+    hydraulics: [
+      {
+        name: "Main Wave",
+        desc: "Follow the tounge that goes straight down the center!",
+        top: "362.54",
+        left: "498.11",
+        height: "58.73",
+        width: "13.44",
+        rotation: "-1",
+        range: [-10, 12],
+      },
+    ],
+    eddys: [
+      {
+        name: "Room of Doom",
+        desc: "A very bad place for a swimmer to be in.",
+        vector:
+          "M28.3707 92.6862C48.1874 131.518 72.9544 133.242 84.5083 125.713C98.343 116.697 146.964 66.2616 111.653 54.963C67.8403 40.9439 17.4949 37.6564 10.6929 50.4684C3.89083 63.2805 20.1149 76.5084 28.3707 92.6862Z",
+        x: "495",
+        y: "425",
+        range: [-10, 10],
+      },
+    ],
+    lines: [
+      {
+        name: "Punch the Wave",
+        desc: "Go straight through the hole at the bottom of the drop",
+        vector: (
+          <path
+            d="
+                M 150,400
+                q 300,-20 500,0
+                Q 1000,430 1200,400
+                "
+          />
+        ),
+        range: [-10, 12],
+      },
+    ],
+    arrows: [
+      {
+        name: "Upper No Name",
+        rotation: "160deg",
+        bottom: "70vh",
+        right: "10vw",
+      }, //Upper No Name
+
+      {
+        name: "Butterfly",
+        rotation: "160deg",
+        bottom: "65vh",
+        right: "87vw",
+      }, //Butterfly
+      {
+        name: "Big Kahuna",
+        rotation: "160deg",
+        bottom: "55vh",
+        right: "87vw",
+      }, //Big Kahuna
+    ],
+    mapLabel: {
+      titleTop: "30vh",
+      titleLeft: "43vw",
+      pointerDirection: "bottom",
+      pointerCoordinates: "80,45",
+    },
+  }, //Garvins
+
+  {
+    name: "Upper No Name",
+    desc: "Class III",
+    displayPosition: {
+      top: "72vh",
+      left: "32vw",
+      width: "40vw",
+    },
+    riverMap: {
+      viewBox: "0 0 1600 900",
+      path: UpperNoNameRapid,
+    },
+    hydraulics: [
+      {
+        name: "Main Wave",
+        desc: "Follow the tounge that goes straight down the center!",
+        top: "362.54",
+        left: "498.11",
+        height: "58.73",
+        width: "13.44",
+        rotation: "-1",
+        range: [-10, 12],
+      },
+    ],
+    eddys: [
+      {
+        name: "Room of Doom",
+        desc: "A very bad place for a swimmer to be in.",
+        vector:
+          "M28.3707 92.6862C48.1874 131.518 72.9544 133.242 84.5083 125.713C98.343 116.697 146.964 66.2616 111.653 54.963C67.8403 40.9439 17.4949 37.6564 10.6929 50.4684C3.89083 63.2805 20.1149 76.5084 28.3707 92.6862Z",
+        x: "495",
+        y: "425",
+        range: [-10, 10],
+      },
+    ],
+    lines: [
+      {
+        name: "Punch the Wave",
+        desc: "Go straight through the hole at the bottom of the drop",
+        vector: (
+          <path
+            d="
+                M 150,400
+                q 300,-20 500,0
+                Q 1000,430 1200,400
+                "
+          />
+        ),
+        range: [-10, 12],
+      },
+    ],
+    arrows: [
+      {
+        name: "Lower No Name",
+        rotation: "160deg",
+        bottom: "70vh",
+        right: "10vw",
+      }, //Lower No Name
+
+      {
+        name: "Garvins",
+        rotation: "160deg",
+        bottom: "65vh",
+        right: "87vw",
+      }, //Garvins
+    ],
+    mapLabel: {
+      titleTop: "30vh",
+      titleLeft: "43vw",
+      pointerDirection: "bottom",
+      pointerCoordinates: "80,45",
+    },
+  }, //Upper No Name
+
+  {
+    name: "Lower No Name",
+    desc: "Class III",
+    displayPosition: {
+      top: "72vh",
+      left: "32vw",
+      width: "40vw",
+    },
+    riverMap: {
+      viewBox: "0 0 1600 900",
+      path: LowerNoNameRapid,
+    },
+    hydraulics: [
+      {
+        name: "Main Wave",
+        desc: "Follow the tounge that goes straight down the center!",
+        top: "362.54",
+        left: "498.11",
+        height: "58.73",
+        width: "13.44",
+        rotation: "-1",
+        range: [-10, 12],
+      },
+    ],
+    eddys: [
+      {
+        name: "Room of Doom",
+        desc: "A very bad place for a swimmer to be in.",
+        vector:
+          "M28.3707 92.6862C48.1874 131.518 72.9544 133.242 84.5083 125.713C98.343 116.697 146.964 66.2616 111.653 54.963C67.8403 40.9439 17.4949 37.6564 10.6929 50.4684C3.89083 63.2805 20.1149 76.5084 28.3707 92.6862Z",
+        x: "495",
+        y: "425",
+        range: [-10, 10],
+      },
+    ],
+    lines: [
+      {
+        name: "Punch the Wave",
+        desc: "Go straight through the hole at the bottom of the drop",
+        vector: (
+          <path
+            d="
+                M 150,400
+                q 300,-20 500,0
+                Q 1000,430 1200,400
+                "
+          />
+        ),
+        range: [-10, 12],
+      },
+    ],
+    arrows: [
+      {
+        name: "Upper No Name",
+        rotation: "160deg",
+        bottom: "65vh",
+        right: "87vw",
+      }, //Upper No Name
+    ],
+    mapLabel: {
+      titleTop: "30vh",
+      titleLeft: "43vw",
+      pointerDirection: "bottom",
+      pointerCoordinates: "80,45",
+    },
+  }, //Lower No Name
 ];
 
 export default Data;

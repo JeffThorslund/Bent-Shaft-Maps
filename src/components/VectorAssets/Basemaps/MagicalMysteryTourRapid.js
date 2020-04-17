@@ -1,6 +1,6 @@
 import React from "react";
 
-const BaseMapMagicalMysteryTour = (
+const MagicalMysteryTourRapid = (
   <g>
     <g>
       <g clip-path="url(#clip0)">
@@ -52,4 +52,4 @@ const BaseMapMagicalMysteryTour = (
   </g>
 );
 
-export default BaseMapMagicalMysteryTour;
+export default MagicalMysteryTourRapid;
