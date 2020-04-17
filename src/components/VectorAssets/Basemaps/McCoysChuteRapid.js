@@ -1,5 +1,5 @@
 import React from "react";
-const BaseMapMcCoys = (
+const McCoysChuteRapid = (
   <g>
     <rect
       x="-91.1572"
@@ -90,4 +90,4 @@ const BaseMapMcCoys = (
   </g>
 );
 
-export default BaseMapMcCoys;
+export default McCoysChuteRapid;

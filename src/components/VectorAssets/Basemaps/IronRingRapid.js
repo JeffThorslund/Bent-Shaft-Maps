@@ -1,6 +1,6 @@
 import React from "react";
 
-const BaseMapIronRing = (
+const IronRingRapid = (
   <g>
     <g>
       <g clip-path="url(#clip0)">
@@ -88,4 +88,4 @@ const BaseMapIronRing = (
   </g>
 );
 
-export default BaseMapIronRing;
+export default IronRingRapid;
