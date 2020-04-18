@@ -597,8 +597,8 @@ const Data = [
     name: "Big Kahuna",
     desc: "Class III",
     displayPosition: {
-      top: "72vh",
-      left: "32vw",
+      top: "65vh",
+      left: "2vw",
       width: "40vw",
     },
     riverMap: {
@@ -606,7 +606,7 @@ const Data = [
       path: BigKahunaRapid,
     },
     hydraulics: [
-      {
+      /*  {
         name: "Main Wave",
         desc: "Follow the tounge that goes straight down the center!",
         top: "362.54",
@@ -615,10 +615,10 @@ const Data = [
         width: "13.44",
         rotation: "-1",
         range: [-10, 12],
-      },
+      },*/
     ],
     eddys: [
-      {
+      /* {
         name: "Room of Doom",
         desc: "A very bad place for a swimmer to be in.",
         vector:
@@ -626,10 +626,10 @@ const Data = [
         x: "495",
         y: "425",
         range: [-10, 10],
-      },
+      },*/
     ],
     lines: [
-      {
+      /*{
         name: "Punch the Wave",
         desc: "Go straight through the hole at the bottom of the drop",
         vector: (
@@ -642,13 +642,13 @@ const Data = [
           />
         ),
         range: [-10, 12],
-      },
+      },*/
     ],
     arrows: [
       {
         name: "Garvins",
         rotation: "160deg",
-        bottom: "70vh",
+        bottom: "60vh",
         right: "10vw",
       }, //Garvins
 
@@ -680,7 +680,7 @@ const Data = [
       path: GarvinsRapid,
     },
     hydraulics: [
-     /* {
+      /* {
         name: "Main Wave",
         desc: "Follow the tounge that goes straight down the center!",
         top: "362.54",
@@ -751,16 +751,16 @@ const Data = [
     name: "Upper No Name",
     desc: "Class III",
     displayPosition: {
-      top: "72vh",
-      left: "32vw",
-      width: "40vw",
+      top: "50vh",
+      left: "2vw",
+      width: "25vw",
     },
     riverMap: {
       viewBox: "0 0 1600 900",
       path: UpperNoNameRapid,
     },
     hydraulics: [
-      {
+      /* {
         name: "Main Wave",
         desc: "Follow the tounge that goes straight down the center!",
         top: "362.54",
@@ -769,10 +769,10 @@ const Data = [
         width: "13.44",
         rotation: "-1",
         range: [-10, 12],
-      },
+      },*/
     ],
     eddys: [
-      {
+      /*  {
         name: "Room of Doom",
         desc: "A very bad place for a swimmer to be in.",
         vector:
@@ -780,10 +780,10 @@ const Data = [
         x: "495",
         y: "425",
         range: [-10, 10],
-      },
+      },*/
     ],
     lines: [
-      {
+      /*  {
         name: "Punch the Wave",
         desc: "Go straight through the hole at the bottom of the drop",
         vector: (
@@ -796,20 +796,20 @@ const Data = [
           />
         ),
         range: [-10, 12],
-      },
+      },*/
     ],
     arrows: [
       {
         name: "Lower No Name",
         rotation: "160deg",
-        bottom: "70vh",
-        right: "10vw",
+        bottom: "45vh",
+        right: "8vw",
       }, //Lower No Name
 
       {
         name: "Garvins",
         rotation: "160deg",
-        bottom: "65vh",
+        bottom: "75vh",
         right: "87vw",
       }, //Garvins
     ],
@@ -834,7 +834,7 @@ const Data = [
       path: LowerNoNameRapid,
     },
     hydraulics: [
-      {
+      /*{
         name: "Main Wave",
         desc: "Follow the tounge that goes straight down the center!",
         top: "362.54",
@@ -843,10 +843,10 @@ const Data = [
         width: "13.44",
         rotation: "-1",
         range: [-10, 12],
-      },
+      },*/
     ],
     eddys: [
-      {
+      /*{
         name: "Room of Doom",
         desc: "A very bad place for a swimmer to be in.",
         vector:
@@ -854,10 +854,10 @@ const Data = [
         x: "495",
         y: "425",
         range: [-10, 10],
-      },
+      },*/
     ],
     lines: [
-      {
+      /* {
         name: "Punch the Wave",
         desc: "Go straight through the hole at the bottom of the drop",
         vector: (
@@ -870,13 +870,13 @@ const Data = [
           />
         ),
         range: [-10, 12],
-      },
+      },*/
     ],
     arrows: [
       {
         name: "Upper No Name",
         rotation: "160deg",
-        bottom: "65vh",
+        bottom: "40vh",
         right: "87vw",
       }, //Upper No Name
     ],
