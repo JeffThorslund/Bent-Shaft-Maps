@@ -276,8 +276,8 @@ const Data = [
       {
         name: "McCoy's Chute Rapid",
         rotation: "160deg",
-        bottom: "47vh",
-        right: "87vw",
+        bottom: "42vh",
+        right: "85vw",
       }, //McCoy's Chute Rapid
     ],
     mapLabel: {
@@ -293,9 +293,9 @@ const Data = [
     name: "Iron Ring",
     desc: "Class III",
     displayPosition: {
-      top: "72vh",
+      top: "76vh",
       left: "32vw",
-      width: "40vw",
+      width: "43vw",
     },
     riverMap: {
       viewBox: "0 0 1600 900",
@@ -345,7 +345,7 @@ const Data = [
       {
         name: "S-Bend",
         rotation: "160deg",
-        bottom: "70vh",
+        bottom: "55vh",
         right: "10vw",
       }, //S-Bend
 
@@ -369,15 +369,15 @@ const Data = [
     desc: "Class III",
     displayPosition: {
       top: "72vh",
-      left: "32vw",
-      width: "40vw",
+      left: "23vw",
+      width: "55vw",
     },
     riverMap: {
       viewBox: "0 0 1600 900",
       path: SBendRapid,
     },
     hydraulics: [
-      {
+      /*{
         name: "Main Wave",
         desc: "Follow the tounge that goes straight down the center!",
         top: "362.54",
@@ -386,10 +386,10 @@ const Data = [
         width: "13.44",
         rotation: "-1",
         range: [-10, 12],
-      },
+      },*/
     ],
     eddys: [
-      {
+      /* {
         name: "Room of Doom",
         desc: "A very bad place for a swimmer to be in.",
         vector:
@@ -397,10 +397,10 @@ const Data = [
         x: "495",
         y: "425",
         range: [-10, 10],
-      },
+      },*/
     ],
     lines: [
-      {
+      /*{
         name: "Punch the Wave",
         desc: "Go straight through the hole at the bottom of the drop",
         vector: (
@@ -413,7 +413,7 @@ const Data = [
           />
         ),
         range: [-10, 12],
-      },
+      },*/
     ],
     arrows: [
       {
@@ -426,7 +426,7 @@ const Data = [
       {
         name: "Iron Ring",
         rotation: "160deg",
-        bottom: "65vh",
+        bottom: "61vh",
         right: "87vw",
       }, //Iron Ring
     ],
@@ -442,16 +442,16 @@ const Data = [
     name: "Butterfly",
     desc: "Class III",
     displayPosition: {
-      top: "72vh",
-      left: "32vw",
-      width: "40vw",
+      top: "75vh",
+      left: "50vw",
+      width: "45vw",
     },
     riverMap: {
       viewBox: "0 0 1600 900",
       path: ButteryflyRapid,
     },
     hydraulics: [
-      {
+      /*{
         name: "Main Wave",
         desc: "Follow the tounge that goes straight down the center!",
         top: "362.54",
@@ -460,10 +460,10 @@ const Data = [
         width: "13.44",
         rotation: "-1",
         range: [-10, 12],
-      },
+      },*/
     ],
     eddys: [
-      {
+      /*{
         name: "Room of Doom",
         desc: "A very bad place for a swimmer to be in.",
         vector:
@@ -471,10 +471,10 @@ const Data = [
         x: "495",
         y: "425",
         range: [-10, 10],
-      },
+      },*/
     ],
     lines: [
-      {
+      /*{
         name: "Punch the Wave",
         desc: "Go straight through the hole at the bottom of the drop",
         vector: (
@@ -487,28 +487,28 @@ const Data = [
           />
         ),
         range: [-10, 12],
-      },
+      },*/
     ],
     arrows: [
       {
         name: "Garvins",
         rotation: "160deg",
-        bottom: "70vh",
-        right: "10vw",
+        bottom: "37vh",
+        right: "9vw",
       }, //Garvins
 
       {
         name: "S-Bend",
         rotation: "160deg",
-        bottom: "65vh",
+        bottom: "45vh",
         right: "87vw",
       }, //S-Bend
 
       {
         name: "Magical Mystery Tour",
         rotation: "160deg",
-        bottom: "55vh",
-        right: "87vw",
+        bottom: "60vh",
+        right: "84vw",
       }, //Magical Mystery Tour
     ],
     mapLabel: {
@@ -680,7 +680,7 @@ const Data = [
       path: GarvinsRapid,
     },
     hydraulics: [
-      {
+     /* {
         name: "Main Wave",
         desc: "Follow the tounge that goes straight down the center!",
         top: "362.54",
@@ -689,10 +689,10 @@ const Data = [
         width: "13.44",
         rotation: "-1",
         range: [-10, 12],
-      },
+      },*/
     ],
     eddys: [
-      {
+      /*{
         name: "Room of Doom",
         desc: "A very bad place for a swimmer to be in.",
         vector:
@@ -700,10 +700,10 @@ const Data = [
         x: "495",
         y: "425",
         range: [-10, 10],
-      },
+      },*/
     ],
     lines: [
-      {
+      /*{
         name: "Punch the Wave",
         desc: "Go straight through the hole at the bottom of the drop",
         vector: (
@@ -716,26 +716,26 @@ const Data = [
           />
         ),
         range: [-10, 12],
-      },
+      },*/
     ],
     arrows: [
       {
         name: "Upper No Name",
         rotation: "160deg",
-        bottom: "70vh",
-        right: "10vw",
+        bottom: "30vh",
+        right: "8vw",
       }, //Upper No Name
 
       {
         name: "Butterfly",
         rotation: "160deg",
-        bottom: "65vh",
+        bottom: "50vh",
         right: "87vw",
       }, //Butterfly
       {
         name: "Big Kahuna",
         rotation: "160deg",
-        bottom: "55vh",
+        bottom: "30vh",
         right: "87vw",
       }, //Big Kahuna
     ],
