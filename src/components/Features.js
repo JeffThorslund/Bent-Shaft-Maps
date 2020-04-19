@@ -51,8 +51,6 @@ const Features = (props) => {
     return null;
   });
 
-  console.log(lineArray.length);
-
   return (
     <svg
       className="Features"

@@ -189,7 +189,7 @@ const Data = [
     ],
     symbols: [
       {
-        type: "caution",
+        type: "Caution",
         desc:
           "There is no safe way to navigate this rapid at this water level.",
         top: "200",
@@ -365,6 +365,15 @@ const Data = [
         range: [-10, 8],
       },
     ],
+    symbols: [
+      {
+        type: "Caution",
+        desc:
+          "There is no safe way to navigate this rapid at this water level.",
+        top: "300",
+        left: "250",
+      },
+    ],
     arrows: [
       {
         name: "S-Bend",
@@ -438,6 +447,15 @@ const Data = [
         ),
         range: [-10, 12],
       },*/
+    ],
+    symbols: [
+      {
+        type: "Caution",
+        desc:
+          "There is no safe way to navigate this rapid at this water level.",
+        top: "400",
+        left: "300",
+      },
     ],
     arrows: [
       {
@@ -513,6 +531,15 @@ const Data = [
         range: [-10, 12],
       },*/
     ],
+    symbols: [
+      {
+        type: "Caution",
+        desc:
+          "There is no safe way to navigate this rapid at this water level.",
+        top: "350",
+        left: "400",
+      },
+    ],
     arrows: [
       {
         name: "Garvins",
@@ -556,7 +583,7 @@ const Data = [
       path: LittleTrickleRapid,
     },
     hydraulics: [
-      {
+      /*{
         name: "Main Wave",
         desc: "Follow the tounge that goes straight down the center!",
         top: "362.54",
@@ -565,10 +592,10 @@ const Data = [
         width: "13.44",
         rotation: "-1",
         range: [-10, 12],
-      },
+      },*/
     ],
     eddys: [
-      {
+      /*{
         name: "Room of Doom",
         desc: "A very bad place for a swimmer to be in.",
         vector:
@@ -576,10 +603,10 @@ const Data = [
         x: "495",
         y: "425",
         range: [-10, 10],
-      },
+      },*/
     ],
     lines: [
-      {
+      /*{
         name: "Punch the Wave",
         desc: "Go straight through the hole at the bottom of the drop",
         vector: (
@@ -592,6 +619,15 @@ const Data = [
           />
         ),
         range: [-10, 12],
+      },*/
+    ],
+    symbols: [
+      {
+        type: "Caution",
+        desc:
+          "There is no safe way to navigate this rapid at this water level.",
+        top: "400",
+        left: "200",
       },
     ],
     arrows: [
@@ -599,7 +635,7 @@ const Data = [
         name: "Big Kahuna",
         rotation: "160deg",
         bottom: "70vh",
-        right: "10vw",
+        right: "15vw",
       }, //Big Kahuna
 
       {
@@ -668,6 +704,15 @@ const Data = [
         range: [-10, 12],
       },*/
     ],
+    symbols: [
+      {
+        type: "Caution",
+        desc:
+          "There is no safe way to navigate this rapid at this water level.",
+        top: "300",
+        left: "300",
+      },
+    ],
     arrows: [
       {
         name: "Garvins",
@@ -696,7 +741,7 @@ const Data = [
     desc: "Class IV",
     displayPosition: {
       top: "72vh",
-      left: "32vw",
+      left: "2vw",
       width: "40vw",
     },
     riverMap: {
@@ -742,6 +787,15 @@ const Data = [
         range: [-10, 12],
       },*/
     ],
+    symbols: [
+      {
+        type: "Caution",
+        desc:
+          "There is no safe way to navigate this rapid at this water level.",
+        top: "400",
+        left: "500",
+      },
+    ],
     arrows: [
       {
         name: "Upper No Name",
@@ -775,7 +829,7 @@ const Data = [
     name: "Upper No Name",
     desc: "Class III",
     displayPosition: {
-      top: "50vh",
+      top: "55vh",
       left: "2vw",
       width: "25vw",
     },
@@ -822,6 +876,15 @@ const Data = [
         range: [-10, 12],
       },*/
     ],
+    symbols: [
+      {
+        type: "Caution",
+        desc:
+          "There is no safe way to navigate this rapid at this water level.",
+        top: "200",
+        left: "300",
+      },
+    ],
     arrows: [
       {
         name: "Lower No Name",
@@ -849,8 +912,8 @@ const Data = [
     name: "Lower No Name",
     desc: "Class III",
     displayPosition: {
-      top: "72vh",
-      left: "32vw",
+      top: "68vh",
+      left: "2vw",
       width: "40vw",
     },
     riverMap: {
@@ -895,6 +958,15 @@ const Data = [
         ),
         range: [-10, 12],
       },*/
+    ],
+    symbols: [
+      {
+        type: "Caution",
+        desc:
+          "There is no safe way to navigate this rapid at this water level.",
+        top: "430",
+        left: "300",
+      },
     ],
     arrows: [
       {
