@@ -5,7 +5,7 @@ import MagicalMysteryTourRapid from "./components/VectorAssets/Basemaps/MagicalM
 import SBendRapid from "./components/VectorAssets/Basemaps/SBendRapid";
 import ButteryflyRapid from "./components/VectorAssets/Basemaps/ButteryflyRapid";
 import LittleTrickleRapid from "./components/VectorAssets/Basemaps/LittleTrickleRapid";
-import BigKahunaRapid from "./components/VectorAssets/Basemaps/BigKahunaRapid";
+import AngelsKissRapid from "./components/VectorAssets/Basemaps/AngelsKissRapid";
 import GarvinsRapid from "./components/VectorAssets/Basemaps/GarvinsRapid";
 import UpperNoNameRapid from "./components/VectorAssets/Basemaps/UpperNoNameRapid";
 import LowerNoNameRapid from "./components/VectorAssets/Basemaps/LowerNoNameRapid";
@@ -473,10 +473,10 @@ const Data = [
       }, //Iron Ring
     ],
     mapLabel: {
-      titleTop: "30vh",
-      titleLeft: "43vw",
+      titleTop: "24vh",
+      titleLeft: "40vw",
       pointerDirection: "bottom",
-      pointerCoordinates: "80,45",
+      pointerCoordinates: "50,70",
     },
   }, //S-Bend
 
@@ -564,9 +564,9 @@ const Data = [
     ],
     mapLabel: {
       titleTop: "30vh",
-      titleLeft: "43vw",
+      titleLeft: "45vw",
       pointerDirection: "bottom",
-      pointerCoordinates: "80,45",
+      pointerCoordinates: "38,25",
     },
   }, //Butterfly
 
@@ -632,11 +632,11 @@ const Data = [
     ],
     arrows: [
       {
-        name: "Big Kahuna",
+        name: "Angel's Kiss",
         rotation: "160deg",
         bottom: "70vh",
         right: "15vw",
-      }, //Big Kahuna
+      }, //Angel's Kiss
 
       {
         name: "McCoy's Chute Rapid",
@@ -647,14 +647,14 @@ const Data = [
     ],
     mapLabel: {
       titleTop: "30vh",
-      titleLeft: "43vw",
-      pointerDirection: "bottom",
-      pointerCoordinates: "80,45",
+      titleLeft: "36vw",
+      pointerDirection: "top",
+      pointerCoordinates: "70,72",
     },
   }, //Little Trickle
 
   {
-    name: "Big Kahuna",
+    name: "Angel's Kiss",
     desc: "Class III",
     displayPosition: {
       top: "65vh",
@@ -663,7 +663,7 @@ const Data = [
     },
     riverMap: {
       viewBox: "0 0 1600 900",
-      path: BigKahunaRapid,
+      path: AngelsKissRapid,
     },
     hydraulics: [
       /*  {
@@ -730,11 +730,11 @@ const Data = [
     ],
     mapLabel: {
       titleTop: "30vh",
-      titleLeft: "43vw",
-      pointerDirection: "bottom",
-      pointerCoordinates: "80,45",
+      titleLeft: "45vw",
+      pointerDirection: "top",
+      pointerCoordinates: "0,70",
     },
-  }, //Big Kahuna
+  }, //Angel's Kiss
 
   {
     name: "Garvins",
@@ -811,17 +811,17 @@ const Data = [
         right: "87vw",
       }, //Butterfly
       {
-        name: "Big Kahuna",
+        name: "Angel's Kiss",
         rotation: "160deg",
         bottom: "30vh",
         right: "87vw",
-      }, //Big Kahuna
+      }, //Angel's Kiss
     ],
     mapLabel: {
-      titleTop: "30vh",
-      titleLeft: "43vw",
-      pointerDirection: "bottom",
-      pointerCoordinates: "80,45",
+      titleTop: "25vh",
+      titleLeft: "51vw",
+      pointerDirection: "top",
+      pointerCoordinates: "60,63",
     },
   }, //Garvins
 
@@ -901,10 +901,10 @@ const Data = [
       }, //Garvins
     ],
     mapLabel: {
-      titleTop: "30vh",
-      titleLeft: "43vw",
+      titleTop: "25vh",
+      titleLeft: "53vw",
       pointerDirection: "bottom",
-      pointerCoordinates: "80,45",
+      pointerCoordinates: "85,38",
     },
   }, //Upper No Name
 
@@ -977,10 +977,10 @@ const Data = [
       }, //Upper No Name
     ],
     mapLabel: {
-      titleTop: "30vh",
-      titleLeft: "43vw",
+      titleTop: "22vh",
+      titleLeft: "63vw",
       pointerDirection: "bottom",
-      pointerCoordinates: "80,45",
+      pointerCoordinates: "0,50",
     },
   }, //Lower No Name
 ];

@@ -1,6 +1,6 @@
 import React from "react";
 
-const BigKahunaRapid = (
+const AngelsKissRapid = (
   <g>
     <g>
       <g clip-path="url(#clip0)">
@@ -48,4 +48,4 @@ const BigKahunaRapid = (
   </g>
 );
 
-export default BigKahunaRapid;
+export default AngelsKissRapid;
