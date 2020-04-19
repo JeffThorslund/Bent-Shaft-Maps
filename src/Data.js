@@ -25,19 +25,17 @@ const Data = [
     },
     hydraulics: [
       {
-        // Phils Hole
         name: "Phil's Hole",
         desc:
-          "Phil's Hole is the first hole on the Ottawa River at the top of McCoys. At high water, the hole is not present, only a large surf wave. At lower water levels, a large hole is formed with a tongue a little left of centre. ",
+          "Phil's Hole is the first hole on the Ottawa River at the top of McCoys. It is munchiest between 4' to 8'. Below 4' and above 8' a punchable tounge opens up in the center of the hole. Scouting provides a clear view of the rapid.",
         top: "463.55",
         left: "589.11",
         height: "58.73",
         width: "13.44",
         rotation: 1,
-        range: [-10, 12],
-      },
+        range: [-10, 13],
+      }, // Phils Hole
       {
-        // Sattlers
         name: "Sattler's Hole",
         desc:
           "This wave is at the center of the river. Make sure to clip it when threading the needle!",
@@ -47,31 +45,28 @@ const Data = [
         width: "13.44",
         rotation: 1,
         range: [-10, 13],
-      },
+      }, // Sattlers
       {
-        // Horse Shoe (Right Side)
         name: "Horse Shoe (Right Side)",
-        desc: "You better be good kid",
+        desc: "Usually a hole, but is surfable at 4'.",
         top: "651.94",
         left: "1081.06",
         height: "42.72",
         width: "15.7",
         rotation: 71.32,
-        range: [-10, 5],
-      },
+        range: [-10, 8],
+      }, // Horse Shoe (Right Side)
       {
-        // Horse Shoe (Left Side)
         name: "Horse Shoe (Left Side)",
-        desc: "You better be good kid",
+        desc: "A shallow munchy hole.",
         top: "625.94",
         left: "1174.86",
         height: "42.72",
         width: "15.7",
         rotation: 71.32,
-        range: [-10, 7],
-      },
+        range: [-10, 8],
+      }, // Horse Shoe (Left Side)
       {
-        // Baby Face
         name: "Baby Face",
         desc: "A great beginner wave.",
         top: "685.65",
@@ -79,41 +74,39 @@ const Data = [
         height: "42.72",
         width: "11.02",
         rotation: 68.5,
-        range: [-10, 1],
-      },
+        range: [-2, 1],
+      }, //Baby Face
       {
-        // Corner Wave
         name: "Corner Wave",
         desc: "It comes off a corner and can be harder for beginners.",
         top: "470.79",
-        left: "905.32",
+        left: "920.32",
         height: "90.52",
         width: "13.44",
-        rotation: -11.41,
+        rotation: -2,
         range: [-10, 12],
-      },
+      }, // Corner Wave
       {
-        // 6/8
         name: "6/8",
         desc: "Near football eddy.",
         top: "367.83",
-        left: "748.9",
+        left: "790.9",
         height: "57.31",
         width: "13.44",
         rotation: -5.6,
         range: [6, 8],
-      },
+      }, // 6/8
       {
-        // Hero Wave
         name: "Hero Wave",
-        desc: "You gotta be a hero.",
-        top: "483.55",
-        left: "431.82",
-        height: "54.97",
-        width: "13.44",
+        desc:
+          "A surf wave right above Phil's Hole. Mess this up and you are going straight into Phils. Sometimes a hard wave to catch, much easier in a long boat.",
+        top: "490",
+        left: "540",
+        height: "25.97",
+        width: "10.44",
         rotation: -16,
-        range: [-4, 6],
-      },
+        range: [4, 8],
+      }, // Hero Wave
     ],
     eddys: [
       {
@@ -136,6 +129,15 @@ const Data = [
         y: "640.17",
         range: [-10, 10],
       },
+      {
+        name: "Corner Wave Eddy",
+        desc: "This is where you lineup to surf Corner Wave",
+        vector:
+          "M22.5982 52.6418C36.1714 61.2413 56.4562 71.1586 71.8079 89.7043C78.7111 98.0437 86.4498 66.0895 63.9065 38.5161C35.7272 4.04936 18.0886 11.4521 15.4976 21.2681C12.9067 31.084 8.04205 43.4195 22.5982 52.6418Z",
+        x: "935",
+        y: "512",
+        range: [-10, 10],
+      }, //Corner Wave Eddy
     ],
     lines: [
       {
@@ -151,8 +153,8 @@ const Data = [
                 "
           />
         ),
-        range: [-10, 4],
-      },
+        range: [-100, 100],
+      }, //Thread The Needle
       {
         name: "Punch Phils",
         desc:
@@ -166,7 +168,7 @@ const Data = [
               "
           />
         ),
-        range: [4, 8],
+        range: [-100, 4],
       },
       {
         name: "Punch Sattlers",
@@ -176,12 +178,13 @@ const Data = [
           <path
             d="
                 M 150,455
-                q 300,-30 500,-20
-                Q 1000,450 1180,800
+                q 100,7 200,0
+                q 300,-20 400,-15
+                Q 1100,450 1180,800
                 "
           />
         ),
-        range: [8, 12],
+        range: [-100, 100],
       },
     ],
     arrows: [
@@ -251,7 +254,7 @@ const Data = [
     lines: [
       {
         name: "Chill Out",
-        desc: "Follow the current and enjoy the lazy river-esque ride.",
+        desc: "Stay in the middle of the channel, as the edges of the river can have caught branches and logs.",
         vector: (
           <path
             d="
@@ -263,7 +266,7 @@ const Data = [
                 "
           />
         ),
-        range: [-10, 12],
+        range: [10, 100],
       },
     ],
     arrows: [
@@ -317,18 +320,18 @@ const Data = [
     eddys: [
       {
         name: "Room of Doom",
-        desc: "A very bad place for a swimmer to be in.",
+        desc: "A violent recirculating eddy that will not be quick to release gear or a swimmer. Avoid!",
         vector:
           "M28.3707 92.6862C48.1874 131.518 72.9544 133.242 84.5083 125.713C98.343 116.697 146.964 66.2616 111.653 54.963C67.8403 40.9439 17.4949 37.6564 10.6929 50.4684C3.89083 63.2805 20.1149 76.5084 28.3707 92.6862Z",
         x: "495",
         y: "425",
-        range: [-10, 10],
+        range: [10, 100],
       },
     ],
     lines: [
       {
         name: "Punch the Wave",
-        desc: "Go straight through the hole at the bottom of the drop",
+        desc: "Go straight through the hole at the bottom of the drop. After the drop, the pool is extremely boiley.",
         vector: (
           <path
             d="
@@ -338,7 +341,7 @@ const Data = [
                 "
           />
         ),
-        range: [-10, 12],
+        range: [-10, 8],
       },
     ],
     arrows: [
