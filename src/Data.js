@@ -187,6 +187,15 @@ const Data = [
         range: [-100, 100],
       },
     ],
+    symbols: [
+      {
+        type: "caution",
+        desc:
+          "There is no safe way to navigate this rapid at this water level.",
+        top: "200",
+        left: "200",
+      },
+    ],
     arrows: [
       {
         name: "Iron Ring",
@@ -254,7 +263,8 @@ const Data = [
     lines: [
       {
         name: "Chill Out",
-        desc: "Stay in the middle of the channel, as the edges of the river can have caught branches and logs.",
+        desc:
+          "Stay in the middle of the channel, as the edges of the river can have caught branches and logs.",
         vector: (
           <path
             d="
@@ -267,6 +277,15 @@ const Data = [
           />
         ),
         range: [10, 100],
+      },
+    ],
+    symbols: [
+      {
+        type: "Caution",
+        desc:
+          "There is no safe way to navigate this rapid at this water level.",
+        top: "240",
+        left: "150",
       },
     ],
     arrows: [
@@ -320,7 +339,8 @@ const Data = [
     eddys: [
       {
         name: "Room of Doom",
-        desc: "A violent recirculating eddy that will not be quick to release gear or a swimmer. Avoid!",
+        desc:
+          "A violent recirculating eddy that will not be quick to release gear or a swimmer. Avoid!",
         vector:
           "M28.3707 92.6862C48.1874 131.518 72.9544 133.242 84.5083 125.713C98.343 116.697 146.964 66.2616 111.653 54.963C67.8403 40.9439 17.4949 37.6564 10.6929 50.4684C3.89083 63.2805 20.1149 76.5084 28.3707 92.6862Z",
         x: "495",
@@ -331,7 +351,8 @@ const Data = [
     lines: [
       {
         name: "Punch the Wave",
-        desc: "Go straight through the hole at the bottom of the drop. After the drop, the pool is extremely boiley.",
+        desc:
+          "Go straight through the hole at the bottom of the drop. After the drop, the pool is extremely boiley.",
         vector: (
           <path
             d="

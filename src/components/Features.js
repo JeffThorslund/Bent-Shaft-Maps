@@ -2,13 +2,18 @@ import React from "react";
 import Line from "./Line";
 import Eddy from "./Eddy";
 import Hydraulic from "./Hydraulic";
+import Symbols from "./Symbols/Symbols";
 import "./Features.css";
 import PropTypes from "prop-types";
 
 const Features = (props) => {
   // render array of lines based on selected water level (App state)
-  const lineArray = props.data.lines.map((element, key) => {
-    if (props.level <= element.range[1] && props.level >= element.range[0]) {
+  const lineArray = props.data.lines
+    .filter(
+      (element) =>
+        props.level <= element.range[1] && props.level >= element.range[0]
+    )
+    .map((element, key) => {
       return (
         <Line
           lines={element}
@@ -16,9 +21,7 @@ const Features = (props) => {
           key={`line${key}`}
         />
       );
-    }
-    return null;
-  });
+    });
 
   // render array of eddys based on selected water level (App state)
   const eddyArray = props.data.eddys.map((element, key) => {
@@ -48,6 +51,8 @@ const Features = (props) => {
     return null;
   });
 
+  console.log(lineArray.length);
+
   return (
     <svg
       className="Features"
@@ -64,6 +69,13 @@ const Features = (props) => {
       </g>
       <g id="hydraulic-array" className="clickable">
         {hydraulicArray}
+      </g>
+      <g id="symbol-array" className="clickable">
+        <Symbols
+          data={props.data}
+          length={lineArray.length}
+          displayData={props.displayData}
+        />
       </g>
     </svg>
   );
