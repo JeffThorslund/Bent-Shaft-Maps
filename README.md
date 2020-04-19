@@ -1,68 +1,85 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Jeff's River Guides
 
-## Available Scripts
+The easiest to convert your favorite river into a responsive, up to date guide. The following will show the projects capabilities, and a how to create your own. Only a basic level of development understanding is needed to create your own.
 
-In the project directory, you can run:
+The entire map can be created by entering data into ONE JavaScript Object. 
 
-### `npm start`
+## Getting Started
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Explain how to run it. 
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+### Prerequisites
 
-### `npm test`
+What things you need to install the software and how to install them
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+```
+Give examples
+```
 
-### `npm run build`
+### Installing
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+A step by step series of examples that tell you how to get a development env running
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+Say what the step will be
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```
+Give the example
+```
 
-### `npm run eject`
+And repeat
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+```
+until finished
+```
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+End with an example of getting some data out of the system or using it for a little demo
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+## Running the tests
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+Explain how to run the automated tests for this system
 
-## Learn More
+### Break down into end to end tests
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Explain what these tests test and why
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+```
+Give an example
+```
 
-### Code Splitting
+### And coding style tests
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+Explain what these tests test and why
 
-### Analyzing the Bundle Size
+```
+Give an example
+```
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+## Deployment
 
-### Making a Progressive Web App
+Add additional notes about how to deploy this on a live system
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
+## Built With
 
-### Advanced Configuration
+* [Dropwizard](http://www.dropwizard.io/1.0.2/docs/) - The web framework used
+* [Maven](https://maven.apache.org/) - Dependency Management
+* [ROME](https://rometools.github.io/rome/) - Used to generate RSS Feeds
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
+## Contributing
 
-### Deployment
+Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c63ec426) for details on our code of conduct, and the process for submitting pull requests to us.
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
+## Authors
 
-### `npm run build` fails to minify
+* **Jeffrey Thorslund** - *Initial work* - [PurpleBooth](https://github.com/PurpleBooth)
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
+
+## Acknowledgments
+
+* Hat tip to anyone whose code was used
+* Inspiration
+* etc
