@@ -6,7 +6,11 @@ const Symbols = (props) => {
     .filter((sym) => sym.type === "Caution")
     .map((sym, key) => {
       return (
-        <Caution symbols={sym} key={key} displayData={props.displayData} />
+        <Caution
+          symbols={sym}
+          key={`symbol${key}`}
+          displayData={props.displayData}
+        />
       );
     });
 
