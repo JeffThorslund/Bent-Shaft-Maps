@@ -7,7 +7,7 @@ class Vertical extends Component {
   constructor(props, context) {
     super(props, context);
     this.state = {
-      value: 6,
+      value: 0,
     };
   }
 
@@ -23,8 +23,8 @@ class Vertical extends Component {
     return (
       <div className="slider">
         <Slider
-          min={0}
-          max={12}
+          min={-5}
+          max={15}
           value={value}
           step={1}
           tooltip={false}

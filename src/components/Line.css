@@ -1,9 +1,9 @@
 .line-hover {
-  stroke-width: 4px;
-  stroke: rgb(136, 136, 136);
+  stroke-width: 5px;
+  stroke: rgb(136, 136, 136, 0.5);
 }
 
 .line-hover:hover {
-  stroke-width: 6px;
+  stroke-width: 5px;
   stroke: black;
 }
