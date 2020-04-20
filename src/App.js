@@ -13,9 +13,9 @@ class App extends Component {
 
     this.state = {
       level: 12,
-      rapid: "McCoy's Chute Rapid", //"McCoy's Chute Rapid"
-      mapBool: true,
-      symbolBool: false,
+      rapid: "Garvins", //"McCoy's Chute Rapid"
+      mapBool: false,
+      symbolBool: true,
     };
   }
 
@@ -42,6 +42,7 @@ class App extends Component {
           <Rapid
             data={element}
             level={this.state.level}
+            symbolBool={this.state.symbolBool}
             selectLevel={this.selectLevel}
             selectRapid={this.selectRapid}
             key={`rapid${key}`}

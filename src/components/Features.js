@@ -2,6 +2,7 @@ import React from "react";
 import Line from "./Line";
 import Eddy from "./Eddy";
 import Hydraulic from "./Hydraulic";
+import Caution from "./Symbols/Caution";
 import Symbols from "./Symbols/Symbols";
 import "./Features.css";
 import PropTypes from "prop-types";
@@ -24,8 +25,12 @@ const Features = (props) => {
     });
 
   // render array of eddys based on selected water level (App state)
-  const eddyArray = props.data.eddys.map((element, key) => {
-    if (props.level <= element.range[1] && props.level >= element.range[0]) {
+  const eddyArray = props.data.eddys
+    .filter(
+      (element) =>
+        props.level <= element.range[1] && props.level >= element.range[0]
+    )
+    .map((element, key) => {
       return (
         <Eddy
           eddys={element}
@@ -33,13 +38,15 @@ const Features = (props) => {
           key={`eddy${key}`}
         />
       );
-    }
-    return null;
-  });
+    });
 
   // render array of hydraulics based on selected water level (App state)
-  const hydraulicArray = props.data.hydraulics.map((element, key) => {
-    if (props.level <= element.range[1] && props.level >= element.range[0]) {
+  const hydraulicArray = props.data.hydraulics
+    .filter(
+      (element) =>
+        props.level <= element.range[1] && props.level >= element.range[0]
+    )
+    .map((element, key) => {
       return (
         <Hydraulic
           hydraulics={element}
@@ -47,15 +54,26 @@ const Features = (props) => {
           key={`hydraulic${key}`}
         />
       );
-    }
-    return null;
-  });
+    });
+
+  // render caution if there are no possible lines
+  const cautionSymbol = props.data.symbols
+    .filter((sym) => sym.type === "Caution")
+    .map((sym, key) => {
+      return (
+        <Caution
+          symbols={sym}
+          key={`symbol${key}`}
+          displayData={props.displayData}
+        />
+      );
+    });
 
   return (
     <svg
       className="Features"
       id="vector-container"
-      viewBox={props.data.riverMap.viewBox} //that 50 is very bad and scary
+      viewBox={props.data.riverMap.viewBox}
       xmlns="http://www.w3.org/2000/svg"
       preserveAspectRatio="none"
     >
@@ -68,12 +86,13 @@ const Features = (props) => {
       <g id="hydraulic-array" className="clickable">
         {hydraulicArray}
       </g>
+
+      <g className="clickable">{lineArray.length === 0 && cautionSymbol}</g>
+
       <g id="symbol-array" className="clickable">
-        <Symbols
-          data={props.data}
-          length={lineArray.length}
-          displayData={props.displayData}
-        />
+        {props.symbolBool && (
+          <Symbols data={props.data} displayData={props.displayData} />
+        )}
       </g>
     </svg>
   );
