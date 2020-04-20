@@ -18,7 +18,7 @@ Editing in the code editor while running a live server is the method in which we
 
 ### Mutating the Data.js Object 
 
-Changing data in this file will be the entirity of building our river map.
+This is an array of objects, each object representing one distinct rapid section.
 
     const Data = [ // An array of rapids
         {
@@ -26,9 +26,9 @@ Changing data in this file will be the entirity of building our river map.
         },
     ]
 
-Lets build our first rapid!
+**Lets build our first rapid!**
 
-Let x represent a rapid being rendered in the array.
+Let *x* represent a rapid being rendered in the array.
 
 #### `Data[x].name` (*string*)
 
@@ -71,13 +71,25 @@ This object indicates where the display panel (`Display.js`) it located. As with
 
 This object holds the rapid base map and information on how it is viewed and scaled. 
 
-##### ViewBox
+##### ViewBox (*string*)
 
 As all features are rendered into a single SVG element, we have control over the viewBox attribute. This can be used to make small adjustments to the view of the rapid. All elements will scale and tranpose proportionally to viewBox changes. This is a [resource for learning viewBox](https://wattenberger.com/guide/scaling-svg). 
 
-##### path
+##### path (*JSX Element*)
 
+The base map is vector map drawn in at a px ratio of 1600:900. The default `<svg>` element is removed and everything is wrapped into a `<g>` element, and saved as a JSX element. It will look similar to this. 
 
+    import React from "react";
+
+    const AngelsKissRapid = (
+        <g>
+            //contents of your basemap
+        <g/>
+    )
+
+    export default AngelsKissRapid
+
+This, and all other basemaps is saved in `./components/VectorAssets/Basemaps/FishHookRapid`. Import the JSX element into `Data.js`.
 
     import React from 'react'
     import FishHookRapid from "./components/VectorAssets/Basemaps/FishHookRapid"
@@ -93,6 +105,32 @@ As all features are rendered into a single SVG element, we have control over the
             }
         },
     ]
+
+#### `Data[x].hydraulics` (*array*)
+
+This is an array of objects, each representing a wave or hole in the rapid. 
+
+    const Data = [ 
+        {
+            ...
+            displayPosition: {...},
+            riverMap: {...},
+            hydraulics: [
+                {
+                    name: "Phil's Hole",   
+                    desc:
+                        "Phil's Hole is the first hole on the Ottawa River at the top of McCoys. Scouting provides a clear view of the rapid.",
+                    top: "463.55",
+                    left: "589.11",
+                    height: "58.73",
+                    width: "13.44",
+                    rotation: 1,
+                    range: [-10, 13],
+                },
+            ]
+        },
+    ]
+
 
 
 
