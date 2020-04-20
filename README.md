@@ -2,84 +2,102 @@
 
 The easiest to convert your favorite river into a responsive, up to date guide. The following will show the projects capabilities, and a how to create your own. Only a basic level of development understanding is needed to create your own.
 
-The entire map can be created by entering data into ONE JavaScript Object. 
+The entire map can be created by entering data into  JavaScript Object.
 
 ## Getting Started
 
-Explain how to run it. 
+This is where I will talk about what to install. I think React is it. 
 
-### Prerequisites
+## Build Your Own River Map
 
-What things you need to install the software and how to install them
+### Core Concepts
 
-```
-Give examples
-```
+The entire map is rendered by a single array of objects that contains the entirety of the river data. This means that to complete a river map, the only thing that you need to edit it the information in that array. 
 
-### Installing
+Editing in the code editor while running a live server is the method in which we will be monitoring the changes that we make. Using a vector graphics editor can speed up the process. 
 
-A step by step series of examples that tell you how to get a development env running
+### Mutating the Data.js Object 
 
-Say what the step will be
+Changing data in this file will be the entirity of building our river map.
 
-```
-Give the example
-```
+    const Data = [ // An array of rapids
+        {
+            // All information about a single rapid
+        },
+    ]
 
-And repeat
+Lets build our first rapid!
 
-```
-until finished
-```
+Let x represent a rapid being rendered in the array.
 
-End with an example of getting some data out of the system or using it for a little demo
+#### `Data[x].name` (*string*)
 
-## Running the tests
+The most common name of the rapid. 
 
-Explain how to run the automated tests for this system
+    const Data = [ 
+        {
+            name: "Fish Hook Rapid", //ex. "Dragon's Tooth", "Zoar Gap" etc.
+        },
+    ]
 
-### Break down into end to end tests
+#### `Data[x].desc` (*string*)
 
-Explain what these tests test and why
+A short description of the rapid or just the class. 
 
-```
-Give an example
-```
+    const Data = [ 
+        {
+            name: "Fish Hook Rapid", 
+            desc: "Class III", //ex. "Class 2", "Class IV+", "Class Five"
+        },
+    ]
 
-### And coding style tests
+#### `Data[x].displayPosition` (*object*)
 
-Explain what these tests test and why
+This object indicates where the display panel (`Display.js`) it located. As with most positionable elements, the units for vertical distances are viewport height (`vh`) and horizontal distances are viewport width(`vw`). The object has the following keys: `top, left, width`. The `height` auto adjusts based on its contents. 
 
-```
-Give an example
-```
+    const Data = [ 
+        {
+            name: "Fish Hook Rapid",
+            desc: "Class III",
+            displayPosition: {
+                top: "70vh", // the position from the top of the viewport
+                left: "22vw", // the position from the left side of the viewport
+                width: "35vw", //the width of Display.js
+            },
+        },
+    ]
 
-## Deployment
+#### `Data[x].riverMap` (*object*)
 
-Add additional notes about how to deploy this on a live system
+This object holds the rapid base map and information on how it is viewed and scaled. 
 
-## Built With
+##### ViewBox
 
-* [Dropwizard](http://www.dropwizard.io/1.0.2/docs/) - The web framework used
-* [Maven](https://maven.apache.org/) - Dependency Management
-* [ROME](https://rometools.github.io/rome/) - Used to generate RSS Feeds
+As all features are rendered into a single SVG element, we have control over the viewBox attribute. This can be used to make small adjustments to the view of the rapid. All elements will scale and tranpose proportionally to viewBox changes. This is a [resource for learning viewBox](https://wattenberger.com/guide/scaling-svg). 
 
-## Contributing
+##### path
 
-Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c63ec426) for details on our code of conduct, and the process for submitting pull requests to us.
 
-## Authors
 
-* **Jeffrey Thorslund** - *Initial work* - [PurpleBooth](https://github.com/PurpleBooth)
+    import React from 'react'
+    import FishHookRapid from "./components/VectorAssets/Basemaps/FishHookRapid"
 
-See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
+    const Data = [ 
+        {
+            ...
+            desc: "Class III",
+            displayPosition: {...},
+            riverMap: {
+                viewBox: "0 0 1600 900", //default value
+                path: FishHookRapid
+            }
+        },
+    ]
 
-## License
 
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
 
-## Acknowledgments
 
-* Hat tip to anyone whose code was used
-* Inspiration
-* etc
+
+
+
+

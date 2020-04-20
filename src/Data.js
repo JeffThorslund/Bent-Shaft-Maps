@@ -20,7 +20,7 @@ const Data = [
       width: "35vw",
     },
     riverMap: {
-      viewBox: "0 50 1600 900", //Eeeeek watch out for this
+      viewBox: "0 50 1600 900",
       path: McCoysChuteRapid,
     },
     hydraulics: [
