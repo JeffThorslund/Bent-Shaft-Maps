@@ -194,7 +194,14 @@ const Data = [
           "There is no safe way to navigate this rapid at this water level.",
         top: "200",
         left: "200",
-      },
+      }, // Caution
+      {
+        type: "Portage",
+        desc:
+          "This rapid has a very easy portage. Follow the clear trail to the end of the rapid, or stop along the way for clear views of Phil's Hole, Sattlers Hole and other features on this rapid.",
+        top: "650",
+        left: "200",
+      }, // Portage
     ],
     arrows: [
       {
@@ -795,6 +802,13 @@ const Data = [
         top: "400",
         left: "500",
       },
+      {
+        type: "Portage",
+        desc:
+          "This rapid has a very easy portage. Follow the clear trail to the end of the rapid, or stop along the way for clear views of Phil's Hole, Sattlers Hole and other features on this rapid.",
+        top: "120",
+        left: "500",
+      }, // Portage
     ],
     arrows: [
       {

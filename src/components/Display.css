@@ -1,8 +1,9 @@
 .Display {
   position: absolute;
   height: auto;
-  box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.25);
+  /*box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.25);*/
   border-radius: 17px;
+  border: black 0.4vh solid;
   background-color: #eee9e9;
 }
 

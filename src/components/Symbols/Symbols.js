@@ -1,12 +1,12 @@
 import React from "react";
-import Caution from "./Caution";
+import Portage from "./Portage";
 
 const Symbols = (props) => {
-  const caution = props.data.symbols
-    .filter((sym) => sym.type === "Caution")
+  const portageArray = props.data.symbols
+    .filter((sym) => sym.type === "Portage")
     .map((sym, key) => {
       return (
-        <Caution
+        <Portage
           symbols={sym}
           key={`symbol${key}`}
           displayData={props.displayData}
@@ -14,9 +14,7 @@ const Symbols = (props) => {
       );
     });
 
-  console.log(props.length);
-
-  return <>{props.length === 0 && caution}</>;
+  return <>{portageArray}</>;
 };
 
 export default Symbols;
