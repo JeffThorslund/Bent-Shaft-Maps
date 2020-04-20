@@ -90,7 +90,7 @@ const Features = (props) => {
       <g className="clickable">{lineArray.length === 0 && cautionSymbol}</g>
 
       <g id="symbol-array" className="clickable">
-        {props.symbolBool && (
+        {!props.symbolBool && (
           <Symbols data={props.data} displayData={props.displayData} />
         )}
       </g>

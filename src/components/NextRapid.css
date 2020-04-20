@@ -3,9 +3,9 @@
   cursor: pointer;
   padding: 0.8vw;
   background: rgba(255, 255, 255, 0.6);
-  border: 0.1vw solid #000000;
+  border: solid 0.15vw #000000;
   box-sizing: border-box;
-  border-radius: 1vw;
+  border-radius: 1.5vh;
 }
 
 .NextRapid .name {

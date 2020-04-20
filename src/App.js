@@ -12,10 +12,10 @@ class App extends Component {
     super(props);
 
     this.state = {
-      level: 12,
-      rapid: "Garvins", //"McCoy's Chute Rapid"
+      level: 0,
+      rapid: "McCoy's Chute Rapid", //"McCoy's Chute Rapid"
       mapBool: false,
-      symbolBool: true,
+      symbolBool: false,
     };
   }
 
@@ -66,15 +66,6 @@ class App extends Component {
         <Slider selectLevel={this.selectLevel} />
 
         <div className="toggle-board">
-          <div id="symbol-bool">
-            <GenericToggle
-              toggle={this.state.symbolBool}
-              toggleSetting={this.toggleSetting}
-              setting="symbolBool"
-              false="Show Symbols"
-              true="Hide Symbols"
-            />
-          </div>
           <div id="map-bool">
             <GenericToggle
               toggle={this.state.mapBool}
@@ -82,6 +73,16 @@ class App extends Component {
               setting="mapBool"
               false="Show Map"
               true="Hide Map"
+            />
+          </div>
+
+          <div id="symbol-bool">
+            <GenericToggle
+              toggle={this.state.symbolBool}
+              toggleSetting={this.toggleSetting}
+              setting="symbolBool"
+              false="Symbols"
+              true="Symbols"
             />
           </div>
         </div>

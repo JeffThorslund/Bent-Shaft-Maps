@@ -2,9 +2,9 @@
   position: absolute;
   height: auto;
   /*box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.25);*/
-  border-radius: 17px;
-  border: black 0.4vh solid;
-  background-color: #eee9e9;
+  border-radius: 2vh;
+  border: black 0.2vw solid;
+  background-color: honeydew;
 }
 
 .Display #title {
@@ -12,12 +12,12 @@
   color: black;
   font-family: Rock Salt;
   font-size: 1.5vw;
-  padding: 2vh 3vh;
+  padding: 0.8vh 3vh;
 }
 
 .Display #desc {
   color: black;
   font-family: Ruda;
   font-size: 1.1vw;
-  padding: 0vh 3vh 3vh 3vh;
+  padding: 0vh 4vh 2.5vh 4vh;
 }
