@@ -258,3 +258,64 @@ Let y represent a line in a rapid.
             ]
         }
     ]
+
+#### `Data[x].arrows[y]` (_array_)
+
+This is an array of objects, each representing an "arrow" pointing to the next rapid or the previous rapid in the river.
+
+Let y represent a line in a rapid.
+
+| Key                                   | Value                                                           |
+| ------------------------------------- | --------------------------------------------------------------- |
+| `Data[x].arrows[y].name` (_string_)   | The name of the target rapid, as written in its `Data[x].name`. |
+| `Data[x].arrows[y].bottom` (_string_) | Distance from bottom of viewport, in `vh`                       |
+| `Data[x].arrows[y].right` (_string_)  | Distance from right of viewport, in `vw`                        |
+
+    const Data = [
+        {
+            ...
+            symbols: [
+                {...},
+            ],
+            arrows: [
+                {
+                    name: "Iron Ring",
+                    rotation: "160deg",
+                    bottom: "4vh",
+                    right: "5vw",
+                }
+                {...},
+            ]
+        }
+    ]
+
+#### `Data[x].mapLabel[y]` (_array_)
+
+This is an array of objects, each representing a label that appears on the pop up river map.
+
+Let y represent a line in a rapid.
+
+| Key                                                 | Value                                                            |
+| --------------------------------------------------- | ---------------------------------------------------------------- |
+| `Data[x].mapLabel[y].titleTop` (_string_)           | Distance of label from top of viewport `vh`                      |
+| `Data[x].mapLabel[y].titleLeft` (_string_)          | Distance of label from left of viewport `vw`                     |
+| `Data[x].mapLabel[y].pointerDirection` (_string_)   | Pointer direction (Options: `top` , `bottom`, `left` or `right`) |
+| `Data[x].mapLabel[y].pointerCoordinates` (_string_) | Location of the tip of the pointer. Based on a 100x100 SVG box.  |
+
+    const Data = [
+        {
+            ...
+            symbols: [
+                {...},
+            ],
+            mapLabel: [
+                {
+                    name: "Iron Ring",
+                    rotation: "160deg",
+                    bottom: "4vh",
+                    right: "5vw",
+                }
+                {...},
+            ]
+        }
+    ]
