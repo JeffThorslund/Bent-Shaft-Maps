@@ -7,6 +7,7 @@ import OverviewMap from "./VectorAssets/Basemaps/OverviewMap";
 const Map = (props) => {
   const mapLabelArray = props.mapLabel.map((element, key) => (
     <MapLabel
+      url={props.url}
       name={element.name}
       mapLabel={element.mapLabel}
       toggleSetting={props.toggleSetting}
