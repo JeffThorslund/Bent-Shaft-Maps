@@ -28,6 +28,7 @@ class Rapid extends Component {
     const arrowArray = this.props.data.arrows.map((element, key) => (
       <NextRapid
         arrows={element}
+        url={this.props.url}
         name={element.name}
         selectRapid={this.props.selectRapid}
         key={`arrow${key}`}

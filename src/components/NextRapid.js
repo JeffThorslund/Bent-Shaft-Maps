@@ -1,5 +1,14 @@
 import React from "react";
 import "./NextRapid.css";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link,
+  useParams,
+  useRouteMatch,
+} from "react-router-dom";
+import idParser from "../tools/idParser";
 
 const NextRapid = (props) => {
   const style = {
@@ -8,15 +17,11 @@ const NextRapid = (props) => {
   };
 
   return (
-    <div
-      className="NextRapid"
-      style={style}
-      onClick={() => {
-        props.selectRapid(props.arrows.name);
-      }}
-    >
-      <div className="name"> {props.arrows.name}</div>
-    </div>
+    <Link to={`${props.url}/${idParser(props.arrows.name)}`}>
+      <div className="NextRapid" style={style}>
+        <div className="name">{props.arrows.name}</div>
+      </div>
+    </Link>
   );
 };
 

@@ -14,5 +14,6 @@
   font-weight: normal;
   font-size: 1.1vw;
   text-align: center;
-  /* or 133% */
+  text-decoration: none;
+  color: black;
 }
