@@ -1,4 +1,5 @@
 import React from "react";
+import "./Global.css";
 import {
   BrowserRouter as Router,
   Switch,
@@ -9,23 +10,25 @@ import {
 } from "react-router-dom";
 
 const Global = () => {
-  console.log("Global.js is rendered");
-
   return (
-    <Route>
-      Global.js
-      <ul>
-        <li>
-          <Link to="/ottawa-river">ottawa-river</Link>
-        </li>
-        <li>
-          <Link to="/gatineau-river">gatineau-rive</Link>
-        </li>
-        <li>
-          <Link to="/gauley-river">gauley-river</Link>
-        </li>
-      </ul>
-    </Route>
+    <div className="Global">
+      <Route>
+        <div id="title"> Wet Exit Guides </div>
+        <div id="subtitle"> Your source for detailed whitewater maps. </div>
+        <div id="prompt"> Choose your river! </div>
+        <div className="river-wrapper">
+          <div className="river-label">
+            <Link to="/ottawa-river/mccoys-chute-rapid">Ottawa River</Link>
+          </div>
+          <div className="river-label">
+            <Link to="/gatineau-river">Gatineau River</Link>
+          </div>
+          <div className="river-label">
+            <Link to="/gauley-river">Gauley River</Link>
+          </div>
+        </div>
+      </Route>
+    </div>
   );
 };
 
