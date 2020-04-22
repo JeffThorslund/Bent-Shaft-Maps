@@ -1,0 +1,47 @@
+.Global {
+  font-family: Ruda;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  background-image: linear-gradient(rgb(115, 137, 207), rgb(129, 206, 126));
+  height: 100vh;
+}
+
+#title {
+  font-size: 60px;
+  padding-top: 50px;
+}
+
+#subtitle {
+  font-size: 24px;
+  padding-top: 10px;
+}
+
+#prompt {
+  font-size: 40px;
+  padding-top: 60px;
+}
+
+.river-wrapper {
+  display: grid;
+  grid-template-columns: 33fr 33fr 33fr;
+  grid-gap: 10px;
+  justify-items: center;
+  align-items: center;
+  padding: 40px;
+}
+
+.river-label {
+  font-size: 24px;
+  padding: 10px;
+  color: black;
+  border: black 2px solid;
+  border-radius: 10px;
+  background-color: rgb(129, 206, 126);
+}
+
+.river-label a {
+  text-decoration: none;
+  color: black;
+}
