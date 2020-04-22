@@ -9,7 +9,7 @@ import {
   useParams,
   useRouteMatch,
 } from "react-router-dom";
-import Data from "../Data";
+import Data from "../../riverdata/Data";
 
 //Maybe this is where we pass in the Data object of a specific river.
 

@@ -1,14 +1,14 @@
 import React from "react";
-import McCoysChuteRapid from "./components/VectorAssets/Basemaps/McCoysChuteRapid";
-import IronRingRapid from "./components/VectorAssets/Basemaps/IronRingRapid";
-import MagicalMysteryTourRapid from "./components/VectorAssets/Basemaps/MagicalMysteryTourRapid";
-import SBendRapid from "./components/VectorAssets/Basemaps/SBendRapid";
-import ButteryflyRapid from "./components/VectorAssets/Basemaps/ButteryflyRapid";
-import LittleTrickleRapid from "./components/VectorAssets/Basemaps/LittleTrickleRapid";
-import AngelsKissRapid from "./components/VectorAssets/Basemaps/AngelsKissRapid";
-import GarvinsRapid from "./components/VectorAssets/Basemaps/GarvinsRapid";
-import UpperNoNameRapid from "./components/VectorAssets/Basemaps/UpperNoNameRapid";
-import LowerNoNameRapid from "./components/VectorAssets/Basemaps/LowerNoNameRapid";
+import McCoysChuteRapid from "../components/VectorAssets/Basemaps/McCoysChuteRapid";
+import IronRingRapid from "../components/VectorAssets/Basemaps/IronRingRapid";
+import MagicalMysteryTourRapid from "../components/VectorAssets/Basemaps/MagicalMysteryTourRapid";
+import SBendRapid from "../components/VectorAssets/Basemaps/SBendRapid";
+import ButteryflyRapid from "../components/VectorAssets/Basemaps/ButteryflyRapid";
+import LittleTrickleRapid from "../components/VectorAssets/Basemaps/LittleTrickleRapid";
+import AngelsKissRapid from "../components/VectorAssets/Basemaps/AngelsKissRapid";
+import GarvinsRapid from "../components/VectorAssets/Basemaps/GarvinsRapid";
+import UpperNoNameRapid from "../components/VectorAssets/Basemaps/UpperNoNameRapid";
+import LowerNoNameRapid from "../components/VectorAssets/Basemaps/LowerNoNameRapid";
 
 const Data = [
   {
