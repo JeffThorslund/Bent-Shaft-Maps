@@ -24,21 +24,34 @@
 }
 
 .river-wrapper {
-  display: grid;
-  grid-template-columns: 33fr 33fr 33fr;
-  grid-gap: 10px;
-  justify-items: center;
-  align-items: center;
+  display: flex;
+  justify-content: space-around;
+  align-content: flex-start;
   padding: 40px;
+  margin: 20px;
+  width: 800px;
 }
 
 .river-label {
-  font-size: 24px;
   padding: 10px;
   color: black;
   border: black 2px solid;
   border-radius: 10px;
   background-color: rgb(129, 206, 126);
+  cursor: pointer;
+}
+
+.river-label #name {
+  font-weight: bold;
+  font-size: 24px;
+}
+
+.river-label #location {
+  font-size: 20px;
+}
+
+.river-label #class {
+  font-size: 20px;
 }
 
 .river-label a {
