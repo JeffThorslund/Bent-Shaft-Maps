@@ -14,7 +14,7 @@ const RiverList = [
   {
     name: "Nantahala",
     location: "Bryson City, North Carolina",
-    class: 3,
+    class: 2,
   },
 ];
 
