@@ -8,7 +8,7 @@ const SearchBar = (props) => {
         type="text"
         className="searchbar"
         value={props.value}
-        placeholder="Search for a river!"
+        placeholder="Search for a river, town, province or state!"
         onChange={props.handleChange}
       />
     </form>

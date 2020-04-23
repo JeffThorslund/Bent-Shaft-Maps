@@ -1,0 +1,110 @@
+/*---Universal---*/
+
+.river-label {
+  color: black;
+  border: black 2px solid;
+  border-radius: 10px;
+  background-color: #4eb058;
+  cursor: pointer;
+  overflow: hidden;
+  user-select: none;
+}
+
+.river-label a {
+  text-decoration: none;
+  color: black;
+}
+
+.done {
+  padding: 15px;
+}
+
+#name {
+  font-size: 30px;
+}
+
+#location {
+  font-size: 20px;
+}
+
+#class {
+  font-size: 16px;
+}
+
+#selected {
+  font-weight: bold;
+  display: inline-block;
+}
+
+/*---UnderConst---*/
+.const {
+  display: flex;
+  justify-content: space-between;
+}
+.header {
+  padding: 15px;
+}
+
+.img-wrapper {
+  position: relative;
+  right: -1px;
+  height: 110px;
+  width: auto;
+  border-left: black 3px solid;
+}
+
+.toggled {
+  background-color: black;
+  color: honeydew;
+}
+
+#involved {
+  text-align: center;
+  background-color: #63b3ff;
+  color: black;
+  border-radius: 10px;
+  padding: 5px;
+  margin-top: 10px;
+  font-size: 20px;
+}
+
+#involved:hover {
+  background-color: rgb(189, 106, 106);
+}
+
+/*---DoesNotExist---*/
+
+.make-one {
+  grid-column: 1 / 4;
+  text-align: center;
+  padding: 20px;
+  cursor: auto;
+}
+
+.make-one .main {
+  font-size: 48px;
+  padding: 10px;
+}
+
+.make-one .sub {
+  font-size: 24px;
+  padding: 10px;
+}
+
+.guide-link {
+  border: black 2px solid;
+  background-color: #63b3ff;
+  font-size: 24px;
+  border-radius: 50px;
+  margin: 10px 20%;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.guide-link:hover {
+  background-color: rgb(46, 67, 136);
+}
+
+.guide-link a {
+  text-decoration: none;
+}

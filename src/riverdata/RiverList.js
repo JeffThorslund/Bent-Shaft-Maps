@@ -1,20 +1,21 @@
-
-
 const RiverList = [
   {
     name: "Ottawa River",
     location: "Beachburg, Ontario",
-    class: 3,
+    class: "III",
+    underConst: false,
   },
   {
     name: "Gatineau River",
     location: "Low, Quebec",
-    class: 3,
+    class: "III",
+    underConst: true,
   },
   {
-    name: "Nantahala",
+    name: "Nantahala River",
     location: "Bryson City, North Carolina",
-    class: 2,
+    class: "II",
+    underConst: true,
   },
 ];
 

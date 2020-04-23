@@ -2,13 +2,13 @@
   font-family: Ruda;
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
   align-items: center;
-  background-image: linear-gradient(rgb(115, 137, 207), rgb(129, 206, 126));
+  background-image: linear-gradient(#63b3ff, #4eb058);
   min-height: 100vh;
   height: 100%;
+  width: 100vw;
   min-width: 100vw;
-  width: 100%;
+  max-width: 100vw;
 }
 
 #title {
@@ -29,73 +29,8 @@
 .river-wrapper {
   display: grid;
   grid-template-columns: repeat(3, 33%);
+  grid-template-rows: repeat(3, auto);
   grid-gap: 20px;
-  justify-content: space-around;
+  justify-content: center;
   width: 1000px;
-}
-
-.river-label {
-  padding: 15px;
-  color: black;
-  border: black 2px solid;
-  border-radius: 10px;
-  background-color: rgb(129, 206, 126);
-  cursor: pointer;
-}
-
-.river-label #name {
-  font-size: 30px;
-}
-
-.river-label #location {
-  font-size: 20px;
-}
-
-.river-label #class {
-  font-size: 16px;
-}
-
-.river-label a {
-  text-decoration: none;
-  color: black;
-}
-
-#selected {
-  font-weight: bold;
-  display: inline-block;
-}
-
-.make-one {
-  grid-column: 1 / 4;
-  text-align: center;
-  padding: 20px;
-  cursor: auto;
-}
-
-.make-one .main {
-  font-size: 48px;
-  padding: 10px;
-}
-
-.make-one .sub {
-  font-size: 24px;
-  padding: 10px;
-}
-
-.guide-link {
-  border: black 2px solid;
-  background-color: rgb(115, 137, 207);
-  font-size: 24px;
-  border-radius: 50px;
-  margin: 10px 20%;
-  padding: 10px;
-  cursor: pointer;
-}
-
-.guide-link:hover {
-  background-color: rgb(147, 160, 202);
-}
-
-.guide-link a {
-  text-decoration: none;
 }
