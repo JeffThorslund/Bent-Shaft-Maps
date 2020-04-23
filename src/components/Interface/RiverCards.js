@@ -61,7 +61,7 @@ export const UnderConst = (props) => {
             <a
               target="_blank"
               rel="noopener noreferrer"
-              href="https://github.com/JeffThorslund/Ottawa-River-Paddling-Guide"
+              href="https://github.com/JeffThorslund/Ottawa-River-Paddling-Guide#getting-started"
             >
               <div id="involved">Get Involved</div>
             </a>
@@ -87,7 +87,7 @@ export const DoesNotExist = () => {
       <a
         target="_blank"
         rel="noopener noreferrer"
-        href="https://github.com/JeffThorslund/Ottawa-River-Paddling-Guide"
+        href="https://github.com/JeffThorslund/Ottawa-River-Paddling-Guide#getting-started"
       >
         <div className="guide-link">Click here to make your mark!</div>
       </a>
