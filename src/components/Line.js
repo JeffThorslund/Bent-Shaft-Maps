@@ -4,10 +4,11 @@ import "./Line.css";
 
 const Line = (props) => {
   //Finds starting point of vector and sets circle to that
-  const vector = props.lines.vector.props.d;
+  const vector = props.lines.vector;
   let x = "";
   let y = "";
 
+  //Find position of circle.
   for (let i = vector.search(/M/i) + 2, count = 0; i < vector.length; i++) {
     if (/[0-9]/.test(vector[i]) && count === 0) {
       x = x.concat(vector[i]);
@@ -26,8 +27,9 @@ const Line = (props) => {
         props.displayData(props.lines.name, props.lines.desc);
       }}
       className="line-hover"
+      transform={"translate(" + props.lines.x + "," + props.lines.y + ")"}
     >
-      {props.lines.vector}
+      <path d={props.lines.vector} />
       <circle cx={x} cy={y} r="10" stroke="none" fill="black" />
     </g>
   );

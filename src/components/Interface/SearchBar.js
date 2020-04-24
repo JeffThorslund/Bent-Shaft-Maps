@@ -3,7 +3,11 @@ import "./SearchBar.css";
 
 const SearchBar = (props) => {
   return (
-    <form>
+    <form
+      onSubmit={(e) => {
+        e.preventDefault();
+      }}
+    >
       <input
         type="text"
         className="searchbar"

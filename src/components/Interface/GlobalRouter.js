@@ -9,7 +9,7 @@ import {
   useParams,
   useRouteMatch,
 } from "react-router-dom";
-import Data from "../../riverdata/Data";
+import { data, global } from "../../riverdata/OttawaRiverData";
 
 //Maybe this is where we pass in the Data object of a specific river.
 
@@ -20,11 +20,10 @@ const GlobalRouter = () => {
       <div>
         <Switch>
           <Route exact path="/">
-            <Global />
+            <Global data={data} />
           </Route>
           <Route path="/ottawa-river">
-            <RiverRouter data={Data} />
-            {/*Ottawa's Data will be passed into this*/}
+            <RiverRouter data={data} global={global} />
           </Route>
         </Switch>
       </div>

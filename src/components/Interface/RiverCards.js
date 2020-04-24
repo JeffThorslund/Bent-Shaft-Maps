@@ -14,7 +14,7 @@ import Construction from "./ConstructionBar.png";
 export const Exists = (props) => {
   return (
     <div className="river-label done">
-      <Link to={`/${idParser(props.elem.name)}/mccoys-chute-rapid`}>
+      <Link to={`/${idParser(props.elem.name)}`}>
         <div
           id="name"
           dangerouslySetInnerHTML={{ __html: props.nameResult }}
