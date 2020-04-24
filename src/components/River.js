@@ -60,7 +60,7 @@ class River extends Component {
             toggleSetting={this.toggleSetting}
             setting="mapBool"
             selectRapid={this.selectRapid}
-            mapLabel={this.props.data}
+            data={this.props.data}
           />
         )}
         {rapidInstance}

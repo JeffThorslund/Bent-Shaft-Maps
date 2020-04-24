@@ -49,6 +49,7 @@ class Global extends React.Component {
 
         return !elem.underConst ? (
           <Exists
+            data={this.props.data}
             elem={elem}
             nameResult={nameResult}
             locationResult={locationResult}

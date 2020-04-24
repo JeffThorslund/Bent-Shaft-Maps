@@ -1,4 +1,3 @@
-import React from "react";
 import McCoysChuteRapid from "../components/VectorAssets/Basemaps/McCoysChuteRapid";
 import IronRingRapid from "../components/VectorAssets/Basemaps/IronRingRapid";
 import MagicalMysteryTourRapid from "../components/VectorAssets/Basemaps/MagicalMysteryTourRapid";
@@ -9,8 +8,19 @@ import AngelsKissRapid from "../components/VectorAssets/Basemaps/AngelsKissRapid
 import GarvinsRapid from "../components/VectorAssets/Basemaps/GarvinsRapid";
 import UpperNoNameRapid from "../components/VectorAssets/Basemaps/UpperNoNameRapid";
 import LowerNoNameRapid from "../components/VectorAssets/Basemaps/LowerNoNameRapid";
+import PutInMap from "../components/VectorAssets/Basemaps/PutInMap";
 
-const Data = [
+export const global = {
+  riverName: "Ottawa River",
+  riverDesc: "Welcome to the Ottawa River.",
+  putInCoords: "45.747890, -76.792082",
+  riverMap: {
+    viewBox: "0 0 1600 900",
+    path: PutInMap,
+  },
+};
+
+export const data = [
   {
     name: "McCoy's Chute Rapid",
     desc: "Class III",
@@ -144,46 +154,21 @@ const Data = [
         name: "Thread The Needle",
         desc:
           "A commonly taken line through McCoys. Start center-right coming into the rapid with your boat pointed slightly left. When approaching the Sattlers, paddle towards river left, clip Sattlers and paddle for your life away from Phils",
-        vector: (
-          <path
-            d="
-                M 150,455
-                q 300,58 500,-10
-                Q 1000,340 1180,800
-                "
-          />
-        ),
+        vector: "M 150,455q 300,58 500,-10Q 1000,340 1180,800",
         range: [-100, 100],
       }, //Thread The Needle
       {
         name: "Punch Phils",
         desc:
           "Scout to see the point in phils hole is greening out and turning in to a crashy wave. Follow some upstream bubbles to see where you need to be. Line it up and punch it baby!",
-        vector: (
-          <path
-            d="
-              M 150,455
-              q 350,58 500,30
-              Q 1000,400 1180,800
-              "
-          />
-        ),
+        vector: "M 150,455 q 350,58 500,30 Q 1000,400 1180,800",
         range: [-100, 4],
       },
       {
         name: "Punch Sattlers",
         desc:
           "Line up with Sattlers and gun it right through. You will be clear of Phils Hole on this line.",
-        vector: (
-          <path
-            d="
-                M 150,455
-                q 100,7 200,0
-                q 300,-20 400,-15
-                Q 1100,450 1180,800
-                "
-          />
-        ),
+        vector: "M 150,455 q 100,7 200,0 q 300,-20 400,-15 Q 1100,450 1180,800",
         range: [-100, 100],
       },
     ],
@@ -272,17 +257,8 @@ const Data = [
         name: "Chill Out",
         desc:
           "Stay in the middle of the channel, as the edges of the river can have caught branches and logs.",
-        vector: (
-          <path
-            d="
-                M 100,370
-                q 140,-100 250,-60
-                q 150, 60 380, 15
-                q 165, -20 380, 100
-                Q 1250,500 1350,650
-                "
-          />
-        ),
+        vector:
+          "M 100,370q 140,-100 250,-60q 150, 60 380, 15q 165, -20 380, 100Q 1250,500 1350,650",
         range: [10, 100],
       },
     ],
@@ -360,15 +336,7 @@ const Data = [
         name: "Punch the Wave",
         desc:
           "Go straight through the hole at the bottom of the drop. After the drop, the pool is extremely boiley.",
-        vector: (
-          <path
-            d="
-                M 150,400
-                q 300,-20 500,0
-                Q 1000,430 1200,400
-                "
-          />
-        ),
+        vector: "M 150,400q 300,-20 500,0Q 1000,430 1200,400",
         range: [-10, 8],
       },
     ],
@@ -500,43 +468,38 @@ const Data = [
       path: ButteryflyRapid,
     },
     hydraulics: [
-      /*{
+      {
         name: "Main Wave",
         desc: "Follow the tounge that goes straight down the center!",
-        top: "362.54",
-        left: "498.11",
-        height: "58.73",
+        top: "340.33",
+        left: "855.24",
+        height: "70.73",
         width: "13.44",
-        rotation: "-1",
+        rotation: "12",
         range: [-10, 12],
-      },*/
+      },
     ],
     eddys: [
-      /*{
-        name: "Room of Doom",
-        desc: "A very bad place for a swimmer to be in.",
+      {
+        name: "Butterfly Lineup",
+        desc: "A nice little eddy to catch butterfly.",
         vector:
-          "M28.3707 92.6862C48.1874 131.518 72.9544 133.242 84.5083 125.713C98.343 116.697 146.964 66.2616 111.653 54.963C67.8403 40.9439 17.4949 37.6564 10.6929 50.4684C3.89083 63.2805 20.1149 76.5084 28.3707 92.6862Z",
-        x: "495",
-        y: "425",
-        range: [-10, 10],
-      },*/
+          "M35.6072 54.5474C23.6426 56.7009 1.13232 55.6119 1.13232 42.588C1.13232 29.5642 8.79183 21.1422 14.5241 12.74C20.2564 4.33788 31.5003 -2.14831 44.1786 1.65414C57.4026 5.62023 56.2793 21.7547 73.436 27.8821C87.8418 33.027 44.1786 53.0046 35.6072 54.5474Z",
+        x: "908.13",
+        y: "246.54",
+        range: [-10, 15],
+      },
     ],
     lines: [
-      /*{
+      {
         name: "Punch the Wave",
         desc: "Go straight through the hole at the bottom of the drop",
-        vector: (
-          <path
-            d="
-                M 150,400
-                q 300,-20 500,0
-                Q 1000,430 1200,400
-                "
-          />
-        ),
+        vector:
+          "M 0 0 C89.2728 31.5 137.79 65.5715 187.972 78.4226C242.347 92.3475 301.234 101.075 357.864 102.693C411.595 104.228 516.504 111.229 558.499 115.637C592.445 119.201 718.454 133.16 746.189 139.907C795.948 152.012 919.318 197.078 998.601 224.045",
+        x: "408.28",
+        y: "258.76",
         range: [-10, 12],
-      },*/
+      },
     ],
     symbols: [
       {
@@ -998,5 +961,3 @@ const Data = [
     },
   }, //Lower No Name
 ];
-
-export default Data;

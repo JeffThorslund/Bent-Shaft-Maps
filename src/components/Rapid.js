@@ -54,11 +54,14 @@ class Rapid extends Component {
           displayData={this.displayData}
         />
         <div id="arrow-array"> {arrowArray} </div>
-        <Display
-          title={this.state.title}
-          desc={this.state.desc}
-          displayPosition={this.props.data.displayPosition}
-        />
+
+        {Object.keys(this.props.data.displayPosition).length !== 0 && (
+          <Display
+            title={this.state.title}
+            desc={this.state.desc}
+            displayPosition={this.props.data.displayPosition}
+          />
+        )}
       </div>
     );
   }

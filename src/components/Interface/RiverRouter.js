@@ -8,24 +8,23 @@ import {
   useRouteMatch,
 } from "react-router-dom";
 import River from "../River";
+import PutIn from "../PutIn";
 
 const RiverRouter = (props) => {
   let { path, url } = useRouteMatch();
+  console.log("River Router", path, url);
 
   return (
     <Router>
       <div>
         <Switch>
           <Route exact path={path}>
-            <River data={props.data} url={url} passed="home" />
+            <PutIn global={props.global} data={props.data} url={url}/>
           </Route>
 
-          <Route
-            path={`${path}/:id`}
-            children={
-              <River data={props.data} url={url} passed="with ending" />
-            }
-          />
+          <Route path={`${path}/:id`}>
+            <River data={props.data} url={url} />
+          </Route>
         </Switch>
       </div>
     </Router>
