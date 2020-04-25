@@ -1,14 +1,14 @@
-import McCoysChuteRapid from "../components/VectorAssets/Basemaps/McCoysChuteRapid";
-import IronRingRapid from "../components/VectorAssets/Basemaps/IronRingRapid";
-import MagicalMysteryTourRapid from "../components/VectorAssets/Basemaps/MagicalMysteryTourRapid";
-import SBendRapid from "../components/VectorAssets/Basemaps/SBendRapid";
-import ButteryflyRapid from "../components/VectorAssets/Basemaps/ButteryflyRapid";
-import LittleTrickleRapid from "../components/VectorAssets/Basemaps/LittleTrickleRapid";
-import AngelsKissRapid from "../components/VectorAssets/Basemaps/AngelsKissRapid";
-import GarvinsRapid from "../components/VectorAssets/Basemaps/GarvinsRapid";
-import UpperNoNameRapid from "../components/VectorAssets/Basemaps/UpperNoNameRapid";
-import LowerNoNameRapid from "../components/VectorAssets/Basemaps/LowerNoNameRapid";
-import PutInMap from "../components/VectorAssets/Basemaps/PutInMap";
+import McCoysChuteRapid from "./basemaps/McCoysChuteRapid";
+import IronRingRapid from "./basemaps/IronRingRapid";
+import MagicalMysteryTourRapid from "./basemaps/MagicalMysteryTourRapid";
+import SBendRapid from "./basemaps/SBendRapid";
+import ButteryflyRapid from "./basemaps/ButteryflyRapid";
+import LittleTrickleRapid from "./basemaps/LittleTrickleRapid";
+import AngelsKissRapid from "./basemaps/AngelsKissRapid";
+import GarvinsRapid from "./basemaps/GarvinsRapid";
+import UpperNoNameRapid from "./basemaps/UpperNoNameRapid";
+import LowerNoNameRapid from "./basemaps/LowerNoNameRapid";
+import Welcome from "./basemaps/Welcome";
 
 export const global = {
   riverName: "Ottawa River",
@@ -19,7 +19,7 @@ export const global = {
   putInCoords: "45.747890, -76.792082",
   riverMap: {
     viewBox: "0 0 1600 900",
-    path: PutInMap,
+    path: Welcome,
   },
 };
 
@@ -41,8 +41,8 @@ export const data = [
         name: "Phil's Hole",
         desc:
           "Phil's Hole is the first hole on the Ottawa River at the top of McCoys. It is munchiest between 4' to 8'. Below 4' and above 8' a punchable tounge opens up in the center of the hole. Scouting provides a clear view of the rapid.",
-        top: "463.55",
-        left: "589.11",
+        y: "463.55",
+        x: "589.11",
         height: "58.73",
         width: "13.44",
         rotation: 1,
@@ -52,8 +52,8 @@ export const data = [
         name: "Sattler's Hole",
         desc:
           "This wave is at the center of the river. Make sure to clip it when threading the needle!",
-        top: "408",
-        left: "505.3",
+        y: "408",
+        x: "505.3",
         height: "70.97",
         width: "13.44",
         rotation: 1,
@@ -62,8 +62,8 @@ export const data = [
       {
         name: "Horse Shoe (Right Side)",
         desc: "Usually a hole, but is surfable at 4'.",
-        top: "651.94",
-        left: "1081.06",
+        y: "651.94",
+        x: "1081.06",
         height: "42.72",
         width: "15.7",
         rotation: 71.32,
@@ -72,8 +72,8 @@ export const data = [
       {
         name: "Horse Shoe (Left Side)",
         desc: "A shallow munchy hole.",
-        top: "625.94",
-        left: "1174.86",
+        y: "625.94",
+        x: "1174.86",
         height: "42.72",
         width: "15.7",
         rotation: 71.32,
@@ -82,8 +82,8 @@ export const data = [
       {
         name: "Baby Face",
         desc: "A great beginner wave.",
-        top: "685.65",
-        left: "1148.9",
+        y: "685.65",
+        x: "1148.9",
         height: "42.72",
         width: "11.02",
         rotation: 68.5,
@@ -92,8 +92,8 @@ export const data = [
       {
         name: "Corner Wave",
         desc: "It comes off a corner and can be harder for beginners.",
-        top: "470.79",
-        left: "920.32",
+        y: "470.79",
+        x: "920.32",
         height: "90.52",
         width: "13.44",
         rotation: -2,
@@ -102,8 +102,8 @@ export const data = [
       {
         name: "6/8",
         desc: "Near football eddy.",
-        top: "367.83",
-        left: "790.9",
+        y: "367.83",
+        x: "790.9",
         height: "57.31",
         width: "13.44",
         rotation: -5.6,
@@ -113,8 +113,8 @@ export const data = [
         name: "Hero Wave",
         desc:
           "A surf wave right above Phil's Hole. Mess this up and you are going straight into Phils. Sometimes a hard wave to catch, much easier in a long boat.",
-        top: "490",
-        left: "540",
+        y: "490",
+        x: "540",
         height: "25.97",
         width: "10.44",
         rotation: -16,
@@ -237,7 +237,7 @@ export const data = [
         name: "Main Wave",
         desc: "Follow the tounge that goes straight down the center!",
         top: "362.54",
-        left: "498.11",
+        x: "498.11",
         height: "58.73",
         width: "13.44",
         rotation: "-1",
@@ -314,8 +314,8 @@ export const data = [
         // Phils Hole
         name: "Main Wave",
         desc: "Follow the tounge that goes straight down the center!",
-        top: "362.54",
-        left: "498.11",
+        y: "362.54",
+        x: "498.11",
         height: "58.73",
         width: "13.44",
         rotation: "-1",
@@ -380,7 +380,7 @@ export const data = [
     desc: "Class III",
     displayPosition: {
       top: "72vh",
-      left: "23vw",
+      x: "23vw",
       width: "55vw",
     },
     riverMap: {
@@ -392,7 +392,7 @@ export const data = [
         name: "Main Wave",
         desc: "Follow the tounge that goes straight down the center!",
         top: "362.54",
-        left: "498.11",
+        x: "498.11",
         height: "58.73",
         width: "13.44",
         rotation: "-1",
@@ -474,8 +474,8 @@ export const data = [
       {
         name: "Main Wave",
         desc: "Follow the tounge that goes straight down the center!",
-        top: "340.33",
-        left: "855.24",
+        y: "340.33",
+        x: "855.24",
         height: "70.73",
         width: "13.44",
         rotation: "12",
@@ -559,8 +559,8 @@ export const data = [
       {
         name: "Main Drop",
         desc: "Follow the green tongue, on the left half of the horizon line.",
-        top: "430.56",
-        left: "440.43",
+        y: "430.56",
+        x: "440.43",
         height: "42.72",
         width: "17.45",
         rotation: "163",
@@ -570,8 +570,8 @@ export const data = [
       {
         name: "Trickle Hole",
         desc: "A shallow munchy hole that wont hesitate to flip a boat if run straight on. Don't swim through this one!",
-        top: "396.25",
-        left: "498.7",
+        y: "396.25",
+        x: "498.7",
         height: "42.72",
         width: "11.5",
         rotation: "147",
@@ -581,8 +581,8 @@ export const data = [
       {
         name: "Lower Wave",
         desc: "A small easy punch.",
-        top: "552.99",
-        left: "675.56",
+        y: "552.99",
+        x: "675.56",
         height: "50.47",
         width: "14.61",
         rotation: "-154",
@@ -662,8 +662,8 @@ export const data = [
       /*  {
         name: "Main Wave",
         desc: "Follow the tounge that goes straight down the center!",
-        top: "362.54",
-        left: "498.11",
+        y: "362.54",
+        x: "498.11",
         height: "58.73",
         width: "13.44",
         rotation: "-1",
@@ -745,8 +745,8 @@ export const data = [
       {
         name: "Elevator Shaft",
         desc: "A 12 foot waterfall-esque drop.",
-        top: "638.38",
-        left: "446.27",
+        y: "638.38",
+        x: "446.27",
         height: "52.58",
         width: "13.44",
         rotation: "7",
@@ -757,8 +757,8 @@ export const data = [
         name: "Dragon's Tongue",
         desc:
           "A huge green tongue that ends with a small drop into the squirly waters below.",
-        top: "502.92",
-        left: "601.04",
+        y: "502.92",
+        x: "601.04",
         height: "63.2",
         width: "13.44",
         rotation: "9.29",
@@ -768,8 +768,8 @@ export const data = [
       {
         name: "ST Drop",
         desc: "A steep tongue/drop.",
-        top: "350.82",
-        left: "592.2",
+        y: "350.82",
+        x: "592.2",
         height: "54.84",
         width: "13.44",
         rotation: "21",
@@ -780,8 +780,8 @@ export const data = [
         name: "Big Hole at the Bottom",
         desc:
           "A seerious river-wide sticky, munchy hole. Should be avoided hard left or hard right.",
-        top: "563.41",
-        left: "856.35",
+        y: "563.41",
+        x: "856.35",
         height: "83.2",
         width: "13.44",
         rotation: "20.68",
@@ -792,8 +792,8 @@ export const data = [
         name: "Lower Garvins",
         desc:
           "Big huge wave train with surfing at some levels. The first can can range from a laterally curling wave to a beefy hole.",
-        top: "455.01",
-        left: "1095.21",
+        y: "455.01",
+        x: "1095.21",
         height: "54.84",
         width: "13.44",
         rotation: "23",
@@ -804,8 +804,8 @@ export const data = [
         name: "Sticky Staircase",
         desc:
           "A sleeper that has the potential to hold a boat and a swimmer, avoid.",
-        top: "337.15",
-        left: "844.17",
+        y: "337.15",
+        x: "844.17",
         height: "40.53",
         width: "13.44",
         rotation: "30",
@@ -944,8 +944,8 @@ export const data = [
       /* {
         name: "Main Wave",
         desc: "Follow the tounge that goes straight down the center!",
-        top: "362.54",
-        left: "498.11",
+        y: "362.54",
+        x: "498.11",
         height: "58.73",
         width: "13.44",
         rotation: "-1",
@@ -1027,8 +1027,8 @@ export const data = [
       /*{
         name: "Main Wave",
         desc: "Follow the tounge that goes straight down the center!",
-        top: "362.54",
-        left: "498.11",
+        y: "362.54",
+        x: "498.11",
         height: "58.73",
         width: "13.44",
         rotation: "-1",

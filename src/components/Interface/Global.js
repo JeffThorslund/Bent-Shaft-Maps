@@ -9,7 +9,7 @@ import {
   useRouteMatch,
 } from "react-router-dom";
 import SearchBar from "./SearchBar";
-import RiverList from "../../riverdata/RiverList";
+import RiverList from "../../river-data/RiverList";
 import { Exists, UnderConst, DoesNotExist } from "./RiverCards";
 
 class Global extends React.Component {
