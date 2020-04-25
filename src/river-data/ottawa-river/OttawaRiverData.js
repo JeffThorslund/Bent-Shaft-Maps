@@ -9,6 +9,7 @@ import GarvinsRapid from "./basemaps/GarvinsRapid";
 import UpperNoNameRapid from "./basemaps/UpperNoNameRapid";
 import LowerNoNameRapid from "./basemaps/LowerNoNameRapid";
 import Welcome from "./basemaps/Welcome";
+import OverviewMap from "./basemaps/OverviewMap";
 
 export const global = {
   riverName: "Ottawa River",
@@ -21,6 +22,7 @@ export const global = {
     viewBox: "0 0 1600 900",
     path: Welcome,
   },
+  overviewMap: OverviewMap,
 };
 
 export const data = [
@@ -569,7 +571,8 @@ export const data = [
 
       {
         name: "Trickle Hole",
-        desc: "A shallow munchy hole that wont hesitate to flip a boat if run straight on. Don't swim through this one!",
+        desc:
+          "A shallow munchy hole that wont hesitate to flip a boat if run straight on. Don't swim through this one!",
         y: "396.25",
         x: "498.7",
         height: "42.72",

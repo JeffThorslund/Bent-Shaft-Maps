@@ -16,16 +16,14 @@ import { data, global } from "../../river-data/ottawa-river/OttawaRiverData";
 const GlobalRouter = () => {
   console.log("GlobalRouter is rendered");
   return (
-    <Router>
-      <Switch>
-        <Route exact path="/">
-          <Global data={data} />
-        </Route>
-        <Route path="/ottawa-river">
-          <RiverRouter data={data} global={global} />
-        </Route>
-      </Switch>
-    </Router>
+    <Switch>
+      <Route exact path="/">
+        <Global data={data} />
+      </Route>
+      <Route path="/ottawa-river">
+        <RiverRouter data={data} global={global} />
+      </Route>
+    </Switch>
   );
 };
 

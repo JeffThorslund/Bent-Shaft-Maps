@@ -5,6 +5,7 @@
   border-radius: 2vh;
   border: black 0.2vw solid;
   background-color: honeydew;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.4);
 }
 
 .Display #title {

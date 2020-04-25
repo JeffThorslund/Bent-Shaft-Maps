@@ -47,3 +47,10 @@
   top: 8vh;
   left: 1vw;
 }
+
+.toggle-board #back-button {
+  position: absolute;
+  z-index: 2;
+  top: 92vh;
+  left: 1vw;
+}

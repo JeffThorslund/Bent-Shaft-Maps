@@ -2,7 +2,6 @@ import React from "react";
 import PropTypes from "prop-types";
 import "./Map.css";
 import MapLabel from "./MapLabel";
-import OverviewMap from "./VectorAssets/Basemaps/OverviewMap";
 
 const Map = (props) => {
   const mapLabelArray = props.data
@@ -28,7 +27,7 @@ const Map = (props) => {
         }}
       ></div>
 
-      <div className="overview-map">{OverviewMap}</div>
+      <div className="overview-map">{props.global.overviewMap}</div>
       <div className="maplabel-array">{mapLabelArray}</div>
     </div>
   );
@@ -37,6 +36,7 @@ const Map = (props) => {
 export default Map;
 
 Map.propTypes = {
+  global: PropTypes.object,
   mapLabel: PropTypes.array,
   toggleSetting: PropTypes.func.isRequired,
   selectRapid: PropTypes.func.isRequired,
