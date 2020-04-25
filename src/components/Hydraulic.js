@@ -14,17 +14,17 @@ const Hydraulic = (props) => {
       <rect
         width={props.hydraulics.width}
         height={props.hydraulics.height}
-        x={props.hydraulics.left}
-        y={props.hydraulics.top}
+        x={props.hydraulics.x}
+        y={props.hydraulics.y}
         rx="8"
         fill="white"
         transform={
           "rotate(" +
           props.hydraulics.rotation +
           " " +
-          props.hydraulics.left +
+          props.hydraulics.x +
           " " +
-          props.hydraulics.top +
+          props.hydraulics.y +
           ")"
         }
       />
