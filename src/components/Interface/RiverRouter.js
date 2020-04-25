@@ -16,17 +16,15 @@ const RiverRouter = (props) => {
 
   return (
     <Router>
-      <div>
-        <Switch>
-          <Route exact path={path}>
-            <PutIn global={props.global} data={props.data} url={url}/>
-          </Route>
+      <Switch>
+        <Route exact path={path}>
+          <PutIn global={props.global} data={props.data} url={url} />
+        </Route>
 
-          <Route path={`${path}/:id`}>
-            <River data={props.data} url={url} />
-          </Route>
-        </Switch>
-      </div>
+        <Route path={`${path}/:id`}>
+          <River data={props.data} url={url} />
+        </Route>
+      </Switch>
     </Router>
   );
 };
