@@ -6,6 +6,7 @@ import Map from "./Map";
 import GenericToggle from "./GenericToggle";
 import { withRouter } from "react-router-dom";
 import idParser from "../tools/idParser";
+import Home from "./Symbols/Home";
 
 class River extends Component {
   constructor(props) {
@@ -61,6 +62,7 @@ class River extends Component {
             setting="mapBool"
             selectRapid={this.selectRapid}
             data={this.props.data}
+            global={this.props.global}
           />
         )}
         {rapidInstance}
@@ -85,6 +87,10 @@ class River extends Component {
               false="Symbols"
               true="Symbols"
             />
+          </div>
+
+          <div id="back-button">
+            <Home />
           </div>
         </div>
       </div>

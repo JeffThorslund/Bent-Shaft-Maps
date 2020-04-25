@@ -1,6 +1,6 @@
 import React from "react";
 
-const OverViewMap = (
+const OverviewMap = (
   <svg
     preserveAspectRatio="none"
     width="80vw"
@@ -116,4 +116,4 @@ const OverViewMap = (
   </svg>
 );
 
-export default OverViewMap;
+export default OverviewMap;
