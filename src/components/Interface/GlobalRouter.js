@@ -17,16 +17,14 @@ const GlobalRouter = () => {
   console.log("GlobalRouter is rendered");
   return (
     <Router>
-      <div>
-        <Switch>
-          <Route exact path="/">
-            <Global data={data} />
-          </Route>
-          <Route path="/ottawa-river">
-            <RiverRouter data={data} global={global} />
-          </Route>
-        </Switch>
-      </div>
+      <Switch>
+        <Route exact path="/">
+          <Global data={data} />
+        </Route>
+        <Route path="/ottawa-river">
+          <RiverRouter data={data} global={global} />
+        </Route>
+      </Switch>
     </Router>
   );
 };

@@ -7,12 +7,12 @@
 }
 
 #header {
-  font-size: 36px;
+  font-size: 5vh;
   padding-top: 5vh;
 }
 
 #title {
-  font-size: 50px;
+  font-size: 8vh;
   padding: 0px;
   padding-top: 2vh;
 }
@@ -21,13 +21,46 @@
   text-decoration: none;
   color: black;
   justify-self: flex-end;
-  padding-top: 20vh;
+  margin-top: 9vh;
+  margin-bottom: 11vh;
 }
 
 .PutIn-wrapper a .button {
-  font-size: 24px;
+  font-size: 3vh;
   background-color: honeydew;
-  border: black 3px solid;
+  border: black 0.4vh solid;
   border-radius: 10px;
-  padding: 10px;
+  padding: 1.3vh;
+  transition: 0.1s;
+}
+
+.PutIn-wrapper a .button:hover {
+  background-color: rgb(255, 167, 167);
+  transition: 0.1s;
+}
+
+.bottom-wrapper {
+  display: grid;
+  font-family: Ruda;
+  grid-template-columns: repeat(2, 35%);
+  grid-column-gap: 30%;
+  font-size: 18px;
+  padding: 3vh;
+}
+
+.bottom-wrapper-child {
+  padding: 20px;
+  background-color: rgba(255, 255, 255, 0.7);
+  border-radius: 10px;
+  height: auto;
+}
+
+.bottom-wrapper-child #about {
+  text-align: center;
+  font-size: 24px;
+  font-weight: bold;
+  padding-bottom: 10px;
+}
+
+.bottom-wrapper-child #info {
 }

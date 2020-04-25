@@ -5,69 +5,69 @@ const PutInMap = (
     <g clip-path="url(#clip0)">
       <rect width="1600" height="900" fill="white" />
       <rect
-        y="600"
-        width="600"
+        y="450"
+        width="450"
         height="1600"
-        transform="rotate(-90 0 600)"
+        transform="rotate(-90 0 450)"
         fill="#63B3FF"
       />
       <rect
-        y="600"
-        width="600"
+        y="450"
+        width="450"
         height="1600"
-        transform="rotate(-90 0 600)"
+        transform="rotate(-90 0 450)"
         fill="url(#paint0_linear)"
       />
       <path
-        d="M1546.37 210.891L1814.46 659.796H1278.27L1546.37 210.891Z"
+        d="M1547.3 158.68L1815.39 491.768H1279.2L1547.3 158.68Z"
         fill="#C4C4C4"
       />
       <path
-        d="M1138.99 210.891L1407.09 659.796H870.901L1138.99 210.891Z"
+        d="M1139.92 158.679L1408.02 491.768H871.831L1139.92 158.679Z"
         fill="#C4C4C4"
       />
       <path
-        d="M197.835 134.564L480.086 567.036H-84.4155L197.835 134.564Z"
+        d="M198.765 102.045L481.016 422.94H-83.4856L198.765 102.045Z"
         fill="#C4C4C4"
       />
       <path
-        d="M349.736 250.92L631.986 683.393H67.485L349.736 250.92Z"
+        d="M350.665 188.381L632.916 509.276H68.4149L350.665 188.381Z"
         fill="#C4C4C4"
       />
       <path
-        d="M-13.8996 270.756L267.031 718.545H-294.83L-13.8996 270.756Z"
+        d="M-12.9696 203.099L267.961 535.36H-293.9L-12.9696 203.099Z"
         fill="#ACACAC"
       />
       <path
-        d="M529.996 250.92L796.624 698.71H263.367L529.996 250.92Z"
+        d="M530.926 188.381L797.554 520.642H264.297L530.926 188.381Z"
         fill="#ACACAC"
       />
       <path
-        d="M242.595 393.982L523.525 593.343H-38.3358L242.595 393.982Z"
+        d="M243.525 294.533L524.455 442.459H-37.4059L243.525 294.533Z"
         fill="#ACACAC"
       />
       <path
-        d="M1279.39 363.5L1655.84 765.875H902.935L1279.39 363.5Z"
+        d="M1280.32 271.916L1656.77 570.479H903.865L1280.32 271.916Z"
         fill="#ACACAC"
       />
       <path
-        d="M1013.46 302.995L1237.6 750.784H789.319L1013.46 302.995Z"
+        d="M1014.39 227.021L1238.53 559.281H790.249L1014.39 227.021Z"
         fill="#ACACAC"
       />
       <path
-        d="M432.933 304.541L747.989 609.53H117.877L432.933 304.541Z"
+        d="M433.863 228.168L748.919 454.471H118.807L433.863 228.168Z"
         fill="#808080"
       />
       <path
-        d="M1401.61 288.916L1630.95 679.712H1172.28L1401.61 288.916Z"
+        d="M1402.54 216.574L1631.88 506.545H1173.21L1402.54 216.574Z"
         fill="#808080"
       />
       <path
-        d="M1088.32 404.349L1337.36 621.995H839.281L1088.32 404.349Z"
+        d="M1089.25 302.226L1338.29 463.72H840.211L1089.25 302.226Z"
         fill="#808080"
       />
       <path
-        d="M123.512 393.982L286.584 616.52H-39.5605L123.512 393.982Z"
+        d="M124.441 294.533L287.514 459.657H-38.6306L124.441 294.533Z"
         fill="#808080"
       />
       <mask
@@ -75,22 +75,22 @@ const PutInMap = (
         mask-type="alpha"
         maskUnits="userSpaceOnUse"
         x="0"
-        y="600"
+        y="450"
         width="1600"
-        height="300"
+        height="450"
       >
-        <rect y="600" width="1600" height="300" fill="#4EB058" />
-        <rect y="600" width="1600" height="300" fill="url(#paint1_linear)" />
+        <rect y="450" width="1600" height="450" fill="#4EB058" />
+        <rect y="450" width="1600" height="450" fill="url(#paint1_linear)" />
       </mask>
       <g mask="url(#mask0)">
-        <rect y="600" width="1600" height="300" fill="#4EB058" />
-        <rect y="600" width="1600" height="300" fill="url(#paint2_linear)" />
+        <rect width="1600" height="900" fill="#4EB058" />
+        <rect width="1600" height="900" fill="url(#paint2_linear)" />
         <path
-          d="M458.953 1094.77L799.899 490.989L1152.32 1088.15L458.953 1094.77Z"
+          d="M458.953 1192.15L799.899 286.483L1152.32 1182.22L458.953 1192.15Z"
           fill="#63B3FF"
         />
         <path
-          d="M458.953 1094.77L799.899 490.989L1152.32 1088.15L458.953 1094.77Z"
+          d="M458.953 1192.15L799.899 286.483L1152.32 1182.22L458.953 1192.15Z"
           fill="url(#paint3_linear)"
         />
       </g>
@@ -98,10 +98,10 @@ const PutInMap = (
     <defs>
       <linearGradient
         id="paint0_linear"
-        x1="32.1139"
-        y1="1022.24"
-        x2="***REMOVED***.887"
-        y2="1036.2"
+        x1="24.0854"
+        y1="872.243"
+        x2="349.562"
+        y2="880.096"
         gradientUnits="userSpaceOnUse"
       >
         <stop stop-color="white" stop-opacity="0" />
@@ -110,9 +110,9 @@ const PutInMap = (
       <linearGradient
         id="paint1_linear"
         x1="103.314"
-        y1="663.236"
-        x2="768.405"
-        y2="1226.38"
+        y1="544.854"
+        x2="969.296"
+        y2="1033.68"
         gradientUnits="userSpaceOnUse"
       >
         <stop stop-color="white" stop-opacity="0" />
@@ -122,9 +122,9 @@ const PutInMap = (
       <linearGradient
         id="paint2_linear"
         x1="103.314"
-        y1="663.236"
-        x2="768.405"
-        y2="1226.38"
+        y1="189.709"
+        x2="1160.98"
+        y2="488.221"
         gradientUnits="userSpaceOnUse"
       >
         <stop stop-color="white" stop-opacity="0" />
@@ -134,9 +134,9 @@ const PutInMap = (
       <linearGradient
         id="paint3_linear"
         x1="822.611"
-        y1="1295.24"
-        x2="572.759"
-        y2="774.786"
+        y1="1492.86"
+        x2="367.091"
+        y2="860.28"
         gradientUnits="userSpaceOnUse"
       >
         <stop stop-color="white" stop-opacity="0" />
