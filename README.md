@@ -2,13 +2,24 @@
 
 Convert your favorite whitewater river into an interactive guide.
 
-- [Getting Started](#getting-started)
-  - [Tech Stack](#tech-stack)
-  - [Built With](#built-with)
-  - [Setup](#setup)
-- [The Philisophy of Building a River Map](#the-philisophy-of-building-a-river-map)
-  - [Core Concepts](#core-concepts)
-  - [Mutating the Data.js Object](#mutating-the-datajs-object)
+- [Wet Exit River Guides](#wet-exit-river-guides)
+  - [Getting Started](#getting-started)
+    - [Tech Stack](#tech-stack)
+    - [Built With](#built-with)
+    - [Setup](#setup)
+  - [The Philisophy of Building a River Map](#the-philisophy-of-building-a-river-map)
+    - [Core Concepts](#core-concepts)
+    - [The role of `const data` and `const global`](#the-role-of--const-data--and--const-global-)
+      - [`const data`](#-const-data-)
+      - [`const global`](#-const-global-)
+  - [Steps to Building Your Map](#steps-to-building-your-map)
+    - [1. Basic Rapid](#1-basic-rapid)
+    - [2. Overview Map](#2-overview-map)
+      - [Overview Map Design](#overview-map-design)
+      - [Overview Map Implementation](#overview-map-implementation)
+    - [3. Adding A Rapid Map](#3-adding-a-rapid-map)
+      - [Rapid Design](#rapid-design)
+      - [Rapid Implementation](#rapid-implementation)
 
 ## Getting Started
 
@@ -65,13 +76,48 @@ An object that holds information relevant to the entire river.
 
 ## Steps to Building Your Map
 
-_Golden Rule_: Always design on a 1600x900 frame in Figma.
+### 1. Create a River Instance
+
+The first step is to initialize your river.
 
 ### 1. Basic Rapid
+
+A rapid is an element of the `data` array. Let's manipulate the template element to create our first rapid.
+
+Let _x_ represent a rapid being rendered in the array.
+
+---
+
+#### `data[x].name` (_string_)
+
+The most common name of the rapid.
+
+    const data = [
+        {
+            name: "Fish Hook Rapid", //ex. "Dragon's Tooth", "Zoar Gap" etc.
+        },
+    ]
+
+---
+
+#### `data[x].desc` (_string_)
+
+A short description of the rapid or just the class.
+
+    const data = [
+        {
+            name: "Fish Hook Rapid",
+            desc: "Class III", //ex. "Class 2", "Class IV+", "Class Five"
+        },
+    ]
+
+**Expected Result**:
 
 ### 2. Overview Map
 
 #### Overview Map Design
+
+_Golden Rule_: Always design on a 1600x900 frame in Figma.
 
 In the _Overview_ frame, place a screenshot of Bing satellite image so that the entire river fits in the frame and set the layer to 60% opacity. This will be your tracing outline.
 
@@ -158,29 +204,6 @@ Set `data.riverMap.path` property to your newly added map.
 **Expected Result**: The map of your first rapid should reflect your new map.
 
 ## Elements
-
-Let _x_ represent a rapid being rendered in the array.
-
-#### `Data[x].name` (_string_)
-
-The most common name of the rapid.
-
-    const Data = [
-        {
-            name: "Fish Hook Rapid", //ex. "Dragon's Tooth", "Zoar Gap" etc.
-        },
-    ]
-
-#### `Data[x].desc` (_string_)
-
-A short description of the rapid or just the class.
-
-    const Data = [
-        {
-            name: "Fish Hook Rapid",
-            desc: "Class III", //ex. "Class 2", "Class IV+", "Class Five"
-        },
-    ]
 
 #### `Data[x].displayPosition` (_object_)
 
