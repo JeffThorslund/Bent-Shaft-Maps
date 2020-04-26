@@ -1,21 +1,34 @@
+import {
+  data as ottawaRiverData,
+  global as ottawaRiverGlobal,
+} from "../river-data/ottawa-river/OttawaRiverData";
+
+//import {data as [myRiverData], global as [myRiverGlobal]} from "../../river-data/my-river-template/TemplateRiverData";
+
 const RiverList = [
   {
     name: "Ottawa River",
     location: "Beachburg, Ontario",
     class: "III",
     underConst: false,
+    data: ottawaRiverData,
+    global: ottawaRiverGlobal,
   },
   {
     name: "Gatineau River",
     location: "Low, Quebec",
     class: "III",
     underConst: true,
+    data: null,
+    global: null,
   },
   {
     name: "Nantahala River",
     location: "Bryson City, North Carolina",
     class: "II",
     underConst: true,
+    data: null,
+    global: null,
   },
 ];
 
