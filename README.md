@@ -78,9 +78,11 @@ An object that holds information relevant to the entire river.
 
 ### 1. Create a River Instance
 
-The first step is to initialize your river.
+The first step is to initialize a river.
 
-### 1. Basic Rapid
+This is done by adding a route in src/components/interface
+
+### 2. Basic Rapid
 
 A rapid is an element of the `data` array. Let's manipulate the template element to create our first rapid.
 
@@ -113,7 +115,7 @@ A short description of the rapid or just the class.
 
 **Expected Result**:
 
-### 2. Overview Map
+### 3. Overview Map
 
 #### Overview Map Design
 
@@ -149,7 +151,7 @@ Set `global.overviewMap` property to your newly added map.
 
 **Expected Result**: Clicking the "Show Map" toggle on the live server should create a pop-up with your map.
 
-### 3. Adding A Rapid Map
+### 4. Adding A Rapid Map
 
 We will add the first rapid of the river.
 

@@ -10,27 +10,29 @@ import {
   useRouteMatch,
 } from "react-router-dom";
 
-import {
-  data as ottawaRiverData,
-  global as ottawaRiverGlobal,
-} from "../../river-data/ottawa-river/OttawaRiverData";
-
-//import {data as [myRiverData], global as [myRiverGlobal]} from "../../river-data/my-river-template/TemplateRiverData";
+import RiverList from "../../river-data/RiverList";
+import idParser from "../../tools/idParser";
 
 const GlobalRouter = () => {
-  console.log("GlobalRouter is rendered");
+  const routeArray = RiverList.map((elem) => {
+    return (
+      <Route path={`/${idParser(elem.name)}`}>
+        <RiverRouter data={elem.data} global={elem.global} />
+      </Route>
+    );
+  });
+
   return (
     <Switch>
       <Route exact path="/">
         <Global />
       </Route>
-      <Route path="/ottawa-river">
-        <RiverRouter data={ottawaRiverData} global={ottawaRiverGlobal} />
-      </Route>
+
+      {routeArray}
 
       {/*
-      <Route path="/my-river">
-        <RiverRouter data={myRiverData} global={myRiverGlobal} />
+      <Route path="/ottawa-river">
+        <RiverRouter data={ottawaRiverData} global={ottawaRiverGlobal} />
       </Route>
       */}
     </Switch>
