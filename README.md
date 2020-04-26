@@ -1,32 +1,163 @@
-# Jeff's River Guides
+# Wet Exit River Guides
 
-The easiest to convert your favorite river into a responsive, up to date guide. The following will show the projects capabilities, and a how to create your own. Only a basic level of development understanding is needed to create your own.
+Convert your favorite whitewater river into an interactive guide.
 
-The entire map can be created by entering data into JavaScript Object.
+- [Getting Started](#getting-started)
+  - [Tech Stack](#tech-stack)
+  - [Built With](#built-with)
+  - [Setup](#setup)
+- [The Philisophy of Building a River Map](#the-philisophy-of-building-a-river-map)
+  - [Core Concepts](#core-concepts)
+  - [Mutating the Data.js Object](#mutating-the-datajs-object)
 
 ## Getting Started
 
-This is where I will talk about what to install. I think React is it.
+### Tech Stack
 
-## Build Your Own River Map
+This project is a front-end React App, hosted using Jamstack on Netlify. Figma is an essential application for the the design component of the project, but only a limited design skillset is necessary.
+
+### Built With
+
+- [React](https://reactjs.org/) - The web framework used
+- [Figma](https://www.figma.com/) - The design tool
+- [Netlify](https://www.netlify.com/) - Back-end using Jamstack
+
+### Setup
+
+Use the following commands in your terminal to run a live server of the project.
+
+    git clone https://github.com/JeffThorslund/Ottawa-River-Paddling-Guide.git
+    cd [local repository]
+    npm install
+    npm start
+
+## The Philisophy of Building a River Map
 
 ### Core Concepts
 
-The entire map is rendered by a single array of objects that contains the entirety of the river data. This means that to complete a river map, the only thing that you need to edit it the information in that array.
+You will
+
+The entire map is rendered by a single array of objects that contains the entirety of the river data.
 
 Editing in the code editor while running a live server is the method in which we will be monitoring the changes that we make. Using a vector graphics editor can speed up the process.
 
-### Mutating the Data.js Object
+### The role of `const data` and `const global`
 
-This is an array of objects, each object representing one distinct rapid section.
+Located at `src\river-data\[your-river]\[YourRiverData].js`
 
-    const Data = [ // An array of rapids
+#### `const data`
+
+An array of objects, each object representing one distinct rapid section.
+
+    const data = [ // An array of rapids
         {
             // All information about a single rapid
         },
     ]
 
-**Lets build our first rapid!**
+#### `const global`
+
+An object that holds information relevant to the entire river.
+
+    export const global = { // A single object
+        // All information about the river
+    }
+
+## Steps to Building Your Map
+
+_Golden Rule_: Always design on a 1600x900 frame in Figma.
+
+### 1. Basic Rapid
+
+### 2. Overview Map
+
+#### Overview Map Design
+
+In the _Overview_ frame, place a screenshot of Bing satellite image so that the entire river fits in the frame and set the layer to 60% opacity. This will be your tracing outline.
+
+Use the pen tool to draw a trace of the river, ending up with a long thin outline of the river. Set fill to blue.
+
+Set the satellite image to hidden.
+
+Draw a 1600x900 rectangle behind the river trace. Set fill to green.
+
+#### Overview Map Implementation
+
+Select the entire frame in Figma in the _Layers_ panel on the right. Right click on _Overview_. Select _Copy As SVG_.
+
+Go to `src/river-data/[your-river]/basemaps/OverviewMap.js`
+
+Delete the existing SVG element.
+
+Paste your copied SVG element.
+
+Save.
+
+Import this map into the main data file by adding the following to the imports.
+
+    import OverviewMap from "./basemaps/OverviewMaps.js";
+
+Set `global.overviewMap` property to your newly added map.
+
+    global.overviewMap = OverviewMap
+
+**Expected Result**: Clicking the "Show Map" toggle on the live server should create a pop-up with your map.
+
+### 3. Adding A Rapid Map
+
+We will add the first rapid of the river.
+
+#### Rapid Design
+
+Create a 1600x900 Figma frame and paste a screenshot of a satellite image of the rapid of choice. Remeber to leave room at the top for the title, and space for the Display.js box.
+
+Use the pen tool to draw a trace of the river, ending up with an outline of the river. Set fill to blue.
+
+Set the satellite image to hidden.
+
+Draw a 1600x900 rectangle behind the river trace. Set fill to green.
+
+#### Rapid Implementation
+
+Select the entire frame in Figma in the Layers panel on the right. Right click on the the frame layer that you built your rapid in. Select _Copy As SVG_.
+
+Create a copy of `src/river-data/[your-river]/basemaps/TemplateMap.js` and name the new file.
+
+Paste your copied `<svg>` element between the `<g> </g>` tags.
+
+Delete the `<svg>` wrapper element.
+
+Your file should have a similar structure to the following.
+
+    import React from "react";
+
+    const RapidName = (
+    <g>
+        <g>
+            <rect /> //rectangle elements
+            <path />
+            <mask />
+        </g>
+        <defs>
+            <linearGradient>
+            <stop/>
+        </defs>
+    </g>
+    );
+
+    export default RapidName;
+
+Import this map into the main data file by adding the following to the imports.
+
+    import RapidName from "./basemaps/RapidName.js";
+
+Set `data.riverMap.path` property to your newly added map.
+
+    data.riverMap.path = RapidName
+
+**Expected Result**: The map of your first rapid should reflect your new map.
+
+## Elements
 
 Let _x_ represent a rapid being rendered in the array.
 
@@ -228,8 +359,8 @@ This is an array of objects, each representing a symbol in the rapid. There are 
 
 | Symbol Name | Image |
 | ----------- | ----- |
-| "Caution"   |       |
-| "Portage"   |       |
+| "Caution"   | ----  |
+| "Portage"   | ----- |
 
 Let y represent a line in a rapid.
 
@@ -240,7 +371,7 @@ Let y represent a line in a rapid.
 | `Data[x].symbols[y].top` (_string_)  | Distance from top of viewport                  |
 | `Data[x].symbols[y].left` (_string_) | Distance from left of viewport                 |
 
-    const Data = [
+    const Data =  [
         {
             ...
             lines: [
