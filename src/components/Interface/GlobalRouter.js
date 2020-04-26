@@ -9,20 +9,30 @@ import {
   useParams,
   useRouteMatch,
 } from "react-router-dom";
-import { data, global } from "../../river-data/ottawa-river/OttawaRiverData";
 
-//Maybe this is where we pass in the Data object of a specific river.
+import {
+  data as ottawaRiverData,
+  global as ottawaRiverGlobal,
+} from "../../river-data/ottawa-river/OttawaRiverData";
+
+//import {data as [myRiverData], global as [myRiverGlobal]} from "../../river-data/my-river-template/TemplateRiverData";
 
 const GlobalRouter = () => {
   console.log("GlobalRouter is rendered");
   return (
     <Switch>
       <Route exact path="/">
-        <Global data={data} />
+        <Global />
       </Route>
       <Route path="/ottawa-river">
-        <RiverRouter data={data} global={global} />
+        <RiverRouter data={ottawaRiverData} global={ottawaRiverGlobal} />
       </Route>
+
+      {/*
+      <Route path="/my-river">
+        <RiverRouter data={myRiverData} global={myRiverGlobal} />
+      </Route>
+      */}
     </Switch>
   );
 };
