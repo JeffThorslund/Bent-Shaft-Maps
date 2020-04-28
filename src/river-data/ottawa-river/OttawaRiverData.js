@@ -10,6 +10,8 @@ import UpperNoNameRapid from "./basemaps/middle/UpperNoNameRapid";
 import LowerNoNameRapid from "./basemaps/middle/LowerNoNameRapid";
 import Welcome from "./basemaps/Welcome";
 import OverviewMap from "./basemaps/OverviewMap";
+import LorneRapid from "./basemaps/main/LorneRapid";
+import PushButtonRapid from "./basemaps/main/PushButtonRapid";
 
 export const global = {
   riverName: "Ottawa River",
@@ -1089,4 +1091,156 @@ export const data = [
       pointerCoordinates: "0,50",
     },
   }, //Lower No Name
+
+  {
+    name: "The Lorne",
+    desc: "Class III",
+    displayPosition: {
+      top: "68vh",
+      left: "2vw",
+      width: "40vw",
+    },
+    riverMap: {
+      viewBox: "0 0 1600 900",
+      path: LorneRapid,
+    },
+    hydraulics: [
+      /*{
+        name: "Main Wave",
+        desc: "Follow the tounge that goes straight down the center!",
+        y: "362.54",
+        x: "498.11",
+        height: "58.73",
+        width: "13.44",
+        rotation: "-1",
+        range: [-10, 12],
+      },*/
+    ],
+    eddys: [
+      /*{
+        name: "Room of Doom",
+        desc: "A very bad place for a swimmer to be in.",
+        vector:
+          "M28.3707 92.6862C48.1874 131.518 72.9544 133.242 84.5083 125.713C98.343 116.697 146.964 66.2616 111.653 54.963C67.8403 40.9439 17.4949 37.6564 10.6929 50.4684C3.89083 63.2805 20.1149 76.5084 28.3707 92.6862Z",
+        x: "495",
+        y: "425",
+        range: [-10, 10],
+      },*/
+    ],
+    lines: [
+      /* {
+        name: "Punch the Wave",
+        desc: "Go straight through the hole at the bottom of the drop",
+        vector: (
+          <path
+            d="
+                M 150,400
+                q 300,-20 500,0
+                Q 1000,430 1200,400
+                "
+          />
+        ),
+        range: [-10, 12],
+      },*/
+    ],
+    symbols: [
+      {
+        type: "Caution",
+        desc:
+          "There is no safe way to navigate this rapid at this water level.",
+        top: "430",
+        left: "300",
+      },
+    ],
+    arrows: [
+      {
+        name: "McCoy's Chute Rapid",
+        rotation: "160deg",
+        bottom: "40vh",
+        right: "87vw",
+      }, //Upper No Name
+    ],
+    mapLabel: {
+      titleTop: "61vh",
+      titleLeft: "32vw",
+      pointerDirection: "top",
+      pointerCoordinates: "100,50",
+    },
+  }, //The Lorne
+
+  {
+    name: "Push Button",
+    desc: "Class III",
+    displayPosition: {
+      top: "68vh",
+      left: "2vw",
+      width: "40vw",
+    },
+    riverMap: {
+      viewBox: "0 0 1600 900",
+      path: PushButtonRapid,
+    },
+    hydraulics: [
+      /*{
+        name: "Main Wave",
+        desc: "Follow the tounge that goes straight down the center!",
+        y: "362.54",
+        x: "498.11",
+        height: "58.73",
+        width: "13.44",
+        rotation: "-1",
+        range: [-10, 12],
+      },*/
+    ],
+    eddys: [
+      /*{
+        name: "Room of Doom",
+        desc: "A very bad place for a swimmer to be in.",
+        vector:
+          "M28.3707 92.6862C48.1874 131.518 72.9544 133.242 84.5083 125.713C98.343 116.697 146.964 66.2616 111.653 54.963C67.8403 40.9439 17.4949 37.6564 10.6929 50.4684C3.89083 63.2805 20.1149 76.5084 28.3707 92.6862Z",
+        x: "495",
+        y: "425",
+        range: [-10, 10],
+      },*/
+    ],
+    lines: [
+      /* {
+        name: "Punch the Wave",
+        desc: "Go straight through the hole at the bottom of the drop",
+        vector: (
+          <path
+            d="
+                M 150,400
+                q 300,-20 500,0
+                Q 1000,430 1200,400
+                "
+          />
+        ),
+        range: [-10, 12],
+      },*/
+    ],
+    symbols: [
+      {
+        type: "Caution",
+        desc:
+          "There is no safe way to navigate this rapid at this water level.",
+        top: "430",
+        left: "300",
+      },
+    ],
+    arrows: [
+      {
+        name: "McCoy's Chute Rapid",
+        rotation: "160deg",
+        bottom: "40vh",
+        right: "87vw",
+      }, //Upper No Name
+    ],
+    mapLabel: {
+      titleTop: "65vh",
+      titleLeft: "39vw",
+      pointerDirection: "top",
+      pointerCoordinates: "60,30",
+    },
+  }, //The Lorne
 ];

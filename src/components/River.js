@@ -14,7 +14,7 @@ class River extends Component {
 
     this.state = {
       level: 0,
-      mapBool: false,
+      mapBool: true,
       symbolBool: false,
     };
   }
