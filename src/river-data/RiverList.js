@@ -2,10 +2,7 @@ import {
   data as ottawaRiverData,
   global as ottawaRiverGlobal,
 } from "../river-data/ottawa-river/OttawaRiverData";
-import {
-  data as jeffyTData,
-  global as jeffyTGlobal,
-} from "../river-data/jeffy-t/jeffyT"; //importEntryPoint
+//importEntryPoint
 
 const RiverList = [
   {
@@ -32,13 +29,6 @@ const RiverList = [
     data: null,
     global: null,
   },
-  {
-  name: "JeffyT",
-  location: "undefined",
-  class: "II",
-  underConst: false,
-  data: jeffyTData,
-  global: jeffyTGlobal,
-}, //elementEntryPoint
+  //elementEntryPoint
 ];
 export default RiverList;
