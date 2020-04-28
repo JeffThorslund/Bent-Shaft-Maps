@@ -1,12 +1,21 @@
 #!/usr/bin/env node
 var inquirer = require("inquirer");
+var figlet = require("figlet");
+var clear = require("clear");
 //------Functions-----------
 var createDirectory = require("./createDirectory.js");
 var createDataFile = require("./createDataFile.js");
 var appendRiverList = require("./appendRiverList.js");
 var copyTemplateFiles = require("./copyTemplateFiles.js");
 
-console.log("Thanks for taking the first step. Lets initialize your river!");
+clear();
+console.log(
+  figlet.textSync("WetExit Guides", {
+    font: "Modular",
+    horizontalLayout: "default",
+    verticalLayout: "default",
+  })
+);
 
 inquirer
   .prompt([
