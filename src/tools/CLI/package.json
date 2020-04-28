@@ -9,7 +9,8 @@
   "author": "Jeff Thorslund",
   "license": "ISC",
   "bin": {
-    "addRiver": "./addRiver/addRiver.js"
+    "addRiver": "./addRiver/addRiver.js",
+    "tester": "./testSpace/tester.js"
   },
   "dependencies": {}
 }

@@ -4,6 +4,7 @@ var inquirer = require("inquirer");
 var createDirectory = require("./createDirectory.js");
 var createDataFile = require("./createDataFile.js");
 var appendRiverList = require("./appendRiverList.js");
+var copyTemplateFiles = require("./copyTemplateFiles.js");
 
 console.log("Thanks for taking the first step. Lets initialize your river!");
 
@@ -16,18 +17,16 @@ inquirer
     },
     {
       type: "input",
-      name: "River Location:",
+      name: "locationName",
       message: "Location name? (eg. Ottawa, Ontario, Canada)",
     },
   ])
   .then((answers) => {
     console.log("addRiver Started.");
-    //Create File Directorys
-    createDirectory(answers);
-    //Copy river data file
-    createDataFile(answers);
-    //Append RiverList.js
-    appendRiverList(answers);
+    createDirectory(answers); //Create File Directorys
+    createDataFile(answers); //Copy river data file
+    appendRiverList(answers); //Append RiverList.js
+    copyTemplateFiles(answers); //Copy Template Files
     console.log("addRiver Complete.");
   })
   .catch((error) => {

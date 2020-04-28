@@ -3,7 +3,7 @@ import Welcome from "./basemaps/TemplateWelcome";
 import OverviewMap from "./basemaps/TemplateOverviewMap";
 
 export const global = {
-  riverName: "Ottawa River",
+  riverName: "//nameEntryPoint",
   riverDesc: "riverDesc",
   riverInfo: "riverInfo",
   putInCoords: "45.747890, -76.792082",
