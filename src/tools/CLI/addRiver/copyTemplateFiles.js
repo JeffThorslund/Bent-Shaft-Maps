@@ -8,10 +8,10 @@ module.exports = function (answers) {
 
   var files = ["TemplateOverviewMap", "TemplateRapid", "TemplateWelcome"];
 
-  for (let file in files) {
+  for (let file of files) {
     fs.copyFileSync(
-      `../../../src/river-data/my-river-template//basemaps/${file}.js`,
-      `../../../src/river-data/${nameParser.folderName(
+      `./src/river-data/my-river-template/basemaps/${file}.js`,
+      `./src/river-data/${nameParser.folderName(
         answers.riverName
       )}/basemaps/${file}.js`
     );
