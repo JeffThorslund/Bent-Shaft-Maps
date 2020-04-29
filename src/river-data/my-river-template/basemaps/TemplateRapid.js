@@ -1,5 +1,5 @@
 import React from "react";
-const McCoysChuteRapid = (
+const TemplateRapid = (
   <g>
     <rect
       x="-91.1572"
@@ -90,4 +90,4 @@ const McCoysChuteRapid = (
   </g>
 );
 
-export default McCoysChuteRapid;
+export default TemplateRapid;
