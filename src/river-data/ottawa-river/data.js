@@ -12,7 +12,11 @@ import Welcome from "./basemaps/Welcome";
 import OverviewMap from "./basemaps/OverviewMap";
 import LorneRapid from "./basemaps/main/LorneRapid";
 import PushButtonRapid from "./basemaps/main/PushButtonRapid";
-//importEntryPoint
+import ButchersKnifeRapid from "./basemaps/ButchersKnifeRapid.js";
+import NormansRapid from "./basemaps/NormansRapid.js";
+import ColiseumRapid from "./basemaps/ColiseumRapid.js";
+import DogsLegRapid from "./basemaps/DogsLegRapid.js";
+import FarmerBlacksRapid from "./basemaps/FarmerBlacksRapid.js"; //importEntryPoint
 
 export const global = {
   riverName: "Ottawa River",
@@ -213,8 +217,14 @@ export const data = [
         name: "Little Trickle",
         rotation: "160deg",
         bottom: "4vh",
-        right: "17vw",
+        right: "15vw",
       }, //Little Trickle
+      {
+        name: "The Lorne",
+        rotation: "160deg",
+        bottom: "4vh",
+        right: "26vw",
+      }, //The Lorne
     ],
     mapLabel: {
       titleTop: "45vh",
@@ -1097,9 +1107,9 @@ export const data = [
     name: "The Lorne",
     desc: "Class III",
     displayPosition: {
-      top: "68vh",
-      left: "2vw",
-      width: "40vw",
+      top: "71vh",
+      left: "42vw",
+      width: "50vw",
     },
     riverMap: {
       viewBox: "0 0 1600 900",
@@ -1158,12 +1168,18 @@ export const data = [
         name: "McCoy's Chute Rapid",
         rotation: "160deg",
         bottom: "40vh",
-        right: "87vw",
-      }, //Upper No Name
+        right: "85vw",
+      }, //McCoy's Chute Rapid
+      {
+        name: "Push Button",
+        rotation: "160deg",
+        bottom: "40vh",
+        right: "5vw",
+      }, //McCoy's Chute Rapid
     ],
     mapLabel: {
-      titleTop: "61vh",
-      titleLeft: "32vw",
+      titleTop: "58vh",
+      titleLeft: "27vw",
       pointerDirection: "top",
       pointerCoordinates: "100,50",
     },
@@ -1173,9 +1189,9 @@ export const data = [
     name: "Push Button",
     desc: "Class III",
     displayPosition: {
-      top: "68vh",
-      left: "2vw",
-      width: "40vw",
+      top: "70vh",
+      left: "25vw",
+      width: "50vw",
     },
     riverMap: {
       viewBox: "0 0 1600 900",
@@ -1231,18 +1247,374 @@ export const data = [
     ],
     arrows: [
       {
-        name: "McCoy's Chute Rapid",
+        name: "The Lorne",
         rotation: "160deg",
         bottom: "40vh",
         right: "87vw",
-      }, //Upper No Name
+      }, //The Lorne
+      {
+        name: "Butchers Knife",
+        rotation: "160deg",
+        bottom: "45vh",
+        right: "5vw",
+      }, //The Lorne
     ],
     mapLabel: {
-      titleTop: "65vh",
-      titleLeft: "39vw",
-      pointerDirection: "top",
-      pointerCoordinates: "60,30",
+      titleTop: "60vh",
+      titleLeft: "38vw",
+      pointerDirection: "bottom",
+      pointerCoordinates: "20,28",
     },
-  }, //The Lorne
-  //rapidEntryPoint
+  }, //Push Button
+
+  {
+    name: "Butchers Knife",
+    desc: "Class III",
+    displayPosition: {
+      top: "70vh",
+      left: "48vw",
+      width: "45vw",
+    },
+    riverMap: {
+      viewBox: "0 0 1600 900",
+      path: ButchersKnifeRapid,
+    },
+    hydraulics: [
+      /*{
+        name: "Phil's Hole",
+        desc:
+          "Phil's Hole is the first hole on the Ottawa River at the top of McCoys. It is munchiest between 4' to 8'. Below 4' and above 8' a punchable tounge opens up in the center of the hole. Scouting provides a clear view of the rapid.",
+        y: "463.55",
+        x: "589.11",
+        height: "58.73",
+        width: "13.44",
+        rotation: 1,
+        range: [-10, 13],
+      },*/
+      // Phils Hole
+    ],
+    eddys: [
+      /*{
+        name: "Football Eddy",
+        desc:
+          "A large eddy that can sometimes collect gear and swimmmers. This can sometimes be hard to get out of.",
+        vector:
+          "M57.7367 100.472C112.332 100.472 150.868 97.0028 157.209 77.01C164.801 53.0702 161.941 37.64 106.045 30.2237C36.1735 20.9535 8.56346 41.3981 12.9053 63.0286C17.2471 84.6591 30.113 100.472 57.7367 100.472Z",
+        x: "725",
+        y: "250",
+        range: [-10, 10],
+      },*/
+    ],
+    lines: [
+      /*{
+        name: "Thread The Needle",
+        desc:
+          "A commonly taken line through McCoys. Start center-right coming into the rapid with your boat pointed slightly left. When approaching the Sattlers, paddle towards river left, clip Sattlers and paddle for your life away from Phils",
+        vector: "M 150,455q 300,58 500,-10Q 1000,340 1180,800",
+        range: [-100, 100],
+      },*/
+      //Thread The Needle
+    ],
+    symbols: [],
+    arrows: [
+      {
+        name: "Push Button",
+        rotation: "160deg",
+        bottom: "40vh",
+        right: "90vw",
+      }, //Push Button
+
+      {
+        name: "Normans",
+        rotation: "160deg",
+        bottom: "83vh",
+        right: "20vw",
+      }, //Normans
+    ],
+    mapLabel: {
+      titleTop: "59vh",
+      titleLeft: "38vw",
+      pointerDirection: "top",
+      pointerCoordinates: "65,75",
+    },
+  }, // "Push Button"
+
+  {
+    name: "Normans",
+    desc: "Class III",
+    displayPosition: {
+      top: "74vh",
+      left: "27vw",
+      width: "40vw",
+    },
+    riverMap: {
+      viewBox: "0 0 1600 900",
+      path: NormansRapid,
+    },
+    hydraulics: [
+      /*{
+        name: "Phil's Hole",
+        desc:
+          "Phil's Hole is the first hole on the Ottawa River at the top of McCoys. It is munchiest between 4' to 8'. Below 4' and above 8' a punchable tounge opens up in the center of the hole. Scouting provides a clear view of the rapid.",
+        y: "463.55",
+        x: "589.11",
+        height: "58.73",
+        width: "13.44",
+        rotation: 1,
+        range: [-10, 13],
+      }, */
+      // Phils Hole
+    ],
+    eddys: [
+      /*{
+        name: "Football Eddy",
+        desc:
+          "A large eddy that can sometimes collect gear and swimmmers. This can sometimes be hard to get out of.",
+        vector:
+          "M57.7367 100.472C112.332 100.472 150.868 97.0028 157.209 77.01C164.801 53.0702 161.941 37.64 106.045 30.2237C36.1735 20.9535 8.56346 41.3981 12.9053 63.0286C17.2471 84.6591 30.113 100.472 57.7367 100.472Z",
+        x: "725",
+        y: "250",
+        range: [-10, 10],
+      },*/
+    ],
+    lines: [
+      /*{
+        name: "Thread The Needle",
+        desc:
+          "A commonly taken line through McCoys. Start center-right coming into the rapid with your boat pointed slightly left. When approaching the Sattlers, paddle towards river left, clip Sattlers and paddle for your life away from Phils",
+        vector: "M 150,455q 300,58 500,-10Q 1000,340 1180,800",
+        range: [-100, 100],
+      },*/
+      //Thread The Needle
+    ],
+    symbols: [],
+    arrows: [
+      {
+        name: "Butchers Knife",
+        rotation: "160deg",
+        bottom: "55vh",
+        right: "87vw",
+      }, //Butchers Knife
+
+      {
+        name: "Coliseum",
+        rotation: "160deg",
+        bottom: "55vh",
+        right: "10vw",
+      }, //Coliseum
+    ],
+    mapLabel: {
+      titleTop: "54vh",
+      titleLeft: "46vw",
+      pointerDirection: "top",
+      pointerCoordinates: "45,80",
+    },
+  }, // "Normans"
+
+  {
+    name: "Coliseum",
+    desc: "Class III",
+    displayPosition: {
+      top: "72vh",
+      left: "32vw",
+      width: "35vw",
+    },
+    riverMap: {
+      viewBox: "0 0 1600 900",
+      path: ColiseumRapid,
+    },
+    hydraulics: [
+      /*{
+        name: "Phil's Hole",
+        desc:
+          "Phil's Hole is the first hole on the Ottawa River at the top of McCoys. It is munchiest between 4' to 8'. Below 4' and above 8' a punchable tounge opens up in the center of the hole. Scouting provides a clear view of the rapid.",
+        y: "463.55",
+        x: "589.11",
+        height: "58.73",
+        width: "13.44",
+        rotation: 1,
+        range: [-10, 13],
+      },*/
+      // Phils Hole
+    ],
+    eddys: [
+      /*{
+        name: "Football Eddy",
+        desc:
+          "A large eddy that can sometimes collect gear and swimmmers. This can sometimes be hard to get out of.",
+        vector:
+          "M57.7367 100.472C112.332 100.472 150.868 97.0028 157.209 77.01C164.801 53.0702 161.941 37.64 106.045 30.2237C36.1735 20.9535 8.56346 41.3981 12.9053 63.0286C17.2471 84.6591 30.113 100.472 57.7367 100.472Z",
+        x: "725",
+        y: "250",
+        range: [-10, 10],
+      },*/
+    ],
+    lines: [
+      /*{
+        name: "Thread The Needle",
+        desc:
+          "A commonly taken line through McCoys. Start center-right coming into the rapid with your boat pointed slightly left. When approaching the Sattlers, paddle towards river left, clip Sattlers and paddle for your life away from Phils",
+        vector: "M 150,455q 300,58 500,-10Q 1000,340 1180,800",
+        range: [-100, 100],
+      }, */
+      //Thread The Needle
+    ],
+    symbols: [],
+    arrows: [
+      {
+        name: "Normans",
+        rotation: "160deg",
+        bottom: "50vh",
+        right: "90vw",
+      }, //Normans
+      {
+        name: "Dogs Leg",
+        rotation: "160deg",
+        bottom: "47vh",
+        right: "5vw",
+      }, //Normans
+    ],
+    mapLabel: {
+      titleTop: "59vh",
+      titleLeft: "53vw",
+      pointerDirection: "top",
+      pointerCoordinates: "42,50",
+    },
+  }, // "Coliseum"
+
+  {
+    name: "Dogs Leg",
+    desc: "Class III",
+    displayPosition: {
+      top: "73vh",
+      left: "35vw",
+      width: "35vw",
+    },
+    riverMap: {
+      viewBox: "0 0 1600 900",
+      path: DogsLegRapid,
+    },
+    hydraulics: [
+      /*{
+        name: "Phil's Hole",
+        desc:
+          "Phil's Hole is the first hole on the Ottawa River at the top of McCoys. It is munchiest between 4' to 8'. Below 4' and above 8' a punchable tounge opens up in the center of the hole. Scouting provides a clear view of the rapid.",
+        y: "463.55",
+        x: "589.11",
+        height: "58.73",
+        width: "13.44",
+        rotation: 1,
+        range: [-10, 13],
+      },*/
+      // Phils Hole
+    ],
+    eddys: [
+      /*{
+        name: "Football Eddy",
+        desc:
+          "A large eddy that can sometimes collect gear and swimmmers. This can sometimes be hard to get out of.",
+        vector:
+          "M57.7367 100.472C112.332 100.472 150.868 97.0028 157.209 77.01C164.801 53.0702 161.941 37.64 106.045 30.2237C36.1735 20.9535 8.56346 41.3981 12.9053 63.0286C17.2471 84.6591 30.113 100.472 57.7367 100.472Z",
+        x: "725",
+        y: "250",
+        range: [-10, 10],
+      },*/
+    ],
+    lines: [
+      /*{
+        name: "Thread The Needle",
+        desc:
+          "A commonly taken line through McCoys. Start center-right coming into the rapid with your boat pointed slightly left. When approaching the Sattlers, paddle towards river left, clip Sattlers and paddle for your life away from Phils",
+        vector: "M 150,455q 300,58 500,-10Q 1000,340 1180,800",
+        range: [-100, 100],
+      }, */
+      //Thread The Needle
+    ],
+    symbols: [],
+    arrows: [
+      {
+        name: "Farmer Blacks",
+        rotation: "160deg",
+        bottom: "45vh",
+        right: "5vw",
+      }, //Farmer Blacks
+      {
+        name: "Coliseum",
+        rotation: "160deg",
+        bottom: "55vh",
+        right: "88vw",
+      }, //Coliseum
+    ],
+    mapLabel: {
+      titleTop: "55vh",
+      titleLeft: "59vw",
+      pointerDirection: "top",
+      pointerCoordinates: "25,47",
+    },
+  }, // "Dogs Leg"
+
+  {
+    name: "Farmer Blacks",
+    desc: "Class III",
+    displayPosition: {
+      top: "72vh",
+      left: "21vw",
+      width: "30vw",
+    },
+    riverMap: {
+      viewBox: "0 0 1600 900",
+      path: FarmerBlacksRapid,
+    },
+    hydraulics: [
+      /*{
+        name: "Phil's Hole",
+        desc:
+          "Phil's Hole is the first hole on the Ottawa River at the top of McCoys. It is munchiest between 4' to 8'. Below 4' and above 8' a punchable tounge opens up in the center of the hole. Scouting provides a clear view of the rapid.",
+        y: "463.55",
+        x: "589.11",
+        height: "58.73",
+        width: "13.44",
+        rotation: 1,
+        range: [-10, 13],
+      },*/
+      // Phils Hole
+    ],
+    eddys: [
+      /*{
+        name: "Football Eddy",
+        desc:
+          "A large eddy that can sometimes collect gear and swimmmers. This can sometimes be hard to get out of.",
+        vector:
+          "M57.7367 100.472C112.332 100.472 150.868 97.0028 157.209 77.01C164.801 53.0702 161.941 37.64 106.045 30.2237C36.1735 20.9535 8.56346 41.3981 12.9053 63.0286C17.2471 84.6591 30.113 100.472 57.7367 100.472Z",
+        x: "725",
+        y: "250",
+        range: [-10, 10],
+      },*/
+    ],
+    lines: [
+      /*{
+        name: "Thread The Needle",
+        desc:
+          "A commonly taken line through McCoys. Start center-right coming into the rapid with your boat pointed slightly left. When approaching the Sattlers, paddle towards river left, clip Sattlers and paddle for your life away from Phils",
+        vector: "M 150,455q 300,58 500,-10Q 1000,340 1180,800",
+        range: [-100, 100],
+      }, */
+      //Thread The Needle
+    ],
+    symbols: [],
+    arrows: [
+      {
+        name: "Dogs Leg",
+        rotation: "160deg",
+        bottom: "47vh",
+        right: "87vw",
+      }, //Dogs Leg
+    ],
+    mapLabel: {
+      titleTop: "47vh",
+      titleLeft: "65vw",
+      pointerDirection: "top",
+      pointerCoordinates: "15,67",
+    },
+  }, // "Farmer Blacks" //rapidEntryPoint
 ];
