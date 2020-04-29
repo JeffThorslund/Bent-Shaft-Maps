@@ -12,6 +12,7 @@ import Welcome from "./basemaps/Welcome";
 import OverviewMap from "./basemaps/OverviewMap";
 import LorneRapid from "./basemaps/main/LorneRapid";
 import PushButtonRapid from "./basemaps/main/PushButtonRapid";
+//importEntryPoint
 
 export const global = {
   riverName: "Ottawa River",
@@ -1243,4 +1244,5 @@ export const data = [
       pointerCoordinates: "60,30",
     },
   }, //The Lorne
+  //rapidEntryPoint
 ];
