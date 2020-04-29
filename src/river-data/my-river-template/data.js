@@ -5,8 +5,10 @@ import OverviewMap from "./basemaps/TemplateOverviewMap";
 
 export const global = {
   riverName: "//nameEntryPoint",
-  riverDesc: "riverDesc",
-  riverInfo: "riverInfo",
+  riverDesc:
+    "Add a description of your river! In this section, include some general information about the river. History? Paddling Style? Yearly events held here?",
+  riverInfo:
+    "Add information about put in location, take out location. Any fees or private property complications? Specific season that the river is runnable?",
   putInCoords: "45.747890, -76.792082",
   riverMap: {
     viewBox: "0 0 1600 900",
@@ -30,37 +32,37 @@ export const data = [
     },
     hydraulics: [
       {
-        name: "Phil's Hole",
+        name: "Booty Beer Wave",
         desc:
-          "Phil's Hole is the first hole on the Ottawa River at the top of McCoys. It is munchiest between 4' to 8'. Below 4' and above 8' a punchable tounge opens up in the center of the hole. Scouting provides a clear view of the rapid.",
+          "Add information about the feature. Is it a ledge, hole or wave? Is it shallow, sticky, trashy, glassy, flushy? Is there a certain level where it is prime for surfing, or maybe especially dangerous?",
         y: "463.55",
         x: "589.11",
         height: "58.73",
         width: "13.44",
         rotation: 1,
         range: [-10, 13],
-      }, // Phils Hole
+      }, //Booty Beer Wave
     ],
     eddys: [
       {
-        name: "Football Eddy",
+        name: "Hotshot Eddy",
         desc:
-          "A large eddy that can sometimes collect gear and swimmmers. This can sometimes be hard to get out of.",
+          "What is this eddy used for? Is it easy to catch? Difficult to exit? Land Access?",
         vector:
           "M57.7367 100.472C112.332 100.472 150.868 97.0028 157.209 77.01C164.801 53.0702 161.941 37.64 106.045 30.2237C36.1735 20.9535 8.56346 41.3981 12.9053 63.0286C17.2471 84.6591 30.113 100.472 57.7367 100.472Z",
         x: "725",
         y: "250",
         range: [-10, 10],
-      },
+      }, //Hotshot Eddy
     ],
     lines: [
       {
-        name: "Thread The Needle",
+        name: "Pick Your Poison",
         desc:
-          "A commonly taken line through McCoys. Start center-right coming into the rapid with your boat pointed slightly left. When approaching the Sattlers, paddle towards river left, clip Sattlers and paddle for your life away from Phils",
+          "Explain the line. Where to start, reference points on the river, hazards to avoid, what to expect.",
         vector: "M 150,455q 300,58 500,-10Q 1000,340 1180,800",
         range: [-100, 100],
-      }, //Thread The Needle
+      }, //Pick Your Poison
     ],
     symbols: [
       {
@@ -73,11 +75,11 @@ export const data = [
     ],
     arrows: [
       {
-        name: "Iron Ring",
+        name: "Nexterino Rapid",
         rotation: "160deg",
         bottom: "4vh",
         right: "5vw",
-      }, //Iron Ring
+      }, //Nexterino Rapid
     ],
     mapLabel: {
       titleTop: "45vh",
@@ -85,6 +87,6 @@ export const data = [
       pointerDirection: "bottom",
       pointerCoordinates: "35,47",
     },
-  }, // "McCoy's Chute Rapid"
+  }, // "Template Rapid"
   //rapidEntryPoint
 ];
