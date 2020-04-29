@@ -15,17 +15,15 @@ const RiverRouter = (props) => {
   console.log("River Router", path, url);
 
   return (
+    <Switch>
+      <Route exact path={path}>
+        <PutIn global={props.global} data={props.data} url={url} />
+      </Route>
 
-      <Switch>
-        <Route exact path={path}>
-          <PutIn global={props.global} data={props.data} url={url} />
-        </Route>
-
-        <Route path={`${path}/:id`}>
-          <River data={props.data} url={url} global={props.global} />
-        </Route>
-      </Switch>
-
+      <Route path={`${path}/:id`}>
+        <River data={props.data} url={url} global={props.global} />
+      </Route>
+    </Switch>
   );
 };
 
