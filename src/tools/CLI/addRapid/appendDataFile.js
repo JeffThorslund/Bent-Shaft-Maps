@@ -2,16 +2,23 @@ var fs = require("fs");
 var nameParser = require("../nameParser.js");
 
 module.exports = function (answers) {
-  console.log("appendRiverList Started.");
+  console.log("appendDataFile Started.");
 
   //Copy RiverList
-  var data = fs.readFileSync("./src/river-data/RiverList.js", "utf8");
+  var content = fs.readFileSync(
+    `${nameParser.data(answers.rapidName)}.js`,
+    "utf8"
+  );
 
+  console.log(content);
+  /*
   //Fill import info based on user input
   var importBlob = `import {
   data as ${nameParser.data(answers.riverName)},
   global as ${nameParser.global(answers.riverName)},
-} from "../river-data/${nameParser.folderName(answers.riverName)}/data.js";`;
+} from "../river-data/${nameParser.folderName(
+    answers.riverName
+  )}/${nameParser.dataFile(answers.riverName)}";`;
 
   //Fill RiverList element based on user input
   var entryBlob = `{
@@ -39,5 +46,5 @@ module.exports = function (answers) {
   wstream.write(`${result}`, function (err) {
     if (err) throw err;
     console.log("appendRiverList Complete.");
-  });
+  });*/
 };

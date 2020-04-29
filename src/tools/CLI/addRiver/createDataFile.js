@@ -2,11 +2,11 @@ var fs = require("fs");
 var nameParser = require("../nameParser.js");
 
 module.exports = function (answers) {
-  console.log("templateCopy Started.");
+  console.log("createDataFile Started.");
 
   //Copy TemplateRiverData
   var data = fs.readFileSync(
-    "./src/river-data/my-river-template/TemplateRiverData.js",
+    "./src/river-data/my-river-template/data.js",
     "utf8"
   );
 
@@ -18,13 +18,11 @@ module.exports = function (answers) {
 
   //Replace old RiverList with new RiverList
   let wstream = fs.createWriteStream(
-    `./src/river-data/${nameParser.folderName(
-      answers.riverName
-    )}/${nameParser.dataFile(answers.riverName)}.js`
+    `./src/river-data/${nameParser.folderName(answers.riverName)}/data.js`
   );
   wstream.write(`${result}`, function (err) {
     if (err) throw err;
-    console.log("templateCopy Completed");
+    console.log("createDataFile Completed");
   });
 };
 
