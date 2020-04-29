@@ -10,6 +10,7 @@
   "license": "ISC",
   "bin": {
     "addRiver": "./addRiver/addRiver.js",
+    "addRapid": "./addRapid/addRapid.js",
     "tester": "./testSpace/tester.js"
   },
   "dependencies": {}
