@@ -2,7 +2,10 @@ import {
   data as ottawaRiverData,
   global as ottawaRiverGlobal,
 } from "../river-data/ottawa-river/data.js";
-//importEntryPoint
+import {
+  data as boingData,
+  global as boingGlobal,
+} from "../river-data/boing/data.js"; //importEntryPoint
 
 const RiverList = [
   {
@@ -29,6 +32,13 @@ const RiverList = [
     data: null,
     global: null,
   },
-  //elementEntryPoint
+  {
+  name: "Boing",
+  location: "Ontario",
+  class: "II",
+  underConst: false,
+  data: boingData,
+  global: boingGlobal,
+}, //elementEntryPoint
 ];
 export default RiverList;
