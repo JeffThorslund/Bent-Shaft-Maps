@@ -87,7 +87,11 @@ module.exports = function (answers) {
     `${rapidImport} //importEntryPoint`
   );
 
-  result = result.replace(/\/\/rapidEntryPoint/, `${rapid} //rapidEntryPoint`);
+  result = result.replace(
+    /\/\/rapidEntryPoint/,
+    `${rapid}
+  //rapidEntryPoint`
+  );
 
   let wstream = fs.createWriteStream(`data.js`);
   wstream.write(`${result}`, function (err) {

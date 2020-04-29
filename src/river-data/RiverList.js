@@ -2,6 +2,7 @@ import {
   data as ottawaRiverData,
   global as ottawaRiverGlobal,
 } from "../river-data/ottawa-river/data.js";
+//importEntryPoint
 
 const RiverList = [
   {
