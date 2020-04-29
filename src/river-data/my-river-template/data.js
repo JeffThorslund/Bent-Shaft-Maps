@@ -1,6 +1,7 @@
 import TemplateRapid from "./basemaps/TemplateRapid";
 import Welcome from "./basemaps/TemplateWelcome";
 import OverviewMap from "./basemaps/TemplateOverviewMap";
+//importEntryPoint
 
 export const global = {
   riverName: "//nameEntryPoint",
@@ -85,4 +86,5 @@ export const data = [
       pointerCoordinates: "35,47",
     },
   }, // "McCoy's Chute Rapid"
+  //rapidEntryPoint
 ];
