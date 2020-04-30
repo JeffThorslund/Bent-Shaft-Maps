@@ -2,7 +2,7 @@ var fs = require("fs");
 var nameParser = require("../nameParser.js");
 
 module.exports = function ({ rapidName }) {
-  console.log("appendDataFile Started.");
+  console.log("append data file starting...");
 
   //Deconstruct name parser
   const { rapid, userInput } = nameParser;
@@ -104,6 +104,6 @@ module.exports = function ({ rapidName }) {
   let wstream = fs.createWriteStream(`data.js`);
   wstream.write(result, function (err) {
     if (err) throw err;
-    console.log("appendDataFil Complete.");
+    console.log("append data file complete.");
   });
 };
