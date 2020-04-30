@@ -2,7 +2,7 @@ var fs = require("fs");
 var nameParser = require("../nameParser.js");
 
 module.exports = function ({ rapidName }) {
-  console.log("createBasemap Started");
+  console.log("basemap build starting...");
 
   //Desctructure nameParser
   const { rapid } = nameParser;
@@ -15,5 +15,5 @@ module.exports = function ({ rapidName }) {
   //write new basemap file
   fs.writeFileSync(`./basemaps/${rapid(rapidName)}.js`, content);
 
-  console.log("createBasemap Finished");
+  console.log("basemap build complete.");
 };
