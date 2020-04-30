@@ -3,16 +3,15 @@ var nameParser = require("../nameParser.js");
 
 //Create File Directorys
 
-module.exports = function (answers) {
-  console.log("createDirectory Started.");
+module.exports = function ({ riverName }) {
+  console.log("Directory structure build starting...");
 
-  fs.mkdirSync(`./src/river-data/${nameParser.folderName(answers.riverName)}`);
+  //Desctructure name parser.
+  const { folderName } = nameParser;
 
-  fs.mkdirSync(
-    `./src/river-data/${nameParser.folderName(answers.riverName)}/basemaps`
-  );
-  fs.mkdirSync(
-    `./src/river-data/${nameParser.folderName(answers.riverName)}/vector-raw`
-  );
-  console.log("createDirectory Completed.");
+  fs.mkdirSync(`./src/river-data/${folderName(riverName)}`);
+  fs.mkdirSync(`./src/river-data/${folderName(riverName)}/basemaps`);
+  fs.mkdirSync(`./src/river-data/${folderName(riverName)}/vector-raw`);
+
+  console.log("Directory structure build complete.");
 };

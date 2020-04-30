@@ -1,6 +1,6 @@
 import React from "react";
 
-const PutInMap = (
+const Welcome = (
   <g>
     <g clip-path="url(#clip0)">
       <rect width="1600" height="900" fill="white" />
@@ -149,4 +149,4 @@ const PutInMap = (
   </g>
 );
 
-export default PutInMap;
+export default Welcome;
