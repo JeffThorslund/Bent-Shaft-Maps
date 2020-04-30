@@ -1,18 +1,23 @@
 var fs = require("fs");
 var nameParser = require("../nameParser.js");
 
-module.exports = function (answers) {
+module.exports = function ({ rapidName }) {
   console.log("appendDataFile Started.");
+
+  //Deconstruct name parser
+  const { rapid, userInput } = nameParser;
 
   //Copy RiverList
   var content = fs.readFileSync(`data.js`, "utf8");
 
-  var rapidImport = `import ${nameParser.rapid(
-    answers.rapidName
-  )} from "./basemaps/${nameParser.rapid(answers.rapidName)}.js";`;
+  //Define an import line
+  var rapidImport = `import ${rapid(
+    rapidName
+  )} from "./basemaps/${nameParser.rapid(rapidName)}.js";`;
 
-  var rapid = `{
-    name: "${answers.rapidName}",
+  //Define chunk of data
+  var rapidChunk = `{
+    name: "${rapidName}",
     desc: "Class III",
     displayPosition: {
       top: "70vh",
@@ -21,41 +26,41 @@ module.exports = function (answers) {
     },
     riverMap: {
       viewBox: "0 0 1600 900",
-      path: ${nameParser.rapid(answers.rapidName)},
+      path: ${nameParser.rapid(rapidName)},
     },
     hydraulics: [
       {
-        name: "Phil's Hole",
+        name: "Booty Beer Wave",
         desc:
-          "Phil's Hole is the first hole on the Ottawa River at the top of McCoys. It is munchiest between 4' to 8'. Below 4' and above 8' a punchable tounge opens up in the center of the hole. Scouting provides a clear view of the rapid.",
+          "Add information about the feature. Is it a ledge, hole or wave? Is it shallow, sticky, trashy, glassy, flushy? Is there a certain level where it is prime for surfing, or maybe especially dangerous?",
         y: "463.55",
         x: "589.11",
         height: "58.73",
         width: "13.44",
         rotation: 1,
         range: [-10, 13],
-      }, // Phils Hole
+      }, //Booty Beer Wave
     ],
     eddys: [
       {
-        name: "Football Eddy",
+        name: "Hotshot Eddy",
         desc:
-          "A large eddy that can sometimes collect gear and swimmmers. This can sometimes be hard to get out of.",
+          "What is this eddy used for? Is it easy to catch? Difficult to exit? Land Access?",
         vector:
           "M57.7367 100.472C112.332 100.472 150.868 97.0028 157.209 77.01C164.801 53.0702 161.941 37.64 106.045 30.2237C36.1735 20.9535 8.56346 41.3981 12.9053 63.0286C17.2471 84.6591 30.113 100.472 57.7367 100.472Z",
         x: "725",
         y: "250",
         range: [-10, 10],
-      },
+      }, //Hotshot Eddy
     ],
     lines: [
       {
-        name: "Thread The Needle",
+        name: "Pick Your Poison",
         desc:
-          "A commonly taken line through McCoys. Start center-right coming into the rapid with your boat pointed slightly left. When approaching the Sattlers, paddle towards river left, clip Sattlers and paddle for your life away from Phils",
+          "Explain the line. Where to start, reference points on the river, hazards to avoid, what to expect.",
         vector: "M 150,455q 300,58 500,-10Q 1000,340 1180,800",
         range: [-100, 100],
-      }, //Thread The Needle
+      }, //Pick Your Poison
     ],
     symbols: [
       {
@@ -68,33 +73,36 @@ module.exports = function (answers) {
     ],
     arrows: [
       {
-        name: "Iron Ring",
+        name: "Nexterino Rapid",
         rotation: "160deg",
         bottom: "4vh",
         right: "5vw",
-      }, //Iron Ring
+      }, //Nexterino Rapid
     ],
     mapLabel: {
       titleTop: "45vh",
       titleLeft: "11vw",
       pointerDirection: "bottom",
       pointerCoordinates: "35,47",
-    },
-  }, // "${nameParser.userInput(answers.rapidName)}"`;
+    }, 
+  }, // "${userInput(rapidName)}"`;
 
+  //Add import line
   var result = content.replace(
     /\/\/importEntryPoint/,
     `${rapidImport} //importEntryPoint`
   );
 
+  //Add import chunk
   result = result.replace(
     /\/\/rapidEntryPoint/,
-    `${rapid}
+    `${rapidChunk}
   //rapidEntryPoint`
   );
 
+  //Write to a fresh data.js file
   let wstream = fs.createWriteStream(`data.js`);
-  wstream.write(`${result}`, function (err) {
+  wstream.write(result, function (err) {
     if (err) throw err;
     console.log("appendDataFil Complete.");
   });

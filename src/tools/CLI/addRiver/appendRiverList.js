@@ -1,30 +1,36 @@
 var fs = require("fs");
 var nameParser = require("../nameParser.js");
 
-module.exports = function (answers) {
-  console.log("appendRiverList Started.");
+module.exports = ({ riverName, LocationName }) => {
+  console.log("Append RiverList starting...");
+  
+  //Set location of RiverList.js.
+  const riverListUrl = "./src/river-data/RiverList.js";
+
+  //Destructure NameParser functions.
+  const { folderName, data, global } = nameParser;
 
   //Copy RiverList
-  var data = fs.readFileSync("./src/river-data/RiverList.js", "utf8");
+  var content = fs.readFileSync(riverListUrl, "utf8");
 
   //Fill import info based on user input
   var importBlob = `import {
-  data as ${nameParser.data(answers.riverName)},
-  global as ${nameParser.global(answers.riverName)},
-} from "../river-data/${nameParser.folderName(answers.riverName)}/data.js";`;
+  data as ${data(riverName)},
+  global as ${global(riverName)},
+} from "../river-data/${folderName(riverName)}/data.js";`;
 
   //Fill RiverList element based on user input
   var entryBlob = `{
-  name: "${answers.riverName}",
-  location: "${answers.locationName}",
+  name: "${riverName}",
+  location: "${LocationName}",
   class: "II",
   underConst: false,
-  data: ${nameParser.data(answers.riverName)},
-  global: ${nameParser.global(answers.riverName)},
+  data: ${data(riverName)},
+  global: ${global(riverName)},
 }`;
 
   //Replace data entry points with new data
-  var result = data.replace(
+  var result = content.replace(
     /\/\/elementEntryPoint/,
     `${entryBlob}, //elementEntryPoint`
   );
@@ -35,9 +41,9 @@ module.exports = function (answers) {
   );
 
   //Replace old RiverList with new RiverList
-  let wstream = fs.createWriteStream(`./src/river-data/RiverList.js`);
+  let wstream = fs.createWriteStream(riverListUrl);
   wstream.write(`${result}`, function (err) {
     if (err) throw err;
-    console.log("appendRiverList Complete.");
+    console.log("Append RiverList completed.");
   });
 };

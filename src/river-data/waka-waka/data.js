@@ -5,7 +5,7 @@ import TemplateRapid from "./basemaps/TemplateRapid";
 //importEntryPoint
 
 export const global = {
-  riverName: "//nameEntryPoint",
+  riverName: "Wakawaka",
   riverDesc:
     "Add a description of your river! In this section, include some general information about the river. History? Paddling Style? Yearly events held here?",
   riverInfo:
