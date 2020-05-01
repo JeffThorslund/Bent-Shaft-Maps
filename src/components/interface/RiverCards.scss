@@ -1,18 +1,26 @@
 /*---Universal---*/
 
+/* HEX */
+$color1: #af9164ff;
+$color2: #f7f3e3ff;
+$color3: #e08268;
+$color4: #e1e2e2ff;
+$color5: #80a1c1;
+$color6: #2b2118ff;
+
 .river-label {
-  color: black;
-  border: black 2px solid;
+  border: $color6 3px solid;
   border-radius: 10px;
-  background-color: #4eb058;
+  background-color: $color3;
   cursor: pointer;
   overflow: hidden;
   user-select: none;
+  color: $color6;
 }
 
 .river-label a {
   text-decoration: none;
-  color: black;
+  color: $color6;
 }
 
 .done {
@@ -20,7 +28,7 @@
 }
 
 #name {
-  font-size: 30px;
+  font-size: 29px;
 }
 
 #location {
@@ -54,14 +62,13 @@
 }
 
 .toggled {
-  background-color: black;
-  color: honeydew;
+  background-color: $color6;
+  color: $color4;
 }
 
 #involved {
   text-align: center;
-  background-color: #63b3ff;
-  color: black;
+  background-color: $color3;
   border-radius: 10px;
   padding: 5px;
   margin-top: 10px;
@@ -69,7 +76,8 @@
 }
 
 #involved:hover {
-  background-color: rgb(189, 106, 106);
+  background-color: $color5;
+  font-weight: bold;
 }
 
 /*---DoesNotExist---*/
@@ -93,7 +101,7 @@
 
 .guide-link {
   border: black 2px solid;
-  background-color: #63b3ff;
+  background-color: $color2;
   font-size: 24px;
   border-radius: 50px;
   margin: 10px 20%;
@@ -102,7 +110,8 @@
 }
 
 .guide-link:hover {
-  background-color: rgb(46, 67, 136);
+  background-color: $color5;
+  font-weight: bold;
 }
 
 .guide-link a {

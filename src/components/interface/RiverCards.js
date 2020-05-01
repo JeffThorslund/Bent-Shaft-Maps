@@ -8,13 +8,13 @@ import {
   useParams,
   useRouteMatch,
 } from "react-router-dom";
-import "./RiverCards.css";
+import "./RiverCards.scss";
 import Construction from "./ConstructionBar.png";
 
 export const Exists = (props) => {
   return (
     <div className="river-label done">
-      <Link to={`/${idParser(props.elem.name)}`}> {/*This is the link*/}
+      <Link to={`/${idParser(props.elem.name)}`}>
         <div
           id="name"
           dangerouslySetInnerHTML={{ __html: props.nameResult }}

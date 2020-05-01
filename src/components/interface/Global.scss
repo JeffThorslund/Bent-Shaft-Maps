@@ -1,9 +1,17 @@
+/* HEX */
+$color1: #af9164ff;
+$color2: #f7f3e3ff;
+$color3: #40c9a2;
+$color4: #e1e2e2ff;
+$color5: #80a1c1;
+$color6: #2b2118ff;
+
 .Global {
   font-family: Ruda;
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-image: linear-gradient(#63b3ff, #4eb058);
+  background-image: linear-gradient($color4, $color5);
   min-height: 100vh;
   height: 100%;
   width: 100vw;
@@ -11,14 +19,17 @@
   max-width: 100vw;
 }
 
-#title {
-  font-size: 60px;
-  padding-top: 50px;
+.Global #title {
+  font-family: "Girassol", cursive;
+  font-size: 90px;
+  padding-top: 40px;
+  color: $color6;
 }
 
-#subtitle {
-  font-size: 24px;
-  padding-top: 10px;
+.Global #subtitle {
+  font-size: 30px;
+  padding-top: 20px;
+  color: $color6;
 }
 
 #prompt {

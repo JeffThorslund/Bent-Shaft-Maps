@@ -1,5 +1,5 @@
 import React from "react";
-import "./Global.css";
+import "./Global.scss";
 import {
   BrowserRouter as Router,
   Switch,
@@ -11,6 +11,7 @@ import {
 import SearchBar from "./SearchBar";
 import RiverList from "../../river-data/RiverList";
 import { Exists, UnderConst, DoesNotExist } from "./RiverCards";
+import GithubCorner from "react-github-corner";
 
 class Global extends React.Component {
   constructor(props) {
@@ -81,6 +82,10 @@ class Global extends React.Component {
             handleChange={this.handleChange}
           />
           <div className="river-wrapper">{labelArr}</div>
+          <GithubCorner
+            octoColor="#e1e2e2ff"
+            href="https://github.com/JeffThorslund/Ottawa-River-Paddling-Guide"
+          />
         </Route>
       </div>
     );
