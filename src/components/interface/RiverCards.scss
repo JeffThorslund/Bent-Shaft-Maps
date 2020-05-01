@@ -3,7 +3,9 @@
 /* HEX */
 $color1: #af9164ff;
 $color2: #f7f3e3ff;
-$color3: #e08268;
+$color3: #eca184;
+$light_color3: #f9c1a0;
+$lighter_color3: #ffdecb;
 $color4: #e1e2e2ff;
 $color5: #80a1c1;
 $color6: #2b2118ff;
@@ -11,11 +13,15 @@ $color6: #2b2118ff;
 .river-label {
   border: $color6 3px solid;
   border-radius: 10px;
-  background-color: $color3;
+  background-image: linear-gradient($light_color3, $color3);
   cursor: pointer;
   overflow: hidden;
   user-select: none;
   color: $color6;
+}
+
+.river-label:hover {
+  background-image: linear-gradient($lighter_color3, $light_color3);
 }
 
 .river-label a {
@@ -64,6 +70,11 @@ $color6: #2b2118ff;
 .toggled {
   background-color: $color6;
   color: $color4;
+  background-image: none;
+}
+
+.toggled:hover {
+  background-image: none;
 }
 
 #involved {
