@@ -1,0 +1,119 @@
+.river-label {
+  border: #2b2118ff 3px solid;
+  border-radius: 10px;
+  background-image: linear-gradient(#f9c1a0, #eca184);
+  cursor: pointer;
+  overflow: hidden;
+  user-select: none;
+  color: #2b2118ff;
+}
+
+.river-label:hover {
+  background-image: linear-gradient(#ffdecb, #f9c1a0);
+}
+
+.river-label a {
+  text-decoration: none;
+  color: #2b2118ff;
+}
+
+.done {
+  padding: 15px;
+}
+
+#name {
+  font-size: 29px;
+}
+
+#location {
+  font-size: 20px;
+}
+
+#class {
+  font-size: 16px;
+}
+
+#selected {
+  font-weight: bold;
+  display: inline-block;
+}
+
+/*---UnderConst---*/
+.const {
+  display: flex;
+  justify-content: space-between;
+}
+
+.header {
+  padding: 15px;
+}
+
+.img-wrapper {
+  position: relative;
+  right: -1px;
+  height: 110px;
+  width: auto;
+  border-left: black 3px solid;
+}
+
+.toggled {
+  background-color: #2b2118ff;
+  color: #e1e2e2ff;
+  background-image: none;
+}
+
+.toggled:hover {
+  background-image: none;
+}
+
+#involved {
+  text-align: center;
+  background-color: #eca184;
+  border-radius: 10px;
+  padding: 5px;
+  margin-top: 10px;
+  font-size: 20px;
+}
+
+#involved:hover {
+  background-color: #80a1c1;
+  font-weight: bold;
+}
+
+/*---DoesNotExist---*/
+.make-one {
+  grid-column: 1/4;
+  text-align: center;
+  padding: 20px;
+  cursor: auto;
+}
+
+.make-one .main {
+  font-size: 48px;
+  padding: 10px;
+}
+
+.make-one .sub {
+  font-size: 24px;
+  padding: 10px;
+}
+
+.guide-link {
+  border: black 2px solid;
+  background-color: #f7f3e3ff;
+  font-size: 24px;
+  border-radius: 50px;
+  margin: 10px 20%;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.guide-link:hover {
+  font-weight: bold;
+}
+
+.guide-link a {
+  text-decoration: none;
+}
+
+/*# sourceMappingURL=RiverCards.css.map */

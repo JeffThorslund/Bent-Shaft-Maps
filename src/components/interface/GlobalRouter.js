@@ -1,5 +1,5 @@
 import React from "react";
-import Global from "./Global";
+import Global from "./Global/Global";
 import RiverRouter from "./RiverRouter";
 import {
   BrowserRouter as Router,
