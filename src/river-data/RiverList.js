@@ -2,10 +2,7 @@ import {
   data as ottawaRiverData,
   global as ottawaRiverGlobal,
 } from "../river-data/ottawa-river/data.js";
-import {
-  data as practiceData,
-  global as practiceGlobal,
-} from "../river-data/practice/data.js"; //importEntryPoint
+//importEntryPoint
 
 const RiverList = [
   {
@@ -32,13 +29,5 @@ const RiverList = [
     data: null,
     global: null,
   },
-  {
-    name: "Practice",
-    location: "undefined",
-    class: "II",
-    underConst: false,
-    data: practiceData,
-    global: practiceGlobal,
-  }, //elementEntryPoint
 ];
 export default RiverList;

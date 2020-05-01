@@ -30,11 +30,6 @@ const GlobalRouter = () => {
 
       {routeArray}
 
-      {/*
-      <Route path="/ottawa-river">
-        <RiverRouter data={ottawaRiverData} global={ottawaRiverGlobal} />
-      </Route>
-      */}
     </Switch>
   );
 };
