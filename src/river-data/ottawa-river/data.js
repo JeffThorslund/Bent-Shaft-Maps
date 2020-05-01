@@ -24,6 +24,9 @@ export const global = {
     "The Ottawa River is one of the most popular freestyle rivers in the world, offering many playboating opportunities at almost all water levels. Though the runnability of each rapid varies with water levels, there is a runnable route down the river at all water levels.",
   riverInfo:
     "The put-in located on McCoy Chute Trail, with a clear parking area. There is access to clean outhouses. There are several takeout options. Owl rafting provides a free takeout but requires a significant flatwater section after the rapids. RiverRun has a takeout that costs 15$.",
+  riverAccess: 
+  "",
+  riverLinks:[""],
   putInCoords: "45.747890, -76.792082",
   riverMap: {
     viewBox: "0 0 1600 900",
