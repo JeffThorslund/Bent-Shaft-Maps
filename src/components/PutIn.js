@@ -11,32 +11,37 @@ import {
 import idParser from "../tools/idParser";
 import Basemap from "./Basemap";
 
-import "./PutIn.css";
+import "./PutIn.scss";
 
 const PutIn = (props) => {
   return (
-    <>
+    <div className="global-wrapper">
       <Basemap map={props.global.riverMap} />
 
-      <div className="PutIn-wrapper">
-        <div id="header">Welcome to the</div>
+      <div id="header child">
+        <div id="pre-title">Welcome to the</div>
         <div id="title">{props.global.riverName}</div>
-        <Link to={`${props.url}/${idParser(props.data[0].name)}`}>
-          <div className="button">Continue...</div>
-        </Link>
+        <div className="button">
+          <Link
+            to={`${props.url}/${idParser(props.data[0].name)}`}
+            className="child"
+          >
+            Continue...
+          </Link>
+        </div>
       </div>
 
-      <div className="bottom-wrapper">
+      <div className="footer child">
         <div className="bottom-wrapper-child" id="desc">
           <div id="about">About</div>
           <div>{props.global.riverDesc}</div>
         </div>
-        <div className="bottom-wrapper-child" id="info">
-          <div id="about">Info</div>
-          {props.global.riverInfo}
+        <div className="bottom-wrapper-child" id="desc">
+          <div id="about">About</div>
+          <div>{props.global.riverInfo}</div>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 

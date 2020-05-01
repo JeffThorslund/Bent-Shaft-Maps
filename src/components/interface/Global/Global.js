@@ -1,5 +1,5 @@
 import React from "react";
-import "./Global.scss";
+import "./Global.css";
 import {
   BrowserRouter as Router,
   Switch,
@@ -8,9 +8,9 @@ import {
   useParams,
   useRouteMatch,
 } from "react-router-dom";
-import SearchBar from "./SearchBar";
-import RiverList from "../../river-data/RiverList";
-import { Exists, UnderConst, DoesNotExist } from "./RiverCards";
+import SearchBar from "../SearchBar/SearchBar";
+import RiverList from "../../../river-data/RiverList";
+import { Exists, UnderConst, DoesNotExist } from "../RiverCards/RiverCards";
 import GithubCorner from "react-github-corner";
 
 class Global extends React.Component {
@@ -76,7 +76,9 @@ class Global extends React.Component {
       <div className="Global">
         <Route>
           <div id="title"> Wet Exit Guides </div>
-          <div id="subtitle"> Your source for detailed whitewater maps. </div>
+          <div id="subtitle">
+            Your source for detailed whitewater maps.
+          </div>
           <SearchBar
             value={this.props.value}
             handleChange={this.handleChange}

@@ -1,17 +1,11 @@
-/* HEX */
-$color1: #af9164ff;
-$color2: #f7f3e3ff;
-$color3: #40c9a2;
-$color4: #e1e2e2ff;
-$color5: #80a1c1;
-$color6: #2b2118ff;
+@use 'standards' as *;
 
 .Global {
   font-family: Ruda;
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-image: linear-gradient($color4, $color5);
+  background-image: linear-gradient($color1, $color5);
   min-height: 100vh;
   height: 100%;
   width: 100vw;
@@ -21,7 +15,7 @@ $color6: #2b2118ff;
 
 .Global #title {
   font-family: "Girassol", cursive;
-  font-size: 90px;
+  font-size: 50px;
   padding-top: 40px;
   color: $color6;
 }

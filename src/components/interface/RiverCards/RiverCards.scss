@@ -1,14 +1,4 @@
-/*---Universal---*/
-
-/* HEX */
-$color1: #af9164ff;
-$color2: #f7f3e3ff;
-$color3: #eca184;
-$light_color3: #f9c1a0;
-$lighter_color3: #ffdecb;
-$color4: #e1e2e2ff;
-$color5: #80a1c1;
-$color6: #2b2118ff;
+@use "standards" as *;
 
 .river-label {
   border: $color6 3px solid;
@@ -121,7 +111,6 @@ $color6: #2b2118ff;
 }
 
 .guide-link:hover {
-  background-color: $color5;
   font-weight: bold;
 }
 
