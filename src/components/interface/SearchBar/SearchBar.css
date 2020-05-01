@@ -1,3 +1,5 @@
+/*---Colors---*/
+/*---Fonts---*/
 .searchbar {
   margin: 40px;
   width: 1005px;
@@ -8,7 +10,6 @@
   padding: 7px;
   text-align: center;
   font-size: 24px;
-  font-family: Ruda;
+  font-family: "Ruda";
 }
-
 /*# sourceMappingURL=SearchBar.css.map */

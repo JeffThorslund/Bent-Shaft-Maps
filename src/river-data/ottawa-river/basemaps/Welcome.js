@@ -74,22 +74,16 @@ const PutInMap = (
         id="mask0"
         mask-type="alpha"
         maskUnits="userSpaceOnUse"
-        x="1"
+        x="0"
         y="300"
-        width="1601"
+        width="1600"
         height="600"
       >
-        <rect x="1.68433" y="300" width="1600" height="600" fill="#4EB058" />
-        <rect
-          x="1.68433"
-          y="300"
-          width="1600"
-          height="600"
-          fill="url(#paint1_linear)"
-        />
+        <rect y="300" width="1600" height="600" fill="#4EB058" />
+        <rect y="300" width="1600" height="600" fill="url(#paint1_linear)" />
       </mask>
       <g mask="url(#mask0)">
-        <rect x="1.68433" y="-300" width="1600" height="1200" fill="#ACC7A6" />
+        <rect y="300" width="1600" height="600" fill="#ACC7A6" />
         <path
           d="M460.637 1289.54L801.583 81.9777L1154 1276.3L460.637 1289.54Z"
           fill="#80A1C1"
@@ -114,9 +108,9 @@ const PutInMap = (
       </linearGradient>
       <linearGradient
         id="paint1_linear"
-        x1="104.998"
+        x1="103.314"
         y1="426.473"
-        x2="1073.35"
+        x2="1071.67"
         y2="836.432"
         gradientUnits="userSpaceOnUse"
       >

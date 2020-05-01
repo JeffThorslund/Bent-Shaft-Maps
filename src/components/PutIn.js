@@ -10,35 +10,50 @@ import {
 
 import idParser from "../tools/idParser";
 import Basemap from "./Basemap";
+import Rachel from "../river-data/ottawa-river/Rachel-Ottawa.jpg";
 
-import "./PutIn.scss";
+import "./PutIn.css";
 
 const PutIn = (props) => {
   return (
     <div className="global-wrapper">
       <Basemap map={props.global.riverMap} />
 
-      <div id="header child">
+      <div className="header">
         <div id="pre-title">Welcome to the</div>
         <div id="title">{props.global.riverName}</div>
-        <div className="button">
-          <Link
-            to={`${props.url}/${idParser(props.data[0].name)}`}
-            className="child"
-          >
-            Continue...
-          </Link>
-        </div>
+
+        <Link
+          to={`${props.url}/${idParser(props.data[0].name)}`}
+          className="child"
+        >
+          <div className="button">Let's Paddle!</div>
+        </Link>
       </div>
 
-      <div className="footer child">
-        <div className="bottom-wrapper-child" id="desc">
-          <div id="about">About</div>
+      <div className="footer">
+        <div className="child" id="info">
+          <div className="title">Info</div>
+          <div>{props.global.riverInfo}</div>
+        </div>
+        <div className="child" id="desc">
+          <div className="title">Description</div>
           <div>{props.global.riverDesc}</div>
         </div>
-        <div className="bottom-wrapper-child" id="desc">
-          <div id="about">About</div>
+        <div className="child" id="about">
+          Sponsored Logos Here
+        </div>
+        <div className="child" id="access">
+          <div className="title">Access</div>
           <div>{props.global.riverInfo}</div>
+        </div>
+        <div className="child" id="putin">
+          <div className="title">Put In</div>
+          <div></div>
+        </div>
+        <div className="child" id="takeout">
+          <div className="title">Take Out</div>
+          <div></div>
         </div>
       </div>
     </div>

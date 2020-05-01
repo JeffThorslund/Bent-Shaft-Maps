@@ -1,14 +1,22 @@
+/*---Colors---*/
+/*---Fonts---*/
 .river-label {
   border: #2b2118ff 3px solid;
   border-radius: 10px;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#f9c1a0), to(#eca184));
   background-image: linear-gradient(#f9c1a0, #eca184);
   cursor: pointer;
   overflow: hidden;
-  user-select: none;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
   color: #2b2118ff;
+  font-family: "Ruda";
 }
 
 .river-label:hover {
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#ffdecb), to(#f9c1a0));
   background-image: linear-gradient(#ffdecb, #f9c1a0);
 }
 
@@ -40,8 +48,12 @@
 
 /*---UnderConst---*/
 .const {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: space-between;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
 }
 
 .header {
@@ -82,7 +94,9 @@
 
 /*---DoesNotExist---*/
 .make-one {
-  grid-column: 1/4;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 3;
+  grid-column: 1 / 4;
   text-align: center;
   padding: 20px;
   cursor: auto;
@@ -115,5 +129,4 @@
 .guide-link a {
   text-decoration: none;
 }
-
 /*# sourceMappingURL=RiverCards.css.map */

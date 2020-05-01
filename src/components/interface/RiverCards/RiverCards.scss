@@ -1,4 +1,4 @@
-@use "standards" as *;
+@import "../standards";
 
 .river-label {
   border: $color6 3px solid;
@@ -8,6 +8,7 @@
   overflow: hidden;
   user-select: none;
   color: $color6;
+  font-family: $title2;
 }
 
 .river-label:hover {
