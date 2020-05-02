@@ -47,9 +47,9 @@ export const UnderConst = (props) => {
             ></div>
             <div id="class">Class {props.elem.class}</div>
           </div>
-          <div className="img-wrapper">
+          {/*<div className="img-wrapper">
             <img src={Construction} alt="Construction" id="caution" />
-          </div>
+      </div>*/}
         </div>
       ) : (
         <div
@@ -66,9 +66,9 @@ export const UnderConst = (props) => {
               <div id="involved">Get Involved</div>
             </a>
           </div>
-          <div className="img-wrapper">
+          {/*<div className="img-wrapper">
             <img src={Construction} alt="Construction" id="caution" />
-          </div>
+      </div>*/}
         </div>
       )}
     </>

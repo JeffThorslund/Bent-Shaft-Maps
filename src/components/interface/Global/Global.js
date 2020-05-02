@@ -73,22 +73,23 @@ class Global extends React.Component {
   render() {
     const labelArr = this.riverSearch(RiverList, this.state.value);
     return (
-      <div className="Global">
-        <Route>
-          <div id="title"> Wet Exit Guides </div>
-          <div id="subtitle">
-            Your source for detailed whitewater maps.
-          </div>
-          <SearchBar
-            value={this.props.value}
-            handleChange={this.handleChange}
-          />
-          <div className="river-wrapper">{labelArr}</div>
-          <GithubCorner
-            octoColor="#e1e2e2ff"
-            href="https://github.com/JeffThorslund/Ottawa-River-Paddling-Guide"
-          />
-        </Route>
+      <div className="Global-background">
+        <div className="Global">
+          <Route>
+            <div id="title"> Wet Exit Guides </div>
+            <div id="subtitle">Your source for detailed whitewater maps.</div>
+            <SearchBar
+              value={this.props.value}
+              handleChange={this.handleChange}
+            />
+
+            <div className="river-wrapper">{labelArr}</div>
+            <GithubCorner
+              octoColor="#e1e2e2ff"
+              href="https://github.com/JeffThorslund/Ottawa-River-Paddling-Guide"
+            />
+          </Route>
+        </div>
       </div>
     );
   }
