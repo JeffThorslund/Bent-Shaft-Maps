@@ -1,5 +1,11 @@
 /*---Colors---*/
 /*---Fonts---*/
+.Global-background {
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#e1e2e2ff), to(#80a1c1));
+  background-image: linear-gradient(#e1e2e2ff, #80a1c1);
+  height: 100vh;
+}
+
 .Global {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -11,45 +17,93 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  background-image: -webkit-gradient(linear, left top, left bottom, from(#e1e2e2ff), to(#80a1c1));
-  background-image: linear-gradient(#e1e2e2ff, #80a1c1);
-  min-height: 100vh;
-  height: 100%;
-  width: 100vw;
-  min-width: 100vw;
-  max-width: 100vw;
 }
 
 .Global #title {
   font-family: "Girassol", cursive;
-  font-size: 90px;
-  padding-top: 40px;
   color: #2b2118ff;
 }
 
 .Global #subtitle {
-  font-size: 30px;
-  padding-top: 20px;
-  color: #2b2118ff;
   font-family: "Ruda";
-}
-
-#prompt {
-  font-size: 40px;
-  padding-top: 60px;
+  color: #2b2118ff;
+  text-align: center;
 }
 
 .river-wrapper {
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: (33%)[3];
-      grid-template-columns: repeat(3, 33%);
-  -ms-grid-rows: (auto)[3];
-      grid-template-rows: repeat(3, auto);
+  -ms-grid-columns: (1fr)[3];
+      grid-template-columns: repeat(3, 1fr);
   grid-gap: 20px;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  width: 1000px;
+  width: 80vw;
+  justify-items: stretch;
+}
+
+.searchbar {
+  width: 79vw;
+  border-radius: 10px;
+  border: #2b2118ff 3px solid;
+  background-color: #f8f8f8;
+  text-align: center;
+  font-family: "Ruda";
+}
+
+@media (min-width: 320px) {
+  .Global .river-wrapper {
+    -ms-grid-columns: (1fr)[1];
+        grid-template-columns: repeat(1, 1fr);
+    width: 80%;
+    margin-top: 20px;
+  }
+  .Global #title {
+    margin-top: 20px;
+    font-size: 2.5rem;
+  }
+  .Global #subtitle {
+    font-size: 1rem;
+    margin: 0px 30px;
+  }
+  .Global .github-corner svg {
+    width: 60px;
+    height: 60px;
+  }
+  .Global .searchbar {
+    font-size: 16px;
+    height: 20px;
+    padding: 4px;
+    margin-top: 10px;
+  }
+}
+
+@media (min-width: 750px) {
+  .Global .river-wrapper {
+    -ms-grid-columns: (1fr)[2];
+        grid-template-columns: repeat(2, 1fr);
+    width: 80%;
+  }
+  .Global #title {
+    font-size: 5rem;
+  }
+  .Global #subtitle {
+    font-size: 2rem;
+  }
+}
+
+@media (min-width: 1200px) {
+  .Global .river-wrapper {
+    -ms-grid-columns: (1fr)[3];
+        grid-template-columns: repeat(3, 1fr);
+    width: 80%;
+  }
+  .Global #title {
+    font-size: 6rem;
+  }
+  .Global #subtitle {
+    font-size: 3rem;
+  }
 }
 /*# sourceMappingURL=Global.css.map */
