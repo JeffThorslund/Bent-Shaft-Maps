@@ -10,11 +10,12 @@ import {
 
 import idParser from "../tools/idParser";
 import Basemap from "./Basemap";
-import Rachel from "../river-data/ottawa-river/Rachel-Ottawa.jpg";
 
 import "./PutIn.css";
 
 const PutIn = (props) => {
+  let contributors = props.global.contributors.toString();
+
   return (
     <div className="global-wrapper">
       <Basemap map={props.global.riverMap} />
@@ -37,24 +38,34 @@ const PutIn = (props) => {
           <div>{props.global.riverInfo}</div>
         </div>
         <div className="child" id="desc">
-          <div className="title">Description</div>
-          <div>{props.global.riverDesc}</div>
+          <div className="title">Contributors</div>
+          <div>{contributors}</div>
         </div>
         <div className="child" id="about">
-          Sponsored Logos Here
+          Logos Here
         </div>
         <div className="child" id="access">
           <div className="title">Access</div>
-          <div>{props.global.riverInfo}</div>
+          <div>{props.global.riverDesc}</div>
         </div>
-        <div className="child" id="putin">
+        <a
+          href={props.global.putIn}
+          className="child access-link"
+          id="putin"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           <div className="title">Put In</div>
-          <div></div>
-        </div>
-        <div className="child" id="takeout">
+        </a>
+        <a
+          href={props.global.takeOut}
+          className="child access-link"
+          id="takeout"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           <div className="title">Take Out</div>
-          <div></div>
-        </div>
+        </a>
       </div>
     </div>
   );
