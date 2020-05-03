@@ -1,79 +1,53 @@
 /*---Colors---*/
 /*---Fonts---*/
-.Global-background {
-  background-image: -webkit-gradient(linear, left top, left bottom, from(#e1e2e2ff), to(#80a1c1));
-  background-image: linear-gradient(#e1e2e2ff, #80a1c1);
-  height: 100vh;
-}
-
-.Global {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-}
-
-.Global #title {
-  font-family: "Girassol", cursive;
-  color: #2b2118ff;
-}
-
-.Global #subtitle {
-  font-family: "Ruda";
-  color: #2b2118ff;
-  text-align: center;
-}
-
-.river-wrapper {
-  display: -ms-grid;
-  display: grid;
-  -ms-grid-columns: (1fr)[3];
-      grid-template-columns: repeat(3, 1fr);
-  grid-gap: 20px;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  width: 80vw;
-  justify-items: stretch;
-}
-
-.searchbar {
-  width: 79vw;
-  border-radius: 10px;
-  border: #2b2118ff 3px solid;
-  background-color: #f8f8f8;
-  text-align: center;
-  font-family: "Ruda";
-}
-
 @media (min-width: 320px) {
-  .Global #title {
+  .Global-background {
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#e1e2e2ff), to(#80a1c1));
+    background-image: linear-gradient(#e1e2e2ff, #80a1c1);
+    height: 100%;
+    min-height: 100vh;
+  }
+  .Global-background .Global {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  .Global-background .Global #title {
+    font-family: "Girassol", cursive;
+    color: #2b2118ff;
     margin-top: 20px;
     font-size: 13vw;
   }
-  .Global #subtitle {
+  .Global-background .Global #subtitle {
+    font-family: "Ruda";
+    color: #2b2118ff;
+    text-align: center;
     font-size: 4vw;
     margin: 0px 30px;
   }
-  .Global .github-corner svg {
-    width: 60px;
-    height: 60px;
-  }
-  .Global .searchbar {
-    font-size: 3.5vw;
+  .Global-background .Global .searchbar {
+    width: 79vw;
     height: 3.4vw;
+    border-radius: 10px;
+    background-color: #f8f8f8;
+    text-align: center;
+    font-family: "Ruda";
+    font-size: 3.5vw;
     padding: 1.2vw;
     margin-top: 10px;
     border: #2b2118ff 2px solid;
-    width: 72vw;
   }
-  .Global .river-wrapper {
+  .Global-background .Global .river-wrapper {
+    display: -ms-grid;
+    display: grid;
+    justify-items: stretch;
     -ms-grid-columns: (1fr)[1];
         grid-template-columns: repeat(1, 1fr);
     width: 80%;
@@ -81,79 +55,89 @@
     grid-gap: 15px;
     margin-top: 15px;
   }
-  .river-label {
+  .Global-background .Global .river-wrapper .river-label {
     border: #2b2118ff 2px solid;
   }
-  .river-label #name {
+  .Global-background .Global .river-wrapper .river-label #name {
     font-size: 20px;
   }
-  .river-label #location {
+  .Global-background .Global .river-wrapper .river-label #location {
     font-size: 15px;
   }
-  .done {
-    padding: 7px;
+  .Global-background .Global .river-wrapper .done {
+    padding: 10px;
   }
-  .header {
-    padding: 7px;
+  .Global-background .Global .river-wrapper .header {
+    padding: 10px;
+  }
+  .Global-background .Global .github-corner svg {
+    width: 60px;
+    height: 60px;
   }
 }
 
 @media (min-width: 750px) {
-  .Global #title {
+  .Global-background .Global #title {
     margin-top: 15px;
     font-size: 4.5rem;
   }
-  .Global #subtitle {
+  .Global-background .Global #subtitle {
     font-size: 2rem;
     margin-top: 3px;
   }
-  .Global .github-corner svg {
+  .Global-background .Global .github-corner svg {
     width: 70px;
     height: 70px;
   }
-  .Global .searchbar {
+  .Global-background .Global .searchbar {
     font-size: 20px;
     height: 25px;
     padding: 4px;
     margin-top: 20px;
   }
-  .Global .river-wrapper {
+  .Global-background .Global .river-wrapper {
     -ms-grid-columns: (1fr)[2];
         grid-template-columns: repeat(2, 1fr);
     width: 80%;
   }
-  .river-label #name {
+  .Global-background .river-label #name {
     font-size: 24px;
   }
-  .river-label #location {
+  .Global-background .river-label #location {
     font-size: 18px;
   }
 }
 
 @media (min-width: 1200px) {
-  .Global #title {
+  .Global-background .Global #title {
     margin-top: 30px;
-    font-size: 6rem;
+    font-size: 5.5rem;
   }
-  .Global #subtitle {
+  .Global-background .Global #subtitle {
     font-size: 2.5rem;
     margin-top: 10px;
   }
-  .Global .github-corner svg {
+  .Global-background .Global .github-corner svg {
     width: 80px;
     height: 80px;
   }
-  .Global .searchbar {
+  .Global-background .Global .searchbar {
     font-size: 24px;
     height: 30px;
     padding: 4px;
     margin-top: 30px;
   }
-  .Global .river-wrapper {
+  .Global-background .Global .river-wrapper {
     -ms-grid-columns: (1fr)[3];
         grid-template-columns: repeat(3, 1fr);
     width: 80%;
     margin-top: 30px;
+  }
+  .Global-background .Global .river-wrapper .river-label #name {
+    font-size: 28px;
+  }
+  .Global-background .Global .river-wrapper .river-label #location {
+    font-size: 22px;
   }
 }
 /*# sourceMappingURL=Global.css.map */
