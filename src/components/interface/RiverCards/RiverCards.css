@@ -1,7 +1,6 @@
 /*---Colors---*/
 /*---Fonts---*/
 .river-label {
-  border: #2b2118ff 3px solid;
   border-radius: 10px;
   background-image: -webkit-gradient(linear, left top, left bottom, from(#f9c1a0), to(#eca184));
   background-image: linear-gradient(#f9c1a0, #eca184);
@@ -25,12 +24,8 @@
   color: #2b2118ff;
 }
 
-.done {
-  padding: 15px;
-}
-
 #name {
-  font-size: 29px;
+  font-size: 30px;
 }
 
 #location {
@@ -54,10 +49,6 @@
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-}
-
-.header {
-  padding: 15px;
 }
 
 .img-wrapper {

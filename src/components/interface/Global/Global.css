@@ -53,18 +53,12 @@
 }
 
 @media (min-width: 320px) {
-  .Global .river-wrapper {
-    -ms-grid-columns: (1fr)[1];
-        grid-template-columns: repeat(1, 1fr);
-    width: 80%;
-    margin-top: 20px;
-  }
   .Global #title {
     margin-top: 20px;
-    font-size: 2.5rem;
+    font-size: 13vw;
   }
   .Global #subtitle {
-    font-size: 1rem;
+    font-size: 4vw;
     margin: 0px 30px;
   }
   .Global .github-corner svg {
@@ -72,38 +66,94 @@
     height: 60px;
   }
   .Global .searchbar {
-    font-size: 16px;
-    height: 20px;
-    padding: 4px;
+    font-size: 3.5vw;
+    height: 3.4vw;
+    padding: 1.2vw;
     margin-top: 10px;
+    border: #2b2118ff 2px solid;
+    width: 72vw;
+  }
+  .Global .river-wrapper {
+    -ms-grid-columns: (1fr)[1];
+        grid-template-columns: repeat(1, 1fr);
+    width: 80%;
+    margin-top: 20px;
+    grid-gap: 15px;
+    margin-top: 15px;
+  }
+  .river-label {
+    border: #2b2118ff 2px solid;
+  }
+  .river-label #name {
+    font-size: 20px;
+  }
+  .river-label #location {
+    font-size: 15px;
+  }
+  .done {
+    padding: 7px;
+  }
+  .header {
+    padding: 7px;
   }
 }
 
 @media (min-width: 750px) {
+  .Global #title {
+    margin-top: 15px;
+    font-size: 4.5rem;
+  }
+  .Global #subtitle {
+    font-size: 2rem;
+    margin-top: 3px;
+  }
+  .Global .github-corner svg {
+    width: 70px;
+    height: 70px;
+  }
+  .Global .searchbar {
+    font-size: 20px;
+    height: 25px;
+    padding: 4px;
+    margin-top: 20px;
+  }
   .Global .river-wrapper {
     -ms-grid-columns: (1fr)[2];
         grid-template-columns: repeat(2, 1fr);
     width: 80%;
   }
-  .Global #title {
-    font-size: 5rem;
+  .river-label #name {
+    font-size: 24px;
   }
-  .Global #subtitle {
-    font-size: 2rem;
+  .river-label #location {
+    font-size: 18px;
   }
 }
 
 @media (min-width: 1200px) {
+  .Global #title {
+    margin-top: 30px;
+    font-size: 6rem;
+  }
+  .Global #subtitle {
+    font-size: 2.5rem;
+    margin-top: 10px;
+  }
+  .Global .github-corner svg {
+    width: 80px;
+    height: 80px;
+  }
+  .Global .searchbar {
+    font-size: 24px;
+    height: 30px;
+    padding: 4px;
+    margin-top: 30px;
+  }
   .Global .river-wrapper {
     -ms-grid-columns: (1fr)[3];
         grid-template-columns: repeat(3, 1fr);
     width: 80%;
-  }
-  .Global #title {
-    font-size: 6rem;
-  }
-  .Global #subtitle {
-    font-size: 3rem;
+    margin-top: 30px;
   }
 }
 /*# sourceMappingURL=Global.css.map */
