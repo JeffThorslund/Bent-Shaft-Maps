@@ -41,17 +41,12 @@
 
 @media (min-width: 320px) {
   .Global {
-    .river-wrapper {
-      grid-template-columns: repeat(1, 1fr);
-      width: 80%;
-      margin-top: 20px;
-    }
     #title {
       margin-top: 20px;
-      font-size: 2.5rem;
+      font-size: 13vw;
     }
     #subtitle {
-      font-size: 1rem;
+      font-size: 4vw;
       margin: 0px 30px;
     }
     .github-corner svg {
@@ -59,40 +54,101 @@
       height: 60px;
     }
     .searchbar {
-      font-size: 16px;
-      height: 20px;
-      padding: 4px;
+      font-size: 3.5vw;
+      height: 3.4vw;
+      padding: 1.2vw;
       margin-top: 10px;
+      border: $color6 2px solid;
+      width: 72vw;
     }
+    .river-wrapper {
+      grid-template-columns: repeat(1, 1fr);
+      width: 80%;
+      margin-top: 20px;
+      grid-gap: 15px;
+      margin-top: 15px;
+    }
+  }
+  .river-label {
+    border: $color6 2px solid;
+
+    #name {
+      font-size: 20px;
+    }
+    #location {
+      font-size: 15px;
+    }
+  }
+
+  .done {
+    padding: 7px;
+  }
+
+  .header {
+    padding: 7px;
   }
 }
 
 @media (min-width: 750px) {
   .Global {
+    #title {
+      margin-top: 15px;
+      font-size: 4.5rem;
+    }
+    #subtitle {
+      font-size: 2rem;
+      margin-top: 3px;
+    }
+    .github-corner svg {
+      width: 70px;
+      height: 70px;
+    }
+    .searchbar {
+      font-size: 20px;
+      height: 25px;
+      padding: 4px;
+      margin-top: 20px;
+    }
     .river-wrapper {
       grid-template-columns: repeat(2, 1fr);
       width: 80%;
     }
-    #title {
-      font-size: 5rem;
+  }
+  .river-label {
+    #name {
+      font-size: 24px;
     }
-    #subtitle {
-      font-size: 2rem;
+    #location {
+      font-size: 18px;
     }
   }
 }
 
 @media (min-width: 1200px) {
   .Global {
-    .river-wrapper {
-      grid-template-columns: repeat(3, 1fr);
-      width: 80%;
-    }
     #title {
+      margin-top: 30px;
       font-size: 6rem;
     }
     #subtitle {
-      font-size: 3rem;
+      font-size: 2.5rem;
+      margin-top: 10px;
+    }
+    .github-corner svg {
+      width: 80px;
+      height: 80px;
+    }
+    .searchbar {
+      font-size: 24px;
+      height: 30px;
+      padding: 4px;
+      margin-top: 30px;
+    }
+
+    .river-wrapper {
+      grid-template-columns: repeat(3, 1fr);
+      width: 80%;
+      margin-top: 30px;
     }
   }
 }
