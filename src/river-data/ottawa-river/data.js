@@ -27,10 +27,10 @@ export const global = {
   takeOut: "https://goo.gl/maps/zvRRRfpDGq9Eh1WdA",
   contributors: [
     "Jeffrey Thorslund",
-    "Keith Pettinger",
-    "Alex Maggs",
-    "Jane Leakey",
-    "Emily Beirnes",
+    " Keith Pettinger",
+    " Alex Maggs",
+    " Jane Leakey",
+    " Emily Beirnes",
   ],
   overviewMap: OverviewMap,
 };
