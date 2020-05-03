@@ -1,4 +1,5 @@
 import React from "react";
+//import Welcome from "./basemaps/Welcome";
 
 const style = {
   position: "absolute",
@@ -13,13 +14,13 @@ const Basemap = (props) => {
       style={style}
       width="100vw"
       height="100vh"
-      viewBox={props.map.viewBox}
+      viewBox={props.viewBox}
       preserveAspectRatio="none"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
       className="Basemap"
     >
-      {props.map.path}
+      {props.path}
     </svg>
   );
 };

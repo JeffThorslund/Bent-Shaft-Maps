@@ -1,4 +1,5 @@
 import React from "react";
+import Welcome from "./Welcome"
 import {
   BrowserRouter as Router,
   Switch,
@@ -18,8 +19,7 @@ const PutIn = (props) => {
 
   return (
     <div className="global-wrapper">
-      <Basemap map={props.global.riverMap} />
-
+      <Basemap path={Welcome} viewBox="0 0 1600 900" />
       <div className="header">
         <div id="pre-title">Welcome to the</div>
         <div id="title">{props.global.riverName}</div>
