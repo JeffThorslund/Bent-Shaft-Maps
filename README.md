@@ -30,8 +30,41 @@ This project is a front-end React App, hosted using Jamstack on Netlify. Figma i
 ### Built With
 
 - [React](https://reactjs.org/) - The web framework used
-- [Figma](https://www.figma.com/) - The design tool
+- [Node.js](https://nodejs.org/en/) - Used for CLI Tools
+- [Sass](https://sass-lang.com/) - CSS extension language
+- [Figma](https://www.figma.com/) - The design tool used
 - [Netlify](https://www.netlify.com/) - Back-end using Jamstack
+
+## The Philisophy of Building a River Map
+
+### Core Concepts
+
+The project is rendered by an array (`data`) and an object (`global`) that will contain the entirety of the river data. Editing in the code editor while running a live server is the method in which we will be monitoring the changes that we make.
+
+### The role of `const data = []` and `const global = []`
+
+After initialization of the river (explained below) these array are located in `src\river-data\[your-river]\[YourRiverData].js`.
+
+#### `data`
+
+An array of objects, each object representing one distinct rapid section.
+
+    const data = [ // An array of rapids
+        {
+            // All information about a single rapid
+        },
+        ...
+    ]
+
+#### `global`
+
+An object that holds information relevant to the entire river.
+
+    export const global = {
+        // All information that pertains to the entire river
+    }
+
+## Steps to Building Your Map
 
 ### Setup
 
@@ -42,51 +75,29 @@ Use the following commands in your terminal to run a live server of the project.
     npm install
     npm start
 
-## The Philisophy of Building a River Map
-
-### Core Concepts
-
-You will
-
-The entire map is rendered by a single array of objects that contains the entirety of the river data.
-
-Editing in the code editor while running a live server is the method in which we will be monitoring the changes that we make. Using a vector graphics editor can speed up the process.
-
-### The role of `const data` and `const global`
-
-Located at `src\river-data\[your-river]\[YourRiverData].js`
-
-#### `const data`
-
-An array of objects, each object representing one distinct rapid section.
-
-    const data = [ // An array of rapids
-        {
-            // All information about a single rapid
-        },
-    ]
-
-#### `const global`
-
-An object that holds information relevant to the entire river.
-
-    export const global = { // A single object
-        // All information about the river
-    }
-
-## Steps to Building Your Map
+If you see the website running in a live server, continue to the next step.
 
 ### 1. Create a River Instance
 
 The first step is to initialize a river.
 
-This is done by adding a route in src/components/interface
+In the terminal, run the following CLI tool in your root directory:
+
+    addRiver
+
+**Expected Result**: Template directory created in `src/river-data/your-river`. River should render in the list of availible rivers on live server.
+
+In the live server, click on your river, then the "Let's Paddle" button on the "Welcome" page. This will bring you to a template rapid, which is an element of the `data` array. Try clicking on the waves, lines, eddies and icons. Adjust the water level slider. Check out the overview map.
 
 ### 2. Basic Rapid
 
-A rapid is an element of the `data` array. Let's manipulate the template element to create our first rapid.
+Let's manipulate the template element to create our first rapid.
 
-Let _x_ represent a rapid being rendered in the array.
+Open the following in your code editor:
+
+`src\river-data\[your-river]\data.js`
+
+Going forward, let _x_ represent a rapid being rendered in the array.
 
 ---
 
@@ -113,7 +124,7 @@ A short description of the rapid or just the class.
         },
     ]
 
-**Expected Result**:
+**Expected Result**: Title and description of rapid will be updated.
 
 ### 3. Overview Map
 
