@@ -8,7 +8,6 @@ import AngelsKissRapid from "./basemaps/middle/AngelsKissRapid";
 import GarvinsRapid from "./basemaps/middle/GarvinsRapid";
 import UpperNoNameRapid from "./basemaps/middle/UpperNoNameRapid";
 import LowerNoNameRapid from "./basemaps/middle/LowerNoNameRapid";
-import Welcome from "./basemaps/Welcome";
 import OverviewMap from "./basemaps/OverviewMap";
 import LorneRapid from "./basemaps/main/LorneRapid";
 import PushButtonRapid from "./basemaps/main/PushButtonRapid";
@@ -33,10 +32,6 @@ export const global = {
     "Jane Leakey",
     "Emily Beirnes",
   ],
-  riverMap: {
-    viewBox: "0 0 1600 900",
-    path: Welcome,
-  },
   overviewMap: OverviewMap,
 };
 

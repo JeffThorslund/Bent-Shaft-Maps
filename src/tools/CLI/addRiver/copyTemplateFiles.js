@@ -7,7 +7,7 @@ module.exports = function ({ riverName }) {
   const { folderName } = nameParser;
 
   //Copy Template River Files
-  var files = ["DefaultRapid", "OverviewMap", "TemplateRapid", "Welcome"];
+  var files = ["DefaultRapid", "OverviewMap", "TemplateRapid"];
   for (let file of files) {
     fs.copyFileSync(
       `./src/river-data/my-river-template/basemaps/${file}.js`,

@@ -1,7 +1,5 @@
 import DefaultRapid from "./basemaps/DefaultRapid";
-import Welcome from "./basemaps/Welcome";
 import OverviewMap from "./basemaps/OverviewMap";
-import TemplateRapid from "./basemaps/TemplateRapid";
 //importEntryPoint
 
 export const global = {
@@ -11,10 +9,7 @@ export const global = {
   riverInfo:
     "Add information about put in location, take out location. Any fees or private property complications? Specific season that the river is runnable?",
   putInCoords: "45.747890, -76.792082",
-  riverMap: {
-    viewBox: "0 0 1600 900",
-    path: Welcome,
-  },
+ 
   overviewMap: OverviewMap,
 };
 
