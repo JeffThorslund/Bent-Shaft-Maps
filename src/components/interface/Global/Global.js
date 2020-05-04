@@ -8,7 +8,7 @@ import {
   useParams,
   useRouteMatch,
 } from "react-router-dom";
-import SearchBar from "../SearchBar/SearchBar";
+import SearchBar from "../SearchBar";
 import RiverList from "../../../river-data/RiverList";
 import { Exists, UnderConst, DoesNotExist } from "../RiverCards/RiverCards";
 import GithubCorner from "react-github-corner";

@@ -79,7 +79,6 @@
 }
 
 #involved:hover {
-  background-color: #80a1c1;
   font-weight: bold;
 }
 
@@ -91,6 +90,11 @@
   text-align: center;
   padding: 20px;
   cursor: auto;
+}
+
+.make-one:hover {
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#f9c1a0), to(#eca184));
+  background-image: linear-gradient(#f9c1a0, #eca184);
 }
 
 .make-one .main {

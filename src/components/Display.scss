@@ -1,12 +1,14 @@
-/*---Colors---*/
-/*---Fonts---*/
+@import "./standards";
+
 .Display {
   position: absolute;
   height: auto;
   border-radius: 2vh;
+  //border: black 0.2vw solid;
   background-color: white;
-  font-family: "Alata";
-  color: #2b2118ff;
+  //box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.4);
+  font-family: $title3;
+  color: $color6;
   padding: 3vh 2vw;
 }
 
@@ -20,4 +22,3 @@
 .Display #desc {
   font-size: 1.3vw;
 }
-/*# sourceMappingURL=Display.css.map */
