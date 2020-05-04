@@ -32,6 +32,9 @@
     font-size: 4vw;
     margin: 0px 30px;
   }
+  .Global-background .Global form {
+    outline: none;
+  }
   .Global-background .Global .searchbar {
     width: 79vw;
     height: 3.4vw;
@@ -43,6 +46,13 @@
     padding: 1.2vw;
     margin-top: 10px;
     border: #2b2118ff 2px solid;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    outline: none;
   }
   .Global-background .Global .river-wrapper {
     display: -ms-grid;
