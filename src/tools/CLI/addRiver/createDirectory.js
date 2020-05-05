@@ -11,7 +11,6 @@ module.exports = function ({ riverName }) {
 
   fs.mkdirSync(`./src/river-data/${folderName(riverName)}`);
   fs.mkdirSync(`./src/river-data/${folderName(riverName)}/basemaps`);
-  fs.mkdirSync(`./src/river-data/${folderName(riverName)}/vector-raw`);
 
   console.log("Directory structure build complete.");
 };

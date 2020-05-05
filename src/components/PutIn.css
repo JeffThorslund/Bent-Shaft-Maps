@@ -102,10 +102,13 @@
     color: #f7f3e3ff;
   }
   .PutIn-wrapper .footer .footer-grid-wrapper #logos {
-    font-family: "Girassol", cursive;
+    padding: 30px 60px;
+  }
+  .PutIn-wrapper .footer .footer-grid-wrapper #logos .title {
+    font-family: "Ruda";
     text-align: center;
-    padding: 5%;
-    font-size: 80px;
+    font-size: 30px;
+    padding-bottom: 30px;
   }
 }
 
@@ -152,7 +155,7 @@
     font-size: 35px;
   }
   .PutIn-wrapper .header #title {
-    font-size: 70px;
+    font-size: 90px;
   }
   .PutIn-wrapper .header .button {
     font-size: 24px;
