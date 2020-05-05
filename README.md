@@ -2,28 +2,9 @@
 
 Convert your favorite whitewater river into an interactive guide.
 
-- [Wet Exit River Guides](#wet-exit-river-guides)
-  - [Getting Started](#getting-started)
-    - [Tech Stack](#tech-stack)
-    - [Built With](#built-with)
-    - [Setup](#setup)
-  - [The Philisophy of Building a River Map](#the-philisophy-of-building-a-river-map)
-    - [Core Concepts](#core-concepts)
-    - [The role of `const data` and `const global`](#the-role-of--const-data--and--const-global-)
-      - [`const data`](#-const-data-)
-      - [`const global`](#-const-global-)
-  - [Steps to Building Your Map](#steps-to-building-your-map)
-    - [1. Basic Rapid](#1-basic-rapid)
-    - [2. Overview Map](#2-overview-map)
-      - [Overview Map Design](#overview-map-design)
-      - [Overview Map Implementation](#overview-map-implementation)
-    - [3. Adding A Rapid Map](#3-adding-a-rapid-map)
-      - [Rapid Design](#rapid-design)
-      - [Rapid Implementation](#rapid-implementation)
-
 ## Getting Started
 
-### Tech Stack
+### Stack
 
 This project is a front-end React App, hosted using Jamstack on Netlify. Figma is an essential application for the the design component of the project, but only a limited design skillset is necessary.
 
@@ -35,15 +16,15 @@ This project is a front-end React App, hosted using Jamstack on Netlify. Figma i
 - [Figma](https://www.figma.com/) - The design tool used
 - [Netlify](https://www.netlify.com/) - Back-end using Jamstack
 
-## The Philisophy of Building a River Map
+## The Philosophy of Building a River Map
 
 ### Core Concepts
 
-The project is rendered by an array (`data`) and an object (`global`) that will contain the entirety of the river data. Editing in the code editor while running a live server is the method in which we will be monitoring the changes that we make.
+The project is rendered from information stored in an array (`data`) and an object (`global`) that will contain the entirety of the river data. Monitor changes made in the code editor by running a live server.
 
-### The role of `const data = []` and `const global = []`
+### The role of `const data = []` and `const global = {}`
 
-After initialization of the river (explained below) these array are located in `src\river-data\[your-river]\[YourRiverData].js`.
+Upon initialization of the river (explained below), these are located in `src\river-data\[your-river]\[YourRiverData].js`.
 
 #### `data`
 
@@ -84,6 +65,8 @@ The first step is to initialize a river.
 In the terminal, run the following CLI tool in your root directory:
 
     addRiver
+
+Follow prompts.
 
 **Expected Result**: Template directory created in `src/river-data/your-river`. River should render in the list of availible rivers on live server.
 
