@@ -11,6 +11,8 @@ import {
 import idParser from "../tools/idParser";
 import "./PutIn.css";
 
+import logo from "./TrestleLogo.png";
+
 const PutIn = (props) => {
   let contributors = props.global.contributors.toString();
 
@@ -24,7 +26,7 @@ const PutIn = (props) => {
           to={`${props.url}/${idParser(props.data[0].name)}`}
           className="child"
         >
-          <div className="button">Let's Paddle!</div>
+          <div className="button">Click to Continue...</div>
         </Link>
       </div>
 
@@ -39,7 +41,14 @@ const PutIn = (props) => {
             <div>{contributors}</div>
           </div>
           <div className="child" id="logos">
-            Logos Here
+            <div className="title">Brought to you by...</div>
+            <a
+              href="https://trestlebrewing.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <img src={logo} alt="trestle logo" width="100%" />
+            </a>
           </div>
           <div className="child" id="access">
             <div className="title">Access</div>
