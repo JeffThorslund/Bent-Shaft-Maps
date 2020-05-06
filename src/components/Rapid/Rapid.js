@@ -1,10 +1,10 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import "./Rapid.css";
-import Display from "./Display";
-import NextRapid from "./NextRapid";
-import Features from "./Features";
-import Basemap from "./Basemap";
+import Display from "../Display/Display";
+import NextRapid from "../NextRapid";
+import Features from "../Features";
+import Basemap from "../Basemap";
 
 class Rapid extends Component {
   constructor(props) {
