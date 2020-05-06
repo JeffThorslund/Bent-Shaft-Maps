@@ -2,8 +2,8 @@ import React from "react";
 import Line from "./Line";
 import Eddy from "./Eddy";
 import Hydraulic from "./Hydraulic";
-import Caution from "./Symbols/Caution";
-import Symbols from "./Symbols/Symbols";
+import Caution from "../symbols/Caution";
+import Symbols from "../symbols/Symbols";
 import "./Features.css";
 import PropTypes from "prop-types";
 

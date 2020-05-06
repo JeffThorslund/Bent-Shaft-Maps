@@ -8,7 +8,7 @@ import {
   useParams,
   useRouteMatch,
 } from "react-router-dom";
-import idParser from "../tools/idParser";
+import idParser from "../../tools/idParser";
 
 const NextRapid = (props) => {
   const style = {

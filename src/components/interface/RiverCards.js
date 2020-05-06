@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import idParser from "../../../tools/idParser";
+import idParser from "../../tools/idParser";
 import {
   BrowserRouter as Router,
   Switch,
@@ -9,7 +9,6 @@ import {
   useRouteMatch,
 } from "react-router-dom";
 import "./RiverCards.css";
-import Construction from "./ConstructionBar.png";
 
 export const Exists = (props) => {
   return (
