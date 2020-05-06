@@ -8,7 +8,7 @@ import {
   useRouteMatch,
 } from "react-router-dom";
 
-import idParser from "../tools/idParser";
+import idParser from "../../tools/idParser";
 import "./PutIn.css";
 
 import logo from "./TrestleLogo.png";

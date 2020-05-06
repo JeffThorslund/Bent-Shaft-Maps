@@ -8,7 +8,7 @@ import {
   useRouteMatch,
 } from "react-router-dom";
 import River from "../River";
-import PutIn from "../PutIn";
+import PutIn from "../PutIn/PutIn";
 
 const RiverRouter = (props) => {
   let { path, url } = useRouteMatch();

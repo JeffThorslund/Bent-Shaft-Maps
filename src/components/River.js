@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import "./River.css";
-import Rapid from "./Rapid";
+import Rapid from "./Rapid/Rapid";
 import Slider from "./Slider";
 import Map from "./Map";
 import GenericToggle from "./GenericToggle";
