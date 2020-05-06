@@ -59,7 +59,6 @@ const MapLabel = (props) => {
         width="10vw"
         xmlns="http://www.w3.org/2000/svg"
         preserveAspectRatio="none"
-
       >
         <polyline
           className="pointer"
