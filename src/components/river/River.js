@@ -1,12 +1,12 @@
 import React, { Component } from "react";
 import "./River.css";
-import Rapid from "./Rapid/Rapid";
+import Rapid from "../rapid/Rapid";
 import Slider from "./Slider";
 import Map from "./Map";
 import GenericToggle from "./GenericToggle";
 import { withRouter } from "react-router-dom";
-import idParser from "../tools/idParser";
-import Home from "./Symbols/Home";
+import idParser from "../../tools/idParser";
+import Home from "./Home";
 
 class River extends Component {
   constructor(props) {

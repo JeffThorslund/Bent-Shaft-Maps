@@ -1,3 +1,5 @@
+import logo from "./TrestleLogo.png";
+
 import McCoysChuteRapid from "./basemaps/McCoysChuteRapid";
 import IronRingRapid from "./basemaps/middle/IronRingRapid";
 import MagicalMysteryTourRapid from "./basemaps/middle/MagicalMysteryTourRapid";
@@ -25,6 +27,7 @@ export const global = {
     "The put-in located on McCoy Chute Trail, with a clear parking area. There is access to clean outhouses. There are several takeout options. Owl rafting provides a free takeout but requires a significant flatwater section after the rapids. RiverRun has a takeout that costs 15$.",
   putIn: "https://goo.gl/maps/ycePkRuAsvY6EnDR9",
   takeOut: "https://goo.gl/maps/zvRRRfpDGq9Eh1WdA",
+  sponsors: [{ logo: logo, link: "https://trestlebrewing.com/" }],
   contributors: [
     "Jeffrey Thorslund",
     " Keith Pettinger",
