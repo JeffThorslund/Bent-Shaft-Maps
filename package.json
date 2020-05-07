@@ -27,8 +27,11 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "server": "cd ./server && nodemon server.js",
+    "dev": "concurrently \"npm start\" \"npm run server\""
   },
+  "proxy": "http://localhost:5000",
   "browserslist": {
     "production": [
       ">0.2%",
@@ -46,5 +49,4 @@
     "eslint-plugin-prettier": "^3.1.2",
     "prettier": "^2.0.4"
   }
-  
 }
