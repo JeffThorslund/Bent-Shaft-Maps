@@ -7,7 +7,8 @@ import GenericToggle from "./GenericToggle";
 import { withRouter } from "react-router-dom";
 import idParser from "../../tools/idParser";
 import Home from "./Home";
-import Sender from "../../tools/serverless/Sender.js";
+
+import SubmitKnowledge from "./SubmitKnowledge";
 
 class River extends Component {
   constructor(props) {
@@ -67,6 +68,9 @@ class River extends Component {
             global={this.props.global}
           />
         )}
+
+        {this.state.knowledgeBool && <SubmitKnowledge />}
+
         {rapidInstance}
         <Slider selectLevel={this.selectLevel} />
 
@@ -93,17 +97,17 @@ class River extends Component {
 
           <div
             id="knowledge-bool"
-            onClick={(e) => {
+            /*onClick={(e) => {
               e.preventDefault(); //prevents sending twice
               Sender();
-            }}
+            }}*/
           >
             <GenericToggle
               toggle={this.state.knowledgeBool}
               toggleSetting={this.toggleSetting}
               setting="knowledgeBool"
-              false="Submit River Knowledge"
-              true="Submit River Knowledge"
+              false="Submit Info"
+              true="Submit Info"
             />
           </div>
 
