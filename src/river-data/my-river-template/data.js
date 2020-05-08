@@ -9,7 +9,6 @@ export const global = {
   riverInfo:
     "Add information about put in location, take out location. Any fees or private property complications? Specific season that the river is runnable?",
   putInCoords: "45.747890, -76.792082",
- 
   overviewMap: OverviewMap,
 };
 

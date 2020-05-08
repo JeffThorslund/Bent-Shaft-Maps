@@ -29,5 +29,5 @@ const RiverList = [
     data: null,
     global: null,
   },
-];
+]; //
 export default RiverList;
