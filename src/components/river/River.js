@@ -7,6 +7,7 @@ import GenericToggle from "./GenericToggle";
 import { withRouter } from "react-router-dom";
 import idParser from "../../tools/idParser";
 import Home from "./Home";
+import Sender from "../../tools/serverless/Sender.js";
 
 class River extends Component {
   constructor(props) {
@@ -16,6 +17,7 @@ class River extends Component {
       level: 0,
       mapBool: false,
       symbolBool: false,
+      knowledgeBool: false,
     };
   }
 
@@ -86,6 +88,22 @@ class River extends Component {
               setting="symbolBool"
               false="Symbols"
               true="Symbols"
+            />
+          </div>
+
+          <div
+            id="knowledge-bool"
+            onClick={(e) => {
+              e.preventDefault(); //prevents sending twice
+              Sender();
+            }}
+          >
+            <GenericToggle
+              toggle={this.state.knowledgeBool}
+              toggleSetting={this.toggleSetting}
+              setting="knowledgeBool"
+              false="Submit River Knowledge"
+              true="Submit River Knowledge"
             />
           </div>
 
