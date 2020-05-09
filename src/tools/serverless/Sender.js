@@ -1,4 +1,4 @@
-const Sender = async (text, river, rapid) => {
+const Sender = async (img, desc, river, rapid) => {
   console.log("started...");
   const response = await fetch("http://localhost:9000/sendMail", {
     method: "POST",
@@ -11,7 +11,8 @@ const Sender = async (text, river, rapid) => {
     },
 
     body: JSON.stringify({
-      text: text,
+      img: img,
+      desc: desc,
       river: river,
       rapid: rapid,
     }),

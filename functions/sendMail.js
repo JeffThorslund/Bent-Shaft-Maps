@@ -2,7 +2,7 @@
 const nodemailer = require("nodemailer");
 
 exports.handler = function (event, context, callback) {
-  const { text } = JSON.parse(event.body);
+  const { img, desc, river, rapid } = JSON.parse(event.body);
 
   async function main() {
     // create reusable transporter object using the default SMTP transport
@@ -20,12 +20,12 @@ exports.handler = function (event, context, callback) {
     let info = await transporter.sendMail({
       from: "wetexittest@zohomail.com", // sender address
       to: "jeffrey.thorslund@gmail.com", // list of receivers
-      subject: `Ottawa`, // Subject line
+      subject: `${river} - ${rapid}`, // Subject line
       text: "ok", // plain text body
-      html: `<div>PLS work</div>`, // html body
+      html: `<div>${desc}</div>`, // html body
       attachments: [
         {
-          path: text,
+          path: img,
         },
       ],
     });

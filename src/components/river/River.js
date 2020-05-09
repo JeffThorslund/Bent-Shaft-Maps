@@ -73,6 +73,8 @@ class River extends Component {
           <SubmitKnowledge
             toggleSetting={this.toggleSetting}
             setting="knowledgeBool"
+            rapidName={this.props.match.params.id}
+            riverName={this.props.global.riverName}
           />
         )}
 
@@ -107,6 +109,7 @@ class River extends Component {
               setting="knowledgeBool"
               false="Submit Info"
               true="Submit Info"
+              
             />
           </div>
 

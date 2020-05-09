@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import "./SubmitKnowledge.css";
 import Sender from "../../tools/serverless/Sender.js";
+import PropTypes from "prop-types";
 
 export class SubmitKnowledge extends Component {
   constructor(props) {
@@ -18,7 +19,12 @@ export class SubmitKnowledge extends Component {
   handleSubmit = (e) => {
     const reader = new FileReader();
     reader.onload = () => {
-      Sender(reader.result, "Ottawa", "Ontario");
+      Sender(
+        reader.result,
+        this.state.value,
+        this.props.riverName,
+        this.props.rapidName
+      );
     };
     reader.readAsDataURL(this.state.selectedFile);
 
@@ -30,7 +36,10 @@ export class SubmitKnowledge extends Component {
     console.log(e.target.files[0]);
     if (e.target.files[0].size < 209700) {
       this.setState({ selectedFile: e.target.files[0] });
+    } else {
+      alert("TOO00OO big dude.");
     }
+    console.log(this.props.riverName, this.props.rapidName);
     e.preventDefault();
   };
 
@@ -110,3 +119,10 @@ picture.`}
 }
 
 export default SubmitKnowledge;
+
+SubmitKnowledge.propTypes = {
+  toggleSetting: PropTypes.func,
+  setting: PropTypes.string,
+  rapidName: PropTypes.string,
+  riverName: PropTypes.string,
+};
