@@ -1,24 +1,23 @@
-const Sender = async () => {
+const Sender = async (text, river, rapid) => {
   console.log("started...");
   const response = await fetch("http://localhost:9000/sendMail", {
-    method: "POST", // *GET, POST, PUT, DELETE, etc.
-    mode: "no-cors", // no-cors, *cors, same-origin
-    //cache: "no-cache", // *default, no-cache, reload, force-cache, only-if-cached
-    //credentials: "same-origin", // include, *same-origin, omit
+    method: "POST",
+    mode: "no-cors",
     headers: {
-      "Content-Type": "application/json",
+      "Content-Type": "application/javascript",
       "Access-Control-Allow-Origin": "*",
       "Access-Control-Allow-Headers":
         "Origin, X-Requested-With, Content-Type, Accept",
-      // 'Content-Type': 'application/x-www-form-urlencoded',
     },
-    //redirect: "follow", // manual, *follow, error
-    //referrerPolicy: "no-referrer", // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
+
     body: JSON.stringify({
-      title: "my third post",
-      description: "description of my love life",
-    }), // body data type must match "Content-Type" header
+      text: text,
+      river: river,
+      rapid: rapid,
+    }),
   });
+
+  //console.log("Sender.js", text, river, rapid);
 
   return response;
 };

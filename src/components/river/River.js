@@ -18,7 +18,7 @@ class River extends Component {
       level: 0,
       mapBool: false,
       symbolBool: false,
-      knowledgeBool: false,
+      knowledgeBool: true,
     };
   }
 
@@ -32,7 +32,7 @@ class River extends Component {
     this.setState(() => ({ rapid }));
   };
 
-  // Toggles map overlay
+  // Toggles any overlay
   toggleSetting = (setting) => {
     this.setState((prevState) => ({ [setting]: !prevState[setting] }));
   };
@@ -69,7 +69,12 @@ class River extends Component {
           />
         )}
 
-        {this.state.knowledgeBool && <SubmitKnowledge />}
+        {this.state.knowledgeBool && (
+          <SubmitKnowledge
+            toggleSetting={this.toggleSetting}
+            setting="knowledgeBool"
+          />
+        )}
 
         {rapidInstance}
         <Slider selectLevel={this.selectLevel} />
@@ -95,13 +100,7 @@ class River extends Component {
             />
           </div>
 
-          <div
-            id="knowledge-bool"
-            /*onClick={(e) => {
-              e.preventDefault(); //prevents sending twice
-              Sender();
-            }}*/
-          >
+          <div id="knowledge-bool">
             <GenericToggle
               toggle={this.state.knowledgeBool}
               toggleSetting={this.toggleSetting}

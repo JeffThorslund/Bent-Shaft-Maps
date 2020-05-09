@@ -2,7 +2,7 @@
 const nodemailer = require("nodemailer");
 
 exports.handler = function (event, context, callback) {
-  let { title } = JSON.parse(event.body);
+  const { text } = JSON.parse(event.body);
 
   async function main() {
     // create reusable transporter object using the default SMTP transport
@@ -20,16 +20,18 @@ exports.handler = function (event, context, callback) {
     let info = await transporter.sendMail({
       from: "wetexittest@zohomail.com", // sender address
       to: "jeffrey.thorslund@gmail.com", // list of receivers
-      subject: "Successful Send", // Subject line
-      text: "Successful Send baby!!!?", // plain text body
-      html: `<div>${title}</div>`, // html body
+      subject: `Ottawa`, // Subject line
+      text: "ok", // plain text body
+      html: `<div>PLS work</div>`, // html body
+      attachments: [
+        {
+          path: text,
+        },
+      ],
     });
 
     console.log("Message sent: %s", info.messageId);
-    // Message sent: <b658f8ca-6296-ccf4-8306-87d57a0b4321@example.com>
   }
-
-  console.log(event);
 
   main().catch(console.error);
 
@@ -38,8 +40,8 @@ exports.handler = function (event, context, callback) {
     headers: {
       "Access-Control-Allow-Origin": "*",
       "Access-Control-Allow-Headers":
-        "Origin, X-Requested-Width, Content_Type, Accept",
+        "Origin, X-Requested-With, Content_Type, Accept",
     },
-    body: "Success!",
+    body: "hi",
   });
 };
