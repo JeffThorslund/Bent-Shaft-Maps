@@ -16,6 +16,12 @@ exports.handler = function (event, context, callback) {
       },
     });
 
+    //only attach attachment if there is one.
+    let attachments = [];
+    if (img) {
+      attachments = [{ path: img }];
+    }
+
     // send mail with defined transport object
     let info = await transporter.sendMail({
       from: "wetexittest@zohomail.com", // sender address
@@ -23,11 +29,7 @@ exports.handler = function (event, context, callback) {
       subject: `${river} - ${rapid}`, // Subject line
       text: "ok", // plain text body
       html: `<div>${desc}</div>`, // html body
-      attachments: [
-        {
-          path: img,
-        },
-      ],
+      attachments: attachments,
     });
 
     console.log("Message sent: %s", info.messageId);
