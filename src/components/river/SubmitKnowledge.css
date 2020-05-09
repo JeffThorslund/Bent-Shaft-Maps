@@ -25,13 +25,14 @@
   height: 78vh;
   /* fixes border */
   top: 48%;
-  left: 48%;
+  left: 49%;
   margin-top: -39vh;
   /* Negative half of height. */
   margin-left: -38vw;
   /* Negative half of width. */
-  background-color: #2b2118ff;
-  border-radius: 10px;
+  background-color: #80a1c1;
+  border: #2b2118ff 0.4vw solid;
+  border-radius: 1vw;
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: 1fr 1fr 1fr;
@@ -44,9 +45,12 @@
 .SubmitKnowledge .form-wrapper .children {
   border-radius: 1vw;
   margin: 0.8vh 0.8vw;
+  font-size: 1.4vw;
+  color: #2b2118ff;
 }
 
 .SubmitKnowledge .form-wrapper #instructions {
+  border: #2b2118ff 0.4vw solid;
   background-color: #f7f3e3ff;
   font-family: "Alata";
   -ms-grid-column: span 2;
@@ -66,14 +70,13 @@
 
 .SubmitKnowledge .form-wrapper #instructions .instructions-wrapper #title {
   font-family: "Alata";
-  font-size: 1.7vw;
+  font-size: 1.9vw;
   grid-column: span 2;
   font-weight: bold;
   padding-top: 1vh;
 }
 
 .SubmitKnowledge .form-wrapper #instructions .instructions-wrapper #prompt-list {
-  font-size: 1.2vw;
   -webkit-margin-before: 0vh;
           margin-block-start: 0vh;
   -webkit-margin-after: 0vh;
@@ -82,20 +85,20 @@
           margin-inline-start: 0px;
   -webkit-margin-end: 0px;
           margin-inline-end: 0px;
-  -webkit-padding-start: 3vw;
-          padding-inline-start: 3vw;
+  -webkit-padding-start: 2vw;
+          padding-inline-start: 2vw;
   padding-top: 1.5vh;
 }
 
 .SubmitKnowledge .form-wrapper #instructions .instructions-wrapper .subtitle {
-  font-size: 1.3vw;
+  font-size: 1.7vw;
   font-weight: bold;
-  padding-top: 3vh;
+  padding-top: 10%;
 }
 
 .SubmitKnowledge .form-wrapper #instructions .instructions-wrapper .body {
-  font-size: 1.2vw;
-  padding-top: 1vh;
+  font-size: 1.3vw;
+  padding: 3%;
 }
 
 .SubmitKnowledge .form-wrapper #text-area-wrapper {
@@ -108,21 +111,23 @@
   -webkit-box-flex: 1;
       -ms-flex-positive: 1;
           flex-grow: 1;
-  border-radius: 1vh;
+  border-radius: 1vw;
   resize: none;
   background-color: #f7f3e3ff;
   font-family: "Alata";
-  font-size: 1.2vw;
-  padding: 2vh;
+  font-size: 1.4vw;
+  padding: 6%;
+  border: #2b2118ff 0.4vw solid;
 }
 
 .SubmitKnowledge .form-wrapper #text-area-wrapper #text-area:focus {
   outline: 0;
 }
 
-.SubmitKnowledge .form-wrapper #file-drop {
+.SubmitKnowledge .form-wrapper .custom-file-upload {
   grid-column: span 2;
-  border: #f7f3e3ff 0.4vw dashed;
+  border: #2b2118ff 0.4vw dashed;
+  background-color: #f7f3e3ff;
   padding: 1.5vw;
   text-align: center;
   display: -webkit-box;
@@ -136,12 +141,30 @@
           align-items: center;
   font-family: "Alata";
   font-size: 1.8vw;
+  color: #2b2118ff;
+  cursor: pointer;
+}
+
+.SubmitKnowledge .form-wrapper .custom-file-upload #file-drop {
+  display: none;
+}
+
+.SubmitKnowledge .form-wrapper .custom-file-upload:hover {
+  border: none;
   color: #f7f3e3ff;
+  background-color: #2b2118ff;
 }
 
 .SubmitKnowledge .form-wrapper #submit-button {
   font-family: "Alata";
   font-size: 2vw;
-  background-color: #af9164ff;
+  background-color: #f7f3e3ff;
+  border: #2b2118ff 0.4vw solid;
+  cursor: pointer;
+}
+
+.SubmitKnowledge .form-wrapper #submit-button:hover {
+  background-color: #2b2118ff;
+  color: #f7f3e3ff;
 }
 /*# sourceMappingURL=SubmitKnowledge.css.map */

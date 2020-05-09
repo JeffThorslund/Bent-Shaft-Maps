@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import "./SubmitKnowledge.css";
 import Sender from "../../tools/serverless/Sender.js";
-import axios, { post } from "axios";
 
 export class SubmitKnowledge extends Component {
   constructor(props) {
@@ -17,42 +16,22 @@ export class SubmitKnowledge extends Component {
   };
 
   handleSubmit = (e) => {
-    console.log(this.state.selectedFile);
     const reader = new FileReader();
     reader.onload = () => {
-      Sender(reader.result, "Ottawa", "Ontario")
+      Sender(reader.result, "Ottawa", "Ontario");
     };
     reader.readAsDataURL(this.state.selectedFile);
-    //let path = reader.readAsText(this.state.selectedFile);
 
-    //this.props.toggleSetting(this.props.setting);
-    /*
-    ;
-    console.log(path);*/
-    /*axios({
-      method: "POST",
-      url: "http://localhost:9000/sendMail",
-      data: {
-        firstName: "Finn",
-        lastName: "Williams"
-      },
-    });*/
-
-    /*axios
-      .post(`http://localhost:9000/sendMail`, {
-        firstName: "Finn",
-        lastName: "Williams"
-      })
-      .then((res) => {
-        console.log(res);
-        console.log(res.data);
-      });*/
-
+    this.props.toggleSetting(this.props.setting);
     e.preventDefault();
   };
 
   fileChangedHandler = (e) => {
-    this.setState({ selectedFile: e.target.files[0] });
+    console.log(e.target.files[0]);
+    if (e.target.files[0].size < 209700) {
+      this.setState({ selectedFile: e.target.files[0] });
+    }
+    e.preventDefault();
   };
 
   render() {
@@ -68,7 +47,7 @@ export class SubmitKnowledge extends Component {
         <form onSubmit={this.handleSubmit} className="form-wrapper">
           <div id="instructions" className="children">
             <div className="instructions-wrapper">
-              <div id="title">Time to leave your mark!</div>
+              <div id="title">Share Your River Knowledge</div>
               <ul id="prompt-list">
                 <li>Wave missing?</li>
                 <li>Hole not appearing at the right level?</li>
@@ -96,20 +75,27 @@ export class SubmitKnowledge extends Component {
               value={this.state.value}
               onChange={this.handleChange}
               id="text-area"
-              placeholder="EXAMPLE: Dragon's Tooth is present from 2ft to 8ft, with
-              best surfing at 6ft. It is especially retentative at 4ft. I have
-              drawn a line called Mouth of the Dragon in the attached
-              picture."
+              placeholder={`CLICK HERE TO TYPE
+
+EXAMPLE: Dragon's Tooth is present from 2ft to 8ft, with
+best surfing at 6ft. It is especially retentative at 4ft. I have drawn a line called Mouth of the Dragon in the attached
+picture.`}
             />
           </div>
 
-          <input
-            className="children"
-            id="file-drop"
-            type="file"
-            accept="image/*"
-            onChange={this.fileChangedHandler}
-          />
+          <label for="file-drop" className="custom-file-upload children">
+            {this.state.selectedFile ? (
+              <div> {this.state.selectedFile.name}</div>
+            ) : (
+              <div>Click to Upload a Picture or Drag'n'Drop</div>
+            )}
+            <input
+              id="file-drop"
+              type="file"
+              accept="image/*"
+              onChange={this.fileChangedHandler}
+            />
+          </label>
 
           <input
             type="submit"
