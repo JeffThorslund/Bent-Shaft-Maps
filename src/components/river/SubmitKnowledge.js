@@ -46,10 +46,10 @@ export class SubmitKnowledge extends Component {
 
   fileChangedHandler = (e) => {
     console.log(e.target.files[0]);
-    if (e.target.files[0].size < 209700) {
+    if (e.target.files[0].size < 5000000) {
       this.setState({ selectedFile: e.target.files[0] });
     } else {
-      alert("TOO00OO big dude.");
+      alert("Thats a HUGE file. Try one under 5MB.");
     }
     e.preventDefault();
   };
