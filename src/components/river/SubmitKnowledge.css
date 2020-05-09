@@ -31,7 +31,7 @@
   margin-left: -38vw;
   /* Negative half of width. */
   background-color: #80a1c1;
-  border: #2b2118ff 0.4vw solid;
+  border: #2b2118ff 0.6vh solid;
   border-radius: 1vw;
   display: -ms-grid;
   display: grid;
@@ -50,7 +50,7 @@
 }
 
 .SubmitKnowledge .form-wrapper #instructions {
-  border: #2b2118ff 0.4vw solid;
+  border: #2b2118ff 0.6vh solid;
   background-color: #f7f3e3ff;
   font-family: "Alata";
   -ms-grid-column: span 2;
@@ -117,7 +117,7 @@
   font-family: "Alata";
   font-size: 1.4vw;
   padding: 6%;
-  border: #2b2118ff 0.4vw solid;
+  border: #2b2118ff 0.6vh solid;
 }
 
 .SubmitKnowledge .form-wrapper #text-area-wrapper #text-area:focus {
@@ -159,7 +159,7 @@
   font-family: "Alata";
   font-size: 2vw;
   background-color: #f7f3e3ff;
-  border: #2b2118ff 0.4vw solid;
+  border: #2b2118ff 0.6vh solid;
   cursor: pointer;
 }
 

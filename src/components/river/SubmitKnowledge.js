@@ -17,17 +17,29 @@ export class SubmitKnowledge extends Component {
   };
 
   handleSubmit = (e) => {
-    const reader = new FileReader();
-    reader.onload = () => {
+    if (this.state.selectedFile) {
+      //read file and return base64
+      const reader = new FileReader();
+      reader.onload = () => {
+        console.log(reader.result);
+        Sender(
+          reader.result,
+          this.state.value,
+          this.props.riverName,
+          this.props.rapidName
+        );
+      };
+      reader.readAsDataURL(this.state.selectedFile);
+    } else {
       Sender(
-        reader.result,
+        null,
         this.state.value,
         this.props.riverName,
         this.props.rapidName
       );
-    };
-    reader.readAsDataURL(this.state.selectedFile);
+    }
 
+    //close pop up
     this.props.toggleSetting(this.props.setting);
     e.preventDefault();
   };
@@ -39,7 +51,6 @@ export class SubmitKnowledge extends Component {
     } else {
       alert("TOO00OO big dude.");
     }
-    console.log(this.props.riverName, this.props.rapidName);
     e.preventDefault();
   };
 
@@ -70,7 +81,7 @@ export class SubmitKnowledge extends Component {
               <div className="subtitle">Submit an Image</div>
               <div className="subtitle">Submit an Description</div>
               <div className="body" id="img">
-                Take a screen shot of the rapid,use Microsoft Paint to mark the
+                Take a screen shot of the rapid, use Microsoft Paint to mark the
                 location of any feature, eddy, line or hazard.
               </div>
               <div className="body" id="txt">
@@ -96,7 +107,7 @@ picture.`}
             {this.state.selectedFile ? (
               <div> {this.state.selectedFile.name}</div>
             ) : (
-              <div>Click to Upload a Picture or Drag'n'Drop</div>
+              <div>Click to Upload a Picture</div>
             )}
             <input
               id="file-drop"

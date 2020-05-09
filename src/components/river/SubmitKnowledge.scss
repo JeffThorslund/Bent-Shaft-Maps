@@ -1,5 +1,7 @@
 @import "../standards";
 
+$border: $color6 0.6vh solid;
+
 .SubmitKnowledge {
   position: absolute;
   z-index: 1;
@@ -25,7 +27,7 @@
     margin-top: -39vh; /* Negative half of height. */
     margin-left: -38vw; /* Negative half of width. */
     background-color: $color5;
-    border: $color6 0.4vw solid;
+    border: $border;
     border-radius: 1vw;
 
     display: grid;
@@ -41,7 +43,7 @@
     }
 
     #instructions {
-      border: $color6 0.4vw solid;
+      border: $border;
       background-color: $color2;
       font-family: $title3;
       grid-column-start: span 2;
@@ -90,7 +92,7 @@
         font-family: $title3;
         font-size: 1.4vw;
         padding: 6%;
-        border: $color6 0.4vw solid;
+        border: $border;
       }
       #text-area:focus {
         outline: 0;
@@ -125,7 +127,7 @@
       font-family: $title3;
       font-size: 2vw;
       background-color: $color2;
-      border: $color6 0.4vw solid;
+      border: $border;
       cursor: pointer;
     }
 
