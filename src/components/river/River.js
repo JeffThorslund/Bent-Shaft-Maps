@@ -18,7 +18,7 @@ class River extends Component {
       level: 0,
       mapBool: false,
       symbolBool: false,
-      knowledgeBool: true,
+      knowledgeBool: false,
     };
   }
 
