@@ -4,16 +4,23 @@ require("dotenv").config();
 
 exports.handler = function (event, context, callback) {
   const { img, desc, river, rapid } = JSON.parse(event.body);
+  const {
+    DESTINATION_EMAIL,
+    SOURCE_EMAIL,
+    SOURCE_HOST,
+    SOURCE_PASS,
+    SOURCE_PORT,
+  } = process.env; //deconstructing environment variables from Netlify.
 
   async function main() {
     // create reusable transporter object using the default SMTP transport
     let transporter = nodemailer.createTransport({
-      host: "smtp.zoho.com",
-      port: 465,
+      host: SOURCE_HOST,
+      port: SOURCE_PORT,
       secure: true, // true for 465, false for other ports
       auth: {
-        user: "wetexittest@zohomail.com",
-        pass: "pullout123",
+        user: SOURCE_EMAIL,
+        pass: SOURCE_PASS,
       },
     });
 
@@ -25,11 +32,11 @@ exports.handler = function (event, context, callback) {
 
     // send mail with defined transport object
     let info = await transporter.sendMail({
-      from: "wetexittest@zohomail.com", // sender address
-      to: "jeffrey.thorslund@gmail.com", // list of receivers
+      from: SOURCE_EMAIL, // sender address
+      to: DESTINATION_EMAIL, // list of receivers
       subject: `${river} - ${rapid}`, // Subject line
       text: "ok", // plain text body
-      html: `<div>${process.env.DESTINATION_EMAIL}</div>`, // html body
+      html: `<div>${desc}</div>`, // html body
       attachments: attachments,
     });
 
@@ -45,6 +52,6 @@ exports.handler = function (event, context, callback) {
       "Access-Control-Allow-Headers":
         "Origin, X-Requested-With, Content_Type, Accept",
     },
-    body: "hi",
+    body: "sendMail.js sucessfully executed",
   });
 };
