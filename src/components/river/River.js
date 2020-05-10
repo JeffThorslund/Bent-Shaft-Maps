@@ -8,6 +8,8 @@ import { withRouter } from "react-router-dom";
 import idParser from "../../tools/idParser";
 import Home from "./Home";
 
+import SubmitKnowledge from "./SubmitKnowledge";
+
 class River extends Component {
   constructor(props) {
     super(props);
@@ -16,6 +18,7 @@ class River extends Component {
       level: 0,
       mapBool: false,
       symbolBool: false,
+      knowledgeBool: true,
     };
   }
 
@@ -29,7 +32,7 @@ class River extends Component {
     this.setState(() => ({ rapid }));
   };
 
-  // Toggles map overlay
+  // Toggles any overlay
   toggleSetting = (setting) => {
     this.setState((prevState) => ({ [setting]: !prevState[setting] }));
   };
@@ -65,6 +68,16 @@ class River extends Component {
             global={this.props.global}
           />
         )}
+
+        {this.state.knowledgeBool && (
+          <SubmitKnowledge
+            toggleSetting={this.toggleSetting}
+            setting="knowledgeBool"
+            rapidName={this.props.match.params.id}
+            riverName={this.props.global.riverName}
+          />
+        )}
+
         {rapidInstance}
         <Slider selectLevel={this.selectLevel} />
 
@@ -86,6 +99,17 @@ class River extends Component {
               setting="symbolBool"
               false="Symbols"
               true="Symbols"
+            />
+          </div>
+
+          <div id="knowledge-bool">
+            <GenericToggle
+              toggle={this.state.knowledgeBool}
+              toggleSetting={this.toggleSetting}
+              setting="knowledgeBool"
+              false="Submit Info"
+              true="Submit Info"
+              
             />
           </div>
 
