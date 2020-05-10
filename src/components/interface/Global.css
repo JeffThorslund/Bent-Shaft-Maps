@@ -1,5 +1,6 @@
 /*---Colors---*/
 /*---Fonts---*/
+/*---Mixins---*/
 @media (min-width: 320px) {
   .Global-background {
     background-image: -webkit-gradient(linear, left top, left bottom, from(#e1e2e2ff), to(#80a1c1));

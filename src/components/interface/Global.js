@@ -23,19 +23,6 @@ class Global extends React.Component {
     this.setState({ value: e.target.value });
   };
 
-  //Fetching from back end
-  componentDidMount() {
-    fetch("/api/customers")
-      .then((res) => res.json())
-      .then((customers) =>
-        this.setState(
-          { backendName: customers[0].name },
-          () => console.log("customer name fetched"),
-          customers[0].name
-        )
-      );
-  }
-
   riverSearch = (dataArr, value) => {
     const param = new RegExp(value, "i");
     const keptArr = dataArr
@@ -89,8 +76,8 @@ class Global extends React.Component {
       <div className="Global-background">
         <div className="Global">
           <Route>
-            <div id="title"> Wet Exit Guides </div>
-            <div id="subtitle">{this.state.backendName}</div>
+            <div id="title">Wet Exit Guides</div>
+            <div id="subtitle">Your source for stellar river guides.</div>
 
             <SearchBar
               value={this.props.value}

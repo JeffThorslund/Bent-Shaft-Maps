@@ -48,6 +48,13 @@
   left: 1vw;
 }
 
+.toggle-board #knowledge-bool {
+  position: absolute;
+  z-index: 2;
+  top: 14vh;
+  left: 1vw;
+}
+
 .toggle-board #back-button {
   position: absolute;
   z-index: 2;
