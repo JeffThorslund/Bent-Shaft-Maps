@@ -1,6 +1,6 @@
 const Sender = async (img, desc, river, rapid) => {
   console.log("started...");
-  const response = await fetch("http://localhost:9000/sendMail", {
+  const response = await fetch("/.netlify/functions/sendMail", {
     method: "POST",
     mode: "no-cors",
     headers: {
