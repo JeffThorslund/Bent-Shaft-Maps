@@ -1,5 +1,6 @@
 "use strict";
 const nodemailer = require("nodemailer");
+require("dotenv").config();
 
 exports.handler = function (event, context, callback) {
   const { img, desc, river, rapid } = JSON.parse(event.body);
@@ -28,7 +29,7 @@ exports.handler = function (event, context, callback) {
       to: "jeffrey.thorslund@gmail.com", // list of receivers
       subject: `${river} - ${rapid}`, // Subject line
       text: "ok", // plain text body
-      html: `<div>${desc}</div>`, // html body
+      html: `<div>${process.env.DESTINATION_EMAIL}</div>`, // html body
       attachments: attachments,
     });
 
