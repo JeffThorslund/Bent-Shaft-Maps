@@ -9,20 +9,36 @@ import {
   useRouteMatch,
 } from "react-router-dom";
 import idParser from "../../tools/idParser";
+import PropTypes from "prop-types";
 
 const NextRapid = (props) => {
+  const {
+    arrows: { name, bottom, right },
+    url,
+  } = props;
+
   const style = {
-    bottom: props.arrows.bottom,
-    right: props.arrows.right,
+    bottom: bottom,
+    right: right,
   };
 
   return (
-    <Link to={`${props.url}/${idParser(props.arrows.name)}`}>
+    <Link to={`${url}/${idParser(name)}`}>
       <div className="NextRapid" style={style}>
-        <div className="name">{props.arrows.name}</div>
+        <div className="name">{name}</div>
       </div>
     </Link>
   );
 };
 
 export default NextRapid;
+
+NextRapid.propTypes = {
+  arrows: PropTypes.shape({
+    //Make 'exact' when rotation is removed from data object.
+    name: PropTypes.string.isRequired,
+    bottom: PropTypes.string.isRequired,
+    right: PropTypes.string.isRequired,
+  }).isRequired,
+  url: PropTypes.string.isRequired,
+};
