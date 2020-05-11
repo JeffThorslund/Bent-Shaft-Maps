@@ -12,6 +12,7 @@
     "clear": "^0.1.0",
     "decamelize": "^4.0.0",
     "dom-to-image": "^2.6.0",
+    "dotenv": "^8.2.0",
     "figlet": "^1.4.0",
     "jspdf": "^1.5.3",
     "netlify-lambda": "^1.6.3",
@@ -32,7 +33,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "lambda-serve": "netlify-lambda serve functions",
-    "lambda-build": "netlify-lambda serve functions"
+    "lambda-build": "netlify-lambda build functions"
   },
   "browserslist": {
     "production": [

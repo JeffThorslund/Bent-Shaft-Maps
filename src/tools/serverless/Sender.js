@@ -1,6 +1,12 @@
 const Sender = async (img, desc, river, rapid) => {
-  console.log("started...");
-  const response = await fetch("http://localhost:9000/sendMail", {
+  const URL = {
+    local: "http://localhost:9000/sendMail",
+    remote: "/.netlify/functions/sendMail",
+  };
+
+  //Set URL.local when working in local server. URL.remote before push to remote build.
+
+  const response = await fetch(URL.remote, {
     method: "POST",
     mode: "no-cors",
     headers: {
