@@ -28,7 +28,7 @@ const Line = (props) => {
         props.displayData(name, desc);
       }}
       className="line-hover"
-      transform={"translate(" + x + "," + y + ")"}
+      transform={`translate(${x},${y})`}
     >
       <path d={vector} />
       <circle cx={circleX} cy={circleY} r="10" stroke="none" fill="black" />

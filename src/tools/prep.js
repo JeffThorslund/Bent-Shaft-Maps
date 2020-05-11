@@ -50,6 +50,29 @@ for (let i = 0; i < rapids.length; i++) {
     chunk.rapids[i].eddys[j].y = Number(y);
     console.log("Eddy ", name, "completed.");
   }
+
+   //loop through lines
+   for (let j = 0; j < lines.length; j++) {
+    //destructure lines
+    let { name, y, x } = lines[j];
+    //loop through all lines
+    console.log("Line ", name, "started...");
+    chunk.rapids[i].lines[j].x = Number(x);
+    chunk.rapids[i].lines[j].y = Number(y);
+    console.log("Line ", name, "completed.");
+  }
+
+  //loop through symbols
+  for (let j = 0; j < symbols.length; j++) {
+    //destructure symbols
+    let { type, top, left } = symbols[j];
+    //loop through all symbols
+    console.log("Symbol ", type, "started...");
+    chunk.rapids[i].symbols[j].top = Number(top);
+    chunk.rapids[i].symbols[j].left = Number(left);
+    console.log("Symbol ", type, "completed.");
+  }
+
   console.log("Rapid ", name, "completed.");
 }
 
