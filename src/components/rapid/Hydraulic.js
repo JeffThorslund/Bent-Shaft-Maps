@@ -3,7 +3,7 @@ import "./Hydraulic.css";
 import PropTypes from "prop-types";
 
 const Hydraulic = (props) => {
-  const { name, desc, x, y, width, height, rotation } = props.hydraulic;
+  const { name, desc, x, y, width, height, rotation } = props.hydraulics;
 
   return (
     <g
@@ -34,6 +34,8 @@ Hydraulic.propTypes = {
     desc: PropTypes.string.isRequired,
     x: PropTypes.string.isRequired,
     y: PropTypes.string.isRequired,
+    height: PropTypes.string.isRequired,
+    width: PropTypes.string.isRequired,
     rotation: PropTypes.number.isRequired,
     range: PropTypes.arrayOf(PropTypes.number).isRequired,
   }).isRequired,
