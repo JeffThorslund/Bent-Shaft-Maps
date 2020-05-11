@@ -33,7 +33,7 @@ const Symbol = (props) => {
         onClick={() => {
           props.displayData(type, desc);
         }}
-        transform={"translate(" + left + "," + top + ") scale(-0.10 0.12)"}
+        transform={`translate(${left},${top}) scale(-0.10 0.12)`}
       >
         {symbol}
       </g>

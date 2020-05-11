@@ -118,24 +118,24 @@
           "name": "Thread The Needle",
           "desc": "A commonly taken line through McCoys. Start center-right coming into the rapid with your boat pointed slightly left. When approaching the Sattlers, paddle towards river left, clip Sattlers and paddle for your life away from Phils",
           "vector": "M0 22.3326C28.4974 22.3326 207.118 21.0049 247.943 15.4378C268.074 12.6928 306.962 1.25504 359.118 1.25504C408.459 1.25503 634.344 12.9167 683.452 36.8719C732.56 60.8271 830.931 146.009 918.368 324.475",
-          "x": "260.55",
-          "y": "460.26",
+          "x": 260.55,
+          "y": 460.26,
           "range": [-100, 100]
         },
         {
           "name": "Punch Phils",
           "desc": "Scout to see the point in phils hole is greening out and turning in to a crashy wave. Follow some upstream bubbles to see where you need to be. Line it up and punch it baby!",
           "vector": "M0 10.8717C28.4974 10.8717 147.575 10.8717 188.778 10.8717C240.281 10.8717 379.221 8.47622 428.329 3.68519C477.437 -1.10584 635.614 -1.38767 684.722 22.5675C733.83 46.5227 831.443 121.032 918.879 299.498",
-          "x": "260.55",
-          "y": "486.12",
+          "x": 260.55,
+          "y": 486.12,
           "range": [-100, 4]
         },
         {
           "name": "Punch Sattlers",
           "desc": "Line up with Sattlers and gun it right through. You will be clear of Phils Hole on this line.",
           "vector": "M0 2.10782C90.6809 -0.801291 280.896 2.10782 326.319 2.10782C729.024 2.10782 768.921 75.667 919.779 346.215",
-          "x": "259.91",
-          "y": "438.81",
+          "x": 259.91,
+          "y": 438.81,
           "range": [-100, 100]
         }
       ],
@@ -143,14 +143,14 @@
         {
           "type": "Caution",
           "desc": "There is no safe way to navigate this rapid at this water level.",
-          "top": "200",
-          "left": "200"
+          "top": 200,
+          "left": 200
         },
         {
           "type": "Portage",
           "desc": "This rapid has a very easy portage. Follow the clear trail to the end of the rapid, or stop along the way for clear views of Phil's Hole, Sattlers Hole and other features on this rapid.",
-          "top": "650",
-          "left": "200"
+          "top": 650,
+          "left": 200
         }
       ],
       "arrows": [
@@ -201,15 +201,17 @@
           "name": "Chill Out",
           "desc": "Stay in the middle of the channel, as the edges of the river can have caught branches and logs.",
           "vector": "M 100,370q 140,-100 250,-60q 150, 60 380, 15q 165, -20 380, 100Q 1250,500 1350,650",
-          "range": [10, 100]
+          "range": [10, 100],
+          "x": 0,
+          "y": 0
         }
       ],
       "symbols": [
         {
           "type": "Caution",
           "desc": "There is no safe way to navigate this rapid at this water level.",
-          "top": "240",
-          "left": "150"
+          "top": 240,
+          "left": 150
         }
       ],
       "arrows": [
@@ -265,15 +267,17 @@
           "name": "Punch the Wave",
           "desc": "Go straight through the hole at the bottom of the drop. After the drop, the pool is extremely boiley.",
           "vector": "M 150,400q 300,-20 500,0Q 1000,430 1200,400",
-          "range": [-10, 8]
+          "range": [-10, 8],
+          "x": 0,
+          "y": 0
         }
       ],
       "symbols": [
         {
           "type": "Caution",
           "desc": "There is no safe way to navigate this rapid at this water level.",
-          "top": "300",
-          "left": "250"
+          "top": 300,
+          "left": 250
         }
       ],
       "arrows": [
@@ -309,8 +313,8 @@
         {
           "type": "Caution",
           "desc": "There is no safe way to navigate this rapid at this water level.",
-          "top": "400",
-          "left": "300"
+          "top": 400,
+          "left": 300
         }
       ],
       "arrows": [
@@ -366,8 +370,8 @@
           "name": "Punch the Wave",
           "desc": "Go straight through the hole at the bottom of the drop",
           "vector": "M 0 0 C89.2728 31.5 137.79 65.5715 187.972 78.4226C242.347 92.3475 301.234 101.075 357.864 102.693C411.595 104.228 516.504 111.229 558.499 115.637C592.445 119.201 718.454 133.16 746.189 139.907C795.948 152.012 919.318 197.078 998.601 224.045",
-          "x": "408.28",
-          "y": "258.76",
+          "x": 408.28,
+          "y": 258.76,
           "range": [-10, 12]
         }
       ],
@@ -375,8 +379,8 @@
         {
           "type": "Caution",
           "desc": "There is no safe way to navigate this rapid at this water level.",
-          "top": "350",
-          "left": "400"
+          "top": 350,
+          "left": 400
         }
       ],
       "arrows": [
@@ -458,8 +462,8 @@
           "name": "Standard Line",
           "desc": "After the drop, take a hard right into the slower moving water, missing the hole downstream.",
           "vector": "M0 5.35096C27.6872 16.1386 77.0021 19.9915 103.971 16.1387C130.941 12.2859 180.256 0.727661 197.208 0.727661C236.408 0.727661 243.57 20.4735 278.812 41.0605C339.995 76.8009 349.149 75.817 371.495 88.9163C393.841 102.016 721.952 257.32 722.722 266.567",
-          "x": "248.72",
-          "y": "409.73",
+          "x": 248.72,
+          "y": 409.73,
           "range": [-10, 12]
         }
       ],
@@ -467,8 +471,8 @@
         {
           "type": "Caution",
           "desc": "There is no safe way to navigate this rapid at this water level.",
-          "top": "400",
-          "left": "200"
+          "top": 400,
+          "left": 200
         }
       ],
       "arrows": [
@@ -504,8 +508,8 @@
         {
           "type": "Caution",
           "desc": "There is no safe way to navigate this rapid at this water level.",
-          "top": "300",
-          "left": "300"
+          "top": 300,
+          "left": 300
         }
       ],
       "arrows": [
@@ -611,40 +615,40 @@
           "name": "Elevator Shaft",
           "desc": "Coming up to the drop, start paddling left to hit the drop with slight left momentum. After the drop, stay right to avoid the huge hole at the bottom of the rapid.",
           "vector": "M0 28.7981C48.149 32.5384 296.117 23.9401 334.767 6.48539C373.417 -10.9693 485.467 14.634 556.532 37.0759C613.385 55.0294 597.251 49.5415 684.109 72.3989",
-          "x": "366.77",
-          "y": "631.71",
+          "x": 366.77,
+          "y": 631.71,
           "range": [-10, 12]
         },
         {
           "name": "Dragon's Tongue",
           "desc": "Run that puppy then skrrt the hole at the bottom of the rapid to the left.",
           "vector": "M0 0.914062C61.0678 11.1052 215.216 20.3698 277.528 20.3698C338.68 20.3698 370.704 30.974 427.003 45.7975C467.412 56.4373 527.962 92.6342 602.703 113.016C629.186 120.238 663.856 131.855 678.416 135.252",
-          "x": "399.89",
-          "y": "506.91",
+          "x": 399.89,
+          "y": 506.91,
           "range": [-10, 12]
         },
         {
           "name": "ST Chute",
           "desc": "Run that puppy then skrrt the hole at the bottom of the rapid to the left.",
           "vector": "M0 0.881592C68.5516 5.58981 136.348 8.41479 174.955 26.3056C213.562 44.1965 275.709 50.7878 306.782 52.6711C337.856 54.5543 371.754 58.3208 433.901 64.9122C496.048 71.5035 524.297 71.5035 578.911 91.2776C633.525 111.052 740.87 161.899 773.827 176.024",
-          "x": "426.75",
-          "y": "356.88",
+          "x": 426.75,
+          "y": 356.88,
           "range": [-10, 12]
         },
         {
           "name": "Staircase",
           "desc": "Run that puppy then skrrt the hole at the bottom of the rapid to the left.",
           "vector": "M0 1.31836C60.7571 30.5087 148.78 23.6369 189.759 36.1584C257.556 56.8741 277.33 86.0644 323.47 97.3639C382.98 108.663 629.811 208.789 706.71 248.024",
-          "x": "495.49",
-          "y": "285.32",
+          "x": 495.49,
+          "y": 285.32,
           "range": [-10, 12]
         },
         {
           "name": "Lower Garvins",
           "desc": "Pull out of the eddy, then run the wave train head on.",
           "vector": "M0 0.591309C-2.59069 7.29936 -2.28483 41.1146 3.60135 51.675C21.1453 83.1508 191.424 138.878 293.075 190.994",
-          "x": "906.52",
-          "y": "341.59",
+          "x": 906.52,
+          "y": 341.59,
           "range": [-10, 12]
         }
       ],
@@ -652,14 +656,14 @@
         {
           "type": "Caution",
           "desc": "There is no safe way to navigate this rapid at this water level.",
-          "top": "400",
-          "left": "300"
+          "top": 400,
+          "left": 300
         },
         {
           "type": "Portage",
           "desc": "This rapid has a very easy portage. Follow the clear trail to the end of the rapid, or stop along the way for clear views of Phil's Hole, Sattlers Hole and other features on this rapid.",
-          "top": "120",
-          "left": "500"
+          "top": 120,
+          "left": 500
         }
       ],
       "arrows": [
@@ -701,8 +705,8 @@
         {
           "type": "Caution",
           "desc": "There is no safe way to navigate this rapid at this water level.",
-          "top": "200",
-          "left": "300"
+          "top": 200,
+          "left": 300
         }
       ],
       "arrows": [
@@ -738,8 +742,8 @@
         {
           "type": "Caution",
           "desc": "There is no safe way to navigate this rapid at this water level.",
-          "top": "430",
-          "left": "300"
+          "top": 430,
+          "left": 300
         }
       ],
       "arrows": [
@@ -769,8 +773,8 @@
         {
           "type": "Caution",
           "desc": "There is no safe way to navigate this rapid at this water level.",
-          "top": "430",
-          "left": "300"
+          "top": 430,
+          "left": 300
         }
       ],
       "arrows": [
@@ -806,8 +810,8 @@
         {
           "type": "Caution",
           "desc": "There is no safe way to navigate this rapid at this water level.",
-          "top": "430",
-          "left": "300"
+          "top": 430,
+          "left": 300
         }
       ],
       "arrows": [
