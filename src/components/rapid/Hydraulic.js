@@ -14,10 +14,10 @@ const Hydraulic = (props) => {
       }}
     >
       <rect
-        width={width}
-        height={height}
-        x={x}
-        y={y}
+        width={width.toString()}
+        height={height.toString()}
+        x={x.toString()}
+        y={y.toString()}
         rx="8"
         fill="white"
         transform={"rotate(" + rotation + " " + x + " " + y + ")"}
