@@ -3,12 +3,12 @@ import Line from "./Line";
 import Eddy from "./Eddy";
 import Hydraulic from "./Hydraulic";
 import Caution from "../symbols/Caution";
-import Symbols from "../symbols/Symbols";
+import Symbol from "../symbols/Symbol";
 import "./Features.css";
 import PropTypes from "prop-types";
 
 const Features = (props) => {
-  // render array of lines based on selected water level (App state)
+  // render array of lines based on selected water level
   const lineArray = props.data.lines
     .filter(
       (element) =>
@@ -24,7 +24,7 @@ const Features = (props) => {
       );
     });
 
-  // render array of eddys based on selected water level (App state)
+  // render array of eddys based on selected water level
   const eddyArray = props.data.eddys
     .filter(
       (element) =>
@@ -40,7 +40,7 @@ const Features = (props) => {
       );
     });
 
-  // render array of hydraulics based on selected water level (App state)
+  // render array of hydraulics based on selected water level
   const hydraulicArray = props.data.hydraulics
     .filter(
       (element) =>
@@ -56,14 +56,27 @@ const Features = (props) => {
       );
     });
 
+  // render array of symbols, except caution, based on selected water level
+  const symbolArray = props.data.symbols
+    .filter((element) => element.type !== "Caution")
+    .map((element, key) => {
+      return (
+        <Symbol
+          symbols={element}
+          displayData={props.displayData}
+          key={`symbol${key}`}
+        />
+      );
+    });
+
   // render caution if there are no possible lines
   const cautionSymbol = props.data.symbols
-    .filter((sym) => sym.type === "Caution")
-    .map((sym, key) => {
+    .filter((element) => element.type === "Caution")
+    .map((element, key) => {
       return (
         <Caution
-          symbols={sym}
-          key={`symbol${key}`}
+          symbols={element}
+          key={`caution${key}`}
           displayData={props.displayData}
         />
       );
@@ -90,9 +103,7 @@ const Features = (props) => {
       <g className="clickable">{lineArray.length === 0 && cautionSymbol}</g>
 
       <g id="symbol-array" className="clickable">
-        {!props.symbolBool && (
-          <Symbols data={props.data} displayData={props.displayData} />
-        )}
+        {symbolArray}
       </g>
     </svg>
   );
