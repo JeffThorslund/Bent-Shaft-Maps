@@ -2,12 +2,14 @@ import React from "react";
 import PropTypes from "prop-types";
 
 const Eddy = (props) => {
+  const { name, desc, vector, x, y } = props.eddys;
+
   return (
     <g
-      className={props.eddys.name}
-      transform={"translate(" + props.eddys.x + "," + props.eddys.y + ")"}
+      className={name}
+      transform={"translate(" + x + "," + y + ")"}
       onClick={() => {
-        props.displayData(props.eddys.name, props.eddys.desc);
+        props.displayData(name, desc);
       }}
     >
       <path
@@ -17,10 +19,8 @@ const Eddy = (props) => {
         stroke-width="3"
         stroke-linecap="round"
         stroke-dasharray="7 7"
-        d={props.eddys.vector}
+        d={vector}
       />
-
-      {props.eddys.vector}
     </g>
   );
 };
@@ -28,6 +28,13 @@ const Eddy = (props) => {
 export default Eddy;
 
 Eddy.propTypes = {
-  eddys: PropTypes.object.isRequired,
+  eddys: PropTypes.exact({
+    name: PropTypes.string.isRequired,
+    desc: PropTypes.string.isRequired,
+    vector: PropTypes.string.isRequired,
+    x: PropTypes.string.isRequired,
+    y: PropTypes.string.isRequired,
+    range: PropTypes.arrayOf(PropTypes.number).isRequired,
+  }).isRequired,
   displayData: PropTypes.func.isRequired,
 };

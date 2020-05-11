@@ -3,30 +3,24 @@ import "./Hydraulic.css";
 import PropTypes from "prop-types";
 
 const Hydraulic = (props) => {
+  const { name, desc, x, y, width, height, rotation } = props.hydraulics;
+
   return (
     <g
-      id={props.hydraulics.name}
+      id={name}
       className="hydraulic"
       onClick={() => {
-        props.displayData(props.hydraulics.name, props.hydraulics.desc);
+        props.displayData(name, desc);
       }}
     >
       <rect
-        width={props.hydraulics.width}
-        height={props.hydraulics.height}
-        x={props.hydraulics.x}
-        y={props.hydraulics.y}
+        width={width}
+        height={height}
+        x={x}
+        y={y}
         rx="8"
         fill="white"
-        transform={
-          "rotate(" +
-          props.hydraulics.rotation +
-          " " +
-          props.hydraulics.x +
-          " " +
-          props.hydraulics.y +
-          ")"
-        }
+        transform={"rotate(" + rotation + " " + x + " " + y + ")"}
       />
     </g>
   );
@@ -35,6 +29,15 @@ const Hydraulic = (props) => {
 export default Hydraulic;
 
 Hydraulic.propTypes = {
-  hydraulics: PropTypes.object.isRequired,
+  hydraulics: PropTypes.exact({
+    name: PropTypes.string.isRequired,
+    desc: PropTypes.string.isRequired,
+    x: PropTypes.string.isRequired,
+    y: PropTypes.string.isRequired,
+    height: PropTypes.string.isRequired,
+    width: PropTypes.string.isRequired,
+    rotation: PropTypes.number.isRequired,
+    range: PropTypes.arrayOf(PropTypes.number).isRequired,
+  }).isRequired,
   displayData: PropTypes.func.isRequired,
 };
