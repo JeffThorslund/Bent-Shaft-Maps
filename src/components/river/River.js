@@ -27,11 +27,6 @@ class River extends Component {
     this.setState(() => ({ level }));
   };
 
-  // Set a rapid as current rapid
-  selectRapid = (rapid) => {
-    this.setState(() => ({ rapid }));
-  };
-
   // Toggles any overlay
   toggleSetting = (setting) => {
     this.setState((prevState) => ({ [setting]: !prevState[setting] }));
@@ -48,7 +43,6 @@ class River extends Component {
             level={this.state.level}
             symbolBool={this.state.symbolBool}
             selectLevel={this.selectLevel}
-            selectRapid={this.selectRapid}
             key={`rapid${key}`}
           />
         );

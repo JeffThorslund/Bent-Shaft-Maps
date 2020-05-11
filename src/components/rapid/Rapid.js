@@ -26,13 +26,7 @@ class Rapid extends Component {
   render() {
     // render array of "next rapid arrows" based on selected water level (App state)
     const arrowArray = this.props.data.arrows.map((element, key) => (
-      <NextRapid
-        arrows={element}
-        url={this.props.url}
-        name={element.name}
-        selectRapid={this.props.selectRapid}
-        key={`arrow${key}`}
-      />
+      <NextRapid arrows={element} url={this.props.url} key={`arrow${key}`} />
     ));
 
     return (
@@ -58,13 +52,11 @@ class Rapid extends Component {
         />
         <div id="arrow-array"> {arrowArray} </div>
 
-        {Object.keys(this.props.data.displayPosition).length !== 0 && (
-          <Display
-            title={this.state.title}
-            desc={this.state.desc}
-            displayPosition={this.props.data.displayPosition}
-          />
-        )}
+        <Display
+          title={this.state.title}
+          desc={this.state.desc}
+          displayPosition={this.props.data.displayPosition}
+        />
       </div>
     );
   }
@@ -76,5 +68,4 @@ Rapid.propTypes = {
   data: PropTypes.object.isRequired,
   level: PropTypes.number.isRequired,
   selectLevel: PropTypes.func.isRequired,
-  selectRapid: PropTypes.func.isRequired,
 };
