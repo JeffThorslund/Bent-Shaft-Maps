@@ -3,17 +3,18 @@ import PropTypes from "prop-types";
 import "./Line.css";
 
 const Line = (props) => {
-  //Finds starting point of vector and sets circle to that
-  const vector = props.lines.vector;
-  let x = "";
-  let y = "";
+  const { name, desc, vector, x, y } = props.lines;
 
   //Find position of circle.
+
+  let circleX = "";
+  let circleY = "";
+
   for (let i = vector.search(/M/i) + 2, count = 0; i < vector.length; i++) {
     if (/[0-9]/.test(vector[i]) && count === 0) {
-      x = x.concat(vector[i]);
+      circleX = circleX.concat(vector[i]);
     } else if (/[0-9]/.test(vector[i]) && count === 1) {
-      y = y.concat(vector[i]);
+      circleY = circleY.concat(vector[i]);
     } else if (count === 2) {
       break;
     } else {
@@ -24,13 +25,13 @@ const Line = (props) => {
   return (
     <g
       onClick={() => {
-        props.displayData(props.lines.name, props.lines.desc);
+        props.displayData(name, desc);
       }}
       className="line-hover"
-      transform={"translate(" + props.lines.x + "," + props.lines.y + ")"}
+      transform={"translate(" + x + "," + y + ")"}
     >
-      <path d={props.lines.vector} />
-      <circle cx={x} cy={y} r="10" stroke="none" fill="black" />
+      <path d={vector} />
+      <circle cx={circleX} cy={circleY} r="10" stroke="none" fill="black" />
     </g>
   );
 };
@@ -38,6 +39,13 @@ const Line = (props) => {
 export default Line;
 
 Line.propTypes = {
-  lines: PropTypes.object.isRequired,
+  lines: PropTypes.exact({
+    name: PropTypes.string.isRequired,
+    desc: PropTypes.string.isRequired,
+    vector: PropTypes.string.isRequired,
+    x: PropTypes.string.isRequired,
+    y: PropTypes.string.isRequired,
+    range: PropTypes.arrayOf(PropTypes.number).isRequired,
+  }).isRequired,
   displayData: PropTypes.func.isRequired,
 };
