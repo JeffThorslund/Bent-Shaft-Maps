@@ -27,6 +27,7 @@ for (let i = 0; i < rapids.length; i++) {
     mapLabel,
   } = rapids[i];
   console.log("Rapid ", name, "started...");
+
   //loop through hydraulics
   for (let j = 0; j < hydraulics.length; j++) {
     //destructure hydraulics
@@ -51,8 +52,8 @@ for (let i = 0; i < rapids.length; i++) {
     console.log("Eddy ", name, "completed.");
   }
 
-   //loop through lines
-   for (let j = 0; j < lines.length; j++) {
+  //loop through lines
+  for (let j = 0; j < lines.length; j++) {
     //destructure lines
     let { name, y, x } = lines[j];
     //loop through all lines
@@ -72,6 +73,20 @@ for (let i = 0; i < rapids.length; i++) {
     chunk.rapids[i].symbols[j].left = Number(left);
     console.log("Symbol ", type, "completed.");
   }
+
+  //destructure displayPosition
+  let { top, left, width } = displayPosition;
+  //loop through all displayPosition
+  console.log("displayPosition started...");
+
+  top = top.replace(/\D/g, "");
+  left = left.replace(/\D/g, "");
+  width = width.replace(/\D/g, "");
+
+  chunk.rapids[i].displayPosition.top = Number(top);
+  chunk.rapids[i].displayPosition.left = Number(left);
+  chunk.rapids[i].displayPosition.width = Number(width);
+  console.log("displayPosition completed.");
 
   console.log("Rapid ", name, "completed.");
 }
