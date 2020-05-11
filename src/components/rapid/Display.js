@@ -3,16 +3,24 @@ import "./Display.css";
 import PropTypes from "prop-types";
 
 const Display = (props) => {
+  //Destructure props
+  const {
+    displayPosition: { top, left, width },
+    title,
+    desc,
+  } = props;
+
+  //Set dimensions of display box from incoming props
   const style = {
-    top: props.displayPosition.top,
-    left: props.displayPosition.left,
-    width: props.displayPosition.width,
+    top: top,
+    left: left,
+    width: width,
   };
 
   return (
     <div className="Display" style={style}>
-      <div id="title">{props.title}</div>
-      {props.desc.length > 0 && <div id="desc">{props.desc}</div>}
+      <div id="title">{title}</div>
+      {desc.length > 0 && <div id="desc">{desc}</div>}
     </div>
   );
 };
@@ -22,5 +30,9 @@ export default Display;
 Display.propTypes = {
   title: PropTypes.string.isRequired,
   desc: PropTypes.string.isRequired,
-  displayPosition: PropTypes.object.isRequired,
+  displayPosition: PropTypes.exact({
+    top: PropTypes.string.isRequired,
+    left: PropTypes.string.isRequired,
+    width: PropTypes.string.isRequired,
+  }).isRequired,
 };
