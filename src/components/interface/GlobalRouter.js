@@ -14,9 +14,9 @@ import RiverList from "../../river-data/RiverList";
 import idParser from "../../tools/idParser";
 
 const GlobalRouter = () => {
-  const routeArray = RiverList.map((elem) => {
+  const routeArray = RiverList.map((elem, key) => {
     return (
-      <Route path={`/${idParser(elem.name)}`}>
+      <Route path={`/${idParser(elem.name)}`} key={`river${key}`}>
         <RiverRouter data={elem.data} global={elem.global} />
       </Route>
     );
@@ -29,7 +29,6 @@ const GlobalRouter = () => {
       </Route>
 
       {routeArray}
-
     </Switch>
   );
 };
