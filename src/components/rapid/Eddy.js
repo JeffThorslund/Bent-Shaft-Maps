@@ -7,7 +7,7 @@ const Eddy = (props) => {
   return (
     <g
       className={name}
-      transform={"translate(" + x + "," + y + ")"}
+      transform={`translate(${x},${y})`}
       onClick={() => {
         props.displayData(name, desc);
       }}

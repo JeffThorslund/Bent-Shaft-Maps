@@ -33,11 +33,22 @@ for (let i = 0; i < rapids.length; i++) {
     let { name, y, x, height, width } = hydraulics[j];
     //loop through all hydraulics
     console.log("Hydraulic ", name, "started...");
-    chunk.rapids[i].hydraulics[j].x = Number(x); //convert string to number
-    chunk.rapids[i].hydraulics[j].y = Number(y); //convert string to number
-    chunk.rapids[i].hydraulics[j].height = Number(height); //convert string to number
-    chunk.rapids[i].hydraulics[j].width = Number(width); //convert string to number
+    chunk.rapids[i].hydraulics[j].x = Number(x);
+    chunk.rapids[i].hydraulics[j].y = Number(y);
+    chunk.rapids[i].hydraulics[j].height = Number(height);
+    chunk.rapids[i].hydraulics[j].width = Number(width);
     console.log("Hydraulic ", name, "completed.");
+  }
+
+  //loop through eddys
+  for (let j = 0; j < eddys.length; j++) {
+    //destructure eddys
+    let { name, y, x } = eddys[j];
+    //loop through all eddys
+    console.log("Eddy ", name, "started...");
+    chunk.rapids[i].eddys[j].x = Number(x);
+    chunk.rapids[i].eddys[j].y = Number(y);
+    console.log("Eddy ", name, "completed.");
   }
   console.log("Rapid ", name, "completed.");
 }
