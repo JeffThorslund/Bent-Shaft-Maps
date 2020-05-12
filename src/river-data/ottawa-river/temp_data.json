@@ -14,9 +14,10 @@
     " Jane Leakey",
     " Emily Beirnes"
   ],
+
   "rapids": [
     {
-      "name": "McCoys Chute Rapid",
+      "name": "McCoy's Chute Rapid",
       "desc": "Class III",
       "displayPosition": { "top": 70, "left": 22, "width": 35 },
       "riverMap": { "viewBox": "0 50 1600 900", "path": "McCoysChuteRapid" },
@@ -169,10 +170,20 @@
         }
       ],
       "arrows": [
-        { "name": "Iron Ring", "bottom": 70, "right": 22 },
-        { "name": "Magical Mystery Tour", "bottom": 70, "right": 22 },
-        { "name": "Little Trickle", "bottom": 70, "right": 22 },
-        { "name": "The Lorne", "bottom": 70, "right": 22 }
+        { "name": "Iron Ring", "rotation": "160deg", "bottom": 4, "right": 5 },
+        {
+          "name": "Magical Mystery Tour",
+          "rotation": "160deg",
+          "bottom": 25,
+          "right": 2
+        },
+        {
+          "name": "Little Trickle",
+          "rotation": "160deg",
+          "bottom": 4,
+          "right": 15
+        },
+        { "name": "The Lorne", "rotation": "160deg", "bottom": 4, "right": 26 }
       ],
       "mapLabel": {
         "titleTop": 45,
@@ -197,8 +208,8 @@
           "desc": "Stay in the middle of the channel, as the edges of the river can have caught branches and logs.",
           "vector": "M 100,370q 140,-100 250,-60q 150, 60 380, 15q 165, -20 380, 100Q 1250,500 1350,650",
           "range": [10, 100],
-          "x": 0,
-          "y": 0
+          "x": null,
+          "y": null
         }
       ],
       "symbols": [
@@ -210,8 +221,13 @@
         }
       ],
       "arrows": [
-        { "name": "Butterfly", "bottom": 72, "right": 15 },
-        { "name": "McCoy's Chute Rapid", "bottom": 72, "right": 15 }
+        { "name": "Butterfly", "rotation": "160deg", "bottom": 21, "right": 3 },
+        {
+          "name": "McCoy's Chute Rapid",
+          "rotation": "160deg",
+          "bottom": 42,
+          "right": 85
+        }
       ],
       "mapLabel": {
         "titleTop": 30,
@@ -253,8 +269,8 @@
           "desc": "Go straight through the hole at the bottom of the drop. After the drop, the pool is extremely boiley.",
           "vector": "M 150,400q 300,-20 500,0Q 1000,430 1200,400",
           "range": [-10, 8],
-          "x": 0,
-          "y": 0
+          "x": null,
+          "y": null
         }
       ],
       "symbols": [
@@ -266,8 +282,13 @@
         }
       ],
       "arrows": [
-        { "name": "S-Bend", "bottom": 76, "right": 32 },
-        { "name": "McCoy's Chute Rapid", "bottom": 76, "right": 32 }
+        { "name": "S-Bend", "rotation": "160deg", "bottom": 55, "right": 10 },
+        {
+          "name": "McCoy's Chute Rapid",
+          "rotation": "160deg",
+          "bottom": 65,
+          "right": 85
+        }
       ],
       "mapLabel": {
         "titleTop": 30,
@@ -293,8 +314,13 @@
         }
       ],
       "arrows": [
-        { "name": "Butterfly", "bottom": 72, "right": 23 },
-        { "name": "Iron Ring", "bottom": 72, "right": 23 }
+        {
+          "name": "Butterfly",
+          "rotation": "160deg",
+          "bottom": 70,
+          "right": 10
+        },
+        { "name": "Iron Ring", "rotation": "160deg", "bottom": 61, "right": 87 }
       ],
       "mapLabel": {
         "titleTop": 24,
@@ -349,9 +375,14 @@
         }
       ],
       "arrows": [
-        { "name": "Garvins", "bottom": 75, "right": 50 },
-        { "name": "S-Bend", "bottom": 75, "right": 50 },
-        { "name": "Magical Mystery Tour", "bottom": 75, "right": 50 }
+        { "name": "Garvins", "rotation": "160deg", "bottom": 37, "right": 9 },
+        { "name": "S-Bend", "rotation": "160deg", "bottom": 45, "right": 87 },
+        {
+          "name": "Magical Mystery Tour",
+          "rotation": "160deg",
+          "bottom": 60,
+          "right": 84
+        }
       ],
       "mapLabel": {
         "titleTop": 30,
@@ -426,8 +457,18 @@
         }
       ],
       "arrows": [
-        { "name": "Angel's Kiss", "bottom": 72, "right": 2 },
-        { "name": "McCoy's Chute Rapid", "bottom": 72, "right": 2 }
+        {
+          "name": "Angel's Kiss",
+          "rotation": "160deg",
+          "bottom": 70,
+          "right": 15
+        },
+        {
+          "name": "McCoy's Chute Rapid",
+          "rotation": "160deg",
+          "bottom": 65,
+          "right": 87
+        }
       ],
       "mapLabel": {
         "titleTop": 30,
@@ -453,8 +494,13 @@
         }
       ],
       "arrows": [
-        { "name": "Garvins", "bottom": 65, "right": 2 },
-        { "name": "Little Trickle", "bottom": 65, "right": 2 }
+        { "name": "Garvins", "rotation": "160deg", "bottom": 60, "right": 10 },
+        {
+          "name": "Little Trickle",
+          "rotation": "160deg",
+          "bottom": 65,
+          "right": 87
+        }
       ],
       "mapLabel": {
         "titleTop": 30,
@@ -597,9 +643,24 @@
         }
       ],
       "arrows": [
-        { "name": "Upper No Name", "bottom": 72, "right": 65 },
-        { "name": "Butterfly", "bottom": 72, "right": 65 },
-        { "name": "Angel's Kiss", "bottom": 72, "right": 65 }
+        {
+          "name": "Upper No Name",
+          "rotation": "160deg",
+          "bottom": 30,
+          "right": 8
+        },
+        {
+          "name": "Butterfly",
+          "rotation": "160deg",
+          "bottom": 50,
+          "right": 87
+        },
+        {
+          "name": "Angel's Kiss",
+          "rotation": "160deg",
+          "bottom": 30,
+          "right": 87
+        }
       ],
       "mapLabel": {
         "titleTop": 25,
@@ -625,8 +686,13 @@
         }
       ],
       "arrows": [
-        { "name": "Lower No Name", "bottom": 55, "right": 2 },
-        { "name": "Garvins", "bottom": 55, "right": 2 }
+        {
+          "name": "Lower No Name",
+          "rotation": "160deg",
+          "bottom": 45,
+          "right": 8
+        },
+        { "name": "Garvins", "rotation": "160deg", "bottom": 75, "right": 87 }
       ],
       "mapLabel": {
         "titleTop": 25,
@@ -651,7 +717,14 @@
           "left": 300
         }
       ],
-      "arrows": [{ "name": "Upper No Name", "bottom": 68, "right": 2 }],
+      "arrows": [
+        {
+          "name": "Upper No Name",
+          "rotation": "160deg",
+          "bottom": 40,
+          "right": 87
+        }
+      ],
       "mapLabel": {
         "titleTop": 22,
         "titleLeft": 63,
@@ -676,8 +749,18 @@
         }
       ],
       "arrows": [
-        { "name": "McCoy's Chute Rapid", "bottom": 71, "right": 42 },
-        { "name": "Push Button", "bottom": 71, "right": 42 }
+        {
+          "name": "McCoy's Chute Rapid",
+          "rotation": "160deg",
+          "bottom": 40,
+          "right": 85
+        },
+        {
+          "name": "Push Button",
+          "rotation": "160deg",
+          "bottom": 40,
+          "right": 5
+        }
       ],
       "mapLabel": {
         "titleTop": 58,
@@ -703,8 +786,18 @@
         }
       ],
       "arrows": [
-        { "name": "The Lorne", "bottom": 70, "right": 25 },
-        { "name": "Butchers Knife", "bottom": 70, "right": 25 }
+        {
+          "name": "The Lorne",
+          "rotation": "160deg",
+          "bottom": 40,
+          "right": 87
+        },
+        {
+          "name": "Butchers Knife",
+          "rotation": "160deg",
+          "bottom": 45,
+          "right": 5
+        }
       ],
       "mapLabel": {
         "titleTop": 60,
@@ -723,8 +816,13 @@
       "lines": [],
       "symbols": [],
       "arrows": [
-        { "name": "Push Button", "bottom": 70, "right": 48 },
-        { "name": "Normans", "bottom": 70, "right": 48 }
+        {
+          "name": "Push Button",
+          "rotation": "160deg",
+          "bottom": 40,
+          "right": 90
+        },
+        { "name": "Normans", "rotation": "160deg", "bottom": 83, "right": 20 }
       ],
       "mapLabel": {
         "titleTop": 59,
@@ -743,8 +841,13 @@
       "lines": [],
       "symbols": [],
       "arrows": [
-        { "name": "Butchers Knife", "bottom": 74, "right": 27 },
-        { "name": "Coliseum", "bottom": 74, "right": 27 }
+        {
+          "name": "Butchers Knife",
+          "rotation": "160deg",
+          "bottom": 55,
+          "right": 87
+        },
+        { "name": "Coliseum", "rotation": "160deg", "bottom": 55, "right": 10 }
       ],
       "mapLabel": {
         "titleTop": 54,
@@ -763,8 +866,8 @@
       "lines": [],
       "symbols": [],
       "arrows": [
-        { "name": "Normans", "bottom": 72, "right": 32 },
-        { "name": "Dogs Leg", "bottom": 72, "right": 32 }
+        { "name": "Normans", "rotation": "160deg", "bottom": 50, "right": 90 },
+        { "name": "Dogs Leg", "rotation": "160deg", "bottom": 47, "right": 5 }
       ],
       "mapLabel": {
         "titleTop": 59,
@@ -783,8 +886,13 @@
       "lines": [],
       "symbols": [],
       "arrows": [
-        { "name": "Farmer Blacks", "bottom": 73, "right": 35 },
-        { "name": "Coliseum", "bottom": 73, "right": 35 }
+        {
+          "name": "Farmer Blacks",
+          "rotation": "160deg",
+          "bottom": 45,
+          "right": 5
+        },
+        { "name": "Coliseum", "rotation": "160deg", "bottom": 55, "right": 88 }
       ],
       "mapLabel": {
         "titleTop": 55,
@@ -802,7 +910,9 @@
       "eddys": [],
       "lines": [],
       "symbols": [],
-      "arrows": [{ "name": "Dogs Leg", "bottom": 72, "right": 21 }],
+      "arrows": [
+        { "name": "Dogs Leg", "rotation": "160deg", "bottom": 47, "right": 87 }
+      ],
       "mapLabel": {
         "titleTop": 47,
         "titleLeft": 65,

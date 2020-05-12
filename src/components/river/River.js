@@ -34,7 +34,7 @@ class River extends Component {
 
   render() {
     // Create Rapid Instance
-    const rapidInstance = this.props.data.map((element, key) => {
+    const rapidInstance = this.props.data.rapids.map((element, key) => {
       if (this.props.match.params.id === idParser(element.name)) {
         return (
           <Rapid
@@ -59,7 +59,6 @@ class River extends Component {
             setting="mapBool"
             selectRapid={this.selectRapid}
             data={this.props.data}
-            global={this.props.global}
           />
         )}
 
@@ -68,7 +67,7 @@ class River extends Component {
             toggleSetting={this.toggleSetting}
             setting="knowledgeBool"
             rapidName={this.props.match.params.id}
-            riverName={this.props.global.riverName}
+            riverName={this.props.data.riverName}
           />
         )}
 

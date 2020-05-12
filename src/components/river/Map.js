@@ -4,7 +4,7 @@ import "./Map.css";
 import MapLabel from "./MapLabel";
 
 const Map = (props) => {
-  const mapLabelArray = props.data
+  const mapLabelArray = props.data.rapids
     .filter((x) => Object.keys(x.mapLabel).length !== 0)
     .map((element, key) => (
       <MapLabel
@@ -27,7 +27,7 @@ const Map = (props) => {
         }}
       ></div>
 
-      <div className="overview-map">{props.global.overviewMap}</div>
+      <div className="overview-map">{props.data.overviewMap}</div>
       <div className="maplabel-array">{mapLabelArray}</div>
     </div>
   );

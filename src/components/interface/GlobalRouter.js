@@ -13,15 +13,15 @@ import {
 import RiverList from "../../river-data/RiverList";
 import idParser from "../../tools/idParser";
 import readRiverFilesRequest from "../../tools/serverless/readRiverFilesRequest";
+import ottawaRiver from "../../river-data/ottawa-river/temp_data.json";
 
 const GlobalRouter = () => {
+  const riverList = [ottawaRiver];
 
-  
-
-  const routeArray = RiverList.map((elem, key) => {
+  const routeArray = riverList.map((elem, key) => {
     return (
-      <Route path={`/${idParser(elem.name)}`} key={`river${key}`}>
-        <RiverRouter data={elem.data} global={elem.global} />
+      <Route path={`/${idParser(elem.riverName)}`} key={`river${key}`}>
+        <RiverRouter data={elem} />
       </Route>
     );
   });

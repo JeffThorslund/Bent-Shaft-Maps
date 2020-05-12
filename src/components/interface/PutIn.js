@@ -12,16 +12,16 @@ import idParser from "../../tools/idParser";
 import "./PutIn.css";
 
 const PutIn = (props) => {
-  let contributors = props.global.contributors.toString();
+  let contributors = props.data.contributors.toString();
 
   return (
     <div className="PutIn-wrapper">
       <div className="header">
         <div id="pre-title">Welcome to the</div>
-        <div id="title">{props.global.riverName}</div>
+        <div id="title">{props.data.riverName}</div>
 
         <Link
-          to={`${props.url}/${idParser(props.data[0].name)}`}
+          to={`${props.url}/${idParser(props.data.rapids[0].name)}`}
           className="child"
         >
           <div className="button">Click to Continue...</div>
@@ -32,7 +32,7 @@ const PutIn = (props) => {
         <div className="footer-grid-wrapper">
           <div className="child" id="info">
             <div className="title">Info</div>
-            <div>{props.global.riverInfo}</div>
+            <div>{props.data.riverInfo}</div>
           </div>
           <div className="child" id="contributors">
             <div className="title">Contributors</div>
@@ -41,12 +41,12 @@ const PutIn = (props) => {
           <div className="child" id="logos">
             <div className="title">Brought to you by...</div>
             <a
-              href={props.global.sponsors[0].link}
+              href={props.data.sponsors[0].link}
               target="_blank"
               rel="noopener noreferrer"
             >
               <img
-                src={props.global.sponsors[0].logo}
+                src={props.data.sponsors[0].logo}
                 alt="trestle logo"
                 width="100%"
               />
@@ -54,10 +54,10 @@ const PutIn = (props) => {
           </div>
           <div className="child" id="access">
             <div className="title">Access</div>
-            <div>{props.global.riverDesc}</div>
+            <div>{props.data.riverDesc}</div>
           </div>
           <a
-            href={props.global.putIn}
+            href={props.data.putIn}
             className="child access-link"
             id="putin"
             target="_blank"
@@ -66,7 +66,7 @@ const PutIn = (props) => {
             <div className="title">Put In</div>
           </a>
           <a
-            href={props.global.takeOut}
+            href={props.data.takeOut}
             className="child access-link"
             id="takeout"
             target="_blank"
