@@ -31,13 +31,14 @@ for (let i = 0; i < rapids.length; i++) {
   //loop through hydraulics
   for (let j = 0; j < hydraulics.length; j++) {
     //destructure hydraulics
-    let { name, y, x, height, width } = hydraulics[j];
+    let { name, y, x, height, width, rotation } = hydraulics[j];
     //loop through all hydraulics
     console.log("Hydraulic ", name, "started...");
     chunk.rapids[i].hydraulics[j].x = Number(x);
     chunk.rapids[i].hydraulics[j].y = Number(y);
     chunk.rapids[i].hydraulics[j].height = Number(height);
     chunk.rapids[i].hydraulics[j].width = Number(width);
+    chunk.rapids[i].hydraulics[j].rotation = Number(rotation);
     console.log("Hydraulic ", name, "completed.");
   }
 
@@ -79,14 +80,48 @@ for (let i = 0; i < rapids.length; i++) {
   //loop through all displayPosition
   console.log("displayPosition started...");
 
-  top = top.replace(/\D/g, "");
-  left = left.replace(/\D/g, "");
-  width = width.replace(/\D/g, "");
+  top = top.toString();
+  left = left.toString();
+  width = width.toString();
 
-  chunk.rapids[i].displayPosition.top = Number(top);
-  chunk.rapids[i].displayPosition.left = Number(left);
-  chunk.rapids[i].displayPosition.width = Number(width);
+  chunk.rapids[i].displayPosition.top = Number(top.replace(/\D/g, ""));
+  chunk.rapids[i].displayPosition.left = Number(left.replace(/\D/g, ""));
+  chunk.rapids[i].displayPosition.width = Number(width.replace(/\D/g, ""));
   console.log("displayPosition completed.");
+
+  //loop through arrows
+  for (let j = 0; j < arrows.length; j++) {
+    //destructure arrows
+    let { name, bottom, right } = arrows[j];
+    //loop through all arrows
+    console.log("Arrow ", name, "started...");
+
+    bottom = top.toString();
+    right = left.toString();
+
+    chunk.rapids[i].arrows[j].bottom = Number(bottom.replace(/\D/g, ""));
+    chunk.rapids[i].arrows[j].right = Number(right.replace(/\D/g, ""));
+
+    console.log("Arrow ", name, "completed.");
+  }
+
+  //destructure displayPosition
+  let { titleTop, titleLeft, pointerCoordinates } = mapLabel;
+  //loop through all displayPosition
+  console.log("mapLabel started...");
+
+  titleTop = titleTop.toString();
+  titleLeft = titleLeft.toString();
+
+  chunk.rapids[i].mapLabel.titleTop = Number(titleTop.replace(/\D/g, ""));
+  chunk.rapids[i].mapLabel.titleLeft = Number(titleLeft.replace(/\D/g, ""));
+
+  chunk.rapids[i].mapLabel.pointerCoordinates =
+    typeof pointerCoordinates === "string"
+      ? pointerCoordinates.split(",").map((x) => +x)
+      : pointerCoordinates;
+
+  console.log("mapLabel completed.");
 
   console.log("Rapid ", name, "completed.");
 }

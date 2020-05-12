@@ -20,7 +20,7 @@ const Hydraulic = (props) => {
         y={y.toString()}
         rx="8"
         fill="white"
-        transform={"rotate(" + rotation + " " + x + " " + y + ")"}
+        transform={`rotate( ${rotation} ${x} ${y})`}
       />
     </g>
   );

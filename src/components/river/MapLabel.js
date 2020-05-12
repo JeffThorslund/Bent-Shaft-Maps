@@ -12,7 +12,14 @@ import {
 import idParser from "../../tools/idParser";
 
 const MapLabel = (props) => {
-  const pointerDirection = (pointerDirection) => {
+  const {
+    titleTop,
+    titleLeft,
+    pointerDirection,
+    pointerCoordinates,
+  } = props.mapLabel;
+
+  const pointerSetUp = (pointerDirection) => {
     switch (
       pointerDirection // starting coord
     ) {
@@ -29,13 +36,15 @@ const MapLabel = (props) => {
         return "100,50 ";
 
       default:
-        return "nutting";
+        return "nothing";
     }
   };
 
+  pointerCoordinates = pointerCoordinates.join(",");
+
   const style = {
-    top: props.mapLabel.titleTop,
-    left: props.mapLabel.titleLeft,
+    top: `${titleTop}vh`,
+    left: `${titleLeft}vw`,
   };
 
   const pickFromMap = () => {
@@ -62,10 +71,7 @@ const MapLabel = (props) => {
       >
         <polyline
           className="pointer"
-          points={
-            pointerDirection(props.mapLabel.pointerDirection) +
-            props.mapLabel.pointerCoordinates
-          }
+          points={`${pointerSetUp(pointerDirection)} ${pointerCoordinates}`}
         />
       </svg>
     </div>

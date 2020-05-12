@@ -154,36 +154,16 @@
         }
       ],
       "arrows": [
-        {
-          "name": "Iron Ring",
-          "rotation": "160deg",
-          "bottom": "4vh",
-          "right": "5vw"
-        },
-        {
-          "name": "Magical Mystery Tour",
-          "rotation": "160deg",
-          "bottom": "25vh",
-          "right": "2vw"
-        },
-        {
-          "name": "Little Trickle",
-          "rotation": "160deg",
-          "bottom": "4vh",
-          "right": "15vw"
-        },
-        {
-          "name": "The Lorne",
-          "rotation": "160deg",
-          "bottom": "4vh",
-          "right": "26vw"
-        }
+        { "name": "Iron Ring", "bottom": 70, "right": 22 },
+        { "name": "Magical Mystery Tour", "bottom": 70, "right": 22 },
+        { "name": "Little Trickle", "bottom": 70, "right": 22 },
+        { "name": "The Lorne", "bottom": 70, "right": 22 }
       ],
       "mapLabel": {
-        "titleTop": "45vh",
-        "titleLeft": "11vw",
+        "titleTop": 45,
+        "titleLeft": 11,
         "pointerDirection": "bottom",
-        "pointerCoordinates": "35,47"
+        "pointerCoordinates": [35, 47]
       }
     },
     {
@@ -215,24 +195,14 @@
         }
       ],
       "arrows": [
-        {
-          "name": "Butterfly",
-          "rotation": "160deg",
-          "bottom": "21vh",
-          "right": "3vw"
-        },
-        {
-          "name": "McCoy's Chute Rapid",
-          "rotation": "160deg",
-          "bottom": "42vh",
-          "right": "85vw"
-        }
+        { "name": "Butterfly", "bottom": 72, "right": 15 },
+        { "name": "McCoy's Chute Rapid", "bottom": 72, "right": 15 }
       ],
       "mapLabel": {
-        "titleTop": "30vh",
-        "titleLeft": "23vw",
+        "titleTop": 30,
+        "titleLeft": 23,
         "pointerDirection": "right",
-        "pointerCoordinates": "40,50"
+        "pointerCoordinates": [40, 50]
       }
     },
     {
@@ -248,7 +218,7 @@
           "x": 498.11,
           "height": 58.73,
           "width": 13.44,
-          "rotation": "-1",
+          "rotation": -1,
           "range": [-10, 12]
         }
       ],
@@ -281,24 +251,14 @@
         }
       ],
       "arrows": [
-        {
-          "name": "S-Bend",
-          "rotation": "160deg",
-          "bottom": "55vh",
-          "right": "10vw"
-        },
-        {
-          "name": "McCoy's Chute Rapid",
-          "rotation": "160deg",
-          "bottom": "65vh",
-          "right": "85vw"
-        }
+        { "name": "S-Bend", "bottom": 76, "right": 32 },
+        { "name": "McCoy's Chute Rapid", "bottom": 76, "right": 32 }
       ],
       "mapLabel": {
-        "titleTop": "30vh",
-        "titleLeft": "35vw",
+        "titleTop": 30,
+        "titleLeft": 35,
         "pointerDirection": "bottom",
-        "pointerCoordinates": "80,45"
+        "pointerCoordinates": [80, 45]
       }
     },
     {
@@ -318,24 +278,14 @@
         }
       ],
       "arrows": [
-        {
-          "name": "Butterfly",
-          "rotation": "160deg",
-          "bottom": "70vh",
-          "right": "10vw"
-        },
-        {
-          "name": "Iron Ring",
-          "rotation": "160deg",
-          "bottom": "61vh",
-          "right": "87vw"
-        }
+        { "name": "Butterfly", "bottom": 72, "right": 23 },
+        { "name": "Iron Ring", "bottom": 72, "right": 23 }
       ],
       "mapLabel": {
-        "titleTop": "24vh",
-        "titleLeft": "40vw",
+        "titleTop": 24,
+        "titleLeft": 40,
         "pointerDirection": "bottom",
-        "pointerCoordinates": "50,70"
+        "pointerCoordinates": [50, 70]
       }
     },
     {
@@ -351,7 +301,7 @@
           "x": 855.24,
           "height": 70.73,
           "width": 13.44,
-          "rotation": "12",
+          "rotation": 12,
           "range": [-10, 12]
         }
       ],
@@ -384,30 +334,15 @@
         }
       ],
       "arrows": [
-        {
-          "name": "Garvins",
-          "rotation": "160deg",
-          "bottom": "37vh",
-          "right": "9vw"
-        },
-        {
-          "name": "S-Bend",
-          "rotation": "160deg",
-          "bottom": "45vh",
-          "right": "87vw"
-        },
-        {
-          "name": "Magical Mystery Tour",
-          "rotation": "160deg",
-          "bottom": "60vh",
-          "right": "84vw"
-        }
+        { "name": "Garvins", "bottom": 75, "right": 50 },
+        { "name": "S-Bend", "bottom": 75, "right": 50 },
+        { "name": "Magical Mystery Tour", "bottom": 75, "right": 50 }
       ],
       "mapLabel": {
-        "titleTop": "30vh",
-        "titleLeft": "45vw",
+        "titleTop": 30,
+        "titleLeft": 45,
         "pointerDirection": "bottom",
-        "pointerCoordinates": "38,25"
+        "pointerCoordinates": [38, 25]
       }
     },
     {
@@ -423,7 +358,7 @@
           "x": 440.43,
           "height": 42.72,
           "width": 17.45,
-          "rotation": "163",
+          "rotation": 163,
           "range": [-10, 12]
         },
         {
@@ -433,7 +368,7 @@
           "x": 498.7,
           "height": 42.72,
           "width": 11.5,
-          "rotation": "147",
+          "rotation": 147,
           "range": [-10, 12]
         },
         {
@@ -443,7 +378,7 @@
           "x": 675.56,
           "height": 50.47,
           "width": 14.61,
-          "rotation": "-154",
+          "rotation": -154,
           "range": [-10, 12]
         }
       ],
@@ -476,24 +411,14 @@
         }
       ],
       "arrows": [
-        {
-          "name": "Angel's Kiss",
-          "rotation": "160deg",
-          "bottom": "70vh",
-          "right": "15vw"
-        },
-        {
-          "name": "McCoy's Chute Rapid",
-          "rotation": "160deg",
-          "bottom": "65vh",
-          "right": "87vw"
-        }
+        { "name": "Angel's Kiss", "bottom": 72, "right": 2 },
+        { "name": "McCoy's Chute Rapid", "bottom": 72, "right": 2 }
       ],
       "mapLabel": {
-        "titleTop": "30vh",
-        "titleLeft": "36vw",
+        "titleTop": 30,
+        "titleLeft": 36,
         "pointerDirection": "top",
-        "pointerCoordinates": "70,72"
+        "pointerCoordinates": [70, 72]
       }
     },
     {
@@ -513,24 +438,14 @@
         }
       ],
       "arrows": [
-        {
-          "name": "Garvins",
-          "rotation": "160deg",
-          "bottom": "60vh",
-          "right": "10vw"
-        },
-        {
-          "name": "Little Trickle",
-          "rotation": "160deg",
-          "bottom": "65vh",
-          "right": "87vw"
-        }
+        { "name": "Garvins", "bottom": 65, "right": 2 },
+        { "name": "Little Trickle", "bottom": 65, "right": 2 }
       ],
       "mapLabel": {
-        "titleTop": "30vh",
-        "titleLeft": "45vw",
+        "titleTop": 30,
+        "titleLeft": 45,
         "pointerDirection": "top",
-        "pointerCoordinates": "0,70"
+        "pointerCoordinates": [0, 70]
       }
     },
     {
@@ -546,7 +461,7 @@
           "x": 446.27,
           "height": 52.58,
           "width": 13.44,
-          "rotation": "7",
+          "rotation": 7,
           "range": [-10, 12]
         },
         {
@@ -556,7 +471,7 @@
           "x": 601.04,
           "height": 63.2,
           "width": 13.44,
-          "rotation": "9.29",
+          "rotation": 9.29,
           "range": [-10, 12]
         },
         {
@@ -566,7 +481,7 @@
           "x": 592.2,
           "height": 54.84,
           "width": 13.44,
-          "rotation": "21",
+          "rotation": 21,
           "range": [-10, 12]
         },
         {
@@ -576,7 +491,7 @@
           "x": 856.35,
           "height": 83.2,
           "width": 13.44,
-          "rotation": "20.68",
+          "rotation": 20.68,
           "range": [-10, 12]
         },
         {
@@ -586,7 +501,7 @@
           "x": 1095.21,
           "height": 54.84,
           "width": 13.44,
-          "rotation": "23",
+          "rotation": 23,
           "range": [-10, 12]
         },
         {
@@ -596,7 +511,7 @@
           "x": 844.17,
           "height": 40.53,
           "width": 13.44,
-          "rotation": "30",
+          "rotation": 30,
           "range": [-10, 12]
         }
       ],
@@ -667,30 +582,15 @@
         }
       ],
       "arrows": [
-        {
-          "name": "Upper No Name",
-          "rotation": "160deg",
-          "bottom": "30vh",
-          "right": "8vw"
-        },
-        {
-          "name": "Butterfly",
-          "rotation": "160deg",
-          "bottom": "50vh",
-          "right": "87vw"
-        },
-        {
-          "name": "Angel's Kiss",
-          "rotation": "160deg",
-          "bottom": "30vh",
-          "right": "87vw"
-        }
+        { "name": "Upper No Name", "bottom": 72, "right": 65 },
+        { "name": "Butterfly", "bottom": 72, "right": 65 },
+        { "name": "Angel's Kiss", "bottom": 72, "right": 65 }
       ],
       "mapLabel": {
-        "titleTop": "25vh",
-        "titleLeft": "51vw",
+        "titleTop": 25,
+        "titleLeft": 51,
         "pointerDirection": "top",
-        "pointerCoordinates": "60,63"
+        "pointerCoordinates": [60, 63]
       }
     },
     {
@@ -710,24 +610,14 @@
         }
       ],
       "arrows": [
-        {
-          "name": "Lower No Name",
-          "rotation": "160deg",
-          "bottom": "45vh",
-          "right": "8vw"
-        },
-        {
-          "name": "Garvins",
-          "rotation": "160deg",
-          "bottom": "75vh",
-          "right": "87vw"
-        }
+        { "name": "Lower No Name", "bottom": 55, "right": 2 },
+        { "name": "Garvins", "bottom": 55, "right": 2 }
       ],
       "mapLabel": {
-        "titleTop": "25vh",
-        "titleLeft": "53vw",
+        "titleTop": 25,
+        "titleLeft": 53,
         "pointerDirection": "bottom",
-        "pointerCoordinates": "85,38"
+        "pointerCoordinates": [85, 38]
       }
     },
     {
@@ -746,19 +636,12 @@
           "left": 300
         }
       ],
-      "arrows": [
-        {
-          "name": "Upper No Name",
-          "rotation": "160deg",
-          "bottom": "40vh",
-          "right": "87vw"
-        }
-      ],
+      "arrows": [{ "name": "Upper No Name", "bottom": 68, "right": 2 }],
       "mapLabel": {
-        "titleTop": "22vh",
-        "titleLeft": "63vw",
+        "titleTop": 22,
+        "titleLeft": 63,
         "pointerDirection": "bottom",
-        "pointerCoordinates": "0,50"
+        "pointerCoordinates": [0, 50]
       }
     },
     {
@@ -778,24 +661,14 @@
         }
       ],
       "arrows": [
-        {
-          "name": "McCoy's Chute Rapid",
-          "rotation": "160deg",
-          "bottom": "40vh",
-          "right": "85vw"
-        },
-        {
-          "name": "Push Button",
-          "rotation": "160deg",
-          "bottom": "40vh",
-          "right": "5vw"
-        }
+        { "name": "McCoy's Chute Rapid", "bottom": 71, "right": 42 },
+        { "name": "Push Button", "bottom": 71, "right": 42 }
       ],
       "mapLabel": {
-        "titleTop": "58vh",
-        "titleLeft": "27vw",
+        "titleTop": 58,
+        "titleLeft": 27,
         "pointerDirection": "top",
-        "pointerCoordinates": "100,50"
+        "pointerCoordinates": [100, 50]
       }
     },
     {
@@ -815,24 +688,14 @@
         }
       ],
       "arrows": [
-        {
-          "name": "The Lorne",
-          "rotation": "160deg",
-          "bottom": "40vh",
-          "right": "87vw"
-        },
-        {
-          "name": "Butchers Knife",
-          "rotation": "160deg",
-          "bottom": "45vh",
-          "right": "5vw"
-        }
+        { "name": "The Lorne", "bottom": 70, "right": 25 },
+        { "name": "Butchers Knife", "bottom": 70, "right": 25 }
       ],
       "mapLabel": {
-        "titleTop": "60vh",
-        "titleLeft": "38vw",
+        "titleTop": 60,
+        "titleLeft": 38,
         "pointerDirection": "bottom",
-        "pointerCoordinates": "20,28"
+        "pointerCoordinates": [20, 28]
       }
     },
     {
@@ -845,24 +708,14 @@
       "lines": [],
       "symbols": [],
       "arrows": [
-        {
-          "name": "Push Button",
-          "rotation": "160deg",
-          "bottom": "40vh",
-          "right": "90vw"
-        },
-        {
-          "name": "Normans",
-          "rotation": "160deg",
-          "bottom": "83vh",
-          "right": "20vw"
-        }
+        { "name": "Push Button", "bottom": 70, "right": 48 },
+        { "name": "Normans", "bottom": 70, "right": 48 }
       ],
       "mapLabel": {
-        "titleTop": "59vh",
-        "titleLeft": "38vw",
+        "titleTop": 59,
+        "titleLeft": 38,
         "pointerDirection": "top",
-        "pointerCoordinates": "65,75"
+        "pointerCoordinates": [65, 75]
       }
     },
     {
@@ -875,24 +728,14 @@
       "lines": [],
       "symbols": [],
       "arrows": [
-        {
-          "name": "Butchers Knife",
-          "rotation": "160deg",
-          "bottom": "55vh",
-          "right": "87vw"
-        },
-        {
-          "name": "Coliseum",
-          "rotation": "160deg",
-          "bottom": "55vh",
-          "right": "10vw"
-        }
+        { "name": "Butchers Knife", "bottom": 74, "right": 27 },
+        { "name": "Coliseum", "bottom": 74, "right": 27 }
       ],
       "mapLabel": {
-        "titleTop": "54vh",
-        "titleLeft": "46vw",
+        "titleTop": 54,
+        "titleLeft": 46,
         "pointerDirection": "top",
-        "pointerCoordinates": "45,80"
+        "pointerCoordinates": [45, 80]
       }
     },
     {
@@ -905,24 +748,14 @@
       "lines": [],
       "symbols": [],
       "arrows": [
-        {
-          "name": "Normans",
-          "rotation": "160deg",
-          "bottom": "50vh",
-          "right": "90vw"
-        },
-        {
-          "name": "Dogs Leg",
-          "rotation": "160deg",
-          "bottom": "47vh",
-          "right": "5vw"
-        }
+        { "name": "Normans", "bottom": 72, "right": 32 },
+        { "name": "Dogs Leg", "bottom": 72, "right": 32 }
       ],
       "mapLabel": {
-        "titleTop": "59vh",
-        "titleLeft": "53vw",
+        "titleTop": 59,
+        "titleLeft": 53,
         "pointerDirection": "top",
-        "pointerCoordinates": "42,50"
+        "pointerCoordinates": [42, 50]
       }
     },
     {
@@ -935,24 +768,14 @@
       "lines": [],
       "symbols": [],
       "arrows": [
-        {
-          "name": "Farmer Blacks",
-          "rotation": "160deg",
-          "bottom": "45vh",
-          "right": "5vw"
-        },
-        {
-          "name": "Coliseum",
-          "rotation": "160deg",
-          "bottom": "55vh",
-          "right": "88vw"
-        }
+        { "name": "Farmer Blacks", "bottom": 73, "right": 35 },
+        { "name": "Coliseum", "bottom": 73, "right": 35 }
       ],
       "mapLabel": {
-        "titleTop": "55vh",
-        "titleLeft": "59vw",
+        "titleTop": 55,
+        "titleLeft": 59,
         "pointerDirection": "top",
-        "pointerCoordinates": "25,47"
+        "pointerCoordinates": [25, 47]
       }
     },
     {
@@ -964,19 +787,12 @@
       "eddys": [],
       "lines": [],
       "symbols": [],
-      "arrows": [
-        {
-          "name": "Dogs Leg",
-          "rotation": "160deg",
-          "bottom": "47vh",
-          "right": "87vw"
-        }
-      ],
+      "arrows": [{ "name": "Dogs Leg", "bottom": 72, "right": 21 }],
       "mapLabel": {
-        "titleTop": "47vh",
-        "titleLeft": "65vw",
+        "titleTop": 47,
+        "titleLeft": 65,
         "pointerDirection": "top",
-        "pointerCoordinates": "15,67"
+        "pointerCoordinates": [15, 67]
       }
     }
   ]

@@ -18,8 +18,8 @@ const NextRapid = (props) => {
   } = props;
 
   const style = {
-    bottom: bottom,
-    right: right,
+    bottom: `${bottom}vh`,
+    right: `${right}vw`,
   };
 
   return (
@@ -34,8 +34,7 @@ const NextRapid = (props) => {
 export default NextRapid;
 
 NextRapid.propTypes = {
-  arrows: PropTypes.shape({
-    //Make 'exact' when rotation is removed from data object.
+  arrows: PropTypes.exact({
     name: PropTypes.string.isRequired,
     bottom: PropTypes.string.isRequired,
     right: PropTypes.string.isRequired,
