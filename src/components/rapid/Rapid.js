@@ -34,6 +34,8 @@ class Rapid extends Component {
         <Basemap
           path={this.props.data.riverMap.path}
           viewBox={this.props.data.riverMap.viewBox}
+          rapidName={this.props.data.name}
+          riverName={this.props.riverName}
         />
         <div className="rapid-header">
           <div id="rapid-name"> {this.props.data.name} </div>

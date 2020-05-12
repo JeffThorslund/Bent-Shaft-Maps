@@ -9,11 +9,9 @@ import {
   useParams,
   useRouteMatch,
 } from "react-router-dom";
-
-import RiverList from "../../river-data/RiverList";
 import idParser from "../../tools/idParser";
 import readRiverFilesRequest from "../../tools/serverless/readRiverFilesRequest";
-import ottawaRiver from "../../river-data/ottawa-river/temp_data.json";
+import ottawaRiver from "../../river-data/ottawa-river/data.json";
 
 const GlobalRouter = () => {
   const riverList = [ottawaRiver];

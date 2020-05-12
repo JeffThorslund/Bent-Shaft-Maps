@@ -9,6 +9,7 @@
     "axios": "^0.19.2",
     "camelcase": "^6.0.0",
     "chalk": "^4.0.0",
+    "change-case": "^4.1.1",
     "clear": "^0.1.0",
     "decamelize": "^4.0.0",
     "dom-to-image": "^2.6.0",

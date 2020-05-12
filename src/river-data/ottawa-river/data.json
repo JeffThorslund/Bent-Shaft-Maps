@@ -17,7 +17,7 @@
 
   "rapids": [
     {
-      "name": "McCoy's Chute Rapid",
+      "name": "McCoys Chute",
       "desc": "Class III",
       "displayPosition": { "top": 70, "left": 22, "width": 35 },
       "riverMap": { "viewBox": "0 50 1600 900", "path": "McCoysChuteRapid" },
@@ -223,7 +223,7 @@
       "arrows": [
         { "name": "Butterfly", "rotation": "160deg", "bottom": 21, "right": 3 },
         {
-          "name": "McCoy's Chute Rapid",
+          "name": "McCoys Chute",
           "rotation": "160deg",
           "bottom": 42,
           "right": 85
@@ -284,7 +284,7 @@
       "arrows": [
         { "name": "S-Bend", "rotation": "160deg", "bottom": 55, "right": 10 },
         {
-          "name": "McCoy's Chute Rapid",
+          "name": "McCoys Chute",
           "rotation": "160deg",
           "bottom": 65,
           "right": 85
@@ -464,7 +464,7 @@
           "right": 15
         },
         {
-          "name": "McCoy's Chute Rapid",
+          "name": "McCoys Chute",
           "rotation": "160deg",
           "bottom": 65,
           "right": 87
@@ -478,7 +478,7 @@
       }
     },
     {
-      "name": "Angel's Kiss",
+      "name": "Angels Kiss",
       "desc": "Class III",
       "displayPosition": { "top": 65, "left": 2, "width": 40 },
       "riverMap": { "viewBox": "0 0 1600 900", "path": "AngelsKissRapid" },
@@ -750,7 +750,7 @@
       ],
       "arrows": [
         {
-          "name": "McCoy's Chute Rapid",
+          "name": "McCoys Chute",
           "rotation": "160deg",
           "bottom": 40,
           "right": 85
