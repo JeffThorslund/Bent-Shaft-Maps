@@ -12,8 +12,12 @@ import {
 
 import RiverList from "../../river-data/RiverList";
 import idParser from "../../tools/idParser";
+import readRiverFilesRequest from "../../tools/serverless/readRiverFilesRequest";
 
 const GlobalRouter = () => {
+
+  
+
   const routeArray = RiverList.map((elem, key) => {
     return (
       <Route path={`/${idParser(elem.name)}`} key={`river${key}`}>
@@ -21,6 +25,8 @@ const GlobalRouter = () => {
       </Route>
     );
   });
+
+  //readRiverFilesRequest("./src/river-data");
 
   return (
     <Switch>
