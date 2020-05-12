@@ -2,7 +2,7 @@ var fs = require("fs");
 
 //Read JSON object
 let chunk = fs.readFileSync(
-  "../river-data/ottawa-river/temp_data.json",
+  "../river-data/ottawa-river/data_copy.json",
   "utf8"
 );
 
@@ -96,8 +96,8 @@ for (let i = 0; i < rapids.length; i++) {
     //loop through all arrows
     console.log("Arrow ", name, "started...");
 
-    bottom = top.toString();
-    right = left.toString();
+    bottom = bottom.toString();
+    right = right.toString();
 
     chunk.rapids[i].arrows[j].bottom = Number(bottom.replace(/\D/g, ""));
     chunk.rapids[i].arrows[j].right = Number(right.replace(/\D/g, ""));
@@ -128,6 +128,6 @@ for (let i = 0; i < rapids.length; i++) {
 
 chunk = JSON.stringify(chunk);
 
-fs.writeFileSync("../river-data/ottawa-river/temp_data.json", chunk);
+fs.writeFileSync("../river-data/ottawa-river/finaldata.json", chunk);
 
 console.log("Script completed.");
