@@ -35,9 +35,7 @@ const Map = (props) => {
       ></div>
 
       <div className="overview-map">
-        <Suspense fallback="Loading Map...">
-          <OverviewMap />
-        </Suspense>
+        <OverviewMap />
       </div>
       <div className="maplabel-array">{mapLabelArray}</div>
     </div>
