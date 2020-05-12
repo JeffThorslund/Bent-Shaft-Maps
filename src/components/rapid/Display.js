@@ -12,9 +12,9 @@ const Display = (props) => {
 
   //Set dimensions of display box from incoming props
   const style = {
-    top: `${top}vh`,
-    left: `${left}vw`,
-    width: `${width}vw`,
+    top: top,
+    left: left,
+    width: width,
   };
 
   return (
