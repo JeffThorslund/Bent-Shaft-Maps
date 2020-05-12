@@ -18,20 +18,18 @@ const Basemap = (props) => {
   );
 
   return (
-    <Suspense fallback={<div>Loading...</div>}>
-      <svg
-        style={style}
-        width="100vw"
-        height="100vh"
-        viewBox={props.viewBox}
-        preserveAspectRatio="none"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-        className="Basemap"
-      >
-        <VectorMap />
-      </svg>
-    </Suspense>
+    <svg
+      style={style}
+      width="100vw"
+      height="100vh"
+      viewBox={props.viewBox}
+      preserveAspectRatio="none"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      className="Basemap"
+    >
+      <VectorMap />
+    </svg>
   );
 };
 
