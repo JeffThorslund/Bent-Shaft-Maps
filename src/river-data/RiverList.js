@@ -1,7 +1,3 @@
-import {
-  data as ottawaRiverData,
-  global as ottawaRiverGlobal,
-} from "../river-data/ottawa-river/data.js";
 //importEntryPoint
 
 const RiverList = [
@@ -10,8 +6,8 @@ const RiverList = [
     location: "Beachburg, Ontario",
     class: "III",
     underConst: false,
-    data: ottawaRiverData,
-    global: ottawaRiverGlobal,
+    data: null,
+    global: null,
   },
   {
     name: "Gatineau River",
