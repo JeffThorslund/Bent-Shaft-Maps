@@ -26,19 +26,21 @@ const Map = (props) => {
   );
 
   return (
-    <div className="Map">
-      <div
-        className="fade"
-        onClick={() => {
-          props.toggleSetting(props.setting);
-        }}
-      ></div>
+    <Suspense fallback="map-loading">
+      <div className="Map">
+        <div
+          className="fade"
+          onClick={() => {
+            props.toggleSetting(props.setting);
+          }}
+        ></div>
 
-      <div className="overview-map">
-        <OverviewMap />
+        <div className="overview-map">
+          <OverviewMap />
+        </div>
+        <div className="maplabel-array">{mapLabelArray}</div>
       </div>
-      <div className="maplabel-array">{mapLabelArray}</div>
-    </div>
+    </Suspense>
   );
 };
 

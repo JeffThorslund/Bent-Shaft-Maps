@@ -11,25 +11,49 @@ import {
 } from "react-router-dom";
 import { paramCase } from "change-case";
 
-const GlobalRouter = (props) => {
-  //A route to each river, each containing its own data object.
-  const routeArray = props.dataArr.map((data, key) => {
+import readRiverFilesRequest from "../../tools/serverless/readRiverFilesRequest";
+
+class GlobalRouter extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { data: null };
+  }
+
+  componentDidMount() {
+    readRiverFilesRequest("./src/river-data").then((response) => {
+      response.json().then((value) => {
+        this.setState({ data: value.rivers });
+      });
+    });
+  }
+
+  render() {
+    var routeArray;
+    if (this.state.data != null) {
+      routeArray = this.state.data
+        .filter((chunk) => Object.keys(chunk).length !== 0)
+        .map((elem, key) => {
+          console.log(elem.riverName);
+          return (
+            <Route path={`/${paramCase(elem.riverName)}`} key={`river${key}`}>
+              <RiverRouter data={elem} />
+            </Route>
+          );
+        });
+    } else {
+      routeArray = [];
+    }
+
     return (
-      <Route path={`/${paramCase(data.riverName)}`} key={`river${key}`}>
-        <RiverRouter data={data} />
-      </Route>
+      <Switch>
+        <Route exact path="/">
+          <Global dataArr={this.state.data} />
+        </Route>
+
+        {routeArray}
+      </Switch>
     );
-  });
-
-  return (
-    <Switch>
-      <Route exact path="/">
-        <Global dataArr={props.dataArr} />
-      </Route>
-
-      {routeArray}
-    </Switch>
-  );
-};
+  }
+}
 
 export default GlobalRouter;
