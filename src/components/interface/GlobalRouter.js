@@ -9,27 +9,22 @@ import {
   useParams,
   useRouteMatch,
 } from "react-router-dom";
-import idParser from "../../tools/idParser";
-import readRiverFilesRequest from "../../tools/serverless/readRiverFilesRequest";
-import ottawaRiver from "../../river-data/ottawa-river/data.json";
+import { paramCase } from "change-case";
 
-const GlobalRouter = () => {
-  const riverList = [ottawaRiver];
-
-  const routeArray = riverList.map((elem, key) => {
+const GlobalRouter = (props) => {
+  //A route to each river, each containing its own data object.
+  const routeArray = props.dataArr.map((data, key) => {
     return (
-      <Route path={`/${idParser(elem.riverName)}`} key={`river${key}`}>
-        <RiverRouter data={elem} />
+      <Route path={`/${paramCase(data.riverName)}`} key={`river${key}`}>
+        <RiverRouter data={data} />
       </Route>
     );
   });
 
-  //readRiverFilesRequest("./src/river-data");
-
   return (
     <Switch>
       <Route exact path="/">
-        <Global />
+        <Global dataArr={props.dataArr} />
       </Route>
 
       {routeArray}
