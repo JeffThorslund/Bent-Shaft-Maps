@@ -25,7 +25,7 @@ const readRiverFilesRequest = async (path) => {
 
   var rtn = null;
 
-  return fetch(URL.local, requestOptions);
+  return fetch(URL.remote, requestOptions);
 };
 
 export default readRiverFilesRequest;
