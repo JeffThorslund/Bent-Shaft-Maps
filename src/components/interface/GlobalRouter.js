@@ -10,33 +10,47 @@ import {
   useRouteMatch,
 } from "react-router-dom";
 
-import RiverList from "../../river-data/RiverList";
 import idParser from "../../tools/idParser";
 import readRiverFilesRequest from "../../tools/serverless/readRiverFilesRequest";
 
-const GlobalRouter = () => {
 
-  
+class GlobalRouter extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { data: null };
+  }
 
-  const routeArray = RiverList.map((elem, key) => {
+  componentDidMount() {
+    readRiverFilesRequest("./src/river-data")
+      .then(response => {
+        response.json().then((value) => { console.log(value.rivers); this.setState(value.rivers); })
+      });
+  }
+
+  render() {
+    var routeArray;
+    if (this.state.data != null) {
+      routeArray = this.state.data.map((elem, key) => {
+        return (
+          <Route path={`/${idParser(elem.name)}`} key={`river${key}`}>
+            <RiverRouter data={elem.data} global={elem.global} />
+          </Route>
+        );
+      });
+    } else {
+      routeArray = [];
+    }
+
     return (
-      <Route path={`/${idParser(elem.name)}`} key={`river${key}`}>
-        <RiverRouter data={elem.data} global={elem.global} />
-      </Route>
+      <Switch>
+        <Route exact path="/">
+          <Global />
+        </Route>
+
+        {routeArray}
+      </Switch>
     );
-  });
-
-  //readRiverFilesRequest("./src/river-data");
-
-  return (
-    <Switch>
-      <Route exact path="/">
-        <Global />
-      </Route>
-
-      {routeArray}
-    </Switch>
-  );
-};
+  };
+}
 
 export default GlobalRouter;

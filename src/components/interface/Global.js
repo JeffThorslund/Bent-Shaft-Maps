@@ -9,19 +9,26 @@ import {
   useRouteMatch,
 } from "react-router-dom";
 import SearchBar from "./SearchBar";
-import RiverList from "../../river-data/RiverList";
 import { Exists, UnderConst, DoesNotExist } from "./RiverCards";
 import GithubCorner from "react-github-corner";
+import readRiverFilesRequest from "../../tools/serverless/readRiverFilesRequest";
 
 class Global extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { value: "" };
+    this.state = { value: "", data: null };
   }
 
   handleChange = (e) => {
     this.setState({ value: e.target.value });
   };
+
+  componentDidMount() {
+    readRiverFilesRequest("./src/river-data")
+      .then(response => {
+        response.json().then((value) => { console.log(value.rivers); this.setState(value.rivers); })
+      });
+  }
 
   riverSearch = (dataArr, value) => {
     const param = new RegExp(value, "i");
@@ -71,7 +78,13 @@ class Global extends React.Component {
   };
 
   render() {
-    const labelArr = this.riverSearch(RiverList, this.state.value);
+    var labelArr;
+    if (this.state.data != null) {
+      console.log(this.state.data);
+      labelArr = this.riverSearch(this.state.data, this.state.value);
+    } else {
+      labelArr = [];
+    }
     return (
       <div className="Global-background">
         <div className="Global">
