@@ -9,12 +9,10 @@ const style = {
 };
 
 const Basemap = (props) => {
+  let riverName = paramCase(props.riverName);
+  let rapidName = pascalCase(props.rapidName);
   const VectorMap = React.lazy(() =>
-    import(
-      `../../river-data/${paramCase(props.riverName)}/maps/${pascalCase(
-        props.rapidName
-      )}`
-    )
+    import(`../../river-data/${riverName}/maps/${rapidName}`)
   );
 
   return (
