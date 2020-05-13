@@ -1,13 +1,11 @@
 import React, { Suspense } from "react";
-import RiverImporter from "./components/interface/RiverImporter";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import GlobalRouter from "./components/interface/GlobalRouter";
 
 const App = () => {
   return (
     <Router>
-      <Suspense fallback={<div>Loading</div>}>
-        <RiverImporter />
-      </Suspense>
+      <GlobalRouter />
     </Router>
   );
 };

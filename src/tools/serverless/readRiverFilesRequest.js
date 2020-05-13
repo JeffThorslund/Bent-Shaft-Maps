@@ -6,22 +6,26 @@ const readRiverFilesRequest = async (path) => {
     remote: "/.netlify/functions/readRiverFiles",
   };
 
-  const response = await fetch(URL.local, {
+  var myHeaders = new Headers();
+  myHeaders.append("Content-Type", "application/json");
+  myHeaders.append("Access-Control-Allow-Origin", "*");
+  myHeaders.append(
+    "Access-Control-Allow-Headers",
+    "Origin, X-Requested-With, Content-Type, Accept"
+  );
+
+  var raw = JSON.stringify({ path: "./src/river-data" });
+
+  var requestOptions = {
     method: "POST",
-    mode: "no-cors",
-    headers: {
-      "Content-Type": "application/javascript",
-      "Access-Control-Allow-Origin": "*",
-      "Access-Control-Allow-Headers":
-        "Origin, X-Requested-With, Content-Type, Accept",
-    },
+    headers: myHeaders,
+    body: raw,
+    redirect: "follow",
+  };
 
-    body: JSON.stringify({
-      path: path,
-    }),
-  });
+  var rtn = null;
 
-  return response;
+  return fetch(URL.local, requestOptions);
 };
 
 export default readRiverFilesRequest;

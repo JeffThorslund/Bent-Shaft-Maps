@@ -9,7 +9,6 @@ import {
   useRouteMatch,
 } from "react-router-dom";
 import SearchBar from "./SearchBar";
-import RiverList from "../../river-data/RiverList";
 import { Exists, UnderConst, DoesNotExist } from "./RiverCards";
 import GithubCorner from "react-github-corner";
 
@@ -33,6 +32,7 @@ class Global extends React.Component {
           return false;
         }
       })
+      .filter((chunk) => Object.keys(chunk).length !== 0)
       .map((elem) => {
         let locationResult = elem.location;
         let nameResult = elem.riverName;
@@ -71,7 +71,11 @@ class Global extends React.Component {
   };
 
   render() {
-    const labelArr = this.riverSearch(this.props.dataArr, this.state.value);
+    var labelArr =
+      this.props.dataArr !== null
+        ? this.riverSearch(this.props.dataArr, this.state.value)
+        : [];
+
     return (
       <div className="Global-background">
         <div className="Global">
