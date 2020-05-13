@@ -12,12 +12,9 @@ import {
 import idParser from "../../tools/idParser";
 
 const MapLabel = (props) => {
-  const {
-    titleTop,
-    titleLeft,
-    pointerDirection,
-    pointerCoordinates,
-  } = props.mapLabel;
+  const { titleTop, titleLeft, pointerDirection } = props.mapLabel;
+
+  let { pointerCoordinates } = props.mapLabel;
 
   const pointerSetUp = (pointerDirection) => {
     switch (
