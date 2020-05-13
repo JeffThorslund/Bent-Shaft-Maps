@@ -12,6 +12,7 @@ import {
 
 import idParser from "../../tools/idParser";
 import readRiverFilesRequest from "../../tools/serverless/readRiverFilesRequest";
+import ottawaRiver from "../../river-data/ottawa-river/temp_data.json";
 
 
 class GlobalRouter extends React.Component {

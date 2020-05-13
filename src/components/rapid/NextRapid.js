@@ -36,8 +36,8 @@ export default NextRapid;
 NextRapid.propTypes = {
   arrows: PropTypes.exact({
     name: PropTypes.string.isRequired,
-    bottom: PropTypes.string.isRequired,
-    right: PropTypes.string.isRequired,
+    bottom: PropTypes.number.isRequired,
+    right: PropTypes.number.isRequired,
   }).isRequired,
   url: PropTypes.string.isRequired,
 };
