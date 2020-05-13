@@ -103,7 +103,6 @@ class River extends Component {
               setting="knowledgeBool"
               false="Submit Info"
               true="Submit Info"
-              
             />
           </div>
 

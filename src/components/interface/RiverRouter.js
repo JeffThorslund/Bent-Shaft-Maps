@@ -10,10 +10,9 @@ import {
 import River from "../river/River";
 import PutIn from "./PutIn";
 
-const RiverRouter = (props) => {
+export default function RiverRouter(props) {
   let { path, url } = useRouteMatch();
-  console.log("River Router", path, url);
-
+  console.log("RiverRouter started.");
   return (
     <Switch>
       <Route exact path={path}>
@@ -25,6 +24,4 @@ const RiverRouter = (props) => {
       </Route>
     </Switch>
   );
-};
-
-export default RiverRouter;
+}

@@ -27,7 +27,7 @@ class Global extends React.Component {
     const param = new RegExp(value, "i");
     const keptArr = dataArr
       .filter((elem) => {
-        if (param.test(elem.name) || param.test(elem.location)) {
+        if (param.test(elem.riverName) || param.test(elem.location)) {
           return true;
         } else {
           return false;
@@ -35,7 +35,7 @@ class Global extends React.Component {
       })
       .map((elem) => {
         let locationResult = elem.location;
-        let nameResult = elem.name;
+        let nameResult = elem.riverName;
         if (value.length > 0) {
           locationResult = locationResult.replace(
             new RegExp(value, "i"),
@@ -71,7 +71,7 @@ class Global extends React.Component {
   };
 
   render() {
-    const labelArr = this.riverSearch(RiverList, this.state.value);
+    const labelArr = this.riverSearch(this.props.dataArr, this.state.value);
     return (
       <div className="Global-background">
         <div className="Global">
@@ -80,7 +80,7 @@ class Global extends React.Component {
             <div id="subtitle">Your source for stellar river guides.</div>
 
             <SearchBar
-              value={this.props.value}
+              value={this.state.value}
               handleChange={this.handleChange}
             />
 

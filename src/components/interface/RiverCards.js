@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import idParser from "../../tools/idParser";
+import { paramCase } from "change-case";
 import {
   BrowserRouter as Router,
   Switch,
@@ -11,9 +11,10 @@ import {
 import "./RiverCards.css";
 
 export const Exists = (props) => {
+  console.log("RiverCard-exists started");
   return (
     <div className="river-label done">
-      <Link to={`/${idParser(props.elem.name)}`}>
+      <Link to={`/${paramCase(props.elem.riverName)}`}>
         <div
           id="name"
           dangerouslySetInnerHTML={{ __html: props.nameResult }}
