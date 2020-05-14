@@ -1,11 +1,4 @@
 const readRiverFilesRequest = async (path) => {
-  //Set URL.local when working in local server. URL.remote before push to remote build.
-
-  const URL = {
-    local: "http://localhost:9000/readRiverFiles",
-    remote: "/.netlify/functions/readRiverFiles",
-  };
-
   var myHeaders = new Headers();
   myHeaders.append("Content-Type", "application/json");
   myHeaders.append("Access-Control-Allow-Origin", "*");
@@ -14,7 +7,7 @@ const readRiverFilesRequest = async (path) => {
     "Origin, X-Requested-With, Content-Type, Accept"
   );
 
-  var raw = JSON.stringify({ path: "./src/river-data" });
+  var raw = JSON.stringify({ path: path });
 
   var requestOptions = {
     method: "POST",
@@ -23,9 +16,7 @@ const readRiverFilesRequest = async (path) => {
     redirect: "follow",
   };
 
-  var rtn = null;
-
-  return fetch(URL.remote, requestOptions);
+  return fetch("/api/data", requestOptions);
 };
 
 export default readRiverFilesRequest;
