@@ -10,21 +10,22 @@ import {
   useRouteMatch,
 } from "react-router-dom";
 import { paramCase } from "change-case";
+import data from "../../river-data/ottawa-river/temp_data.json"
 
-import readRiverFilesRequest from "../../tools/serverless/readRiverFilesRequest";
+//import readRiverFilesRequest from "../../tools/serverless/readRiverFilesRequest";
 
 class GlobalRouter extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { data: null };
+    this.state = { data: [data] };
   }
 
   componentDidMount() {
-    readRiverFilesRequest("./src/river-data").then((response) => {
+    /*readRiverFilesRequest("./src/river-data").then((response) => {
       response.json().then((value) => {
         this.setState({ data: value.rivers });
       });
-    });
+    });*/
   }
 
   render() {
