@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import "./SubmitKnowledge.css";
-//import Sender from "../../tools/serverless/Sender.js";
+import sendMailRequest from "../../tools/requests/sendMailRequest.js";
 import PropTypes from "prop-types";
 
 export class SubmitKnowledge extends Component {
@@ -17,12 +17,12 @@ export class SubmitKnowledge extends Component {
   };
 
   handleSubmit = (e) => {
-    /*if (this.state.selectedFile) {
+    if (this.state.selectedFile) {
       //read file and return base64
       const reader = new FileReader();
       reader.onload = () => {
         console.log(reader.result);
-        Sender(
+        sendMailRequest(
           reader.result,
           this.state.value,
           this.props.riverName,
@@ -31,17 +31,16 @@ export class SubmitKnowledge extends Component {
       };
       reader.readAsDataURL(this.state.selectedFile);
     } else {
-      Sender(
+      sendMailRequest(
         null,
         this.state.value,
         this.props.riverName,
         this.props.rapidName
       );
-    }*/
+    }
 
     //close pop up
     this.props.toggleSetting(this.props.setting);
-    console.log("this feature is under dev");
     e.preventDefault();
   };
 
