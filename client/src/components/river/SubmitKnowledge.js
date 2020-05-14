@@ -17,7 +17,7 @@ export class SubmitKnowledge extends Component {
   };
 
   handleSubmit = (e) => {
-    if (this.state.selectedFile) {
+    /*if (this.state.selectedFile) {
       //read file and return base64
       const reader = new FileReader();
       reader.onload = () => {
@@ -37,10 +37,11 @@ export class SubmitKnowledge extends Component {
         this.props.riverName,
         this.props.rapidName
       );
-    }
+    }*/
 
     //close pop up
     this.props.toggleSetting(this.props.setting);
+    console.log("this feature is under dev");
     e.preventDefault();
   };
 
