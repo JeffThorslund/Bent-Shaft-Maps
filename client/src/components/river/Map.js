@@ -2,7 +2,7 @@ import React, { Suspense, lazy } from "react";
 import PropTypes from "prop-types";
 import "./Map.css";
 import MapLabel from "./MapLabel";
-import { pascalCase, paramCase } from "change-case";
+import { paramCase } from "change-case";
 
 const Map = (props) => {
   const mapLabelArray = props.data.rapids
@@ -19,10 +19,9 @@ const Map = (props) => {
       />
     ));
 
+  let riverName = paramCase(props.data.riverName);
   const OverviewMap = lazy(() =>
-    import(
-      `../../river-data/${paramCase(props.data.riverName)}/maps/OverviewMap`
-    )
+    import(`../../river-data/${riverName}/maps/OverviewMap`)
   );
 
   return (
