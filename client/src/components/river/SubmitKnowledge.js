@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import "./SubmitKnowledge.css";
-import Sender from "../../tools/serverless/Sender.js";
+//import Sender from "../../tools/serverless/Sender.js";
 import PropTypes from "prop-types";
 
 export class SubmitKnowledge extends Component {

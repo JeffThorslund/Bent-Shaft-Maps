@@ -19,6 +19,11 @@
   },
   "homepage": "https://github.com/JeffThorslund/jeffrey.thorslund-gmail.com#readme",
   "dependencies": {
+    "body-parser": "^1.19.0",
+    "compression": "^1.7.4",
     "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.3"
   }
 }
