@@ -1,6 +1,7 @@
 import React from "react";
 import Global from "./Global";
 import RiverRouter from "./RiverRouter";
+import Form from "../form/Form.js";
 import {
   BrowserRouter as Router,
   Switch,
@@ -19,11 +20,14 @@ class GlobalRouter extends React.Component {
     this.state = { data: null };
   }
 
+  //Removes all empty objects and sets river data as state. 
   componentDidMount() {
     readRiverFilesRequest("./client/src/river-data").then((response) => {
       response.json().then((value) => {
-        console.log(value.rivers)
-        this.setState({ data: value.rivers });
+        let filtered = value.rivers.filter(
+          (elem) => Object.keys(elem).length > 1
+        );
+        this.setState({ data: filtered });
       });
     });
   }
@@ -32,9 +36,7 @@ class GlobalRouter extends React.Component {
     var routeArray;
     if (this.state.data != null) {
       routeArray = this.state.data
-        .filter((chunk) => Object.keys(chunk).length !== 0)
         .map((elem, key) => {
-          console.log(elem.riverName);
           return (
             <Route path={`/${paramCase(elem.riverName)}`} key={`river${key}`}>
               <RiverRouter data={elem} />
@@ -45,15 +47,21 @@ class GlobalRouter extends React.Component {
       routeArray = [];
     }
 
-    return (
-      <Switch>
-        <Route exact path="/">
-          <Global dataArr={this.state.data} />
-        </Route>
+    if (this.state.data != null) {
+      return (
+        <Switch>
+          <Route exact path="/">
+            <Global dataArr={this.state.data} />
+          </Route>
 
-        {routeArray}
-      </Switch>
-    );
+          <Route exact path="/form">
+            <Form dataArr={this.state.data} />
+          </Route>
+
+          {routeArray}
+        </Switch>
+      );
+    } else return null;
   }
 }
 
