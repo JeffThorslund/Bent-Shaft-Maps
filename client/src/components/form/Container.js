@@ -1,21 +1,31 @@
 import React, { Component } from "react";
+import { capitalCase } from "change-case";
 
 export class Container extends Component {
   constructor(props) {
     super(props);
-
-    this.state = {
-      selection: null,
-    };
   }
 
   render() {
+    const { arr, name, type, handleSelect, selected } = this.props;
+
     let list = this.props.arr.map((elem, index) => {
+      console.log(
+        "selected: ",
+        this.props.selected,
+        "current element name :",
+        elem.name
+      );
+
+      let memberClassName =
+        this.props.selected === elem.name ? "member on" : "member off";
+
       return (
         <div
-          className="clickable"
+          key={`item${index}`}
+          className={memberClassName}
           onClick={() =>
-            this.props.handleClick(this.props.id, elem[this.props.name])
+            this.props.handleSelect(this.props.type, elem[this.props.name])
           }
         >
           {elem[this.props.name]}
@@ -24,8 +34,8 @@ export class Container extends Component {
     });
 
     return (
-      <div className="section">
-        <div className="header"> {this.props.id} </div>
+      <div className="section" key={this.props.key}>
+        <div className="header"> {capitalCase(this.props.type)} </div>
         <div className="container">{list}</div>
       </div>
     );
