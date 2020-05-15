@@ -1,49 +1,80 @@
 import React, { Component } from "react";
 import Container from "./Container";
+import "./Form.css";
+
 const axios = require("axios");
 
 export class form extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      river: "Ottawa River",
-      rapid: "McCoys Chute",
+      river: null,
+      rapid: null,
       feature: null,
     };
   }
 
+  choosePath = (id, element) => {
+    this.state[id] === element
+      ? this.setState({
+          [id]: null,
+        })
+      : this.setState({
+          [id]: element,
+        });
+  };
+
   render() {
+    let containerArr = []; //an array of rendered containers.
+
     const riverArray = this.props.dataArr;
-    console.log(riverArray);
+    containerArr.push(
+      <Container
+        arr={riverArray}
+        name="riverName"
+        id="river"
+        handleClick={this.choosePath}
+      />
+    );
 
-    const riverIndex = riverArray.findIndex((elem) => {
-      return elem.riverName === this.state.river;
-    });
-    console.log(riverIndex);
+    if (this.state.river) {
+      const riverIndex = riverArray.findIndex((elem) => {
+        return elem.riverName === this.state.river;
+      });
+      const rapidArray = riverArray[riverIndex].rapids;
 
-    const rapidArray = riverArray[riverIndex].rapids;
+      containerArr.push(
+        <Container
+          arr={rapidArray}
+          name="name"
+          id="rapid"
+          handleClick={this.choosePath}
+        />
+      );
+      if (this.state.rapid) {
+        const features = ["hydraulics", "eddys", "lines", "arrows"];
+        const rapidIndex = rapidArray.findIndex((elem) => {
+          return elem.name === this.state.rapid;
+        });
+        console.log(rapidArray[rapidIndex].hydraulics);
+        const featureArray = features.map((elem) => {
+          let arr = rapidArray[rapidIndex][elem];
+          return (
+            <Container arr={arr} name="name" id={elem} handleClick={() => {}} />
+          );
+        });
 
-    console.log(rapidArray);
-    const rapidIndex = rapidArray.findIndex((elem) => {
-      return elem.name === this.state.rapid;
-    });
-
-    const features = ["hydraulics", "eddys", "lines", "arrows"];
-    console.log(rapidArray[rapidIndex].hydraulics);
-    const featureArrays = features.map((elem) => {
-      let arr = rapidArray[rapidIndex][elem];
-      return <Container arr={arr} name="name" id={elem} />;
-    });
-
+        containerArr = containerArr.concat(featureArray);
+      }
+    }
     return (
-      <div>
+      <div className="form">
         <h1>Welcome to the River Editor!</h1>
         <h2>State</h2>
         <div>{this.state.river}</div>
         <div>{this.state.rapid}</div>
-        <Container arr={riverArray} name="riverName" id="rivers" />
-        <Container arr={rapidArray} name="name" id="rapids" />
-        {featureArrays}
+
+        {containerArr}
       </div>
     );
   }

@@ -10,14 +10,23 @@ export class Container extends Component {
   }
 
   render() {
-    let list = this.props.arr.map((elem) => {
-      return <div>{elem[this.props.name]}</div>;
+    let list = this.props.arr.map((elem, index) => {
+      return (
+        <div
+          className="clickable"
+          onClick={() =>
+            this.props.handleClick(this.props.id, elem[this.props.name])
+          }
+        >
+          {elem[this.props.name]}
+        </div>
+      );
     });
 
     return (
-      <div>
-        <h2> {this.props.id} </h2>
-        {list}
+      <div className="section">
+        <div className="header"> {this.props.id} </div>
+        <div className="container">{list}</div>
       </div>
     );
   }
