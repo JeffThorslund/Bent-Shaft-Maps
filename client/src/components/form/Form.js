@@ -14,29 +14,34 @@ export class form extends Component {
     };
   }
 
-  choosePath = (id, element) => {
-    this.state[id] === element
+  //Sets selection to state.
+  handleSelect = (type, element) => {
+    this.state[type] === element
       ? this.setState({
-          [id]: null,
+          [type]: null,
         })
       : this.setState({
-          [id]: element,
+          [type]: element,
         });
   };
 
   render() {
-    let containerArr = []; //an array of rendered containers.
+    //an array of rendered containers.
+    let containerArr = [];
 
+    //creates a container of all the rivers.
     const riverArray = this.props.dataArr;
     containerArr.push(
       <Container
         arr={riverArray}
         name="riverName"
-        id="river"
-        handleClick={this.choosePath}
+        type="river"
+        handleSelect={this.handleSelect}
+        selected={this.state.river}
       />
     );
 
+    //if th
     if (this.state.river) {
       const riverIndex = riverArray.findIndex((elem) => {
         return elem.riverName === this.state.river;
@@ -47,8 +52,9 @@ export class form extends Component {
         <Container
           arr={rapidArray}
           name="name"
-          id="rapid"
-          handleClick={this.choosePath}
+          type="rapid"
+          handleSelect={this.handleSelect}
+          selected={this.state.rapid}
         />
       );
       if (this.state.rapid) {
@@ -57,10 +63,17 @@ export class form extends Component {
           return elem.name === this.state.rapid;
         });
         console.log(rapidArray[rapidIndex].hydraulics);
-        const featureArray = features.map((elem) => {
+        const featureArray = features.map((elem, index) => {
           let arr = rapidArray[rapidIndex][elem];
           return (
-            <Container arr={arr} name="name" id={elem} handleClick={() => {}} />
+            <Container
+              arr={arr}
+              name="name"
+              type={elem}
+              handleClick={() => {}}
+              selected="test"
+              key={`feature${index}`}
+            />
           );
         });
 

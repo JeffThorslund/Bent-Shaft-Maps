@@ -25,14 +25,23 @@
           align-items: flex-start;
 }
 
-.form .section .container .clickable {
+.form .section .container .member {
   border: #b6b6b6 1px solid;
   border-radius: 10px;
   padding: 3px 9px;
   margin: 4px 5px;
+  cursor: pointer;
 }
 
-.form .section .container .clickable:hover {
+.form .section .container .member:hover {
   background-color: #b6b6b6;
+}
+
+.form .section .container .on {
+  background-color: #b6b6b6;
+}
+
+.form .section .container .off {
+  background-color: transparent;
 }
 /*# sourceMappingURL=Form.css.map */
