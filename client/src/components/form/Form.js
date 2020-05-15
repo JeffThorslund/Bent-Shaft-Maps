@@ -4,7 +4,7 @@ import "./Form.css";
 
 const axios = require("axios");
 
-export class form extends Component {
+export class Form extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -14,7 +14,7 @@ export class form extends Component {
     };
   }
 
-  //Sets selection to state.
+  //Sets selection of river and rapid.
   handleSelect = (type, element) => {
     this.state[type] === element
       ? this.setState({
@@ -22,6 +22,17 @@ export class form extends Component {
         })
       : this.setState({
           [type]: element,
+        });
+  };
+
+  //Sets selection of feature or other.
+  handleFeatureSelect = (type, element) => {
+    this.state.feature === element
+      ? this.setState({
+          feature: null,
+        })
+      : this.setState({
+          feature: element,
         });
   };
 
@@ -34,15 +45,16 @@ export class form extends Component {
     containerArr.push(
       <Container
         arr={riverArray}
-        name="riverName"
+        name="riverName" //name property in data.json
         type="river"
         handleSelect={this.handleSelect}
         selected={this.state.river}
+        key="river_key"
       />
     );
 
-    //if th
-    if (this.state.river) {
+    //if a river is selected, show an array of possible rapids
+    if (this.state.river !== null) {
       const riverIndex = riverArray.findIndex((elem) => {
         return elem.riverName === this.state.river;
       });
@@ -51,18 +63,21 @@ export class form extends Component {
       containerArr.push(
         <Container
           arr={rapidArray}
-          name="name"
+          name="name" //name property in data.json
           type="rapid"
           handleSelect={this.handleSelect}
           selected={this.state.rapid}
+          key="rapid_key"
         />
       );
-      if (this.state.rapid) {
+      //if a rapid is selected, show an array of possible features
+      if (this.state.rapid !== null) {
         const features = ["hydraulics", "eddys", "lines", "arrows"];
         const rapidIndex = rapidArray.findIndex((elem) => {
           return elem.name === this.state.rapid;
         });
-        console.log(rapidArray[rapidIndex].hydraulics);
+
+        //creates a container for each feature type
         const featureArray = features.map((elem, index) => {
           let arr = rapidArray[rapidIndex][elem];
           return (
@@ -70,13 +85,14 @@ export class form extends Component {
               arr={arr}
               name="name"
               type={elem}
-              handleClick={() => {}}
-              selected="test"
-              key={`feature${index}`}
+              handleSelect={this.handleFeatureSelect}
+              selected={this.state.feature}
+              key={`feature_key_${index}`}
             />
           );
         });
 
+        //add the feature containers to the container array.
         containerArr = containerArr.concat(featureArray);
       }
     }
@@ -84,8 +100,9 @@ export class form extends Component {
       <div className="form">
         <h1>Welcome to the River Editor!</h1>
         <h2>State</h2>
-        <div>{this.state.river}</div>
-        <div>{this.state.rapid}</div>
+        <div>river: {this.state.river}</div>
+        <div>rapid: {this.state.rapid}</div>
+        <div>feature: {this.state.feature}</div>
 
         {containerArr}
       </div>
@@ -93,4 +110,4 @@ export class form extends Component {
   }
 }
 
-export default form;
+export default Form;
