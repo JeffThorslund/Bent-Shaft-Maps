@@ -9,33 +9,26 @@ export class Container extends Component {
   render() {
     const { arr, name, type, handleSelect, selected } = this.props;
 
-    let list = this.props.arr.map((elem, index) => {
-      console.log(
-        "selected: ",
-        this.props.selected,
-        "current element name :",
-        elem.name
-      );
-
-      let memberClassName =
-        this.props.selected === elem.name ? "member on" : "member off";
+    //create a list of all items in the array (ex. all eddys, all lines, all rapids etc)
+    let list = arr.map((elem, index) => {
+      //assign a style based on if the member is selected or not.
+      let memberClassName = selected === elem[name] ? "member on" : "member off";
 
       return (
         <div
-          key={`item${index}`}
+          key={`list${index}`}
           className={memberClassName}
-          onClick={() =>
-            this.props.handleSelect(this.props.type, elem[this.props.name])
-          }
+          //handles click based on designated method in Form.js
+          onClick={() => handleSelect(type, elem[name])}
         >
-          {elem[this.props.name]}
+          {elem[name]}
         </div>
       );
     });
 
     return (
-      <div className="section" key={this.props.key}>
-        <div className="header"> {capitalCase(this.props.type)} </div>
+      <div className="section">
+        <div className="header"> {capitalCase(type)} </div>
         <div className="container">{list}</div>
       </div>
     );
