@@ -1,4 +1,4 @@
-.form-wrapper {
+.form-wrapper .form {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -12,19 +12,22 @@
   -webkit-box-align: start;
       -ms-flex-align: start;
           align-items: flex-start;
+}
+
+.form-wrapper .form .containers {
   width: 30%;
 }
 
-.form-wrapper .form .section {
+.form-wrapper .form .containers .section {
   border: 1px solid #b6b6b6;
   padding: 10px 5px;
 }
 
-.form-wrapper .form .section .header {
+.form-wrapper .form .containers .section .header {
   font-size: 24px;
 }
 
-.form-wrapper .form .section .container {
+.form-wrapper .form .containers .section .container {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -42,7 +45,7 @@
           align-items: center;
 }
 
-.form-wrapper .form .section .container .member {
+.form-wrapper .form .containers .section .container .member {
   border: #b6b6b6 1px solid;
   border-radius: 30px;
   padding: 4px 11px;
@@ -50,23 +53,32 @@
   cursor: pointer;
 }
 
-.form-wrapper .form .section .container .member:hover {
+.form-wrapper .form .containers .section .container .member:hover {
   background-color: #b6b6b6;
 }
 
-.form-wrapper .form .section .container .new {
+.form-wrapper .form .containers .section .container .new {
   background-color: #ffb7b7;
 }
 
-.form-wrapper .form .section .container .new:hover {
+.form-wrapper .form .containers .section .container .new:hover {
   background-color: #ff9e9e;
 }
 
-.form-wrapper .form .section .container .on {
+.form-wrapper .form .containers .section .container .on {
   background-color: #b6b6b6;
 }
 
-.form-wrapper .form .section .container .off {
+.form-wrapper .form .containers .section .container .off {
   background-color: transparent;
+}
+
+.form-wrapper .form .input-area {
+  border: 1px solid #b6b6b6;
+  width: 70%;
+}
+
+.form-wrapper .form .input-area .header {
+  font-size: 24px;
 }
 /*# sourceMappingURL=Form.css.map */
