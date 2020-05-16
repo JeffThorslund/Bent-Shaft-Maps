@@ -14,7 +14,7 @@ export const Exists = (props) => {
   console.log("RiverCard-exists started");
   return (
     <div className="river-label done">
-      <Link to={`/${paramCase(props.elem.riverName)}`}>
+      <Link to={`/${paramCase(props.elem.name)}`}>
         <div
           id="name"
           dangerouslySetInnerHTML={{ __html: props.nameResult }}

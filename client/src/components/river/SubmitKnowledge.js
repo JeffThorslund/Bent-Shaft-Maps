@@ -25,7 +25,7 @@ export class SubmitKnowledge extends Component {
         sendMailRequest(
           reader.result,
           this.state.value,
-          this.props.riverName,
+          this.props.name,
           this.props.rapidName
         );
       };
@@ -34,7 +34,7 @@ export class SubmitKnowledge extends Component {
       sendMailRequest(
         null,
         this.state.value,
-        this.props.riverName,
+        this.props.name,
         this.props.rapidName
       );
     }
@@ -135,5 +135,5 @@ SubmitKnowledge.propTypes = {
   toggleSetting: PropTypes.func,
   setting: PropTypes.string,
   rapidName: PropTypes.string,
-  riverName: PropTypes.string,
+  name: PropTypes.string,
 };
