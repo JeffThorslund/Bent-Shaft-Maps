@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { capitalCase } from "change-case";
+var _ = require("lodash");
 
 export class Container extends Component {
   constructor(props) {
@@ -7,22 +8,23 @@ export class Container extends Component {
   }
 
   render() {
-    const { arr, name, type, handleSelect, selected } = this.props;
+    const { arr, type, handleSelect, selected } = this.props;
 
     //create a list of all items in the array (ex. all eddys, all lines, all rapids etc)
     let list = arr.map((elem, index) => {
       //assign a style based on if the member is selected or not.
-      let memberClassName =
-        selected === elem[name] ? "member on" : "member off";
+      let memberClassName = _.isEqual(selected, elem)
+        ? "member on"
+        : "member off";
 
       return (
         <div
           key={`list${index}`}
           className={memberClassName}
           //handles click based on designated method in Form.js
-          onClick={() => handleSelect(type, elem[name])}
+          onClick={() => handleSelect(type, elem)}
         >
-          {elem[name]}
+          {elem.name}
         </div>
       );
     });

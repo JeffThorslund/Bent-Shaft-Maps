@@ -2,8 +2,7 @@ import React, { Component } from "react";
 import Container from "./Container";
 import "./Form.css";
 import InputArea from "./InputArea";
-
-const axios = require("axios");
+var _ = require("lodash");
 
 class Nav extends Component {
   constructor(props) {
@@ -15,18 +14,23 @@ class Nav extends Component {
     };
   }
 
-  //Sets selection of river and rapid. //Could split into 2 methods for easier logic readability
+  //Sets selection of river and rapid.
+  //element = object container either rapid or river
+  //type = "river" or "rapid"
   handleSelect = (type, element) => {
-    this.state[type] === element
-      ? this.setState({
-          [type]: null,
-          feature: null,
-        })
-      : this.setState({
+    //compare if the state is already === to the object
+    !_.isEqual(this.state[type], element)
+      ? //if not, user wants to select it
+        this.setState({
           [type]: element,
           feature: null,
+        })
+      : //if yes, user wants to "unselect it"
+        this.setState({
+          [type]: null,
+          feature: null,
         });
-
+    //if a new river is selected, rapid and feature should both revert to null
     if (type === "river") {
       this.setState({
         rapid: null,
@@ -35,18 +39,18 @@ class Nav extends Component {
     }
   };
 
-  //Sets selection of feature or other.
+  //Sets selection of feature. Similar logic to comments above.
   handleFeatureSelect = (type, element) => {
-    this.state.feature === element
+    !_.isEqual(this.state.feature, element)
       ? this.setState({
-          feature: null,
+          feature: element,
         })
       : this.setState({
-          feature: element,
+          feature: null,
         });
   };
 
-  //Add new
+  //Add new of anything
   handleAddNewFeature = () => {
     this.setState({
       feature: null,
@@ -54,16 +58,16 @@ class Nav extends Component {
   };
 
   render() {
+    //array of all rivers
     const { dataArr } = this.props;
 
     //an array of rendered containers.
     let containerArr = [];
 
-    //creates a container of all the rivers.
+    //creates a container of all the river names.
     containerArr.push(
       <Container
         arr={dataArr}
-        name="riverName" //name property in data.json
         type="river"
         handleSelect={this.handleSelect}
         selected={this.state.river}
@@ -71,17 +75,19 @@ class Nav extends Component {
       />
     );
 
-    //if a river is selected, show an array of possible rapids
+    //if a river is selected, show an array of possible rapids.
     if (this.state.river !== null) {
+      //finds index of selected river in river array.
       const riverIndex = dataArr.findIndex((elem) => {
-        return elem.riverName === this.state.river;
+        return _.isEqual(elem, this.state.river);
       });
+      //array of rapids for those rivers.
       const rapidArray = dataArr[riverIndex].rapids;
 
+      //creates a container of all the rapid names.
       containerArr.push(
         <Container
           arr={rapidArray}
-          name="name" //name property in data.json
           type="rapid"
           handleSelect={this.handleSelect}
           selected={this.state.rapid}
@@ -93,7 +99,7 @@ class Nav extends Component {
       if (this.state.rapid !== null) {
         const features = ["hydraulics", "eddys", "lines", "arrows"];
         const rapidIndex = rapidArray.findIndex((elem) => {
-          return elem.name === this.state.rapid;
+          return _.isEqual(elem, this.state.rapid)
         });
 
         //creates a container for each feature type
@@ -102,7 +108,6 @@ class Nav extends Component {
           return (
             <Container
               arr={arr}
-              name="name"
               type={elem}
               handleSelect={this.handleFeatureSelect}
               handleAddNewFeature={this.handleAddNewFeature}
@@ -127,7 +132,6 @@ class Nav extends Component {
           river={this.state.river}
           rapid={this.state.rapid}
           feature={this.state.feature}
-
         />
       </div>
     );
