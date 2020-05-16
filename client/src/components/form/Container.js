@@ -12,7 +12,8 @@ export class Container extends Component {
     //create a list of all items in the array (ex. all eddys, all lines, all rapids etc)
     let list = arr.map((elem, index) => {
       //assign a style based on if the member is selected or not.
-      let memberClassName = selected === elem[name] ? "member on" : "member off";
+      let memberClassName =
+        selected === elem[name] ? "member on" : "member off";
 
       return (
         <div
@@ -25,6 +26,12 @@ export class Container extends Component {
         </div>
       );
     });
+
+    list.push(
+      <div className="member new" onClick={this.props.handleAddNewFeature}>
+        Add New {capitalCase(type)}
+      </div>
+    );
 
     return (
       <div className="section">

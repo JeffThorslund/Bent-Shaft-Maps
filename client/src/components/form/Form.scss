@@ -1,37 +1,52 @@
 $button: rgb(182, 182, 182);
 
-.form {
-  .section {
-    border: 1px solid $button;
-    padding: 10px 5px;
-    .header {
-      font-size: 24px;
-    }
-    .container {
-      display: flex;
-      flex-direction: row;
-      flex-wrap: wrap;
-      justify-content: flex-start;
-      align-items: flex-start;
-
-      .member {
-        border: $button 1px solid;
-        border-radius: 10px;
-        padding: 3px 9px;
-        margin: 4px 5px;
-        cursor: pointer;
+.form-wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+  width: 30%;
+  .form {
+    .section {
+      border: 1px solid $button;
+      padding: 10px 5px;
+      .header {
+        font-size: 24px;
       }
+      .container {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        align-items: center;
 
-      .member:hover {
-        background-color: $button;
-      }
+        .member {
+          border: $button 1px solid;
+          border-radius: 30px;
+          padding: 4px 11px;
+          margin: 4px 5px;
+          cursor: pointer;
+        }
 
-      .on {
-        background-color: $button;
-      }
+        .member:hover {
+          background-color: $button;
+        }
 
-      .off {
-        background-color: transparent;
+        .new {
+          background-color: rgb(255, 183, 183);
+        }
+
+        .new:hover {
+          background-color: rgb(255, 158, 158);
+        }
+
+        .on {
+          background-color: $button;
+        }
+
+        .off {
+          background-color: transparent;
+        }
       }
     }
   }
