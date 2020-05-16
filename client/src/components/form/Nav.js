@@ -14,15 +14,24 @@ class Nav extends Component {
     };
   }
 
-  //Sets selection of river and rapid.
+  //Sets selection of river and rapid. //Could split into 2 methods for easier logic readability
   handleSelect = (type, element) => {
     this.state[type] === element
       ? this.setState({
           [type]: null,
+          feature: null
         })
       : this.setState({
           [type]: element,
+          feature: null,
         });
+
+    if (type === "river") {
+      this.setState({
+        rapid: null,
+        feature: null,
+      });
+    }
   };
 
   //Sets selection of feature or other.
@@ -107,10 +116,10 @@ class Nav extends Component {
     }
     return (
       <div className="form">
-        {/*<h2>State</h2>
+        <h2>State</h2>
         <div>river: {this.state.river}</div>
         <div>rapid: {this.state.rapid}</div>
-        <div>feature: {this.state.feature}</div>*/}
+        <div>feature: {this.state.feature}</div>
 
         {containerArr}
       </div>
