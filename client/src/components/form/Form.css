@@ -1,13 +1,30 @@
-.form .section {
+.form-wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  width: 30%;
+}
+
+.form-wrapper .form .section {
   border: 1px solid #b6b6b6;
   padding: 10px 5px;
 }
 
-.form .section .header {
+.form-wrapper .form .section .header {
   font-size: 24px;
 }
 
-.form .section .container {
+.form-wrapper .form .section .container {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -20,28 +37,36 @@
   -webkit-box-pack: start;
       -ms-flex-pack: start;
           justify-content: flex-start;
-  -webkit-box-align: start;
-      -ms-flex-align: start;
-          align-items: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
-.form .section .container .member {
+.form-wrapper .form .section .container .member {
   border: #b6b6b6 1px solid;
-  border-radius: 10px;
-  padding: 3px 9px;
+  border-radius: 30px;
+  padding: 4px 11px;
   margin: 4px 5px;
   cursor: pointer;
 }
 
-.form .section .container .member:hover {
+.form-wrapper .form .section .container .member:hover {
   background-color: #b6b6b6;
 }
 
-.form .section .container .on {
+.form-wrapper .form .section .container .new {
+  background-color: #ffb7b7;
+}
+
+.form-wrapper .form .section .container .new:hover {
+  background-color: #ff9e9e;
+}
+
+.form-wrapper .form .section .container .on {
   background-color: #b6b6b6;
 }
 
-.form .section .container .off {
+.form-wrapper .form .section .container .off {
   background-color: transparent;
 }
 /*# sourceMappingURL=Form.css.map */
