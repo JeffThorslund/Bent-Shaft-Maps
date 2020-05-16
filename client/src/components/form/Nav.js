@@ -7,50 +7,7 @@ const axios = require("axios");
 class Nav extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      river: null,
-      rapid: null,
-      feature: null,
-    };
   }
-
-  //Sets selection of river and rapid. //Could split into 2 methods for easier logic readability
-  handleSelect = (type, element) => {
-    this.state[type] === element
-      ? this.setState({
-          [type]: null,
-          feature: null
-        })
-      : this.setState({
-          [type]: element,
-          feature: null,
-        });
-
-    if (type === "river") {
-      this.setState({
-        rapid: null,
-        feature: null,
-      });
-    }
-  };
-
-  //Sets selection of feature or other.
-  handleFeatureSelect = (type, element) => {
-    this.state.feature === element
-      ? this.setState({
-          feature: null,
-        })
-      : this.setState({
-          feature: element,
-        });
-  };
-
-  //Add new
-  handleAddNewFeature = () => {
-    this.setState({
-      feature: null,
-    });
-  };
 
   render() {
     //an array of rendered containers.
@@ -63,16 +20,16 @@ class Nav extends Component {
         arr={riverArray}
         name="riverName" //name property in data.json
         type="river"
-        handleSelect={this.handleSelect}
-        selected={this.state.river}
+        handleSelect={this.props.handleSelect}
+        selected={this.props.river}
         key="river_key"
       />
     );
 
     //if a river is selected, show an array of possible rapids
-    if (this.state.river !== null) {
+    if (this.props.river !== null) {
       const riverIndex = riverArray.findIndex((elem) => {
-        return elem.riverName === this.state.river;
+        return elem.riverName === this.props.river;
       });
       const rapidArray = riverArray[riverIndex].rapids;
 
@@ -81,17 +38,17 @@ class Nav extends Component {
           arr={rapidArray}
           name="name" //name property in data.json
           type="rapid"
-          handleSelect={this.handleSelect}
-          selected={this.state.rapid}
+          handleSelect={this.props.handleSelect}
+          selected={this.props.rapid}
           key="rapid_key"
         />
       );
 
       //if a rapid is selected, show an array of possible features
-      if (this.state.rapid !== null) {
+      if (this.props.rapid !== null) {
         const features = ["hydraulics", "eddys", "lines", "arrows"];
         const rapidIndex = rapidArray.findIndex((elem) => {
-          return elem.name === this.state.rapid;
+          return elem.name === this.props.rapid;
         });
 
         //creates a container for each feature type
@@ -102,9 +59,9 @@ class Nav extends Component {
               arr={arr}
               name="name"
               type={elem}
-              handleSelect={this.handleFeatureSelect}
-              handleAddNewFeature={this.handleAddNewFeature}
-              selected={this.state.feature}
+              handleSelect={this.props.handleFeatureSelect}
+              handleAddNewFeature={this.props.handleAddNewFeature}
+              selected={this.props.feature}
               key={`feature_key_${index}`}
             />
           );
@@ -117,9 +74,9 @@ class Nav extends Component {
     return (
       <div className="form">
         <h2>State</h2>
-        <div>river: {this.state.river}</div>
-        <div>rapid: {this.state.rapid}</div>
-        <div>feature: {this.state.feature}</div>
+        <div>river: {this.props.river}</div>
+        <div>rapid: {this.props.rapid}</div>
+        <div>feature: {this.props.feature}</div>
 
         {containerArr}
       </div>
