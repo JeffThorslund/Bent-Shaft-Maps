@@ -18,7 +18,7 @@ const PutIn = (props) => {
     <div className="PutIn-wrapper">
       <div className="header">
         <div id="pre-title">Welcome to the</div>
-        <div id="title">{props.data.riverName}</div>
+        <div id="title">{props.data.name}</div>
 
         <Link
           to={`${props.url}/${idParser(props.data.rapids[0].name)}`}
@@ -32,7 +32,7 @@ const PutIn = (props) => {
         <div className="footer-grid-wrapper">
           <div className="child" id="info">
             <div className="title">Info</div>
-            <div>{props.data.riverInfo}</div>
+            <div>{props.data.info}</div>
           </div>
           <div className="child" id="contributors">
             <div className="title">Contributors</div>
@@ -54,7 +54,7 @@ const PutIn = (props) => {
           </div>
           <div className="child" id="access">
             <div className="title">Access</div>
-            <div>{props.data.riverDesc}</div>
+            <div>{props.data.desc}</div>
           </div>
           <a
             href={props.data.putIn}

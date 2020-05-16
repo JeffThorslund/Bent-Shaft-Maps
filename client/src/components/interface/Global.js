@@ -26,7 +26,7 @@ class Global extends React.Component {
     const param = new RegExp(value, "i");
     const keptArr = dataArr
       .filter((elem) => {
-        if (param.test(elem.riverName) || param.test(elem.location)) {
+        if (param.test(elem.name) || param.test(elem.location)) {
           return true;
         } else {
           return false;
@@ -35,7 +35,7 @@ class Global extends React.Component {
       .filter((chunk) => Object.keys(chunk).length !== 0)
       .map((elem) => {
         let locationResult = elem.location;
-        let nameResult = elem.riverName;
+        let nameResult = elem.name;
         if (value.length > 0) {
           locationResult = locationResult.replace(
             new RegExp(value, "i"),

@@ -19,9 +19,9 @@ const Map = (props) => {
       />
     ));
 
-  let riverName = paramCase(props.data.riverName);
+  let name = paramCase(props.data.name);
   const OverviewMap = lazy(() =>
-    import(`../../river-data/${riverName}/maps/OverviewMap`)
+    import(`../../river-data/${name}/maps/OverviewMap`)
   );
 
   return (

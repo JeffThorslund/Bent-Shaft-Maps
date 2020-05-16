@@ -38,7 +38,7 @@ class GlobalRouter extends React.Component {
       routeArray = this.state.data
         .map((elem, key) => {
           return (
-            <Route path={`/${paramCase(elem.riverName)}`} key={`river${key}`}>
+            <Route path={`/${paramCase(elem.name)}`} key={`river${key}`}>
               <RiverRouter data={elem} />
             </Route>
           );
