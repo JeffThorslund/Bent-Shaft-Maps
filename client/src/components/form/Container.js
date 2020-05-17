@@ -29,16 +29,23 @@ export class Container extends Component {
       );
     });
 
+    list.unshift(
+      <div className="member title" onClick={() => {}}>
+        Choose {capitalCase(type)}
+      </div>
+    );
+
     list.push(
       <div className="member new" onClick={this.props.handleAddNewFeature}>
         Add New {capitalCase(type)}
       </div>
     );
 
+    let className = `${this.props.bk} container`;
+
     return (
       <div className="section">
-        <div className="header"> {capitalCase(type)} </div>
-        <div className="container">{list}</div>
+        <div className={className}>{list}</div>
       </div>
     );
   }
