@@ -72,6 +72,7 @@ class Nav extends Component {
         handleSelect={this.handleSelect}
         selected={this.state.river}
         key="river_key"
+        bk={"bk1"}
       />
     );
 
@@ -92,6 +93,7 @@ class Nav extends Component {
           handleSelect={this.handleSelect}
           selected={this.state.rapid}
           key="rapid_key"
+          bk={"bk2"}
         />
       );
 
@@ -99,12 +101,14 @@ class Nav extends Component {
       if (this.state.rapid !== null) {
         const features = ["hydraulics", "eddys", "lines", "arrows"];
         const rapidIndex = rapidArray.findIndex((elem) => {
-          return _.isEqual(elem, this.state.rapid)
+          return _.isEqual(elem, this.state.rapid);
         });
 
         //creates a container for each feature type
         const featureArray = features.map((elem, index) => {
           let arr = rapidArray[rapidIndex][elem];
+          let bk = index % 2 === 0 ? "bk1" : "bk2";
+
           return (
             <Container
               arr={arr}
@@ -113,6 +117,7 @@ class Nav extends Component {
               handleAddNewFeature={this.handleAddNewFeature}
               selected={this.state.feature}
               key={`feature_key_${index}`}
+              bk={bk}
             />
           );
         });
@@ -123,11 +128,13 @@ class Nav extends Component {
     }
     return (
       <div className="form">
-        {/*<h2>State</h2>
-        <div>river: {river}</div>
-        <div>rapid: {rapid}</div>
-        <div>feature: {feature}</div>*/}
-        <div className="containers">{containerArr}</div>
+        <div className="containers">
+          {/*<h2>State</h2>
+          <div>river: {this.state.river && this.state.river.name}</div>
+          <div>rapid: {this.state.rapid && this.state.rapid.name}</div>
+          <div>feature: {this.state.feature && this.state.feature.name}</div>*/}
+          {containerArr}
+        </div>
         <InputArea
           river={this.state.river}
           rapid={this.state.rapid}

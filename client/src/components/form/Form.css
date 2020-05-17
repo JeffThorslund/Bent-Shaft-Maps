@@ -1,3 +1,7 @@
+.form-wrapper {
+  font-family: "Segoe UI";
+}
+
 .form-wrapper .form {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -15,16 +19,20 @@
 }
 
 .form-wrapper .form .containers {
-  width: 30%;
-}
-
-.form-wrapper .form .containers .section {
-  border: 1px solid #b6b6b6;
-  padding: 10px 5px;
+  -ms-flex-preferred-size: 50%;
+      flex-basis: 50%;
 }
 
 .form-wrapper .form .containers .section .header {
   font-size: 24px;
+}
+
+.form-wrapper .form .containers .section .bk1 {
+  background-color: #e8eaf6;
+}
+
+.form-wrapper .form .containers .section .bk2 {
+  background-color: #c5cae9;
 }
 
 .form-wrapper .form .containers .section .container {
@@ -43,9 +51,11 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  padding: 15px;
 }
 
 .form-wrapper .form .containers .section .container .member {
+  background-color: #eceff1;
   border: #b6b6b6 1px solid;
   border-radius: 30px;
   padding: 4px 11px;
@@ -57,12 +67,22 @@
   background-color: #b6b6b6;
 }
 
+.form-wrapper .form .containers .section .container .title {
+  background-color: black;
+  border: none;
+  color: white;
+}
+
+.form-wrapper .form .containers .section .container .title:hover {
+  background-color: black;
+}
+
 .form-wrapper .form .containers .section .container .new {
-  background-color: #ffb7b7;
+  background-color: #ffcdd2;
 }
 
 .form-wrapper .form .containers .section .container .new:hover {
-  background-color: #ff9e9e;
+  background-color: #ef9a9a;
 }
 
 .form-wrapper .form .containers .section .container .on {
@@ -70,12 +90,57 @@
 }
 
 .form-wrapper .form .containers .section .container .off {
-  background-color: transparent;
+  background-color: #eceff1;
 }
 
 .form-wrapper .form .input-area {
-  border: 1px solid #b6b6b6;
-  width: 70%;
+  -ms-flex-preferred-size: 50%;
+      flex-basis: 50%;
+  text-align: center;
+  background-color: #e8eaf6;
+}
+
+.form-wrapper .form .input-area .inputs {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[2];
+      grid-template-columns: repeat(2, 1fr);
+  -ms-grid-rows: (1fr)[2];
+      grid-template-rows: repeat(2, 1fr);
+}
+
+.form-wrapper .form .input-area .inputs .input-field {
+  margin: 5px;
+}
+
+.form-wrapper .form .input-area .inputs .input-field .input-label {
+  text-align: left;
+  padding-left: 10px;
+}
+
+.form-wrapper .form .input-area .inputs .block {
+  grid-row: span 2;
+}
+
+.form-wrapper .form .input-area .inputs input {
+  border: #b6b6b6 1px solid;
+  border-radius: 30px;
+  padding: 4px 11px;
+  margin: 4px 5px;
+  width: 90%;
+  font-size: 16px;
+  font-family: "Segoe UI";
+}
+
+.form-wrapper .form .input-area .inputs textarea {
+  border: #b6b6b6 1px solid;
+  border-radius: 5px;
+  padding: 4px 11px;
+  margin: 4px 5px;
+  width: 90%;
+  height: 63%;
+  font-size: 16px;
+  font-family: "Segoe UI";
 }
 
 .form-wrapper .form .input-area .header {

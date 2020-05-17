@@ -1,27 +1,41 @@
 $button: rgb(182, 182, 182);
+$highlight1: #ffcdd2;
+$highlight2: #ef9a9a;
+$background1: #e8eaf6;
+$background2: #c5cae9;
+$member: #eceff1;
 
 .form-wrapper {
+  font-family: "Segoe UI";
   .form {
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
     align-items: flex-start;
     .containers {
-      width: 30%;
+      flex-basis: 50%;
       .section {
-        border: 1px solid $button;
-        padding: 10px 5px;
         .header {
           font-size: 24px;
         }
+
+        .bk1 {
+          background-color: $background1;
+        }
+
+        .bk2 {
+          background-color: $background2;
+        }
+
         .container {
           display: flex;
           flex-direction: row;
           flex-wrap: wrap;
           justify-content: flex-start;
           align-items: center;
-
+          padding: 15px;
           .member {
+            background-color: $member;
             border: $button 1px solid;
             border-radius: 30px;
             padding: 4px 11px;
@@ -33,12 +47,22 @@ $button: rgb(182, 182, 182);
             background-color: $button;
           }
 
+          .title {
+            background-color: black;
+            border: none;
+            color: white;
+          }
+
+          .title:hover {
+            background-color: black;
+          }
+
           .new {
-            background-color: rgb(255, 183, 183);
+            background-color: $highlight1;
           }
 
           .new:hover {
-            background-color: rgb(255, 158, 158);
+            background-color: $highlight2;
           }
 
           .on {
@@ -46,15 +70,60 @@ $button: rgb(182, 182, 182);
           }
 
           .off {
-            background-color: transparent;
+            background-color: $member;
           }
         }
       }
     }
 
     .input-area {
-      border: 1px solid $button;
-      width: 70%;
+      flex-basis: 50%;
+      text-align: center;
+      background-color: $background1;
+
+      .inputs {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(2, 1fr);
+
+        .input-field {
+          margin: 5px;
+
+          .input-label {
+            text-align: left;
+            padding-left: 10px;
+          }
+        }
+
+        .block {
+          grid-row: span 2;
+        }
+
+        .line {
+        }
+
+        input {
+          border: $button 1px solid;
+          border-radius: 30px;
+          padding: 4px 11px;
+          margin: 4px 5px;
+          width: 90%;
+          font-size: 16px;
+          font-family: "Segoe UI";
+        }
+
+        textarea {
+          border: $button 1px solid;
+          border-radius: 5px;
+          padding: 4px 11px;
+          margin: 4px 5px;
+          width: 90%;
+          height: 63%;
+          font-size: 16px;
+          font-family: "Segoe UI";
+        }
+      }
+
       .header {
         font-size: 24px;
       }
