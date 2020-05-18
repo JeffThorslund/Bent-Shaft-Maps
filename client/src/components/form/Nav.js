@@ -58,16 +58,13 @@ class Nav extends Component {
   };
 
   render() {
-    //array of all rivers
-    const { dataArr } = this.props;
-
     //an array of rendered containers.
     let containerArr = [];
 
     //creates a container of all the river names.
     containerArr.push(
       <Container
-        arr={dataArr}
+        arr={this.props.dataArr}
         type="river"
         handleSelect={this.handleSelect}
         selected={this.state.river}
@@ -78,17 +75,11 @@ class Nav extends Component {
 
     //if a river is selected, show an array of possible rapids.
     if (this.state.river !== null) {
-      //finds index of selected river in river array.
-      const riverIndex = dataArr.findIndex((elem) => {
-        return _.isEqual(elem, this.state.river);
-      });
-      //array of rapids for those rivers.
-      const rapidArray = dataArr[riverIndex].rapids;
 
       //creates a container of all the rapid names.
       containerArr.push(
         <Container
-          arr={rapidArray}
+          arr={this.state.river.rapids}
           type="rapid"
           handleSelect={this.handleSelect}
           selected={this.state.rapid}
@@ -99,40 +90,35 @@ class Nav extends Component {
 
       //if a rapid is selected, show an array of possible features
       if (this.state.rapid !== null) {
-        const features = ["hydraulics", "eddys", "lines", "arrows"];
-        const rapidIndex = rapidArray.findIndex((elem) => {
-          return _.isEqual(elem, this.state.rapid);
-        });
+    
+        //Checks to find which rapid values are arrays
+        const featureArr = Object.entries(this.state.rapid)
+          .filter((elem) => {
+            return Array.isArray(elem[1]);
+          })
+          .map((elem, index) => {
+            let bk = index % 2 === 0 ? "bk1" : "bk2";
 
-        //creates a container for each feature type
-        const featureArray = features.map((elem, index) => {
-          let arr = rapidArray[rapidIndex][elem];
-          let bk = index % 2 === 0 ? "bk1" : "bk2";
-
-          return (
-            <Container
-              arr={arr}
-              type={elem}
-              handleSelect={this.handleFeatureSelect}
-              handleAddNewFeature={this.handleAddNewFeature}
-              selected={this.state.feature}
-              key={`feature_key_${index}`}
-              bk={bk}
-            />
-          );
-        });
+            return (
+              <Container
+                arr={this.state.rapid[elem[0]]}
+                type={elem[0]}
+                handleSelect={this.handleFeatureSelect}
+                handleAddNewFeature={this.handleAddNewFeature}
+                selected={this.state.feature}
+                key={`feature_key_${index}`}
+                bk={bk}
+              />
+            );
+          });
 
         //add the feature containers to the container array.
-        containerArr = containerArr.concat(featureArray);
+        containerArr = containerArr.concat(featureArr);
       }
     }
     return (
       <div className="form">
         <div className="containers">
-          {/*<h2>State</h2>
-          <div>river: {this.state.river && this.state.river.name}</div>
-          <div>rapid: {this.state.rapid && this.state.rapid.name}</div>
-          <div>feature: {this.state.feature && this.state.feature.name}</div>*/}
           {containerArr}
         </div>
         <InputArea
