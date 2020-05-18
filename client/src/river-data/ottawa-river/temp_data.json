@@ -170,20 +170,18 @@
         }
       ],
       "arrows": [
-        { "name": "Iron Ring", "rotation": "160deg", "bottom": 4, "right": 5 },
+        { "name": "Iron Ring", "bottom": 4, "right": 5 },
         {
           "name": "Magical Mystery Tour",
-          "rotation": "160deg",
           "bottom": 25,
           "right": 2
         },
         {
           "name": "Little Trickle",
-          "rotation": "160deg",
           "bottom": 4,
           "right": 15
         },
-        { "name": "The Lorne", "rotation": "160deg", "bottom": 4, "right": 26 }
+        { "name": "The Lorne", "bottom": 4, "right": 26 }
       ],
       "mapLabel": {
         "titleTop": 45,
@@ -221,10 +219,9 @@
         }
       ],
       "arrows": [
-        { "name": "Butterfly", "rotation": "160deg", "bottom": 21, "right": 3 },
+        { "name": "Butterfly", "bottom": 21, "right": 3 },
         {
           "name": "McCoys Chute",
-          "rotation": "160deg",
           "bottom": 42,
           "right": 85
         }
@@ -282,10 +279,9 @@
         }
       ],
       "arrows": [
-        { "name": "S-Bend", "rotation": "160deg", "bottom": 55, "right": 10 },
+        { "name": "S-Bend", "bottom": 55, "right": 10 },
         {
           "name": "McCoys Chute",
-          "rotation": "160deg",
           "bottom": 65,
           "right": 85
         }
@@ -316,11 +312,10 @@
       "arrows": [
         {
           "name": "Butterfly",
-          "rotation": "160deg",
           "bottom": 70,
           "right": 10
         },
-        { "name": "Iron Ring", "rotation": "160deg", "bottom": 61, "right": 87 }
+        { "name": "Iron Ring", "bottom": 61, "right": 87 }
       ],
       "mapLabel": {
         "titleTop": 24,
@@ -375,11 +370,10 @@
         }
       ],
       "arrows": [
-        { "name": "Garvins", "rotation": "160deg", "bottom": 37, "right": 9 },
-        { "name": "S-Bend", "rotation": "160deg", "bottom": 45, "right": 87 },
+        { "name": "Garvins", "bottom": 37, "right": 9 },
+        { "name": "S-Bend", "bottom": 45, "right": 87 },
         {
           "name": "Magical Mystery Tour",
-          "rotation": "160deg",
           "bottom": 60,
           "right": 84
         }
@@ -459,13 +453,11 @@
       "arrows": [
         {
           "name": "Angel's Kiss",
-          "rotation": "160deg",
           "bottom": 70,
           "right": 15
         },
         {
           "name": "McCoys Chute",
-          "rotation": "160deg",
           "bottom": 65,
           "right": 87
         }
@@ -494,10 +486,9 @@
         }
       ],
       "arrows": [
-        { "name": "Garvins", "rotation": "160deg", "bottom": 60, "right": 10 },
+        { "name": "Garvins", "bottom": 60, "right": 10 },
         {
           "name": "Little Trickle",
-          "rotation": "160deg",
           "bottom": 65,
           "right": 87
         }
@@ -645,19 +636,16 @@
       "arrows": [
         {
           "name": "Upper No Name",
-          "rotation": "160deg",
           "bottom": 30,
           "right": 8
         },
         {
           "name": "Butterfly",
-          "rotation": "160deg",
           "bottom": 50,
           "right": 87
         },
         {
           "name": "Angel's Kiss",
-          "rotation": "160deg",
           "bottom": 30,
           "right": 87
         }
@@ -688,11 +676,10 @@
       "arrows": [
         {
           "name": "Lower No Name",
-          "rotation": "160deg",
           "bottom": 45,
           "right": 8
         },
-        { "name": "Garvins", "rotation": "160deg", "bottom": 75, "right": 87 }
+        { "name": "Garvins", "bottom": 75, "right": 87 }
       ],
       "mapLabel": {
         "titleTop": 25,
@@ -720,7 +707,6 @@
       "arrows": [
         {
           "name": "Upper No Name",
-          "rotation": "160deg",
           "bottom": 40,
           "right": 87
         }
@@ -751,13 +737,11 @@
       "arrows": [
         {
           "name": "McCoys Chute",
-          "rotation": "160deg",
           "bottom": 40,
           "right": 85
         },
         {
           "name": "Push Button",
-          "rotation": "160deg",
           "bottom": 40,
           "right": 5
         }
@@ -788,13 +772,11 @@
       "arrows": [
         {
           "name": "The Lorne",
-          "rotation": "160deg",
           "bottom": 40,
           "right": 87
         },
         {
           "name": "Butchers Knife",
-          "rotation": "160deg",
           "bottom": 45,
           "right": 5
         }
@@ -818,11 +800,10 @@
       "arrows": [
         {
           "name": "Push Button",
-          "rotation": "160deg",
           "bottom": 40,
           "right": 90
         },
-        { "name": "Normans", "rotation": "160deg", "bottom": 83, "right": 20 }
+        { "name": "Normans", "bottom": 83, "right": 20 }
       ],
       "mapLabel": {
         "titleTop": 59,
@@ -843,11 +824,10 @@
       "arrows": [
         {
           "name": "Butchers Knife",
-          "rotation": "160deg",
           "bottom": 55,
           "right": 87
         },
-        { "name": "Coliseum", "rotation": "160deg", "bottom": 55, "right": 10 }
+        { "name": "Coliseum", "bottom": 55, "right": 10 }
       ],
       "mapLabel": {
         "titleTop": 54,
@@ -866,8 +846,8 @@
       "lines": [],
       "symbols": [],
       "arrows": [
-        { "name": "Normans", "rotation": "160deg", "bottom": 50, "right": 90 },
-        { "name": "Dogs Leg", "rotation": "160deg", "bottom": 47, "right": 5 }
+        { "name": "Normans", "bottom": 50, "right": 90 },
+        { "name": "Dogs Leg", "bottom": 47, "right": 5 }
       ],
       "mapLabel": {
         "titleTop": 59,
@@ -888,11 +868,10 @@
       "arrows": [
         {
           "name": "Farmer Blacks",
-          "rotation": "160deg",
           "bottom": 45,
           "right": 5
         },
-        { "name": "Coliseum", "rotation": "160deg", "bottom": 55, "right": 88 }
+        { "name": "Coliseum", "bottom": 55, "right": 88 }
       ],
       "mapLabel": {
         "titleTop": 55,
@@ -910,9 +889,7 @@
       "eddys": [],
       "lines": [],
       "symbols": [],
-      "arrows": [
-        { "name": "Dogs Leg", "rotation": "160deg", "bottom": 47, "right": 87 }
-      ],
+      "arrows": [{ "name": "Dogs Leg", "bottom": 47, "right": 87 }],
       "mapLabel": {
         "titleTop": 47,
         "titleLeft": 65,
