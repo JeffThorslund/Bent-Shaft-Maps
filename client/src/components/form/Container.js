@@ -24,16 +24,16 @@ export class Container extends Component {
           //handles click based on designated method in Form.js
           onClick={() => handleSelect(type, elem)}
         >
-          {elem.name}
+          {elem.name || elem.type}
         </div>
       );
     });
 
-    list.unshift(
-      <div className="member title" onClick={() => {}}>
-        Choose {capitalCase(type)}
+    /*list.unshift(
+      <div className="title" onClick={() => {}}>
+        Choose {capitalCase(type)}: 
       </div>
-    );
+    );*/
 
     list.push(
       <div className="member new" onClick={this.props.handleAddNewFeature}>

@@ -68,13 +68,7 @@
 }
 
 .form-wrapper .form .containers .section .container .title {
-  background-color: black;
-  border: none;
-  color: white;
-}
-
-.form-wrapper .form .containers .section .container .title:hover {
-  background-color: black;
+  color: black;
 }
 
 .form-wrapper .form .containers .section .container .new {

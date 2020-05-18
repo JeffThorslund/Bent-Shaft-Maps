@@ -26,7 +26,7 @@ class InputField extends Component {
         : "input-field block";
     return (
       <div className={className}>
-        <div className="input-label">{capitalCase(this.props.prop)}</div>
+        <div className="input-label">{this.props.prop}</div>
         {this.props.value.length < 20 || typeof this.props.value == "number" ? (
           <input
             type="text"

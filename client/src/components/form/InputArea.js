@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import InputField from "./InputField";
+import { capitalCase } from "change-case";
 var _ = require("lodash");
 
 export class InputArea extends Component {
@@ -11,37 +12,37 @@ export class InputArea extends Component {
     };
   }
 
-  componentDidUpdate(prevProps) {
-    //check for a change in props
-    if (this.props !== prevProps) {
-      let list = [];
-
-      //function that creates list
-      const listMaker = (type) => {
-        console.log("input", this.props[type]);
-        list = Object.entries(this.props[type])
-          //filter out objects and arrays
-          .filter((elem) => {
-            console.log("filter", typeof elem[1] !== "string");
-            return typeof elem[1] !== "object";
-          });
-        console.log("output", list);
-        this.setState({ list });
-      };
-
-      if (this.props.feature) {
-        listMaker("feature");
-      } else if (this.props.rapid) {
-        listMaker("rapid");
-      } else if (this.props.river) {
-        listMaker("river");
-      } else {
-        this.setState({ list: null });
-      }
-    }
-  }
-
   render() {
+    let data = this.props.feature || this.props.rapid || this.props.river;
+    let inputs = [];
+
+    let key = 0;
+
+    const input = (data, prevProp) => {
+      for (let elem in data) {
+        key++;
+        if (typeof data[elem] == "object" && !Array.isArray(data[elem])) {
+          input(data[elem], elem);
+        } else if (!Array.isArray(data[elem]) || elem == "range") {
+          inputs.push(
+            <InputField
+              prop={
+                prevProp.length == 0
+                  ? `${capitalCase(elem)}`
+                  : `${capitalCase(prevProp)} - ${capitalCase(elem)}`
+              }
+              value={data[elem]}
+              key={`field${key}`}
+            />
+          );
+        } else {
+          console.log(elem, " will be included somewhere else");
+        }
+      }
+    };
+
+    input(data, "");
+
     let inputFields = this.state.list
       ? this.state.list.map((elem, index) => {
           return (
@@ -52,7 +53,7 @@ export class InputArea extends Component {
 
     return (
       <div className="input-area">
-        <div className="inputs">{inputFields}</div>
+        <div className="inputs">{inputs}</div>
       </div>
     );
   }
