@@ -9,10 +9,8 @@ export class Container extends Component {
 
   render() {
     const { arr, type, handleSelect, selected } = this.props;
-
-    //create a list of all items in the array (ex. all eddys, all lines, all rapids etc)
+    
     let list = arr.map((elem, index) => {
-      //assign a style based on if the member is selected or not.
       let memberClassName = _.isEqual(selected, elem)
         ? "member on"
         : "member off";
