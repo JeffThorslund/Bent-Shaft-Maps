@@ -19,6 +19,7 @@
     "dotenv": "^8.2.0",
     "feather-icons": "^4.28.0",
     "figlet": "^1.4.0",
+    "formik": "^2.1.4",
     "jspdf": "^1.5.3",
     "lodash": "^4.17.15",
     "netlify-lambda": "^1.6.3",
