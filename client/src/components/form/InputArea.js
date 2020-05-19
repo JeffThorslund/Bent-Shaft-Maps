@@ -10,30 +10,46 @@ export class InputArea extends Component {
 
     this.state = {
       riverList: null,
+      dataArr: this.props.dataArr,
     };
   }
 
   componentDidUpdate(prevProps) {
-    if (this.props !== prevProps) {
-      console.log("updated");
+    if (this.props.river != prevProps.river && this.props.river != null) {
       axios
         .post("/api/getlist", {
           path: `./client/src/river-data/${paramCase(
-            this.props.river.name
+            this.props.dataArr[this.props.river].name
           )}/maps`,
         })
         .then((response) => {
           console.log(response.data);
           this.setState({ riverList: JSON.parse(response.data).list });
         })
-        .catch(function (error) {
+        .catch((error) => {
           console.log(error);
         });
     }
   }
 
+  handleChange = (e) => {
+    
+  };
+
   render() {
-    let data = this.props.feature || this.props.rapid || this.props.river;
+    const { river, rapid, feature, featureName } = this.props;
+    
+    let dataArr = this.state.dataArr ? [...this.state.dataArr] : null
+
+    const data =
+      feature !== null
+        ? dataArr[river].rapids[rapid][featureName][feature]
+        : rapid !== null
+        ? dataArr[river].rapids[rapid]
+        : river !== null
+        ? dataArr[river]
+        : null;
+
     let inputs = [];
     let key = 0;
 
@@ -52,10 +68,9 @@ export class InputArea extends Component {
               }
               value={data[elem]}
               key={`field${key}`}
+              handleChange={this.handleChange}
             />
           );
-        } else {
-          console.log(elem, " will be included somewhere else");
         }
       }
     };

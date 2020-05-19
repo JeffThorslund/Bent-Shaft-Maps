@@ -1,53 +1,61 @@
 import React, { Component } from "react";
-import Container from "./Container";
-import "./Form.css";
+import Containment from "./Containment";
+//import "./Form.css";
 import InputArea from "./InputArea";
+import InputArea2 from "./InputArea2";
+import Container from "@material-ui/core/Container";
+import Grid from "@material-ui/core/Grid";
 var _ = require("lodash");
-
 
 class Nav extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      river: null,
-      rapid: null,
-      feature: null,
+      river: null, //index
+      rapid: null, //index
+      feature: null, //index
+      featureName: null, //string
     };
   }
 
   //Sets selection of river and rapid.
   //element = part of data object
   //type = "river" or "rapid"
-  handleSelect = (type, element) => {
+  handleSelect = (label, index) => {
     //compare if the state is already === to the object
-    !_.isEqual(this.state[type], element)
+    !_.isEqual(this.state[label], index)
       ? //if not, user wants to select it
         this.setState({
-          [type]: element,
+          [label]: index,
           feature: null,
+          featureName: null,
         })
       : //if yes, user wants to "unselect it"
         this.setState({
-          [type]: null,
+          [label]: null,
           feature: null,
+          featureName: null,
         });
     //if a new river is selected, rapid and feature should both revert to null
-    if (type === "river") {
+    if (label === "river") {
       this.setState({
         rapid: null,
         feature: null,
+        featureName: null,
       });
     }
   };
 
   //Sets selection of feature. Similar logic to comments above.
-  handleFeatureSelect = (type, element) => {
-    !_.isEqual(this.state.feature, element)
+  handleFeatureSelect = (label, index) => {
+    !_.isEqual([this.state.featureName, this.state.feature], [label, index])
       ? this.setState({
-          feature: element,
+          feature: index,
+          featureName: label,
         })
       : this.setState({
           feature: null,
+          featureName: null,
         });
   };
 
@@ -59,15 +67,15 @@ class Nav extends Component {
   };
 
   render() {
+    let containerArr = [];
 
-let containerArr = [];
+    let riverArray = this.props.dataArr;
 
-    
-    //creates a container of all the river names.
     containerArr.push(
-      <Container
-        arr={this.props.dataArr} //entire JSON database
+      <Containment
+        arr={riverArray}
         type="river"
+        label="river"
         handleSelect={this.handleSelect}
         selected={this.state.river} //selected river
         key="river_key"
@@ -76,10 +84,13 @@ let containerArr = [];
     );
 
     if (this.state.river !== null) {
+      let rapidArray = riverArray[this.state.river].rapids;
+
       containerArr.push(
-        <Container
-          arr={this.state.river.rapids}
+        <Containment
+          arr={rapidArray}
           type="rapid"
+          label="rapid"
           handleSelect={this.handleSelect}
           selected={this.state.rapid}
           key="rapid_key"
@@ -88,41 +99,47 @@ let containerArr = [];
       );
 
       if (this.state.rapid !== null) {
-        
-        const featureArr = Object.entries(this.state.rapid)
-        //keeps values that are arrays.
+        const featureContainers = Object.entries(rapidArray[this.state.rapid])
           .filter((elem) => {
             return Array.isArray(elem[1]);
           })
           .map((elem, index) => {
             let bk = index % 2 === 0 ? "bk1" : "bk2";
-
             return (
-              <Container
-                arr={this.state.rapid[elem[0]]} //array of a certain feature
-                type={elem[0]}
-                handleSelect={this.handleFeatureSelect}
-                handleAddNewFeature={this.handleAddNewFeature}
-                selected={this.state.feature}
-                key={`feature_key_${index}`}
-                bk={bk}
-              />
+              <Grid item>
+                <Containment
+                  arr={elem[1]} //array of a certain feature
+                  label={elem[0]}
+                  handleSelect={this.handleFeatureSelect}
+                  handleAddNewFeature={this.handleAddNewFeature}
+                  type={this.state.featureName}
+                  selected={this.state.feature}
+                  key={`feature_key_${index}`}
+                  bk={bk}
+                />
+              </Grid>
             );
           });
 
         //add the feature containers to the container array.
-        containerArr = containerArr.concat(featureArr);
+        containerArr = containerArr.concat(featureContainers);
       }
     }
     return (
-      <div className="form">
-        <div className="containers">{containerArr}</div>
-        {/*<InputArea
-          river={this.state.river}
-          rapid={this.state.rapid}
-          feature={this.state.feature}
-        />*/}
-      </div>
+      <Container maxWidth="lg">
+        <div className="form">
+          <Grid container direction="column">
+            {containerArr}
+          </Grid>
+          <InputArea2
+            river={this.state.river}
+            rapid={this.state.rapid}
+            feature={this.state.feature}
+            featureName={this.state.featureName}
+            dataArr={this.props.dataArr}
+          />
+        </div>
+      </Container>
     );
   }
 }
