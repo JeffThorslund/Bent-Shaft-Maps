@@ -4,6 +4,7 @@ import "./Form.css";
 import InputArea from "./InputArea";
 var _ = require("lodash");
 
+
 class Nav extends Component {
   constructor(props) {
     super(props);
@@ -15,7 +16,7 @@ class Nav extends Component {
   }
 
   //Sets selection of river and rapid.
-  //element = object container either rapid or river
+  //element = part of data object
   //type = "river" or "rapid"
   handleSelect = (type, element) => {
     //compare if the state is already === to the object
@@ -58,25 +59,23 @@ class Nav extends Component {
   };
 
   render() {
-    //an array of rendered containers.
-    let containerArr = [];
 
+let containerArr = [];
+
+    
     //creates a container of all the river names.
     containerArr.push(
       <Container
-        arr={this.props.dataArr}
+        arr={this.props.dataArr} //entire JSON database
         type="river"
         handleSelect={this.handleSelect}
-        selected={this.state.river}
+        selected={this.state.river} //selected river
         key="river_key"
         bk={"bk1"}
       />
     );
 
-    //if a river is selected, show an array of possible rapids.
     if (this.state.river !== null) {
-
-      //creates a container of all the rapid names.
       containerArr.push(
         <Container
           arr={this.state.river.rapids}
@@ -88,11 +87,10 @@ class Nav extends Component {
         />
       );
 
-      //if a rapid is selected, show an array of possible features
       if (this.state.rapid !== null) {
-    
-        //Checks to find which rapid values are arrays
+        
         const featureArr = Object.entries(this.state.rapid)
+        //keeps values that are arrays.
           .filter((elem) => {
             return Array.isArray(elem[1]);
           })
@@ -101,7 +99,7 @@ class Nav extends Component {
 
             return (
               <Container
-                arr={this.state.rapid[elem[0]]}
+                arr={this.state.rapid[elem[0]]} //array of a certain feature
                 type={elem[0]}
                 handleSelect={this.handleFeatureSelect}
                 handleAddNewFeature={this.handleAddNewFeature}
@@ -118,14 +116,12 @@ class Nav extends Component {
     }
     return (
       <div className="form">
-        <div className="containers">
-          {containerArr}
-        </div>
-        <InputArea
+        <div className="containers">{containerArr}</div>
+        {/*<InputArea
           river={this.state.river}
           rapid={this.state.rapid}
           feature={this.state.feature}
-        />
+        />*/}
       </div>
     );
   }

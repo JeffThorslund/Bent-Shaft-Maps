@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import InputField from "./InputField";
-import { capitalCase } from "change-case";
+import { capitalCase, paramCase } from "change-case";
+const axios = require("axios");
 var _ = require("lodash");
 
 export class InputArea extends Component {
@@ -8,14 +9,32 @@ export class InputArea extends Component {
     super(props);
 
     this.state = {
-      list: null,
+      riverList: null,
     };
+  }
+
+  componentDidUpdate(prevProps) {
+    if (this.props !== prevProps) {
+      console.log("updated");
+      axios
+        .post("/api/getlist", {
+          path: `./client/src/river-data/${paramCase(
+            this.props.river.name
+          )}/maps`,
+        })
+        .then((response) => {
+          console.log(response.data);
+          this.setState({ riverList: JSON.parse(response.data).list });
+        })
+        .catch(function (error) {
+          console.log(error);
+        });
+    }
   }
 
   render() {
     let data = this.props.feature || this.props.rapid || this.props.river;
     let inputs = [];
-
     let key = 0;
 
     const input = (data, prevProp) => {
@@ -42,14 +61,6 @@ export class InputArea extends Component {
     };
 
     input(data, "");
-
-    let inputFields = this.state.list
-      ? this.state.list.map((elem, index) => {
-          return (
-            <InputField prop={elem[0]} value={elem[1]} key={`field${index}`} />
-          );
-        })
-      : null;
 
     return (
       <div className="input-area">

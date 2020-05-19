@@ -24,9 +24,19 @@ class InputField extends Component {
       this.props.value.length < 20 || typeof this.props.value == "number"
         ? "input-field line"
         : "input-field block";
+
+        if (this.props.prop == "River Map - Path"){
+          
+        }
+
     return (
       <div className={className}>
+        
         <div className="input-label">{this.props.prop}</div>
+
+        
+
+
         {this.props.value.length < 20 || typeof this.props.value == "number" ? (
           <input
             type="text"
