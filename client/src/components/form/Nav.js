@@ -1,10 +1,8 @@
 import React, { Component } from "react";
-import Containment from "./Containment";
-//import "./Form.css";
+import Container from "./Container";
+import "./Form.css";
+
 import InputArea from "./InputArea";
-import InputArea2 from "./InputArea2";
-import Container from "@material-ui/core/Container";
-import Grid from "@material-ui/core/Grid";
 var _ = require("lodash");
 
 class Nav extends Component {
@@ -72,7 +70,7 @@ class Nav extends Component {
     let riverArray = this.props.dataArr;
 
     containerArr.push(
-      <Containment
+      <Container
         arr={riverArray}
         type="river"
         label="river"
@@ -87,7 +85,7 @@ class Nav extends Component {
       let rapidArray = riverArray[this.state.river].rapids;
 
       containerArr.push(
-        <Containment
+        <Container
           arr={rapidArray}
           type="rapid"
           label="rapid"
@@ -106,18 +104,16 @@ class Nav extends Component {
           .map((elem, index) => {
             let bk = index % 2 === 0 ? "bk1" : "bk2";
             return (
-              <Grid item>
-                <Containment
-                  arr={elem[1]} //array of a certain feature
-                  label={elem[0]}
-                  handleSelect={this.handleFeatureSelect}
-                  handleAddNewFeature={this.handleAddNewFeature}
-                  type={this.state.featureName}
-                  selected={this.state.feature}
-                  key={`feature_key_${index}`}
-                  bk={bk}
-                />
-              </Grid>
+              <Container
+                arr={elem[1]} //array of a certain feature
+                label={elem[0]}
+                handleSelect={this.handleFeatureSelect}
+                handleAddNewFeature={this.handleAddNewFeature}
+                type={this.state.featureName}
+                selected={this.state.feature}
+                key={`feature_key_${index}`}
+                bk={bk}
+              />
             );
           });
 
@@ -126,20 +122,16 @@ class Nav extends Component {
       }
     }
     return (
-      <Container maxWidth="lg">
-        <div className="form">
-          <Grid container direction="column">
-            {containerArr}
-          </Grid>
-          <InputArea2
-            river={this.state.river}
-            rapid={this.state.rapid}
-            feature={this.state.feature}
-            featureName={this.state.featureName}
-            dataArr={this.props.dataArr}
-          />
-        </div>
-      </Container>
+      <div className="form">
+        <div className="containers">{containerArr}</div>
+        <InputArea
+          river={this.state.river}
+          rapid={this.state.rapid}
+          feature={this.state.feature}
+          featureName={this.state.featureName}
+          dataArr={this.props.dataArr}
+        />
+      </div>
     );
   }
 }

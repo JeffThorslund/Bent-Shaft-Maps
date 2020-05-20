@@ -34,14 +34,6 @@ $member: #eceff1;
           justify-content: flex-start;
           align-items: center;
           padding: 15px;
-          .member {
-            background-color: $member;
-            border: $button 1px solid;
-            border-radius: 30px;
-            padding: 4px 11px;
-            margin: 4px 5px;
-            cursor: pointer;
-          }
 
           .member:hover {
             background-color: $button;
@@ -75,55 +67,63 @@ $member: #eceff1;
 
     .input-area {
       flex-basis: 50%;
-      text-align: center;
       background-color: $background1;
+      display: grid;
+      grid-template-columns: repeat(auto, 30px);
+      grid-template-rows: repeat(2, 1fr);
 
-      .inputs {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        grid-template-rows: repeat(2, 1fr);
+      .input-field {
+        margin: 5px;
 
-        .input-field {
-          margin: 5px;
-
-          .input-label {
-            text-align: left;
-            padding-left: 10px;
-          }
-        }
-
-        .block {
-          grid-row: span 2;
-        }
-
-        .line {
+        label {
+          text-align: left;
+          padding-left: 10px;
+          width: 100px;
         }
 
         input {
-          border: $button 1px solid;
-          border-radius: 30px;
-          padding: 4px 11px;
-          margin: 4px 5px;
-          width: 90%;
-          font-size: 16px;
-          font-family: "Segoe UI";
-        }
-
-        textarea {
-          border: $button 1px solid;
-          border-radius: 5px;
-          padding: 4px 11px;
-          margin: 4px 5px;
-          width: 90%;
-          height: 63%;
-          font-size: 16px;
-          font-family: "Segoe UI";
+          width: 80%;
         }
       }
 
-      .header {
-        font-size: 24px;
+      input,
+      select {
+        border: $button 1px solid;
+        border-radius: 5px;
+        padding: 4px 11px;
+        margin: 4px 5px;
+        width: 90%;
+        font-size: 16px;
+        font-family: "Segoe UI";
+      }
+
+      textarea {
+        border: $button 1px solid;
+        border-radius: 5px;
+        padding: 4px 11px;
+        margin: 4px 5px;
+        width: 90%;
+        height: 63%;
+        font-size: 16px;
+        font-family: "Segoe UI";
+      }
+
+      #submit {
+        font-size: 16px;
       }
     }
   }
+}
+
+.member {
+  background-color: $member;
+  border: $button 1px solid;
+  border-radius: 30px;
+  padding: 4px 11px;
+  margin: 4px 5px;
+  cursor: pointer;
+}
+
+.member:hover {
+  background-color: $button;
 }

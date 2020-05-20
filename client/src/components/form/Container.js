@@ -1,9 +1,8 @@
 import React, { Component } from "react";
 import { capitalCase } from "change-case";
-import Grid from "@material-ui/core/Grid";
 var _ = require("lodash");
 
-export class Containment extends Component {
+export class Container extends Component {
   constructor(props) {
     super(props);
   }
@@ -28,15 +27,19 @@ export class Containment extends Component {
     });
 
     list.push(
-      <Grid item>
-        <div className="member new" onClick={this.props.handleAddNewFeature}>
-          Add New {capitalCase(label)}
-        </div>
-      </Grid>
+      <div className="member new" onClick={this.props.handleAddNewFeature}>
+        Add New {capitalCase(label)}
+      </div>
     );
 
-    return <Grid container>{list}</Grid>;
+    let className = `${this.props.bk} container`;
+
+    return (
+      <div className="section">
+        <div className={className}>{list}</div>
+      </div>
+    );
   }
 }
 
-export default Containment;
+export default Container;
