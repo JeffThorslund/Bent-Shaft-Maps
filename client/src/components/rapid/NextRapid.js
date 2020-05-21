@@ -8,7 +8,7 @@ import {
   useParams,
   useRouteMatch,
 } from "react-router-dom";
-import idParser from "../../tools/idParser";
+import { paramCase } from "change-case";
 import PropTypes from "prop-types";
 
 const NextRapid = (props) => {
@@ -23,7 +23,7 @@ const NextRapid = (props) => {
   };
 
   return (
-    <Link to={`${url}/${idParser(name)}`}>
+    <Link to={`${url}/${paramCase(name)}`}>
       <div className="NextRapid" style={style}>
         <div className="name">{name}</div>
       </div>

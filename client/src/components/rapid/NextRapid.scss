@@ -10,6 +10,10 @@
   border-radius: 1.5vh;
 }
 
+.NextRapid:hover {
+  box-shadow: 0 0 10px 5px $color5;
+}
+
 .NextRapid .name {
   font-family: $title3;
   font-size: 1.1vw;

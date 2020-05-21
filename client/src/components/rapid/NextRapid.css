@@ -11,6 +11,11 @@
   border-radius: 1.5vh;
 }
 
+.NextRapid:hover {
+  -webkit-box-shadow: 0 0 10px 5px #80a1c1;
+          box-shadow: 0 0 10px 5px #80a1c1;
+}
+
 .NextRapid .name {
   font-family: "Alata";
   font-size: 1.1vw;
