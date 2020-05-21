@@ -7,6 +7,7 @@ import GenericToggle from "./GenericToggle";
 import { withRouter } from "react-router-dom";
 import idParser from "../../tools/idParser";
 import Home from "./Home";
+import {paramCase} from 'change-case'
 
 import SubmitKnowledge from "./SubmitKnowledge";
 
@@ -35,7 +36,7 @@ class River extends Component {
   render() {
     // Create Rapid Instance
     const rapidInstance = this.props.data.rapids.map((element, key) => {
-      if (this.props.match.params.id === idParser(element.name)) {
+      if (this.props.match.params.id === paramCase(element.name)) {
         return (
           <Rapid
             data={element}
