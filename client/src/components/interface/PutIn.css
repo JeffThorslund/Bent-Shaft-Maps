@@ -1,5 +1,6 @@
 /*---Colors---*/
 /*---Fonts---*/
+/*---Mixins---*/
 @media (min-width: 320px) {
   .PutIn-wrapper {
     display: -webkit-box;

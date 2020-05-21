@@ -1,5 +1,6 @@
 /*---Colors---*/
 /*---Fonts---*/
+/*---Mixins---*/
 .river-label {
   border-radius: 10px;
   background-image: -webkit-gradient(linear, left top, left bottom, from(#f9c1a0), to(#eca184));
