@@ -35,23 +35,16 @@
   font-weight: normal;
 }
 
-.toggle-board #symbol-bool {
-  position: absolute;
-  top: 2vh;
-  left: 1vw;
-}
-
 .toggle-board #map-bool {
   position: absolute;
-  z-index: 2;
-  top: 8vh;
+  top: 2vh;
   left: 1vw;
 }
 
 .toggle-board #knowledge-bool {
   position: absolute;
   z-index: 2;
-  top: 14vh;
+  top: 8vh;
   left: 1vw;
 }
 

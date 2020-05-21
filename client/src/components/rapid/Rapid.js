@@ -48,7 +48,6 @@ class Rapid extends Component {
         </div>
         <Features
           level={this.props.level}
-          symbolBool={this.props.symbolBool}
           data={this.props.data}
           displayData={this.displayData}
         />
