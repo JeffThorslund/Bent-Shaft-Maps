@@ -1,5 +1,6 @@
-import React, { Suspense, lazy } from "react";
+import React from "react";
 import { pascalCase, paramCase } from "change-case";
+import loadable from '@loadable/component'
 
 const style = {
   position: "absolute",
@@ -11,7 +12,7 @@ const style = {
 const Basemap = (props) => {
   let name = paramCase(props.name);
   let rapidName = pascalCase(props.rapidName);
-  const VectorMap = React.lazy(() =>
+  const VectorMap = loadable(() =>
     import(`../../river-data/${name}/maps/${rapidName}`)
   );
 

@@ -1,4 +1,5 @@
-import React, { Suspense, lazy } from "react";
+import React from "react";
+import loadable from '@loadable/component'
 import PropTypes from "prop-types";
 import "./Map.css";
 import MapLabel from "./MapLabel";
@@ -20,12 +21,11 @@ const Map = (props) => {
     ));
 
   let name = paramCase(props.data.name);
-  const OverviewMap = lazy(() =>
+  const OverviewMap = loadable(() =>
     import(`../../river-data/${name}/maps/OverviewMap`)
   );
 
   return (
-    <Suspense fallback="map-loading">
       <div className="Map">
         <div
           className="fade"
@@ -39,7 +39,6 @@ const Map = (props) => {
         </div>
         <div className="maplabel-array">{mapLabelArray}</div>
       </div>
-    </Suspense>
   );
 };
 

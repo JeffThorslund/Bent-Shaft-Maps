@@ -52,7 +52,6 @@ class River extends Component {
 
     return (
       <div className="App">
-        <Suspense fallback="riverloading">
           {this.state.mapBool && (
             <Map
               url={this.props.url}
@@ -100,7 +99,6 @@ class River extends Component {
               <Home />
             </div>
           </div>
-        </Suspense>
       </div>
     );
   }
