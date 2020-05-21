@@ -1,7 +1,8 @@
 import React from "react";
 import { Formik, Form, Field, FieldArray } from "formik";
 import { capitalCase, paramCase } from "change-case";
-import { validate } from "./Validation";
+import SimpleReactValidator from "simple-react-validator";
+import ValidateMe from "./ValidateMe";
 const axios = require("axios");
 
 class InputArea extends React.Component {
@@ -10,6 +11,7 @@ class InputArea extends React.Component {
     this.state = {
       riverList: null,
     };
+    this.validator = new SimpleReactValidator();
   }
 
   componentDidUpdate(prevProps) {
@@ -36,15 +38,25 @@ class InputArea extends React.Component {
           <Formik
             initialValues={this.props.dataArr} //set values:_________
             onSubmit={(values) => {
-              console.log("submitted")
-              axios
+              console.log("submitted");
+
+              if (this.validator.allValid()) {
+                alert("You submitted the form and stuff!");
+              } else {
+                this.validator.showMessages();
+                // rerender to show messages for the first time
+                // you can use the autoForceUpdate option to do this automatically`
+                this.forceUpdate();
+              }
+
+              /*axios
                 .post("/api/updateData", {
                  values,
                 })
                 .then((response) => {
                   this.setState({ riverList: JSON.parse(response.data).list });
                 })
-                .catch((error) => {});
+                .catch((error) => {});*/
             }}
           >
             {({ values }) => {
@@ -67,15 +79,21 @@ class InputArea extends React.Component {
                   : null;
               let list = [];
               let tempName = "";
-              const parseObject = (dataObj, name) => {
+              let tempPath;
+
+              const parseObject = (dataObj, name, path) => {
                 for (let elem in dataObj) {
                   tempName = `${name}.${elem}`;
+                  tempPath = dataObj[elem];
                   if (
                     typeof dataObj[elem] == "object" &&
                     !Array.isArray(dataObj[elem])
                   ) {
+
                     parseObject(dataObj[elem], tempName);
                   } else if (!Array.isArray(data[elem]) || elem == "range") {
+                    //validation logic
+                    console.log(tempPath);
                     if (elem == "pointerDirection") {
                       list.push(
                         <div className="input-field">
@@ -106,7 +124,11 @@ class InputArea extends React.Component {
                         <div className="input-field">
                           <div>{capitalCase(elem)}:</div>
                           <Field name={tempName} key={elem} />
-                          {/*{validate(tempName)}*/}
+                          {this.validator.message(
+                            elem,
+                            dataObj[elem],
+                            ValidateMe(elem)
+                          )}
                         </div>
                       );
                     }
