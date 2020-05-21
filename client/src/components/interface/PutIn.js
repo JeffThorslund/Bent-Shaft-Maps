@@ -7,8 +7,7 @@ import {
   useParams,
   useRouteMatch,
 } from "react-router-dom";
-
-import idParser from "../../tools/idParser";
+import { paramCase } from "change-case";
 import "./PutIn.css";
 
 const PutIn = (props) => {
@@ -21,7 +20,7 @@ const PutIn = (props) => {
         <div id="title">{props.data.name}</div>
 
         <Link
-          to={`${props.url}/${idParser(props.data.rapids[0].name)}`}
+          to={`${props.url}/${paramCase(props.data.rapids[0].name)}`}
           className="child"
         >
           <div className="button">Click to Continue...</div>
@@ -46,7 +45,9 @@ const PutIn = (props) => {
               rel="noopener noreferrer"
             >
               <img
-                src={props.data.sponsors[0].logo}
+                src={require(`../../river-data/${paramCase(props.data.name)}/${
+                  props.data.sponsors[0].logo
+                }`)}
                 alt="trestle logo"
                 width="100%"
               />
