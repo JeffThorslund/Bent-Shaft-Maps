@@ -1,13 +1,10 @@
-.hydraulic {
-  background: linear-gradient(
-    1deg,
-    #ffffff -2.5%,
-    rgba(255, 255, 255, 0) 62.1%
-  );
-  filter: blur(0.5px);
-  border-radius: 20px;
+.hydraulic rect {
+  fill: white;
+  fill-opacity: 0.7;
 }
 
-.hydraulic:hover {
-  cursor: pointer;
+.hydraulic:hover rect {
+  fill: white;
+  fill-opacity: 1;
 }
+/*# sourceMappingURL=Hydraulic.css.map */
