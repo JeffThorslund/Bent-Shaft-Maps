@@ -18,7 +18,6 @@ class River extends Component {
     this.state = {
       level: 0,
       mapBool: false,
-      symbolBool: false,
       knowledgeBool: false,
     };
   }
@@ -43,7 +42,6 @@ class River extends Component {
             name={this.props.data.name}
             url={this.props.url}
             level={this.state.level}
-            symbolBool={this.state.symbolBool}
             selectLevel={this.selectLevel}
             key={`rapid${key}`}
           />
@@ -85,16 +83,6 @@ class River extends Component {
                 setting="mapBool"
                 false="Show Map"
                 true="Hide Map"
-              />
-            </div>
-
-            <div id="symbol-bool">
-              <GenericToggle
-                toggle={this.state.symbolBool}
-                toggleSetting={this.toggleSetting}
-                setting="symbolBool"
-                false="Symbols"
-                true="Symbols"
               />
             </div>
 
