@@ -2,6 +2,7 @@ import React from "react";
 import Global from "./Global";
 import RiverRouter from "./RiverRouter";
 import Form from "../form/Form.js";
+import Test from "../test/Test";
 import {
   BrowserRouter as Router,
   Switch,
@@ -20,7 +21,7 @@ class GlobalRouter extends React.Component {
     this.state = { data: null };
   }
 
-  //Removes all empty objects and sets river data as state. 
+  //Removes all empty objects and sets river data as state.
   componentDidMount() {
     readRiverFilesRequest("./client/src/river-data").then((response) => {
       response.json().then((value) => {
@@ -35,14 +36,13 @@ class GlobalRouter extends React.Component {
   render() {
     var routeArray;
     if (this.state.data != null) {
-      routeArray = this.state.data
-        .map((elem, key) => {
-          return (
-            <Route path={`/${paramCase(elem.name)}`} key={`river${key}`}>
-              <RiverRouter data={elem} />
-            </Route>
-          );
-        });
+      routeArray = this.state.data.map((elem, key) => {
+        return (
+          <Route path={`/${paramCase(elem.name)}`} key={`river${key}`}>
+            <RiverRouter data={elem} />
+          </Route>
+        );
+      });
     } else {
       routeArray = [];
     }
@@ -56,6 +56,10 @@ class GlobalRouter extends React.Component {
 
           <Route exact path="/form">
             <Form dataArr={this.state.data} />
+          </Route>
+
+          <Route exact path="/test">
+            <Test />
           </Route>
 
           {routeArray}
