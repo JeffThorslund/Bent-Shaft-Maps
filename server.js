@@ -1,6 +1,8 @@
 const readRiverDataFiles = require("./modules/readRiverDataFiles");
-const getRiverNames = require("./modules/getRiverNames")
+const getRiverNames = require("./modules/getRiverNames");
 const sendMail = require("./modules/sendMail");
+const dataUpdater = require("./modules/dataUpdater");
+
 const compression = require("compression");
 const bodyParser = require("body-parser");
 const express = require("express");
@@ -26,9 +28,17 @@ app.post("/api/mailer", (req, res, next) => {
 });
 
 app.post("/api/getlist", (req, res, next) => {
-  console.log(req.body.path)
+  console.log(req.body.path);
   data = getRiverNames(req.body.path);
   res.send(JSON.stringify(data));
+});
+
+app.post("/api/updateData", (req, res, next) => {
+  console.log(req.body);
+  dataUpdater(req.body.values)
+  //data = getRiverNames(req.body.path);
+  //res.send(JSON.stringify(data));
+  res.send("Submission Received!");
 });
 
 const port = process.env.PORT || 5000;

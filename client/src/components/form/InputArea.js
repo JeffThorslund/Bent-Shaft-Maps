@@ -36,7 +36,15 @@ class InputArea extends React.Component {
           <Formik
             initialValues={this.props.dataArr} //set values:_________
             onSubmit={(values) => {
-              console.log(values);
+              console.log("submitted")
+              axios
+                .post("/api/updateData", {
+                 values,
+                })
+                .then((response) => {
+                  this.setState({ riverList: JSON.parse(response.data).list });
+                })
+                .catch((error) => {});
             }}
           >
             {({ values }) => {
