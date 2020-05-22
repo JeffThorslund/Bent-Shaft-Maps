@@ -843,7 +843,7 @@
       "name": "The Lorne",
       "desc": "Class III",
       "displayPosition": { "top": 71, "left": 42, "width": 50 },
-      "riverMap": { "viewBox": "0 0 1600 900", "path": "Lorne" },
+      "riverMap": { "viewBox": "0 0 1600 900", "path": "TheLorne" },
       "hydraulics": [],
       "eddys": [],
       "lines": [],
