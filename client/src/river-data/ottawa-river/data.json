@@ -22,7 +22,7 @@
       "name": "McCoys Chute",
       "desc": "Class III",
       "displayPosition": { "top": 70, "left": 22, "width": 35 },
-      "riverMap": { "viewBox": "0 50 1600 900", "path": "McCoysChuteRapid" },
+      "riverMap": { "viewBox": "0 50 1600 900", "path": "McCoysChute" },
       "hydraulics": [
         {
           "name": "Phil's Hole",
@@ -227,7 +227,7 @@
       "displayPosition": { "top": 72, "left": 15, "width": 50 },
       "riverMap": {
         "viewBox": "0 0 1600 900",
-        "path": "MagicalMysteryTourRapid"
+        "path": "MagicalMysteryTour"
       },
       "hydraulics": [],
       "eddys": [],
@@ -277,7 +277,7 @@
       "name": "Iron Ring",
       "desc": "Class III",
       "displayPosition": { "top": 76, "left": 32, "width": 43 },
-      "riverMap": { "viewBox": "0 0 1600 900", "path": "IronRingRapid" },
+      "riverMap": { "viewBox": "0 0 1600 900", "path": "IronRing" },
       "hydraulics": [
         {
           "name": "Main Wave",
@@ -348,7 +348,7 @@
       "name": "S-Bend",
       "desc": "Class III",
       "displayPosition": { "top": 72, "left": 23, "width": 55 },
-      "riverMap": { "viewBox": "0 0 1600 900", "path": "SBendRapid" },
+      "riverMap": { "viewBox": "0 0 1600 900", "path": "SBend" },
       "hydraulics": [],
       "eddys": [],
       "lines": [],
@@ -387,7 +387,7 @@
       "name": "Butterfly",
       "desc": "Class III",
       "displayPosition": { "top": 75, "left": 50, "width": 45 },
-      "riverMap": { "viewBox": "0 0 1600 900", "path": "ButteryflyRapid" },
+      "riverMap": { "viewBox": "0 0 1600 900", "path": "Butterfly" },
       "hydraulics": [
         {
           "name": "Main Wave",
@@ -464,7 +464,7 @@
       "name": "Little Trickle",
       "desc": "Class III",
       "displayPosition": { "top": 72, "left": 2, "width": 40 },
-      "riverMap": { "viewBox": "0 0 1600 900", "path": "LittleTrickleRapid" },
+      "riverMap": { "viewBox": "0 0 1600 900", "path": "LittleTrickle" },
       "hydraulics": [
         {
           "name": "Main Drop",
@@ -557,7 +557,7 @@
       "name": "Angels Kiss",
       "desc": "Class III",
       "displayPosition": { "top": 65, "left": 2, "width": 40 },
-      "riverMap": { "viewBox": "0 0 1600 900", "path": "AngelsKissRapid" },
+      "riverMap": { "viewBox": "0 0 1600 900", "path": "AngelsKiss" },
       "hydraulics": [],
       "eddys": [],
       "lines": [],
@@ -596,7 +596,7 @@
       "name": "Garvins",
       "desc": "Class IV",
       "displayPosition": { "top": 72, "left": 65, "width": 30 },
-      "riverMap": { "viewBox": "0 0 1600 900", "path": "GarvinsRapid" },
+      "riverMap": { "viewBox": "0 0 1600 900", "path": "Garvins" },
       "hydraulics": [
         {
           "name": "Elevator Shaft",
@@ -771,7 +771,7 @@
       "name": "Upper No Name",
       "desc": "Class III",
       "displayPosition": { "top": 55, "left": 2, "width": 25 },
-      "riverMap": { "viewBox": "0 0 1600 900", "path": "UpperNoNameRapid" },
+      "riverMap": { "viewBox": "0 0 1600 900", "path": "UpperNoName" },
       "hydraulics": [],
       "eddys": [],
       "lines": [],
@@ -810,7 +810,7 @@
       "name": "Lower No Name",
       "desc": "Class III",
       "displayPosition": { "top": 68, "left": 2, "width": 40 },
-      "riverMap": { "viewBox": "0 0 1600 900", "path": "LowerNoNameRapid" },
+      "riverMap": { "viewBox": "0 0 1600 900", "path": "LowerNoName" },
       "hydraulics": [],
       "eddys": [],
       "lines": [],
@@ -843,7 +843,7 @@
       "name": "The Lorne",
       "desc": "Class III",
       "displayPosition": { "top": 71, "left": 42, "width": 50 },
-      "riverMap": { "viewBox": "0 0 1600 900", "path": "LorneRapid" },
+      "riverMap": { "viewBox": "0 0 1600 900", "path": "Lorne" },
       "hydraulics": [],
       "eddys": [],
       "lines": [],
@@ -882,7 +882,7 @@
       "name": "Push Button",
       "desc": "Class III",
       "displayPosition": { "top": 70, "left": 25, "width": 50 },
-      "riverMap": { "viewBox": "0 0 1600 900", "path": "PushButtonRapid" },
+      "riverMap": { "viewBox": "0 0 1600 900", "path": "PushButton" },
       "hydraulics": [],
       "eddys": [],
       "lines": [],
@@ -921,7 +921,7 @@
       "name": "Butchers Knife",
       "desc": "Class III",
       "displayPosition": { "top": 70, "left": 48, "width": 45 },
-      "riverMap": { "viewBox": "0 0 1600 900", "path": "ButchersKnifeRapid" },
+      "riverMap": { "viewBox": "0 0 1600 900", "path": "ButchersKnife" },
       "hydraulics": [],
       "eddys": [],
       "lines": [],
@@ -952,7 +952,7 @@
       "name": "Normans",
       "desc": "Class III",
       "displayPosition": { "top": 74, "left": 27, "width": 40 },
-      "riverMap": { "viewBox": "0 0 1600 900", "path": "NormansRapid" },
+      "riverMap": { "viewBox": "0 0 1600 900", "path": "Normans" },
       "hydraulics": [],
       "eddys": [],
       "lines": [],
@@ -983,7 +983,7 @@
       "name": "Coliseum",
       "desc": "Class III",
       "displayPosition": { "top": 72, "left": 32, "width": 35 },
-      "riverMap": { "viewBox": "0 0 1600 900", "path": "ColiseumRapid" },
+      "riverMap": { "viewBox": "0 0 1600 900", "path": "Coliseum" },
       "hydraulics": [],
       "eddys": [],
       "lines": [],
@@ -1014,7 +1014,7 @@
       "name": "Dogs Leg",
       "desc": "Class III",
       "displayPosition": { "top": 73, "left": 35, "width": 35 },
-      "riverMap": { "viewBox": "0 0 1600 900", "path": "DogsLegRapid" },
+      "riverMap": { "viewBox": "0 0 1600 900", "path": "DogsLeg" },
       "hydraulics": [],
       "eddys": [],
       "lines": [],
@@ -1045,7 +1045,7 @@
       "name": "Farmer Blacks",
       "desc": "Class III",
       "displayPosition": { "top": 72, "left": 21, "width": 30 },
-      "riverMap": { "viewBox": "0 0 1600 900", "path": "FarmerBlacksRapid" },
+      "riverMap": { "viewBox": "0 0 1600 900", "path": "FarmerBlacks" },
       "hydraulics": [],
       "eddys": [],
       "lines": [],
