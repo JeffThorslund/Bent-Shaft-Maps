@@ -42,7 +42,7 @@ class InputArea extends React.Component {
               console.log("submitted");
 
               if (this.validator.allValid()) {
-                alert("You submitted the form and stuff!");
+                console.log("submitted")
               } else {
                 this.validator.showMessages();
                 // rerender to show messages for the first time
@@ -50,14 +50,14 @@ class InputArea extends React.Component {
                 this.forceUpdate();
               }
 
-              /*axios
+              axios
                 .post("/api/updateData", {
                  values,
                 })
                 .then((response) => {
                   this.setState({ riverList: JSON.parse(response.data).list });
                 })
-                .catch((error) => {});*/
+                .catch((error) => {});
             }}
           >
             {({ values }) => {
@@ -93,7 +93,7 @@ class InputArea extends React.Component {
                     parseObject(dataObj[elem], tempName);
                   } else if (!Array.isArray(data[elem]) || elem == "range") {
                     //validation logic
-                    if (elem == "viewBox") {
+                    if (elem == "viewBox" || elem == "id") {
                       console.log("skip");
                     } else if (elem == "pointerDirection") {
                       list.push(
@@ -109,7 +109,7 @@ class InputArea extends React.Component {
                       );
                     } else if (
                       elem == "path" ||
-                      (elem == "name" && featureName == "arrows")
+                      (elem == "linkId" && featureName == "arrows")
                     ) {
                       let options = this.state.riverList.map((path) => {
                         path = path.split(".")[0];
