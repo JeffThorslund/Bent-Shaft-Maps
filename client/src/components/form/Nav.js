@@ -109,6 +109,7 @@ class Nav extends Component {
                 label={elem[0]}
                 handleSelect={this.handleFeatureSelect}
                 handleAddNewFeature={this.handleAddNewFeature}
+                rapidArray={rapidArray}
                 type={this.state.featureName}
                 selected={this.state.feature}
                 key={`feature_key_${index}`}

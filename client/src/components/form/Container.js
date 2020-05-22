@@ -8,12 +8,32 @@ export class Container extends Component {
   }
 
   render() {
-    const { arr, label, type, handleSelect, selected } = this.props;
+    const {
+      arr,
+      label,
+      type,
+      handleSelect,
+      selected,
+      rapidArray,
+    } = this.props;
 
     let list = arr.map((elem, index) => {
       let memberClassName = _.isEqual([label, selected], [type, index])
         ? "member on"
         : "member off";
+
+      //special case for arrows
+      let pointer;
+      if (!elem.name && !elem.type) {
+        console.log(elem.id, rapidArray);
+        for (let rapid of rapidArray) {
+          if (elem.linkId == rapid.id) {
+            pointer = rapid.name;
+          } else {
+            console.log("no match");
+          }
+        }
+      }
 
       return (
         <div
@@ -21,13 +41,17 @@ export class Container extends Component {
           className={memberClassName}
           onClick={() => handleSelect(label, index)}
         >
-          {elem.name || elem.type}
+          {elem.name || elem.type || pointer}
         </div>
       );
     });
 
     list.push(
-      <div className="member new" onClick={this.props.handleAddNewFeature} key="add_new">
+      <div
+        className="member new"
+        onClick={this.props.handleAddNewFeature}
+        key="add_new"
+      >
         Add New {capitalCase(label)}
       </div>
     );
