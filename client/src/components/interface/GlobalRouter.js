@@ -21,6 +21,14 @@ class GlobalRouter extends React.Component {
     this.state = { data: null };
   }
 
+  forceUpdateHandler = () => {
+
+
+    
+
+
+  };
+
   //Removes all empty objects and sets river data as state.
   componentDidMount() {
     readRiverFilesRequest("./client/src/river-data").then((response) => {
@@ -50,15 +58,18 @@ class GlobalRouter extends React.Component {
     if (this.state.data != null) {
       return (
         <Switch>
-          <Route exact path="/">
+          <Route exact path="/" key="home">
             <Global dataArr={this.state.data} />
           </Route>
 
-          <Route exact path="/form">
-            <Form dataArr={this.state.data} />
+          <Route exact path="/form" key="form">
+            <Form
+              dataArr={this.state.data}
+              forceUpdateHandler={this.forceUpdateHandler}
+            />
           </Route>
 
-          <Route exact path="/test">
+          <Route exact path="/test" key="test">
             <Test />
           </Route>
 

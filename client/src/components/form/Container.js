@@ -27,7 +27,7 @@ export class Container extends Component {
     });
 
     list.push(
-      <div className="member new" onClick={this.props.handleAddNewFeature}>
+      <div className="member new" onClick={this.props.handleAddNewFeature} key="add_new">
         Add New {capitalCase(label)}
       </div>
     );

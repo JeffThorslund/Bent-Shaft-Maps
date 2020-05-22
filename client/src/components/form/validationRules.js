@@ -29,17 +29,13 @@ export const rules = (elem) => {
   let output;
   for (let item in dic) {
     if (item == elem && typeof dic[item][0] == "string") {
-      console.log("if", item, dic[item]);
       output = dic[item].join("|");
       return `${output}|required`;
     } else if (item == elem) {
-      console.log("else if", item, dic[item]);
       output = dic[item];
       return output;
     }
   }
-
-  console.log("else", elem);
 
   return "required";
 };
