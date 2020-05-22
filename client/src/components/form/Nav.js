@@ -130,6 +130,7 @@ class Nav extends Component {
           feature={this.state.feature}
           featureName={this.state.featureName}
           dataArr={this.props.dataArr}
+          forceUpdateHandler={this.props.forceUpdateHandler}
         />
       </div>
     );

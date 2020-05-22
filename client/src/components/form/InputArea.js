@@ -16,6 +16,7 @@ class InputArea extends React.Component {
   }
 
   componentDidUpdate(prevProps) {
+    //get river list
     if (this.props.river != prevProps.river && this.props.river != null) {
       axios
         .post("/api/getlist", {
@@ -32,7 +33,6 @@ class InputArea extends React.Component {
 
   render() {
     const { river, rapid, feature, featureName, dataArr } = this.props;
-    console.log(featureName);
 
     return (
       <>
@@ -40,23 +40,23 @@ class InputArea extends React.Component {
           <Formik
             initialValues={this.props.dataArr} //set values:_________
             onSubmit={(values) => {
-              console.log("submitted");
-
               if (this.validator.allValid()) {
-                console.log("submitted");
+                axios
+                  .post("/api/updateData", {
+                    values,
+                  })
+                  .then((response) => {
+                    console.log(response.data);
+                  })
+                  .catch((error) => {
+                    throw error;
+                  });
+
+                this.props.forceUpdateHandler();
               } else {
                 this.validator.showMessages();
                 this.forceUpdate();
               }
-
-              axios
-                .post("/api/updateData", {
-                  values,
-                })
-                .then((response) => {
-                  this.setState({ riverList: JSON.parse(response.data).list });
-                })
-                .catch((error) => {});
             }}
           >
             {({ values }) => {
@@ -87,15 +87,14 @@ class InputArea extends React.Component {
                   tempPath = dataObj[elem];
                   //does not render these elems
                   if (["viewbox", "id"].includes(elem)) {
-                    console.log("skip");
-                  } 
+                  }
                   //recursively digs into object type elems
                   else if (
                     typeof dataObj[elem] == "object" &&
                     !Array.isArray(dataObj[elem])
                   ) {
                     parseObject(dataObj[elem], tempName);
-                  } 
+                  }
                   //handles special cases
                   else if (!Array.isArray(data[elem]) || elem == "range") {
                     switch (elem) {
