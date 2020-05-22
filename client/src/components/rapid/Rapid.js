@@ -24,31 +24,39 @@ class Rapid extends Component {
   };
 
   render() {
+    //destructure incoming props
+    const {data, allData, url, level, selectLevel} = this.props
+
     // render array of "next rapid arrows" based on selected water level (App state)
-    const arrowArray = this.props.data.arrows.map((element, key) => (
-      <NextRapid arrows={element} url={this.props.url} key={`arrow${key}`} />
+    const arrowArray = data.arrows.map((element, key) => (
+      <NextRapid
+        arrows={element}
+        url={url}
+        key={`arrow${key}`}
+        allData={allData}
+      />
     ));
 
     return (
       <div className="Rapid">
         <Basemap
-          path={this.props.data.riverMap.path}
-          viewBox={this.props.data.riverMap.viewBox}
-          rapidName={this.props.data.name}
-          name={this.props.name}
+          path={data.riverMap.path}
+          viewBox={data.riverMap.viewBox}
+          rapidName={data.name}
+          name={allData.name}
         />
         <div className="rapid-header">
-          <div id="rapid-name"> {this.props.data.name} </div>
-          <div id="rapid-desc"> {this.props.data.desc} </div>
+          <div id="rapid-name"> {data.name} </div>
+          <div id="rapid-desc"> {data.desc} </div>
         </div>
 
         <div id="level-display">
-          <div id="feet"> {this.props.level} ft</div>
-          <div id="cfs">{this.props.level * 140 + 600} mm</div>
+          <div id="feet"> {level} ft</div>
+          <div id="cfs">{level * 140 + 600} mm</div>
         </div>
         <Features
-          level={this.props.level}
-          data={this.props.data}
+          level={level}
+          data={data}
           displayData={this.displayData}
         />
         <div id="arrow-array"> {arrowArray} </div>
@@ -56,7 +64,7 @@ class Rapid extends Component {
         <Display
           title={this.state.title}
           desc={this.state.desc}
-          displayPosition={this.props.data.displayPosition}
+          displayPosition={data.displayPosition}
         />
       </div>
     );
