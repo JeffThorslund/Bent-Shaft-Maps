@@ -11,9 +11,8 @@ const style = {
 
 const Basemap = (props) => {
   let name = paramCase(props.name);
-  let rapidName = pascalCase(props.rapidName);
   const VectorMap = loadable(() =>
-    import(`../../river-data/${name}/maps/${rapidName}`)
+    import(`../../river-data/${name}/maps/${props.path}`)
   );
 
   return (
