@@ -2,7 +2,7 @@ import React from "react";
 import { Formik, Form, Field, FieldArray } from "formik";
 import { capitalCase, paramCase } from "change-case";
 import SimpleReactValidator from "simple-react-validator";
-import ValidateMe from "./ValidateMe";
+import { rules } from "./validationRules";
 const axios = require("axios");
 
 class InputArea extends React.Component {
@@ -31,6 +31,7 @@ class InputArea extends React.Component {
 
   render() {
     const { river, rapid, feature, featureName, dataArr } = this.props;
+    console.log(featureName)
 
     return (
       <>
@@ -89,12 +90,12 @@ class InputArea extends React.Component {
                     typeof dataObj[elem] == "object" &&
                     !Array.isArray(dataObj[elem])
                   ) {
-
                     parseObject(dataObj[elem], tempName);
                   } else if (!Array.isArray(data[elem]) || elem == "range") {
                     //validation logic
-                    console.log(tempPath);
-                    if (elem == "pointerDirection") {
+                    if (elem == "viewBox") {
+                      console.log("skip");
+                    } else if (elem == "pointerDirection") {
                       list.push(
                         <div className="input-field">
                           <div>{capitalCase(elem)}:</div>
@@ -106,7 +107,10 @@ class InputArea extends React.Component {
                           </Field>
                         </div>
                       );
-                    } else if (elem == "path") {
+                    } else if (
+                      elem == "path" ||
+                      (elem == "name" && featureName == "arrows")
+                    ) {
                       let options = this.state.riverList.map((path) => {
                         path = path.split(".")[0];
                         return <option value={path}>{path}</option>;
@@ -127,7 +131,8 @@ class InputArea extends React.Component {
                           {this.validator.message(
                             elem,
                             dataObj[elem],
-                            ValidateMe(elem)
+                            //[{ regex: /dad/}]
+                            rules(elem)
                           )}
                         </div>
                       );
