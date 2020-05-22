@@ -39,7 +39,7 @@ class River extends Component {
         return (
           <Rapid
             data={element}
-            name={this.props.data.name}
+            allData = {this.props.data}
             url={this.props.url}
             level={this.state.level}
             selectLevel={this.selectLevel}

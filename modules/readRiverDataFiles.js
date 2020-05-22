@@ -7,7 +7,7 @@ module.exports = function (path) {
   let rivers = [];
 
   files.forEach((elem) => {
-    let data = fs.readFileSync(`${path}/${elem}/temp_data.json`, "utf8");
+    let data = fs.readFileSync(`${path}/${elem}/data.json`, "utf8");
     rivers.push(JSON.parse(data));
   });
 
