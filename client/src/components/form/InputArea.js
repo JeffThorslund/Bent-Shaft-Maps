@@ -3,6 +3,7 @@ import { Formik, Form, Field, FieldArray } from "formik";
 import { capitalCase, paramCase } from "change-case";
 import SimpleReactValidator from "simple-react-validator";
 import { rules } from "./validationRules";
+import { casePointerDirection, caseMapList } from "./inputCases";
 const axios = require("axios");
 
 class InputArea extends React.Component {
@@ -31,7 +32,7 @@ class InputArea extends React.Component {
 
   render() {
     const { river, rapid, feature, featureName, dataArr } = this.props;
-    console.log(featureName)
+    console.log(featureName);
 
     return (
       <>
@@ -42,17 +43,15 @@ class InputArea extends React.Component {
               console.log("submitted");
 
               if (this.validator.allValid()) {
-                console.log("submitted")
+                console.log("submitted");
               } else {
                 this.validator.showMessages();
-                // rerender to show messages for the first time
-                // you can use the autoForceUpdate option to do this automatically`
                 this.forceUpdate();
               }
 
               axios
                 .post("/api/updateData", {
-                 values,
+                  values,
                 })
                 .then((response) => {
                   this.setState({ riverList: JSON.parse(response.data).list });
@@ -86,59 +85,45 @@ class InputArea extends React.Component {
                 for (let elem in dataObj) {
                   tempName = `${name}.${elem}`;
                   tempPath = dataObj[elem];
-                  if (
+                  //does not render these elems
+                  if (["viewbox", "id"].includes(elem)) {
+                    console.log("skip");
+                  } 
+                  //recursively digs into object type elems
+                  else if (
                     typeof dataObj[elem] == "object" &&
                     !Array.isArray(dataObj[elem])
                   ) {
                     parseObject(dataObj[elem], tempName);
-                  } else if (!Array.isArray(data[elem]) || elem == "range") {
-                    //validation logic
-                    if (elem == "viewBox" || elem == "id") {
-                      console.log("skip");
-                    } else if (elem == "pointerDirection") {
-                      list.push(
-                        <div className="input-field">
-                          <div>{capitalCase(elem)}:</div>
-                          <Field as="select" name={tempName} key={elem}>
-                            <option value="top">Top</option>
-                            <option value="bottom">Bottom</option>
-                            <option value="left">Left</option>
-                            <option value="right">Right</option>
-                          </Field>
-                        </div>
-                      );
-                    } else if (
-                      elem == "path" ||
-                      (elem == "linkId" && featureName == "arrows")
-                    ) {
-                      let options = this.state.riverList.map((path) => {
-                        path = path.split(".")[0];
-                        return <option value={path}>{path}</option>;
-                      });
-                      list.push(
-                        <div className="input-field">
-                          <div>{capitalCase(elem)}:</div>
-                          <Field as="select" name={tempName} key={elem}>
-                            {options}
-                          </Field>
-                        </div>
-                      );
-                    } else {
-                      list.push(
-                        <div className="input-field">
-                          <div>{capitalCase(elem)}:</div>
-                          <Field name={tempName} key={elem} />
-                          {this.validator.message(
-                            elem,
-                            dataObj[elem],
-                            //[{ regex: /dad/}]
-                            rules(elem)
-                          )}
-                        </div>
-                      );
+                  } 
+                  //handles special cases
+                  else if (!Array.isArray(data[elem]) || elem == "range") {
+                    switch (elem) {
+                      case "pointerDirection":
+                        list.push(casePointerDirection(elem, tempName));
+                        break;
+                      case "path":
+                        list.push(
+                          caseMapList(elem, tempName, this.state.riverList)
+                        );
+                        break;
+                      default:
+                        list.push(
+                          <div className="input-field">
+                            <div>{capitalCase(elem)}:</div>
+                            <Field name={tempName} key={elem} />
+                            {this.validator.message(
+                              elem,
+                              dataObj[elem],
+                              //[{ regex: /dad/}]
+                              rules(elem)
+                            )}
+                          </div>
+                        );
                     }
                   }
                 }
+
                 return list;
               };
 
