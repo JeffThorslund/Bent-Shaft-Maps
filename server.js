@@ -2,6 +2,7 @@ const readRiverDataFiles = require("./modules/readRiverDataFiles");
 const getMapList = require("./modules/getMapList");
 const sendMail = require("./modules/sendMail");
 const handleSubmit = require("./modules/handleSubmit");
+const handleClickAddRapid = require("./modules/handleClickAddRapid");
 
 const compression = require("compression");
 const bodyParser = require("body-parser");
@@ -36,22 +37,17 @@ app.post("/api/getMapList", (req, res, next) => {
 
 app.post("/api/handleSubmit", (req, res, next) => {
   //console.log(req.body);
-  handleSubmit(req.body);
+  handleSubmit(req.body.river);
   res.send("Submission Received!");
 });
 
-app.get("/api/handleClickAddRapid", (req, res, next) => {
-  res.send("handleClickAddRapid Request Received!");
+app.post("/api/handleClickAddRapid", (req, res, next) => {
+let newRiverData = handleClickAddRapid(req.body.riverName)
+handleSubmit(newRiverData)
+res.send("River Added!");
 });
-
-
-
-
-
 
 const port = process.env.PORT || 5000;
 app.listen(port);
 
 console.log(`Server is started baby!`);
-
-//committing to update password

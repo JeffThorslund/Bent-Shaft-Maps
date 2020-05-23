@@ -47,7 +47,7 @@ class InputArea extends React.Component {
             initialValues={this.props.dataArr}
             onSubmit={(values) => {
               if (this.validator.allValid()) {
-                handleSubmit(values, river);
+                handleSubmit(values[river]);
               } else {
                 this.validator.showMessages();
                 this.forceUpdate();

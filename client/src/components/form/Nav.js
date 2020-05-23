@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Container from "./Container";
 import "./Form.css";
+import { handleClickAddRapid } from "./requests";
 
 import InputArea from "./InputArea";
 var _ = require("lodash");
@@ -78,6 +79,7 @@ class Nav extends Component {
         selected={this.state.river} //selected river
         key="river_key"
         bk={"bk1"}
+        onAdd={() => {}}
       />
     );
 
@@ -93,6 +95,9 @@ class Nav extends Component {
           selected={this.state.rapid}
           key="rapid_key"
           bk={"bk2"}
+          onAdd={()=>handleClickAddRapid("ottawa-river")}
+          river={this.state.river}
+          riverArray={riverArray}
         />
       );
 
@@ -114,6 +119,7 @@ class Nav extends Component {
                 selected={this.state.feature}
                 key={`feature_key_${index}`}
                 bk={bk}
+                onAdd={() => {}}
               />
             );
           });

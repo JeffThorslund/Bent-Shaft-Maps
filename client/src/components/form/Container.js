@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { capitalCase } from "change-case";
+import { capitalCase, paramCase } from "change-case";
 var _ = require("lodash");
 
 export class Container extends Component {
@@ -22,7 +22,7 @@ export class Container extends Component {
         ? "member on"
         : "member off";
 
-      //special case for arrows
+      //special case for showing arrow names
       let pointer;
       if (!elem.name && !elem.type) {
         for (let rapid of rapidArray) {
@@ -47,7 +47,7 @@ export class Container extends Component {
     list.push(
       <div
         className="member new"
-        onClick={this.props.handleAddNewFeature}
+        onClick={this.props.onAdd}
         key="add_new"
       >
         Add New {capitalCase(label)}
