@@ -8,7 +8,6 @@ const generateId = (prefix) => {
     value = [...dic][index];
     id = `${id}${value}`;
   }
-
   return id;
 };
 

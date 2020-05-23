@@ -1,10 +1,9 @@
 const axios = require("axios");
 
-export const handleSubmit = (values, river) => {
+export const handleSubmit = (river) => {
   axios
     .post("/api/handleSubmit", {
-      values,
-      river,
+      river: river,
     })
     .then((response) => {
       console.log(response.data);
@@ -14,9 +13,11 @@ export const handleSubmit = (values, river) => {
     });
 };
 
-export const handleClickAddRapid = () => {
+export const handleClickAddRapid = (riverName) => {
   axios
-    .get("/api/handleClickAddRapid")
+    .post("/api/handleClickAddRapid", {
+      riverName: riverName,
+    })
     .then((response) => {
       console.log(response.data);
     })

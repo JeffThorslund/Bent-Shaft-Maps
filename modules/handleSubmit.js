@@ -1,10 +1,10 @@
 var fs = require("fs");
 
-module.exports = function (body) {
+module.exports = function (river) {
   fs.writeFileSync(
     "./client/src/river-data/ottawa-river/data.json",
-    JSON.stringify(values[river])
+    JSON.stringify(river)
   );
 
-  return "that worked!";
+  return "River Submitted!";
 };
