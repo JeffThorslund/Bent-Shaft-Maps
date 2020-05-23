@@ -1,1 +1,81 @@
-{}
+{
+  "name": "Template River",
+  "id": "river_5ksl1",
+  "desc": "This is a great place to include information about the river!",
+  "info": "Include information about access",
+  "location": "City, Province/State, Country",
+  "class": "III",
+  "putIn": "https://goo.gl/maps/ycePkRuAsvY6EnDR9",
+  "takeOut": "https://goo.gl/maps/zvRRRfpDGq9Eh1WdA",
+  "sponsors": [
+    { "logo": "TrestleLogo.png", "link": "https://trestlebrewing.com/" }
+  ],
+  "contributors": [],
+  "rapids": [
+    {
+      "name": "Template Rapid",
+      "desc": "Class I",
+      "displayPosition": { "top": 70, "left": 22, "width": 35 },
+      "riverMap": { "viewBox": "0 50 1600 900", "path": "McCoysChute" },
+      "hydraulics": [
+        {
+          "name": "Template Wave",
+          "desc": "Talk about safety, hazards, tips about the feature, behavior at different levels.",
+          "y": 463.55,
+          "x": 589.11,
+          "height": 58.73,
+          "width": 13.44,
+          "rotation": 1,
+          "range": [-10, 13],
+          "id": "hydraulic_6lfg0"
+        }
+      ],
+      "eddys": [
+        {
+          "name": "Template Eddy",
+          "desc": "A large eddy that can sometimes collect gear and swimmmers. This can sometimes be hard to get out of.",
+          "vector": "M57.7367 100.472C112.332 100.472 150.868 97.0028 157.209 77.01C164.801 53.0702 161.941 37.64 106.045 30.2237C36.1735 20.9535 8.56346 41.3981 12.9053 63.0286C17.2471 84.6591 30.113 100.472 57.7367 100.472Z",
+          "x": 725,
+          "y": 250,
+          "range": [-10, 10],
+          "id": "eddy_v1tm8"
+        }
+      ],
+      "lines": [
+        {
+          "name": "Thread The Needle",
+          "desc": "A commonly taken line through McCoys. Start center-right coming into the rapid with your boat pointed slightly left. When approaching the Sattlers, paddle towards river left, clip Sattlers and paddle for your life away from Phils",
+          "vector": "M0 22.3326C28.4974 22.3326 207.118 21.0049 247.943 15.4378C268.074 12.6928 306.962 1.25504 359.118 1.25504C408.459 1.25503 634.344 12.9167 683.452 36.8719C732.56 60.8271 830.931 146.009 918.368 324.475",
+          "x": 260.55,
+          "y": 460.26,
+          "range": [-100, 100],
+          "id": "line_4dk61"
+        }
+      ],
+      "symbols": [
+        {
+          "type": "Caution",
+          "desc": "There is no safe way to navigate this rapid at this water level.",
+          "top": 200,
+          "left": 200,
+          "id": "symbol_oj898"
+        }
+      ],
+      "arrows": [
+        {
+          "bottom": 4,
+          "right": 5,
+          "id": "arrow_bwhx6",
+          "linkId": "rapid_kb9di"
+        }
+      ],
+      "mapLabel": {
+        "titleTop": 45,
+        "titleLeft": 11,
+        "pointerDirection": "bottom",
+        "pointerCoordinates": [35, 47]
+      },
+      "id": "rapid_7f9mf"
+    }
+  ]
+}

@@ -81,7 +81,7 @@ class InputArea extends React.Component {
                   tempName = `${name}.${elem}`;
                   tempPath = dataObj[elem];
                   //does not render these elems
-                  if (["viewBox", "id"].includes(elem) || tempName==`${name}.name`) {
+                  if (["viewBox", "id"].includes(elem) || tempName==`[${river}].name`) {
                   }
                   //recursively digs into object type elems
                   else if (
