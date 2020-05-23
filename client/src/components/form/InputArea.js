@@ -3,7 +3,13 @@ import { Formik, Form, Field, FieldArray } from "formik";
 import { capitalCase, paramCase } from "change-case";
 import SimpleReactValidator from "simple-react-validator";
 import { rules } from "./validationRules";
-import { casePointerDirection, caseMapList, caseArrowList, caseSymbolList } from "./inputCases";
+import {
+  casePointerDirection,
+  caseMapList,
+  caseArrowList,
+  caseSymbolList,
+} from "./inputCases";
+import { handleSubmit } from "./requests";
 const axios = require("axios");
 
 class InputArea extends React.Component {
@@ -19,7 +25,7 @@ class InputArea extends React.Component {
     //get river list
     if (this.props.river != prevProps.river && this.props.river != null) {
       axios
-        .post("/api/getlist", {
+        .post("/api/getMapList", {
           path: `./client/src/river-data/${paramCase(
             this.props.dataArr[this.props.river].name
           )}/maps`,
@@ -38,21 +44,10 @@ class InputArea extends React.Component {
       <>
         <div className="input-area">
           <Formik
-            initialValues={this.props.dataArr} //set values:_________
+            initialValues={this.props.dataArr}
             onSubmit={(values) => {
               if (this.validator.allValid()) {
-                axios
-                  .post("/api/updateData", {
-                    values,
-                  })
-                  .then((response) => {
-                    console.log(response.data);
-                  })
-                  .catch((error) => {
-                    throw error;
-                  });
-
-                this.props.forceUpdateHandler();
+                handleSubmit(values, river);
               } else {
                 this.validator.showMessages();
                 this.forceUpdate();
@@ -86,7 +81,7 @@ class InputArea extends React.Component {
                   tempName = `${name}.${elem}`;
                   tempPath = dataObj[elem];
                   //does not render these elems
-                  if (["viewBox", "id"].includes(elem)) {
+                  if (["viewBox", "id"].includes(elem) || tempName==`${name}.name`) {
                   }
                   //recursively digs into object type elems
                   else if (
@@ -106,13 +101,11 @@ class InputArea extends React.Component {
                           caseMapList(elem, tempName, this.state.riverList)
                         );
                         break;
-                        case "type":
-                        list.push(
-                          caseSymbolList(elem, tempName)
-                        );
+                      case "type":
+                        list.push(caseSymbolList(elem, tempName));
                         break;
                       case "linkId":
-                      list.push(caseArrowList(elem, tempName, dataArr[0]))
+                        list.push(caseArrowList(elem, tempName, dataArr[0]));
                         break;
                       default:
                         list.push(

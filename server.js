@@ -1,7 +1,7 @@
 const readRiverDataFiles = require("./modules/readRiverDataFiles");
-const getRiverNames = require("./modules/getRiverNames");
+const getMapList = require("./modules/getMapList");
 const sendMail = require("./modules/sendMail");
-const dataUpdater = require("./modules/dataUpdater");
+const handleSubmit = require("./modules/handleSubmit");
 
 const compression = require("compression");
 const bodyParser = require("body-parser");
@@ -27,19 +27,20 @@ app.post("/api/mailer", (req, res, next) => {
   res.send("Submitted!");
 });
 
-app.post("/api/getlist", (req, res, next) => {
+app.post("/api/getMapList", (req, res, next) => {
   console.log(req.body.path);
-  data = getRiverNames(req.body.path);
+  data = getMapList(req.body.path);
   res.send(JSON.stringify(data));
 });
 
-app.post("/api/updateData", (req, res, next) => {
-  console.log(req.body);
-  dataUpdater(req.body.values)
-  //data = getRiverNames(req.body.path);
-  //res.send(JSON.stringify(data));
+app.post("/api/handleSubmit", (req, res, next) => {
+  //console.log(req.body);
+  handleSubmit(req.body);
   res.send("Submission Received!");
 });
+
+
+
 
 const port = process.env.PORT || 5000;
 app.listen(port);
