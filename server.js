@@ -13,6 +13,7 @@ app.use(compression());
 app.use(bodyParser.json());
 
 app.use(express.static(path.join(__dirname, "client/build")));
+
 app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname + "/client/build/index.html"));
 });
@@ -38,6 +39,12 @@ app.post("/api/handleSubmit", (req, res, next) => {
   handleSubmit(req.body);
   res.send("Submission Received!");
 });
+
+app.get("/api/handleClickAddRapid", (req, res, next) => {
+  res.send("handleClickAddRapid Request Received!");
+});
+
+
 
 
 
