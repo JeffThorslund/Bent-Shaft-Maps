@@ -3,7 +3,7 @@ import { Formik, Form, Field, FieldArray } from "formik";
 import { capitalCase, paramCase } from "change-case";
 import SimpleReactValidator from "simple-react-validator";
 import { rules } from "./validationRules";
-import { casePointerDirection, caseMapList } from "./inputCases";
+import { casePointerDirection, caseMapList, caseArrowList, caseSymbolList } from "./inputCases";
 const axios = require("axios");
 
 class InputArea extends React.Component {
@@ -86,7 +86,7 @@ class InputArea extends React.Component {
                   tempName = `${name}.${elem}`;
                   tempPath = dataObj[elem];
                   //does not render these elems
-                  if (["viewbox", "id"].includes(elem)) {
+                  if (["viewBox", "id"].includes(elem)) {
                   }
                   //recursively digs into object type elems
                   else if (
@@ -105,6 +105,14 @@ class InputArea extends React.Component {
                         list.push(
                           caseMapList(elem, tempName, this.state.riverList)
                         );
+                        break;
+                        case "type":
+                        list.push(
+                          caseSymbolList(elem, tempName)
+                        );
+                        break;
+                      case "linkId":
+                      list.push(caseArrowList(elem, tempName, dataArr[0]))
                         break;
                       default:
                         list.push(

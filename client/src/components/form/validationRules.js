@@ -19,8 +19,7 @@ const dic = {
   titleTop: ["max:100,num", "min:0,num", "numeric"],
   titleLeft: ["max:100,num", "min:0,num", "numeric"],
   pointerCoordinates: [
-    { regex: /^([0-9][0-9]?|100),([0-9][0-9]?|100)$/ },
-    "required",
+    { regex: /^([0-9][0-9]?|100),([0-9][0-9]?|100)$/ }
   ],
 };
 
@@ -28,11 +27,8 @@ const dic = {
 export const rules = (elem) => {
   let output;
   for (let item in dic) {
-    if (item == elem && typeof dic[item][0] == "string") {
-      output = dic[item].join("|");
-      return `${output}|required`;
-    } else if (item == elem) {
-      output = dic[item];
+    if (item == elem) {
+      output = [...dic[item], "required"];
       return output;
     }
   }
