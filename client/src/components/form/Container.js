@@ -25,12 +25,10 @@ export class Container extends Component {
       //special case for arrows
       let pointer;
       if (!elem.name && !elem.type) {
-        console.log(elem.id, rapidArray);
         for (let rapid of rapidArray) {
           if (elem.linkId == rapid.id) {
             pointer = rapid.name;
           } else {
-            console.log("no match");
           }
         }
       }
