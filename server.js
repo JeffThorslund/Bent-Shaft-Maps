@@ -42,9 +42,9 @@ app.post("/api/handleSubmit", (req, res, next) => {
 });
 
 app.post("/api/handleClickAddRapid", (req, res, next) => {
-let newRiverData = handleClickAddRapid(req.body.riverName)
+let newRiverData = handleClickAddRapid(req.body)
 handleSubmit(newRiverData)
-res.send("River Added!");
+res.send(newRiverData);
 });
 
 const port = process.env.PORT || 5000;

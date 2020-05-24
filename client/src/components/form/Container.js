@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import { capitalCase, paramCase } from "change-case";
+import { handleClickAddRapid } from "./requests";
 var _ = require("lodash");
+
 
 export class Container extends Component {
   constructor(props) {
@@ -47,7 +49,7 @@ export class Container extends Component {
     list.push(
       <div
         className="member new"
-        onClick={this.props.onAdd}
+        onClick={()=>handleClickAddRapid(this.props.arr, this.props.navState, label)}
         key="add_new"
       >
         Add New {capitalCase(label)}

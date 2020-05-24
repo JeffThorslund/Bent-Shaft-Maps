@@ -1,7 +1,8 @@
 var fs = require("fs");
 const generateId = require("./generateId");
 
-module.exports = function (riverName) {
+module.exports = function (body) {
+  const { riverArr, riverIndex, rapidIndex, featureIndex, type } = body;
 
   //Get template rapid from data.json in template dir
   let templateRapid = JSON.parse(
@@ -23,11 +24,20 @@ module.exports = function (riverName) {
 
   //Get current rapid data
   let river = JSON.parse(
-    fs.readFileSync(`./client/src/river-data/${riverName}/data.json`, "utf8")
-  );
+    fs.readFileSync(`./client/src/river-data/ottawa-river/data.json`, "utf8")
+  ); //DONT NEED THIS WE ALREADY HAVE RIVER ARRAY
+
+
 
   //Push template rapid onto current river
-  river.rapids.push(templateRapid);
+
+  if (featureIndex != null) {
+    river.rapids[riverIndex][featureName].push(
+      templateRapid.rapids[0][featureName]
+    );
+  } else {
+    river.rapids.push(templateRapid);
+  }
 
   return river;
 };
