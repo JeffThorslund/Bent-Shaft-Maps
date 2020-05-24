@@ -13,10 +13,14 @@ export const handleSubmit = (river) => {
     });
 };
 
-export const handleClickAddRapid = (riverName) => {
+export const handleClickAddRapid = (riverArr, navState, label) => {
   axios
     .post("/api/handleClickAddRapid", {
-      riverName: riverName,
+      riverArr: riverArr,
+      riverIndex: navState.river,
+      rapidIndex: navState.rapid,
+      featureIndex: navState.feature,
+      label:label
     })
     .then((response) => {
       console.log(response.data);
