@@ -28,7 +28,7 @@ class GlobalRouter extends React.Component {
     readRiverFilesRequest("./client/src/river-data").then((response) => {
       response.json().then((value) => {
         let filtered = value.rivers.filter(
-          (river) => Object.keys(river).length > 1
+          (river) => river.name !== "Template River"
         );
         this.setState({ rivers: filtered });
       });
