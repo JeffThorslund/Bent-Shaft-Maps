@@ -9,7 +9,7 @@ export class Form extends Component {
   render() {
     return (
       <div className="form-wrapper">
-        <Nav dataArr={this.props.dataArr} forceUpdateHandler={this.props.forceUpdateHandler}/>
+        <Nav rivers={this.props.rivers}/>
       </div>
     );
   }
