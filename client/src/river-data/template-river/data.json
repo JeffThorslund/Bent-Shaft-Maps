@@ -7,16 +7,14 @@
   "class": "III",
   "putIn": "https://goo.gl/maps/ycePkRuAsvY6EnDR9",
   "takeOut": "https://goo.gl/maps/zvRRRfpDGq9Eh1WdA",
-  "sponsors": [
-    { "logo": "TrestleLogo.png", "link": "https://trestlebrewing.com/" }
-  ],
+  "sponsors": [{ "logo": "", "link": "" }],
   "contributors": [],
   "rapids": [
     {
       "name": "Template Rapid",
       "desc": "Class I",
       "displayPosition": { "top": 70, "left": 22, "width": 35 },
-      "riverMap": { "viewBox": "0 50 1600 900", "path": "McCoysChute" },
+      "riverMap": { "viewBox": "0 0 1600 900", "path": "DefaultRapid" },
       "hydraulics": [
         {
           "name": "Template Wave",
@@ -61,14 +59,7 @@
           "id": "symbol_oj898"
         }
       ],
-      "arrows": [
-        {
-          "bottom": 4,
-          "right": 5,
-          "id": "arrow_bwhx6",
-          "linkId": "rapid_kb9di"
-        }
-      ],
+      "arrows": [],
       "mapLabel": {
         "titleTop": 45,
         "titleLeft": 11,

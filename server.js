@@ -36,15 +36,14 @@ app.post("/api/getMapList", (req, res, next) => {
 });
 
 app.post("/api/handleSubmit", (req, res, next) => {
-  //console.log(req.body);
-  handleSubmit(req.body.river);
+  handleSubmit(req.body.riverName, req.body.river);
   res.send("Submission Received!");
 });
 
 app.post("/api/handleClickAddRapid", (req, res, next) => {
-let newRiverData = handleClickAddRapid(req.body)
-handleSubmit(newRiverData)
-res.send(newRiverData);
+let river = handleClickAddRapid(req.body)
+handleSubmit(req.body.riverName, river)
+res.send("Rapid Added!");
 });
 
 const port = process.env.PORT || 5000;

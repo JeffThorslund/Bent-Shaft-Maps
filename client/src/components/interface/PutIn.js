@@ -37,22 +37,24 @@ const PutIn = (props) => {
             <div className="title">Contributors</div>
             <div>{contributors}</div>
           </div>
-          <div className="child" id="logos">
-            <div className="title">Brought to you by...</div>
-            <a
-              href={props.data.sponsors[0].link}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <img
-                src={require(`../../river-data/${paramCase(props.data.name)}/${
-                  props.data.sponsors[0].logo
-                }`)}
-                alt="trestle logo"
-                width="100%"
-              />
-            </a>
-          </div>
+          {props.data.sponsors[0].logo.length > 0 && (
+            <div className="child" id="logos">
+              <div className="title">Brought to you by...</div>
+              <a
+                href={props.data.sponsors[0].link}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <img
+                  src={require(`../../river-data/${paramCase(
+                    props.data.name
+                  )}/${props.data.sponsors[0].logo}`)}
+                  alt={`${paramCase(props.data.sponsors[0].logo)}`}
+                  width="100%"
+                />
+              </a>
+            </div>
+          )}
           <div className="child" id="access">
             <div className="title">Access</div>
             <div>{props.data.desc}</div>

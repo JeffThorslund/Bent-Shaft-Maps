@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { capitalCase, paramCase } from "change-case";
-import { handleClickAddRapid } from "./requests";
 var _ = require("lodash");
 
 export class Container extends Component {
@@ -13,6 +12,7 @@ export class Container extends Component {
       arr,
       type,
       handleSelect,
+      handleClickAdd,
       selectedIndex,
       selectedType,
       rapids,
@@ -48,7 +48,7 @@ export class Container extends Component {
     list.push(
       <div
         className="member new"
-        //onClick={()=>handleClickAddRapid(this.props.arr, this.props.navState, label)}
+        onClick={handleClickAdd}
         key="add_new"
       >
         Add New {capitalCase(type)}

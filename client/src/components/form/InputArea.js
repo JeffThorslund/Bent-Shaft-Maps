@@ -9,7 +9,6 @@ import {
   caseArrowList,
   caseSymbolList,
 } from "./inputCases";
-import { handleSubmit } from "./requests";
 const axios = require("axios");
 
 class InputArea extends React.Component {
@@ -42,6 +41,20 @@ class InputArea extends React.Component {
     }
   }
 
+  handleSubmit = (riverName, river) => {
+    axios
+      .post("/api/handleSubmit", {
+        riverName: riverName,
+        river: river,
+      })
+      .then((response) => {
+        console.log(response.data);
+      })
+      .catch((error) => {
+        throw error;
+      });
+  };
+
   render() {
     const {
       riverIndex,
@@ -58,7 +71,9 @@ class InputArea extends React.Component {
             initialValues={rivers}
             onSubmit={(values) => {
               if (this.validator.allValid()) {
-                handleSubmit(values[riverIndex]);
+                this.handleSubmit(
+                  paramCase(rivers[riverIndex].name),
+                  values[riverIndex]);
               } else {
                 this.validator.showMessages();
                 this.forceUpdate();
