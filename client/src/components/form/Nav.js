@@ -127,14 +127,13 @@ class Nav extends Component {
     return (
       <div className="form">
         <div className="containers">{containerArr}</div>
-        {/*<InputArea
-          river={this.state.riverIndex}
-          rapid={this.state.rapidIndex}
-          feature={this.state.featureIndex}
-          featureName={this.state.featureType}
-          dataArr={this.props.rivers}
-          forceUpdateHandler={this.props.forceUpdateHandler}
-        />*/}
+        <InputArea
+          riverIndex={riverIndex}
+          rapidIndex={rapidIndex}
+          featureIndex={featureIndex}
+          featureType={featureType}
+          rivers={rivers}
+        />
       </div>
     );
   }
