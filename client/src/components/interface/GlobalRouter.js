@@ -21,10 +21,7 @@ class GlobalRouter extends React.Component {
     this.state = { rivers: null };
   }
 
-  forceUpdateHandler = () => {};
-
-  //Removes all empty objects and sets river data as state.
-  componentDidMount() {
+  getRiverData = () => {
     readRiverFilesRequest("./client/src/river-data").then((response) => {
       response.json().then((value) => {
         let filtered = value.rivers.filter(
@@ -33,6 +30,14 @@ class GlobalRouter extends React.Component {
         this.setState({ rivers: filtered });
       });
     });
+  };
+
+  componentDidMount() {
+    this.getRiverData();
+  }
+
+  componentDidUpdate() {
+    this.getRiverData();
   }
 
   render() {
@@ -60,6 +65,7 @@ class GlobalRouter extends React.Component {
             <Form
               rivers={this.state.rivers}
               forceUpdateHandler={this.forceUpdateHandler}
+              changeState={this.changeState}
             />
           </Route>
 
