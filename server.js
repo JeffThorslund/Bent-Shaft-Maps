@@ -3,6 +3,7 @@ const getMapList = require("./modules/getMapList");
 const sendMail = require("./modules/sendMail");
 const handleSubmit = require("./modules/handleSubmit");
 const handleClickAddRapid = require("./modules/handleClickAddRapid");
+const handleClickAddFeature = require("./modules/handleClickAddFeature");
 
 const compression = require("compression");
 const bodyParser = require("body-parser");
@@ -41,9 +42,15 @@ app.post("/api/handleSubmit", (req, res, next) => {
 });
 
 app.post("/api/handleClickAddRapid", (req, res, next) => {
-let river = handleClickAddRapid(req.body)
-handleSubmit(req.body.riverName, river)
-res.send("Rapid Added!");
+  let river = handleClickAddRapid(req.body);
+  handleSubmit(req.body.riverName, river);
+  res.send("Rapid Added!");
+});
+
+app.post("/api/handleClickAddFeature", (req, res, next) => {
+  let river = handleClickAddFeature(req.body);
+  handleSubmit(req.body.riverName, river);
+  res.send("Feature Added!");
 });
 
 const port = process.env.PORT || 5000;

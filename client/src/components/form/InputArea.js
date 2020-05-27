@@ -69,6 +69,7 @@ class InputArea extends React.Component {
         <div className="input-area">
           <Formik
             initialValues={rivers}
+            enableReinitialize
             onSubmit={(values) => {
               if (this.validator.allValid()) {
                 this.handleSubmit(
