@@ -1,9 +1,11 @@
 import React, { Component } from "react";
 import Container from "./Container";
 import "./Form.css";
+import { paramCase } from "change-case"
 
 import InputArea from "./InputArea";
 var _ = require("lodash");
+const axios = require("axios");
 
 class Nav extends Component {
   constructor(props) {
@@ -63,10 +65,19 @@ class Nav extends Component {
   };
 
   //Add new of anything
-  handleAddNewFeature = () => {
-    this.setState({
-      featureIndex: null,
-    });
+  handleClickAddRapid = (rivers,riverIndex) => {
+    axios
+      .post("/api/handleClickAddRapid", {
+        rivers: rivers,
+        riverIndex: riverIndex,
+        riverName: paramCase(rivers[riverIndex].name)
+      })
+      .then((response) => {
+        console.log(response.data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   };
 
   render() {
@@ -80,6 +91,7 @@ class Nav extends Component {
         arr={rivers}
         type="river"
         handleSelect={this.handleRiverSelect}
+        handleClickAdd={() => {}}
         selectedIndex={riverIndex}
         key="river_key"
         bk={"bk1"}
@@ -92,6 +104,7 @@ class Nav extends Component {
           arr={rivers[riverIndex].rapids}
           type="rapid"
           handleSelect={this.handleRapidSelect}
+          handleClickAdd={()=>this.handleClickAddRapid(rivers,riverIndex)}
           selectedIndex={rapidIndex}
           key="rapid_key"
           bk={"bk2"}
@@ -113,6 +126,7 @@ class Nav extends Component {
               arr={elem[1]}
               type={elem[0]}
               handleSelect={this.handleFeatureSelect}
+              handleClickAdd={() => {}}
               selectedIndex={featureIndex}
               selectedType={featureType}
               key={`feature_key_${index}`}

@@ -25,9 +25,9 @@ const NextRapid = (props) => {
 
   const findNextName = (linkId) => {
     for (let rapid of props.allData.rapids) {
-      console.log("search started", linkId, rapid.id, allData.rapids);
+      //console.log("search started", linkId, rapid.id, allData.rapids);
       if (linkId == rapid.id) {
-        console.log("match", linkId, rapid.id);
+        //console.log("match", linkId, rapid.id);
         return rapid.name;
       }
     }
