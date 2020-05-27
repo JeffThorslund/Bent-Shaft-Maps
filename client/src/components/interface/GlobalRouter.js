@@ -18,36 +18,30 @@ import readRiverFilesRequest from "../../tools/requests/readRiverFilesRequest";
 class GlobalRouter extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { data: null };
+    this.state = { rivers: null };
   }
 
-  forceUpdateHandler = () => {
-
-
-    
-
-
-  };
+  forceUpdateHandler = () => {};
 
   //Removes all empty objects and sets river data as state.
   componentDidMount() {
     readRiverFilesRequest("./client/src/river-data").then((response) => {
       response.json().then((value) => {
         let filtered = value.rivers.filter(
-          (elem) => Object.keys(elem).length > 1
+          (river) => Object.keys(river).length > 1
         );
-        this.setState({ data: filtered });
+        this.setState({ rivers: filtered });
       });
     });
   }
 
   render() {
     var routeArray;
-    if (this.state.data != null) {
-      routeArray = this.state.data.map((elem, key) => {
+    if (this.state.rivers != null) {
+      routeArray = this.state.rivers.map((river, key) => {
         return (
-          <Route path={`/${paramCase(elem.name)}`} key={`river${key}`}>
-            <RiverRouter data={elem} />
+          <Route path={`/${paramCase(river.name)}`} key={`river${key}`}>
+            <RiverRouter data={river} />
           </Route>
         );
       });
@@ -55,16 +49,16 @@ class GlobalRouter extends React.Component {
       routeArray = [];
     }
 
-    if (this.state.data != null) {
+    if (this.state.rivers != null) {
       return (
         <Switch>
           <Route exact path="/" key="home">
-            <Global dataArr={this.state.data} />
+            <Global dataArr={this.state.rivers} />
           </Route>
 
           <Route exact path="/form" key="form">
             <Form
-              dataArr={this.state.data}
+              rivers={this.state.rivers}
               forceUpdateHandler={this.forceUpdateHandler}
             />
           </Route>

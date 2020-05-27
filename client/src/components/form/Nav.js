@@ -9,7 +9,7 @@ class Nav extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      river: null, //index
+      riverIndex: null, //index
       rapid: null, //index
       feature: null, //index
       featureName: null, //string
@@ -35,7 +35,7 @@ class Nav extends Component {
           featureName: null,
         });
     //if a new river is selected, rapid and feature should both revert to null
-    if (label === "river") {
+    if (label === "riverIndex") {
       this.setState({
         rapid: null,
         feature: null,
@@ -67,15 +67,15 @@ class Nav extends Component {
   render() {
     let containerArr = [];
 
-    let riverArray = this.props.dataArr;
+    let riverArray = this.props.rivers;
 
     containerArr.push(
       <Container
         arr={riverArray}
         type="river"
-        label="river"
+        label="riverIndex"
         handleSelect={this.handleSelect}
-        selected={this.state.river} //selected river
+        selected={this.state.riverIndex} //selected river
         key="river_key"
         bk={"bk1"}
         onAdd={() => {}}
@@ -83,8 +83,8 @@ class Nav extends Component {
       />
     );
 
-    if (this.state.river !== null) {
-      let rapidArray = riverArray[this.state.river].rapids;
+    if (this.state.riverIndex !== null) {
+      let rapidArray = riverArray[this.state.riverIndex].rapids;
 
       containerArr.push(
         <Container
@@ -95,7 +95,7 @@ class Nav extends Component {
           selected={this.state.rapid}
           key="rapid_key"
           bk={"bk2"}
-          river={this.state.river}
+          river={this.state.riverIndex}
           riverArray={riverArray}
           navState={this.state}
         />
@@ -132,11 +132,11 @@ class Nav extends Component {
       <div className="form">
         <div className="containers">{containerArr}</div>
         <InputArea
-          river={this.state.river}
+          river={this.state.riverIndex}
           rapid={this.state.rapid}
           feature={this.state.feature}
           featureName={this.state.featureName}
-          dataArr={this.props.dataArr}
+          dataArr={this.props.rivers}
           forceUpdateHandler={this.props.forceUpdateHandler}
         />
       </div>
