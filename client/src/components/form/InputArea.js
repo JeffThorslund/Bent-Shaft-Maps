@@ -1,5 +1,5 @@
 import React from "react";
-import { Formik, Form, Field} from "formik";
+import { Formik, Form, Field } from "formik";
 import { capitalCase, paramCase } from "change-case";
 import SimpleReactValidator from "simple-react-validator";
 import { rules } from "./validationRules";
@@ -16,14 +16,17 @@ class InputArea extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      riverList: null,
+      mapList: null,
     };
     this.validator = new SimpleReactValidator();
   }
 
   componentDidUpdate(prevProps) {
-    //get river list
-    if (this.props.riverIndex != prevProps.riverIndex && this.props.riverIndex != null) {
+    //get list of maps
+    if (
+      this.props.riverIndex != prevProps.riverIndex &&
+      this.props.riverIndex != null
+    ) {
       axios
         .post("/api/getMapList", {
           path: `./client/src/river-data/${paramCase(
@@ -31,14 +34,22 @@ class InputArea extends React.Component {
           )}/maps`,
         })
         .then((response) => {
-          this.setState({ riverList: JSON.parse(response.data).list });
+          this.setState({ mapList: JSON.parse(response.data).list });
         })
-        .catch((error) => {});
+        .catch((error) => {
+          throw error;
+        });
     }
   }
 
   render() {
-    const { riverIndex, rapidIndex, featureIndex, featureType, rivers } = this.props;
+    const {
+      riverIndex,
+      rapidIndex,
+      featureIndex,
+      featureType,
+      rivers,
+    } = this.props;
 
     return (
       <>
@@ -55,9 +66,12 @@ class InputArea extends React.Component {
             }}
           >
             {({ values }) => {
+
               const data =
                 featureIndex !== null
-                  ? values[riverIndex].rapids[rapidIndex][featureType][featureIndex]
+                  ? values[riverIndex].rapids[rapidIndex][featureType][
+                      featureIndex
+                    ]
                   : rapidIndex !== null
                   ? values[riverIndex].rapids[rapidIndex]
                   : riverIndex !== null
@@ -72,16 +86,20 @@ class InputArea extends React.Component {
                   : riverIndex !== null
                   ? `[${riverIndex}]`
                   : null;
+
               let list = [];
               let tempName = "";
               let tempPath;
 
-              const parseObject = (dataObj, name, path) => {
+              const parseObject = (dataObj, name) => {
                 for (let elem in dataObj) {
                   tempName = `${name}.${elem}`;
                   tempPath = dataObj[elem];
                   //does not render these elems
-                  if (["viewBox", "id"].includes(elem) || tempName==`[${riverIndex}].name`) {
+                  if (
+                    ["viewBox", "id"].includes(elem) ||
+                    tempName == `[${riverIndex}].name`
+                  ) {
                   }
                   //recursively digs into object type elems
                   else if (
@@ -98,14 +116,14 @@ class InputArea extends React.Component {
                         break;
                       case "path":
                         list.push(
-                          caseMapList(elem, tempName, this.state.riverList)
+                          caseMapList(elem, tempName, this.state.mapList)
                         );
                         break;
                       case "type":
                         list.push(caseSymbolList(elem, tempName));
                         break;
                       case "linkId":
-                        list.push(caseArrowList(elem, tempName, rivers[0]));
+                        list.push(caseArrowList(elem, tempName, rivers[riverIndex]));
                         break;
                       default:
                         list.push(
@@ -115,7 +133,6 @@ class InputArea extends React.Component {
                             {this.validator.message(
                               elem,
                               dataObj[elem],
-                              //[{ regex: /dad/}]
                               rules(elem)
                             )}
                           </div>

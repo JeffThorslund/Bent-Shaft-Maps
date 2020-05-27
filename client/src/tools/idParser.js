@@ -1,3 +1,4 @@
+//OUTDATED. REPLACE WITH 'change-case' LIBRARY
 //takes a rapid name and turns it into an id
 //McCoy's Chute Rapid -----> mccoys-chute-rapid
 
