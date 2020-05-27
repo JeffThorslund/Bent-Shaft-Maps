@@ -1,5 +1,5 @@
 import React from "react";
-import { Formik, Form, Field, FieldArray } from "formik";
+import { Formik, Form, Field} from "formik";
 import { capitalCase, paramCase } from "change-case";
 import SimpleReactValidator from "simple-react-validator";
 import { rules } from "./validationRules";
@@ -23,11 +23,11 @@ class InputArea extends React.Component {
 
   componentDidUpdate(prevProps) {
     //get river list
-    if (this.props.river != prevProps.river && this.props.river != null) {
+    if (this.props.riverIndex != prevProps.riverIndex && this.props.riverIndex != null) {
       axios
         .post("/api/getMapList", {
           path: `./client/src/river-data/${paramCase(
-            this.props.dataArr[this.props.river].name
+            this.props.rivers[this.props.riverIndex].name
           )}/maps`,
         })
         .then((response) => {
@@ -38,16 +38,16 @@ class InputArea extends React.Component {
   }
 
   render() {
-    const { river, rapid, feature, featureName, dataArr } = this.props;
+    const { riverIndex, rapidIndex, featureIndex, featureType, rivers } = this.props;
 
     return (
       <>
         <div className="input-area">
           <Formik
-            initialValues={this.props.dataArr}
+            initialValues={rivers}
             onSubmit={(values) => {
               if (this.validator.allValid()) {
-                handleSubmit(values[river]);
+                handleSubmit(values[riverIndex]);
               } else {
                 this.validator.showMessages();
                 this.forceUpdate();
@@ -56,21 +56,21 @@ class InputArea extends React.Component {
           >
             {({ values }) => {
               const data =
-                feature !== null
-                  ? values[river].rapids[rapid][featureName][feature]
-                  : rapid !== null
-                  ? values[river].rapids[rapid]
-                  : river !== null
-                  ? values[river]
+                featureIndex !== null
+                  ? values[riverIndex].rapids[rapidIndex][featureType][featureIndex]
+                  : rapidIndex !== null
+                  ? values[riverIndex].rapids[rapidIndex]
+                  : riverIndex !== null
+                  ? values[riverIndex]
                   : null;
 
               let name =
-                feature !== null
-                  ? `[${river}][rapids][${rapid}][${featureName}][${feature}]`
-                  : rapid !== null
-                  ? `[${river}][rapids][${rapid}]`
-                  : river !== null
-                  ? `[${river}]`
+                featureIndex !== null
+                  ? `[${riverIndex}][rapids][${rapidIndex}][${featureType}][${featureIndex}]`
+                  : rapidIndex !== null
+                  ? `[${riverIndex}][rapids][${rapidIndex}]`
+                  : riverIndex !== null
+                  ? `[${riverIndex}]`
                   : null;
               let list = [];
               let tempName = "";
@@ -81,7 +81,7 @@ class InputArea extends React.Component {
                   tempName = `${name}.${elem}`;
                   tempPath = dataObj[elem];
                   //does not render these elems
-                  if (["viewBox", "id"].includes(elem) || tempName==`[${river}].name`) {
+                  if (["viewBox", "id"].includes(elem) || tempName==`[${riverIndex}].name`) {
                   }
                   //recursively digs into object type elems
                   else if (
@@ -105,7 +105,7 @@ class InputArea extends React.Component {
                         list.push(caseSymbolList(elem, tempName));
                         break;
                       case "linkId":
-                        list.push(caseArrowList(elem, tempName, dataArr[0]));
+                        list.push(caseArrowList(elem, tempName, rivers[0]));
                         break;
                       default:
                         list.push(
