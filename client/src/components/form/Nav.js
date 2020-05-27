@@ -10,135 +10,131 @@ class Nav extends Component {
     super(props);
     this.state = {
       riverIndex: null, //index
-      rapid: null, //index
-      feature: null, //index
-      featureName: null, //string
+      rapidIndex: null, //index
+      featureType: null, //string
+      featureIndex: null, //index
     };
   }
 
-  //Sets selection of river and rapid.
-  //element = part of data object
-  //type = "river" or "rapid"
-  handleSelect = (label, index) => {
-    //compare if the state is already === to the object
-    !_.isEqual(this.state[label], index)
+  handleRiverSelect = (index) => {
+    this.state.riverIndex !== index
       ? //if not, user wants to select it
         this.setState({
-          [label]: index,
-          feature: null,
-          featureName: null,
+          riverIndex: index,
         })
       : //if yes, user wants to "unselect it"
         this.setState({
-          [label]: null,
-          feature: null,
-          featureName: null,
+          riverIndex: null,
         });
-    //if a new river is selected, rapid and feature should both revert to null
-    if (label === "riverIndex") {
-      this.setState({
-        rapid: null,
-        feature: null,
-        featureName: null,
-      });
-    }
+    this.setState({
+      rapidIndex: null,
+      featureIndex: null,
+      featureType: null,
+    });
+  };
+
+  handleRapidSelect = (index) => {
+    this.state.rapidIndex !== index
+      ? //if not, user wants to select it
+        this.setState({
+          rapidIndex: index,
+        })
+      : //if yes, user wants to "unselect it"
+        this.setState({
+          rapidIndex: null,
+        });
+    this.setState({
+      featureIndex: null,
+      featureType: null,
+    });
   };
 
   //Sets selection of feature. Similar logic to comments above.
-  handleFeatureSelect = (label, index) => {
-    !_.isEqual([this.state.featureName, this.state.feature], [label, index])
+  handleFeatureSelect = (index, type) => {
+    !_.isEqual([this.state.featureIndex, this.state.featureType], [index, type])
       ? this.setState({
-          feature: index,
-          featureName: label,
+          featureIndex: index,
+          featureType: type,
         })
       : this.setState({
-          feature: null,
-          featureName: null,
+          featureIndex: null,
+          featureType: null,
         });
   };
 
   //Add new of anything
   handleAddNewFeature = () => {
     this.setState({
-      feature: null,
+      featureIndex: null,
     });
   };
 
   render() {
-    let containerArr = [];
+    const { riverIndex, rapidIndex, featureType, featureIndex } = this.state;
+    const { rivers } = this.props;
 
-    let riverArray = this.props.rivers;
+    let containerArr = [];
 
     containerArr.push(
       <Container
-        arr={riverArray}
+        arr={rivers}
         type="river"
-        label="riverIndex"
-        handleSelect={this.handleSelect}
-        selected={this.state.riverIndex} //selected river
+        handleSelect={this.handleRiverSelect}
+        selectedIndex={riverIndex}
         key="river_key"
         bk={"bk1"}
-        onAdd={() => {}}
-        navState={this.state}
       />
     );
 
-    if (this.state.riverIndex !== null) {
-      let rapidArray = riverArray[this.state.riverIndex].rapids;
-
+    if (riverIndex !== null) {
       containerArr.push(
         <Container
-          arr={rapidArray}
+          arr={rivers[riverIndex].rapids}
           type="rapid"
-          label="rapid"
-          handleSelect={this.handleSelect}
-          selected={this.state.rapid}
+          handleSelect={this.handleRapidSelect}
+          selectedIndex={rapidIndex}
           key="rapid_key"
           bk={"bk2"}
-          river={this.state.riverIndex}
-          riverArray={riverArray}
-          navState={this.state}
         />
       );
+    }
 
-      if (this.state.rapid !== null) {
-        const featureContainers = Object.entries(rapidArray[this.state.rapid])
-          .filter((elem) => {
-            return Array.isArray(elem[1]);
-          })
-          .map((elem, index) => {
-            let bk = index % 2 === 0 ? "bk1" : "bk2";
-            return (
-              <Container
-                arr={elem[1]} //array of a certain feature
-                label={elem[0]}
-                handleSelect={this.handleFeatureSelect}
-                
-                rapidArray={rapidArray}
-                type={this.state.featureName}
-                selected={this.state.feature}
-                key={`feature_key_${index}`}
-                bk={bk}
-                navState={this.state}
-              />
-            );
-          });
+    if (rapidIndex !== null) {
+      const featureContainers = Object.entries(
+        rivers[riverIndex].rapids[rapidIndex]
+      )
+        .filter((elem) => {
+          return Array.isArray(elem[1]);
+        })
+        .map((elem, index) => {
+          let bk = index % 2 === 0 ? "bk1" : "bk2";
+          return (
+            <Container
+              arr={elem[1]}
+              type={elem[0]}
+              handleSelect={this.handleFeatureSelect}
+              selectedIndex={featureIndex}
+              selectedType={featureType}
+              key={`feature_key_${index}`}
+              bk={bk}
+              rapids={rivers[riverIndex].rapids} //used to search for arrow names
+            />
+          );
+        });
 
-        //add the feature containers to the container array.
-        containerArr = containerArr.concat(featureContainers);
-      }
+      containerArr = containerArr.concat(featureContainers);
     }
     return (
       <div className="form">
         <div className="containers">{containerArr}</div>
-        <InputArea
+        {/*<InputArea
           river={this.state.riverIndex}
-          rapid={this.state.rapid}
-          feature={this.state.feature}
-          featureName={this.state.featureName}
+          rapid={this.state.rapidIndex}
+          feature={this.state.featureIndex}
+          featureName={this.state.featureType}
           dataArr={this.props.rivers}
           forceUpdateHandler={this.props.forceUpdateHandler}
-        />
+        />*/}
       </div>
     );
   }

@@ -3,7 +3,6 @@ import { capitalCase, paramCase } from "change-case";
 import { handleClickAddRapid } from "./requests";
 var _ = require("lodash");
 
-
 export class Container extends Component {
   constructor(props) {
     super(props);
@@ -12,36 +11,36 @@ export class Container extends Component {
   render() {
     const {
       arr,
-      label,
       type,
       handleSelect,
-      selected,
-      rapidArray,
+      selectedIndex,
+      selectedType,
+      rapids,
     } = this.props;
 
     let list = arr.map((elem, index) => {
-      let memberClassName = _.isEqual([label, selected], [type, index])
+      let memberClassName = _.isEqual(
+        [selectedType || type, selectedIndex],
+        [type, index]
+      )
         ? "member on"
         : "member off";
 
       //special case for showing arrow names
-      let pointer;
-      if (!elem.name && !elem.type) {
-        for (let rapid of rapidArray) {
-          if (elem.linkId == rapid.id) {
-            pointer = rapid.name;
-          } else {
-          }
-        }
-      }
+      let pointer =
+        type === "arrows"
+          ? (rapids.find((rapid) => {
+              return rapid.id == elem.linkId;
+            }).name)
+          : null;
 
       return (
         <div
           key={`list${index}`}
           className={memberClassName}
-          onClick={() => handleSelect(label, index)}
+          onClick={() => handleSelect(index, type)}
         >
-          {elem.name || elem.type || pointer}
+          {pointer || elem.type || elem.name}
         </div>
       );
     });
@@ -49,10 +48,10 @@ export class Container extends Component {
     list.push(
       <div
         className="member new"
-        onClick={()=>handleClickAddRapid(this.props.arr, this.props.navState, label)}
+        //onClick={()=>handleClickAddRapid(this.props.arr, this.props.navState, label)}
         key="add_new"
       >
-        Add New {capitalCase(label)}
+        Add New {capitalCase(type)}
       </div>
     );
 
