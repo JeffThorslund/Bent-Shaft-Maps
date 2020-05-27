@@ -64,7 +64,7 @@ class Nav extends Component {
         });
   };
 
-  //Add new of anything
+  //Add new rapid
   handleClickAddRapid = (rivers,riverIndex) => {
     axios
       .post("/api/handleClickAddRapid", {
@@ -79,6 +79,25 @@ class Nav extends Component {
         console.log(error);
       });
   };
+
+  handleClickAddFeature = (rivers, riverIndex, rapidIndex, newFeatureType) => {
+    axios
+      .post("/api/handleClickAddFeature", {
+        rivers: rivers,
+        riverIndex: riverIndex,
+        rapidIndex: rapidIndex,
+        newFeatureType: newFeatureType,
+        riverName: paramCase(rivers[riverIndex].name)
+      })
+      .then((response) => {
+        console.log(response.data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+
+
 
   render() {
     const { riverIndex, rapidIndex, featureType, featureIndex } = this.state;
@@ -126,7 +145,7 @@ class Nav extends Component {
               arr={elem[1]}
               type={elem[0]}
               handleSelect={this.handleFeatureSelect}
-              handleClickAdd={() => {}}
+              handleClickAdd={() => {this.handleClickAddFeature(rivers, riverIndex, rapidIndex, elem[0])}}
               selectedIndex={featureIndex}
               selectedType={featureType}
               key={`feature_key_${index}`}
