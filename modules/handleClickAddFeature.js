@@ -10,8 +10,12 @@ module.exports = function (body) {
   ).rapids[0][newFeatureType][0];
 
   //Set uniqe IDs for rapid, and all features.
-
   templateFeature.id = generateId(newFeatureType);
+
+  //If the feature is an arrow, make linkID point to first rapid.
+  if (newFeatureType == "arrows") {
+    templateFeature.linkId = rivers[riverIndex].rapids[0].id;
+  }
 
   //Push template rapid onto current river
   rivers[riverIndex].rapids[rapidIndex][newFeatureType].push(templateFeature);
