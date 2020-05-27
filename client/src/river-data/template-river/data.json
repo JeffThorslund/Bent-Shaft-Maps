@@ -59,7 +59,14 @@
           "id": "symbol_oj898"
         }
       ],
-      "arrows": [],
+      "arrows": [
+        {
+          "bottom": 21,
+          "right": 3,
+          "id": "arrow_uw41u",
+          "linkId": "rapid_avaze"
+        }
+      ],
       "mapLabel": {
         "titleTop": 45,
         "titleLeft": 11,
