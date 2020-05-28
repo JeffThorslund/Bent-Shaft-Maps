@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import Container from "./Container";
+import AddRiverConfirmation from "./AddRiverConfirmation";
 import "./Form.css";
-import { paramCase } from "change-case"
+import { paramCase } from "change-case";
 
 import InputArea from "./InputArea";
 var _ = require("lodash");
@@ -15,8 +16,15 @@ class Nav extends Component {
       rapidIndex: null, //index
       featureType: null, //string
       featureIndex: null, //index
+      toggleAddRiverConfirmation: false,
     };
   }
+
+  toggleAddRiverConfirmation = () => {
+    this.setState((prevState) => ({
+      toggleAddRiverConfirmation: !prevState.toggleAddRiverConfirmation,
+    }));
+  };
 
   handleRiverSelect = (index) => {
     this.state.riverIndex !== index
@@ -64,13 +72,12 @@ class Nav extends Component {
         });
   };
 
-  //Add new rapid
-  handleClickAddRapid = (rivers,riverIndex) => {
+  //Add new river
+  handleClickAddRiver = (riverName) => {
+    alert(riverName)
     axios
-      .post("/api/handleClickAddRapid", {
-        rivers: rivers,
-        riverIndex: riverIndex,
-        riverName: paramCase(rivers[riverIndex].name)
+      .post("/api/handleClickAddRiver", {
+        riverName: riverName,
       })
       .then((response) => {
         console.log(response.data);
@@ -80,6 +87,23 @@ class Nav extends Component {
       });
   };
 
+  //Add new rapid
+  handleClickAddRapid = (rivers, riverIndex) => {
+    axios
+      .post("/api/handleClickAddRapid", {
+        rivers: rivers,
+        riverIndex: riverIndex,
+        riverName: paramCase(rivers[riverIndex].name),
+      })
+      .then((response) => {
+        console.log(response.data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+
+  //Add new feature
   handleClickAddFeature = (rivers, riverIndex, rapidIndex, newFeatureType) => {
     axios
       .post("/api/handleClickAddFeature", {
@@ -87,7 +111,7 @@ class Nav extends Component {
         riverIndex: riverIndex,
         rapidIndex: rapidIndex,
         newFeatureType: newFeatureType,
-        riverName: paramCase(rivers[riverIndex].name)
+        riverName: paramCase(rivers[riverIndex].name),
       })
       .then((response) => {
         console.log(response.data);
@@ -97,12 +121,9 @@ class Nav extends Component {
       });
   };
 
-
-
   render() {
     const { riverIndex, rapidIndex, featureType, featureIndex } = this.state;
     const { rivers } = this.props;
-
     let containerArr = [];
 
     containerArr.push(
@@ -110,7 +131,7 @@ class Nav extends Component {
         arr={rivers}
         type="river"
         handleSelect={this.handleRiverSelect}
-        handleClickAdd={() => {}}
+        handleClickAdd={this.toggleAddRiverConfirmation}
         selectedIndex={riverIndex}
         key="river_key"
         bk={"bk1"}
@@ -123,7 +144,7 @@ class Nav extends Component {
           arr={rivers[riverIndex].rapids}
           type="rapid"
           handleSelect={this.handleRapidSelect}
-          handleClickAdd={()=>this.handleClickAddRapid(rivers,riverIndex)}
+          handleClickAdd={() => this.handleClickAddRapid(rivers, riverIndex)}
           selectedIndex={rapidIndex}
           key="rapid_key"
           bk={"bk2"}
@@ -145,7 +166,14 @@ class Nav extends Component {
               arr={elem[1]}
               type={elem[0]}
               handleSelect={this.handleFeatureSelect}
-              handleClickAdd={() => {this.handleClickAddFeature(rivers, riverIndex, rapidIndex, elem[0])}}
+              handleClickAdd={() => {
+                this.handleClickAddFeature(
+                  rivers,
+                  riverIndex,
+                  rapidIndex,
+                  elem[0]
+                );
+              }}
               selectedIndex={featureIndex}
               selectedType={featureType}
               key={`feature_key_${index}`}
@@ -159,6 +187,13 @@ class Nav extends Component {
     }
     return (
       <div className="form">
+        {this.state.toggleAddRiverConfirmation && (
+          <AddRiverConfirmation
+            toggleAddRiverConfirmation={this.toggleAddRiverConfirmation}
+            handleClickAddRiver={this.handleClickAddRiver}
+          />
+        )}
+
         <div className="containers">{containerArr}</div>
         <InputArea
           riverIndex={riverIndex}
