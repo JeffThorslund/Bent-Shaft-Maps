@@ -2,13 +2,16 @@ var fs = require("fs");
 const generateId = require("./generateId");
 var ncp = require("ncp").ncp;
 const handleSubmit = require("./handleSubmit");
+var changeCase = require("change-case");
 
 module.exports = function (body) {
   const { riverName } = body;
 
   //Copy files
   var source = "./client/src/river-data/template-river";
-  var destination = `./client/src/river-data/${riverName}`;
+  var destination = `./client/src/river-data/${changeCase.paramCase(
+    riverName
+  )}`;
   var options = {
     clobber: false,
   };
@@ -21,7 +24,10 @@ module.exports = function (body) {
 
     //Get newly created river
     let river = JSON.parse(
-      fs.readFileSync(`./client/src/river-data/${riverName}/data.json`, "utf8")
+      fs.readFileSync(
+        `./client/src/river-data/${changeCase.paramCase(riverName)}/data.json`,
+        "utf8"
+      )
     );
 
     //Add correct name
@@ -41,7 +47,10 @@ module.exports = function (body) {
       }
     }
 
-    handleSubmit(riverName, river);
+    //Set link Id to current river
+    river.rapids[0].arrows[0].linkId = river.rapids[0].id
+
+    handleSubmit(changeCase.paramCase(riverName), river);
 
     return "done ncp";
   });
