@@ -43,9 +43,7 @@ app.post("/api/handleSubmit", (req, res, next) => {
 });
 
 app.post("/api/handleClickAddRiver", (req, res, next) => {
-  let river = handleClickAddRiver(req.body);
-  console.log(river);
-  //handleSubmit(req.body.riverName, river);
+  handleClickAddRiver(req.body);
   res.send("River Added!");
 });
 
