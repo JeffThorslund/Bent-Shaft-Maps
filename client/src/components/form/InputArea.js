@@ -41,10 +41,11 @@ class InputArea extends React.Component {
     }
   }
 
-  handleSubmit = (riverName, river) => {
+  handleSubmit = (rivers, riverIndex, river) => {
     axios
       .post("/api/handleSubmit", {
-        riverName: riverName,
+        rivers: rivers,
+        riverIndex: riverIndex,
         river: river,
       })
       .then((response) => {
@@ -72,10 +73,7 @@ class InputArea extends React.Component {
             enableReinitialize
             onSubmit={(values) => {
               if (this.validator.allValid()) {
-                this.handleSubmit(
-                  paramCase(rivers[riverIndex].name),
-                  values[riverIndex]
-                );
+                this.handleSubmit(rivers, riverIndex, values[riverIndex]);
               } else {
                 this.validator.showMessages();
                 this.forceUpdate();
@@ -168,6 +166,17 @@ class InputArea extends React.Component {
                   <button type="submit" className="member" id="submit">
                     Submit
                   </button>
+
+                  {this.props.rapidIndex !== null && (
+                    <button
+                      type="button"
+                      className="member"
+                      id="delete"
+                      onClick={this.props.handleDelete}
+                    >
+                      Delete
+                    </button>
+                  )}
                 </Form>
               );
             }}

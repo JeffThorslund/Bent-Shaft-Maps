@@ -22,7 +22,7 @@ app.get("*", (req, res) => {
 });
 app.post("/api/data", (req, res, next) => {
   res.setHeader("Content-Type", "application/json");
-  data = readRiverDataFiles(req.body.path);
+  let data = readRiverDataFiles(req.body.path);
   res.send(data);
 });
 
@@ -33,29 +33,39 @@ app.post("/api/mailer", (req, res, next) => {
 
 app.post("/api/getMapList", (req, res, next) => {
   console.log(req.body.path);
-  data = getMapList(req.body.path);
+  let data = getMapList(req.body.path);
   res.send(JSON.stringify(data));
 });
 
 app.post("/api/handleSubmit", (req, res, next) => {
-  handleSubmit(req.body.riverName, req.body.river);
+  let riverName = req.body.rivers[req.body.riverIndex].name;
+  handleSubmit(riverName, req.body.river);
   res.send("Submission Received!");
 });
 
 app.post("/api/handleClickAddRiver", (req, res, next) => {
-  handleClickAddRiver(req.body);
+  handleClickAddRiver(req.body.riverName);
   res.send("River Added!");
 });
 
 app.post("/api/handleClickAddRapid", (req, res, next) => {
-  let river = handleClickAddRapid(req.body);
-  handleSubmit(req.body.riverName, river);
+  const { rivers, riverIndex } = req.body;
+  let river = handleClickAddRapid(rivers, riverIndex);
+  let riverName = rivers[riverIndex].name;
+  handleSubmit(riverName, river);
   res.send("Rapid Added!");
 });
 
 app.post("/api/handleClickAddFeature", (req, res, next) => {
-  let river = handleClickAddFeature(req.body);
-  handleSubmit(req.body.riverName, river);
+  const { rivers, riverIndex, rapidIndex, newFeatureType } = req.body;
+  let river = handleClickAddFeature(
+    rivers,
+    riverIndex,
+    rapidIndex,
+    newFeatureType
+  );
+  let riverName = rivers[riverIndex].name;
+  handleSubmit(riverName, river);
   res.send("Feature Added!");
 });
 

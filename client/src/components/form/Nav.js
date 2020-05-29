@@ -59,7 +59,6 @@ class Nav extends Component {
     });
   };
 
-  //Sets selection of feature. Similar logic to comments above.
   handleFeatureSelect = (index, type) => {
     !_.isEqual([this.state.featureIndex, this.state.featureType], [index, type])
       ? this.setState({
@@ -74,7 +73,6 @@ class Nav extends Component {
 
   //Add new river
   handleClickAddRiver = (riverName) => {
-    alert(riverName)
     axios
       .post("/api/handleClickAddRiver", {
         riverName: riverName,
@@ -92,8 +90,7 @@ class Nav extends Component {
     axios
       .post("/api/handleClickAddRapid", {
         rivers: rivers,
-        riverIndex: riverIndex,
-        riverName: paramCase(rivers[riverIndex].name),
+        riverIndex: riverIndex
       })
       .then((response) => {
         console.log(response.data);
@@ -110,14 +107,28 @@ class Nav extends Component {
         rivers: rivers,
         riverIndex: riverIndex,
         rapidIndex: rapidIndex,
-        newFeatureType: newFeatureType,
-        riverName: paramCase(rivers[riverIndex].name),
+        newFeatureType: newFeatureType
       })
       .then((response) => {
         console.log(response.data);
       })
       .catch((error) => {
         console.log(error);
+      });
+  };
+
+  //deletes currently selected rapid or feature
+  handleDelete = (riverIndex, rapidIndex, featureType, featureIndex) => {
+    axios
+      .post("/api/handleDelete", {
+        riverName: "riverName",
+        river: "river",
+      })
+      .then((response) => {
+        console.log(response.data);
+      })
+      .catch((error) => {
+        throw error;
       });
   };
 
@@ -201,6 +212,7 @@ class Nav extends Component {
           featureIndex={featureIndex}
           featureType={featureType}
           rivers={rivers}
+          handleDelete={this.handleDelete}
         />
       </div>
     );
