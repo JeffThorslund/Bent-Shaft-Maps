@@ -5,7 +5,6 @@ import Slider from "./Slider";
 import Map from "./Map";
 import GenericToggle from "./GenericToggle";
 import { withRouter } from "react-router-dom";
-import idParser from "../../tools/idParser";
 import Home from "./Home";
 import {paramCase} from 'change-case'
 
