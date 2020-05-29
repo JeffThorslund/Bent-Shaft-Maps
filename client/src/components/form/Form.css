@@ -126,7 +126,8 @@
   font-family: "Segoe UI";
 }
 
-.form-wrapper .form .input-area #submit {
+.form-wrapper .form .input-area #submit,
+.form-wrapper .form .input-area #delete {
   font-size: 16px;
 }
 

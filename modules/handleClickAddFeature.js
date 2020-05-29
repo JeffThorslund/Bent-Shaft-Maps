@@ -1,8 +1,7 @@
 var fs = require("fs");
 const generateId = require("./generateId");
 
-module.exports = function (body) {
-  const { rivers, riverIndex, rapidIndex, newFeatureType } = body;
+module.exports = function (rivers, riverIndex, rapidIndex, newFeatureType) {
 
   //Get template rapid from data.json in template dir
   let templateFeature = JSON.parse(

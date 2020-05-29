@@ -4,8 +4,8 @@ var ncp = require("ncp").ncp;
 const handleSubmit = require("./handleSubmit");
 var changeCase = require("change-case");
 
-module.exports = function (body) {
-  const { riverName } = body;
+module.exports = function (riverName) {
+
 
   //Copy files
   var source = "./client/src/river-data/template-river";
