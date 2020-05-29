@@ -74,7 +74,8 @@ class InputArea extends React.Component {
               if (this.validator.allValid()) {
                 this.handleSubmit(
                   paramCase(rivers[riverIndex].name),
-                  values[riverIndex]);
+                  values[riverIndex]
+                );
               } else {
                 this.validator.showMessages();
                 this.forceUpdate();
@@ -82,7 +83,6 @@ class InputArea extends React.Component {
             }}
           >
             {({ values }) => {
-
               const data =
                 featureIndex !== null
                   ? values[riverIndex].rapids[rapidIndex][featureType][
@@ -139,7 +139,9 @@ class InputArea extends React.Component {
                         list.push(caseSymbolList(elem, tempName));
                         break;
                       case "linkId":
-                        list.push(caseArrowList(elem, tempName, rivers[riverIndex]));
+                        list.push(
+                          caseArrowList(elem, tempName, rivers[riverIndex])
+                        );
                         break;
                       default:
                         list.push(
@@ -171,7 +173,6 @@ class InputArea extends React.Component {
             }}
           </Formik>
         </div>
-        )
       </>
     );
   }
