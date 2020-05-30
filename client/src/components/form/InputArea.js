@@ -23,8 +23,8 @@ class InputArea extends React.Component {
   componentDidUpdate(prevProps) {
     //get list of maps
     if (
-      this.props.riverIndex != prevProps.riverIndex &&
-      this.props.riverIndex != null
+      this.props.riverIndex !== prevProps.riverIndex &&
+      this.props.riverIndex !== null
     ) {
       axios
         .post("/api/getMapList", {
@@ -103,16 +103,14 @@ class InputArea extends React.Component {
 
               let list = [];
               let tempName = "";
-              let tempPath;
 
               const parseObject = (dataObj, name) => {
                 for (let elem in dataObj) {
                   tempName = `${name}.${elem}`;
-                  tempPath = dataObj[elem];
                   //does not render these elems
                   if (
                     ["viewBox", "id"].includes(elem) ||
-                    tempName == `[${riverIndex}].name`
+                    tempName === `[${riverIndex}].name`
                   ) {
                   }
                   //recursively digs into object type elems
@@ -123,7 +121,7 @@ class InputArea extends React.Component {
                     parseObject(dataObj[elem], tempName);
                   }
                   //handles special cases
-                  else if (!Array.isArray(data[elem]) || elem == "range") {
+                  else if (!Array.isArray(data[elem]) || elem === "range") {
                     switch (elem) {
                       case "pointerDirection":
                         list.push(casePointerDirection(elem, tempName));

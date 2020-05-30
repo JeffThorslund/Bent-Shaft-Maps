@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { capitalCase, paramCase } from "change-case";
+import { capitalCase } from "change-case";
 var _ = require("lodash");
 
 export class Container extends Component {

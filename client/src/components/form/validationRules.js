@@ -27,7 +27,7 @@ const dic = {
 export const rules = (elem) => {
   let output;
   for (let item in dic) {
-    if (item == elem) {
+    if (item === elem) {
       output = [...dic[item], "required"];
       return output;
     }
