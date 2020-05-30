@@ -13,7 +13,7 @@ import {
 } from "react-router-dom";
 import { paramCase } from "change-case";
 
-import readRiverFilesRequest from "../../tools/requests/readRiverFilesRequest";
+const axios = require("axios").default;
 
 class GlobalRouter extends React.Component {
   constructor(props) {
@@ -22,14 +22,21 @@ class GlobalRouter extends React.Component {
   }
 
   getRiverData = () => {
-    readRiverFilesRequest("./client/src/river-data").then((response) => {
-      response.json().then((value) => {
-        let filtered = value.rivers.filter(
+    axios
+      .post("/api/data", {
+        path: "./client/src/river-data",
+      })
+      .then((response) => {
+        console.log(response.data.rivers);
+        //filter template river
+        let filtered = response.data.rivers.filter(
           (river) => river.name !== "Template River"
         );
         this.setState({ rivers: filtered });
+      })
+      .catch((error) => {
+        console.log(error);
       });
-    });
   };
 
   componentDidMount() {
