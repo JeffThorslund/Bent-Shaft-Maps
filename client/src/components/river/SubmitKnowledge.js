@@ -17,34 +17,24 @@ export class SubmitKnowledge extends Component {
   };
 
   handleSubmit = (e) => {
-    if (this.state.selectedFile) {
-      //read file and return base64
-      const reader = new FileReader();
-      reader.onload = () => {
-        axios
-          .post("/api/mailer", {
-            img: reader.result,
-            desc: this.state.value,
-            river: this.props.name,
-            rapid: this.props.rapidName,
-          })
-          .then(function (response) {
-            console.log(response);
-          })
-          .catch(function (error) {
-            console.log(error);
-          });
-      };
-      reader.readAsDataURL(this.state.selectedFile);
-    } else {
-      sendMailRequest(
-        null,
-        this.state.value,
-        this.props.name,
-        this.props.rapidName
-      );
-    }
-
+    //read file and return base64
+    const reader = new FileReader();
+    reader.onload = () => {
+      axios
+        .post("/api/mailer", {
+          img: reader.result || null,
+          desc: this.state.value,
+          river: this.props.name,
+          rapid: this.props.rapidName,
+        })
+        .then(function (response) {
+          console.log(response);
+        })
+        .catch(function (error) {
+          console.log(error);
+        });
+    };
+    reader.readAsDataURL(this.state.selectedFile);
     //close pop up
     this.props.toggleSetting(this.props.setting);
     e.preventDefault();
