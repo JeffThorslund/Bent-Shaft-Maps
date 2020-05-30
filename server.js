@@ -21,7 +21,6 @@ app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname + "/client/build/index.html"));
 });
 app.post("/api/data", (req, res, next) => {
-  res.setHeader("Content-Type", "application/json");
   let data = readRiverDataFiles(req.body.path);
   res.send(data);
 });

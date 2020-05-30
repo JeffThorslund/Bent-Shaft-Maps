@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import "./SubmitKnowledge.css";
-import sendMailRequest from "../../tools/requests/sendMailRequest.js";
 import PropTypes from "prop-types";
+const axios = require("axios");
 
 export class SubmitKnowledge extends Component {
   constructor(props) {
@@ -21,13 +21,19 @@ export class SubmitKnowledge extends Component {
       //read file and return base64
       const reader = new FileReader();
       reader.onload = () => {
-        console.log(reader.result);
-        sendMailRequest(
-          reader.result,
-          this.state.value,
-          this.props.name,
-          this.props.rapidName
-        );
+        axios
+          .post("/api/mailer", {
+            img: reader.result,
+            desc: this.state.value,
+            river: this.props.name,
+            rapid: this.props.rapidName,
+          })
+          .then(function (response) {
+            console.log(response);
+          })
+          .catch(function (error) {
+            console.log(error);
+          });
       };
       reader.readAsDataURL(this.state.selectedFile);
     } else {
