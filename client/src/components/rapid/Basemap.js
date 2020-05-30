@@ -1,5 +1,5 @@
 import React from "react";
-import { pascalCase, paramCase } from "change-case";
+import { paramCase } from "change-case";
 import loadable from '@loadable/component'
 
 const style = {

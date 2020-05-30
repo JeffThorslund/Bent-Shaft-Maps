@@ -25,7 +25,7 @@ class Rapid extends Component {
 
   render() {
     //destructure incoming props
-    const {data, allData, url, level, selectLevel} = this.props
+    const {data, allData, url, level} = this.props
 
     // render array of "next rapid arrows" based on selected water level (App state)
     const arrowArray = data.arrows.map((element, key) => (
@@ -76,5 +76,4 @@ export default Rapid;
 Rapid.propTypes = {
   data: PropTypes.object.isRequired,
   level: PropTypes.number.isRequired,
-  selectLevel: PropTypes.func.isRequired,
 };

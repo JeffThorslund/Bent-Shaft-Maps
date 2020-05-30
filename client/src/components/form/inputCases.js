@@ -1,5 +1,5 @@
-import { Formik, Form, Field, FieldArray } from "formik";
-import { capitalCase, paramCase } from "change-case";
+import { Field } from "formik";
+import { capitalCase } from "change-case";
 import React from "react";
 
 export const casePointerDirection = (elem, name) => {

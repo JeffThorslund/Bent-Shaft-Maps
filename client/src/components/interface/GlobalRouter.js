@@ -27,12 +27,12 @@ class GlobalRouter extends React.Component {
         path: "./client/src/river-data",
       })
       .then((response) => {
-        console.log(response.data.rivers);
         //filter template river
         let filtered = response.data.rivers.filter(
           (river) => river.name !== "Template River"
         );
         this.setState({ rivers: filtered });
+        console.log("state updated")
       })
       .catch((error) => {
         console.log(error);
@@ -40,11 +40,15 @@ class GlobalRouter extends React.Component {
   };
 
   componentDidMount() {
+    console.log("Component Did Mount");
     this.getRiverData();
   }
 
-  componentDidUpdate() {
-    this.getRiverData();
+  componentDidUpdate(prevProps) {
+    if (this.props !== prevProps) {
+      console.log("Component Did Update");
+      this.getRiverData();
+    }
   }
 
   render() {
