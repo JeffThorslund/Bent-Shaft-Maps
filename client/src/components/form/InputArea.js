@@ -50,6 +50,7 @@ class InputArea extends React.Component {
       })
       .then((response) => {
         console.log(response.data);
+        this.props.triggerUpdate();
       })
       .catch((error) => {
         throw error;

@@ -213,6 +213,7 @@ class Nav extends Component {
           featureType={featureType}
           rivers={rivers}
           handleDelete={this.handleDelete}
+          triggerUpdate={this.props.triggerUpdate}
         />
       </div>
     );
