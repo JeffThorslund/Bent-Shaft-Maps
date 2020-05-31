@@ -5,6 +5,7 @@ const handleSubmit = require("./modules/handleSubmit");
 const handleClickAddRapid = require("./modules/handleClickAddRapid");
 const handleClickAddFeature = require("./modules/handleClickAddFeature");
 const handleClickAddRiver = require("./modules/handleClickAddRiver");
+const handleDelete = require("./modules/handleClickDelete");
 
 const compression = require("compression");
 const bodyParser = require("body-parser");
@@ -40,6 +41,29 @@ app.post("/api/handleSubmit", (req, res, next) => {
   let riverName = req.body.rivers[req.body.riverIndex].name;
   handleSubmit(riverName, req.body.river);
   res.send("Submission Received!");
+});
+
+app.post("/api/handleDelete", (req, res, next) => {
+  const {
+    rivers,
+    riverIndex,
+    rapidIndex,
+    featureType,
+    featureIndex,
+  } = req.body;
+
+  let river = handleDelete(
+    rivers,
+    riverIndex,
+    rapidIndex,
+    featureType,
+    featureIndex
+  );
+
+  let riverName = rivers[riverIndex].name;
+  handleSubmit(riverName, river);
+
+  res.send("delete submission received");
 });
 
 app.post("/api/handleClickAddRiver", (req, res, next) => {

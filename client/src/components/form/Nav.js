@@ -117,21 +117,6 @@ class Nav extends Component {
       });
   };
 
-  //deletes currently selected rapid or feature
-  handleDelete = (riverIndex, rapidIndex, featureType, featureIndex) => {
-    axios
-      .post("/api/handleDelete", {
-        riverName: "riverName",
-        river: "river",
-      })
-      .then((response) => {
-        console.log(response.data);
-      })
-      .catch((error) => {
-        throw error;
-      });
-  };
-
   render() {
     const { riverIndex, rapidIndex, featureType, featureIndex } = this.state;
     const { rivers } = this.props;
