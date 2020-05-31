@@ -57,6 +57,29 @@ class InputArea extends React.Component {
       });
   };
 
+  handleDelete = (
+    rivers,
+    riverIndex,
+    rapidIndex,
+    featureType,
+    featureIndex
+  ) => {
+    axios
+      .post("/api/handleDelete", {
+        rivers: rivers,
+        riverIndex: riverIndex,
+        rapidIndex: rapidIndex,
+        featureType: featureType,
+        featureIndex: featureIndex,
+      })
+      .then((response) => {
+        console.log(response);
+      })
+      .catch((error) => {
+        throw error;
+      });
+  };
+
   render() {
     const {
       riverIndex,
@@ -171,7 +194,15 @@ class InputArea extends React.Component {
                       type="button"
                       className="member"
                       id="delete"
-                      onClick={this.props.handleDelete}
+                      onClick={() =>
+                        this.handleDelete(
+                          rivers,
+                          riverIndex,
+                          rapidIndex,
+                          featureType,
+                          featureIndex
+                        )
+                      }
                     >
                       Delete
                     </button>
