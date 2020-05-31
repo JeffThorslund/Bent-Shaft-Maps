@@ -22,6 +22,7 @@ class GlobalRouter extends React.Component {
   }
 
   getRiverData = () => {
+    console.log("getRiverData started...");
     axios
       .post("/api/data", {
         path: "./client/src/river-data",
@@ -31,8 +32,9 @@ class GlobalRouter extends React.Component {
         let filtered = response.data.rivers.filter(
           (river) => river.name !== "Template River"
         );
+        console.log("getRiverData state set.");
         this.setState({ rivers: filtered });
-        console.log("state updated")
+        console.log("getRiverData finished.");
       })
       .catch((error) => {
         console.log(error);
@@ -40,16 +42,24 @@ class GlobalRouter extends React.Component {
   };
 
   componentDidMount() {
-    console.log("Component Did Mount");
+    console.log("componentDidMount started...");
     this.getRiverData();
+    console.log("componentDidMount finished.");
   }
 
-  componentDidUpdate(prevProps) {
-    if (this.props !== prevProps) {
-      console.log("Component Did Update");
+  componentDidUpdate() {
+    if (process.env.NODE_ENV !== "development") {
+      console.log("componentDidUpdate started...");
       this.getRiverData();
+      console.log("componentDidUpdate finished.");
     }
   }
+
+  triggerUpdate = () => {
+    console.log("triggerUpdate started...");
+    this.getRiverData();
+    console.log("triggerUpdate finished.");
+  };
 
   render() {
     var routeArray;
@@ -75,8 +85,7 @@ class GlobalRouter extends React.Component {
           <Route exact path="/form" key="form">
             <Form
               rivers={this.state.rivers}
-              forceUpdateHandler={this.forceUpdateHandler}
-              changeState={this.changeState}
+              triggerUpdate={this.triggerUpdate}
             />
           </Route>
 
