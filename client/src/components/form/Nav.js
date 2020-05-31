@@ -148,7 +148,10 @@ class Nav extends Component {
       );
     }
 
-    if (rapidIndex !== null) {
+    if (
+      typeof rapidIndex === "number" &&
+      typeof rivers[riverIndex].rapids[rapidIndex] === "object"
+    ) {
       const featureContainers = Object.entries(
         rivers[riverIndex].rapids[rapidIndex]
       )

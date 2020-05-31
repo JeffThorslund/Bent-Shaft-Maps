@@ -49,7 +49,6 @@ class InputArea extends React.Component {
         river: river,
       })
       .then((response) => {
-        console.log(response.data);
         this.props.triggerUpdate();
       })
       .catch((error) => {
@@ -73,7 +72,7 @@ class InputArea extends React.Component {
         featureIndex: featureIndex,
       })
       .then((response) => {
-        console.log(response);
+        this.props.triggerUpdate();
       })
       .catch((error) => {
         throw error;
