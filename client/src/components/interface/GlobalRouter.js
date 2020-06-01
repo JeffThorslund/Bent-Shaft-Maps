@@ -82,16 +82,18 @@ class GlobalRouter extends React.Component {
             <Global dataArr={this.state.rivers} />
           </Route>
 
-          <Route exact path="/form" key="form">
-            <Form
-              rivers={this.state.rivers}
-              triggerUpdate={this.triggerUpdate}
-            />
-          </Route>
+          {process.env.NODE_ENV === "development" && (
+            <Route exact path="/form" key="form">
+              <Form
+                rivers={this.state.rivers}
+                triggerUpdate={this.triggerUpdate}
+              />
+            </Route>
+          )}
 
-          <Route exact path="/test" key="test">
+          {/*<Route exact path="/test" key="test">
             <Test />
-          </Route>
+      </Route>*/}
 
           {routeArray}
         </Switch>

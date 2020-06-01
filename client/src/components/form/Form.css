@@ -33,7 +33,8 @@
 }
 
 .form-wrapper .form .containers .section .river,
-.form-wrapper .form .containers .section .rapid {
+.form-wrapper .form .containers .section .rapid,
+.form-wrapper .form .containers .section .arrows {
   border-bottom: #c50e29 2px solid;
 }
 
@@ -116,6 +117,7 @@
   background-color: #83b9ff;
   border-radius: 20px;
   padding: 0px 0px 20px 0px;
+  margin: 10px;
 }
 
 .form-wrapper .form .explain button {
@@ -138,7 +140,9 @@
   -ms-flex-preferred-size: 50%;
       flex-basis: 50%;
   font-size: 16px;
-  padding: 10px;
+  padding: 5px;
+  margin: 5px;
+  border-bottom: #c50e29 2px solid;
 }
 
 .form-wrapper .form .input-area form {
