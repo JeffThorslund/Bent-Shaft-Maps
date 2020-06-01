@@ -6,7 +6,7 @@ import Map from "./Map";
 import GenericToggle from "./GenericToggle";
 import { withRouter } from "react-router-dom";
 import Home from "./Home";
-import {paramCase} from 'change-case'
+import { paramCase } from "change-case";
 
 import SubmitKnowledge from "./SubmitKnowledge";
 
@@ -15,10 +15,16 @@ class River extends Component {
     super(props);
 
     this.state = {
-      level: 0,
+      level: null,
       mapBool: false,
       knowledgeBool: false,
     };
+  }
+
+  componentDidMount() {
+    this.setState({
+      level: this.props.data.level.defaultLevel,
+    });
   }
 
   // Use slider to select a river level
@@ -38,7 +44,7 @@ class River extends Component {
         return (
           <Rapid
             data={element}
-            allData = {this.props.data}
+            allData={this.props.data}
             url={this.props.url}
             level={this.state.level}
             selectLevel={this.selectLevel}
@@ -51,53 +57,53 @@ class River extends Component {
 
     return (
       <div className="App">
-          {this.state.mapBool && (
-            <Map
-              url={this.props.url}
+        {this.state.mapBool && (
+          <Map
+            url={this.props.url}
+            toggleSetting={this.toggleSetting}
+            setting="mapBool"
+            selectRapid={this.selectRapid}
+            data={this.props.data}
+          />
+        )}
+
+        {this.state.knowledgeBool && (
+          <SubmitKnowledge
+            toggleSetting={this.toggleSetting}
+            setting="knowledgeBool"
+            rapidName={this.props.match.params.id}
+            name={this.props.data.name}
+          />
+        )}
+
+        {rapidInstance}
+        <Slider selectLevel={this.selectLevel} rapid={this.props.data} />
+
+        <div className="toggle-board">
+          <div id="map-bool">
+            <GenericToggle
+              toggle={this.state.mapBool}
               toggleSetting={this.toggleSetting}
               setting="mapBool"
-              selectRapid={this.selectRapid}
-              data={this.props.data}
+              false="Show Map"
+              true="Hide Map"
             />
-          )}
+          </div>
 
-          {this.state.knowledgeBool && (
-            <SubmitKnowledge
+          <div id="knowledge-bool">
+            <GenericToggle
+              toggle={this.state.knowledgeBool}
               toggleSetting={this.toggleSetting}
               setting="knowledgeBool"
-              rapidName={this.props.match.params.id}
-              name={this.props.data.name}
+              false="Submit Info"
+              true="Submit Info"
             />
-          )}
-
-          {rapidInstance}
-          <Slider selectLevel={this.selectLevel} />
-
-          <div className="toggle-board">
-            <div id="map-bool">
-              <GenericToggle
-                toggle={this.state.mapBool}
-                toggleSetting={this.toggleSetting}
-                setting="mapBool"
-                false="Show Map"
-                true="Hide Map"
-              />
-            </div>
-
-            <div id="knowledge-bool">
-              <GenericToggle
-                toggle={this.state.knowledgeBool}
-                toggleSetting={this.toggleSetting}
-                setting="knowledgeBool"
-                false="Submit Info"
-                true="Submit Info"
-              />
-            </div>
-
-            <div id="back-button">
-              <Home />
-            </div>
           </div>
+
+          <div id="back-button">
+            <Home />
+          </div>
+        </div>
       </div>
     );
   }

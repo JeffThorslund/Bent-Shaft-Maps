@@ -51,8 +51,7 @@ class Rapid extends Component {
         </div>
 
         <div id="level-display">
-          <div id="feet"> {level} ft</div>
-          <div id="cfs">{level * 140 + 600} mm</div>
+          <div id="feet"> {level} {allData.level.levelUnits}</div>
         </div>
         <Features
           level={level}
