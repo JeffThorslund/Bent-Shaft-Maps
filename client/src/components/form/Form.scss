@@ -17,7 +17,8 @@
         }
 
         .river,
-        .rapid {
+        .rapid,
+        .arrows {
           border-bottom: $sd 2px solid;
         }
 
@@ -96,6 +97,7 @@
       background-color: $pl;
       border-radius: 20px;
       padding: 0px 0px 20px 0px;
+      margin: 10px;
       button {
         font-size: 18px;
         padding: 10px;
@@ -115,7 +117,9 @@
     .input-area {
       flex-basis: 50%;
       font-size: 16px;
-      padding: 10px;
+      padding: 5px;
+      margin: 5px;
+      border-bottom: $sd 2px solid;
       form {
         display: grid;
         grid-template-columns: 1fr 1fr;
