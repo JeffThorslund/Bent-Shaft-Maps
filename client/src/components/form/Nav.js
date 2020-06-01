@@ -90,7 +90,7 @@ class Nav extends Component {
     axios
       .post("/api/handleClickAddRapid", {
         rivers: rivers,
-        riverIndex: riverIndex
+        riverIndex: riverIndex,
       })
       .then((response) => {
         console.log(response.data);
@@ -107,7 +107,7 @@ class Nav extends Component {
         rivers: rivers,
         riverIndex: riverIndex,
         rapidIndex: rapidIndex,
-        newFeatureType: newFeatureType
+        newFeatureType: newFeatureType,
       })
       .then((response) => {
         console.log(response.data);
@@ -186,23 +186,43 @@ class Nav extends Component {
     }
     return (
       <div className="form">
+        <div className="containers">{containerArr}</div>
         {this.state.toggleAddRiverConfirmation && (
           <AddRiverConfirmation
             toggleAddRiverConfirmation={this.toggleAddRiverConfirmation}
             handleClickAddRiver={this.handleClickAddRiver}
           />
         )}
-
-        <div className="containers">{containerArr}</div>
-        <InputArea
-          riverIndex={riverIndex}
-          rapidIndex={rapidIndex}
-          featureIndex={featureIndex}
-          featureType={featureType}
-          rivers={rivers}
-          handleDelete={this.handleDelete}
-          triggerUpdate={this.props.triggerUpdate}
-        />
+        {this.state.riverIndex == null ? (
+          <div className="explain">
+            <h1>Wait!</h1>
+            <h2>
+              Lost and confused? <br /> No worries. <br />
+              Click the button!
+            </h2>
+            <button
+              onClick={(e) => {
+                e.preventDefault();
+                window.open(
+                  "https://github.com/JeffThorslund/Ottawa-River-Paddling-Guide",
+                  "_blank"
+                );
+              }}
+            >
+              I Need an Adult
+            </button>
+          </div>
+        ) : (
+          <InputArea
+            riverIndex={riverIndex}
+            rapidIndex={rapidIndex}
+            featureIndex={featureIndex}
+            featureType={featureType}
+            rivers={rivers}
+            handleDelete={this.handleDelete}
+            triggerUpdate={this.props.triggerUpdate}
+          />
+        )}
       </div>
     );
   }

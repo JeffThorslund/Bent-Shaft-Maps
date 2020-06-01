@@ -55,7 +55,7 @@ export class Container extends Component {
       </div>
     );
 
-    let className = `${this.props.bk} container`;
+    let className = `${this.props.bk} ${type} container`;
 
     return (
       <div className="section">
