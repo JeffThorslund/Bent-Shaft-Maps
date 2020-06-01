@@ -15,19 +15,32 @@ export class AddRiverConfirmation extends Component {
   };
 
   handleSubmit = (e) => {
-    this.props.handleClickAddRiver(this.state.value);
+    if (this.state.value.length > 0) {
+      this.props.handleClickAddRiver(this.state.value);
+    }
     this.props.toggleAddRiverConfirmation();
     e.preventDefault();
   };
 
   render() {
     return (
-      <div className="background">
+      <div className="add-river">
         <label>
-          River Name:
-          <input type="text" name="name" onChange={this.handleChange} />
+          <div className="title">River Name:</div>
+
+          <input
+            type="text"
+            name="name"
+            className="input"
+            onChange={this.handleChange}
+          />
         </label>
-        <input type="button" value="Submit" onClick={this.handleSubmit} />
+        <input
+          type="button"
+          value="Submit"
+          className="submit"
+          onClick={this.handleSubmit}
+        />
       </div>
     );
   }

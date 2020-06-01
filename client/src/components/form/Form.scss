@@ -1,9 +1,4 @@
-$button: rgb(182, 182, 182);
-$highlight1: #ffcdd2;
-$highlight2: #ef9a9a;
-$background1: #e8eaf6;
-$background2: #c5cae9;
-$member: #eceff1;
+@import "../standards";
 
 .form-wrapper {
   font-family: "Segoe UI";
@@ -12,19 +7,24 @@ $member: #eceff1;
     flex-direction: row;
     justify-content: flex-start;
     align-items: flex-start;
+
     .containers {
       flex-basis: 50%;
+      margin: 5px;
       .section {
         .header {
           font-size: 24px;
         }
 
+        .river,
+        .rapid {
+          border-bottom: $sd 2px solid;
+        }
+
         .bk1 {
-          background-color: $background1;
         }
 
         .bk2 {
-          background-color: $background2;
         }
 
         .container {
@@ -33,98 +33,148 @@ $member: #eceff1;
           flex-wrap: wrap;
           justify-content: flex-start;
           align-items: center;
-          padding: 15px;
+          padding: 10px;
 
-          .member:hover {
-            background-color: $button;
-          }
-
-          .title {
-            color: black;
-          }
-
-          .title:hover {
+          .member:hover,
+          .on {
+            background-color: $pd;
+            color: white;
+            box-shadow: 2px 2px 5px grey;
           }
 
           .new {
-            background-color: $highlight1;
+            background-color: $sl;
           }
 
           .new:hover {
-            background-color: $highlight2;
-          }
-
-          .on {
-            background-color: $button;
+            background-color: $sd;
+            color: white;
           }
 
           .off {
-            background-color: $member;
+            background-color: $pl;
           }
         }
       }
     }
 
+    .add-river {
+      border-radius: 10px;
+      margin: 10px;
+      background-color: $pl;
+      padding: 3px 10px;
+
+      .title {
+        padding: 10px 3px;
+        font-size: 16px;
+      }
+
+      .input {
+        border-radius: 4px;
+        padding: 5px;
+        border: black 1px solid;
+      }
+
+      .submit {
+        font-size: 16px;
+        margin: 10px 0px;
+        background-color: white;
+        border-radius: 5px;
+        border: 1px black solid;
+        padding: 5px;
+        cursor: pointer;
+      }
+
+      .submit:hover {
+        background-color: lightgrey;
+      }
+    }
+
+    .explain {
+      text-align: center;
+      flex-basis: 50%;
+      background-color: $pl;
+      border-radius: 20px;
+      padding: 0px 0px 20px 0px;
+      button {
+        font-size: 18px;
+        padding: 10px;
+        border-radius: 5px;
+        cursor: pointer;
+        a {
+          text-decoration: none;
+          color: black;
+        }
+      }
+
+      button:hover {
+        background-color: white;
+      }
+    }
+
     .input-area {
       flex-basis: 50%;
-      background-color: $background1;
-      display: grid;
-      grid-template-columns: repeat(auto, 30px);
-      grid-template-rows: repeat(2, 1fr);
+      font-size: 16px;
+      padding: 10px;
+      form {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
 
-      .input-field {
-        margin: 5px;
+        .input-field {
+          margin: 6px;
 
-        label {
-          text-align: left;
-          padding-left: 10px;
-          width: 100px;
+          label {
+            text-align: left;
+            padding-left: 10px;
+            width: 100px;
+          }
         }
 
-        input {
-          width: 80%;
+        input,
+        select {
+          border: $pd 1px solid;
+          border-radius: 5px;
+          padding: 4px 11px;
+          margin: 4px 5px;
+          width: 90%;
+          font-size: 16px;
+          font-family: "Segoe UI";
         }
-      }
 
-      input,
-      select {
-        border: $button 1px solid;
-        border-radius: 5px;
-        padding: 4px 11px;
-        margin: 4px 5px;
-        width: 90%;
-        font-size: 16px;
-        font-family: "Segoe UI";
-      }
+        .action {
+          font-family: "Segoe UI";
+          border: 2px solid $pd;
+          font-size: 16px;
+          margin: 10px 10px;
+        }
 
-      textarea {
-        border: $button 1px solid;
-        border-radius: 5px;
-        padding: 4px 11px;
-        margin: 4px 5px;
-        width: 90%;
-        height: 63%;
-        font-size: 16px;
-        font-family: "Segoe UI";
-      }
+        #submit {
+          border: 2px solid $pd;
+          background-color: $pl;
+        }
 
-      #submit,
-      #delete {
-        font-size: 16px;
+        #submit:hover {
+          color: white;
+          background-color: $pd;
+        }
+
+        #delete {
+          border: 2px solid $sd;
+          background-color: $sl;
+        }
+
+        #delete:hover {
+          color: white;
+          background-color: $sd;
+        }
       }
     }
   }
 }
 
 .member {
-  background-color: $member;
-  border: $button 1px solid;
-  border-radius: 30px;
-  padding: 4px 11px;
+  border-radius: 5px;
+  padding: 5px 11px;
   margin: 4px 5px;
   cursor: pointer;
-}
-
-.member:hover {
-  background-color: $button;
 }

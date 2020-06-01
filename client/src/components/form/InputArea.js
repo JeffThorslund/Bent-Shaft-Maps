@@ -184,27 +184,33 @@ class InputArea extends React.Component {
               return (
                 <Form>
                   {parseObject(data, name)}
-                  <button type="submit" className="member" id="submit">
-                    Submit
-                  </button>
-
                   {this.props.rapidIndex !== null && (
-                    <button
-                      type="button"
-                      className="member"
-                      id="delete"
-                      onClick={() =>
-                        this.handleDelete(
-                          rivers,
-                          riverIndex,
-                          rapidIndex,
-                          featureType,
-                          featureIndex
-                        )
-                      }
-                    >
-                      Delete
-                    </button>
+                    <>
+                      <button
+                        type="submit"
+                        className="member action"
+                        id="submit"
+                      >
+                        Submit Changes
+                      </button>
+
+                      <button
+                        type="button"
+                        className="member action"
+                        id="delete"
+                        onClick={() =>
+                          this.handleDelete(
+                            rivers,
+                            riverIndex,
+                            rapidIndex,
+                            featureType,
+                            featureIndex
+                          )
+                        }
+                      >
+                        Delete
+                      </button>
+                    </>
                   )}
                 </Form>
               );

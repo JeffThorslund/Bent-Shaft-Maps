@@ -1,3 +1,7 @@
+/*---Colors---*/
+/*---Form Colors---*/
+/*---Fonts---*/
+/*---Mixins---*/
 .form-wrapper {
   font-family: "Segoe UI";
 }
@@ -21,18 +25,16 @@
 .form-wrapper .form .containers {
   -ms-flex-preferred-size: 50%;
       flex-basis: 50%;
+  margin: 5px;
 }
 
 .form-wrapper .form .containers .section .header {
   font-size: 24px;
 }
 
-.form-wrapper .form .containers .section .bk1 {
-  background-color: #e8eaf6;
-}
-
-.form-wrapper .form .containers .section .bk2 {
-  background-color: #c5cae9;
+.form-wrapper .form .containers .section .river,
+.form-wrapper .form .containers .section .rapid {
+  border-bottom: #c50e29 2px solid;
 }
 
 .form-wrapper .form .containers .section .container {
@@ -51,62 +53,114 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  padding: 15px;
+  padding: 10px;
 }
 
-.form-wrapper .form .containers .section .container .member:hover {
-  background-color: #b6b6b6;
-}
-
-.form-wrapper .form .containers .section .container .title {
-  color: black;
+.form-wrapper .form .containers .section .container .member:hover,
+.form-wrapper .form .containers .section .container .on {
+  background-color: #005ecb;
+  color: white;
+  -webkit-box-shadow: 2px 2px 5px grey;
+          box-shadow: 2px 2px 5px grey;
 }
 
 .form-wrapper .form .containers .section .container .new {
-  background-color: #ffcdd2;
+  background-color: #ff867f;
 }
 
 .form-wrapper .form .containers .section .container .new:hover {
-  background-color: #ef9a9a;
-}
-
-.form-wrapper .form .containers .section .container .on {
-  background-color: #b6b6b6;
+  background-color: #c50e29;
+  color: white;
 }
 
 .form-wrapper .form .containers .section .container .off {
-  background-color: #eceff1;
+  background-color: #83b9ff;
+}
+
+.form-wrapper .form .add-river {
+  border-radius: 10px;
+  margin: 10px;
+  background-color: #83b9ff;
+  padding: 3px 10px;
+}
+
+.form-wrapper .form .add-river .title {
+  padding: 10px 3px;
+  font-size: 16px;
+}
+
+.form-wrapper .form .add-river .input {
+  border-radius: 4px;
+  padding: 5px;
+  border: black 1px solid;
+}
+
+.form-wrapper .form .add-river .submit {
+  font-size: 16px;
+  margin: 10px 0px;
+  background-color: white;
+  border-radius: 5px;
+  border: 1px black solid;
+  padding: 5px;
+  cursor: pointer;
+}
+
+.form-wrapper .form .add-river .submit:hover {
+  background-color: lightgrey;
+}
+
+.form-wrapper .form .explain {
+  text-align: center;
+  -ms-flex-preferred-size: 50%;
+      flex-basis: 50%;
+  background-color: #83b9ff;
+  border-radius: 20px;
+  padding: 0px 0px 20px 0px;
+}
+
+.form-wrapper .form .explain button {
+  font-size: 18px;
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.form-wrapper .form .explain button a {
+  text-decoration: none;
+  color: black;
+}
+
+.form-wrapper .form .explain button:hover {
+  background-color: white;
 }
 
 .form-wrapper .form .input-area {
   -ms-flex-preferred-size: 50%;
       flex-basis: 50%;
-  background-color: #e8eaf6;
+  font-size: 16px;
+  padding: 10px;
+}
+
+.form-wrapper .form .input-area form {
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: (30px)[auto];
-      grid-template-columns: repeat(auto, 30px);
-  -ms-grid-rows: (1fr)[2];
-      grid-template-rows: repeat(2, 1fr);
+  -ms-grid-columns: 1fr 1fr;
+      grid-template-columns: 1fr 1fr;
 }
 
-.form-wrapper .form .input-area .input-field {
-  margin: 5px;
+.form-wrapper .form .input-area form .input-field {
+  margin: 6px;
 }
 
-.form-wrapper .form .input-area .input-field label {
+.form-wrapper .form .input-area form .input-field label {
   text-align: left;
   padding-left: 10px;
   width: 100px;
 }
 
-.form-wrapper .form .input-area .input-field input {
-  width: 80%;
-}
-
-.form-wrapper .form .input-area input,
-.form-wrapper .form .input-area select {
-  border: #b6b6b6 1px solid;
+.form-wrapper .form .input-area form input,
+.form-wrapper .form .input-area form select {
+  border: #005ecb 1px solid;
   border-radius: 5px;
   padding: 4px 11px;
   margin: 4px 5px;
@@ -115,32 +169,37 @@
   font-family: "Segoe UI";
 }
 
-.form-wrapper .form .input-area textarea {
-  border: #b6b6b6 1px solid;
-  border-radius: 5px;
-  padding: 4px 11px;
-  margin: 4px 5px;
-  width: 90%;
-  height: 63%;
-  font-size: 16px;
+.form-wrapper .form .input-area form .action {
   font-family: "Segoe UI";
+  border: 2px solid #005ecb;
+  font-size: 16px;
+  margin: 10px 10px;
 }
 
-.form-wrapper .form .input-area #submit,
-.form-wrapper .form .input-area #delete {
-  font-size: 16px;
+.form-wrapper .form .input-area form #submit {
+  border: 2px solid #005ecb;
+  background-color: #83b9ff;
+}
+
+.form-wrapper .form .input-area form #submit:hover {
+  color: white;
+  background-color: #005ecb;
+}
+
+.form-wrapper .form .input-area form #delete {
+  border: 2px solid #c50e29;
+  background-color: #ff867f;
+}
+
+.form-wrapper .form .input-area form #delete:hover {
+  color: white;
+  background-color: #c50e29;
 }
 
 .member {
-  background-color: #eceff1;
-  border: #b6b6b6 1px solid;
-  border-radius: 30px;
-  padding: 4px 11px;
+  border-radius: 5px;
+  padding: 5px 11px;
   margin: 4px 5px;
   cursor: pointer;
-}
-
-.member:hover {
-  background-color: #b6b6b6;
 }
 /*# sourceMappingURL=Form.css.map */
