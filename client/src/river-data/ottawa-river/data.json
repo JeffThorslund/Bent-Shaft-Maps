@@ -7,6 +7,12 @@
   "class": "III",
   "putIn": "https://goo.gl/maps/ycePkRuAsvY6EnDR9",
   "takeOut": "https://goo.gl/maps/zvRRRfpDGq9Eh1WdA",
+  "level": {
+    "defaultLevel": 3,
+    "levelUnits": "ft",
+    "levelMin": -4,
+    "levelMax": 12
+  },
   "sponsors": [
     { "logo": "TrestleLogo.png", "link": "https://trestlebrewing.com/" }
   ],
@@ -17,6 +23,7 @@
     " Jane Leakey",
     " Emily Beirnes"
   ],
+
   "rapids": [
     {
       "name": "McCoys Chute",
