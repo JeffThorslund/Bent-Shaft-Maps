@@ -20,12 +20,10 @@ class InputArea extends React.Component {
     this.validator = new SimpleReactValidator();
   }
 
-  componentDidUpdate(prevProps) {
+  componentDidMount(prevProps) {
+    
     //get list of maps
-    if (
-      this.props.riverIndex !== prevProps.riverIndex &&
-      this.props.riverIndex !== null
-    ) {
+    if (this.state.mapList === null) {
       axios
         .post("/api/getMapList", {
           path: `./client/src/river-data/${paramCase(
@@ -184,33 +182,27 @@ class InputArea extends React.Component {
               return (
                 <Form>
                   {parseObject(data, name)}
-                  {this.props.rapidIndex !== null && (
-                    <>
-                      <button
-                        type="submit"
-                        className="member action"
-                        id="submit"
-                      >
-                        Submit Changes
-                      </button>
 
-                      <button
-                        type="button"
-                        className="member action"
-                        id="delete"
-                        onClick={() =>
-                          this.handleDelete(
-                            rivers,
-                            riverIndex,
-                            rapidIndex,
-                            featureType,
-                            featureIndex
-                          )
-                        }
-                      >
-                        Delete
-                      </button>
-                    </>
+                  <button type="submit" className="member action" id="submit">
+                    Submit Changes
+                  </button>
+                  {this.props.rapidIndex !== null && (
+                    <button
+                      type="button"
+                      className="member action"
+                      id="delete"
+                      onClick={() =>
+                        this.handleDelete(
+                          rivers,
+                          riverIndex,
+                          rapidIndex,
+                          featureType,
+                          featureIndex
+                        )
+                      }
+                    >
+                      Delete
+                    </button>
                   )}
                 </Form>
               );
