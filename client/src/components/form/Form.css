@@ -163,8 +163,28 @@
   width: 100px;
 }
 
-.form-wrapper .form .input-area form input,
-.form-wrapper .form .input-area form select {
+.form-wrapper .form .input-area form .input-field .field-holder {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  text-align: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.form-wrapper .form .input-area form .input-field .tooltip {
+  border: #005ecb 1px solid;
+  background-color: #83b9ff;
+  border-radius: 5px;
+  width: 30px;
+  height: 27px;
+  padding-top: 4px;
+  cursor: help;
+}
+
+.form-wrapper .form .input-area form .input-field input,
+.form-wrapper .form .input-area form .input-field select {
   border: #005ecb 1px solid;
   border-radius: 5px;
   padding: 4px 11px;

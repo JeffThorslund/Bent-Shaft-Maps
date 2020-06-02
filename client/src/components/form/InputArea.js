@@ -3,6 +3,8 @@ import { Formik, Form, Field } from "formik";
 import { capitalCase, paramCase } from "change-case";
 import SimpleReactValidator from "simple-react-validator";
 import { rules } from "./validationRules";
+import { Tooltip } from "./inputLabels";
+
 import {
   casePointerDirection,
   caseMapList,
@@ -21,7 +23,6 @@ class InputArea extends React.Component {
   }
 
   componentDidMount(prevProps) {
-    
     //get list of maps
     if (this.state.mapList === null) {
       axios
@@ -145,26 +146,46 @@ class InputArea extends React.Component {
                   else if (!Array.isArray(data[elem]) || elem === "range") {
                     switch (elem) {
                       case "pointerDirection":
-                        list.push(casePointerDirection(elem, tempName));
+                        list.push(
+                          casePointerDirection(elem, featureType, tempName)
+                        );
                         break;
                       case "path":
                         list.push(
-                          caseMapList(elem, tempName, this.state.mapList)
+                          caseMapList(
+                            elem,
+                            featureType,
+                            tempName,
+                            this.state.mapList
+                          )
                         );
                         break;
                       case "type":
-                        list.push(caseSymbolList(elem, tempName));
+                        list.push(caseSymbolList(elem, featureType, tempName));
                         break;
                       case "linkId":
                         list.push(
-                          caseArrowList(elem, tempName, rivers[riverIndex])
+                          caseArrowList(
+                            elem,
+                            featureType,
+                            tempName,
+                            rivers[riverIndex]
+                          )
                         );
                         break;
                       default:
                         list.push(
                           <div className="input-field">
                             <div>{capitalCase(elem)}:</div>
-                            <Field name={tempName} key={elem} />
+                            <div className="field-holder">
+                              <Field name={tempName} key={elem} />
+                              <Tooltip
+                                elem={elem}
+                                riverIndex={riverIndex}
+                                rapidIndex={rapidIndex}
+                                featureType={featureType}
+                              />
+                            </div>
                             {this.validator.message(
                               elem,
                               dataObj[elem],

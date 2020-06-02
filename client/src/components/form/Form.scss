@@ -133,17 +133,30 @@
             padding-left: 10px;
             width: 100px;
           }
-        }
-
-        input,
-        select {
-          border: $pd 1px solid;
-          border-radius: 5px;
-          padding: 4px 11px;
-          margin: 4px 5px;
-          width: 90%;
-          font-size: 16px;
-          font-family: "Segoe UI";
+          .field-holder {
+            display: flex;
+            text-align: center;
+            align-items: center;
+          }
+          .tooltip {
+            border: $pd 1px solid;
+            background-color: $pl;
+            border-radius: 5px;
+            width: 30px;
+            height: 27px;
+            padding-top: 4px;
+            cursor: help;
+          }
+          input,
+          select {
+            border: $pd 1px solid;
+            border-radius: 5px;
+            padding: 4px 11px;
+            margin: 4px 5px;
+            width: 90%;
+            font-size: 16px;
+            font-family: "Segoe UI";
+          }
         }
 
         .action {
