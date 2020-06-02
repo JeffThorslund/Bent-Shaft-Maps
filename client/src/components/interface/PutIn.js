@@ -33,10 +33,13 @@ const PutIn = (props) => {
             <div className="title">Info</div>
             <div>{props.data.info}</div>
           </div>
-          <div className="child" id="contributors">
-            <div className="title">Contributors</div>
-            <div>{contributors}</div>
-          </div>
+          {props.data.contributors.length > 0 && (
+            <div className="child" id="contributors">
+              <div className="title">Contributors</div>
+              <div>{contributors}</div>
+            </div>
+          )}
+
           {props.data.sponsors[0].logo.length > 0 && (
             <div className="child" id="logos">
               <div className="title">Brought to you by...</div>
