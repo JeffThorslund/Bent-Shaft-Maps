@@ -2,7 +2,7 @@ import React from "react";
 import Line from "./Line";
 import Eddy from "./Eddy";
 import Hydraulic from "./Hydraulic";
-import Caution from "../symbols/Caution";
+//import Caution from "../symbols/Caution";
 import Symbol from "../symbols/Symbol";
 import "./Features.css";
 import PropTypes from "prop-types";
@@ -70,7 +70,7 @@ const Features = (props) => {
     });
 
   // render caution if there are no possible lines
-  const cautionSymbol = props.data.symbols
+  /*const cautionSymbol = props.data.symbols
     .filter((element) => element.type === "Caution")
     .map((element, key) => {
       return (
@@ -80,7 +80,7 @@ const Features = (props) => {
           displayData={props.displayData}
         />
       );
-    });
+    });*/
 
   return (
     <svg
@@ -100,7 +100,7 @@ const Features = (props) => {
         {hydraulicArray}
       </g>
 
-      <g className="clickable">{lineArray.length === 0 && cautionSymbol}</g>
+      {/*<g className="clickable">{lineArray.length === 0 && cautionSymbol}</g>*/}
 
       <g id="symbol-array" className="clickable">
         {symbolArray}
