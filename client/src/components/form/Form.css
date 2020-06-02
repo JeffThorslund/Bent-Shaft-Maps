@@ -115,9 +115,10 @@
   -ms-flex-preferred-size: 50%;
       flex-basis: 50%;
   background-color: #83b9ff;
-  border-radius: 20px;
+  border-radius: 10px;
+  border: #005ecb 2px solid;
   padding: 0px 0px 20px 0px;
-  margin: 10px;
+  margin: 23px;
 }
 
 .form-wrapper .form .explain button {

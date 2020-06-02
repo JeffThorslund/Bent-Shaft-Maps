@@ -95,9 +95,10 @@
       text-align: center;
       flex-basis: 50%;
       background-color: $pl;
-      border-radius: 20px;
+      border-radius: 10px;
+      border: $pd 2px solid;
       padding: 0px 0px 20px 0px;
-      margin: 10px;
+      margin: 23px;
       button {
         font-size: 18px;
         padding: 10px;
