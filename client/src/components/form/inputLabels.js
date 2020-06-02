@@ -80,7 +80,7 @@ const tooltipDic = {
       "The vertical position from the bottom of the map. Uses scale of 0 to 100.",
     right:
       "The horizontal position from the right of the map. Uses scale of 0 to 100.",
-    linkID: "The rapid that this arrows connects to.",
+    linkId: "The rapid that this arrows connects to.",
   },
 };
 
