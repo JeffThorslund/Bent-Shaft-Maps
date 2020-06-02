@@ -43,7 +43,6 @@
 
 .toggle-board #knowledge-bool {
   position: absolute;
-  z-index: 2;
   top: 8vh;
   left: 1vw;
 }
