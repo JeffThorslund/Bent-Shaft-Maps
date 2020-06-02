@@ -15,10 +15,14 @@ export class AddRiverConfirmation extends Component {
   };
 
   handleSubmit = (e) => {
-    if (this.state.value.length > 0) {
+    let test =
+      this.state.value.length > 5 && /(^[^\s])/.test(this.state.value);
+    if (test) {
       this.props.handleClickAddRiver(this.state.value);
+      this.props.toggleAddRiverConfirmation();
+    } else {
+      alert("Dont get fancy!");
     }
-    this.props.toggleAddRiverConfirmation();
     e.preventDefault();
   };
 
