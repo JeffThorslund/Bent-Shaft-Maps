@@ -42,7 +42,7 @@
   max-width: 25px;
   background-color: honeydew;
   border-radius: 8px;
-  border: black 3px solid;
+  border: black 0.2vw solid;
 }
 .rangeslider-vertical .rangeslider__fill,
 .rangeslider-vertical .rangeslider__handle {
