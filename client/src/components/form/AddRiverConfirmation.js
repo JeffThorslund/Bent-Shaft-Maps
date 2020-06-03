@@ -44,7 +44,7 @@ export class AddRiverConfirmation extends Component {
             onClick={this.handleSubmit}
           />
         </div>
-        {this.validator.message("title", this.state.title, "required")}
+        {this.validator.message("title", this.state.value, "required")}
       </div>
     );
   }
