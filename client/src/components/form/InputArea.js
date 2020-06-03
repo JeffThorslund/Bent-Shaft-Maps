@@ -176,9 +176,8 @@ class InputArea extends React.Component {
                       default:
                         list.push(
                           <div className="input-field">
-                            <div>{capitalCase(elem)}:</div>
                             <div className="field-holder">
-                              <Field name={tempName} key={elem} />
+                              <div className="title">{capitalCase(elem)}</div>
                               <Tooltip
                                 elem={elem}
                                 riverIndex={riverIndex}
@@ -186,6 +185,7 @@ class InputArea extends React.Component {
                                 featureType={featureType}
                               />
                             </div>
+                            <Field name={tempName} key={elem} />
                             {this.validator.message(
                               elem,
                               dataObj[elem],

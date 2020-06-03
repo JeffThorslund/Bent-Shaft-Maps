@@ -1,6 +1,7 @@
 import React from "react";
 import Tippy from "@tippyjs/react";
 import "tippy.js/dist/tippy.css";
+import { HelpCircle } from "react-feather";
 
 const tooltipDic = {
   river: {
@@ -101,7 +102,9 @@ export const Tooltip = (props) => {
 
   return (
     <Tippy content={tip}>
-      <div className="tooltip">?</div>
+      <div className="tooltip">
+        <HelpCircle size={18} />
+      </div>
     </Tippy>
   );
 };
