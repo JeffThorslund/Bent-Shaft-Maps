@@ -17,6 +17,9 @@ module.exports = function (rivers, riverIndex) {
     }
   }
 
+  //set arrow link to link back to first rapid.
+  templateRapid.arrows[0].linkId = rivers[riverIndex].rapids[0].id
+
   //Push template rapid onto current river
 
   rivers[riverIndex].rapids.push(templateRapid);
