@@ -6,16 +6,16 @@ import React from "react";
 export const casePointerDirection = (elem, featureType, name) => {
   return (
     <div className="input-field">
-      <div>{capitalCase(elem)}:</div>
       <div className="field-holder">
-        <Field as="select" name={name} key={elem}>
-          <option value="top">Top</option>
-          <option value="bottom">Bottom</option>
-          <option value="left">Left</option>
-          <option value="right">Right</option>
-        </Field>
+        <div>{capitalCase(elem)}:</div>
         <Tooltip elem={elem} featureType={featureType} />
       </div>
+      <Field as="select" name={name} key={elem}>
+        <option value="top">Top</option>
+        <option value="bottom">Bottom</option>
+        <option value="left">Left</option>
+        <option value="right">Right</option>
+      </Field>
     </div>
   );
 };
@@ -28,13 +28,14 @@ export const caseMapList = (elem, featureType, name, mapsList) => {
 
   return (
     <div className="input-field">
-      <div>Background Map:</div>
       <div className="field-holder">
-        <Field as="select" name={name} key={elem}>
-          {options}
-        </Field>
+        <div>Background Map:</div>
         <Tooltip elem={elem} featureType={featureType} />
       </div>
+
+      <Field as="select" name={name} key={elem}>
+        {options}
+      </Field>
     </div>
   );
 };
@@ -47,13 +48,13 @@ export const caseArrowList = (elem, featureType, name, allRapids) => {
 
   return (
     <div className="input-field">
-      <div>Link to:</div>
       <div className="field-holder">
-        <Field as="select" name={name} key={elem}>
-          {options}
-        </Field>
+        <div>Link to:</div>
         <Tooltip elem={elem} featureType={featureType} />
       </div>
+      <Field as="select" name={name} key={elem}>
+        {options}
+      </Field>
     </div>
   );
 };
@@ -61,14 +62,14 @@ export const caseArrowList = (elem, featureType, name, allRapids) => {
 export const caseSymbolList = (elem, featureType, name) => {
   return (
     <div className="input-field">
-      <div>{capitalCase(elem)}</div>
       <div className="field-holder">
-        <Field as="select" name={name} key={elem}>
-          <option value="caution">Caution</option>
-          <option value="portage">Portage</option>
-        </Field>
+        <div>{capitalCase(elem)}</div>
         <Tooltip elem={elem} featureType={featureType} />
       </div>
+      <Field as="select" name={name} key={elem}>
+        <option value="caution">Caution</option>
+        <option value="portage">Portage</option>
+      </Field>
     </div>
   );
 };
