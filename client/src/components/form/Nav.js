@@ -78,7 +78,7 @@ class Nav extends Component {
         riverName: riverName,
       })
       .then((response) => {
-        console.log(response.data);
+        this.props.triggerUpdate();
       })
       .catch((error) => {
         console.log(error);
@@ -93,7 +93,7 @@ class Nav extends Component {
         riverIndex: riverIndex,
       })
       .then((response) => {
-        console.log(response.data);
+        this.props.triggerUpdate();
       })
       .catch((error) => {
         console.log(error);
@@ -110,7 +110,7 @@ class Nav extends Component {
         newFeatureType: newFeatureType,
       })
       .then((response) => {
-        console.log(response.data);
+        this.props.triggerUpdate();
       })
       .catch((error) => {
         console.log(error);

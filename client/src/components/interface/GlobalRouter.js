@@ -48,17 +48,12 @@ class GlobalRouter extends React.Component {
   }
 
   componentDidUpdate() {
-    if (process.env.NODE_ENV !== "development") {
-      console.log("componentDidUpdate started...");
-      this.getRiverData();
-      console.log("componentDidUpdate finished.");
+    if (process.env.NODE_ENV === "development") {
     }
   }
 
   triggerUpdate = () => {
-    console.log("triggerUpdate started...");
     this.getRiverData();
-    console.log("triggerUpdate finished.");
   };
 
   render() {
