@@ -1,10 +1,11 @@
 import React, { Component } from "react";
+import SimpleReactValidator from "simple-react-validator";
 import "./AddRiverConfirmation.css";
 
 export class AddRiverConfirmation extends Component {
   constructor(props) {
     super(props);
-
+    this.validator = new SimpleReactValidator();
     this.state = {
       value: "",
     };
@@ -15,13 +16,12 @@ export class AddRiverConfirmation extends Component {
   };
 
   handleSubmit = (e) => {
-    let test =
-      this.state.value.length > 5 && /(^[^\s])/.test(this.state.value);
-    if (test) {
+    if (this.validator.allValid()) {
       this.props.handleClickAddRiver(this.state.value);
       this.props.toggleAddRiverConfirmation();
     } else {
-      alert("Dont get fancy!");
+      this.validator.showMessages();
+      this.forceUpdate();
     }
     e.preventDefault();
   };
@@ -29,22 +29,22 @@ export class AddRiverConfirmation extends Component {
   render() {
     return (
       <div className="add-river">
-        <label>
-          <div className="title">River Name:</div>
-
+        <div className="title">River Name:</div>
+        <div className="add-river-wrapper">
           <input
             type="text"
             name="name"
             className="input"
             onChange={this.handleChange}
           />
-        </label>
-        <input
-          type="button"
-          value="Submit"
-          className="submit"
-          onClick={this.handleSubmit}
-        />
+          <input
+            type="button"
+            value="Submit"
+            className="submit"
+            onClick={this.handleSubmit}
+          />
+        </div>
+        {this.validator.message("title", this.state.title, "required")}
       </div>
     );
   }

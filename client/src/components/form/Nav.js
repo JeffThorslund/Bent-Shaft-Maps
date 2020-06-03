@@ -186,13 +186,15 @@ class Nav extends Component {
     }
     return (
       <div className="form">
-        <div className="containers">{containerArr}</div>
-        {this.state.toggleAddRiverConfirmation && (
-          <AddRiverConfirmation
-            toggleAddRiverConfirmation={this.toggleAddRiverConfirmation}
-            handleClickAddRiver={this.handleClickAddRiver}
-          />
-        )}
+        <div className="containers">
+          {containerArr}
+          {this.state.toggleAddRiverConfirmation && (
+            <AddRiverConfirmation
+              toggleAddRiverConfirmation={this.toggleAddRiverConfirmation}
+              handleClickAddRiver={this.handleClickAddRiver}
+            />
+          )}
+        </div>
         {this.state.riverIndex == null ? (
           <div className="explain">
             <h1>Wait!</h1>
