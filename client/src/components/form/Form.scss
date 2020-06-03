@@ -60,34 +60,41 @@
     }
 
     .add-river {
-      border-radius: 10px;
       margin: 10px;
-      background-color: $pl;
-      padding: 3px 10px;
+      border-bottom: 2px $sd solid;
+      padding-bottom: 15px;
 
       .title {
-        padding: 10px 3px;
-        font-size: 16px;
+        font-size: 20px;
+        margin-right: 10px;
       }
 
-      .input {
-        border-radius: 4px;
-        padding: 5px;
-        border: black 1px solid;
-      }
+      .add-river-wrapper {
+        display: flex;
+        align-items: center;
 
-      .submit {
-        font-size: 16px;
-        margin: 10px 0px;
-        background-color: white;
-        border-radius: 5px;
-        border: 1px black solid;
-        padding: 5px;
-        cursor: pointer;
-      }
+        .input {
+          border-radius: 4px;
+          padding: 6px;
+          border: $pd 2px solid;
+          margin-right: 10px;
+        }
 
-      .submit:hover {
-        background-color: lightgrey;
+        .submit {
+          font-size: 16px;
+          margin: 10px 0px;
+          background-color: $pl;
+          border: 0px solid black;
+          border-radius: 5px;
+          padding: 7px 10px;
+          cursor: pointer;
+        }
+
+        .submit:hover {
+          background-color: $pd;
+          color: white;
+          box-shadow: 2px 2px 5px grey;
+        }
       }
     }
 
@@ -135,17 +142,14 @@
           }
           .field-holder {
             display: flex;
-            text-align: center;
-            align-items: center;
+            align-items: flex-start;
+          }
+
+          .title {
           }
           .tooltip {
-            border: $pd 1px solid;
-            background-color: $pl;
-            border-radius: 5px;
-            width: 30px;
-            height: 27px;
-            padding-top: 4px;
             cursor: help;
+            padding-left: 7px;
           }
           input,
           select {

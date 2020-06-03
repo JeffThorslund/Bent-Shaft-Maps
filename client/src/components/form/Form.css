@@ -79,35 +79,47 @@
 }
 
 .form-wrapper .form .add-river {
-  border-radius: 10px;
   margin: 10px;
-  background-color: #83b9ff;
-  padding: 3px 10px;
+  border-bottom: 2px #c50e29 solid;
+  padding-bottom: 15px;
 }
 
 .form-wrapper .form .add-river .title {
-  padding: 10px 3px;
-  font-size: 16px;
+  font-size: 20px;
+  margin-right: 10px;
 }
 
-.form-wrapper .form .add-river .input {
+.form-wrapper .form .add-river .add-river-wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.form-wrapper .form .add-river .add-river-wrapper .input {
   border-radius: 4px;
-  padding: 5px;
-  border: black 1px solid;
+  padding: 6px;
+  border: #005ecb 2px solid;
+  margin-right: 10px;
 }
 
-.form-wrapper .form .add-river .submit {
+.form-wrapper .form .add-river .add-river-wrapper .submit {
   font-size: 16px;
   margin: 10px 0px;
-  background-color: white;
+  background-color: #83b9ff;
+  border: 0px solid black;
   border-radius: 5px;
-  border: 1px black solid;
-  padding: 5px;
+  padding: 7px 10px;
   cursor: pointer;
 }
 
-.form-wrapper .form .add-river .submit:hover {
-  background-color: lightgrey;
+.form-wrapper .form .add-river .add-river-wrapper .submit:hover {
+  background-color: #005ecb;
+  color: white;
+  -webkit-box-shadow: 2px 2px 5px grey;
+          box-shadow: 2px 2px 5px grey;
 }
 
 .form-wrapper .form .explain {
@@ -167,20 +179,14 @@
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  text-align: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
 }
 
 .form-wrapper .form .input-area form .input-field .tooltip {
-  border: #005ecb 1px solid;
-  background-color: #83b9ff;
-  border-radius: 5px;
-  width: 30px;
-  height: 27px;
-  padding-top: 4px;
   cursor: help;
+  padding-left: 7px;
 }
 
 .form-wrapper .form .input-area form .input-field input,
