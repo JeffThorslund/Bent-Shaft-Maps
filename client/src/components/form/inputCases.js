@@ -28,7 +28,7 @@ export const caseMapList = (elem, featureType, name, mapsList) => {
 
   return (
     <div className="input-field">
-      <div>{capitalCase(elem)}:</div>
+      <div>Background Map:</div>
       <div className="field-holder">
         <Field as="select" name={name} key={elem}>
           {options}
