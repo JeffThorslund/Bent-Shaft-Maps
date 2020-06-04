@@ -1,10 +1,8 @@
 "use strict";
 const nodemailer = require("nodemailer");
 
-module.exports = function (body) {
+module.exports = function (img, desc, river, rapid) {
 
-  const { img, desc, river, rapid } = body;
-  console.log(body)
   const {
     DESTINATION_EMAIL,
     SOURCE_EMAIL,

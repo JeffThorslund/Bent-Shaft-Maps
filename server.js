@@ -14,7 +14,7 @@ const path = require("path");
 require("dotenv").config();
 const app = express();
 app.use(compression());
-app.use(bodyParser.json());
+app.use(bodyParser.json({limit: '50mb'}));
 
 app.use(express.static(path.join(__dirname, "client/build")));
 
@@ -27,7 +27,8 @@ app.post("/api/data", (req, res, next) => {
 });
 
 app.post("/api/mailer", (req, res, next) => {
-  sendMail(req.body);
+  const { img, desc, river, rapid } = req.body;
+  sendMail(img, desc, river, rapid);
   res.send("Submitted!");
 });
 
