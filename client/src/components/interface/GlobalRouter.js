@@ -49,10 +49,12 @@ class GlobalRouter extends React.Component {
 
   componentDidUpdate() {
     if (process.env.NODE_ENV === "development") {
+      this.getRiverData();
     }
   }
 
   triggerUpdate = () => {
+    //triggers form refresh
     this.getRiverData();
   };
 
@@ -85,10 +87,6 @@ class GlobalRouter extends React.Component {
               />
             </Route>
           )}
-
-          {/*<Route exact path="/test" key="test">
-            <Test />
-      </Route>*/}
 
           {routeArray}
         </Switch>
