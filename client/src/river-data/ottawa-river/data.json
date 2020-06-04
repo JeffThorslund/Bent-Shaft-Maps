@@ -23,12 +23,11 @@
     " Jane Leakey",
     " Emily Beirnes"
   ],
-
   "rapids": [
     {
       "name": "McCoys Chute",
       "desc": "Class III",
-      "displayPosition": { "top": 70, "left": 22, "width": 35 },
+      "displayPosition": { "top": 70, "left": "19", "width": 35 },
       "riverMap": { "viewBox": "0 50 1600 900", "path": "McCoysChute" },
       "hydraulics": [
         {
@@ -231,11 +230,8 @@
     {
       "name": "Magical Mystery Tour",
       "desc": "Class II",
-      "displayPosition": { "top": 72, "left": 15, "width": 50 },
-      "riverMap": {
-        "viewBox": "0 0 1600 900",
-        "path": "MagicalMysteryTour"
-      },
+      "displayPosition": { "top": "55", "left": 15, "width": 50 },
+      "riverMap": { "viewBox": "0 0 1600 900", "path": "MagicalMysteryTour" },
       "hydraulics": [],
       "eddys": [],
       "lines": [
@@ -266,7 +262,7 @@
           "linkId": "rapid_avaze"
         },
         {
-          "bottom": 42,
+          "bottom": "60",
           "right": 85,
           "id": "arrow_r1ou7",
           "linkId": "rapid_7f9mf"
@@ -393,7 +389,7 @@
     {
       "name": "Butterfly",
       "desc": "Class III",
-      "displayPosition": { "top": 75, "left": 50, "width": 45 },
+      "displayPosition": { "top": "70", "left": "51", "width": "42" },
       "riverMap": { "viewBox": "0 0 1600 900", "path": "Butterfly" },
       "hydraulics": [
         {
@@ -816,7 +812,7 @@
     {
       "name": "Lower No Name",
       "desc": "Class III",
-      "displayPosition": { "top": 68, "left": 2, "width": 40 },
+      "displayPosition": { "top": "72", "left": "23", "width": 40 },
       "riverMap": { "viewBox": "0 0 1600 900", "path": "LowerNoName" },
       "hydraulics": [],
       "eddys": [],
@@ -851,7 +847,19 @@
       "desc": "Class III",
       "displayPosition": { "top": 71, "left": 42, "width": 50 },
       "riverMap": { "viewBox": "0 0 1600 900", "path": "TheLorne" },
-      "hydraulics": [],
+      "hydraulics": [
+        {
+          "name": "Garberator",
+          "desc": "Talk about safety, hazards, tips about the feature, behavior at different levels.",
+          "y": "500",
+          "x": "620",
+          "height": 58.73,
+          "width": 13.44,
+          "rotation": 1,
+          "range": [-10, 13],
+          "id": "hydraulics_3hogt"
+        }
+      ],
       "eddys": [],
       "lines": [],
       "symbols": [
