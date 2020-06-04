@@ -8,7 +8,8 @@ export class SubmitKnowledge extends Component {
     super(props);
     this.state = {
       value: "",
-      selectedFile: null,
+      selectedFileBase64: null,
+      selectedFileName: null,
     };
   }
 
@@ -17,33 +18,34 @@ export class SubmitKnowledge extends Component {
   };
 
   handleSubmit = (e) => {
-    //read file and return base64
-    const reader = new FileReader();
-    reader.onload = () => {
-      axios
-        .post("/api/mailer", {
-          img: reader.result || null,
-          desc: this.state.value,
-          river: this.props.name,
-          rapid: this.props.rapidName,
-        })
-        .then(function (response) {
-          console.log(response);
-        })
-        .catch(function (error) {
-          console.log(error);
-        });
-    };
-    reader.readAsDataURL(this.state.selectedFile);
-    //close pop up
+    axios
+      .post("/api/mailer", {
+        img: this.state.selectedFileBase64,
+        desc: this.state.value,
+        river: this.props.name,
+        rapid: this.props.rapidName,
+      })
+      .then(function (response) {
+        console.log(response);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+
     this.props.toggleSetting(this.props.setting);
     e.preventDefault();
   };
 
   fileChangedHandler = (e) => {
+    const reader = new FileReader();
+    reader.onload = () => {
+      this.setState({ selectedFileBase64: reader.result });
+    };
+
     console.log(e.target.files[0]);
     if (e.target.files[0].size < 5000000) {
-      this.setState({ selectedFile: e.target.files[0] });
+      this.setState({ selectedFileName: e.target.files[0].name });
+      reader.readAsDataURL(e.target.files[0]);
     } else {
       alert("Thats a HUGE file. Try one under 5MB.");
     }
@@ -100,8 +102,8 @@ picture.`}
           </div>
 
           <label for="file-drop" className="custom-file-upload children">
-            {this.state.selectedFile ? (
-              <div> {this.state.selectedFile.name}</div>
+            {this.state.selectedFileName ? (
+              <div> {this.state.selectedFileName}</div>
             ) : (
               <div>Click to Upload a Picture</div>
             )}
