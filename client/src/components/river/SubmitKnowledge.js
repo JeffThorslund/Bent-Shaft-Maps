@@ -74,10 +74,10 @@ export class SubmitKnowledge extends Component {
               <ul id="prompt-list">
                 <li>Line is not quite right?</li>
                 <li>A description could be better?</li>
-                <li>Stellar lunch spot not indicated?</li>
+                <li>A secret channel opens up at high water?</li>
               </ul>
-              <div className="subtitle">Submit an Image</div>
-              <div className="subtitle">Submit an Description</div>
+              <div className="subtitle"><b>Submit an Image </b>(Optional)</div>
+              <div className="subtitle"><b>Submit a Description</b></div>
               <div className="body" id="img">
                 Take a screen shot of the rapid, use Microsoft Paint to mark the
                 location of any feature, eddy, line or hazard.

@@ -19,6 +19,9 @@ const Hydraulic = (props) => {
         y={y.toString()}
         rx="7"
         transform={`rotate( ${rotation} ${x} ${y})`}
+        data-tip={[name, desc]}
+        data-for="svgTooltip"
+        data-event="click"
       />
     </g>
   );

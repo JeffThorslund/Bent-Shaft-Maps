@@ -2,7 +2,6 @@ import React from "react";
 import Global from "./Global";
 import RiverRouter from "./RiverRouter";
 import Form from "../form/Form.js";
-import Test from "../test/Test";
 import {
   BrowserRouter as Router,
   Switch,
@@ -49,7 +48,7 @@ class GlobalRouter extends React.Component {
 
   componentDidUpdate() {
     if (process.env.NODE_ENV === "development") {
-      this.getRiverData();
+      //this.getRiverData();
     }
   }
 

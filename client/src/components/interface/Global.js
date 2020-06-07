@@ -80,8 +80,16 @@ class Global extends React.Component {
       <div className="Global-background">
         <div className="Global">
           <Route>
-            <div id="title">Wet Exit Guides</div>
-            <div id="subtitle">Your source for stellar river guides.</div>
+            <div className="headerWrapper">
+
+              <img id="logo" src="./KayakLogo.png" alt="logo"/>
+              
+
+              <div>
+                <div id="title">BENT SHAFT MAPS</div>
+                <div id="subtitle">WHITEWATER IMMORTALIZED</div>
+              </div>
+            </div>
 
             <SearchBar
               value={this.state.value}
@@ -90,7 +98,7 @@ class Global extends React.Component {
 
             <div className="river-wrapper">{labelArr}</div>
             <GithubCorner
-              octoColor="#e1e2e2ff"
+              octoColor="#85afd6"
               href="https://github.com/JeffThorslund/Ottawa-River-Paddling-Guide"
             />
           </Route>
