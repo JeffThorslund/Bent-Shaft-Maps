@@ -1,55 +1,37 @@
 {
   "name": "ottawa-river-whitewater",
-  "version": "0.1.0",
-  "private": true,
-  "dependencies": {
-    "@testing-library/jest-dom": "^4.2.4",
-    "@testing-library/react": "^9.5.0",
-    "@testing-library/user-event": "^7.2.1",
-    "axios": "^0.19.2",
-    "camelcase": "^6.0.0",
-    "chalk": "^4.0.0",
-    "clear": "^0.1.0",
-    "decamelize": "^4.0.0",
-    "dom-to-image": "^2.6.0",
-    "dotenv": "^8.2.0",
-    "figlet": "^1.4.0",
-    "jspdf": "^1.5.3",
-    "netlify-lambda": "^1.6.3",
-    "node-sass": "^4.14.0",
-    "nodemailer": "^6.4.6",
-    "react": "^16.13.1",
-    "react-dom": "^16.13.1",
-    "react-github-corner": "^2.3.0",
-    "react-rangeslider": "^2.2.0",
-    "react-router-dom": "^5.1.2",
-    "react-scripts": "3.4.1",
-    "titleize": "^2.1.0",
-    "uppercamelcase": "^3.0.0"
-  },
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "lambda-serve": "netlify-lambda serve functions",
-    "lambda-build": "netlify-lambda build functions"
+    "start-server": "node server.js",
+    "dev": "concurrently \"nodemon server.js\" \"cd client && npm start\"",
+    "start-client": "cd client && npm run start",
+    "build-client": "cd client && npm run build",
+    "heroku-postbuild": "cd client && npm install && npm run build"
   },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JeffThorslund/jeffrey.thorslund-gmail.com.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JeffThorslund/jeffrey.thorslund-gmail.com/issues"
+  },
+  "homepage": "https://github.com/JeffThorslund/jeffrey.thorslund-gmail.com#readme",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "change-case": "^4.1.1",
+    "compression": "^1.7.4",
+    "concurrently": "^5.2.0",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "ncp": "^2.0.0",
+    "nodemailer": "^6.4.6"
   },
   "devDependencies": {
-    "eslint-config-prettier": "^6.10.1",
-    "eslint-plugin-prettier": "^3.1.2",
-    "prettier": "^2.0.4"
+    "nodemon": "^2.0.3"
   }
 }

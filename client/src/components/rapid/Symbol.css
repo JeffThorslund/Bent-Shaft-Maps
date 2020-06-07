@@ -1,0 +1,13 @@
+/*---Colors---*/
+/*---Form Colors---*/
+/*---Fonts---*/
+/*---Mixins---*/
+#Portage {
+  fill: black;
+  fill-opacity: 0.8;
+}
+
+#Portage:hover {
+  fill-opacity: 1;
+}
+/*# sourceMappingURL=Symbol.css.map */

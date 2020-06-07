@@ -1,0 +1,10 @@
+{
+    "version": 3,
+    "mappings": "ACAA,gBAAgB;AAahB,qBAAqB;AAQrB,eAAe;AAef,gBAAgB;ADlChB,AAAA,QAAQ,CAAC;EACP,IAAI,EAAE,KAAK;EACX,YAAY,EAAE,GAAG;CAClB;;AAED,AAAA,QAAQ,AAAA,MAAM,CAAC;EACb,YAAY,EAAE,CAAC;CAChB",
+    "sources": [
+        "Symbol.scss",
+        "../_standards.scss"
+    ],
+    "names": [],
+    "file": "Symbol.css"
+}

@@ -1,0 +1,177 @@
+/*---Colors---*/
+/*---Form Colors---*/
+/*---Fonts---*/
+/*---Mixins---*/
+.SubmitKnowledge {
+  position: absolute;
+  z-index: 1;
+  top: 0px;
+  left: 0px;
+  height: 100vh;
+  width: 100vw;
+}
+
+.SubmitKnowledge .fade {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background-color: white;
+  opacity: 0.7;
+}
+
+.SubmitKnowledge .form-wrapper {
+  position: absolute;
+  width: 80vw;
+  /* fixes border */
+  height: 77vh;
+  /* fixes border */
+  top: 47%;
+  left: 46%;
+  margin-top: -39vh;
+  /* Negative half of height. */
+  margin-left: -37vw;
+  /* Negative half of width. */
+  background-color: #4b8cc9;
+  -webkit-box-shadow: 10px 13px 18px -4px rgba(0, 0, 0, 0.48);
+          box-shadow: 10px 13px 18px -4px rgba(0, 0, 0, 0.48);
+  border-radius: 1vw;
+  padding: 1.5%;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1fr 1fr;
+      grid-template-columns: 1fr 1fr 1fr;
+  -ms-grid-rows: 4fr 1fr;
+      grid-template-rows: 4fr 1fr;
+  grid-gap: 3% 2%;
+}
+
+.SubmitKnowledge .form-wrapper .children {
+  border-radius: 1vw;
+  font-size: 1.4vw;
+  color: #2b2118ff;
+}
+
+.SubmitKnowledge .form-wrapper #instructions {
+  -webkit-box-shadow: 10px 13px 18px -4px rgba(0, 0, 0, 0.48);
+          box-shadow: 10px 13px 18px -4px rgba(0, 0, 0, 0.48);
+  background-color: white;
+  font-family: "Alata";
+  -ms-grid-column: span 2;
+      grid-column-start: span 2;
+}
+
+.SubmitKnowledge .form-wrapper #instructions .instructions-wrapper {
+  display: -ms-grid;
+  display: grid;
+  justify-items: center;
+  -ms-grid-columns: 1fr 1fr;
+      grid-template-columns: 1fr 1fr;
+  -ms-grid-rows: auto;
+      grid-template-rows: auto;
+  padding: 1.5vh 1.8vw;
+}
+
+.SubmitKnowledge .form-wrapper #instructions .instructions-wrapper #title {
+  font-family: "Alata";
+  font-size: 1.9vw;
+  grid-column: span 2;
+  font-weight: bold;
+  padding-top: 1vh;
+}
+
+.SubmitKnowledge .form-wrapper #instructions .instructions-wrapper #prompt-list {
+  -webkit-margin-before: 0vh;
+          margin-block-start: 0vh;
+  -webkit-margin-after: 0vh;
+          margin-block-end: 0vh;
+  -webkit-margin-start: 0px;
+          margin-inline-start: 0px;
+  -webkit-margin-end: 0px;
+          margin-inline-end: 0px;
+  -webkit-padding-start: 2vw;
+          padding-inline-start: 2vw;
+  padding-top: 1.5vh;
+}
+
+.SubmitKnowledge .form-wrapper #instructions .instructions-wrapper .subtitle {
+  font-size: 1.7vw;
+  padding-top: 10%;
+}
+
+.SubmitKnowledge .form-wrapper #instructions .instructions-wrapper .body {
+  font-size: 1.3vw;
+  padding: 3%;
+}
+
+.SubmitKnowledge .form-wrapper #text-area-wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.SubmitKnowledge .form-wrapper #text-area-wrapper #text-area {
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+  border-radius: 1vw;
+  border: transparent;
+  resize: none;
+  background-color: white;
+  font-family: "Alata";
+  font-size: 1.4vw;
+  padding: 6%;
+  -webkit-box-shadow: 10px 13px 18px -4px rgba(0, 0, 0, 0.48);
+          box-shadow: 10px 13px 18px -4px rgba(0, 0, 0, 0.48);
+}
+
+.SubmitKnowledge .form-wrapper #text-area-wrapper #text-area:focus {
+  outline: 0;
+}
+
+.SubmitKnowledge .form-wrapper .custom-file-upload {
+  grid-column: span 2;
+  -webkit-box-shadow: 10px 13px 18px -4px rgba(0, 0, 0, 0.48);
+          box-shadow: 10px 13px 18px -4px rgba(0, 0, 0, 0.48);
+  background-color: white;
+  text-align: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-family: "Alata";
+  font-size: 1.8vw;
+  color: #2b2118ff;
+  cursor: pointer;
+}
+
+.SubmitKnowledge .form-wrapper .custom-file-upload #file-drop {
+  display: none;
+}
+
+.SubmitKnowledge .form-wrapper .custom-file-upload:hover {
+  border: none;
+  color: white;
+  background-color: black;
+}
+
+.SubmitKnowledge .form-wrapper #submit-button {
+  font-family: "Alata";
+  font-size: 2vw;
+  background-color: white;
+  border: 10px 13px 18px -4px rgba(0, 0, 0, 0.48);
+  cursor: pointer;
+  border: 1px solid transparent;
+  -webkit-box-shadow: 10px 13px 18px -4px rgba(0, 0, 0, 0.48);
+          box-shadow: 10px 13px 18px -4px rgba(0, 0, 0, 0.48);
+}
+
+.SubmitKnowledge .form-wrapper #submit-button:hover {
+  background-color: black;
+  color: white;
+}
+/*# sourceMappingURL=SubmitKnowledge.css.map */

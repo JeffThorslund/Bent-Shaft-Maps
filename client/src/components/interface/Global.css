@@ -1,0 +1,178 @@
+/*---Colors---*/
+/*---Form Colors---*/
+/*---Fonts---*/
+/*---Mixins---*/
+@media (min-width: 320px) {
+  .Global-background {
+    background: linear-gradient(128deg, #4b8cc9 0%, #9bbcdb 100%);
+    height: 100%;
+    min-height: 100vh;
+  }
+  .Global-background .Global {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  .Global-background .Global .headerWrapper {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  .Global-background .Global #logo {
+    display: none;
+  }
+  .Global-background .Global #title {
+    font-family: "Oswald";
+    color: white;
+    margin-top: 20px;
+    font-size: 13vw;
+  }
+  .Global-background .Global #subtitle {
+    font-family: "Ruda";
+    color: white;
+    text-align: center;
+    font-size: 4vw;
+    padding-left: 3px;
+    letter-spacing: 4px;
+  }
+  .Global-background .Global form {
+    outline: none;
+  }
+  .Global-background .Global .searchbar {
+    width: 79vw;
+    height: 3.4vw;
+    border-radius: 10px;
+    background-color: #f8f8f8;
+    text-align: center;
+    font-family: "Ruda";
+    font-size: 3.5vw;
+    padding: 1.2vw;
+    margin-top: 10px;
+    border: #2b2118ff 2px solid;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    outline: none;
+  }
+  .Global-background .Global .river-wrapper {
+    display: -ms-grid;
+    display: grid;
+    justify-items: stretch;
+    -ms-grid-columns: (1fr)[1];
+        grid-template-columns: repeat(1, 1fr);
+    width: 80%;
+    margin-top: 20px;
+    grid-gap: 15px;
+    margin-top: 15px;
+  }
+  .Global-background .Global .river-wrapper .river-label {
+    border: #2b2118ff 2px solid;
+  }
+  .Global-background .Global .river-wrapper .river-label #name {
+    font-size: 20px;
+  }
+  .Global-background .Global .river-wrapper .river-label #location {
+    font-size: 15px;
+  }
+  .Global-background .Global .river-wrapper .done {
+    padding: 10px;
+  }
+  .Global-background .Global .river-wrapper .header {
+    padding: 10px;
+  }
+  .Global-background .Global .github-corner svg {
+    width: 60px;
+    height: 60px;
+  }
+}
+
+@media (min-width: 750px) {
+  .Global-background .Global #title {
+    margin-top: 15px;
+    font-size: 4.5rem;
+  }
+  .Global-background .Global #subtitle {
+    font-size: 2rem;
+    margin-top: 3px;
+  }
+  .Global-background .Global .github-corner svg {
+    width: 70px;
+    height: 70px;
+  }
+  .Global-background .Global .searchbar {
+    font-size: 20px;
+    height: 25px;
+    padding: 4px;
+    margin-top: 20px;
+  }
+  .Global-background .Global .river-wrapper {
+    -ms-grid-columns: (1fr)[2];
+        grid-template-columns: repeat(2, 1fr);
+    width: 80%;
+  }
+  .Global-background .river-label #name {
+    font-size: 24px;
+  }
+  .Global-background .river-label #location {
+    font-size: 18px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .Global-background .Global #logo {
+    display: block;
+    padding-right: 30px;
+    padding-top: 40px;
+    height: 220px;
+  }
+  .Global-background .Global #title {
+    margin-top: 30px;
+    font-size: 5.5rem;
+  }
+  .Global-background .Global #subtitle {
+    font-size: 2.5rem;
+  }
+  .Global-background .Global .github-corner svg {
+    width: 80px;
+    height: 80px;
+  }
+  .Global-background .Global .searchbar {
+    font-size: 24px;
+    height: 30px;
+    padding: 4px;
+    margin-top: 30px;
+  }
+  .Global-background .Global .river-wrapper {
+    -ms-grid-columns: (1fr)[3];
+        grid-template-columns: repeat(3, 1fr);
+    width: 80%;
+    margin-top: 30px;
+  }
+  .Global-background .Global .river-wrapper .river-label #name {
+    font-size: 28px;
+  }
+  .Global-background .Global .river-wrapper .river-label #location {
+    font-size: 22px;
+  }
+}
+/*# sourceMappingURL=Global.css.map */

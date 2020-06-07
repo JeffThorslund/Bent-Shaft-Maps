@@ -1,0 +1,10 @@
+.hydraulic rect {
+  fill: white;
+  fill-opacity: 0.7;
+}
+
+.hydraulic:hover rect {
+  fill: white;
+  fill-opacity: 1;
+}
+/*# sourceMappingURL=Hydraulic.css.map */

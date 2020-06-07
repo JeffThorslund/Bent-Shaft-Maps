@@ -1,0 +1,120 @@
+@import "../standards";
+
+.river-label {
+  border-radius: 10px;
+  background-image: linear-gradient($light_color3, $color3);
+  cursor: pointer;
+  overflow: hidden;
+  user-select: none;
+  color: $color6;
+  font-family: $title2;
+}
+
+.river-label:hover {
+  background-image: linear-gradient($lighter_color3, $light_color3);
+}
+
+.river-label a {
+  text-decoration: none;
+  color: $color6;
+}
+
+.done {
+}
+
+#name {
+  font-size: 30px;
+}
+
+#location {
+  font-size: 20px;
+}
+
+#class {
+  font-size: 16px;
+}
+
+#selected {
+  font-weight: bold;
+  display: inline-block;
+}
+
+/*---UnderConst---*/
+.const {
+  display: flex;
+  justify-content: space-between;
+}
+.header {
+}
+
+.img-wrapper {
+  position: relative;
+  right: -1px;
+  height: 110px;
+  width: auto;
+  border-left: black 3px solid;
+}
+
+.toggled {
+  background-color: $color6;
+  color: $color4;
+  background-image: none;
+}
+
+.toggled:hover {
+  background-image: none;
+}
+
+#involved {
+  text-align: center;
+  background-color: $color3;
+  border-radius: 10px;
+  padding: 5px;
+  margin-top: 10px;
+  font-size: 20px;
+}
+
+#involved:hover {
+  font-weight: bold;
+}
+
+/*---DoesNotExist---*/
+
+.make-one {
+  grid-column: 1 / 4;
+  text-align: center;
+  padding: 20px;
+  cursor: auto;
+}
+
+.make-one:hover {
+  background-image: linear-gradient($light_color3, $color3);
+}
+
+.make-one .main {
+  font-size: 48px;
+  padding: 10px;
+}
+
+.make-one .sub {
+  font-size: 24px;
+  padding: 10px;
+}
+
+.guide-link {
+  border: black 2px solid;
+  background-color: $color2;
+  font-size: 24px;
+  border-radius: 50px;
+  margin: 10px 20%;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.guide-link:hover {
+  font-weight: bold;
+}
+
+.guide-link a {
+  text-decoration: none;
+}
