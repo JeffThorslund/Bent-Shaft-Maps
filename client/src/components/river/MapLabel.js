@@ -9,7 +9,7 @@ import {
   useParams,
   useRouteMatch,
 } from "react-router-dom";
-import idParser from "../../tools/idParser";
+import { paramCase } from "change-case";
 
 const MapLabel = (props) => {
   const { titleTop, titleLeft, pointerDirection } = props.mapLabel;
@@ -54,7 +54,7 @@ const MapLabel = (props) => {
 
   return (
     <div className={className} style={style}>
-      <Link to={`${props.url}/${idParser(props.name)}`}>
+      <Link to={`${props.url}/${paramCase(props.name)}`}>
         <div className="name" onClick={() => pickFromMap()}>
           {props.name}
         </div>

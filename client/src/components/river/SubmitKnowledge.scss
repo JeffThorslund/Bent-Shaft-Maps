@@ -1,6 +1,7 @@
 @import "../standards";
 
 $border: $color6 0.6vh solid;
+$shadow: 10px 13px 18px -4px rgba(0, 0, 0, 0.48);
 
 .SubmitKnowledge {
   position: absolute;
@@ -20,31 +21,33 @@ $border: $color6 0.6vh solid;
 
   .form-wrapper {
     position: absolute;
-    width: 76vw; /* fixes border */
-    height: 78vh; /* fixes border */
-    top: 48%; //50-padding will keep it centered.
-    left: 49%; //50-padding will keep it centered.
+    width: 80vw; /* fixes border */
+    height: 77vh; /* fixes border */
+    top: 47%; //50-padding will keep it centered.
+    left: 46%; //50-padding will keep it centered.
     margin-top: -39vh; /* Negative half of height. */
-    margin-left: -38vw; /* Negative half of width. */
+    margin-left: -37vw; /* Negative half of width. */
     background-color: $color5;
-    border: $border;
+    box-shadow: $shadow;
     border-radius: 1vw;
+    padding: 1.5%;
 
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 80% 20%;
-    padding: 1%;
+    grid-template-rows: 4fr 1fr;
+    grid-gap: 3% 2%;
+    //padding: 1%;
 
     .children {
       border-radius: 1vw;
-      margin: 0.8vh 0.8vw;
+      //margin: 0.8vh 0.8vw;
       font-size: 1.4vw;
       color: $color6;
     }
 
     #instructions {
-      border: $border;
-      background-color: $color2;
+      box-shadow: $shadow;
+      background-color: white;
       font-family: $title3;
       grid-column-start: span 2;
 
@@ -72,7 +75,6 @@ $border: $color6 0.6vh solid;
         }
         .subtitle {
           font-size: 1.7vw;
-          font-weight: bold;
           padding-top: 10%;
         }
         .body {
@@ -87,12 +89,13 @@ $border: $color6 0.6vh solid;
       #text-area {
         flex-grow: 1;
         border-radius: 1vw;
+        border: transparent;
         resize: none;
-        background-color: $color2;
+        background-color: white;
         font-family: $title3;
         font-size: 1.4vw;
         padding: 6%;
-        border: $border;
+        box-shadow: $shadow;
       }
       #text-area:focus {
         outline: 0;
@@ -101,9 +104,10 @@ $border: $color6 0.6vh solid;
 
     .custom-file-upload {
       grid-column: span 2;
-      border: $color6 0.4vw dashed;
-      background-color: $color2;
-      padding: 1.5vw;
+      //border: $color6 0.3vw dashed;
+      box-shadow: $shadow;
+      background-color: white;
+      //padding: 1.5vw;
       text-align: center;
       display: flex;
       justify-content: center;
@@ -119,21 +123,23 @@ $border: $color6 0.6vh solid;
 
     .custom-file-upload:hover {
       border: none;
-      color: $color2;
-      background-color: $color6;
+      color: white;
+      background-color: black;
     }
 
     #submit-button {
       font-family: $title3;
       font-size: 2vw;
-      background-color: $color2;
-      border: $border;
+      background-color: white;
+      border: $shadow;
       cursor: pointer;
+      border: 1px solid transparent;
+      box-shadow: $shadow;
     }
 
     #submit-button:hover {
-      background-color: $color6;
-      color: $color2;
+      background-color: black;
+      color: white;
     }
   }
 }

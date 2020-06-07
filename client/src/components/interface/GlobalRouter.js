@@ -1,6 +1,7 @@
 import React from "react";
 import Global from "./Global";
 import RiverRouter from "./RiverRouter";
+import Form from "../form/Form.js";
 import {
   BrowserRouter as Router,
   Switch,
@@ -11,49 +12,85 @@ import {
 } from "react-router-dom";
 import { paramCase } from "change-case";
 
-import readRiverFilesRequest from "../../tools/requests/readRiverFilesRequest";
+const axios = require("axios").default;
 
 class GlobalRouter extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { data: null };
+    this.state = { rivers: null };
   }
 
-  componentDidMount() {
-    readRiverFilesRequest("./client/src/river-data").then((response) => {
-      response.json().then((value) => {
-        console.log(value.rivers)
-        this.setState({ data: value.rivers });
+  getRiverData = () => {
+    console.log("getRiverData started...");
+    axios
+      .post("/api/data", {
+        path: "./client/src/river-data",
+      })
+      .then((response) => {
+        //filter template river
+        let filtered = response.data.rivers.filter(
+          (river) => river.name !== "Template River"
+        );
+        console.log("getRiverData state set.");
+        this.setState({ rivers: filtered });
+        console.log("getRiverData finished.");
+      })
+      .catch((error) => {
+        console.log(error);
       });
-    });
+  };
+
+  componentDidMount() {
+    console.log("componentDidMount started...");
+    this.getRiverData();
+    console.log("componentDidMount finished.");
   }
+
+  componentDidUpdate() {
+    if (process.env.NODE_ENV === "development") {
+      //this.getRiverData();
+    }
+  }
+
+  triggerUpdate = () => {
+    //triggers form refresh
+    this.getRiverData();
+  };
 
   render() {
     var routeArray;
-    if (this.state.data != null) {
-      routeArray = this.state.data
-        .filter((chunk) => Object.keys(chunk).length !== 0)
-        .map((elem, key) => {
-          console.log(elem.riverName);
-          return (
-            <Route path={`/${paramCase(elem.riverName)}`} key={`river${key}`}>
-              <RiverRouter data={elem} />
-            </Route>
-          );
-        });
+    if (this.state.rivers != null) {
+      routeArray = this.state.rivers.map((river, key) => {
+        return (
+          <Route path={`/${paramCase(river.name)}`} key={`river${key}`}>
+            <RiverRouter data={river} />
+          </Route>
+        );
+      });
     } else {
       routeArray = [];
     }
 
-    return (
-      <Switch>
-        <Route exact path="/">
-          <Global dataArr={this.state.data} />
-        </Route>
+    if (this.state.rivers != null) {
+      return (
+        <Switch>
+          <Route exact path="/" key="home">
+            <Global dataArr={this.state.rivers} />
+          </Route>
 
-        {routeArray}
-      </Switch>
-    );
+          {process.env.NODE_ENV === "development" && (
+            <Route exact path="/form" key="form">
+              <Form
+                rivers={this.state.rivers}
+                triggerUpdate={this.triggerUpdate}
+              />
+            </Route>
+          )}
+
+          {routeArray}
+        </Switch>
+      );
+    } else return null;
   }
 }
 

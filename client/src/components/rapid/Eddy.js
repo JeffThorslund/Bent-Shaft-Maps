@@ -1,25 +1,22 @@
 import React from "react";
 import PropTypes from "prop-types";
+import "./Eddy.css";
+import ReactTooltip from "react-tooltip";
 
 const Eddy = (props) => {
   const { name, desc, vector, x, y } = props.eddys;
 
   return (
     <g
-      className={name}
+      className="Eddy"
       transform={`translate(${x}, ${y})`}
-      onClick={() => {
-        props.displayData(name, desc);
-      }}
     >
       <path
-        fill="#FF5964"
-        fill-opacity="0.37"
-        stroke="#FF5964"
-        stroke-width="3"
-        stroke-linecap="round"
-        stroke-dasharray="7 7"
+        id="path"
         d={vector}
+        data-tip={[name, desc]}
+        data-for="svgTooltip"
+        data-event="click"
       />
     </g>
   );

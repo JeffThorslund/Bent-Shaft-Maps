@@ -7,8 +7,7 @@ import {
   useParams,
   useRouteMatch,
 } from "react-router-dom";
-
-import idParser from "../../tools/idParser";
+import { paramCase } from "change-case";
 import "./PutIn.css";
 
 const PutIn = (props) => {
@@ -18,10 +17,10 @@ const PutIn = (props) => {
     <div className="PutIn-wrapper">
       <div className="header">
         <div id="pre-title">Welcome to the</div>
-        <div id="title">{props.data.riverName}</div>
+        <div id="title">{props.data.name}</div>
 
         <Link
-          to={`${props.url}/${idParser(props.data.rapids[0].name)}`}
+          to={`${props.url}/${paramCase(props.data.rapids[0].name)}`}
           className="child"
         >
           <div className="button">Click to Continue...</div>
@@ -32,29 +31,36 @@ const PutIn = (props) => {
         <div className="footer-grid-wrapper">
           <div className="child" id="info">
             <div className="title">Info</div>
-            <div>{props.data.riverInfo}</div>
+            <div>{props.data.info}</div>
           </div>
-          <div className="child" id="contributors">
-            <div className="title">Contributors</div>
-            <div>{contributors}</div>
-          </div>
-          <div className="child" id="logos">
-            <div className="title">Brought to you by...</div>
-            <a
-              href={props.data.sponsors[0].link}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <img
-                src={props.data.sponsors[0].logo}
-                alt="trestle logo"
-                width="100%"
-              />
-            </a>
-          </div>
+          {props.data.contributors.length > 0 && (
+            <div className="child" id="contributors">
+              <div className="title">Contributors</div>
+              <div>{contributors}</div>
+            </div>
+          )}
+
+          {props.data.sponsors[0].logo.length > 0 && (
+            <div className="child" id="logos">
+              <div className="title">Brought to you by...</div>
+              <a
+                href={props.data.sponsors[0].link}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <img
+                  src={require(`../../river-data/${paramCase(
+                    props.data.name
+                  )}/${props.data.sponsors[0].logo}`)}
+                  alt={`${paramCase(props.data.sponsors[0].logo)}`}
+                  width="100%"
+                />
+              </a>
+            </div>
+          )}
           <div className="child" id="access">
             <div className="title">Access</div>
-            <div>{props.data.riverDesc}</div>
+            <div>{props.data.desc}</div>
           </div>
           <a
             href={props.data.putIn}
