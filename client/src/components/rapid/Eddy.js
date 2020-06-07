@@ -1,6 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import "./Eddy.css";
+import ReactTooltip from "react-tooltip";
 
 const Eddy = (props) => {
   const { name, desc, vector, x, y } = props.eddys;
@@ -9,14 +10,13 @@ const Eddy = (props) => {
     <g
       className="Eddy"
       transform={`translate(${x}, ${y})`}
-      onClick={() => {
-        props.displayData(name, desc);
-      }}
     >
       <path
         id="path"
-        
         d={vector}
+        data-tip={[name, desc]}
+        data-for="svgTooltip"
+        data-event="click"
       />
     </g>
   );

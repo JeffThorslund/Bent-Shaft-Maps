@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import "./Rapid.css";
-import Display from "./Display";
 import NextRapid from "./NextRapid";
 import Features from "./Features";
 import Basemap from "./Basemap";
@@ -16,16 +15,10 @@ class Rapid extends Component {
     };
   }
 
-  displayData = (title, desc) => {
-    this.setState(() => ({
-      title,
-      desc,
-    }));
-  };
 
   render() {
     //destructure incoming props
-    const {data, allData, url, level} = this.props
+    const { data, allData, url, level } = this.props;
 
     // render array of "next rapid arrows" based on selected water level (App state)
     const arrowArray = data.arrows.map((element, key) => (
@@ -51,20 +44,13 @@ class Rapid extends Component {
         </div>
 
         <div id="level-display">
-          <div id="feet"> {level} {allData.level.levelUnits}</div>
+          <div id="feet">
+            {" "}
+            {level} {allData.level.levelUnits}
+          </div>
         </div>
-        <Features
-          level={level}
-          data={data}
-          displayData={this.displayData}
-        />
+        <Features level={level} data={data} />
         <div id="arrow-array"> {arrowArray} </div>
-
-        <Display
-          title={this.state.title}
-          desc={this.state.desc}
-          displayPosition={data.displayPosition}
-        />
       </div>
     );
   }

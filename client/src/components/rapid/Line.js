@@ -1,6 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import "./Line.css";
+import ReactTooltip from "react-tooltip";
 
 const Line = (props) => {
   const { name, desc, vector, x, y } = props.lines;
@@ -30,7 +31,13 @@ const Line = (props) => {
       className="line-hover"
       transform={`translate(${x},${y})`}
     >
-      <path d={vector} />
+      <path
+        d={vector}
+        data-tip
+        data-tip={[name, desc]}
+        data-for="svgTooltip"
+        data-event="click"
+      />
       <circle cx={circleX} cy={circleY} r="10" stroke="none" fill="black" />
     </g>
   );
