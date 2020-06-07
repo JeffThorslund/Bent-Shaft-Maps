@@ -1,0 +1,16 @@
+@import "../standards";
+
+.Eddy {
+  path {
+    stroke: $eddy;
+    fill: $eddy;
+    fill-opacity: 0.37;
+    stroke-width: 3;
+    stroke-linecap: round;
+    stroke-dasharray: 7;
+  }
+
+  path:hover {
+    fill-opacity: 0.6;
+  }
+}

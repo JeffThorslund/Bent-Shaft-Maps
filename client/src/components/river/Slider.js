@@ -7,8 +7,14 @@ class Vertical extends Component {
   constructor(props, context) {
     super(props, context);
     this.state = {
-      value: 0,
+      value: null,
     };
+  }
+
+  componentDidMount() {
+    this.setState({
+      value: this.props.rapid.level.defaultLevel,
+    });
   }
 
   handleChange = (value) => {
@@ -23,8 +29,8 @@ class Vertical extends Component {
     return (
       <div className="slider">
         <Slider
-          min={-5}
-          max={15}
+          min={this.props.rapid.level.levelMin}
+          max={this.props.rapid.level.levelMax}
           value={value}
           step={1}
           tooltip={false}

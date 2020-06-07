@@ -1,12 +1,12 @@
-import React, { Component, Suspense } from "react";
+import React, { Component } from "react";
 import "./River.css";
 import Rapid from "../rapid/Rapid";
 import Slider from "./Slider";
 import Map from "./Map";
 import GenericToggle from "./GenericToggle";
 import { withRouter } from "react-router-dom";
-import idParser from "../../tools/idParser";
 import Home from "./Home";
+import { paramCase } from "change-case";
 
 import SubmitKnowledge from "./SubmitKnowledge";
 
@@ -15,11 +15,16 @@ class River extends Component {
     super(props);
 
     this.state = {
-      level: 0,
+      level: null,
       mapBool: false,
-      symbolBool: false,
       knowledgeBool: false,
     };
+  }
+
+  componentDidMount() {
+    this.setState({
+      level: this.props.data.level.defaultLevel,
+    });
   }
 
   // Use slider to select a river level
@@ -35,14 +40,13 @@ class River extends Component {
   render() {
     // Create Rapid Instance
     const rapidInstance = this.props.data.rapids.map((element, key) => {
-      if (this.props.match.params.id === idParser(element.name)) {
+      if (this.props.match.params.id === paramCase(element.name)) {
         return (
           <Rapid
             data={element}
-            riverName={this.props.data.riverName}
+            allData={this.props.data}
             url={this.props.url}
             level={this.state.level}
-            symbolBool={this.state.symbolBool}
             selectLevel={this.selectLevel}
             key={`rapid${key}`}
           />
@@ -53,65 +57,53 @@ class River extends Component {
 
     return (
       <div className="App">
-        <Suspense fallback="riverloading">
-          {this.state.mapBool && (
-            <Map
-              url={this.props.url}
+        {this.state.mapBool && (
+          <Map
+            url={this.props.url}
+            toggleSetting={this.toggleSetting}
+            setting="mapBool"
+            selectRapid={this.selectRapid}
+            data={this.props.data}
+          />
+        )}
+
+        {this.state.knowledgeBool && (
+          <SubmitKnowledge
+            toggleSetting={this.toggleSetting}
+            setting="knowledgeBool"
+            rapidName={this.props.match.params.id}
+            name={this.props.data.name}
+          />
+        )}
+
+        {rapidInstance}
+        <Slider selectLevel={this.selectLevel} rapid={this.props.data} />
+
+        <div className="toggle-board">
+          <div id="map-bool">
+            <GenericToggle
+              toggle={this.state.mapBool}
               toggleSetting={this.toggleSetting}
               setting="mapBool"
-              selectRapid={this.selectRapid}
-              data={this.props.data}
+              false="Show Map"
+              true="Hide Map"
             />
-          )}
+          </div>
 
-          {this.state.knowledgeBool && (
-            <SubmitKnowledge
+          <div id="knowledge-bool">
+            <GenericToggle
+              toggle={this.state.knowledgeBool}
               toggleSetting={this.toggleSetting}
               setting="knowledgeBool"
-              rapidName={this.props.match.params.id}
-              riverName={this.props.data.riverName}
+              false="Submit Info"
+              true="Submit Info"
             />
-          )}
-
-          {rapidInstance}
-          <Slider selectLevel={this.selectLevel} />
-
-          <div className="toggle-board">
-            <div id="map-bool">
-              <GenericToggle
-                toggle={this.state.mapBool}
-                toggleSetting={this.toggleSetting}
-                setting="mapBool"
-                false="Show Map"
-                true="Hide Map"
-              />
-            </div>
-
-            <div id="symbol-bool">
-              <GenericToggle
-                toggle={this.state.symbolBool}
-                toggleSetting={this.toggleSetting}
-                setting="symbolBool"
-                false="Symbols"
-                true="Symbols"
-              />
-            </div>
-
-            <div id="knowledge-bool">
-              <GenericToggle
-                toggle={this.state.knowledgeBool}
-                toggleSetting={this.toggleSetting}
-                setting="knowledgeBool"
-                false="Submit Info"
-                true="Submit Info"
-              />
-            </div>
-
-            <div id="back-button">
-              <Home />
-            </div>
           </div>
-        </Suspense>
+
+          <div id="back-button">
+            <Home />
+          </div>
+        </div>
       </div>
     );
   }

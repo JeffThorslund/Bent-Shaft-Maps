@@ -7,7 +7,6 @@ const Hydraulic = (props) => {
 
   return (
     <g
-      id={name}
       className="hydraulic"
       onClick={() => {
         props.displayData(name, desc);
@@ -18,9 +17,11 @@ const Hydraulic = (props) => {
         height={height.toString()}
         x={x.toString()}
         y={y.toString()}
-        rx="8"
-        fill="white"
+        rx="7"
         transform={`rotate( ${rotation} ${x} ${y})`}
+        data-tip={[name, desc]}
+        data-for="svgTooltip"
+        data-event="click"
       />
     </g>
   );

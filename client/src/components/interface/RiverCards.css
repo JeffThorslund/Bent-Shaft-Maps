@@ -1,9 +1,11 @@
 /*---Colors---*/
+/*---Form Colors---*/
 /*---Fonts---*/
+/*---Mixins---*/
 .river-label {
   border-radius: 10px;
-  background-image: -webkit-gradient(linear, left top, left bottom, from(#f9c1a0), to(#eca184));
-  background-image: linear-gradient(#f9c1a0, #eca184);
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#f9c1a0), to(#cc9079));
+  background-image: linear-gradient(#f9c1a0, #cc9079);
   cursor: pointer;
   overflow: hidden;
   -webkit-user-select: none;
@@ -71,7 +73,7 @@
 
 #involved {
   text-align: center;
-  background-color: #eca184;
+  background-color: #cc9079;
   border-radius: 10px;
   padding: 5px;
   margin-top: 10px;
@@ -93,8 +95,8 @@
 }
 
 .make-one:hover {
-  background-image: -webkit-gradient(linear, left top, left bottom, from(#f9c1a0), to(#eca184));
-  background-image: linear-gradient(#f9c1a0, #eca184);
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#f9c1a0), to(#cc9079));
+  background-image: linear-gradient(#f9c1a0, #cc9079);
 }
 
 .make-one .main {

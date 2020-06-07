@@ -1,14 +1,15 @@
 import React, { Component } from "react";
 import "./SubmitKnowledge.css";
-import sendMailRequest from "../../tools/requests/sendMailRequest.js";
 import PropTypes from "prop-types";
+const axios = require("axios");
 
 export class SubmitKnowledge extends Component {
   constructor(props) {
     super(props);
     this.state = {
       value: "",
-      selectedFile: null,
+      selectedFileBase64: null,
+      selectedFileName: null,
     };
   }
 
@@ -17,37 +18,34 @@ export class SubmitKnowledge extends Component {
   };
 
   handleSubmit = (e) => {
-    if (this.state.selectedFile) {
-      //read file and return base64
-      const reader = new FileReader();
-      reader.onload = () => {
-        console.log(reader.result);
-        sendMailRequest(
-          reader.result,
-          this.state.value,
-          this.props.riverName,
-          this.props.rapidName
-        );
-      };
-      reader.readAsDataURL(this.state.selectedFile);
-    } else {
-      sendMailRequest(
-        null,
-        this.state.value,
-        this.props.riverName,
-        this.props.rapidName
-      );
-    }
+    axios
+      .post("/api/mailer", {
+        img: this.state.selectedFileBase64,
+        desc: this.state.value,
+        river: this.props.name,
+        rapid: this.props.rapidName,
+      })
+      .then(function (response) {
+        console.log(response);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
 
-    //close pop up
     this.props.toggleSetting(this.props.setting);
     e.preventDefault();
   };
 
   fileChangedHandler = (e) => {
+    const reader = new FileReader();
+    reader.onload = () => {
+      this.setState({ selectedFileBase64: reader.result });
+    };
+
     console.log(e.target.files[0]);
     if (e.target.files[0].size < 5000000) {
-      this.setState({ selectedFile: e.target.files[0] });
+      this.setState({ selectedFileName: e.target.files[0].name });
+      reader.readAsDataURL(e.target.files[0]);
     } else {
       alert("Thats a HUGE file. Try one under 5MB.");
     }
@@ -76,10 +74,10 @@ export class SubmitKnowledge extends Component {
               <ul id="prompt-list">
                 <li>Line is not quite right?</li>
                 <li>A description could be better?</li>
-                <li>Stellar lunch spot not indicated?</li>
+                <li>A secret channel opens up at high water?</li>
               </ul>
-              <div className="subtitle">Submit an Image</div>
-              <div className="subtitle">Submit an Description</div>
+              <div className="subtitle"><b>Submit an Image </b>(Optional)</div>
+              <div className="subtitle"><b>Submit a Description</b></div>
               <div className="body" id="img">
                 Take a screen shot of the rapid, use Microsoft Paint to mark the
                 location of any feature, eddy, line or hazard.
@@ -104,8 +102,8 @@ picture.`}
           </div>
 
           <label for="file-drop" className="custom-file-upload children">
-            {this.state.selectedFile ? (
-              <div> {this.state.selectedFile.name}</div>
+            {this.state.selectedFileName ? (
+              <div> {this.state.selectedFileName}</div>
             ) : (
               <div>Click to Upload a Picture</div>
             )}
@@ -135,5 +133,5 @@ SubmitKnowledge.propTypes = {
   toggleSetting: PropTypes.func,
   setting: PropTypes.string,
   rapidName: PropTypes.string,
-  riverName: PropTypes.string,
+  name: PropTypes.string,
 };

@@ -1,5 +1,7 @@
 /*---Colors---*/
+/*---Form Colors---*/
 /*---Fonts---*/
+/*---Mixins---*/
 .NextRapid {
   position: absolute;
   cursor: pointer;
@@ -8,6 +10,11 @@
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   border-radius: 1.5vh;
+}
+
+.NextRapid:hover {
+  -webkit-box-shadow: 0 0 10px 5px #4b8cc9;
+          box-shadow: 0 0 10px 5px #4b8cc9;
 }
 
 .NextRapid .name {

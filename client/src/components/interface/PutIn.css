@@ -1,5 +1,7 @@
 /*---Colors---*/
+/*---Form Colors---*/
 /*---Fonts---*/
+/*---Mixins---*/
 @media (min-width: 320px) {
   .PutIn-wrapper {
     display: -webkit-box;
@@ -32,7 +34,7 @@
   }
   .PutIn-wrapper .header #title {
     font-size: 55px;
-    font-family: "Girassol", cursive;
+    font-family: "Oswald";
     margin-top: 0px;
     text-align: center;
   }
