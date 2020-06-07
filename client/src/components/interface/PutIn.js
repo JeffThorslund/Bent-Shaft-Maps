@@ -12,6 +12,7 @@ import "./PutIn.css";
 
 const PutIn = (props) => {
   let contributors = props.data.contributors.toString();
+  const paramCaseName = paramCase(props.data.name);
 
   return (
     <div className="PutIn-wrapper">
@@ -49,9 +50,7 @@ const PutIn = (props) => {
                 rel="noopener noreferrer"
               >
                 <img
-                  src={require(`../../river-data/${paramCase(
-                    props.data.name
-                  )}/${props.data.sponsors[0].logo}`)}
+                  src={require(`../../river-data/${paramCaseName}/${props.data.sponsors[0].logo}`)}
                   alt={`${paramCase(props.data.sponsors[0].logo)}`}
                   width="100%"
                 />
