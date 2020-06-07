@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import "./Symbol.scss";
+import "./Symbol.css";
 const Symbol = (props) => {
   const { type, desc, top, left } = props.symbols;
 
