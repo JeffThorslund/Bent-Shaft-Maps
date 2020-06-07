@@ -1,0 +1,236 @@
+/*---Colors---*/
+/*---Form Colors---*/
+/*---Fonts---*/
+/*---Mixins---*/
+.form-wrapper {
+  font-family: "Segoe UI";
+}
+
+.form-wrapper .form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+}
+
+.form-wrapper .form .containers {
+  -ms-flex-preferred-size: 50%;
+      flex-basis: 50%;
+  margin: 5px;
+}
+
+.form-wrapper .form .containers .section .header {
+  font-size: 24px;
+}
+
+.form-wrapper .form .containers .section .river,
+.form-wrapper .form .containers .section .rapid,
+.form-wrapper .form .containers .section .arrows {
+  border-bottom: #c50e29 2px solid;
+}
+
+.form-wrapper .form .containers .section .container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 10px;
+}
+
+.form-wrapper .form .containers .section .container .member:hover,
+.form-wrapper .form .containers .section .container .on {
+  background-color: #005ecb;
+  color: white;
+  -webkit-box-shadow: 2px 2px 5px grey;
+          box-shadow: 2px 2px 5px grey;
+}
+
+.form-wrapper .form .containers .section .container .new {
+  background-color: #ff867f;
+}
+
+.form-wrapper .form .containers .section .container .new:hover {
+  background-color: #c50e29;
+  color: white;
+}
+
+.form-wrapper .form .containers .section .container .off {
+  background-color: #83b9ff;
+}
+
+.form-wrapper .form .add-river {
+  margin: 10px;
+  border-bottom: 2px #c50e29 solid;
+  padding-bottom: 15px;
+}
+
+.form-wrapper .form .add-river .title {
+  font-size: 20px;
+  margin-right: 10px;
+}
+
+.form-wrapper .form .add-river .add-river-wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.form-wrapper .form .add-river .add-river-wrapper .input {
+  border-radius: 4px;
+  padding: 6px;
+  border: #005ecb 2px solid;
+  margin-right: 10px;
+}
+
+.form-wrapper .form .add-river .add-river-wrapper .submit {
+  font-size: 16px;
+  margin: 10px 0px;
+  background-color: #83b9ff;
+  border: 0px solid black;
+  border-radius: 5px;
+  padding: 7px 10px;
+  cursor: pointer;
+}
+
+.form-wrapper .form .add-river .add-river-wrapper .submit:hover {
+  background-color: #005ecb;
+  color: white;
+  -webkit-box-shadow: 2px 2px 5px grey;
+          box-shadow: 2px 2px 5px grey;
+}
+
+.form-wrapper .form .explain {
+  text-align: center;
+  -ms-flex-preferred-size: 50%;
+      flex-basis: 50%;
+  background-color: #83b9ff;
+  border-radius: 10px;
+  border: #005ecb 2px solid;
+  padding: 0px 0px 20px 0px;
+  margin: 23px;
+}
+
+.form-wrapper .form .explain button {
+  font-size: 18px;
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.form-wrapper .form .explain button a {
+  text-decoration: none;
+  color: black;
+}
+
+.form-wrapper .form .explain button:hover {
+  background-color: white;
+}
+
+.form-wrapper .form .input-area {
+  -ms-flex-preferred-size: 50%;
+      flex-basis: 50%;
+  font-size: 16px;
+  padding: 5px;
+  margin: 5px;
+  border-bottom: #c50e29 2px solid;
+}
+
+.form-wrapper .form .input-area form {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1fr;
+      grid-template-columns: 1fr 1fr;
+}
+
+.form-wrapper .form .input-area form .input-field {
+  margin: 6px;
+}
+
+.form-wrapper .form .input-area form .input-field label {
+  text-align: left;
+  padding-left: 10px;
+  width: 100px;
+}
+
+.form-wrapper .form .input-area form .input-field .field-holder {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+}
+
+.form-wrapper .form .input-area form .input-field .tooltip {
+  cursor: help;
+  padding-left: 7px;
+}
+
+.form-wrapper .form .input-area form .input-field input,
+.form-wrapper .form .input-area form .input-field select {
+  border: #005ecb 1px solid;
+  border-radius: 5px;
+  padding: 4px 11px;
+  margin: 4px 5px;
+  width: 90%;
+  font-size: 16px;
+  font-family: "Segoe UI";
+}
+
+.form-wrapper .form .input-area form .action {
+  font-family: "Segoe UI";
+  border: 2px solid #005ecb;
+  font-size: 16px;
+  margin: 10px 10px;
+}
+
+.form-wrapper .form .input-area form #submit {
+  border: 2px solid #005ecb;
+  background-color: #83b9ff;
+}
+
+.form-wrapper .form .input-area form #submit:hover {
+  color: white;
+  background-color: #005ecb;
+}
+
+.form-wrapper .form .input-area form #delete {
+  border: 2px solid #c50e29;
+  background-color: #ff867f;
+}
+
+.form-wrapper .form .input-area form #delete:hover {
+  color: white;
+  background-color: #c50e29;
+}
+
+.member {
+  border-radius: 5px;
+  padding: 5px 11px;
+  margin: 4px 5px;
+  cursor: pointer;
+}
+/*# sourceMappingURL=Form.css.map */

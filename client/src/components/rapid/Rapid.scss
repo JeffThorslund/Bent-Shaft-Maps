@@ -1,0 +1,47 @@
+@import "../standards";
+
+.Rapid {
+  user-select: none;
+  overflow: hidden;
+}
+
+.rapid-header {
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, 0%);
+  margin-top: 1vw;
+  font-style: normal;
+  text-align: center;
+  font-family: $Alata;
+}
+
+#rapid-name {
+  font-size: 3vw;
+}
+
+#rapid-desc {
+  font-size: 2vw;
+}
+
+#level-display {
+  position: absolute;
+  right: 4vw;
+  top: 3vh;
+
+  font-family: $title2;
+  font-style: normal;
+  font-weight: normal;
+
+  background-color: rgba(255, 255, 255, 0.5);
+  padding: 0.7vw 0.9vw;
+  border-radius: 10px;
+
+  font-size: 1.5vw;
+}
+
+#background {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  z-index: -1;
+}

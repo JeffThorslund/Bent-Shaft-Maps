@@ -1,0 +1,23 @@
+@import "../standards";
+
+.NextRapid {
+  position: absolute;
+  cursor: pointer;
+  padding: 0.8vw;
+  background: rgba(255, 255, 255, 0.8);
+  //border: solid 0.2vw #000000;
+  box-sizing: border-box;
+  border-radius: 1.5vh;
+}
+
+.NextRapid:hover {
+  box-shadow: 0 0 10px 5px $color5;
+}
+
+.NextRapid .name {
+  font-family: $title3;
+  font-size: 1.1vw;
+  text-align: center;
+  text-decoration: none;
+  color: black;
+}

@@ -1,0 +1,27 @@
+/*---Colors---*/
+/*---Form Colors---*/
+/*---Fonts---*/
+/*---Mixins---*/
+.NextRapid {
+  position: absolute;
+  cursor: pointer;
+  padding: 0.8vw;
+  background: rgba(255, 255, 255, 0.8);
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  border-radius: 1.5vh;
+}
+
+.NextRapid:hover {
+  -webkit-box-shadow: 0 0 10px 5px #4b8cc9;
+          box-shadow: 0 0 10px 5px #4b8cc9;
+}
+
+.NextRapid .name {
+  font-family: "Alata";
+  font-size: 1.1vw;
+  text-align: center;
+  text-decoration: none;
+  color: black;
+}
+/*# sourceMappingURL=NextRapid.css.map */
