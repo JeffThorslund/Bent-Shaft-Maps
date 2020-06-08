@@ -11,7 +11,7 @@
     "defaultLevel": 3,
     "levelUnits": "ft",
     "levelMin": -4,
-    "levelMax": 12
+    "levelMax": 22
   },
   "sponsors": [
     { "logo": "TrestleLogo.png", "link": "https://trestlebrewing.com/" }
