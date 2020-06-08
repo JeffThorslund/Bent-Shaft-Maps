@@ -1,4 +1,6 @@
-/*---Colors---*/
+/*---Palette---*/
+/*---Rules---*/
+/*---Archive Colors---*/
 /*---Form Colors---*/
 /*---Fonts---*/
 /*---Mixins---*/
@@ -29,13 +31,12 @@
   .PutIn-wrapper .header #pre-title {
     font-size: 26px;
     font-family: "Ruda";
-    margin-top: 10px;
+    margin-top: 15px;
     text-align: center;
   }
   .PutIn-wrapper .header #title {
-    font-size: 55px;
+    font-size: 48px;
     font-family: "Oswald";
-    margin-top: 0px;
     text-align: center;
   }
   .PutIn-wrapper .header a {
@@ -43,8 +44,8 @@
     margin: 12px 0px;
   }
   .PutIn-wrapper .header .button {
-    border: 2px #2b2118ff solid;
     border-radius: 10px;
+    border: black 2px solid;
     padding: 1vh 2vh;
     background-color: #f7f3e3ff;
     font-family: "Ruda";
@@ -73,9 +74,9 @@
     padding: 15px;
   }
   .PutIn-wrapper .footer .footer-grid-wrapper .child {
-    font-family: "Sen";
+    font-family: "Rubik";
     font-size: 16px;
-    padding: 15px 15px;
+    padding: 22px 30px;
     background-color: #f7f3e3ff;
     border-radius: 10px;
   }
@@ -97,6 +98,7 @@
             justify-content: center;
     text-decoration: none;
     color: #2b2118ff;
+    padding-bottom: 10px;
   }
   .PutIn-wrapper .footer .footer-grid-wrapper .access-link:hover {
     cursor: pointer;
@@ -104,7 +106,27 @@
     color: #f7f3e3ff;
   }
   .PutIn-wrapper .footer .footer-grid-wrapper #logos {
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
     padding: 30px 60px;
+  }
+  .PutIn-wrapper .footer .footer-grid-wrapper #logos a {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+  .PutIn-wrapper .footer .footer-grid-wrapper #logos a img {
+    max-width: 500px;
   }
   .PutIn-wrapper .footer .footer-grid-wrapper #logos .title {
     font-family: "Ruda";
@@ -126,9 +148,6 @@
   }
   .PutIn-wrapper .header a {
     margin-bottom: 17px;
-  }
-  .PutIn-wrapper .footer {
-    height: 100%;
   }
   .PutIn-wrapper .footer .footer-grid-wrapper {
     -ms-grid-columns: 1fr 1fr;
@@ -157,7 +176,7 @@
     font-size: 35px;
   }
   .PutIn-wrapper .header #title {
-    font-size: 90px;
+    font-size: 72px;
   }
   .PutIn-wrapper .header .button {
     font-size: 24px;
@@ -175,7 +194,6 @@
     grid-row: span 2;
     grid-column: span 2;
     font-size: 20px;
-    padding: 20px;
   }
   .PutIn-wrapper .footer .footer-grid-wrapper #info {
     -ms-grid-column: 1;

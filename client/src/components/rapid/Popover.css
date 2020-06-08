@@ -1,4 +1,6 @@
-/*---Colors---*/
+/*---Palette---*/
+/*---Rules---*/
+/*---Archive Colors---*/
 /*---Form Colors---*/
 /*---Fonts---*/
 /*---Mixins---*/
@@ -12,12 +14,12 @@
 }
 
 .__react_component_tooltip {
-  border-radius: 15px;
+  border-radius: 15px !important;
   display: inline-block;
   font-size: 16px;
   left: -999em;
   opacity: 0;
-  padding: 20px 25px;
+  padding: 20px 25px !important;
   position: fixed;
   pointer-events: none;
   -webkit-transition: opacity 0.3s ease-out;
