@@ -15,13 +15,12 @@
       #pre-title {
         font-size: 26px;
         font-family: $title2;
-        margin-top: 10px;
+        margin-top: 15px;
         text-align: center;
       }
       #title {
-        font-size: 55px;
+        font-size: 48px;
         font-family: $title1;
-        margin-top: 0px;
         text-align: center;
       }
       a {
@@ -29,8 +28,7 @@
         margin: 12px 0px;
       }
       .button {
-        border: 2px $color6 solid;
-        border-radius: 10px;
+        @include border-rules;
         padding: 1vh 2vh;
         background-color: $color2;
         font-family: $title2;
@@ -55,9 +53,9 @@
         border-radius: 10px;
         padding: 15px;
         .child {
-          font-family: $Sen;
+          font-family: $Rubik;
           font-size: 16px;
-          padding: 15px 15px;
+          padding: 22px 30px;
           background-color: $color2;
           border-radius: 10px;
         }
@@ -73,6 +71,7 @@
           justify-content: center;
           text-decoration: none;
           color: $color6;
+          padding-bottom: 10px;
         }
 
         .access-link:hover {
@@ -82,7 +81,18 @@
         }
 
         #logos {
+          align-items: center;
+          justify-content: center;
           padding: 30px 60px;
+          a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            img {
+              max-width: 500px;
+            }
+          }
+
           .title {
             font-family: $title2;
             text-align: center;
@@ -112,7 +122,6 @@
       }
     }
     .footer {
-      height: 100%;
       .footer-grid-wrapper {
         grid-template-columns: 1fr 1fr;
         grid-template-rows: auto;
@@ -138,7 +147,7 @@
         font-size: 35px;
       }
       #title {
-        font-size: 90px;
+        font-size: 72px;
       }
       .button {
         font-size: 24px;
@@ -155,7 +164,6 @@
           grid-row: span 2;
           grid-column: span 2;
           font-size: 20px;
-          padding: 20px;
         }
         #info {
           grid-column: 1/3;
