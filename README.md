@@ -2,7 +2,7 @@
 
 Convert your favorite whitewater river into an interactive guide on a centralized database.
 
-bentshaftmaps.com
+[www.bentshaftmaps.com](https://www.bentshaftmaps.com)
 
 ## Stay Tuned
 
@@ -10,11 +10,11 @@ Release is right around the corner. This page will be your resource for everythi
 
 ## FAQ
 
-### What Is This
+### What Is "Bent Shaft Maps"
 
 Bent Shaft Maps is simply visual database of whitewater maps. It precisely shows the location and size of all waves, holes. and waterfalls in a rapid. It explains how to safely navigate the rapid using visual representations of "lines" through the rapid. It shows eddys of signifigance, and portage locations.
 
-### Who Adds River Maps
+### Who Can Add River Maps
 
 Maps can be added by anyone who knows how to fork a project on Github. Everything is done though our user interface so you will not have to write a single line of code. It's dead easy, I promise!
 
@@ -35,7 +35,7 @@ There are hundreds of reasons why I want to hear from you.
 - Want to get involved or contribute?
 - Suggest a change or a new feature?
 - Want your companies logo on a river page?
-- Tell me favorite way to drink a booty beer?
+- Tell us favorite way to drink a booty beer?
 
 jeff@bentshaftmaps.com
 
