@@ -1,29 +1,31 @@
-/*---Colors---*/
+/*---Palette---*/
+/*---Rules---*/
+/*---Archive Colors---*/
 /*---Form Colors---*/
 /*---Fonts---*/
 /*---Mixins---*/
 .river-label {
+  background: -webkit-gradient(linear, left top, right top, from(#ffc7b9), to(#fb9486));
+  background: linear-gradient(90deg, #ffc7b9, #fb9486);
   border-radius: 10px;
-  background-image: -webkit-gradient(linear, left top, left bottom, from(#f9c1a0), to(#cc9079));
-  background-image: linear-gradient(#f9c1a0, #cc9079);
+  border: black 2px solid;
+  padding: 12px;
   cursor: pointer;
   overflow: hidden;
   -webkit-user-select: none;
      -moz-user-select: none;
       -ms-user-select: none;
           user-select: none;
-  color: #2b2118ff;
   font-family: "Ruda";
 }
 
 .river-label:hover {
-  background-image: -webkit-gradient(linear, left top, left bottom, from(#ffdecb), to(#f9c1a0));
-  background-image: linear-gradient(#ffdecb, #f9c1a0);
+  background: #ffc7b9;
 }
 
 .river-label a {
   text-decoration: none;
-  color: #2b2118ff;
+  color: #000000;
 }
 
 #name {
@@ -43,47 +45,6 @@
   display: inline-block;
 }
 
-/*---UnderConst---*/
-.const {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-}
-
-.img-wrapper {
-  position: relative;
-  right: -1px;
-  height: 110px;
-  width: auto;
-  border-left: black 3px solid;
-}
-
-.toggled {
-  background-color: #2b2118ff;
-  color: #e1e2e2ff;
-  background-image: none;
-}
-
-.toggled:hover {
-  background-image: none;
-}
-
-#involved {
-  text-align: center;
-  background-color: #cc9079;
-  border-radius: 10px;
-  padding: 5px;
-  margin-top: 10px;
-  font-size: 20px;
-}
-
-#involved:hover {
-  font-weight: bold;
-}
-
 /*---DoesNotExist---*/
 .make-one {
   -ms-grid-column: 1;
@@ -95,32 +56,37 @@
 }
 
 .make-one:hover {
-  background-image: -webkit-gradient(linear, left top, left bottom, from(#f9c1a0), to(#cc9079));
-  background-image: linear-gradient(#f9c1a0, #cc9079);
+  background: -webkit-gradient(linear, left top, right top, from(#ffc7b9), to(#fb9486));
+  background: linear-gradient(90deg, #ffc7b9, #fb9486);
 }
 
 .make-one .main {
-  font-size: 48px;
-  padding: 10px;
+  font-size: 36px;
+  padding-top: 10px;
+  font-weight: bold;
 }
 
 .make-one .sub {
-  font-size: 24px;
-  padding: 10px;
+  font-size: 30px;
+  padding: 15px 100px;
 }
 
 .guide-link {
+  border-radius: 10px;
   border: black 2px solid;
-  background-color: #f7f3e3ff;
+  background-color: #c86153;
+  color: #fcf9f0;
   font-size: 24px;
-  border-radius: 50px;
   margin: 10px 20%;
   padding: 10px;
   cursor: pointer;
 }
 
 .guide-link:hover {
-  font-weight: bold;
+  font-weight: bolder;
+  color: #000000;
+  background: -webkit-gradient(linear, left top, right top, from(#78a5c4), to(#ffc7b9));
+  background: linear-gradient(90deg, #78a5c4, #ffc7b9);
 }
 
 .guide-link a {
