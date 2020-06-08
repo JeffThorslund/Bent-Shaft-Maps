@@ -2,7 +2,7 @@
 
 @media (min-width: 320px) {
   .Global-background {
-    background: linear-gradient(128deg, $color5 0%, $color5-light 100%);
+    @include diag-grad($blue-l, $blue-n);
     height: 100%;
     min-height: 100vh;
 
@@ -24,32 +24,34 @@
 
       #title {
         font-family: $title1;
-        color: white;
+        color: $font-l;
         margin-top: 20px;
         font-size: 13vw;
+        text-align: center;
       }
       #subtitle {
-        font-family: $title2;
+        font-family: $OpenSans;
         color: white;
         text-align: center;
         font-size: 4vw;
-        padding-left: 3px;
-        letter-spacing: 4px;
+        padding-left: 11px;
+        letter-spacing: 9px;
       }
       form {
         outline: none;
       }
       .searchbar {
         width: 79vw;
-        height: 3.4vw;
+        height: 4vw;
         border-radius: 10px;
+
         background-color: rgb(248, 248, 248);
         text-align: center;
         font-family: $title2;
         font-size: 3.5vw;
-        padding: 1.2vw;
+        padding: 1.3vw;
         margin-top: 10px;
-        border: $color6 2px solid;
+        border: $font-d 2px solid;
         -webkit-tap-highlight-color: transparent;
         -webkit-touch-callout: none;
         -webkit-user-select: none;
@@ -68,24 +70,6 @@
         margin-top: 20px;
         grid-gap: 15px;
         margin-top: 15px;
-
-        .river-label {
-          border: $color6 2px solid;
-
-          #name {
-            font-size: 20px;
-          }
-          #location {
-            font-size: 15px;
-          }
-        }
-        .done {
-          padding: 10px;
-        }
-
-        .header {
-          padding: 10px;
-        }
       }
       .github-corner svg {
         width: 60px;
@@ -104,7 +88,6 @@
       }
       #subtitle {
         font-size: 2rem;
-        margin-top: 3px;
       }
       .github-corner svg {
         width: 70px;
@@ -156,7 +139,7 @@
       .searchbar {
         font-size: 24px;
         height: 30px;
-        padding: 4px;
+        padding: 6px;
         margin-top: 30px;
       }
 
