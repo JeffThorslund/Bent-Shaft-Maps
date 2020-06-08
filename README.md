@@ -4,9 +4,9 @@ Convert your favorite whitewater river into an interactive guide on a centralize
 
 [www.bentshaftmaps.com](https://www.bentshaftmaps.com)
 
-## Stay Tuned
+## Stay Tuned :construction:
 
-Release is right around the corner. This page will be your resource for everything that your little heart desires.
+Release is right around the corner. This page will be your resource for adding a map to the database. 
 
 ## FAQ
 
@@ -34,7 +34,7 @@ There are hundreds of reasons why I want to hear from you.
 
 - Want to get involved or contribute?
 - Suggest a change or a new feature?
-- Want your companies logo on a river page?
+- Want your company's logo on a river page?
 - Tell us your favorite way to drink a booty beer?
 
 jeff@bentshaftmaps.com
