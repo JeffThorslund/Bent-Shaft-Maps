@@ -9,7 +9,7 @@ import {
   useRouteMatch,
 } from "react-router-dom";
 import SearchBar from "./SearchBar";
-import { Exists, UnderConst, DoesNotExist } from "./RiverCards";
+import { Exists, DoesNotExist } from "./RiverCards";
 import GithubCorner from "react-github-corner";
 
 class Global extends React.Component {
@@ -48,14 +48,8 @@ class Global extends React.Component {
           });
         }
 
-        return !elem.underConst ? (
+        return (
           <Exists
-            elem={elem}
-            nameResult={nameResult}
-            locationResult={locationResult}
-          />
-        ) : (
-          <UnderConst
             elem={elem}
             nameResult={nameResult}
             locationResult={locationResult}
@@ -81,9 +75,7 @@ class Global extends React.Component {
         <div className="Global">
           <Route>
             <div className="headerWrapper">
-
-              <img id="logo" src="./KayakLogo.png" alt="logo"/>
-              
+              <img id="logo" src="./KayakLogo.png" alt="logo" />
 
               <div>
                 <div id="title">BENT SHAFT MAPS</div>
@@ -98,7 +90,7 @@ class Global extends React.Component {
 
             <div className="river-wrapper">{labelArr}</div>
             <GithubCorner
-              octoColor="#85afd6"
+              octoColor="#4b8cc9"
               href="https://github.com/JeffThorslund/Ottawa-River-Paddling-Guide"
             />
           </Route>

@@ -1,4 +1,31 @@
-/*---Colors---*/
+/*---Palette---*/
+// d = dark, n = neutral, l = light
+
+$darkblue-n: #225998;
+$blue-n: #4b8cc9;
+$blue-l: #78a5c4;
+$highlight-l: #ffc7b9;
+$highlight-n: #fb9486;
+$highlight-d: #c86153;
+
+@mixin diag-grad($color-l, $color-n) {
+  background: linear-gradient(135deg, $color-l, $color-n);
+}
+
+@mixin vert-grad($color-l, $color-n) {
+  background: linear-gradient(90deg, $color-l, $color-n);
+}
+
+$font-l: #fcf9f0;
+$font-d: #000000;
+
+/*---Rules---*/
+@mixin border-rules {
+  border-radius: 10px;
+  border: black 2px solid;
+}
+
+/*---Archive Colors---*/
 $color1: #af9164ff;
 $color2: #f7f3e3ff;
 $color2_trans: #f7f3e3ff;
@@ -9,6 +36,7 @@ $color4: #e1e2e2ff;
 $color5: #4b8cc9;
 $color5-light: #9bbcdb;
 $color6: #2b2118ff;
+$color7: #225998;
 $eddy: #ff5964;
 
 /*---Form Colors---*/
@@ -34,4 +62,5 @@ $Alata: "Alata";
 $BalooTamma2: "Baloo Tamma 2";
 $Rubik: "Rubik";
 
+$OpenSans: "Open Sans Condensed", sans-serif;
 /*---Mixins---*/
