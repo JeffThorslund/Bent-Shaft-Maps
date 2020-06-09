@@ -7,6 +7,7 @@ import GenericToggle from "./GenericToggle";
 import { withRouter } from "react-router-dom";
 import Home from "./Home";
 import { paramCase } from "change-case";
+import MobileAlert from "./MobileAlert";
 
 import SubmitKnowledge from "./SubmitKnowledge";
 
@@ -57,6 +58,7 @@ class River extends Component {
 
     return (
       <div className="App">
+        <MobileAlert />
         {this.state.mapBool && (
           <Map
             url={this.props.url}
