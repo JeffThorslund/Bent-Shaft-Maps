@@ -17,7 +17,11 @@ export class MobileAlert extends Component {
     let flipYourPhone = null;
 
     if (isMobile && window.screen.height > window.screen.width) {
-      flipYourPhone = <div className="flip">Flip ya dam phone</div>;
+      flipYourPhone = (
+        <div className="flip">
+          Flip your phone sideways for the best viewing experience.
+        </div>
+      );
     }
 
     window.onresize = () => {
