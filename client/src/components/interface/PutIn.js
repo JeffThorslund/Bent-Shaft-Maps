@@ -68,7 +68,7 @@ const PutIn = (props) => {
             target="_blank"
             rel="noopener noreferrer"
           >
-            <div className="title">Put In</div>
+            <div className="title">Directions to Put In</div>
           </a>
           <a
             href={props.data.takeOut}
@@ -77,7 +77,7 @@ const PutIn = (props) => {
             target="_blank"
             rel="noopener noreferrer"
           >
-            <div className="title">Take Out</div>
+            <div className="title">Directions to Take Out</div>
           </a>
         </div>
       </div>

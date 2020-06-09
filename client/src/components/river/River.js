@@ -100,7 +100,7 @@ class River extends Component {
             />
           </div>
 
-          <div id="back-button">
+          <div id="home">
             <Home />
           </div>
         </div>
