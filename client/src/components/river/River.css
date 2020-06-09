@@ -47,9 +47,8 @@
   left: 1vw;
 }
 
-.toggle-board #back-button {
+.toggle-board #home {
   position: absolute;
-  z-index: 2;
-  top: 92vh;
+  bottom: 2vh;
   left: 1vw;
 }
