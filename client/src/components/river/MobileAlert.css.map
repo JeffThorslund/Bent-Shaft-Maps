@@ -1,0 +1,10 @@
+{
+    "version": 3,
+    "mappings": "ACAA,iBAAiB;AAqBjB,eAAe;AAMf,wBAAwB;AAcxB,qBAAqB;AAQrB,eAAe;AAgBf,gBAAgB;AD/DhB,AAAA,KAAK,CAAC;EACJ,QAAQ,EAAE,QAAQ;EAClB,OAAO,EAAE,IAAI;EACb,eAAe,EAAE,MAAM;EACvB,WAAW,EAAE,MAAM;EACnB,UAAU,EAAE,MAAM;EAClB,MAAM,EAAE,KAAK;EACb,KAAK,EAAE,KAAK;EACZ,SAAS,EAAE,IAAI;EACf,OAAO,EAAE,CAAC;ECAV,UAAU,EAAE,yCAA2C;EDEvD,WAAW,ECqCJ,QAAQ;CDpChB",
+    "sources": [
+        "MobileAlert.scss",
+        "../_standards.scss"
+    ],
+    "names": [],
+    "file": "MobileAlert.css"
+}

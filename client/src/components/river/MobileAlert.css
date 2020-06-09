@@ -1,11 +1,26 @@
+/*---Palette---*/
+/*---Rules---*/
+/*---Archive Colors---*/
+/*---Form Colors---*/
+/*---Fonts---*/
+/*---Mixins---*/
 .flip {
   position: absolute;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  text-align: center;
   height: 100vh;
   width: 100vw;
-  font-size: 100px;
+  font-size: 48px;
   z-index: 4;
-  background-color: grey;
+  background: linear-gradient(135deg, #78a5c4, #4b8cc9);
+  font-family: "Oswald";
 }
+/*# sourceMappingURL=MobileAlert.css.map */
