@@ -27,8 +27,8 @@
   /* fixes border */
   height: 77vh;
   /* fixes border */
-  top: 47%;
-  left: 46%;
+  top: 46%;
+  left: 45%;
   margin-top: -39vh;
   /* Negative half of height. */
   margin-left: -37vw;
@@ -37,7 +37,7 @@
   -webkit-box-shadow: 10px 13px 18px -4px rgba(0, 0, 0, 0.48);
           box-shadow: 10px 13px 18px -4px rgba(0, 0, 0, 0.48);
   border-radius: 1vw;
-  padding: 1.5%;
+  padding: 2vw;
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: 1fr 1fr 1fr;
@@ -93,6 +93,8 @@
   -webkit-padding-start: 2vw;
           padding-inline-start: 2vw;
   padding-top: 1.5vh;
+  font-family: "Sen";
+  font-family: 1.4vw;
 }
 
 .SubmitKnowledge .form-wrapper #instructions .instructions-wrapper .subtitle {
@@ -101,7 +103,8 @@
 }
 
 .SubmitKnowledge .form-wrapper #instructions .instructions-wrapper .body {
-  font-size: 1.3vw;
+  font-family: "Sen";
+  font-size: 1.4vw;
   padding: 3%;
 }
 
@@ -109,6 +112,10 @@
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
 }
 
 .SubmitKnowledge .form-wrapper #text-area-wrapper #text-area {
@@ -119,7 +126,7 @@
   border: transparent;
   resize: none;
   background-color: white;
-  font-family: "Alata";
+  font-family: "Sen";
   font-size: 1.4vw;
   padding: 6%;
   -webkit-box-shadow: 10px 13px 18px -4px rgba(0, 0, 0, 0.48);
@@ -127,6 +134,23 @@
 }
 
 .SubmitKnowledge .form-wrapper #text-area-wrapper #text-area:focus {
+  outline: 0;
+}
+
+.SubmitKnowledge .form-wrapper #text-area-wrapper #email {
+  border-radius: 1vw;
+  border: transparent;
+  resize: none;
+  background-color: white;
+  font-family: "Sen";
+  font-size: 1.4vw;
+  padding: 4%;
+  -webkit-box-shadow: 10px 13px 18px -4px rgba(0, 0, 0, 0.48);
+          box-shadow: 10px 13px 18px -4px rgba(0, 0, 0, 0.48);
+  margin-top: 2vh;
+}
+
+.SubmitKnowledge .form-wrapper #text-area-wrapper #email:focus {
   outline: 0;
 }
 

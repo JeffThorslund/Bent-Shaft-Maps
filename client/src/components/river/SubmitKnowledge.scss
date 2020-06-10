@@ -23,14 +23,14 @@ $shadow: 10px 13px 18px -4px rgba(0, 0, 0, 0.48);
     position: absolute;
     width: 80vw; /* fixes border */
     height: 77vh; /* fixes border */
-    top: 47%; //50-padding will keep it centered.
-    left: 46%; //50-padding will keep it centered.
+    top: 46%; //50-padding will keep it centered.
+    left: 45%; //50-padding will keep it centered.
     margin-top: -39vh; /* Negative half of height. */
     margin-left: -37vw; /* Negative half of width. */
     background-color: $color5;
     box-shadow: $shadow;
     border-radius: 1vw;
-    padding: 1.5%;
+    padding: 2vw;
 
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
@@ -72,13 +72,16 @@ $shadow: 10px 13px 18px -4px rgba(0, 0, 0, 0.48);
           margin-inline-end: 0px;
           padding-inline-start: 2vw;
           padding-top: 1.5vh;
+          font-family: $Sen;
+          font-family: 1.4vw;
         }
         .subtitle {
           font-size: 1.7vw;
           padding-top: 10%;
         }
         .body {
-          font-size: 1.3vw;
+          font-family: $Sen;
+          font-size: 1.4vw;
           padding: 3%;
         }
       }
@@ -86,18 +89,33 @@ $shadow: 10px 13px 18px -4px rgba(0, 0, 0, 0.48);
 
     #text-area-wrapper {
       display: flex;
+      flex-direction: column;
       #text-area {
         flex-grow: 1;
         border-radius: 1vw;
         border: transparent;
         resize: none;
         background-color: white;
-        font-family: $title3;
+        font-family: $Sen;
         font-size: 1.4vw;
         padding: 6%;
         box-shadow: $shadow;
       }
       #text-area:focus {
+        outline: 0;
+      }
+      #email {
+        border-radius: 1vw;
+        border: transparent;
+        resize: none;
+        background-color: white;
+        font-family: $Sen;
+        font-size: 1.4vw;
+        padding: 4%;
+        box-shadow: $shadow;
+        margin-top: 2vh;
+      }
+      #email:focus {
         outline: 0;
       }
     }

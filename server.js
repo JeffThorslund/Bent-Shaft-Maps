@@ -27,8 +27,8 @@ app.post("/api/data", (req, res, next) => {
 });
 
 app.post("/api/mailer", (req, res, next) => {
-  const { img, desc, river, rapid } = req.body;
-  sendMail(img, desc, river, rapid);
+  const { img, desc, email, river, rapid } = req.body;
+  sendMail(img, desc, email, river, rapid);
   res.send("Submitted!");
 });
 

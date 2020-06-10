@@ -7,21 +7,23 @@ export class SubmitKnowledge extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      value: "",
+      email: "",
+      desc: "",
       selectedFileBase64: null,
       selectedFileName: null,
     };
   }
 
   handleChange = (e) => {
-    this.setState({ value: e.target.value });
+    this.setState({ [e.target.name]: e.target.value });
   };
 
   handleSubmit = (e) => {
     axios
       .post("/api/mailer", {
         img: this.state.selectedFileBase64,
-        desc: this.state.value,
+        desc: this.state.desc,
+        email: this.state.email,
         river: this.props.name,
         rapid: this.props.rapidName,
       })
@@ -76,8 +78,12 @@ export class SubmitKnowledge extends Component {
                 <li>A description could be better?</li>
                 <li>A secret channel opens up at high water?</li>
               </ul>
-              <div className="subtitle"><b>Submit an Image </b>(Optional)</div>
-              <div className="subtitle"><b>Submit a Description</b></div>
+              <div className="subtitle">
+                <b>Submit an Image </b>(Optional)
+              </div>
+              <div className="subtitle">
+                <b>Submit a Description</b>
+              </div>
               <div className="body" id="img">
                 Take a screen shot of the rapid, use Microsoft Paint to mark the
                 location of any feature, eddy, line or hazard.
@@ -90,14 +96,22 @@ export class SubmitKnowledge extends Component {
           </div>
           <div id="text-area-wrapper" className="children">
             <textarea
-              value={this.state.value}
+              value={this.state.desc}
               onChange={this.handleChange}
+              name="desc"
               id="text-area"
               placeholder={`CLICK HERE TO TYPE
 
-EXAMPLE: Dragon's Tooth is present from 2ft to 8ft, with
-best surfing at 6ft. It is especially retentative at 4ft. I have drawn a line called Mouth of the Dragon in the attached
-picture.`}
+EXAMPLE: Dragon's Tooth Wave is present in the rapid from 2ft to 8ft, not at the levels currently marked. It is especially retentative at 4ft. I have drawn a line called Mouth of the Dragon in the attached picture.`}
+            />
+
+            <input
+              value={this.state.email}
+              onChange={this.handleChange}
+              type="email"
+              id="email"
+              name="email"
+              placeholder={"Email (Optional)"}
             />
           </div>
 
