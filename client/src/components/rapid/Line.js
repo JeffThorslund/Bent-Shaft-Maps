@@ -6,22 +6,9 @@ import ReactTooltip from "react-tooltip";
 const Line = (props) => {
   const { name, desc, vector, x, y } = props.lines;
 
-  //Find position of circle.
-
-  let circleX = "";
-  let circleY = "";
-
-  for (let i = vector.search(/M/i) + 2, count = 0; i < vector.length; i++) {
-    if (/[0-9]/.test(vector[i]) && count === 0) {
-      circleX = circleX.concat(vector[i]);
-    } else if (/[0-9]/.test(vector[i]) && count === 1) {
-      circleY = circleY.concat(vector[i]);
-    } else if (count === 2) {
-      break;
-    } else {
-      count++;
-    }
-  }
+  const vectorArray = vector.split(/[\sa-zA-Z]+/).filter((elem) => elem);
+  let circleX = vectorArray[0];
+  let circleY = vectorArray[1];
 
   return (
     <g
