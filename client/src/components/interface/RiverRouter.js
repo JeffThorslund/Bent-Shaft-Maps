@@ -9,7 +9,6 @@ import PutIn from "./PutIn";
 
 export default function RiverRouter(props) {
   let { path, url } = useRouteMatch();
-  console.log("RiverRouter started.");
   return (
     <Switch>
       <Route exact path={path}>

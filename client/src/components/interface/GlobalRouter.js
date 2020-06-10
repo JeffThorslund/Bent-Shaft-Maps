@@ -21,7 +21,6 @@ class GlobalRouter extends React.Component {
   }
 
   getRiverData = () => {
-    console.log("getRiverData started...");
     axios
       .post("/api/data", {
         path: "./client/src/river-data",
@@ -31,9 +30,7 @@ class GlobalRouter extends React.Component {
         let filtered = response.data.rivers.filter(
           (river) => river.name !== "Template River"
         );
-        console.log("getRiverData state set.");
         this.setState({ rivers: filtered });
-        console.log("getRiverData finished.");
       })
       .catch((error) => {
         console.log(error);
@@ -41,9 +38,7 @@ class GlobalRouter extends React.Component {
   };
 
   componentDidMount() {
-    console.log("componentDidMount started...");
     this.getRiverData();
-    console.log("componentDidMount finished.");
   }
 
   componentDidUpdate() {
