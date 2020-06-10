@@ -17,7 +17,6 @@
         justify-content: center;
         align-items: center;
       }
-
       #logo {
         display: none;
       }
@@ -25,7 +24,8 @@
       #title {
         font-family: $title1;
         color: $font-l;
-        margin-top: 20px;
+        margin-top: 10px;
+        margin-bottom: -10px;
         font-size: 13vw;
         text-align: center;
       }
@@ -33,18 +33,18 @@
         font-family: $OpenSans;
         color: white;
         text-align: center;
-        margin-top: -19px;
-        font-size: 4vw;
-        padding-left: 11px;
-        letter-spacing: 9px;
+        font-size: 5.4vw;
+        letter-spacing: 1.5vw;
+        padding-left: 2vw;
       }
+
       form {
         outline: none;
       }
       .searchbar {
-        width: 79vw;
+        width: 76vw;
         height: 4vw;
-        border-radius: 10px;
+        border-radius: 1vw;
 
         background-color: rgb(248, 248, 248);
         text-align: center;
@@ -52,7 +52,7 @@
         font-size: 3.5vw;
         padding: 1.3vw;
         margin-top: 10px;
-        border: $font-d 2px solid;
+        border: $font-d 0.3vw solid;
         -webkit-tap-highlight-color: transparent;
         -webkit-touch-callout: none;
         -webkit-user-select: none;
@@ -73,8 +73,7 @@
         margin-top: 15px;
       }
       .github-corner svg {
-        width: 60px;
-        height: 60px;
+        display: none;
       }
     }
   }
@@ -83,34 +82,41 @@
 @media (min-width: 750px) {
   .Global-background {
     .Global {
+      #logo {
+        display: block;
+        padding-right: 30px;
+        padding-top: 40px;
+        height: 180px;
+      }
+
       #title {
-        margin-top: 15px;
-        font-size: 4.5rem;
+        margin-top: 25px;
+        font-size: 70px;
       }
       #subtitle {
-        font-size: 2rem;
+        font-size: 24px;
+        letter-spacing: 10px;
+        padding-left: 8px;
       }
       .github-corner svg {
-        width: 70px;
-        height: 70px;
+        display: block;
+        width: 80px;
+        height: 80px;
       }
       .searchbar {
-        font-size: 20px;
-        height: 25px;
-        padding: 4px;
-        margin-top: 20px;
+        font-size: 24px;
+        height: 30px;
+        width: 79vw;
+        padding: 6px;
+        margin-top: 30px;
+        border: $font-d 2px solid;
+        border-radius: 10px;
       }
+
       .river-wrapper {
         grid-template-columns: repeat(2, 1fr);
         width: 80%;
-      }
-    }
-    .river-label {
-      #name {
-        font-size: 24px;
-      }
-      #location {
-        font-size: 18px;
+        margin-top: 30px;
       }
     }
   }
@@ -119,43 +125,10 @@
 @media (min-width: 1200px) {
   .Global-background {
     .Global {
-      #logo {
-        display: block;
-        padding-right: 30px;
-        padding-top: 40px;
-        height: 220px;
-      }
-
-      #title {
-        margin-top: 30px;
-        font-size: 5.5rem;
-      }
-      #subtitle {
-        font-size: 2.5rem;
-      }
-      .github-corner svg {
-        width: 80px;
-        height: 80px;
-      }
-      .searchbar {
-        font-size: 24px;
-        height: 30px;
-        padding: 6px;
-        margin-top: 30px;
-      }
-
       .river-wrapper {
         grid-template-columns: repeat(3, 1fr);
         width: 80%;
         margin-top: 30px;
-        .river-label {
-          #name {
-            font-size: 28px;
-          }
-          #location {
-            font-size: 22px;
-          }
-        }
       }
     }
   }

@@ -43,7 +43,8 @@
   .Global-background .Global #title {
     font-family: "Oswald";
     color: #fcf9f0;
-    margin-top: 20px;
+    margin-top: 10px;
+    margin-bottom: -10px;
     font-size: 13vw;
     text-align: center;
   }
@@ -51,25 +52,24 @@
     font-family: "Open Sans Condensed", sans-serif;
     color: white;
     text-align: center;
-    margin-top: -19px;
-    font-size: 4vw;
-    padding-left: 11px;
-    letter-spacing: 9px;
+    font-size: 5.4vw;
+    letter-spacing: 1.5vw;
+    padding-left: 2vw;
   }
   .Global-background .Global form {
     outline: none;
   }
   .Global-background .Global .searchbar {
-    width: 79vw;
+    width: 76vw;
     height: 4vw;
-    border-radius: 10px;
+    border-radius: 1vw;
     background-color: #f8f8f8;
     text-align: center;
     font-family: "Ruda";
     font-size: 3.5vw;
     padding: 1.3vw;
     margin-top: 10px;
-    border: #000000 2px solid;
+    border: #000000 0.3vw solid;
     -webkit-tap-highlight-color: transparent;
     -webkit-touch-callout: none;
     -webkit-user-select: none;
@@ -90,77 +90,54 @@
     margin-top: 15px;
   }
   .Global-background .Global .github-corner svg {
-    width: 60px;
-    height: 60px;
+    display: none;
   }
 }
 
 @media (min-width: 750px) {
-  .Global-background .Global #title {
-    margin-top: 15px;
-    font-size: 4.5rem;
-  }
-  .Global-background .Global #subtitle {
-    font-size: 2rem;
-  }
-  .Global-background .Global .github-corner svg {
-    width: 70px;
-    height: 70px;
-  }
-  .Global-background .Global .searchbar {
-    font-size: 20px;
-    height: 25px;
-    padding: 4px;
-    margin-top: 20px;
-  }
-  .Global-background .Global .river-wrapper {
-    -ms-grid-columns: (1fr)[2];
-        grid-template-columns: repeat(2, 1fr);
-    width: 80%;
-  }
-  .Global-background .river-label #name {
-    font-size: 24px;
-  }
-  .Global-background .river-label #location {
-    font-size: 18px;
-  }
-}
-
-@media (min-width: 1200px) {
   .Global-background .Global #logo {
     display: block;
     padding-right: 30px;
     padding-top: 40px;
-    height: 220px;
+    height: 180px;
   }
   .Global-background .Global #title {
-    margin-top: 30px;
-    font-size: 5.5rem;
+    margin-top: 25px;
+    font-size: 70px;
   }
   .Global-background .Global #subtitle {
-    font-size: 2.5rem;
+    font-size: 24px;
+    letter-spacing: 10px;
+    padding-left: 8px;
   }
   .Global-background .Global .github-corner svg {
+    display: block;
     width: 80px;
     height: 80px;
   }
   .Global-background .Global .searchbar {
     font-size: 24px;
     height: 30px;
+    width: 79vw;
     padding: 6px;
     margin-top: 30px;
+    border: #000000 2px solid;
+    border-radius: 10px;
   }
+  .Global-background .Global .river-wrapper {
+    -ms-grid-columns: (1fr)[2];
+        grid-template-columns: repeat(2, 1fr);
+    width: 80%;
+    margin-top: 30px;
+  }
+}
+
+@media (min-width: 1200px) {
   .Global-background .Global .river-wrapper {
     -ms-grid-columns: (1fr)[3];
         grid-template-columns: repeat(3, 1fr);
     width: 80%;
     margin-top: 30px;
-  }
-  .Global-background .Global .river-wrapper .river-label #name {
-    font-size: 28px;
-  }
-  .Global-background .Global .river-wrapper .river-label #location {
-    font-size: 22px;
   }
 }
 /*# sourceMappingURL=Global.css.map */
