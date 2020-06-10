@@ -15,8 +15,8 @@
 }
 
 .NextRapid:hover {
-  -webkit-box-shadow: 0 0 10px 5px #4b8cc9;
-          box-shadow: 0 0 10px 5px #4b8cc9;
+  -webkit-box-shadow: 6px 1px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+          box-shadow: 6px 1px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
 }
 
 .NextRapid .name {
