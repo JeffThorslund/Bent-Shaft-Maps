@@ -3,6 +3,7 @@
   top: 2vh;
   right: 1.7vw;
   width: 1.5vw;
+  min-width: 12px;
 }
 
 /**
@@ -39,7 +40,7 @@
 .rangeslider-vertical {
   margin: 8px auto;
   height: 30vh;
-  max-width: 25px;
+  max-width: 50px;
   background-color: honeydew;
   border-radius: 8px;
   border: black 0.2vw solid;
@@ -56,12 +57,7 @@
 }
 .rangeslider-vertical .rangeslider__handle {
   width: 50px;
-  height: 20px;
+  height: 2vh;
   left: -10px;
   box-shadow: none;
-}
-.rangeslider-vertical .rangeslider__handle-tooltip {
-  left: -100%;
-  top: 50%;
-  transform: translate3d(-50%, -50%, 0);
 }

@@ -4,92 +4,109 @@
 /*---Form Colors---*/
 /*---Fonts---*/
 /*---Mixins---*/
-.river-label {
-  background: -webkit-gradient(linear, left top, right top, from(#ffc7b9), to(#fb9486));
-  background: linear-gradient(90deg, #ffc7b9, #fb9486);
-  border-radius: 10px;
-  border: black 2px solid;
-  padding: 12px;
-  cursor: pointer;
-  overflow: hidden;
-  -webkit-user-select: none;
-     -moz-user-select: none;
-      -ms-user-select: none;
-          user-select: none;
-  font-family: "Ruda";
+@media (min-width: 320px) {
+  .river-label {
+    background: -webkit-gradient(linear, left top, right top, from(#ffc7b9), to(#fb9486));
+    background: linear-gradient(90deg, #ffc7b9, #fb9486);
+    border: #000000 0.3vw solid;
+    border-radius: 2vw;
+    padding: 2vw;
+    cursor: pointer;
+    overflow: hidden;
+    -webkit-user-select: none;
+       -moz-user-select: none;
+        -ms-user-select: none;
+            user-select: none;
+    font-family: "Ruda";
+  }
+  .river-label:hover {
+    background: #ffc7b9;
+  }
+  .river-label a {
+    text-decoration: none;
+    color: #000000;
+  }
+  #name {
+    font-size: 5vw;
+  }
+  #location {
+    font-size: 4vw;
+  }
+  #class {
+    font-size: 3vw;
+  }
+  #selected {
+    font-weight: bold;
+    display: inline-block;
+  }
+  /*---DoesNotExist---*/
+  .make-one {
+    -ms-grid-column: 1;
+    -ms-grid-column-span: 3;
+    grid-column: 1 / 4;
+    text-align: center;
+    padding: 2vw;
+    cursor: auto;
+  }
+  .make-one:hover {
+    background: -webkit-gradient(linear, left top, right top, from(#ffc7b9), to(#fb9486));
+    background: linear-gradient(90deg, #ffc7b9, #fb9486);
+  }
+  .make-one .main {
+    font-size: 4vw;
+    padding-top: 1vh;
+    font-weight: bold;
+  }
+  .make-one .sub {
+    font-size: 3.5vw;
+    padding: 1vh 2vw;
+  }
+  .guide-link {
+    border: #000000 0.3vw solid;
+    border-radius: 2vw;
+    background-color: #c86153;
+    color: #fcf9f0;
+    font-size: 3.5vw;
+    padding: 10px;
+    cursor: pointer;
+  }
+  .guide-link:hover {
+    font-weight: bolder;
+    color: #000000;
+    background: -webkit-gradient(linear, left top, right top, from(#78a5c4), to(#ffc7b9));
+    background: linear-gradient(90deg, #78a5c4, #ffc7b9);
+  }
+  .guide-link a {
+    text-decoration: none;
+  }
 }
 
-.river-label:hover {
-  background: #ffc7b9;
+@media (min-width: 750px) {
+  .river-label {
+    border: #000000 2px solid;
+    border-radius: 15px;
+    padding: 15px;
+  }
+  #name {
+    font-size: 24px;
+  }
+  #location {
+    font-size: 20px;
+  }
+  #class {
+    font-size: 16px;
+  }
 }
 
-.river-label a {
-  text-decoration: none;
-  color: #000000;
-}
-
-#name {
-  font-size: 30px;
-}
-
-#location {
-  font-size: 20px;
-}
-
-#class {
-  font-size: 16px;
-}
-
-#selected {
-  font-weight: bold;
-  display: inline-block;
-}
-
-/*---DoesNotExist---*/
-.make-one {
-  -ms-grid-column: 1;
-  -ms-grid-column-span: 3;
-  grid-column: 1 / 4;
-  text-align: center;
-  padding: 20px;
-  cursor: auto;
-}
-
-.make-one:hover {
-  background: -webkit-gradient(linear, left top, right top, from(#ffc7b9), to(#fb9486));
-  background: linear-gradient(90deg, #ffc7b9, #fb9486);
-}
-
-.make-one .main {
-  font-size: 36px;
-  padding-top: 10px;
-  font-weight: bold;
-}
-
-.make-one .sub {
-  font-size: 30px;
-  padding: 15px 100px;
-}
-
-.guide-link {
-  border-radius: 10px;
-  border: black 2px solid;
-  background-color: #c86153;
-  color: #fcf9f0;
-  font-size: 24px;
-  margin: 10px 20%;
-  padding: 10px;
-  cursor: pointer;
-}
-
-.guide-link:hover {
-  font-weight: bolder;
-  color: #000000;
-  background: -webkit-gradient(linear, left top, right top, from(#78a5c4), to(#ffc7b9));
-  background: linear-gradient(90deg, #78a5c4, #ffc7b9);
-}
-
-.guide-link a {
-  text-decoration: none;
+@media (min-width: 1200px) {
+  #name {
+    font-size: 30px;
+  }
+  #location {
+    font-size: 20px;
+  }
+  #class {
+    font-size: 16px;
+  }
 }
 /*# sourceMappingURL=RiverCards.css.map */
