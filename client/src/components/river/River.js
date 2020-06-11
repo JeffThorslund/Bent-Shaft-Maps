@@ -91,16 +91,17 @@ class River extends Component {
               true="Hide Map"
             />
           </div>
-
-          <div id="knowledge-bool">
-            <GenericToggle
-              toggle={this.state.knowledgeBool}
-              toggleSetting={this.toggleSetting}
-              setting="knowledgeBool"
-              false="Submit Info"
-              true="Submit Info"
-            />
-          </div>
+          {process.env.NODE_ENV == "production" && (
+            <div id="knowledge-bool">
+              <GenericToggle
+                toggle={this.state.knowledgeBool}
+                toggleSetting={this.toggleSetting}
+                setting="knowledgeBool"
+                false="Submit Info"
+                true="Submit Info"
+              />
+            </div>
+          )}
 
           <div id="home">
             <Home />
