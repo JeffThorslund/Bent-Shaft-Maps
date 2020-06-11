@@ -27,7 +27,6 @@
     {
       "name": "McCoys Chute",
       "desc": "Class III",
-      "displayPosition": { "top": 70, "left": "19", "width": 35 },
       "riverMap": { "viewBox": "0 50 1600 900", "path": "McCoysChute" },
       "hydraulics": [
         {
@@ -230,7 +229,6 @@
     {
       "name": "Magical Mystery Tour",
       "desc": "Class II",
-      "displayPosition": { "top": "55", "left": 15, "width": 50 },
       "riverMap": { "viewBox": "0 0 1600 900", "path": "MagicalMysteryTour" },
       "hydraulics": [],
       "eddys": [],
@@ -279,7 +277,6 @@
     {
       "name": "Iron Ring",
       "desc": "Class III",
-      "displayPosition": { "top": 76, "left": 32, "width": 43 },
       "riverMap": { "viewBox": "0 0 1600 900", "path": "IronRing" },
       "hydraulics": [
         {
@@ -350,7 +347,6 @@
     {
       "name": "S-Bend",
       "desc": "Class III",
-      "displayPosition": { "top": 72, "left": 23, "width": 55 },
       "riverMap": { "viewBox": "0 0 1600 900", "path": "SBend" },
       "hydraulics": [],
       "eddys": [],
@@ -389,7 +385,6 @@
     {
       "name": "Butterfly",
       "desc": "Class III",
-      "displayPosition": { "top": "70", "left": "51", "width": "42" },
       "riverMap": { "viewBox": "0 0 1600 900", "path": "Butterfly" },
       "hydraulics": [
         {
@@ -466,7 +461,6 @@
     {
       "name": "Little Trickle",
       "desc": "Class III",
-      "displayPosition": { "top": 72, "left": 2, "width": 40 },
       "riverMap": { "viewBox": "0 0 1600 900", "path": "LittleTrickle" },
       "hydraulics": [
         {
@@ -559,7 +553,6 @@
     {
       "name": "Angels Kiss",
       "desc": "Class III",
-      "displayPosition": { "top": 65, "left": 2, "width": 40 },
       "riverMap": { "viewBox": "0 0 1600 900", "path": "AngelsKiss" },
       "hydraulics": [],
       "eddys": [],
@@ -598,7 +591,6 @@
     {
       "name": "Garvins",
       "desc": "Class IV",
-      "displayPosition": { "top": 72, "left": 65, "width": 30 },
       "riverMap": { "viewBox": "0 0 1600 900", "path": "Garvins" },
       "hydraulics": [
         {
@@ -773,7 +765,6 @@
     {
       "name": "Upper No Name",
       "desc": "Class III",
-      "displayPosition": { "top": 55, "left": 2, "width": 25 },
       "riverMap": { "viewBox": "0 0 1600 900", "path": "UpperNoName" },
       "hydraulics": [],
       "eddys": [],
@@ -812,7 +803,6 @@
     {
       "name": "Lower No Name",
       "desc": "Class III",
-      "displayPosition": { "top": "72", "left": "23", "width": 40 },
       "riverMap": { "viewBox": "0 0 1600 900", "path": "LowerNoName" },
       "hydraulics": [],
       "eddys": [],
@@ -845,7 +835,6 @@
     {
       "name": "The Lorne",
       "desc": "Class III",
-      "displayPosition": { "top": 71, "left": 42, "width": 50 },
       "riverMap": { "viewBox": "0 0 1600 900", "path": "TheLorne" },
       "hydraulics": [
         {
@@ -896,7 +885,6 @@
     {
       "name": "Push Button",
       "desc": "Class III",
-      "displayPosition": { "top": 70, "left": 25, "width": 50 },
       "riverMap": { "viewBox": "0 0 1600 900", "path": "PushButton" },
       "hydraulics": [],
       "eddys": [],
@@ -935,7 +923,6 @@
     {
       "name": "Butchers Knife",
       "desc": "Class III",
-      "displayPosition": { "top": 70, "left": 48, "width": 45 },
       "riverMap": { "viewBox": "0 0 1600 900", "path": "ButchersKnife" },
       "hydraulics": [],
       "eddys": [],
@@ -966,7 +953,6 @@
     {
       "name": "Normans",
       "desc": "Class III",
-      "displayPosition": { "top": 74, "left": 27, "width": 40 },
       "riverMap": { "viewBox": "0 0 1600 900", "path": "Normans" },
       "hydraulics": [],
       "eddys": [],
@@ -997,7 +983,6 @@
     {
       "name": "Coliseum",
       "desc": "Class III",
-      "displayPosition": { "top": 72, "left": 32, "width": 35 },
       "riverMap": { "viewBox": "0 0 1600 900", "path": "Coliseum" },
       "hydraulics": [],
       "eddys": [],
@@ -1028,7 +1013,6 @@
     {
       "name": "Dogs Leg",
       "desc": "Class III",
-      "displayPosition": { "top": 73, "left": 35, "width": 35 },
       "riverMap": { "viewBox": "0 0 1600 900", "path": "DogsLeg" },
       "hydraulics": [],
       "eddys": [],
@@ -1059,7 +1043,6 @@
     {
       "name": "Farmer Blacks",
       "desc": "Class III",
-      "displayPosition": { "top": 72, "left": 21, "width": 30 },
       "riverMap": { "viewBox": "0 0 1600 900", "path": "FarmerBlacks" },
       "hydraulics": [],
       "eddys": [],

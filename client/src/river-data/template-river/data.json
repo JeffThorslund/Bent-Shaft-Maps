@@ -19,7 +19,6 @@
     {
       "name": "Template Rapid",
       "desc": "Class I",
-      "displayPosition": { "top": 70, "left": 22, "width": 35 },
       "riverMap": { "viewBox": "0 0 1600 900", "path": "DefaultRapid" },
       "hydraulics": [
         {
