@@ -8,6 +8,7 @@
     "dev": "concurrently \"nodemon server.js\" \"cd client && npm start\"",
     "start-client": "cd client && npm run start",
     "build-client": "cd client && npm run build",
+    "full-install": "npm install && cd client && npm install",
     "heroku-postbuild": "cd client && npm install && npm run build"
   },
   "repository": {
