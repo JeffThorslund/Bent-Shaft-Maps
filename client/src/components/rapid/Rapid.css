@@ -24,11 +24,11 @@
 }
 
 #rapid-name {
-  font-size: 3vw;
+  font-size: 5.5vh;
 }
 
 #rapid-desc {
-  font-size: 2vw;
+  font-size: 4vh;
 }
 
 #level-display {
@@ -41,7 +41,7 @@
   background-color: rgba(255, 255, 255, 0.5);
   padding: 0.7vw 0.9vw;
   border-radius: 10px;
-  font-size: 1.5vw;
+  font-size: 2.6vh;
 }
 
 #background {
