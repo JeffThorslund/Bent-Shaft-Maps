@@ -38,17 +38,23 @@ The data editing user interface is found at the following address:
 
 `http://localhost:3000/form`
 
-For optimal workflow, run 2 clients in split screen. The first is the live server to view changes (http://localhost:3000) and the other is the form (http://localhost:3000/form). Changes made in the form will be instantly shown in all open clients.
+For optimal workflow, run 2 clients in split screen.
+
+The first is form and the second is the live server to view changes
+
+`http://localhost:3000`
+
+Changes made in the form will be instantly shown in all open clients.
 
 #### Edit
 
 Use the various inputs to edit data. Click "Submit" or press "Enter" to update changes to database.
 
-#### Add Button
+#### "Add New" Button
 
 Add a river, rapid, or feature.
 
-#### Delete Button
+#### "Delete" Button
 
 Add a rapid, or feature.
 
