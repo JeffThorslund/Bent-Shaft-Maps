@@ -58,6 +58,10 @@ Add a river, rapid, or feature.
 
 Add a rapid, or feature.
 
+### Submitting Data to the Live Site
+
+Once you have made changes to your local repository, it is time to have them reflected on the live site. This is done using a standard ["pull request from a fork"](https://help.github.com/en/enterprise/2.16/user/github/collaborating-with-issues-and-pull-requests/creating-a-pull-request-from-a-fork) workflow. Submit a pull request with title that states the river that was changed, and a description that briefly outlines what changes were made.
+
 ## FAQ
 
 ### What Is "Bent Shaft Maps"
