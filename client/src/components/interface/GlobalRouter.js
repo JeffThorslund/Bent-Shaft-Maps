@@ -12,50 +12,25 @@ import {
 } from "react-router-dom";
 import { paramCase } from "change-case";
 
-const axios = require("axios").default;
+
 
 class GlobalRouter extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { rivers: null };
   }
-
-  getRiverData = () => {
-    axios
-      .post("/api/data", {
-        path: "./client/src/river-data",
-      })
-      .then((response) => {
-        //filter template river
-        let filtered = response.data.rivers.filter(
-          (river) => river.name !== "Template River"
-        );
-        this.setState({ rivers: filtered });
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  };
 
   componentDidMount() {
-    this.getRiverData();
-  }
-
-  componentDidUpdate() {
-    if (process.env.NODE_ENV === "development") {
-      //this.getRiverData();
-    }
+    this.props.getRiverData("/api/data", "./client/src/river-data")
   }
 
   triggerUpdate = () => {
-    //triggers form refresh
-    this.getRiverData();
+    this.props.getRiverData("/api/data", "./client/src/river-data")
   };
 
   render() {
     var routeArray;
-    if (this.state.rivers != null) {
-      routeArray = this.state.rivers.map((river, key) => {
+    if (this.props.rivers != null) {
+      routeArray = this.props.rivers.map((river, key) => {
         return (
           <Route path={`/${paramCase(river.name)}`} key={`river${key}`}>
             <RiverRouter data={river} />
@@ -66,17 +41,17 @@ class GlobalRouter extends React.Component {
       routeArray = [];
     }
 
-    if (this.state.rivers != null) {
+    if (this.props.rivers != null) {
       return (
         <Switch>
           <Route exact path="/" key="home">
-            <Global dataArr={this.state.rivers} />
+            <Global dataArr={this.props.rivers} />
           </Route>
 
           {process.env.NODE_ENV === "development" && (
             <Route exact path="/form" key="form">
               <Form
-                rivers={this.state.rivers}
+                rivers={this.props.rivers}
                 triggerUpdate={this.triggerUpdate}
               />
             </Route>
