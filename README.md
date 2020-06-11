@@ -6,7 +6,51 @@ Convert your favorite whitewater river into an interactive guide on a centralize
 
 ## Stay Tuned :construction:
 
-Release is right around the corner. This page will be your resource for adding a map to the database. 
+Release is right around the corner. This page will be your resource for adding a map to the database.
+
+## Getting Started
+
+### Prerequisites
+
+[Node.js](https://nodejs.org/en/download/) is an open source server environment that must be installed prior to running the project.
+
+[Git](https://git-scm.com/) is a free and open source distributed version control that is used to contribute changes.
+
+### Installing
+
+1. [Fork and clone the project](https://help.github.com/en/github/getting-started-with-github/fork-a-repo)
+
+2. Move into the root directory of the project.
+
+   `$ cd ./bent-shaft-maps`
+
+3. Install the server and and the client.
+
+   `$ npm run full-install`
+
+4. Run the development environment.
+
+   `$ npm run dev`
+
+### Editing Data
+
+The data editing user interface is found at the following address:
+
+`http://localhost:3000/form`
+
+For optimal workflow, run 2 clients in split screen. The first is the live server to view changes (http://localhost:3000) and the other is the form (http://localhost:3000/form). Changes made in the form will be instantly shown in all open clients.
+
+#### Edit
+
+Use the various inputs to edit data. Click "Submit" or press "Enter" to update changes to database.
+
+#### Add Button
+
+Add a river, rapid, or feature.
+
+#### Delete Button
+
+Add a rapid, or feature.
 
 ## FAQ
 
