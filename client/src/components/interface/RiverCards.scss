@@ -51,15 +51,17 @@
     @include vert-grad($highlight-l, $highlight-n);
   }
 
-  .make-one .main {
-    font-size: 4vw;
-    padding-top: 1vh;
-    font-weight: bold;
-  }
+  .make-one {
+    .main {
+      font-size: 4vw;
+      padding-top: 1vh;
+      font-weight: bold;
+    }
 
-  .make-one .sub {
-    font-size: 3.5vw;
-    padding: 1vh 2vw;
+    .sub {
+      font-size: 3.5vw;
+      padding: 1vh 2vw;
+    }
   }
 
   .guide-link {
@@ -101,6 +103,21 @@
   #class {
     font-size: 16px;
   }
+
+  .make-one {
+    .main {
+      font-size: 24px;
+    }
+    .sub {
+      font-size: 20px;
+    }
+  }
+
+  .guide-link {
+    font-size: 24px;
+    border: $font-d 2px solid;
+    border-radius: 15px;
+  }
 }
 
 @media (min-width: 1200px) {
@@ -114,5 +131,18 @@
 
   #class {
     font-size: 16px;
+  }
+
+  .make-one {
+    .main {
+      font-size: 30px;
+    }
+    .sub {
+      font-size: 24px;
+    }
+  }
+
+  .guide-link {
+    font-size: 24px;
   }
 }
