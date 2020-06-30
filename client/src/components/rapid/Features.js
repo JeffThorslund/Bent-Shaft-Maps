@@ -47,7 +47,6 @@ const Features = (props) => {
       return (
         <Hydraulic
           hydraulics={element}
-          displayData={props.displayData}
           key={`hydraulic${key}`}
         />
       );
@@ -60,7 +59,6 @@ const Features = (props) => {
       return (
         <Symbol
           symbols={element}
-          displayData={props.displayData}
           key={`symbol${key}`}
         />
       );
@@ -74,7 +72,6 @@ const Features = (props) => {
         <Caution
           symbols={element}
           key={`caution${key}`}
-          displayData={props.displayData}
         />
       );
     });*/
@@ -114,5 +111,4 @@ export default Features;
 Features.propTypes = {
   level: PropTypes.number.isRequired,
   data: PropTypes.object.isRequired,
-  displayData: PropTypes.func.isRequired,
 };

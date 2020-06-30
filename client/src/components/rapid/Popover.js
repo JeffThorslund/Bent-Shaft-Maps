@@ -10,23 +10,11 @@ function Popover() {
       multiline={true}
       backgroundColor="white"
       textColor="black"
-      arrowColor='black'
+      arrowColor="black"
       getContent={(dataTip) => {
-        if (dataTip != null) {
-          let arr = dataTip.split(",");
-          let name = arr[0];
-          let desc = arr[1];
-          return (
-            <div>
-              <div className="name">
-                <b>{name}</b>
-              </div>
-
-              <div className="desc"> {desc} </div>
-            </div>
-          );
-        }
+        if (dataTip != null) return dataTip;
       }}
+      html={true}
       overridePosition={({ left, top }, currentEvent, currentTarget, node) => {
         const d = document.documentElement;
         left = Math.min(d.clientWidth - node.clientWidth, left);
