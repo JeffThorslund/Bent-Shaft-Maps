@@ -12,16 +12,19 @@ const Line = (props) => {
 
   return (
     <g
-      onClick={() => {
-        props.displayData(name, desc);
-      }}
       className="line-hover"
       transform={`translate(${x},${y})`}
     >
       <path
         d={vector}
         data-tip
-        data-tip={[name, desc]}
+        data-tip={
+          `<div>
+            <div class="name">${name}</div>
+            <div class="desc">${desc}</div>
+          </div>`
+        }
+        data-html={true}
         data-for="svgTooltip"
         data-event="click"
       />

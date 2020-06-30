@@ -6,12 +6,7 @@ const Hydraulic = (props) => {
   const { name, desc, x, y, width, height, rotation } = props.hydraulics;
 
   return (
-    <g
-      className="hydraulic"
-      onClick={() => {
-        props.displayData(name, desc);
-      }}
-    >
+    <g className="hydraulic">
       <rect
         width={width.toString()}
         height={height.toString()}
@@ -19,7 +14,13 @@ const Hydraulic = (props) => {
         y={y.toString()}
         rx="7"
         transform={`rotate( ${rotation} ${x} ${y})`}
-        data-tip={[name, desc]}
+        data-tip={
+          `<div>
+            <div class="name">${name}</div>
+            <div class="desc">${desc}</div>
+          </div>`
+        }
+        data-html={true}
         data-for="svgTooltip"
         data-event="click"
       />
