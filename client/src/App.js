@@ -31,7 +31,7 @@ const App = () => {
     });
     socket.on("update", () => {
       console.log("Updated from Client")
-      getRiverData("/api/data", "./client/src/river-data");
+      getRiverData("/api/getData", "./client/src/river-data");
     });
   },[]);
 
