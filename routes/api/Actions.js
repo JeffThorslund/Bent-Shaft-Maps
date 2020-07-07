@@ -1,17 +1,18 @@
 const express = require("express");
 const router = express.Router();
 
-const readRiverDataFiles = require("../../modules/readRiverDataFiles");
 const getMapList = require("../../modules/getMapList");
 const sendMail = require("../../modules/sendMail");
+
+//River Model
+const Any = require("../../models/River");
 
 // @route  POST api/getData
 // @desc   Pulls all data from database
 // @access Public
 
-router.post("/getData", (req, res, next) => {
-  let data = readRiverDataFiles(req.body.path);
-  res.send(data);
+router.get("/getData", (req, res, next) => {
+  Any.find().then((riv) => res.json(riv));
 });
 
 // @route  POST api/sendMail
