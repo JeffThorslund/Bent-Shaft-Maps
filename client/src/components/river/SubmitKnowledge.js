@@ -20,7 +20,7 @@ export class SubmitKnowledge extends Component {
 
   handleSubmit = (e) => {
     axios
-      .post("/api/mailer", {
+      .post("/api/sendMail", {
         img: this.state.selectedFileBase64,
         desc: this.state.desc,
         email: this.state.email,
