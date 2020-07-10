@@ -1,6 +1,7 @@
 import React from "react";
 import { paramCase } from "change-case";
-import loadable from '@loadable/component'
+import loadable from "@loadable/component";
+import "./Basemap.css";
 
 const style = {
   position: "absolute",
@@ -10,7 +11,7 @@ const style = {
 };
 
 const Basemap = (props) => {
-  let name = paramCase(props.name);
+  /*let name = paramCase(props.name);
   const VectorMap = loadable(() =>
     import(`../../river-data/${name}/maps/${props.path}`)
   );
@@ -28,7 +29,9 @@ const Basemap = (props) => {
     >
       <VectorMap />
     </svg>
-  );
+  );*/
+
+  return <img className="basemap" src={props.riverMap} alt="Red dot" />;
 };
 
 export default Basemap;
