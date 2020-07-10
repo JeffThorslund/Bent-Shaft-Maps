@@ -8,6 +8,8 @@ import PropTypes from "prop-types";
 import ReactTooltip from "react-tooltip";
 import Popover from "./Popover";
 
+import filterRange from "../../tools/filterRange"
+
 const Features = (props) => {
   const mounted = useRef();
   useEffect(() => {
@@ -21,7 +23,7 @@ const Features = (props) => {
   const lineArray = props.data.lines
     .filter(
       (element) =>
-        props.level <= element.range[1] && props.level >= element.range[0]
+        filterRange(props.level, element.range)
     )
     .map((element, key) => {
       return <Line lines={element} key={`line${key}`} />;
@@ -31,7 +33,7 @@ const Features = (props) => {
   const eddyArray = props.data.eddys
     .filter(
       (element) =>
-        props.level <= element.range[1] && props.level >= element.range[0]
+      filterRange(props.level, element.range)
     )
     .map((element, key) => {
       return <Eddy eddys={element} key={`eddy${key}`} />;
@@ -41,7 +43,7 @@ const Features = (props) => {
   const hydraulicArray = props.data.hydraulics
     .filter(
       (element) =>
-        props.level <= element.range[1] && props.level >= element.range[0]
+      filterRange(props.level, element.range)
     )
     .map((element, key) => {
       return (
