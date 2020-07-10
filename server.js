@@ -31,11 +31,11 @@ mongoose
   .then(() => console.log("MongoDB Connected"))
   .catch((err) => console.log(err));
 
-/*--Socket--*/
-var io = require("socket.io")(http);
-io.on("connection", (socket) => {
-  console.log("a user connected");
-});
+// /*--Socket--*/
+// var io = require("socket.io")(http);
+// io.on("connection", (socket) => {
+//   console.log("a user connected");
+// });
 
 app.use(express.static(path.join(__dirname, "client/build")));
 

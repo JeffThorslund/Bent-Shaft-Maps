@@ -17,16 +17,16 @@ const App = () => {
       .catch((err) => console.log(err));
     }
 
-  useEffect(() => {
-    const socket = io();
-    socket.on("connection", () => {
-      console.log("printed from useeffect");
-    });
-    socket.on("update", () => {
-      console.log("Updated from Client")
-      getRiverData();
-    });
-  }, []);
+  // useEffect(() => {
+  //   const socket = io();
+  //   socket.on("connection", () => {
+  //     console.log("printed from useeffect");
+  //   });
+  //   socket.on("update", () => {
+  //     console.log("Updated from Client")
+  //     getRiverData();
+  //   });
+  // }, []);
 
   return (
     <Router>
