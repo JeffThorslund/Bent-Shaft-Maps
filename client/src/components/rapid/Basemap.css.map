@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,QAAQ,CAAC;EACP,MAAM,EAAE,KAAK;EACb,KAAK,EAAE,KAAK;EACZ,QAAQ,EAAE,QAAQ;CACnB",
+    "sources": [
+        "Basemap.scss"
+    ],
+    "names": [],
+    "file": "Basemap.css"
+}
