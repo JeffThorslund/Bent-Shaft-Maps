@@ -20,11 +20,11 @@ class GlobalRouter extends React.Component {
   }
 
   componentDidMount() {
-    this.props.getRiverData("/api/getData", "./client/src/river-data")
+    this.props.getRiverData("/api/data", "./client/src/river-data")
   }
 
   triggerUpdate = () => {
-    this.props.getRiverData("/api/getData", "./client/src/river-data")
+    this.props.getRiverData("/api/data", "./client/src/river-data")
   };
 
   render() {

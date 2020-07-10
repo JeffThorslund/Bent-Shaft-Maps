@@ -5,17 +5,24 @@ import io from "socket.io-client";
 const axios = require("axios").default;
 
 const App = () => {
+
   const [rivers, setRivers] = useState(null);
 
-  const getRiverData = () => {
-    fetch("/api/getData")
-      .then((response) => response.json())
-      .then((data) => {
-        let filtered = data.filter((river) => river.name !== "Template River");
+  const getRiverData = (address, path) => {
+    axios
+      .post(address, {
+        path: path,
+      })
+      .then((response) => {
+        let filtered = response.data.rivers.filter(
+          (river) => river.name !== "Template River"
+        );
         setRivers(filtered);
       })
-      .catch((err) => console.log(err));
-    }
+      .catch((error) => {
+        console.log(error);
+      });
+  };
 
   useEffect(() => {
     const socket = io();
@@ -24,13 +31,13 @@ const App = () => {
     });
     socket.on("update", () => {
       console.log("Updated from Client")
-      getRiverData();
+      getRiverData("/api/data", "./client/src/river-data");
     });
-  }, []);
+  },[]);
 
   return (
     <Router>
-      <GlobalRouter getRiverData={getRiverData} rivers={rivers} />
+      <GlobalRouter getRiverData={getRiverData} rivers={rivers}/>
     </Router>
   );
 };
