@@ -4,15 +4,11 @@ import "./Rapid.css";
 import NextRapid from "./NextRapid";
 import Features from "./Features";
 import Basemap from "./Basemap";
+import Description from "./Description"
 
 class Rapid extends Component {
   constructor(props) {
     super(props);
-
-    this.state = {
-      title: "Click on Something!",
-      desc: "",
-    };
   }
 
 
@@ -40,7 +36,7 @@ class Rapid extends Component {
         />
         <div className="rapid-header">
           <div id="rapid-name"> {data.name} </div>
-          <div id="rapid-desc"> {data.desc} </div>
+          <div id="rapid-desc"> <Description level={level} desc={data.desc} /> </div>
         </div>
 
         <div id="level-display">
