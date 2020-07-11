@@ -5,7 +5,6 @@ class ImageUpload extends React.Component {
     super();
     this.state = {
       selectedFile: null,
-      display: null,
     };
   }
 
@@ -31,22 +30,12 @@ class ImageUpload extends React.Component {
       })
       .catch((err) => console.log(err));
   };
-
-  showImage = () => {
-    fetch("/api/image/01399079da7a246d20123ce8ec58a32c.png")
-      .then((res) => res)
-      .then((data) => this.setState({ display: data }))
-      .catch((err) => console.log(err));
-  };
-
   render() {
     return (
       <div>
         <h1>Mongo File Upload Center</h1>
         <input type="file" name="file" id="file" onChange={this.onFileChange} />
         <button onClick={this.onFileUpload}>Upload!</button>
-        <button onClick={this.showImage}>Show!</button>
-        <img src={"/api/image/01399079da7a246d20123ce8ec58a32c.png"} />
       </div>
     );
   }
