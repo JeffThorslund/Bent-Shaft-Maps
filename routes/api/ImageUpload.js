@@ -9,10 +9,6 @@ const Grid = require("gridfs-stream");
 require("dotenv").config();
 const router = express.Router();
 
-// Middleware
-/*app.use(bodyParser.json());
-app.set('view engine', 'ejs');*/
-
 // Create mongo connection
 const conn = mongoose.createConnection(process.env.MONGO_URI);
 
@@ -34,7 +30,8 @@ const storage = new GridFsStorage({
         if (err) {
           return reject(err);
         }
-        const filename = buf.toString("hex") + path.extname(file.originalname);
+        const filename =
+          buf.toString("hex") + file.originalname.replace(/\s/g, '');
         const fileInfo = {
           filename: filename,
           bucketName: "uploads",

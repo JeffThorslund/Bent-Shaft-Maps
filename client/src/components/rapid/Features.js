@@ -66,17 +66,6 @@ const Features = (props) => {
       );
     });
 
-  // render caution if there are no possible lines
-  /*const cautionSymbol = props.data.symbols
-    .filter((element) => element.type === "Caution")
-    .map((element, key) => {
-      return (
-        <Caution
-          symbols={element}
-          key={`caution${key}`}
-        />
-      );
-    });*/
 
   // render array of lines based on selected water level
 
@@ -85,7 +74,7 @@ const Features = (props) => {
       <svg
         className="Features"
         id="vector-container"
-        viewBox={props.data.riverMap.viewBox}
+        viewBox="0 0 1600 900"
         xmlns="http://www.w3.org/2000/svg"
         preserveAspectRatio="none"
       >
@@ -98,7 +87,6 @@ const Features = (props) => {
         <g id="hydraulic-array" className="clickable">
           {hydraulicArray}
         </g>
-        {/*<g className="clickable">{lineArray.length === 0 && cautionSymbol}</g>*/}
         <g id="symbol-array" className="clickable">
           {symbolArray}
         </g>
