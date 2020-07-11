@@ -31,7 +31,7 @@ const Basemap = (props) => {
     </svg>
   );*/
 
-  return <img className="basemap" src={props.riverMap} alt="Red dot" />;
+  return <img className="basemap" src="/api/image/01399079da7a246d20123ce8ec58a32c.png" alt="Red dot" />;
 };
 
 export default Basemap;
