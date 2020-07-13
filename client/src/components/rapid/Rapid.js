@@ -7,6 +7,7 @@ import Basemap from "./Basemap";
 import Description from "./Description";
 import findRapidFromId from "../../tools/findRapidFromId";
 import { Preload } from "react-preload";
+import Loading from "../interface/Loading";
 const ImageCache = require("react-preload").ImageCache;
 
 class Rapid extends Component {
@@ -33,11 +34,10 @@ class Rapid extends Component {
       let riverMap = findRapidFromId(arrow.linkId, allData).riverMap;
       ImageCache.add(`/api/image/${riverMap}`);
     });
-    
 
     return (
       <Preload
-        loadingIndicator={<div>loading...</div>}
+        loadingIndicator={<Loading />}
         images={[`/api/image/${data.riverMap}`]}
         autoResolveDelay={10000}
         onError={() => alert("preload error")}
