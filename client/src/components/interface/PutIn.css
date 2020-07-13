@@ -99,9 +99,9 @@
     text-decoration: none;
     color: #2b2118ff;
     padding-bottom: 10px;
+    cursor: pointer;
   }
   .PutIn-wrapper .footer .footer-grid-wrapper .access-link:hover {
-    cursor: pointer;
     background-color: #2b2118ff;
     color: #f7f3e3ff;
   }
