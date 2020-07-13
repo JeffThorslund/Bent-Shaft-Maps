@@ -36,6 +36,7 @@
     "multer-gridfs-storage": "^4.2.0",
     "ncp": "^2.0.0",
     "nodemailer": "^6.4.6",
+    "react-preload": "^0.6.0",
     "socket.io": "^2.3.0"
   },
   "devDependencies": {
