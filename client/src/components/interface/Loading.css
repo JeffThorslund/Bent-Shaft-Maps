@@ -12,23 +12,22 @@
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  -webkit-box-pack: space-evenly;
-      -ms-flex-pack: space-evenly;
-          justify-content: space-evenly;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
   height: 100vh;
+  background: linear-gradient(135deg, #f7f3e3ff, #9bbcdb);
 }
 
 .Loading .message {
-  font-size: 34px;
   font-family: "Oswald";
 }
 
 .Loading #logo {
   -webkit-animation: Kayak-spin infinite 5s linear;
           animation: Kayak-spin infinite 5s linear;
+  -webkit-transform-origin: center;
+          transform-origin: center;
 }
 
 @-webkit-keyframes Kayak-spin {
@@ -50,6 +49,27 @@
   to {
     -webkit-transform: rotate(360deg);
             transform: rotate(360deg);
+  }
+}
+
+@media (min-width: 750px) {
+  #logo {
+    margin-bottom: 4%;
+    margin-top: 5%;
+  }
+  .message {
+    font-size: 48px;
+  }
+}
+
+@media (min-width: 320px) {
+  #logo {
+    margin-bottom: 4%;
+    margin-top: 5%;
+    height: 50%;
+  }
+  .message {
+    font-size: 36px;
   }
 }
 /*# sourceMappingURL=Loading.css.map */
