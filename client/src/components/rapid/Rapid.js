@@ -5,6 +5,10 @@ import NextRapid from "./NextRapid";
 import Features from "./Features";
 import Basemap from "./Basemap";
 import Description from "./Description";
+import findRapidFromId from "../../tools/findRapidFromId";
+import { Preload } from "react-preload";
+import Loading from "../interface/Loading";
+const ImageCache = require("react-preload").ImageCache;
 
 class Rapid extends Component {
   constructor(props) {
@@ -25,24 +29,40 @@ class Rapid extends Component {
       />
     ));
 
-    return (
-      <div className="Rapid">
-        <Basemap riverMap={data.riverMap} />
-        <div className="rapid-header">
-          <div id="rapid-name"> {data.name} </div>
-          <div id="rapid-desc">
-            <Description level={level} desc={data.desc} />
-          </div>
-        </div>
+    //cache adjacent rapids
+    data.arrows.forEach((arrow) => {
+      let riverMap = findRapidFromId(arrow.linkId, allData).riverMap;
+      ImageCache.add(`/api/image/${riverMap}`);
+    });
 
-        <div id="level-display">
-          <div id="feet">
-            {level} {allData.level.levelUnits}
+    return (
+      <Preload
+        loadingIndicator={<Loading />}
+        images={[`/api/image/${data.riverMap}`]}
+        autoResolveDelay={10000}
+        onError={() => alert("preload error")}
+        onSuccess={() => console.log("preload success")}
+        resolveOnError={true}
+        mountChildren={true}
+      >
+        <div className="Rapid">
+          <Basemap riverMap={data.riverMap} />
+          <div className="rapid-header">
+            <div id="rapid-name"> {data.name} </div>
+            <div id="rapid-desc">
+              <Description level={level} desc={data.desc} />
+            </div>
           </div>
+
+          <div id="level-display">
+            <div id="feet">
+              {level} {allData.level.levelUnits}
+            </div>
+          </div>
+          <Features level={level} data={data} />
+          <div id="arrow-array"> {arrowArray} </div>
         </div>
-        <Features level={level} data={data} />
-        <div id="arrow-array"> {arrowArray} </div>
-      </div>
+      </Preload>
     );
   }
 }

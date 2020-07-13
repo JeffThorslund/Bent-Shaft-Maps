@@ -1,0 +1,50 @@
+@import "../standards";
+
+.Loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100vh;
+  @include diag-grad($color2, $color5-light);
+
+  .message {
+    font-family: $title1;
+  }
+
+  #logo {
+    animation: Kayak-spin infinite 5s linear;
+    transform-origin: center;
+  }
+
+  @keyframes Kayak-spin {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+}
+
+@media (min-width: 750px) {
+  #logo {
+    margin-bottom: 4%;
+    margin-top: 5%;
+  }
+
+  .message {
+    font-size: 48px;
+  }
+}
+
+@media (min-width: 320px) {
+  #logo {
+    margin-bottom: 4%;
+    margin-top: 5%;
+    height: 50%;
+  }
+
+  .message {
+    font-size: 36px;
+  }
+}

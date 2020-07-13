@@ -72,10 +72,10 @@
           text-decoration: none;
           color: $color6;
           padding-bottom: 10px;
+          cursor: pointer;
         }
 
         .access-link:hover {
-          cursor: pointer;
           background-color: $color6;
           color: $color2;
         }
