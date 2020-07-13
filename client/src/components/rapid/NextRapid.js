@@ -10,6 +10,7 @@ import {
 } from "react-router-dom";
 import { paramCase } from "change-case";
 import PropTypes from "prop-types";
+import findRapidFromId from "../../tools/findRapidFromId";
 
 const NextRapid = (props) => {
   const {
@@ -23,20 +24,12 @@ const NextRapid = (props) => {
     right: `${right}vw`,
   };
 
-  const findNextName = (linkId) => {
-    for (let rapid of props.allData.rapids) {
-      //console.log("search started", linkId, rapid.id, allData.rapids);
-      if (linkId == rapid.id) {
-        //console.log("match", linkId, rapid.id);
-        return rapid.name;
-      }
-    }
-  };
+  const nextRapidName = findRapidFromId(linkId, allData).name;
 
   return (
-    <Link to={`${url}/${paramCase(findNextName(linkId))}`}>
+    <Link to={`${url}/${paramCase(nextRapidName)}`}>
       <div className="NextRapid" style={style}>
-        <div className="name">{findNextName(linkId)}</div>
+        <div className="name">{nextRapidName}</div>
       </div>
     </Link>
   );
