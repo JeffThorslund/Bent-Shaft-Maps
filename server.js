@@ -4,23 +4,24 @@ const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 const express = require("express");
 const path = require("path");
-
+require("dotenv").config();
 /*--Import Routes--*/
 const handlers = require("./routes/api/Handlers");
 const actions = require("./routes/api/Actions");
+const imageUpload = require("./routes/api/ImageUpload");
 
 /*--Server--*/
 const app = express();
 const http = require("http").createServer(app);
 
 /*--Middleware--*/
-require("dotenv").config();
 app.use(compression());
 app.use(bodyParser.json({ limit: "50mb" }));
 
 /*--Use Routes--*/
 app.use("/api", handlers);
 app.use("/api", actions);
+app.use("/api", imageUpload);
 
 /*--Connect to Mongo--*/
 mongoose

@@ -2,6 +2,7 @@ import React from "react";
 import Global from "./Global";
 import RiverRouter from "./RiverRouter";
 import Form from "../form/Form.js";
+import ImageUpload from "../interface/ImageUpload";
 import {
   BrowserRouter as Router,
   Switch,
@@ -12,19 +13,17 @@ import {
 } from "react-router-dom";
 import { paramCase } from "change-case";
 
-
-
 class GlobalRouter extends React.Component {
   constructor(props) {
     super(props);
   }
 
   componentDidMount() {
-    this.props.getRiverData("/api/getData", "./client/src/river-data")
+    this.props.getRiverData("/api/getData", "./client/src/river-data");
   }
 
   triggerUpdate = () => {
-    this.props.getRiverData("/api/getData", "./client/src/river-data")
+    this.props.getRiverData("/api/getData", "./client/src/river-data");
   };
 
   render() {
@@ -57,6 +56,11 @@ class GlobalRouter extends React.Component {
             </Route>
           )}
 
+          {process.env.NODE_ENV === "development" && (
+            <Route exact path="/imageUpload" key="imageUpload">
+              <ImageUpload />
+            </Route>
+          )}
           {routeArray}
         </Switch>
       );
