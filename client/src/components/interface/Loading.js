@@ -6,19 +6,40 @@ const Loading = () => {
   const [message, setMessage] = useState(null);
 
   useEffect(() => {
-    messageCycle(messageDic);
+    //shuffle the array of phrases
+    shuffleArray(messageDic);
+
+    //set the message as the last one
+    setMessage(messageDic[messageDic.length - 1]);
+
+    //cycles through all messages and restarts at end of list
+    let i = 0;
+    const interval = setInterval(() => {
+      setMessage(messageDic[i]);
+      if (i < messageDic.length - 1) {
+        i++;
+      } else {
+        i = 0;
+      }
+    }, 750);
+
+    return () => clearInterval(interval);
   }, []);
 
   const messageDic = [
-    "Giving highfives...",
     "Stretching shoulders...",
-    "Getting stoked...",
-    "Tightening life jacket...",
+    "Learning to roll...",
+    "Tightening PFD...",
+    "Running shuttle...",
+    "Packing river snacks...",
+    "Rigging rafts...",
   ];
 
-  const messageCycle = (messageDic) => {
-    let randomInt = Math.floor(Math.random() * Math.floor(messageDic.length));
-    setMessage(messageDic[randomInt]);
+  const shuffleArray = (array) => {
+    for (let i = array.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [array[i], array[j]] = [array[j], array[i]];
+    }
   };
 
   return (
