@@ -9,10 +9,13 @@ import {
 } from "react-router-dom";
 import { paramCase } from "change-case";
 import "./PutIn.css";
+const ImageCache = require("react-preload").ImageCache;
 
 const PutIn = (props) => {
   let contributors = props.data.contributors.toString();
   const paramCaseName = paramCase(props.data.name);
+
+  ImageCache.add(`/api/image/${props.data.rapids[0].riverMap}`);
 
   return (
     <div className="PutIn-wrapper">
