@@ -36,25 +36,11 @@ const UserRouter = (props) => {
 
   let { path, url } = useRouteMatch();
 
-  console.log(path, url);
-
   return (
     <>
-      <h1>User Router</h1>
-
-      {willRedirect && <Redirect push to={`${url}/${paramCase(credentials.name)}`} />}
-
-      <ul>
-        <li>
-          <Link to={`${url}/one`}>one</Link>
-        </li>
-        <li>
-          <Link to={`${url}/two`}>two</Link>
-        </li>
-        <li>
-          <Link to={`${url}/three`}>three</Link>
-        </li>
-      </ul>
+      {willRedirect && (
+        <Redirect push to={`${url}/${paramCase(credentials.name)}`} />
+      )}
 
       <Switch>
         <Route exact path={path}>

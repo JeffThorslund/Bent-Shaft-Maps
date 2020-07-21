@@ -13,8 +13,7 @@ import {
  */
 
 const UserHome = (props) => {
-  let { id } = useParams();
-  return <div>hello {id}</div>;
+  return <div>hello {props.credentials.name}</div>;
 };
 
 export default UserHome;
