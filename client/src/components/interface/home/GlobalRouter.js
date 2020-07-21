@@ -13,6 +13,7 @@ import Global from "./Global";
 import RiverRouter from "../RiverRouter";
 import Form from "../../form/Form.js";
 import ImageUpload from "../ImageUpload";
+import LogIn from "../../authentication/LogIn";
 
 /**
  * Router that creates all possible routes
@@ -36,6 +37,10 @@ const GlobalRouter = ({ rivers }) => {
     <Switch>
       <Route exact path="/" key="home">
         <Global rivers={rivers} />
+      </Route>
+
+      <Route exact path="/auth" key="auth">
+        <LogIn />
       </Route>
 
       {process.env.NODE_ENV === "development" && (
