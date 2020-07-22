@@ -5,10 +5,12 @@ const mongoose = require("mongoose");
 const express = require("express");
 const path = require("path");
 require("dotenv").config();
+
 /*--Import Routes--*/
 const handlers = require("./routes/api/Handlers");
 const actions = require("./routes/api/Actions");
 const imageUpload = require("./routes/api/ImageUpload");
+const authentication = require("./routes/api/Authentication");
 
 /*--Server--*/
 const app = express();
@@ -22,6 +24,7 @@ app.use(bodyParser.json({ limit: "50mb" }));
 app.use("/api", handlers);
 app.use("/api", actions);
 app.use("/api", imageUpload);
+app.use("/api", authentication);
 
 /*--Connect to Mongo--*/
 mongoose
@@ -31,12 +34,6 @@ mongoose
   })
   .then(() => console.log("MongoDB Connected"))
   .catch((err) => console.log(err));
-
-// /*--Socket--*/
-// var io = require("socket.io")(http);
-// io.on("connection", (socket) => {
-//   console.log("a user connected");
-// });
 
 app.use(express.static(path.join(__dirname, "client/build")));
 
