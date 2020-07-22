@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import "./MobileAlert.css";
+import "../../stylesheets/MobileAlert.css";
 
 export class MobileAlert extends Component {
   constructor(props) {

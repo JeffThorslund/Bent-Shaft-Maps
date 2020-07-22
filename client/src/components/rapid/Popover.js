@@ -1,6 +1,6 @@
 import React from "react";
 import ReactTooltip from "react-tooltip";
-import "./Popover.css";
+import "../../stylesheets/Popover.css";
 
 function Popover() {
   return (

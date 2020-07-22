@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import "./River.css";
+import "../../stylesheets/River.css";
 import Rapid from "../rapid/Rapid";
 import Slider from "./Slider";
 import Map from "./Map";

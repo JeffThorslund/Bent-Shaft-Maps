@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import "./SubmitKnowledge.css";
+import "../../stylesheets/SubmitKnowledge.css";
 import PropTypes from "prop-types";
 const axios = require("axios");
 
