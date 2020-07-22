@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import "./Loading.css";
+import "../../stylesheets/Loading.css";
 import Kayak from "./KayakLogo.png";
 
 const Loading = () => {

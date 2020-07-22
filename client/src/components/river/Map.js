@@ -1,7 +1,7 @@
 import React from "react";
 import loadable from '@loadable/component'
 import PropTypes from "prop-types";
-import "./Map.css";
+import "../../stylesheets/Map.css";
 import MapLabel from "./MapLabel";
 import { paramCase } from "change-case";
 

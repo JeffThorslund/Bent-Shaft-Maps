@@ -2,7 +2,7 @@
     "version": 3,
     "mappings": "AAAA,AAAA,SAAS,CAAC;EACR,QAAQ,EAAE,QAAQ;EAClB,MAAM,EAAE,KAAK;EACb,KAAK,EAAE,KAAK;EACZ,GAAG,EAAE,GAAG;EACR,IAAI,EAAE,GAAG;EACT;;;;eAIa;CACd;;AAED,AAAA,UAAU,CAAC;EACT,MAAM,EAAE,OAAO;EACf,2BAA2B,EAAE,WAAW;EACxC,qBAAqB,EAAE,IAAI;EAC3B,mBAAmB,EAAE,IAAI;EACzB,kBAAkB,EAAE,IAAI;EACxB,gBAAgB,EAAE,IAAI;EACtB,eAAe,EAAE,IAAI;EACrB,WAAW,EAAE,IAAI;CAClB",
     "sources": [
-        "Features.scss"
+        "../components/rapid/Features.scss"
     ],
     "names": [],
     "file": "Features.css"
