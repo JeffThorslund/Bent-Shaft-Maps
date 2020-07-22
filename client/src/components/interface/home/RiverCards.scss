@@ -1,4 +1,4 @@
-@import "../standards";
+@import "../../standards";
 @media (min-width: 320px) {
   .river-label {
     @include vert-grad($highlight-l, $highlight-n);

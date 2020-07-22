@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import SimpleReactValidator from "simple-react-validator";
-import "./AddRiverConfirmation.css";
 
 export class AddRiverConfirmation extends Component {
   constructor(props) {

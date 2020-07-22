@@ -9,7 +9,7 @@ import {
 } from "react-router-dom";
 import GithubCorner from "react-github-corner";
 
-import "./Global.css";
+import "../../../stylesheets/Global.css";
 
 import CardDisplay from "./CardDisplay";
 

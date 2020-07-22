@@ -8,7 +8,7 @@ import {
   useRouteMatch,
 } from "react-router-dom";
 import { paramCase } from "change-case";
-import "./PutIn.css";
+import "../../stylesheets/PutIn.css";
 const ImageCache = require("react-preload").ImageCache;
 
 const PutIn = (props) => {
