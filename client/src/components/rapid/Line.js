@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import "./Line.css";
+import "../../stylesheets/Line.css";
 import ReactTooltip from "react-tooltip";
 
 const Line = (props) => {

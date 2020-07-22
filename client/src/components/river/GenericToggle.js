@@ -1,5 +1,5 @@
 import React from "react";
-import "./GenericToggle.css";
+import "../../stylesheets/GenericToggle.css";
 import PropTypes from "prop-types";
 
 const GenericToggle = (props) => {

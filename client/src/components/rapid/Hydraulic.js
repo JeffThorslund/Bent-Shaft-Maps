@@ -1,5 +1,5 @@
 import React from "react";
-import "./Hydraulic.css";
+import "../../stylesheets/Hydraulic.css";
 import PropTypes from "prop-types";
 
 const Hydraulic = (props) => {

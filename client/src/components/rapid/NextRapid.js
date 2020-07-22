@@ -1,5 +1,5 @@
 import React from "react";
-import "./NextRapid.css";
+import "../../stylesheets/NextRapid.css";
 import {
   BrowserRouter as Router,
   Switch,

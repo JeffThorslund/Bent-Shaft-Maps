@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import Container from "./Container";
 import AddRiverConfirmation from "./AddRiverConfirmation";
-import "./Form.css";
+import "../../stylesheets/Form.css";
 import { paramCase } from "change-case";
 
 import InputArea from "./InputArea";

@@ -3,7 +3,7 @@ import Line from "./Line";
 import Eddy from "./Eddy";
 import Hydraulic from "./Hydraulic";
 import Symbol from "./Symbol";
-import "./Features.css";
+import "../../stylesheets/Features.css";
 import PropTypes from "prop-types";
 import ReactTooltip from "react-tooltip";
 import Popover from "./Popover";

@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
-import "./Rapid.css";
+import "../../stylesheets/Rapid.css";
 import NextRapid from "./NextRapid";
 import Features from "./Features";
 import Basemap from "./Basemap";
