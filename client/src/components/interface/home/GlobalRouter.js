@@ -13,11 +13,12 @@ import Global from "./Global";
 import RiverRouter from "../RiverRouter";
 import Form from "../../form/Form.js";
 import ImageUpload from "../ImageUpload";
+import Editing from "../../editing-interface/Editing";
 
 /**
  * Router that creates all possible routes
  * www.bentshaftmaps.com/<path>
- * @param {array} rivers - dataset of all rivers in database 
+ * @param {array} rivers - dataset of all rivers in database
  */
 
 const GlobalRouter = ({ rivers }) => {
@@ -34,6 +35,10 @@ const GlobalRouter = ({ rivers }) => {
 
   return (
     <Switch>
+      <Route exact path="/user-edit" key="user-edit">
+        <Editing />
+      </Route>
+
       <Route exact path="/" key="home">
         <Global rivers={rivers} />
       </Route>
