@@ -2,8 +2,8 @@
     "version": 3,
     "mappings": "ACAA,iBAAiB;AAqBjB,eAAe;AAMf,wBAAwB;AAcxB,qBAAqB;AAQrB,eAAe;AAgBf,gBAAgB;AD/DhB,AAAA,QAAQ,CAAC;EACP,IAAI,EAAE,KAAK;EACX,YAAY,EAAE,GAAG;CAClB;;AAED,AAAA,QAAQ,AAAA,MAAM,CAAC;EACb,YAAY,EAAE,CAAC;CAChB",
     "sources": [
-        "Symbol.scss",
-        "../_standards.scss"
+        "../components/rapid/Symbol.scss",
+        "../components/_standards.scss"
     ],
     "names": [],
     "file": "Symbol.css"

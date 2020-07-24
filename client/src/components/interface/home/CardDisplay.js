@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import SearchBar from "./SearchBar";
 import { Exists, DoesNotExist } from "./RiverCards";
-import "./Global.css";
 
 const CardDisplay = ({ rivers }) => {
   /**
