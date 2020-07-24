@@ -16,7 +16,7 @@
     height: 100vh;
   }
   .PutIn-wrapper .header {
-    background-image: url(./welcome-header.svg);
+    background-image: url(../components/interface/welcome-header.svg);
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -57,7 +57,7 @@
     background-color: #e1e2e2ff;
   }
   .PutIn-wrapper .footer {
-    background-image: url(./welcome-footer.svg);
+    background-image: url(../components/interface/welcome-footer.svg);
     -webkit-box-flex: 1;
         -ms-flex-positive: 1;
             flex-grow: 1;

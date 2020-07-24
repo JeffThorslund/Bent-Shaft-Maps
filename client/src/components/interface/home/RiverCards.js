@@ -8,7 +8,7 @@ import {
   useParams,
   useRouteMatch,
 } from "react-router-dom";
-import "./RiverCards.css";
+import "../../../stylesheets/RiverCards.css";
 
 export const Exists = (props) => {
   console.log("RiverCard-exists started");

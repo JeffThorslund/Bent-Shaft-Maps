@@ -1,5 +1,5 @@
 import React from "react";
-import "./MapLabel.css";
+import "../../stylesheets/MapLabel.css";
 import PropTypes from "prop-types";
 import {
   BrowserRouter as Router,
