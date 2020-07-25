@@ -10,6 +10,11 @@
     height: 100%;
     min-height: 100vh;
   }
+  .Global-background .login-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+  }
   .Global-background .Global {
     display: -webkit-box;
     display: -ms-flexbox;
