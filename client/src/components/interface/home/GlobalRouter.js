@@ -14,6 +14,7 @@ import RiverRouter from "../RiverRouter";
 import Form from "../../form/Form.js";
 import ImageUpload from "../ImageUpload";
 import UserRouter from "../../user/UserRouter";
+import PrivacyPolicy from "../../user/PrivacyPolicy";
 
 /**
  * Router that creates all possible routes
@@ -41,6 +42,10 @@ const GlobalRouter = ({ rivers }) => {
 
       <Route path="/user" key="user">
         <UserRouter />
+      </Route>
+
+      <Route path="/privacy-policy" key="privacy-policy">
+        <PrivacyPolicy />
       </Route>
 
       {process.env.NODE_ENV === "development" && (
