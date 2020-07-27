@@ -13,7 +13,13 @@ import {
  */
 
 const UserHome = (props) => {
-  return <div>hello {props.credentials.name}</div>;
+  return (
+    <div>
+      <h1>Welcome {props.credentials.name} </h1>
+      <h2>email: {props.credentials.email}</h2>
+      <h2>userID: {props.credentials.userID}</h2>
+    </div>
+  );
 };
 
 export default UserHome;
