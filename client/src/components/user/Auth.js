@@ -10,7 +10,7 @@ const Auth = (props) => {
         autoLoad={true}
         fields="name,email,picture"
         onClick={() => {
-          console.log("Clicked");
+         return null
         }}
         callback={props.responseFacebook}
       />
