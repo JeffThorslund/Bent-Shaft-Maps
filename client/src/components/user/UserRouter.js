@@ -50,14 +50,16 @@ const UserRouter = (props) => {
       .then((response) => response.json())
       .then((data) => {
         const { message, authorizedData } = data;
-        alert(message);
-        setCredentials({
-          name: authorizedData.name,
-          email: authorizedData.email,
-          userID: authorizedData.userID,
-          isLoggedIn: true,
-        });
-        setWillRedirect(true);
+        console.log(message, authorizedData);
+        if (authorizedData) {
+          setCredentials({
+            name: authorizedData.name,
+            email: authorizedData.email,
+            userID: authorizedData.userID,
+            isLoggedIn: true,
+          });
+          setWillRedirect(true);
+        }
       });
   };
 
