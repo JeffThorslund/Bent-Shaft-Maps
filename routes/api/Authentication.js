@@ -1,36 +1,36 @@
 const express = require("express");
 const router = express.Router();
 const jwt = require("jsonwebtoken");
+const Authorization = require("../../modules/Authorization");
 
+//Create Web Token on Authentication an Return to Front End
 router.post("/login", (req, res, next) => {
   const user = {
     name: req.body.name,
     email: req.body.email,
     userID: req.body.userID,
   };
-  //create token
   const accessToken = jwt.sign(user, process.env.ACCESS_TOKEN_SECRET);
-  //return token
   res.send(accessToken);
 });
 
+//Authorize Token
 router.get("/authorize", checkToken, (req, res) => {
-  //verify the JWT token generated for the user
-  
   jwt.verify(
     req.token,
     process.env.ACCESS_TOKEN_SECRET,
-    (err, authorizedData) => {
+    async (err, authorizedData) => {
+      //Token could not be verified
       if (err) {
-        //If error send Forbidden (403)
         console.log("ERROR: Could not connect to the protected route");
         res.sendStatus(403);
       } else {
-        //If token is successfully verified, we can send the autorized data
+        Authorization(authorizedData);
         res.json({
           message: "Successful log in",
           authorizedData,
         });
+
         console.log("SUCCESS: Connected to protected route");
       }
     }
@@ -44,7 +44,6 @@ function checkToken(req, res, next) {
   if (typeof header !== "undefined") {
     const bearer = header.split(" ");
     const token = bearer[1];
-    console.log(bearer, token)
     req.token = token;
     next();
   } else {
