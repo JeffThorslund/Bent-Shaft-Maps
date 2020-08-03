@@ -15,10 +15,20 @@ const userSchema = new mongoose.Schema({
   },
   userID: {
     type: String,
-    required: true,
+    required: false,
     max: 300,
     min: 6,
   },
+  password: {
+    type: String,
+    required: false,
+    max: 300,
+    min: 6,
+  },
+  date:{
+    type: Date,
+    default: Date.now
+  }
 });
 
 module.exports = User = mongoose.model("User", userSchema);
