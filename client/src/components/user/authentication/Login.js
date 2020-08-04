@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
+import UserContext from "../UserContext";
 
 import LoginTests from "./LoginTests";
 
@@ -8,7 +9,9 @@ import Row from "react-bootstrap/Row";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 
-const LoginForm = ({ handleLogin }) => {
+const Login = ({ setIsLoggingIn }) => {
+  const { handleLogin } = useContext(UserContext);
+
   //Login Input Fields
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -67,4 +70,4 @@ const LoginForm = ({ handleLogin }) => {
   );
 };
 
-export default LoginForm;
+export default Login;
