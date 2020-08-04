@@ -1,10 +1,11 @@
 import React, { useState } from "react";
-import { useHistory } from "react-router-dom";
 
 const LoginForm = ({ handleLogin, handleRegister }) => {
+  //Login Input Fields
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
+  //Test Cases
   const testCaseCreds = [
     {
       type: "Valid Login",

@@ -5,7 +5,7 @@ import UserContext from "./UserContext";
  * User Home Page
  */
 
-const UserHome = (props) => {
+const UserHome = () => {
   let context = useContext(UserContext);
   let user = context.userData.user;
   return (
