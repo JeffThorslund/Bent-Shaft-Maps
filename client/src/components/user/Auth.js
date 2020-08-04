@@ -1,80 +1,73 @@
 import React, { useState } from "react";
 
+import LoginTests from "./LoginTests";
+
+import Container from "react-bootstrap/Container";
+import Col from "react-bootstrap/Col";
+import Row from "react-bootstrap/Row";
+import Button from "react-bootstrap/Button";
+import Form from "react-bootstrap/Form";
+
 const LoginForm = ({ handleLogin, handleRegister }) => {
   //Login Input Fields
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  //Test Cases
-  const testCaseCreds = [
-    {
-      type: "Valid Login",
-      email: "Test@tester.com",
-      password: "123456",
-    },
-    {
-      type: "Invalid Email",
-      email: "Testtester.com",
-      password: "123456",
-    },
-    {
-      type: "Invalid Password",
-      email: "Test@tester.com",
-      password: "12345",
-    },
-    {
-      type: "Email Does Not Exist",
-      email: "Soccer@tester.com",
-      password: "123456",
-    },
-    {
-      type: "Password Does Not Exist",
-      email: "Test@tester.com",
-      password: "1234567",
-    },
-  ].map((cred) => {
-    return (
-      <div key={cred.type}>
-        <h3>{cred.type}</h3>
-        <div>email: {cred.email}</div>
-        <div>password: {cred.password}</div>
-        <button onClick={(e) => handleLogin(e, cred.email, cred.password)}>
-          Test {cred.type}
-        </button>
-      </div>
-    );
-  });
-
   return (
-    <>
-      <form onSubmit={(e) => handleLogin(e, email, password)}>
-        <h1>Log In</h1>
-        <label>
-          Email:
-          <input
-            type="text"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-          />
-        </label>
-        <br />
-        <label>
-          Password:
-          <input
-            type="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-          />
-        </label>
+    <Container>
+      <Row>
+        <Col>
+          <Form>
+            <h1>Log In</h1>
 
-        <input type="submit" value="Submit" />
-      </form>
+            <Form.Group controlId="formBasicEmail">
+              <Form.Label>Email address</Form.Label>
+              <Form.Control
+                type="email"
+                placeholder="Enter email"
+                onChange={(e) => setEmail(e.target.value)}
+              />
+              <Form.Text className="text-muted">
+                We'll never share your email with anyone else.
+              </Form.Text>
+            </Form.Group>
 
-      <input type="button" value="Register" onClick={handleRegister} />
+            <Form.Group controlId="formBasicPassword">
+              <Form.Label>Password</Form.Label>
+              <Form.Control
+                type="password"
+                placeholder="Password"
+                onChange={(e) => setPassword(e.target.value)}
+              />
+            </Form.Group>
 
-      <h2>Test Cases</h2>
-      {testCaseCreds}
-    </>
+            <Button
+              className="mr-3"
+              variant="primary"
+              type="submit"
+              onClick={(e) => handleLogin(e, email, password)}
+            >
+              Submit
+            </Button>
+
+            <Button
+              variant="outline-primary"
+              type="button"
+              onClick={handleRegister}
+            >
+              Register
+            </Button>
+          </Form>
+        </Col>
+      </Row>
+
+      <Row>
+        <Col>
+          <h2 className="mt-4">Test Cases</h2>
+          <LoginTests handleLogin={handleLogin} />
+        </Col>
+      </Row>
+    </Container>
   );
 };
 

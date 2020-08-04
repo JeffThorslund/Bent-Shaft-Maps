@@ -48,7 +48,6 @@ const UserRouter = () => {
 
   const handleLogin = (e, email, password) => {
     e.preventDefault();
-
     axios
       .post("/auth/login", {
         email: email,
