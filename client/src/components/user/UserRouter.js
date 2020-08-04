@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from "react";
 import UserContext from "./UserContext";
-import Login from "./authentication/Login";
-import Dashboard from "./dashboard/Dashboard";
 import { Switch, Route, useRouteMatch, useHistory } from "react-router-dom";
 import axios from "axios";
+
+import Dashboard from "./dashboard/Dashboard";
+import AuthInterface from "./authentication/AuthInterface";
 
 const UserRouter = () => {
   //DEFINE STATE FOR TOKEN AND USER
@@ -12,12 +13,9 @@ const UserRouter = () => {
     user: undefined,
   });
 
-  //LOGGING IN OR REGISTERING
-  const [isLoggingIn, setIsLoggingIn] = useState(true);
-
   //DEFINE HISTORY FUNCS AND PATH
   let history = useHistory();
-  const login = () => history.push(`/user/home`);
+  const login = () => history.push(`/user/dashboard`);
   const logout = () => history.push(`/user`);
   const { path } = useRouteMatch();
 
@@ -49,8 +47,10 @@ const UserRouter = () => {
   }, []);
 
   //HANDLE LOGIN
-  const handleLogin = (e, email, password) => {
+  const handleLogin = (e, userEntry) => {
     e.preventDefault();
+    
+    const { email, password } = userEntry;
     axios
       .post("/auth/login", {
         email: email,
@@ -68,8 +68,6 @@ const UserRouter = () => {
       .catch((error) => {
         alert(error.response.data);
       });
-
-    console.log(`Submitting Login Data for`, email);
   };
 
   //HANDLE LOGOUT
@@ -82,22 +80,48 @@ const UserRouter = () => {
     logout();
   };
 
+  //HANDLE REGISTER
+  const handleRegister = (e, userEntry) => {
+    e.preventDefault();
+    console.log("UserEntry", userEntry);
+    const { name, email, password } = userEntry;
+
+    axios
+      .post("/auth/register", {
+        email: email,
+        password: password,
+        
+        name: name,
+      })
+      .then((response) => {
+        console.log(response.data);
+        const user = {
+          email: response.data.user.email,
+          password: password,
+        };
+        handleLogin(e, user);
+      })
+      .catch((error) => {
+        alert(error.response.data);
+      });
+  };
+
   return (
     <UserContext.Provider
-      value={{ userData, setUserData, handleLogin, handleLogout }}
+      value={{
+        userData,
+        setUserData,
+        handleLogin,
+        handleLogout,
+        handleRegister,
+      }}
     >
       <Switch>
-        {isLoggingIn ? (
-          <Route exact path={`${path}/`}>
-            <Login setIsLoggingIn={setIsLoggingIn} />
-          </Route>
-        ) : (
-          <Route path={`${path}/register`}>
-            <h1>Registration Page</h1>
-          </Route>
-        )}
+        <Route exact path={`${path}/`}>
+          <AuthInterface />
+        </Route>
 
-        <Route path={`${path}/home`}>
+        <Route path={`${path}/dashboard`}>
           <Dashboard />
         </Route>
       </Switch>

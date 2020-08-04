@@ -1,7 +1,10 @@
-import React from "react";
+import React, { useContext } from "react";
 import Button from "react-bootstrap/Button";
 
-const LoginTests = ({ handleLogin }) => {
+import UserContext from "../UserContext";
+
+const LoginTests = () => {
+  const { handleLogin } = useContext(UserContext);
   //Test Cases
   const testCases = [
     {
@@ -32,7 +35,7 @@ const LoginTests = ({ handleLogin }) => {
   ].map((cred) => {
     return (
       <Button
-        onClick={(e) => handleLogin(e, cred.email, cred.password)}
+        onClick={(e) => handleLogin(e, cred)}
         key={cred.type}
         variant="secondary"
         className="m-1"
@@ -42,7 +45,12 @@ const LoginTests = ({ handleLogin }) => {
     );
   });
 
-  return testCases;
+  return (
+    <>
+      <h2 className="mt-3">Test Cases</h2>
+      {testCases}
+    </>
+  );
 };
 
 export default LoginTests;
