@@ -8,7 +8,7 @@ import Row from "react-bootstrap/Row";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 
-const LoginForm = ({ handleLogin, handleRegister }) => {
+const LoginForm = ({ handleLogin }) => {
   //Login Input Fields
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -50,11 +50,7 @@ const LoginForm = ({ handleLogin, handleRegister }) => {
               Submit
             </Button>
 
-            <Button
-              variant="outline-primary"
-              type="button"
-              onClick={handleRegister}
-            >
+            <Button variant="outline-primary" type="button">
               Register
             </Button>
           </Form>
