@@ -50,7 +50,7 @@ router.post("/login", async (req, res) => {
 
   //CREATE TOKEN
   const token = jwt.sign({ _id: user._id }, process.env.ACCESS_TOKEN_SECRET);
-  res.header("auth-token", token).status(200).send("token header set");
+  res.header("auth-token", token).status(200).send(user);
 });
 
 //VERIFY TOKEN
