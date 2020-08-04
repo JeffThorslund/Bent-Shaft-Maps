@@ -2,27 +2,26 @@ import React, { useState, useEffect } from "react";
 import UserContext from "./UserContext";
 import Auth from "./Auth";
 import UserHome from "./UserHome";
-import { paramCase } from "change-case";
 import {
   BrowserRouter as Router,
   Switch,
   Route,
-  Link,
-  useParams,
   useRouteMatch,
-  Redirect,
-  useHistory,
-  useLocation,
   BrowserRouter,
+  useHistory,
 } from "react-router-dom";
 import axios from "axios";
 
-const UserRouter = (props) => {
+const UserRouter = () => {
+  //User Data and JWT
   const [userData, setUserData] = useState({
     token: undefined,
     user: undefined,
   });
+  //Define history
+  let history = useHistory();
 
+  //Check to see if user was previously logged in
   useEffect(() => {
     const checkLoggedIn = async () => {
       const token = localStorage.getItem("auth-token");
@@ -47,13 +46,6 @@ const UserRouter = (props) => {
 
   let { path, url } = useRouteMatch();
 
-  //Broken...why?
-  // const history = useHistory();
-  // const register = () => history.push(`user/register`);
-  // const login = () => history.push(`${path}/home`);
-
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
-
   const handleLogin = (e, email, password) => {
     e.preventDefault();
 
@@ -65,34 +57,32 @@ const UserRouter = (props) => {
       .then(function (response) {
         console.log(response.data);
         localStorage.setItem("auth-token", response.headers["auth-token"]);
-        //login();
+        history.push(`user/home`)
       })
       .catch(function (error) {
         alert(error.response.data);
       });
 
+      
     console.log(`Submitting Login Data for`, email);
   };
 
   return (
-    <BrowserRouter>
       <UserContext.Provider value={{ userData, setUserData }}>
         <Switch>
-          {/* This will act as authentication home page */}
           <Route exact path={`${path}/`}>
-            <Auth handleLogin={handleLogin} /*handleRegister={register}*/ />
+            <Auth handleLogin={handleLogin} />
           </Route>
 
           <Route path={`${path}/register`}>
             <h1>Registration Page</h1>
           </Route>
 
-          <Route path={`${path}/home`} isLoggedIn={isLoggedIn}>
+          <Route path={`${path}/home`}>
             <UserHome />
           </Route>
         </Switch>
       </UserContext.Provider>
-    </BrowserRouter>
   );
 };
 
