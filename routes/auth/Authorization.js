@@ -7,19 +7,19 @@ const { registerValidation, loginValidation } = require("../../validation");
 
 //CREATE USER
 router.post("/register", async (req, res) => {
-  //Validate User Data
+  //VALIDATE USER DATA
   const { error } = registerValidation(req.body);
   if (error) return res.send(error.details[0].message);
 
-  //Check if user is in db
+  //CHECK IS USER EXISTS IN DATABASE
   const emailExist = await User.findOne({ email: req.body.email });
   if (emailExist) return res.send("Email already exists");
 
-  //Hash password
+  //HASH PASSWORD
   const salt = await bcrypt.genSalt(10);
   const hashedPassword = await bcrypt.hash(req.body.password, salt);
 
-  //Create New User
+  //CREATE NEW USER
   const user = new User({
     name: req.body.name,
     email: req.body.email,
@@ -36,20 +36,38 @@ router.post("/register", async (req, res) => {
 
 //LOGIN
 router.post("/login", async (req, res) => {
+  //VALIDATE USER DATA
   const { error } = loginValidation(req.body);
   if (error) return res.status(401).send(error.details[0].message);
 
-  //Check if user is in db
+  //CHECK IS USER EXISTS IN DATABASE
   const user = await User.findOne({ email: req.body.email });
   if (!user) return res.status(401).send("Email does not exist.");
 
-  //PASSWORD IS CORRECT
+  //CHECK IF PASSWORD IS CORRECT
   const validPass = await bcrypt.compare(req.body.password, user.password);
   if (!validPass) return res.status(401).send("Incorrect password.");
 
   //CREATE TOKEN
-  const token = await jwt.sign({ _id: user._id }, process.env.ACCESS_TOKEN_SECRET);
-  res.header("auth-token", token).status(200).send("token header set")
+  const token = jwt.sign({ _id: user._id }, process.env.ACCESS_TOKEN_SECRET);
+  res.header("auth-token", token).status(200).send("token header set");
+});
+
+//VERIFY TOKEN
+router.get("/verify", async (req, res) => {
+  try {  
+    //DECODE JWT
+    var decoded = jwt.verify(req.query.token, process.env.ACCESS_TOKEN_SECRET);
+
+    //GET USER FROM _id
+    const user = await User.findOne({ _id: decoded._id });
+
+    //RESPOND
+    return res.status(200).send(user);
+  } catch (err) {
+    //JWT COULD NOT BE DECODED
+    return res.status(400).send(err);
+  }
 });
 
 module.exports = router;

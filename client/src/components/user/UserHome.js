@@ -1,24 +1,22 @@
-import React, { Component } from "react";
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Link,
-  withRouter,
-  useParams,
-} from "react-router-dom";
+import React, { useContext } from "react";
+import UserContext from "./UserContext";
 
 /**
  * User Home Page
  */
 
 const UserHome = (props) => {
+  let context = useContext(UserContext);
+  let user = context.userData.user;
   return (
-    <div>
-      <h1>Welcome {props.credentials.name} </h1>
-      <h2>email: {props.credentials.email}</h2>
-      <h2>userID: {props.credentials.userID}</h2>
-    </div>
+    <>
+      {user && (
+        <div>
+          <h1>Welcome {user.name} </h1>
+          <h2>email: {user.email}</h2>
+        </div>
+      )}
+    </>
   );
 };
 
