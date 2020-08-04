@@ -37,7 +37,7 @@ const LoginTests = ({ handleLogin }) => {
         variant="secondary"
         className="m-1"
       >
-        Test {cred.type}
+        {cred.type}
       </Button>
     );
   });

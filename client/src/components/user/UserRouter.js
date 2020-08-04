@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import UserContext from "./UserContext";
-import Login from "./LogIn";
-import UserHome from "./dashboard/Dashboard";
+import Login from "./authentication/Login";
+import Dashboard from "./dashboard/Dashboard";
 import { Switch, Route, useRouteMatch, useHistory } from "react-router-dom";
 import axios from "axios";
 
@@ -11,6 +11,9 @@ const UserRouter = () => {
     token: undefined,
     user: undefined,
   });
+
+  //LOGGING IN OR REGISTERING
+  const [isLoggingIn, setIsLoggingIn] = useState(true);
 
   //DEFINE HISTORY FUNCS AND PATH
   let history = useHistory();
@@ -45,6 +48,7 @@ const UserRouter = () => {
     checkLoggedIn();
   }, []);
 
+  //HANDLE LOGIN
   const handleLogin = (e, email, password) => {
     e.preventDefault();
     axios
@@ -68,6 +72,7 @@ const UserRouter = () => {
     console.log(`Submitting Login Data for`, email);
   };
 
+  //HANDLE LOGOUT
   const handleLogout = () => {
     setUserData({
       token: undefined,
@@ -78,18 +83,22 @@ const UserRouter = () => {
   };
 
   return (
-    <UserContext.Provider value={{ userData, setUserData, handleLogout }}>
+    <UserContext.Provider
+      value={{ userData, setUserData, handleLogin, handleLogout }}
+    >
       <Switch>
-        <Route exact path={`${path}/`}>
-          <Login handleLogin={handleLogin} />
-        </Route>
-
-        <Route path={`${path}/register`}>
-          <h1>Registration Page</h1>
-        </Route>
+        {isLoggingIn ? (
+          <Route exact path={`${path}/`}>
+            <Login setIsLoggingIn={setIsLoggingIn} />
+          </Route>
+        ) : (
+          <Route path={`${path}/register`}>
+            <h1>Registration Page</h1>
+          </Route>
+        )}
 
         <Route path={`${path}/home`}>
-          <UserHome />
+          <Dashboard />
         </Route>
       </Switch>
     </UserContext.Provider>
