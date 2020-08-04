@@ -7,7 +7,6 @@ import {
   Switch,
   Route,
   useRouteMatch,
-  BrowserRouter,
   useHistory,
 } from "react-router-dom";
 import axios from "axios";
@@ -18,8 +17,9 @@ const UserRouter = () => {
     token: undefined,
     user: undefined,
   });
-  //Define history
+  //Define history 
   let history = useHistory();
+  let { path } = useRouteMatch();
 
   //Check to see if user was previously logged in
   useEffect(() => {
@@ -44,7 +44,7 @@ const UserRouter = () => {
     checkLoggedIn();
   }, []);
 
-  let { path, url } = useRouteMatch();
+  
 
   const handleLogin = (e, email, password) => {
     e.preventDefault();

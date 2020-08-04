@@ -6,8 +6,8 @@ import UserContext from "./UserContext";
  */
 
 const UserHome = () => {
-  let context = useContext(UserContext);
-  let user = context.userData.user;
+  const {userData, setUserData} = useContext(UserContext)
+  let user = userData.user;
   return (
     <>
       {user && (
