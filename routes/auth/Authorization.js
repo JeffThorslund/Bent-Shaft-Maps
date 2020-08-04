@@ -9,11 +9,11 @@ const { registerValidation, loginValidation } = require("../../validation");
 router.post("/register", async (req, res) => {
   //VALIDATE USER DATA
   const { error } = registerValidation(req.body);
-  if (error) return res.send(error.details[0].message);
+  if (error) return res.status(400).send(error.details[0].message);
 
   //CHECK IS USER EXISTS IN DATABASE
   const emailExist = await User.findOne({ email: req.body.email });
-  if (emailExist) return res.send("Email already exists");
+  if (emailExist) return res.status(400).send("Email already exists");
 
   //HASH PASSWORD
   const salt = await bcrypt.genSalt(10);
@@ -28,9 +28,9 @@ router.post("/register", async (req, res) => {
 
   try {
     const savedUser = await user.save();
-    res.send({ user: user.name });
+    res.send({ user });
   } catch (err) {
-    res.send(err);
+    res.status(400).send(err);
   }
 });
 
@@ -45,6 +45,7 @@ router.post("/login", async (req, res) => {
   if (!user) return res.status(401).send("Email does not exist.");
 
   //CHECK IF PASSWORD IS CORRECT
+  console.log(req.body.password, user.password);
   const validPass = await bcrypt.compare(req.body.password, user.password);
   if (!validPass) return res.status(401).send("Incorrect password.");
 
@@ -55,7 +56,7 @@ router.post("/login", async (req, res) => {
 
 //VERIFY TOKEN
 router.get("/verify", async (req, res) => {
-  try {  
+  try {
     //DECODE JWT
     var decoded = jwt.verify(req.query.token, process.env.ACCESS_TOKEN_SECRET);
 
