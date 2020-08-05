@@ -6,7 +6,6 @@ const ImageCache = require("react-preload").ImageCache;
 
 const PutIn = (props) => {
   let contributors = props.data.contributors.toString();
-  const paramCaseName = paramCase(props.data.name);
 
   ImageCache.add(`/api/image/${props.data.rapids[0].riverMap}`);
 
@@ -46,8 +45,8 @@ const PutIn = (props) => {
                 rel="noopener noreferrer"
               >
                 <img
-                  src={require(`../../river-data/${paramCaseName}/${props.data.sponsors[0].logo}`)}
-                  alt={`${paramCase(props.data.sponsors[0].logo)}`}
+                  src={require(`./TrestleLogo.png`)}
+                  alt={`Trestle Logo`}
                   width="100%"
                 />
               </a>

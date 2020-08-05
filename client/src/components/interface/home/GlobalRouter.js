@@ -4,7 +4,6 @@ import { paramCase } from "change-case";
 
 import Global from "./Global";
 import RiverRouter from "../RiverRouter";
-import Form from "../../form/Form.js";
 import ImageUpload from "../ImageUpload";
 import UserRouter from "../../user/UserRouter";
 import PrivacyPolicy from "../../user/PrivacyPolicy";
@@ -40,12 +39,6 @@ const GlobalRouter = ({ rivers }) => {
       <Route path="/privacy-policy" key="privacy-policy">
         <PrivacyPolicy />
       </Route>
-
-      {process.env.NODE_ENV === "development" && (
-        <Route exact path="/form" key="form">
-          <Form rivers={rivers} />
-        </Route>
-      )}
 
       {process.env.NODE_ENV === "development" && (
         <Route exact path="/imageUpload" key="imageUpload">
