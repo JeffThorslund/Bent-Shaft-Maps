@@ -4,7 +4,7 @@
     @include vert-grad($highlight-l, $highlight-n);
     border: $font-d 0.3vw solid;
     border-radius: 2vw;
-    padding: 2vw;
+    padding: 1.5vw;
 
     cursor: pointer;
     overflow: hidden;
@@ -90,7 +90,7 @@
   .river-label {
     border: $font-d 2px solid;
     border-radius: 15px;
-    padding: 15px;
+    padding: 10px 15px;
   }
   #name {
     font-size: 24px;
