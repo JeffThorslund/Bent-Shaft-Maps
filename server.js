@@ -5,10 +5,11 @@ const mongoose = require("mongoose");
 const express = require("express");
 const path = require("path");
 require("dotenv").config();
+
 /*--Import Routes--*/
-const handlers = require("./routes/api/Handlers");
 const actions = require("./routes/api/Actions");
 const imageUpload = require("./routes/api/ImageUpload");
+const authorization = require("./routes/auth/Authorization")
 
 /*--Server--*/
 const app = express();
@@ -16,12 +17,13 @@ const http = require("http").createServer(app);
 
 /*--Middleware--*/
 app.use(compression());
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json({ limit: "50mb" }));
 
 /*--Use Routes--*/
-app.use("/api", handlers);
 app.use("/api", actions);
 app.use("/api", imageUpload);
+app.use("/auth", authorization);
 
 /*--Connect to Mongo--*/
 mongoose
@@ -32,12 +34,6 @@ mongoose
   .then(() => console.log("MongoDB Connected"))
   .catch((err) => console.log(err));
 
-// /*--Socket--*/
-// var io = require("socket.io")(http);
-// io.on("connection", (socket) => {
-//   console.log("a user connected");
-// });
-
 app.use(express.static(path.join(__dirname, "client/build")));
 
 app.get("*", (req, res) => {
@@ -47,4 +43,4 @@ app.get("*", (req, res) => {
 const port = process.env.PORT || 5000;
 http.listen(port);
 
-console.log(`Server is started baby!`);
+console.log(`Server is started.`);

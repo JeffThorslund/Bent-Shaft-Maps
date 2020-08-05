@@ -1,7 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
 import "../../stylesheets/Eddy.css";
-import ReactTooltip from "react-tooltip";
 
 const Eddy = (props) => {
   const { name, desc, vector, x, y } = props.eddys;

@@ -10,7 +10,7 @@
     background: linear-gradient(90deg, #ffc7b9, #fb9486);
     border: #000000 0.3vw solid;
     border-radius: 2vw;
-    padding: 2vw;
+    padding: 1.5vw;
     cursor: pointer;
     overflow: hidden;
     -webkit-user-select: none;
@@ -85,7 +85,7 @@
   .river-label {
     border: #000000 2px solid;
     border-radius: 15px;
-    padding: 15px;
+    padding: 10px 15px;
   }
   #name {
     font-size: 24px;

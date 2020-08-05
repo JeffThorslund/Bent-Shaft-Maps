@@ -1,13 +1,6 @@
 import React from "react";
 import "../../stylesheets/NextRapid.css";
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Link,
-  useParams,
-  useRouteMatch,
-} from "react-router-dom";
+import { Link } from "react-router-dom";
 import { paramCase } from "change-case";
 import PropTypes from "prop-types";
 import findRapidFromId from "../../tools/findRapidFromId";
