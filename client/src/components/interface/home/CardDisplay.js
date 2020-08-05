@@ -22,7 +22,7 @@ const CardDisplay = ({ rivers }) => {
   const filteredRivers = rivers
     .filter((river) => {
       //if no use input, display all rivers
-      if (value.length == 0) return true;
+      if (value.length === 0) return true;
 
       //iterate through searchRiverProps of a river until match
       for (let rivProp of searchRiverProps) {

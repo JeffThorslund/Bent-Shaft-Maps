@@ -1,23 +1,18 @@
 import React from "react";
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Link,
-  useParams,
-  useRouteMatch,
-} from "react-router-dom";
+import { Switch, Route } from "react-router-dom";
 import { paramCase } from "change-case";
 
 import Global from "./Global";
 import RiverRouter from "../RiverRouter";
 import Form from "../../form/Form.js";
 import ImageUpload from "../ImageUpload";
+import UserRouter from "../../user/UserRouter";
+import PrivacyPolicy from "../../user/PrivacyPolicy";
 
 /**
  * Router that creates all possible routes
  * www.bentshaftmaps.com/<path>
- * @param {array} rivers - dataset of all rivers in database 
+ * @param {array} rivers - dataset of all rivers in database
  */
 
 const GlobalRouter = ({ rivers }) => {
@@ -36,6 +31,14 @@ const GlobalRouter = ({ rivers }) => {
     <Switch>
       <Route exact path="/" key="home">
         <Global rivers={rivers} />
+      </Route>
+
+      <Route path="/user" key="user">
+        <UserRouter />
+      </Route>
+
+      <Route path="/privacy-policy" key="privacy-policy">
+        <PrivacyPolicy />
       </Route>
 
       {process.env.NODE_ENV === "development" && (

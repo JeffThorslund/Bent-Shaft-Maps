@@ -1,17 +1,11 @@
 import React from "react";
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Link,
-  useParams,
-  useRouteMatch,
-} from "react-router-dom";
+import { Route, Link } from "react-router-dom";
 import GithubCorner from "react-github-corner";
 
 import "../../../stylesheets/Global.css";
 
 import CardDisplay from "./CardDisplay";
+import GenericButton from "../../GenericButton";
 
 /**
  * Home page displays title, branding, and search interface
@@ -21,6 +15,15 @@ import CardDisplay from "./CardDisplay";
 const Global = ({ rivers }) => {
   return (
     <div className="Global-background">
+      <Link to="/user" className="login-button">
+        <GenericButton text="Log In" />
+      </Link>
+
+      <GithubCorner
+        octoColor="#9bbcdb"
+        direction="left"
+        href="https://github.com/JeffThorslund/Ottawa-River-Paddling-Guide"
+      />
       <div className="Global">
         <Route>
           <div className="headerWrapper">
@@ -33,11 +36,6 @@ const Global = ({ rivers }) => {
           </div>
 
           {rivers && <CardDisplay rivers={rivers} />}
-
-          <GithubCorner
-            octoColor="#4b8cc9"
-            href="https://github.com/JeffThorslund/Ottawa-River-Paddling-Guide"
-          />
         </Route>
       </div>
     </div>
