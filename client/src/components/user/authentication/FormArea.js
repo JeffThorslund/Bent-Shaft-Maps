@@ -4,7 +4,7 @@ import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import Col from "react-bootstrap/Col";
 
-const Register = ({ formData, children }) => {
+const FormArea = ({ formData, children }) => {
   const { title, fieldData, buttonData } = formData;
 
   //Login Input Fields
@@ -27,7 +27,7 @@ const Register = ({ formData, children }) => {
   const fields = fieldData.map((field) => {
     const name = field.attributes.name;
     return (
-      <Form.Group controlId={field.controlId}>
+      <Form.Group controlId={field.controlId} key={field.controlId}>
         <Form.Label>{field.formLabel}</Form.Label>
         <Form.Control
           {...field.attributes}
@@ -42,9 +42,10 @@ const Register = ({ formData, children }) => {
   const buttons = buttonData.map((button) => {
     return (
       <Button
+        key={button.id}
         variant={button.varient}
         type={button.type}
-        onClick={(e)=>button.handleClick(e, userEntry)}
+        onClick={(e) => button.handleClick(e, userEntry)}
         className="mr-3"
       >
         {button.value}
@@ -64,4 +65,4 @@ const Register = ({ formData, children }) => {
   );
 };
 
-export default Register;
+export default FormArea;

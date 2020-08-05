@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import Container from "./Container";
 import AddRiverConfirmation from "./AddRiverConfirmation";
 import "../../stylesheets/Form.css";
-import { paramCase } from "change-case";
 
 import InputArea from "./InputArea";
 var _ = require("lodash");

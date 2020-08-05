@@ -1,12 +1,5 @@
 import React from "react";
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Link,
-  useParams,
-  useRouteMatch,
-} from "react-router-dom";
+import { Switch, Route } from "react-router-dom";
 import { paramCase } from "change-case";
 
 import Global from "./Global";
@@ -19,7 +12,7 @@ import PrivacyPolicy from "../../user/PrivacyPolicy";
 /**
  * Router that creates all possible routes
  * www.bentshaftmaps.com/<path>
- * @param {array} rivers - dataset of all rivers in database 
+ * @param {array} rivers - dataset of all rivers in database
  */
 
 const GlobalRouter = ({ rivers }) => {

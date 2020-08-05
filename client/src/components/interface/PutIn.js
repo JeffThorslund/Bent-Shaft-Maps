@@ -1,12 +1,5 @@
 import React from "react";
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Link,
-  useParams,
-  useRouteMatch,
-} from "react-router-dom";
+import { Link } from "react-router-dom";
 import { paramCase } from "change-case";
 import "../../stylesheets/PutIn.css";
 const ImageCache = require("react-preload").ImageCache;

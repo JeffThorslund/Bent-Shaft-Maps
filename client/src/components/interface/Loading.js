@@ -6,6 +6,15 @@ const Loading = () => {
   const [message, setMessage] = useState(null);
 
   useEffect(() => {
+    const messageDic = [
+      "Stretching shoulders...",
+      "Learning to roll...",
+      "Tightening PFD...",
+      "Running shuttle...",
+      "Packing river snacks...",
+      "Rigging rafts...",
+    ];
+
     //shuffle the array of phrases
     shuffleArray(messageDic);
 
@@ -25,15 +34,6 @@ const Loading = () => {
 
     return () => clearInterval(interval);
   }, []);
-
-  const messageDic = [
-    "Stretching shoulders...",
-    "Learning to roll...",
-    "Tightening PFD...",
-    "Running shuttle...",
-    "Packing river snacks...",
-    "Rigging rafts...",
-  ];
 
   const shuffleArray = (array) => {
     for (let i = array.length - 1; i > 0; i--) {

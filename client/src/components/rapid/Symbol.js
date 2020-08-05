@@ -1,7 +1,7 @@
 import React from "react";
-import PropTypes from "prop-types";
 import "../../stylesheets/Symbol.css";
 const Symbol = (props) => {
+
   const { type, desc, top, left } = props.symbols;
 
   const symbolOptions = [
@@ -49,13 +49,3 @@ const Symbol = (props) => {
 };
 
 export default Symbol;
-
-Symbol.propTypes = {
-  symbols: PropTypes.exact({
-    type: PropTypes.string.isRequired,
-    desc: PropTypes.string.isRequired,
-    top: PropTypes.string.isRequired,
-    left: PropTypes.string.isRequired,
-  }).isRequired,
-  displayData: PropTypes.func.isRequired,
-};
