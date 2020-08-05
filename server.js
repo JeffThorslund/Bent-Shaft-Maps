@@ -7,10 +7,8 @@ const path = require("path");
 require("dotenv").config();
 
 /*--Import Routes--*/
-const handlers = require("./routes/api/Handlers");
 const actions = require("./routes/api/Actions");
 const imageUpload = require("./routes/api/ImageUpload");
-const authentication = require("./routes/api/Authentication");
 const authorization = require("./routes/auth/Authorization")
 
 /*--Server--*/
@@ -23,11 +21,8 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json({ limit: "50mb" }));
 
 /*--Use Routes--*/
-app.use("/api", handlers);
 app.use("/api", actions);
 app.use("/api", imageUpload);
-app.use("/api", authentication);
-
 app.use("/auth", authorization);
 
 /*--Connect to Mongo--*/
