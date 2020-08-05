@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import Form from "./Form";
+import FormArea from "./FormArea";
 import LoginTests from "./LoginTests";
 
 import UserContext from "../UserContext";
@@ -13,7 +13,7 @@ function AuthInterface() {
     title: "Register",
     fieldData: [
       {
-        controlId: "formBasicName",
+        controlId: "formRegisterBasicName",
         formLabel: "Name",
         attributes: {
           name: "name",
@@ -22,7 +22,7 @@ function AuthInterface() {
         },
       },
       {
-        controlId: "formBasicEmail",
+        controlId: "formRegisterBasicEmail",
         formLabel: "Email",
         attributes: {
           name: "email",
@@ -31,7 +31,7 @@ function AuthInterface() {
         },
       },
       {
-        controlId: "formBasicPassword",
+        controlId: "formRegisterBasicPassword",
         formLabel: "Password",
         attributes: {
           name: "password",
@@ -53,7 +53,7 @@ function AuthInterface() {
     title: "Login",
     fieldData: [
       {
-        controlId: "formBasicEmail",
+        controlId: "formLoginBasicEmail",
         formLabel: "Email",
         attributes: {
           name: "email",
@@ -62,7 +62,7 @@ function AuthInterface() {
         },
       },
       {
-        controlId: "formBasicPassword",
+        controlId: "formLoginBasicPassword",
         formLabel: "Password",
         attributes: {
           name: "password",
@@ -73,12 +73,14 @@ function AuthInterface() {
     ],
     buttonData: [
       {
+        id: "loginButton",
         varient: "primary",
         type: "submit",
         value: "Login",
         handleClick: handleLogin,
       },
       {
+        id: "forgotMyPasswordButton",
         varient: "outline-primary",
         type: "submit",
         value: "Forgot My Password",
@@ -91,10 +93,10 @@ function AuthInterface() {
   return (
     <Container>
       <Row>
-        <Form formData={loginFormData}>
+        <FormArea formData={loginFormData}>
           <LoginTests />
-        </Form>
-        <Form formData={registrationFormData} />
+        </FormArea>
+        <FormArea formData={registrationFormData} />
       </Row>
     </Container>
   );

@@ -1,14 +1,7 @@
 import React from "react";
 import "../../stylesheets/MapLabel.css";
 import PropTypes from "prop-types";
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Link,
-  useParams,
-  useRouteMatch,
-} from "react-router-dom";
+import { Link } from "react-router-dom";
 import { paramCase } from "change-case";
 
 const MapLabel = (props) => {

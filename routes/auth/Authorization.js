@@ -45,7 +45,6 @@ router.post("/login", async (req, res) => {
   if (!user) return res.status(401).send("Email does not exist.");
 
   //CHECK IF PASSWORD IS CORRECT
-  console.log(req.body.password, user.password);
   const validPass = await bcrypt.compare(req.body.password, user.password);
   if (!validPass) return res.status(401).send("Incorrect password.");
 

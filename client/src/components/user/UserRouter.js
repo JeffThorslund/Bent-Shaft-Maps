@@ -49,7 +49,7 @@ const UserRouter = () => {
   //HANDLE LOGIN
   const handleLogin = (e, userEntry) => {
     e.preventDefault();
-    
+
     const { email, password } = userEntry;
     axios
       .post("/auth/login", {
@@ -83,18 +83,16 @@ const UserRouter = () => {
   //HANDLE REGISTER
   const handleRegister = (e, userEntry) => {
     e.preventDefault();
-    console.log("UserEntry", userEntry);
     const { name, email, password } = userEntry;
 
     axios
       .post("/auth/register", {
         email: email,
         password: password,
-        
+
         name: name,
       })
       .then((response) => {
-        console.log(response.data);
         const user = {
           email: response.data.user.email,
           password: password,

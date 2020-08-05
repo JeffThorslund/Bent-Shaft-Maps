@@ -1,12 +1,5 @@
 import React from "react";
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Link,
-  useParams,
-  useRouteMatch,
-} from "react-router-dom";
+import { Route, Link } from "react-router-dom";
 import GithubCorner from "react-github-corner";
 
 import "../../../stylesheets/Global.css";
