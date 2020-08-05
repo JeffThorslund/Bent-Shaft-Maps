@@ -10,6 +10,11 @@
     height: 100%;
     min-height: 100vh;
   }
+  .Global-background .login-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+  }
   .Global-background .Global {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -61,7 +66,7 @@
   }
   .Global-background .Global .searchbar {
     width: 76vw;
-    height: 4vw;
+    height: 6vw;
     border-radius: 1vw;
     background-color: #f8f8f8;
     text-align: center;
@@ -117,7 +122,7 @@
   }
   .Global-background .Global .searchbar {
     font-size: 24px;
-    height: 30px;
+    height: 42px;
     width: 79vw;
     padding: 6px;
     margin-top: 30px;

@@ -1,9 +1,7 @@
 import React from "react";
-import loadable from '@loadable/component'
 import PropTypes from "prop-types";
 import "../../stylesheets/Map.css";
 import MapLabel from "./MapLabel";
-import { paramCase } from "change-case";
 
 const Map = (props) => {
   const mapLabelArray = props.data.rapids
@@ -20,25 +18,23 @@ const Map = (props) => {
       />
     ));
 
-  let name = paramCase(props.data.name);
-  const OverviewMap = loadable(() =>
-    import(`../../river-data/${name}/maps/OverviewMap`)
-  );
-
   return (
-      <div className="Map">
-        <div
-          className="fade"
-          onClick={() => {
-            props.toggleSetting(props.setting);
-          }}
-        ></div>
+    <div className="Map">
+      <div
+        className="fade"
+        onClick={() => {
+          props.toggleSetting(props.setting);
+        }}
+      ></div>
 
-        <div className="overview-map">
-          <OverviewMap />
-        </div>
-        <div className="maplabel-array">{mapLabelArray}</div>
-      </div>
+      <img
+        className="overview-map"
+        src={`/api/image/${props.data.overviewMap}`}
+        alt="River Map"
+      />
+
+      <div className="maplabel-array">{mapLabelArray}</div>
+    </div>
   );
 };
 

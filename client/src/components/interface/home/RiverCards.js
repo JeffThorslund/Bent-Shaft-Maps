@@ -1,17 +1,9 @@
-import React, { useState } from "react";
+import React from "react";
 import { paramCase } from "change-case";
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Link,
-  useParams,
-  useRouteMatch,
-} from "react-router-dom";
+import { Link } from "react-router-dom";
 import "../../../stylesheets/RiverCards.css";
 
 export const Exists = (props) => {
-  console.log("RiverCard-exists started");
   return (
     <div className="river-label done">
       <Link to={`/${paramCase(props.elem.name)}`}>
@@ -34,8 +26,8 @@ export const DoesNotExist = () => {
     <div className="river-label make-one">
       <div className="main">This river map does not exist...yet.</div>
       <div className="sub">
-        Do you have basic programming skills and you know the river? Building is a river map is easy
-        as calling in sick to go paddling. Give it a shot!
+        Do you have basic programming skills and you know the river? Building is
+        a river map is easy as calling in sick to go paddling. Give it a shot!
       </div>
       <a
         target="_blank"

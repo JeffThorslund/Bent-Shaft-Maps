@@ -1,0 +1,16 @@
+@import "./standards";
+
+.GenericButton {
+  font-size: 24px;
+  color: black;
+  font-family: $body;
+  padding: 8px 15px;
+  border-radius: 15px;
+  @include border-rules;
+  @include diag-grad($highlight-l, $highlight-n);
+  cursor: pointer;
+}
+
+.GenericButton:hover {
+  background: $highlight-l;
+}

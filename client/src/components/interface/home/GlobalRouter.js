@@ -1,19 +1,13 @@
 import React from "react";
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Link,
-  useParams,
-  useRouteMatch,
-} from "react-router-dom";
+import { Switch, Route } from "react-router-dom";
 import { paramCase } from "change-case";
 
 import Global from "./Global";
 import RiverRouter from "../RiverRouter";
-import Form from "../../form/Form.js";
 import ImageUpload from "../ImageUpload";
 import Editing from "../../editing-interface/Editing";
+import UserRouter from "../../user/UserRouter";
+import PrivacyPolicy from "../../user/PrivacyPolicy";
 
 /**
  * Router that creates all possible routes
@@ -43,11 +37,13 @@ const GlobalRouter = ({ rivers }) => {
         <Global rivers={rivers} />
       </Route>
 
-      {process.env.NODE_ENV === "development" && (
-        <Route exact path="/form" key="form">
-          <Form rivers={rivers} />
-        </Route>
-      )}
+      <Route path="/user" key="user">
+        <UserRouter />
+      </Route>
+
+      <Route path="/privacy-policy" key="privacy-policy">
+        <PrivacyPolicy />
+      </Route>
 
       {process.env.NODE_ENV === "development" && (
         <Route exact path="/imageUpload" key="imageUpload">
