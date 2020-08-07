@@ -4,9 +4,6 @@ import LoginTests from "./LoginTests";
 
 import UserContext from "../UserContext";
 
-import Container from "react-bootstrap/Container";
-import Row from "react-bootstrap/Row";
-
 function AuthInterface() {
   const { handleLogin, handleRegister } = useContext(UserContext);
   const registrationFormData = {
