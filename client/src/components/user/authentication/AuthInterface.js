@@ -42,7 +42,7 @@ function AuthInterface() {
     ],
     buttonData: [
       {
-        varient: "primary",
+        varient: "btn-primary",
         type: "submit",
         value: "Register",
         handleClick: handleRegister,
@@ -74,14 +74,14 @@ function AuthInterface() {
     buttonData: [
       {
         id: "loginButton",
-        varient: "primary",
+        varient: "btn-primary",
         type: "submit",
         value: "Login",
         handleClick: handleLogin,
       },
       {
         id: "forgotMyPasswordButton",
-        varient: "outline-primary",
+        varient: "btn-outline-primary",
         type: "submit",
         value: "Forgot My Password",
         handleClick: () => {
@@ -91,14 +91,14 @@ function AuthInterface() {
     ],
   };
   return (
-    <Container>
-      <Row>
+    <div className="container-fluid">
+      <div className="row">
         <FormArea formData={loginFormData}>
           <LoginTests />
         </FormArea>
         <FormArea formData={registrationFormData} />
-      </Row>
-    </Container>
+      </div>
+    </div>
   );
 }
 
