@@ -1,76 +1,136 @@
 import React, { useState } from "react";
-import SearchBar from "./SearchBar";
-import { Exists, DoesNotExist } from "./RiverCards";
+import { Link } from "react-router-dom";
+import { paramCase } from "change-case";
+import Card from "react-bootstrap/Card";
+import CardColumns from "react-bootstrap/CardColumns";
+import SearchBar from "../general/SearchBar";
 
-const CardDisplay = ({ rivers }) => {
-  /**
-   * Displays River Cards
-   * Holds search bar and performs search logic
-   * @param {array} rivers - dataset of all rivers in database
-   */
+/**
+ * Handles data manipulation before presentational component
+ * @param {array} rivers - Array of all river data
+ */
 
-  const [value, setValue] = useState("");
-
+const RiverCardLogic = ({ rivers }) => {
+  const [searchQuery, setSearchQuery] = useState("");
   const handleChange = (e) => {
-    setValue(e.target.value);
+    setSearchQuery(e.target.value);
   };
 
-  //river properties to be searched
-  let searchRiverProps = ["name", "location"];
+  const searchRiverProps = ["name", "location"];
 
-  //create an array of rivers to be displayed in search
   const filteredRivers = rivers
     .filter((river) => {
-      //if no use input, display all rivers
-      if (value.length === 0) return true;
-
-      //iterate through searchRiverProps of a river until match
+      if (searchQuery.length === 0) return true;
       for (let rivProp of searchRiverProps) {
-        if (river[rivProp].toUpperCase().indexOf(value.toUpperCase()) > -1)
+        if (
+          river[rivProp].toUpperCase().indexOf(searchQuery.toUpperCase()) > -1
+        )
           return true;
       }
-
-      //if these conditions are not met, return false
       return false;
     })
     .map((river) => {
-      //storage for results
-      let searchRiverPropsResults = [];
-
-      //interate through all given props
+      let searchRiverPropsResults = {};
       for (let i = 0; i < searchRiverProps.length; i++) {
-        //find instances of value and highlight them
-        searchRiverPropsResults[i] = river[searchRiverProps[i]].replace(
-          new RegExp(value, "i"),
-          (match) => {
-            return `<div id='selected'>${match}</div>`;
-          }
-        );
+        searchRiverPropsResults[searchRiverProps[i]] = river[
+          searchRiverProps[i]
+        ].replace(new RegExp(searchQuery, "i"), (match) => {
+          return `<span id='selected'>${match}</span>`;
+        });
       }
 
-      //find correct prop to be passed down
-      const propIndexFinder = (prop) => {
-        return searchRiverPropsResults[searchRiverProps.indexOf(prop)];
+      return {
+        river: river,
+        nameResult: searchRiverPropsResults.name,
+        locationResult: searchRiverPropsResults.location,
+        classResult: river.class,
       };
-
-      return (
-        <Exists
-          elem={river}
-          nameResult={propIndexFinder("name")}
-          locationResult={propIndexFinder("location")}
-        />
-      );
     });
 
   return (
-    <>
-      <SearchBar handleChange={handleChange} value={value} />
+    <RiverCardDisplay
+      filteredRivers={filteredRivers}
+      handleChange={handleChange}
+      searchQuery={searchQuery}
+    />
+  );
+};
 
-      <div className="river-wrapper">
-        {filteredRivers.length > 0 ? filteredRivers : <DoesNotExist />}
-      </div>
+/**
+ * Displays River Cards
+ * Holds search bar and performs search logic
+ * @param {array} filteredRivers - dataset of selected rivers and relevant key/value pairs
+ * @param {fuuntion} handleChange - function that controls search bar behavior
+ * @param {string} searchQuery - value typed by user
+ */
+
+const RiverCardDisplay = ({ filteredRivers, handleChange, searchQuery }) => {
+  const RiverCards = filteredRivers.map((filteredRiver) => {
+    return (
+      <Exists
+        riverName={filteredRiver.river.name}
+        nameResult={filteredRiver.nameResult}
+        locationResult={filteredRiver.locationResult}
+        classResult={filteredRiver.classResult}
+      />
+    );
+  });
+
+  return (
+    <>
+      <SearchBar
+        handleChange={handleChange}
+        value={searchQuery}
+        placeholder="Search for a river, town, province or state!"
+      />
+
+      {RiverCards.length > 0 ? (
+        <CardColumns>{RiverCards}</CardColumns>
+      ) : (
+        <DoesNotExist />
+      )}
     </>
   );
 };
 
-export default CardDisplay;
+/**
+ * Card that displays a river
+ * @param {string} nameResult - Modified name string with bolded search query
+ * @param {string} locationResult - Modified location string with bolded search query
+ * @param {string} classResult - Class of the river
+ * @param {string} riverName - Name of the river
+ */
+
+const Exists = ({ nameResult, locationResult, classResult, riverName }) => {
+  return (
+    <Link to={`/${paramCase(riverName)}`}>
+      <Card body>
+        <Card.Title
+          id="name"
+          dangerouslySetInnerHTML={{ __html: nameResult }}
+        ></Card.Title>
+        <Card.Text
+          id="location"
+          dangerouslySetInnerHTML={{ __html: locationResult }}
+        ></Card.Text>
+        <Card.Text>Class {classResult}</Card.Text>
+      </Card>
+    </Link>
+  );
+};
+
+const DoesNotExist = () => {
+  return (
+    <Card body>
+      <Card.Title className="main">
+        This river map does not exist...yet.
+      </Card.Title>
+      <Card.Text className="sub">
+        Do you have basic programming skills and you know the river? Building is
+        a river map is easy as calling in sick to go paddling. Give it a shot!
+      </Card.Text>
+    </Card>
+  );
+};
+
+export default RiverCardLogic;

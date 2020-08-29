@@ -5,7 +5,7 @@
   "main": "server.js",
   "scripts": {
     "start-server": "node server.js",
-    "dev": "concurrently \"nodemon server.js\" \"cd client && npm start\" \"cd client && npm test\"",
+    "dev": "concurrently \"nodemon server.js\" \"cd client && npm start\" \"cd client && npm test\" \"sass --watch ./client/src/styles:./client/src\"",
     "start-client": "cd client && npm run start",
     "build-client": "cd client && npm run build",
     "full-install": "npm install && cd client && npm install",
