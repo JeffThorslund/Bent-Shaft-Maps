@@ -5,7 +5,7 @@ import GithubCorner from "react-github-corner";
 import "../../stylesheets/Global.css";
 
 import CardDisplay from "./CardDisplay";
-import GenericButton from "../GenericButton";
+import GenericButton from "../atoms/GenericButton";
 
 /**
  * Home page displays title, branding, and search interface
