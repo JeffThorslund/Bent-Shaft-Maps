@@ -1,5 +1,4 @@
 import React, { useContext } from "react";
-import Button from "react-bootstrap/Button";
 
 import UserContext from "../UserContext";
 
@@ -34,14 +33,13 @@ const LoginTests = () => {
     },
   ].map((cred) => {
     return (
-      <Button
+      <div
+        className="btn btn-secondary m-1"
         onClick={(e) => handleLogin(e, cred)}
         key={cred.type}
-        variant="secondary"
-        className="m-1"
       >
         {cred.type}
-      </Button>
+      </div>
     );
   });
 

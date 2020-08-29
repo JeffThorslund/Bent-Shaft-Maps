@@ -1,9 +1,5 @@
 import React, { useState } from "react";
 
-import Button from "react-bootstrap/Button";
-import Form from "react-bootstrap/Form";
-import Col from "react-bootstrap/Col";
-
 const FormArea = ({ formData, children }) => {
   const { title, fieldData, buttonData } = formData;
 
@@ -27,41 +23,45 @@ const FormArea = ({ formData, children }) => {
   const fields = fieldData.map((field) => {
     const name = field.attributes.name;
     return (
-      <Form.Group controlId={field.controlId} key={field.controlId}>
-        <Form.Label>{field.formLabel}</Form.Label>
-        <Form.Control
+      <div
+        className="form-group"
+        controlId={field.controlId}
+        key={field.controlId}
+      >
+        <div className="form-label">{field.formLabel}</div>
+        <div
+          className="form-control"
           {...field.attributes}
           onChange={handleChange}
           value={userEntry[name]}
         />
-      </Form.Group>
+      </div>
     );
   });
 
   //Button Array
   const buttons = buttonData.map((button) => {
     return (
-      <Button
+      <div
         key={button.id}
-        variant={button.varient}
+        className={`btn mr-3 ${button.varient}`}
         type={button.type}
         onClick={(e) => button.handleClick(e, userEntry)}
-        className="mr-3"
       >
         {button.value}
-      </Button>
+      </div>
     );
   });
 
   return (
-    <Col>
-      <Form>
+    <div className="col">
+      <div className="form">
         <h1>{title}</h1>
         {fields}
         {buttons}
-      </Form>
+      </div>
       {children}
-    </Col>
+    </div>
   );
 };
 
