@@ -5,6 +5,7 @@ import { paramCase } from "change-case";
 import Global from "./Global";
 import RiverRouter from "../RiverRouter";
 import ImageUpload from "../ImageUpload";
+import Editing from "../../editing-interface/Editing";
 import UserRouter from "../../user/UserRouter";
 import PrivacyPolicy from "../../user/PrivacyPolicy";
 
@@ -28,6 +29,10 @@ const GlobalRouter = ({ rivers }) => {
 
   return (
     <Switch>
+      <Route exact path="/user-edit" key="user-edit">
+        <Editing />
+      </Route>
+
       <Route exact path="/" key="home">
         <Global rivers={rivers} />
       </Route>
