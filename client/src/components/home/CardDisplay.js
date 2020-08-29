@@ -4,6 +4,7 @@ import { paramCase } from "change-case";
 import Card from "react-bootstrap/Card";
 import CardColumns from "react-bootstrap/CardColumns";
 import SearchBar from "../general/SearchBar";
+import Button from "react-bootstrap/Button";
 
 /**
  * Handles data manipulation before presentational component
@@ -104,17 +105,14 @@ const RiverCardDisplay = ({ filteredRivers, handleChange, searchQuery }) => {
 const Exists = ({ nameResult, locationResult, classResult, riverName }) => {
   return (
     <Link to={`/${paramCase(riverName)}`}>
-      <Card body>
-        <Card.Title
-          id="name"
-          dangerouslySetInnerHTML={{ __html: nameResult }}
-        ></Card.Title>
-        <Card.Text
+      <Button variant="outline-info" className="d-flex flex-column px-4 py-3">
+        <h4 id="name" dangerouslySetInnerHTML={{ __html: nameResult }}></h4>
+        <h5
           id="location"
           dangerouslySetInnerHTML={{ __html: locationResult }}
-        ></Card.Text>
-        <Card.Text>Class {classResult}</Card.Text>
-      </Card>
+        ></h5>
+        <h5>Class {classResult}</h5>
+      </Button>
     </Link>
   );
 };
