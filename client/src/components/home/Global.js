@@ -2,10 +2,10 @@ import React from "react";
 import { Route, Link } from "react-router-dom";
 import GithubCorner from "react-github-corner";
 
-import "../../../stylesheets/Global.css";
+import "../../stylesheets/Global.css";
 
 import CardDisplay from "./CardDisplay";
-import GenericButton from "../../GenericButton";
+import GenericButton from "../GenericButton";
 
 /**
  * Home page displays title, branding, and search interface

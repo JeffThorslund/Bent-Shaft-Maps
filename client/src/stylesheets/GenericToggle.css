@@ -4,33 +4,21 @@
 
 .wrapper {
   border-radius: 4vh;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  justify-content: space-between;
   padding: 0.92vh;
   border: #232020 0.4vh solid;
 }
 
 .false-wrapper {
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
+  flex-direction: row;
   background-color: #232020;
-  -webkit-transition: 0.5s;
   transition: 0.5s;
 }
 
 .true-wrapper {
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: reverse;
-      -ms-flex-direction: row-reverse;
-          flex-direction: row-reverse;
+  flex-direction: row-reverse;
   background-color: honeydew;
-  -webkit-transition: 0.5s;
   transition: 0.5s;
 }
 
@@ -42,13 +30,11 @@
 
 .false-dot {
   background-color: honeydew;
-  -webkit-transition: 0.5s;
   transition: 0.5s;
 }
 
 .true-dot {
   background-color: #232020;
-  -webkit-transition: 0.5s;
   transition: 0.5s;
 }
 
@@ -70,12 +56,9 @@
 .noselect {
   -webkit-touch-callout: none;
   /* iOS Safari */
-  -webkit-user-select: none;
   /* Safari */
   /* Konqueror HTML */
-  -moz-user-select: none;
   /* Old versions of Firefox */
-  -ms-user-select: none;
   /* Internet Explorer/Edge */
   user-select: none;
   /* Non-prefixed version, currently

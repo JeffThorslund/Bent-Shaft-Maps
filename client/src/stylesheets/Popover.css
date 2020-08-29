@@ -22,7 +22,6 @@
   padding: 20px 25px !important;
   position: fixed;
   pointer-events: none;
-  -webkit-transition: opacity 0.3s ease-out;
   transition: opacity 0.3s ease-out;
   top: -999em;
   visibility: hidden;

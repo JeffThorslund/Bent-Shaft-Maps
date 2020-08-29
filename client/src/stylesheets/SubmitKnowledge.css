@@ -34,16 +34,12 @@
   margin-left: -37vw;
   /* Negative half of width. */
   background-color: #4b8cc9;
-  -webkit-box-shadow: 10px 13px 18px -4px rgba(0, 0, 0, 0.48);
-          box-shadow: 10px 13px 18px -4px rgba(0, 0, 0, 0.48);
+  box-shadow: 10px 13px 18px -4px rgba(0, 0, 0, 0.48);
   border-radius: 1vw;
   padding: 2vw;
-  display: -ms-grid;
   display: grid;
-  -ms-grid-columns: 1fr 1fr 1fr;
-      grid-template-columns: 1fr 1fr 1fr;
-  -ms-grid-rows: 4fr 1fr;
-      grid-template-rows: 4fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 4fr 1fr;
   grid-gap: 3% 2%;
 }
 
@@ -54,22 +50,17 @@
 }
 
 .SubmitKnowledge .form-wrapper #instructions {
-  -webkit-box-shadow: 10px 13px 18px -4px rgba(0, 0, 0, 0.48);
-          box-shadow: 10px 13px 18px -4px rgba(0, 0, 0, 0.48);
+  box-shadow: 10px 13px 18px -4px rgba(0, 0, 0, 0.48);
   background-color: white;
   font-family: "Alata";
-  -ms-grid-column: span 2;
-      grid-column-start: span 2;
+  grid-column-start: span 2;
 }
 
 .SubmitKnowledge .form-wrapper #instructions .instructions-wrapper {
-  display: -ms-grid;
   display: grid;
   justify-items: center;
-  -ms-grid-columns: 1fr 1fr;
-      grid-template-columns: 1fr 1fr;
-  -ms-grid-rows: auto;
-      grid-template-rows: auto;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto;
   padding: 1.5vh 1.8vw;
 }
 
@@ -82,16 +73,11 @@
 }
 
 .SubmitKnowledge .form-wrapper #instructions .instructions-wrapper #prompt-list {
-  -webkit-margin-before: 0vh;
-          margin-block-start: 0vh;
-  -webkit-margin-after: 0vh;
-          margin-block-end: 0vh;
-  -webkit-margin-start: 0px;
-          margin-inline-start: 0px;
-  -webkit-margin-end: 0px;
-          margin-inline-end: 0px;
-  -webkit-padding-start: 2vw;
-          padding-inline-start: 2vw;
+  margin-block-start: 0vh;
+  margin-block-end: 0vh;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  padding-inline-start: 2vw;
   padding-top: 1.5vh;
   font-family: "Sen";
   font-family: 1.4vw;
@@ -109,19 +95,12 @@
 }
 
 .SubmitKnowledge .form-wrapper #text-area-wrapper {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  flex-direction: column;
 }
 
 .SubmitKnowledge .form-wrapper #text-area-wrapper #text-area {
-  -webkit-box-flex: 1;
-      -ms-flex-positive: 1;
-          flex-grow: 1;
+  flex-grow: 1;
   border-radius: 1vw;
   border: transparent;
   resize: none;
@@ -129,8 +108,7 @@
   font-family: "Sen";
   font-size: 1.4vw;
   padding: 6%;
-  -webkit-box-shadow: 10px 13px 18px -4px rgba(0, 0, 0, 0.48);
-          box-shadow: 10px 13px 18px -4px rgba(0, 0, 0, 0.48);
+  box-shadow: 10px 13px 18px -4px rgba(0, 0, 0, 0.48);
 }
 
 .SubmitKnowledge .form-wrapper #text-area-wrapper #text-area:focus {
@@ -145,8 +123,7 @@
   font-family: "Sen";
   font-size: 1.4vw;
   padding: 4%;
-  -webkit-box-shadow: 10px 13px 18px -4px rgba(0, 0, 0, 0.48);
-          box-shadow: 10px 13px 18px -4px rgba(0, 0, 0, 0.48);
+  box-shadow: 10px 13px 18px -4px rgba(0, 0, 0, 0.48);
   margin-top: 2vh;
 }
 
@@ -156,19 +133,12 @@
 
 .SubmitKnowledge .form-wrapper .custom-file-upload {
   grid-column: span 2;
-  -webkit-box-shadow: 10px 13px 18px -4px rgba(0, 0, 0, 0.48);
-          box-shadow: 10px 13px 18px -4px rgba(0, 0, 0, 0.48);
+  box-shadow: 10px 13px 18px -4px rgba(0, 0, 0, 0.48);
   background-color: white;
   text-align: center;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  justify-content: center;
+  align-items: center;
   font-family: "Alata";
   font-size: 1.8vw;
   color: #2b2118ff;
@@ -192,8 +162,7 @@
   border: 10px 13px 18px -4px rgba(0, 0, 0, 0.48);
   cursor: pointer;
   border: 1px solid transparent;
-  -webkit-box-shadow: 10px 13px 18px -4px rgba(0, 0, 0, 0.48);
-          box-shadow: 10px 13px 18px -4px rgba(0, 0, 0, 0.48);
+  box-shadow: 10px 13px 18px -4px rgba(0, 0, 0, 0.48);
 }
 
 .SubmitKnowledge .form-wrapper #submit-button:hover {

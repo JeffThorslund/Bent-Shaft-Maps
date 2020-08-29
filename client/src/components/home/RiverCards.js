@@ -1,7 +1,7 @@
 import React from "react";
 import { paramCase } from "change-case";
 import { Link } from "react-router-dom";
-import "../../../stylesheets/RiverCards.css";
+import "../../stylesheets/RiverCards.css";
 
 export const Exists = (props) => {
   return (

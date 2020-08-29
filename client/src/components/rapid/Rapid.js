@@ -7,7 +7,7 @@ import Basemap from "./Basemap";
 import Description from "./Description";
 import findRapidFromId from "../../tools/findRapidFromId";
 import { Preload } from "react-preload";
-import Loading from "../interface/Loading";
+import Loading from "../home/Loading";
 const ImageCache = require("react-preload").ImageCache;
 
 const Rapid = ({ data, allData, url, level }) => {

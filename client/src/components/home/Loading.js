@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "../../stylesheets/Loading.css";
-import Kayak from "./KayakLogo.png";
+import Kayak from "../../assets/KayakLogo.png";
 
 const Loading = () => {
   const [message, setMessage] = useState(null);
