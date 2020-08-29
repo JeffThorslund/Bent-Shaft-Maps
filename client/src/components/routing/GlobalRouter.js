@@ -2,7 +2,7 @@ import React from "react";
 import { Switch, Route } from "react-router-dom";
 import { paramCase } from "change-case";
 
-import Global from "../home/Global";
+import Global from "../home/Home";
 import RiverRouter from "./RiverRouter";
 import ImageUpload from "../home/ImageUpload";
 import Editing from "../user/editing-interface/Editing";
