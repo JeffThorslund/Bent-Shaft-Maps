@@ -5,16 +5,9 @@
 /*---Fonts---*/
 /*---Mixins---*/
 .Loading {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  flex-direction: column;
+  align-items: center;
   height: 100vh;
   background: linear-gradient(135deg, #f7f3e3ff, #9bbcdb);
 }
@@ -24,31 +17,16 @@
 }
 
 .Loading #logo {
-  -webkit-animation: Kayak-spin infinite 5s linear;
-          animation: Kayak-spin infinite 5s linear;
-  -webkit-transform-origin: center;
-          transform-origin: center;
-}
-
-@-webkit-keyframes Kayak-spin {
-  from {
-    -webkit-transform: rotate(0deg);
-            transform: rotate(0deg);
-  }
-  to {
-    -webkit-transform: rotate(360deg);
-            transform: rotate(360deg);
-  }
+  animation: Kayak-spin infinite 5s linear;
+  transform-origin: center;
 }
 
 @keyframes Kayak-spin {
   from {
-    -webkit-transform: rotate(0deg);
-            transform: rotate(0deg);
+    transform: rotate(0deg);
   }
   to {
-    -webkit-transform: rotate(360deg);
-            transform: rotate(360deg);
+    transform: rotate(360deg);
   }
 }
 

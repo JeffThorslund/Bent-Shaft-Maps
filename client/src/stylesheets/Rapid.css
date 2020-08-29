@@ -5,18 +5,14 @@
 /*---Fonts---*/
 /*---Mixins---*/
 .Rapid {
-  -webkit-user-select: none;
-     -moz-user-select: none;
-      -ms-user-select: none;
-          user-select: none;
+  user-select: none;
   overflow: hidden;
 }
 
 .rapid-header {
   position: absolute;
   left: 50%;
-  -webkit-transform: translate(-50%, 0%);
-          transform: translate(-50%, 0%);
+  transform: translate(-50%, 0%);
   margin-top: 1vw;
   font-style: normal;
   text-align: center;

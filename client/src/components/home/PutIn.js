@@ -45,7 +45,7 @@ const PutIn = (props) => {
                 rel="noopener noreferrer"
               >
                 <img
-                  src={require(`./TrestleLogo.png`)}
+                  src={require(`../../assets/TrestleLogo.png`)}
                   alt={`Trestle Logo`}
                   width="100%"
                 />

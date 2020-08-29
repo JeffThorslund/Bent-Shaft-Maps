@@ -11,7 +11,6 @@ a {
 a .home {
   background-color: #232020;
   color: honeydew;
-  -webkit-transition: 0.3s;
   transition: 0.3s;
   cursor: pointer;
   font-size: 2.11vh;

@@ -2,12 +2,12 @@ import React from "react";
 import { Switch, Route } from "react-router-dom";
 import { paramCase } from "change-case";
 
-import Global from "./Global";
-import RiverRouter from "../RiverRouter";
-import ImageUpload from "../ImageUpload";
-import Editing from "../../editing-interface/Editing";
-import UserRouter from "../../user/UserRouter";
-import PrivacyPolicy from "../../user/PrivacyPolicy";
+import Global from "../home/Global";
+import RiverRouter from "./RiverRouter";
+import ImageUpload from "../home/ImageUpload";
+import Editing from "../user/editing-interface/Editing";
+import UserRouter from "../user/UserRouter";
+import PrivacyPolicy from "../user/PrivacyPolicy";
 
 /**
  * Router that creates all possible routes
