@@ -2,6 +2,10 @@ import React from "react";
 import Image from "react-bootstrap/Image";
 import KayakLogo from "../../assets/KayakLogo.png";
 
+/**
+ * Header containing title, subtitle, and logo.
+ */
+
 const Header = () => {
   return (
     <div className="d-flex flex-row justify-content-center my-4">

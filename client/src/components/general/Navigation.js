@@ -4,13 +4,12 @@ import Nav from "react-bootstrap/Nav";
 import { Link } from "react-router-dom";
 
 /**
- * Top Navigation Bar
- * @component
+ * Top Navigation Bar for Log In/Log Out
  */
 
 const Navigation = () => {
   return (
-    <Navbar bg="light" expand="sm" sticky="top">
+    <Navbar bg="none" expand="sm" fixed="top">
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav">
         <Nav className="ml-auto">

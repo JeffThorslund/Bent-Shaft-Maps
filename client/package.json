@@ -48,9 +48,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "lambda-serve": "netlify-lambda serve functions",
-    "lambda-build": "netlify-lambda build functions"
+    "eject": "react-scripts eject"
   },
   "browserslist": {
     "production": [

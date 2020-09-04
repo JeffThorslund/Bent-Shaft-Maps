@@ -1,26 +1,31 @@
 import React from "react";
 import { Route } from "react-router-dom";
+import PropTypes from "prop-types";
 
 import Container from "react-bootstrap/Container";
-import CardDisplay from "./CardDisplay";
 import Navigation from "../general/Navigation";
 import Header from "./Header";
+import RiverCardContainer from "./RiverCardContainer";
 
 /**
- * Home page displays title, branding, and search interface
- * @param {array} rivers - dataset of all rivers in database
+ * Holds Navigation Bar, Header, and RiverCardContainer
  */
 
-const Home = ({ rivers }) => {
+const Home = (props) => {
   return (
     <Route>
       <Navigation />
       <Container>
         <Header />
-        {rivers && <CardDisplay rivers={rivers} />}
+        <RiverCardContainer {...props} />
       </Container>
     </Route>
   );
 };
 
 export default Home;
+
+Home.propTypes = {
+  /** Array of all river objects in the database */
+  rivers: PropTypes.arrayOf(PropTypes.object),
+};

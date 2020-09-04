@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from "react";
-import "../../stylesheets/Loading.css";
 import Kayak from "../../assets/KayakLogo.png";
+
+/**
+ * Loading spinner to be displayed during loading and data fetching.
+ */
 
 const Loading = () => {
   const [message, setMessage] = useState(null);
@@ -43,9 +46,9 @@ const Loading = () => {
   };
 
   return (
-    <div className="Loading">
+    <div className="d-flex flex-column align-items-center flex-grow Loading">
       <img src={Kayak} alt="kayak spinner" id="logo" />
-      <div className="message">{message}</div>
+      <h2 className="message pt-2">{message}</h2>
     </div>
   );
 };

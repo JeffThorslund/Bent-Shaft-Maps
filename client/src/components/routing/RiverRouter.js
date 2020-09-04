@@ -1,7 +1,7 @@
 import React from "react";
 import { Switch, Route, useRouteMatch } from "react-router-dom";
 import River from "../river/River";
-import PutIn from "../home/PutIn";
+import PutIn from "../river/PutIn";
 
 export default function RiverRouter(props) {
   let { path, url } = useRouteMatch();
