@@ -1,0 +1,12 @@
+.Loading {
+  @keyframes spin {
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+
+  #logo {
+    animation: spin infinite 5s linear;
+    transform-origin: center;
+  }
+}

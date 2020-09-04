@@ -10,6 +10,32 @@ a {
   width: 3rem;
 }
 
+#selected {
+  font-weight: bold !important;
+}
+
+@keyframes spin {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+.Loading #logo {
+  animation: spin infinite 5s linear;
+  transform-origin: center;
+}
+
+.PutIn-wrapper .header {
+  background-image: url(./assets/welcome-header.svg);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.footer {
+  background-image: url(./assets/welcome-footer.svg);
+  flex-grow: 1;
+}
+
 /*!
  * Bootstrap v4.5.0 (https://getbootstrap.com/)
  * Copyright 2011-2020 The Bootstrap Authors
