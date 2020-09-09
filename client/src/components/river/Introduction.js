@@ -1,24 +1,39 @@
 import React from "react";
+import PropTypes from "prop-types";
+import { paramCase } from "change-case";
+
 import GeneralButton from "../general/GeneralButton";
+import InfoCard from "./InfoCard";
 
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import Card from "react-bootstrap/Card";
-
-import { Link } from "react-router-dom";
-import { paramCase } from "change-case";
 
 const ImageCache = require("react-preload").ImageCache;
 
-const Introduction = ({ river, url }) => {
-  let contributors = river.contributors.toString();
+/** Introduction page that is visited before redirection to the first rapid of the river. */
 
+const Introduction = ({ river, url }) => {
   ImageCache.add(`/api/image/${river.rapids[0].riverMap}`);
+
+  const infoCardsConfig = [
+    {
+      id: "desc",
+      title: "Info",
+    },
+    {
+      id: "access",
+      title: "Access",
+    },
+  ];
+
+  const InfoCards = infoCardsConfig.map((card) => {
+    return <InfoCard title={card.title} body={river[card.id]} />;
+  });
 
   return (
     <Container fluid className="introduction">
-      <Row className="justify-content-center header">
+      <Row className="justify-content-center header p-2">
         <Col className="d-flex flex-column align-items-center">
           <h1 className="text-center">
             Welcome to the <br />
@@ -30,74 +45,16 @@ const Introduction = ({ river, url }) => {
           />
         </Col>
       </Row>
-      <Row className="footer">
-        <Card>
-          <Card.Title className="title">Info</Card.Title>
-          <Card.Body>{river.info}</Card.Body>
-        </Card>
-
-        <Card className="child" id="access">
-          <Card.Title className="title">Access</Card.Title>
-          <Card.Body>{river.desc}</Card.Body>
-        </Card>
-      </Row>
+      <Row className="footer">{InfoCards}</Row>
     </Container>
   );
 };
 
+Introduction.propTypes = {
+  /** River object containing all river data of a specific river */
+  river: PropTypes.object.isRequired,
+  /** Url to be used for routing redirection to river*/
+  url: PropTypes.string.isRequired,
+};
+
 export default Introduction;
-
-{
-  /*
-<div className="footer">
-  <div className="footer-grid-wrapper">
-
-    {river.contributors.length > 0 && (
-      <div className="child" id="contributors">
-        <div className="title">Contributors</div>
-        <div>{contributors}</div>
-      </div>
-    )}
-
-    {river.sponsors[0].logo.length > 0 && (
-      <div className="child" id="logos">
-        <div className="title">Brought to you by...</div>
-        <a
-          href={river.sponsors[0].link}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <img
-            src={require(`../../assets/TrestleLogo.png`)}
-            alt={`Trestle Logo`}
-            width="100%"
-          />
-        </a>
-      </div>
-    )}
-    <div className="child" id="access">
-      <div className="title">Access</div>
-      <div>{river.desc}</div>
-    </div>
-    <a
-      href={river.putIn}
-      className="child access-link"
-      id="putin"
-      target="_blank"
-      rel="noopener noreferrer"
-    >
-      <div className="title">Directions to Put In</div>
-    </a>
-    <a
-      href={river.takeOut}
-      className="child access-link"
-      id="takeout"
-      target="_blank"
-      rel="noopener noreferrer"
-    >
-      <div className="title">Directions to Take Out</div>
-    </a>
-  </div>
-</div>
-</div> */
-}
