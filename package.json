@@ -4,11 +4,13 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "start-server": "node server.js",
-    "dev": "concurrently \"nodemon server.js\" \"cd client && npm start\" \"cd client && npm test\" \"sass --watch ./client/src/styles:./client/src\" \"cd client && npm run styleguide\"",
+    "start-server": "nodemon server.js",
     "start-client": "cd client && npm run start",
     "build-client": "cd client && npm run build",
+    "test-client": "cd client && npm test",
+    "watch-sass": "sass --watch ./client/src/styles:./client/src",
     "styleguide": "cd client && npx styleguidist server",
+    "dev": "concurrently \"npm run start-server\" \"npm run start-client\" \"npm run test-client\" \"npm run watch-sass\" \"npm run styleguide\"",
     "full-install": "npm install && cd client && npm install",
     "heroku-postbuild": "cd client && npm install && npm run build"
   },

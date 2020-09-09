@@ -1,18 +1,18 @@
 import React from "react";
 import { Switch, Route, useRouteMatch } from "react-router-dom";
 import River from "../river/River";
-import PutIn from "../river/PutIn";
+import Introduction from "../river/Introduction";
 
-export default function RiverRouter(props) {
+export default function RiverRouter({river}) {
   let { path, url } = useRouteMatch();
 
   return (
     <Switch>
       <Route exact path={path}>
-        <PutIn data={props.data} url={url} />
+        <Introduction river={river} url={url} />
       </Route>
       <Route path={`${path}/:id`}>
-        <River data={props.data} url={url} />
+        <River data={river} url={url} />
       </Route>
     </Switch>
   );
