@@ -21,7 +21,7 @@ const GlobalRouter = ({ rivers }) => {
     ? rivers.map((river) => {
         return (
           <Route path={`/${paramCase(river.name)}`} key={`river${river.id}`}>
-            <RiverRouter data={river} />
+            <RiverRouter river={river} />
           </Route>
         );
       })

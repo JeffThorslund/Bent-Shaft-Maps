@@ -4,14 +4,20 @@ module.exports = {
   sections: [
     {
       name: "General",
-      description: "Components meant to be heavily reused throughout the project.",
-      components: 'src/components/general/[A-Z]*.js',
+      description:
+        "Components meant to be heavily reused throughout the project.",
+      components: "src/components/general/[A-Z]*.js",
     },
     {
       name: "Home",
       description: "Components used on the home page",
-      components: 'src/components/home/[A-Z]*.js',
+      components: "src/components/home/[A-Z]*.js",
+    },
+    {
+      name: "River",
+      description: "Components specific to each river",
+      components: "src/components/river/[A-Z]*.js",
     },
   ],
-  ignore: ['src/components/home/ImageUpload.js']
+  ignore: ["src/components/home/ImageUpload.js"],
 };
