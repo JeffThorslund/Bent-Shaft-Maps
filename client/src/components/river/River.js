@@ -5,7 +5,7 @@ import Slider from "./Slider";
 import Map from "./Map";
 import GenericToggle from "./GenericToggle";
 import { withRouter } from "react-router-dom";
-import Home from "./Home";
+import GeneralButton from "../general/GeneralButton"
 import { paramCase } from "change-case";
 import MobileAlert from "./MobileAlert";
 
@@ -104,7 +104,7 @@ class River extends Component {
           )}
 
           <div id="home">
-            <Home />
+            <GeneralButton to="/" text="Home"/>
           </div>
         </div>
       </div>
