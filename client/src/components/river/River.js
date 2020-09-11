@@ -83,12 +83,10 @@ class River extends Component {
 
         <div className="toggle-board">
           <div id="map-bool">
-            <GenericToggle
+            <GeneralButton
               toggle={this.state.mapBool}
               toggleSetting={this.toggleSetting}
-              setting="mapBool"
-              false="Show Map"
-              true="Hide Map"
+              text="Map"
             />
           </div>
           {process.env.NODE_ENV == "production" && (
