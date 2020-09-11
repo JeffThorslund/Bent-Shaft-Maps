@@ -1,49 +1,41 @@
-import React, { Component } from "react";
+import React from "react";
+import Form from "react-bootstrap/Form";
 import PropTypes from "prop-types";
-import "../../stylesheets/Slider.css";
-import Slider from "react-rangeslider";
 
-class Vertical extends Component {
-  constructor(props, context) {
-    super(props, context);
-    this.state = {
-      value: null,
-    };
-  }
+/** Adjusts and displays the water level of the river */
 
-  componentDidMount() {
-    this.setState({
-      value: this.props.rapid.level.defaultLevel,
-    });
-  }
-
-  handleChange = (value) => {
-    this.props.selectLevel(value);
-    this.setState({
-      value,
-    });
-  };
-
-  render() {
-    const { value } = this.state;
-    return (
-      <div className="slider">
-        <Slider
-          min={this.props.rapid.level.levelMin}
-          max={this.props.rapid.level.levelMax}
-          value={value}
-          step={1}
-          tooltip={false}
-          orientation="vertical"
-          onChange={this.handleChange}
-        />
-      </div>
-    );
-  }
-}
-
-export default Vertical;
-
-Vertical.propTypes = {
-  selectLevel: PropTypes.func,
+const Slider = ({ min, max, units, level, setLevel }) => {
+  return (
+    <Form className="d-flex">
+      <Form.Label class="range-value">
+        <span>{level}</span>
+        <span>{units}</span>
+      </Form.Label>
+      <Form.Control
+        className="custom-range pl-2"
+        type="range"
+        min={min}
+        max={max}
+        value={level}
+        step={1}
+        orient="vertical"
+        onChange={(e) => setLevel(e.target.value)}
+      />
+    </Form>
+  );
 };
+
+Slider.propTypes = {
+  /** The lowest selectable value of the slider */
+  min: PropTypes.number.isRequired,
+  /** The highest selectable value of the slider */
+  max: PropTypes.number.isRequired,
+  /** The unit of measurement */
+  units: PropTypes.string.isRequired,
+  /** The current water level */
+  level: PropTypes.number.isRequired,
+  /** Sets the changed water level */
+  setLevel: PropTypes.func.isRequired,
+};
+
+export default Slider;

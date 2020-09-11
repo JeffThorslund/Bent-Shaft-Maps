@@ -1,10 +1,13 @@
 @import "./typography";
-@import "./components";
 @import "./themes";
 @import "./variables";
+
+@import "./components/slider";
+
 @import "./pages/home";
 @import "./pages/loading";
 @import "./pages/introduction";
 @import "./pages/map";
+@import "./pages/river";
 
 @import "../../node_modules/bootstrap/scss/bootstrap.scss";

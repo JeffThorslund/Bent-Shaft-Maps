@@ -38,7 +38,9 @@ const Rapid = ({ data, allData, url, level }) => {
       mountChildren={true}
     >
       <div className="Rapid">
-        <Basemap riverMap={data.riverMap} />
+<Basemap riverMap={data.riverMap} />
+        <Features level={level} data={data} />
+        
         <div className="rapid-header">
           <div id="rapid-name"> {data.name} </div>
           <div id="rapid-desc">
@@ -46,12 +48,8 @@ const Rapid = ({ data, allData, url, level }) => {
           </div>
         </div>
 
-        <div id="level-display">
-          <div id="feet">
-            {level} {allData.level.levelUnits}
-          </div>
-        </div>
-        <Features level={level} data={data} />
+        
+        
         <div id="arrow-array"> {arrowArray} </div>
       </div>
     </Preload>
