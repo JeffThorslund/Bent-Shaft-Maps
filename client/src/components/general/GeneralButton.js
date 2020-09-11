@@ -1,4 +1,5 @@
 import React from "react";
+import { useHistory } from "react-router-dom";
 import { Link } from "react-router-dom";
 import Button from "react-bootstrap/Button";
 import PropTypes from "prop-types";
@@ -6,11 +7,14 @@ import PropTypes from "prop-types";
 /** A button with multiple styles that can be used for any linking or to execute an action. */
 
 const GeneralButton = ({ to, onClick, text }) => {
-  return (
-    <Link to={to}>
-      <Button onClick={onClick}>{text}</Button>
-    </Link>
-  );
+  let history = useHistory();
+
+  const handleClick = () => {
+    onClick && onClick();
+    to && history.push(to);
+  };
+
+  return <Button onClick={() => handleClick()}>{text}</Button>;
 };
 
 GeneralButton.propTypes = {
@@ -23,7 +27,7 @@ GeneralButton.propTypes = {
 };
 
 GeneralButton.defaultProps = {
-  to: "",
+  to: null,
   onClick: null,
   text: "General Button",
 };
