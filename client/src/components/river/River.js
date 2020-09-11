@@ -10,7 +10,7 @@ import MobileAlert from "./MobileAlert";
 
 const River = (props) => {
   const [level, setLevel] = useState(null);
-  const [mapIsShowing, setMapIsShowing] = useState(false);
+  const [mapIsShowing, setMapIsShowing] = useState(true);
 
   const toggleMap = () => {
     setMapIsShowing((prevMapIsShowing) => {
@@ -38,13 +38,15 @@ const River = (props) => {
   return (
     <div className="App">
       <MobileAlert />
-      {mapIsShowing && (
+
+      
         <Map
+        mapIsShowing={mapIsShowing}
           url={props.url}
           toggleMap={toggleMap}
           data={props.data}
         />
-      )}
+      
 
       {rapidInstance}
       <Slider selectLevel={setLevel} rapid={props.data} />
