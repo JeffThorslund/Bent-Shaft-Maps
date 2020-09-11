@@ -1,7 +1,8 @@
 import React from "react";
 import PropTypes from "prop-types";
-import "../../stylesheets/Map.css";
 import MapLabel from "./MapLabel";
+import Modal from "react-bootstrap/Modal";
+import Image from "react-bootstrap/Image"
 
 const Map = (props) => {
   const mapLabelArray = props.data.rapids
@@ -19,22 +20,18 @@ const Map = (props) => {
     ));
 
   return (
-    <div className="Map">
-      <div
-        className="fade"
-        onClick={() => {
-          props.toggleMap();
-        }}
-      ></div>
 
-      <img
+    <Modal dialogClassName="map" show={props.mapIsShowing} onHide={props.toggleMap} centered>
+      <Image
         className="overview-map"
         src={`/api/image/${props.data.overviewMap}`}
         alt="River Map"
+        rounded
+        fluid
       />
 
-      <div className="maplabel-array">{mapLabelArray}</div>
-    </div>
+      <div className="map-label-array">{mapLabelArray}</div>
+    </Modal>
   );
 };
 

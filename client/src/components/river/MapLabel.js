@@ -1,7 +1,6 @@
 import React from "react";
-import "../../stylesheets/MapLabel.css";
 import PropTypes from "prop-types";
-import { Link } from "react-router-dom";
+import GeneralButton from "../general/GeneralButton";
 import { paramCase } from "change-case";
 
 const MapLabel = (props) => {
@@ -33,25 +32,20 @@ const MapLabel = (props) => {
   pointerCoordinates = pointerCoordinates.join(",");
 
   const style = {
-    top: `${titleTop}vh`,
-    left: `${titleLeft}vw`,
+    top: `${titleTop}%`,
+    left: `${titleLeft}%`,
   };
 
-  const pickFromMap = () => {
-    //Click on a mapLabel
-    props.toggleSetting(props.setting); //Closes map
-    //props.selectRapid(name); //Sets chosen rapid to current
-  };
-
-  const className = `MapLabel ${props.mapLabel.pointerDirection}`;
+  const className = `map-label d-flex ${props.mapLabel.pointerDirection}`;
 
   return (
     <div className={className} style={style}>
-      <Link to={`${props.url}/${paramCase(props.name)}`}>
-        <div className="name" onClick={() => pickFromMap()}>
-          {props.name}
-        </div>
-      </Link>
+      <GeneralButton
+        to={`${props.url}/${paramCase(props.name)}`}
+        text={props.name}
+        onClick={props.toggleMap}
+        className="map-label-button"
+      />
       <svg
         viewBox="0 0 100 100"
         height="20vh"

@@ -31,6 +31,40 @@ a {
   background-image: url(./assets/welcome-footer.svg);
 }
 
+.map {
+  max-width: 85% !important;
+  max-height: 85% !important;
+}
+
+.map-label {
+  position: absolute;
+  display: flex;
+  transform-origin: 50px 50px;
+}
+.map-label .pointer {
+  stroke: black;
+  fill: none;
+  stroke-width: 0.1vh;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.top {
+  flex-direction: column-reverse;
+}
+
+.bottom {
+  flex-direction: column;
+}
+
+.right {
+  flex-direction: row-reverse;
+}
+
+.left {
+  flex-direction: row;
+}
+
 /*!
  * Bootstrap v4.5.0 (https://getbootstrap.com/)
  * Copyright 2011-2020 The Bootstrap Authors

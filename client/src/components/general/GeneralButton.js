@@ -6,7 +6,7 @@ import PropTypes from "prop-types";
 
 /** A button with multiple styles that can be used for any linking or to execute an action. */
 
-const GeneralButton = ({ to, onClick, text }) => {
+const GeneralButton = ({ to, onClick, text, className }) => {
   let history = useHistory();
 
   const handleClick = () => {
@@ -14,7 +14,7 @@ const GeneralButton = ({ to, onClick, text }) => {
     to && history.push(to);
   };
 
-  return <Button onClick={() => handleClick()}>{text}</Button>;
+  return <Button className={className} onClick={() => handleClick()}>{text}</Button>;
 };
 
 GeneralButton.propTypes = {
@@ -24,6 +24,8 @@ GeneralButton.propTypes = {
   onClick: PropTypes.func,
   /** Text displayed in button */
   text: PropTypes.string.isRequired,
+  /**Custom class name */
+  className: PropTypes.string,
 };
 
 GeneralButton.defaultProps = {
