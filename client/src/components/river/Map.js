@@ -11,7 +11,7 @@ const Map = (props) => {
         url={props.url}
         name={element.name}
         mapLabel={element.mapLabel}
-        toggleSetting={props.toggleSetting}
+        toggleMap={props.toggleMap}
         setting={props.setting}
         selectRapid={props.selectRapid}
         key={`mapLabel${key}`}
@@ -23,7 +23,7 @@ const Map = (props) => {
       <div
         className="fade"
         onClick={() => {
-          props.toggleSetting(props.setting);
+          props.toggleMap();
         }}
       ></div>
 
