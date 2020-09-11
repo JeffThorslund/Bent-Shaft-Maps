@@ -1,113 +1,68 @@
-import React, { Component } from "react";
+import React, { useState } from "react";
 import "../../stylesheets/River.css";
 import Rapid from "../rapid/Rapid";
 import Slider from "./Slider";
 import Map from "./Map";
-import GenericToggle from "./GenericToggle";
 import { withRouter } from "react-router-dom";
-import GeneralButton from "../general/GeneralButton"
+import GeneralButton from "../general/GeneralButton";
 import { paramCase } from "change-case";
 import MobileAlert from "./MobileAlert";
 
-import SubmitKnowledge from "./SubmitKnowledge";
+const River = (props) => {
+  const [level, setLevel] = useState(null);
+  const [mapIsShowing, setMapIsShowing] = useState(false);
 
-class River extends Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      level: null,
-      mapBool: false,
-      knowledgeBool: false,
-    };
-  }
-
-  componentDidMount() {
-    this.setState({
-      level: this.props.data.level.defaultLevel,
+  const toggleMap = () => {
+    setMapIsShowing((prevMapIsShowing) => {
+      return !prevMapIsShowing;
     });
   }
 
-  // Use slider to select a river level
-  selectLevel = (level) => {
-    this.setState(() => ({ level }));
-  };
+  // Create Rapid Instance
+  const rapidInstance = props.data.rapids.map((element, key) => {
+    if (props.match.params.id === paramCase(element.name)) {
+      return (
+        <Rapid
+          data={element}
+          allData={props.data}
+          url={props.url}
+          level={level}
+          selectLevel={setLevel}
+          key={`rapid${key}`}
+        />
+      );
+    }
+    return null;
+  });
 
-  // Toggles any overlay
-  toggleSetting = (setting) => {
-    this.setState((prevState) => ({ [setting]: !prevState[setting] }));
-  };
+  return (
+    <div className="App">
+      <MobileAlert />
+      {mapIsShowing && (
+        <Map
+          url={props.url}
+          toggleMap={toggleMap}
+          data={props.data}
+        />
+      )}
 
-  render() {
-    // Create Rapid Instance
-    const rapidInstance = this.props.data.rapids.map((element, key) => {
-      if (this.props.match.params.id === paramCase(element.name)) {
-        return (
-          <Rapid
-            data={element}
-            allData={this.props.data}
-            url={this.props.url}
-            level={this.state.level}
-            selectLevel={this.selectLevel}
-            key={`rapid${key}`}
+      {rapidInstance}
+      <Slider selectLevel={setLevel} rapid={props.data} />
+
+      <div className="toggle-board">
+        <div id="map-bool">
+          <GeneralButton
+            onClick={toggleMap}
+            text="Map"
           />
-        );
-      }
-      return null;
-    });
+        </div>
 
-    return (
-      <div className="App">
-        <MobileAlert />
-        {this.state.mapBool && (
-          <Map
-            url={this.props.url}
-            toggleSetting={this.toggleSetting}
-            setting="mapBool"
-            selectRapid={this.selectRapid}
-            data={this.props.data}
-          />
-        )}
-
-        {this.state.knowledgeBool && (
-          <SubmitKnowledge
-            toggleSetting={this.toggleSetting}
-            setting="knowledgeBool"
-            rapidName={this.props.match.params.id}
-            name={this.props.data.name}
-          />
-        )}
-
-        {rapidInstance}
-        <Slider selectLevel={this.selectLevel} rapid={this.props.data} />
-
-        <div className="toggle-board">
-          <div id="map-bool">
-            <GeneralButton
-              toggle={this.state.mapBool}
-              toggleSetting={this.toggleSetting}
-              text="Map"
-            />
-          </div>
-          {process.env.NODE_ENV == "production" && (
-            <div id="knowledge-bool">
-              <GenericToggle
-                toggle={this.state.knowledgeBool}
-                toggleSetting={this.toggleSetting}
-                setting="knowledgeBool"
-                false="Submit Info"
-                true="Submit Info"
-              />
-            </div>
-          )}
-
-          <div id="home">
-            <GeneralButton to="/" text="Home"/>
-          </div>
+        <div id="home">
+          <GeneralButton to="/" text="Home" />
         </div>
       </div>
-    );
-  }
-}
+    </div>
+  );
+};
 
 export default withRouter(River);
