@@ -7,7 +7,7 @@ import PropTypes from "prop-types";
 const Slider = ({ min, max, units, level, setLevel }) => {
   return (
     <Form className="d-flex">
-      <Form.Label class="range-value">
+      <Form.Label className="range-value">
         <span>{level}</span>
         <span>{units}</span>
       </Form.Label>

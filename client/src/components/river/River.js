@@ -9,8 +9,6 @@ import GeneralButton from "../general/GeneralButton";
 import MobileAlert from "./MobileAlert";
 import Slider from "./Slider";
 
-import Container from "react-bootstrap/Container";
-
 /**
  * Container that displays all information specific to a single river.
  * This includes the level slider and the overview map.
@@ -100,7 +98,7 @@ River.propTypes = {
   /** Url to match. This is how rapid is identified. */
   url: PropTypes.string.isRequired,
   /** Automatically passed by router. */
-  match: PropTypes.string.isRequired,
+  match: PropTypes.object.isRequired,
 };
 
 export default withRouter(River);
