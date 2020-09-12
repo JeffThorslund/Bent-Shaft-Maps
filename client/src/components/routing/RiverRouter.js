@@ -12,7 +12,7 @@ export default function RiverRouter({river}) {
         <Introduction river={river} url={url} />
       </Route>
       <Route path={`${path}/:id`}>
-        <River data={river} url={url} />
+        <River river={river} url={url} />
       </Route>
     </Switch>
   );
