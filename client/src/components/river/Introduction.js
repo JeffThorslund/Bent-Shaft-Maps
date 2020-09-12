@@ -27,8 +27,8 @@ const Introduction = ({ river, url }) => {
     },
   ];
 
-  const InfoCards = infoCardsConfig.map((card) => {
-    return <InfoCard title={card.title} body={river[card.id]} />;
+  const InfoCards = infoCardsConfig.map((card, index) => {
+    return <InfoCard title={card.title} body={river[card.id]} key={`${card.id, index}`}/>;
   });
 
   return (

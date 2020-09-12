@@ -21,8 +21,8 @@ const RiverCardContainer = ({ rivers }) => {
 
   let RiverCards =
     rivers &&
+    //Remove rivers that do not match search query
     rivers
-      //Remove rivers that do not match search query
       .filter((river) => {
         if (value.length === 0) return true;
         for (let searchRiverProp of searchRiverProps) {
@@ -35,7 +35,7 @@ const RiverCardContainer = ({ rivers }) => {
         return false;
       })
       //Replace search query with bold span
-      .map((river) => {
+      .map((river, index) => {
         let substrings = {};
         for (let i = 0; i < searchRiverProps.length; i++) {
           substrings[searchRiverProps[i]] = river[searchRiverProps[i]].replace(
@@ -52,6 +52,7 @@ const RiverCardContainer = ({ rivers }) => {
             classResult={river.class}
             nameResult={substrings.name}
             locationResult={substrings.location}
+            key={`${river.name, index}`}
           />
         );
       });
