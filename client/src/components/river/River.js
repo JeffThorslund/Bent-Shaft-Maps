@@ -3,6 +3,8 @@ import PropTypes from "prop-types";
 import { withRouter } from "react-router-dom";
 import { paramCase } from "change-case";
 
+import Modal from "react-bootstrap/Modal";
+
 import Rapid from "../rapid/Rapid";
 import Map from "./Map";
 import GeneralButton from "../general/GeneralButton";
@@ -17,8 +19,8 @@ import Slider from "./Slider";
 
 const River = ({ river, url, match }) => {
   const [level, setLevel] = useState(0);
-  const [mapIsShowing, setMapIsShowing] = useState(false);
-  const [isMobileAlertActive, setIsMobileAlertActive] = useState(true);
+  const [mapIsShowing, setMapIsShowing] = useState(true);
+  const [isMobileAlertActive, setIsMobileAlertActive] = useState(false);
 
   //If on mobile, and in portrait mode, tell user to flip phone sideways
   useLayoutEffect(() => {
@@ -64,12 +66,15 @@ const River = ({ river, url, match }) => {
       ) : (
         rapidInstance
       )}
-      <Map
-        mapIsShowing={mapIsShowing}
-        url={url}
-        toggleMap={toggleMap}
-        data={river}
-      />
+
+      <Modal
+        dialogClassName="map"
+        show={mapIsShowing}
+        onHide={toggleMap}
+        centered
+      >
+        <Map url={url} toggleMap={toggleMap} river={river} />
+      </Modal>
 
       <div id="slider-position">
         <Slider

@@ -6,83 +6,6 @@ a {
   /* no underline */
 }
 
-.kayak-header-logo {
-  width: 3rem;
-}
-
-#selected {
-  font-weight: bold !important;
-}
-
-@keyframes spin {
-  100% {
-    transform: rotate(360deg);
-  }
-}
-.Loading #logo {
-  animation: spin infinite 5s linear;
-  transform-origin: center;
-}
-
-.introduction .header {
-  background-image: url(./assets/welcome-header.svg);
-}
-.introduction .footer {
-  background-image: url(./assets/welcome-footer.svg);
-}
-
-.map {
-  max-width: 85% !important;
-  max-height: 85% !important;
-}
-
-.map-label {
-  position: absolute;
-  display: flex;
-  transform-origin: 50px 50px;
-}
-.map-label .pointer {
-  stroke: black;
-  fill: none;
-  stroke-width: 0.1vh;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-}
-
-.top {
-  flex-direction: column-reverse;
-}
-
-.bottom {
-  flex-direction: column;
-}
-
-.right {
-  flex-direction: row-reverse;
-}
-
-.left {
-  flex-direction: row;
-}
-
-#map-position {
-  position: absolute;
-  top: 0%;
-  left: 0%;
-}
-
-#home-position {
-  position: absolute;
-  bottom: 1%;
-  left: 1%;
-}
-
-#slider-position {
-  position: absolute;
-  top: 1%;
-  right: 1%;
-}
-
 /*!
  * Bootstrap v4.5.0 (https://getbootstrap.com/)
  * Copyright 2011-2020 The Bootstrap Authors
@@ -10042,6 +9965,93 @@ h3 {
     color: inherit;
     border-color: #dee2e6;
   }
+}
+.map-label-button {
+  font-size: 2vh;
+  margin: 0px;
+  padding: 0px;
+}
+
+.kayak-header-logo {
+  width: 3rem;
+}
+
+#selected {
+  font-weight: bold !important;
+}
+
+@keyframes spin {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+.Loading #logo {
+  animation: spin infinite 5s linear;
+  transform-origin: center;
+}
+
+.introduction .header {
+  background-image: url(./assets/welcome-header.svg);
+}
+.introduction .footer {
+  background-image: url(./assets/welcome-footer.svg);
+}
+
+.map {
+  max-width: 85% !important;
+  max-height: 85% !important;
+}
+
+.map-label {
+  position: absolute;
+  display: flex;
+  transform-origin: 50px 50px;
+  border: 1px black solid;
+}
+.map-label .label-svg {
+  border: 1px blue solid;
+}
+.map-label .pointer {
+  stroke: black;
+  fill: none;
+  stroke-width: 0.1vh;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  border: 1px blue solid;
+}
+
+.top {
+  flex-direction: column-reverse;
+}
+
+.bottom {
+  flex-direction: column;
+}
+
+.right {
+  flex-direction: row-reverse;
+}
+
+.left {
+  flex-direction: row;
+}
+
+#map-position {
+  position: absolute;
+  top: 0%;
+  left: 0%;
+}
+
+#home-position {
+  position: absolute;
+  bottom: 1%;
+  left: 1%;
+}
+
+#slider-position {
+  position: absolute;
+  top: 1%;
+  right: 1%;
 }
 
 /*# sourceMappingURL=main.css.map */

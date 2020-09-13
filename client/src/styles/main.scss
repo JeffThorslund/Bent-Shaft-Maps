@@ -2,12 +2,13 @@
 @import "./themes";
 @import "./variables";
 
+@import "../../node_modules/bootstrap/scss/bootstrap.scss";
+
 @import "./components/slider";
+@import "./components//buttons";
 
 @import "./pages/home";
 @import "./pages/loading";
 @import "./pages/introduction";
 @import "./pages/map";
 @import "./pages/river";
-
-@import "../../node_modules/bootstrap/scss/bootstrap.scss";

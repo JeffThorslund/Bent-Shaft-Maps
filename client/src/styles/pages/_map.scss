@@ -10,6 +10,11 @@
   position: absolute;
   display: flex;
   transform-origin: 50px 50px;
+  border: 1px black solid;
+
+  .label-svg {
+    border: 1px blue solid;
+  }
 
   .pointer {
     stroke: black;
@@ -17,6 +22,7 @@
     stroke-width: 0.1vh;
     stroke-linecap: round;
     stroke-linejoin: round;
+    border: 1px blue solid;
   }
 }
 
