@@ -1,76 +1,54 @@
 import React from "react";
 import PropTypes from "prop-types";
-import GeneralButton from "../general/GeneralButton";
 import { paramCase } from "change-case";
+import { useHistory } from "react-router-dom";
+
+/** A label on the overview navigation map */
 
 const MapLabel = ({
   url,
   name,
-  mapLabel: { titleTop, titleLeft, pointerDirection, pointerCoordinates },
-  toggleMap,
+  mapLabel,
+  toggleMap
 }) => {
 
-  // const pointerSetUp = (pointerDirection) => {
-  //   switch (
-  //     pointerDirection // starting coord
-  //   ) {
-  //     case "top":
-  //       return "50,100 ";
+  const [[x1,y1],[x2,y2]] = mapLabel
 
-  //     case "right":
-  //       return "0,50 ";
-
-  //     case "bottom":
-  //       return "50,0 ";
-
-  //     case "left":
-  //       return "100,50 ";
-
-  //     default:
-  //       return "nothing";
-  //   }
-  // };
-
-  // pointerCoordinates = pointerCoordinates.join(",");
-
-  const style = {
-    bottom: `${titleTop}%`,
-    left: `${titleLeft}%`,
+  let history = useHistory();
+  const handleClick = (to) => {
+    toggleMap();
+    to && history.push(to);
   };
 
-  const className = `map-label d-flex ${pointerDirection}`;
-
   return (
-    <div className={className} style={style}>
-      <GeneralButton
-        to={`${url}/${paramCase(name)}`}
-        text={name}
-        onClick={toggleMap}
-        className="map-label-button"
+    <g>
+      <polyline
+        className="pointer"
+        points={`${x1}, ${y1} ${x2}, ${y2}`}
       />
-      <svg
-        viewBox="0 0 100 100"
-        height="10vw"
-        width="10vw"
-        xmlns="http://www.w3.org/2000/svg"
-        preserveAspectRatio="none"
-        className="label-svg"
+      <text
+        x={x2 + 1}
+        y={y2 + 1}
+        onClick={() => handleClick(`${url}/${paramCase(name)}`)}
+        class="map-label"
       >
-        <polyline
-          className="pointer"
-          points={"50,0 30,100"}
-        />
-      </svg>
-    </div>
+        {name}
+      </text>
+    </g>
   );
 };
 
 export default MapLabel;
 
+MapLabel.defaultProps = {};
+
 MapLabel.propTypes = {
+  /** The base url */
   url: PropTypes.string.isRequired,
+  /** The name of the rapid, to be used in the navigation */
   name: PropTypes.string.isRequired,
-  mapLabel: PropTypes.object.isRequired,
-  toggleSetting: PropTypes.func.isRequired,
-  selectRapid: PropTypes.func.isRequired,
+  /** The coordinates of the position of the label and pointer */
+  mapLabel: PropTypes.arrayOf(PropTypes.arrayOf(PropTypes.number)).isRequired,
+  /** Turns off the map when clicked */
+  toggleMap: PropTypes.func.isRequired,
 };

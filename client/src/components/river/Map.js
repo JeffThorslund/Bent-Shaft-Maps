@@ -29,7 +29,18 @@ const Map = ({ url, toggleMap, river }) => {
         rounded
         fluid
       />
-      <div className="map-label-array">{mapLabelArray}</div>
+
+<svg
+        viewBox="0 0 160 90"
+        height="100%"
+        width="100%"
+        xmlns="http://www.w3.org/2000/svg"
+        preserveAspectRatio="none"
+        className="label-svg"
+      >
+
+        {mapLabelArray}
+        </svg>
     </>
   );
 };
