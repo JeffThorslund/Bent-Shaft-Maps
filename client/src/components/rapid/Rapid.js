@@ -1,37 +1,33 @@
 import React from "react";
 import PropTypes from "prop-types";
-import "../../stylesheets/Rapid.css";
+import { Preload, ImageCache } from "react-preload";
+
+import Image from "react-bootstrap/Image";
+
 import NextRapid from "./NextRapid";
 import Features from "./Features";
-import Image from "react-bootstrap/Image"
-import findRapidFromId from "../../tools/findRapidFromId";
-import { Preload } from "react-preload";
 import Loading from "../general/Loading";
-import RapidHeader from "./RapidHeader"
+import RapidHeader from "./RapidHeader";
+import findRapidFromId from "../../tools/findRapidFromId";
 
-const ImageCache = require("react-preload").ImageCache;
+/**
+ * The Rapid container that holds all components related to an individual rapid
+ */
 
-const Rapid = ({ data, allData, url, level }) => {
-  // render array of "next rapid arrows" based on selected water level (App state)
-  const arrowArray = data.arrows.map((element, key) => (
-    <NextRapid
-      arrows={element}
-      url={url}
-      key={`arrow${key}`}
-      allData={allData}
-    />
+const Rapid = ({ rapid, river, url, level }) => {
+  const arrowArray = rapid.arrows.map((arrow, key) => (
+    <NextRapid arrows={arrow} url={url} key={`arrow${key}`} allData={river} />
   ));
 
-  //cache adjacent rapids
-  data.arrows.forEach((arrow) => {
-    let riverMap = findRapidFromId(arrow.linkId, allData).riverMap;
+  rapid.arrows.forEach((arrow) => {
+    let riverMap = findRapidFromId(arrow.linkId, river).riverMap;
     ImageCache.add(`/api/image/${riverMap}`);
   });
 
   return (
     <Preload
       loadingIndicator={<Loading />}
-      images={[`/api/image/${data.riverMap}`]}
+      images={[`/api/image/${rapid.riverMap}`]}
       autoResolveDelay={10000}
       onError={() => alert("preload error")}
       onSuccess={() => console.log("preload success")}
@@ -39,21 +35,28 @@ const Rapid = ({ data, allData, url, level }) => {
       mountChildren={true}
     >
       <div className="Rapid">
-      <Image className="basemap" src={`/api/image/${data.riverMap}`} alt="River Map" />
-        <Features level={level} data={data} />
-       <RapidHeader name={data.name} description={data.desc} level = {level}/>
-
-        
-        
+        <Image
+          className="basemap"
+          src={`/api/image/${rapid.riverMap}`}
+          alt="River Map"
+        />
+        <Features level={level} data={rapid} />
+        <RapidHeader name={rapid.name} description={rapid.desc} level={level} />
         <div id="arrow-array"> {arrowArray} </div>
       </div>
     </Preload>
   );
 };
 
-export default Rapid;
-
 Rapid.propTypes = {
-  data: PropTypes.object.isRequired,
+  /** The river data object */
+  river: PropTypes.object.isRequired,
+  /** A single rapid object */
+  rapid: PropTypes.object.isRequired,
+  /** The current water level */
   level: PropTypes.number.isRequired,
+  /** The current URL */
+  url: PropTypes.string.isRequired,
 };
+
+export default Rapid;

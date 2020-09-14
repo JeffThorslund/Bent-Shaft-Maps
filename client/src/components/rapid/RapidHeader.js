@@ -10,8 +10,8 @@ const RapidHeader = ({name, description, level}) => {
 
   return (
     <div className="rapid-header">
-      <div id="rapid-name"> {name} </div>
-      <div id="rapid-desc">
+      <div className="rapid-name"> {name} </div>
+      <div className="rapid-desc">
         {filteredDescription}
       </div>
     </div>
