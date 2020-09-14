@@ -1,18 +1,13 @@
 import React from "react";
 import "../../stylesheets/NextRapid.css";
-import { Link } from "react-router-dom";
 import { paramCase } from "change-case";
 import PropTypes from "prop-types";
 import findRapidFromId from "../../tools/findRapidFromId";
+import GeneralButton from "../general/GeneralButton";
 
-const NextRapid = (props) => {
-  const {
-    arrows: { linkId, bottom, right },
-    url,
-    allData,
-  } = props;
-
+const NextRapid = ({ arrows: { linkId, bottom, right }, url, allData }) => {
   const style = {
+    position: "absolute",
     bottom: `${bottom}vh`,
     right: `${right}vw`,
   };
@@ -20,11 +15,12 @@ const NextRapid = (props) => {
   const nextRapidName = findRapidFromId(linkId, allData).name;
 
   return (
-    <Link to={`${url}/${paramCase(nextRapidName)}`}>
-      <div className="NextRapid" style={style}>
-        <div className="name">{nextRapidName}</div>
-      </div>
-    </Link>
+    <GeneralButton
+      to={`${url}/${paramCase(nextRapidName)}`}
+      text={nextRapidName}
+      style={style}
+      variant="dark"
+    />
   );
 };
 

@@ -43,16 +43,16 @@ const River = ({ river, url, match }) => {
   };
 
   // Create Rapid Instance
-  const rapidInstance = river.rapids.map((element, key) => {
-    if (match.params.id === paramCase(element.name)) {
+  const rapidInstance = river.rapids.map((rapid, index) => {
+    if (match.params.id === paramCase(rapid.name)) {
       return (
         <Rapid
-          data={element}
-          allData={river}
+          rapid={rapid}
+          river={river}
           url={url}
           level={level}
           selectLevel={setLevel}
-          key={`rapid${key}`}
+          key={`rapid${index}`}
         />
       );
     }

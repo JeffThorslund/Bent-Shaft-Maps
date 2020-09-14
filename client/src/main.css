@@ -10027,8 +10027,8 @@ h3 {
 
 #map-position {
   position: absolute;
-  top: 0%;
-  left: 0%;
+  top: 1%;
+  left: 1%;
 }
 
 #home-position {
@@ -10047,6 +10047,21 @@ h3 {
   height: 100vh;
   width: 100vw;
   position: absolute;
+}
+
+.rapid-header {
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, 0%);
+  margin-top: 1vw;
+  font-style: normal;
+  text-align: center;
+}
+.rapid-header .rapid-name {
+  font-size: 36px;
+}
+.rapid-header .rapid-desc {
+  font-size: 24px;
 }
 
 /*# sourceMappingURL=main.css.map */
