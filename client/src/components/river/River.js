@@ -19,7 +19,7 @@ import Slider from "./Slider";
 
 const River = ({ river, url, match }) => {
   const [level, setLevel] = useState(0);
-  const [mapIsShowing, setMapIsShowing] = useState(true);
+  const [mapIsShowing, setMapIsShowing] = useState(false);
   const [isMobileAlertActive, setIsMobileAlertActive] = useState(false);
 
   //If on mobile, and in portrait mode, tell user to flip phone sideways
