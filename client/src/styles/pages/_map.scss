@@ -3,41 +3,25 @@
   max-height: 85% !important;
 }
 
-.map-label-array {
+.label-svg {
+  border: 1px blue solid;
+  position: absolute;
+}
+
+.pointer {
+  stroke: black;
+  fill: none;
+  stroke-width: 0.5px;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  border: 1px blue solid;
 }
 
 .map-label {
-  position: absolute;
-  display: flex;
-  transform-origin: 50px 50px;
-  border: 1px black solid;
-
-  .label-svg {
-    border: 1px blue solid;
-  }
-
-  .pointer {
-    stroke: black;
-    fill: none;
-    stroke-width: 0.1vh;
-    stroke-linecap: round;
-    stroke-linejoin: round;
-    border: 1px blue solid;
-  }
+  font-size: 2px;
+  cursor: pointer;
 }
 
-.top {
-  flex-direction: column-reverse;
-}
-
-.bottom {
-  flex-direction: column;
-}
-
-.right {
-  flex-direction: row-reverse;
-}
-
-.left {
-  flex-direction: row;
+.map-label:hover {
+  font-size: 3px;
 }

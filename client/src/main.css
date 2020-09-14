@@ -10002,38 +10002,27 @@ h3 {
   max-height: 85% !important;
 }
 
-.map-label {
-  position: absolute;
-  display: flex;
-  transform-origin: 50px 50px;
-  border: 1px black solid;
-}
-.map-label .label-svg {
+.label-svg {
   border: 1px blue solid;
+  position: absolute;
 }
-.map-label .pointer {
+
+.pointer {
   stroke: black;
   fill: none;
-  stroke-width: 0.1vh;
+  stroke-width: 0.5px;
   stroke-linecap: round;
   stroke-linejoin: round;
   border: 1px blue solid;
 }
 
-.top {
-  flex-direction: column-reverse;
+.map-label {
+  font-size: 2px;
+  cursor: pointer;
 }
 
-.bottom {
-  flex-direction: column;
-}
-
-.right {
-  flex-direction: row-reverse;
-}
-
-.left {
-  flex-direction: row;
+.map-label:hover {
+  font-size: 3px;
 }
 
 #map-position {
