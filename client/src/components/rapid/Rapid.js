@@ -3,11 +3,12 @@ import PropTypes from "prop-types";
 import "../../stylesheets/Rapid.css";
 import NextRapid from "./NextRapid";
 import Features from "./Features";
-import Basemap from "./Basemap";
-import Description from "./Description";
+import Image from "react-bootstrap/Image"
 import findRapidFromId from "../../tools/findRapidFromId";
 import { Preload } from "react-preload";
 import Loading from "../general/Loading";
+import RapidHeader from "./RapidHeader"
+
 const ImageCache = require("react-preload").ImageCache;
 
 const Rapid = ({ data, allData, url, level }) => {
@@ -38,15 +39,9 @@ const Rapid = ({ data, allData, url, level }) => {
       mountChildren={true}
     >
       <div className="Rapid">
-<Basemap riverMap={data.riverMap} />
+      <Image className="basemap" src={`/api/image/${data.riverMap}`} alt="River Map" />
         <Features level={level} data={data} />
-        
-        <div className="rapid-header">
-          <div id="rapid-name"> {data.name} </div>
-          <div id="rapid-desc">
-            <Description level={level} desc={data.desc} />
-          </div>
-        </div>
+       <RapidHeader name={data.name} description={data.desc} level = {level}/>
 
         
         
