@@ -1,0 +1,49 @@
+.Features {
+  position: absolute;
+  height: 100vh;
+  width: 100vw;
+  top: 0px;
+  left: 0px;
+}
+
+.clickable {
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.eddy {
+  stroke: $eddy;
+  fill: $eddy;
+  fill-opacity: 0.37;
+  stroke-width: 4;
+  stroke-linecap: round;
+  stroke-dasharray: 7;
+  &:hover {
+    fill-opacity: 0.6;
+  }
+}
+
+.line {
+  stroke-width: 8px;
+  stroke: rgba(136, 136, 136, 0.5);
+  &:hover {
+    stroke-width: 10px;
+    stroke: black;
+  }
+}
+
+.hydraulic {
+  fill: white;
+  fill-opacity: 0.7;
+
+  &:hover {
+    fill: white;
+    fill-opacity: 1;
+  }
+}

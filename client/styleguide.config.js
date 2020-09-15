@@ -18,6 +18,11 @@ module.exports = {
       description: "Components specific to each river",
       components: "src/components/river/[A-Z]*.js",
     },
+    {
+      name: "Rapid",
+      description: "Components specific to each rapid",
+      components: "src/components/rapid/[A-Z]*.js",
+    },
   ],
   ignore: ["src/components/home/ImageUpload.js"],
 };

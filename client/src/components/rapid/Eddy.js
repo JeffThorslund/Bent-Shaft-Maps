@@ -1,42 +1,34 @@
 import React from "react";
 import PropTypes from "prop-types";
-import "../../stylesheets/Eddy.css";
 
-const Eddy = (props) => {
-  const { name, desc, vector, x, y } = props.eddys;
+/** Data for a single eddy */
 
-  return (
-    <g
-      className="Eddy"
-      transform={`translate(${x}, ${y})`}
-    >
-      <path
-        id="path"
-        d={vector}
-        data-tip={
-          `<div>
+const Eddy = ({ name, desc, vector, x, y }) => (
+  <g className="eddy" transform={`translate(${x}, ${y})`}>
+    <path
+      d={vector}
+      data-tip={`<div>
             <div class="name">${name}</div>
             <div class="desc">${desc}</div>
-          </div>`
-        }
-        data-html={true}
-        data-for="svgTooltip"
-        data-event="click"
-      />
-    </g>
-  );
+          </div>`}
+      data-html={true}
+      data-for="svgTooltip"
+      data-event="click"
+    />
+  </g>
+);
+
+Eddy.propTypes = {
+  /** Name of eddy */
+  name: PropTypes.string.isRequired,
+  /** Description of eddy */
+  desc: PropTypes.string.isRequired,
+  /** Vector path of eddy */
+  vector: PropTypes.string.isRequired,
+  /** X placement of eddy */
+  x: PropTypes.string.isRequired,
+  /** Y position of eddy */
+  y: PropTypes.string.isRequired,
 };
 
 export default Eddy;
-
-Eddy.propTypes = {
-  eddys: PropTypes.exact({
-    name: PropTypes.string.isRequired,
-    desc: PropTypes.string.isRequired,
-    vector: PropTypes.string.isRequired,
-    x: PropTypes.string.isRequired,
-    y: PropTypes.string.isRequired,
-    range: PropTypes.arrayOf(PropTypes.number).isRequired,
-  }).isRequired,
-  displayData: PropTypes.func.isRequired,
-};
