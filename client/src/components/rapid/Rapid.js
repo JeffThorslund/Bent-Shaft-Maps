@@ -16,7 +16,7 @@ import findRapidFromId from "../../tools/findRapidFromId";
 
 const Rapid = ({ rapid, river, url, level }) => {
   const arrowArray = rapid.arrows.map((arrow, key) => (
-    <NextRapid arrows={arrow} url={url} key={`arrow${key}`} allData={river} />
+    <NextRapid arrows={arrow} url={url} key={`arrow${key}`} river={river} />
   ));
 
   rapid.arrows.forEach((arrow) => {
@@ -40,7 +40,7 @@ const Rapid = ({ rapid, river, url, level }) => {
           src={`/api/image/${rapid.riverMap}`}
           alt="River Map"
         />
-        <Features level={level} data={rapid} />
+        <Features level={level} rapid={rapid} />
         <RapidHeader name={rapid.name} description={rapid.desc} level={level} />
         <div id="arrow-array"> {arrowArray} </div>
       </div>

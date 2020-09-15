@@ -1,18 +1,22 @@
 import React from "react";
-import "../../stylesheets/NextRapid.css";
 import { paramCase } from "change-case";
 import PropTypes from "prop-types";
+
 import findRapidFromId from "../../tools/findRapidFromId";
 import GeneralButton from "../general/GeneralButton";
 
-const NextRapid = ({ arrows: { linkId, bottom, right }, url, allData }) => {
+/**
+ * Button to navigate to a connected rapid in the river.
+ */
+
+const NextRapid = ({ arrows: { linkId, bottom, right }, url, river }) => {
   const style = {
     position: "absolute",
     bottom: `${bottom}vh`,
     right: `${right}vw`,
   };
 
-  const nextRapidName = findRapidFromId(linkId, allData).name;
+  const nextRapidName = findRapidFromId(linkId, river).name;
 
   return (
     <GeneralButton
@@ -24,14 +28,15 @@ const NextRapid = ({ arrows: { linkId, bottom, right }, url, allData }) => {
   );
 };
 
-export default NextRapid;
-
 NextRapid.propTypes = {
-  arrows: PropTypes.exact({
-    id: PropTypes.string.isRequired,
-    linkId: PropTypes.string.isRequired,
-    bottom: PropTypes.number.isRequired,
-    right: PropTypes.number.isRequired,
-  }).isRequired,
+  /** The id of the connecting rapid */
+  linkId: PropTypes.string.isRequired,
+  /** The absolute position of the tab from the bottom of the viewport */
+  bottom: PropTypes.number.isRequired,
+  /** The absolute position of the tab from the right of the viewport */
+  right: PropTypes.number.isRequired,
+  /** The base url of the current rapid */
   url: PropTypes.string.isRequired,
 };
+
+export default NextRapid;

@@ -1,17 +1,21 @@
 import React, { useRef, useEffect } from "react";
+import PropTypes from "prop-types";
+import ReactTooltip from "react-tooltip";
+
 import Line from "./Line";
 import Eddy from "./Eddy";
 import Hydraulic from "./Hydraulic";
 import Symbol from "./Symbol";
-import "../../stylesheets/Features.css";
-import PropTypes from "prop-types";
-import ReactTooltip from "react-tooltip";
 import Popover from "./Popover";
+import filterRange from "../../tools/filterRange";
 
-import filterRange from "../../tools/filterRange"
+/**
+ * Holds all interact-able elements of a rapid
+ */
 
-const Features = (props) => {
+const Features = ({ level, rapid }) => {
   const mounted = useRef();
+
   useEffect(() => {
     if (!mounted.current) {
       mounted.current = true;
@@ -20,55 +24,55 @@ const Features = (props) => {
     }
   });
 
-  const lineArray = props.data.lines
-    .filter(
-      (element) =>
-        filterRange(props.level, element.range)
-    )
-    .map((element, key) => {
-      return <Line lines={element} key={`line${key}`} />;
-    });
+  const lineArray = rapid.lines
+    .filter((line) => filterRange(level, line.range))
+    .map((line, key) => (
+      <Line
+        name={line.name}
+        desc={line.desc}
+        vector={line.vector}
+        x={line.x}
+        y={line.y}
+        key={`line${key}`}
+      />
+    ));
 
-  // render array of eddys based on selected water level
-  const eddyArray = props.data.eddys
-    .filter(
-      (element) =>
-      filterRange(props.level, element.range)
-    )
-    .map((element, key) => {
-      return <Eddy eddys={element} key={`eddy${key}`} />;
-    });
+  const eddyArray = rapid.eddys
+    .filter((eddy) => filterRange(level, eddy.range))
+    .map((eddy, key) => (
+      <Eddy
+        name={eddy.name}
+        desc={eddy.desc}
+        vector={eddy.vector}
+        x={eddy.x}
+        y={eddy.y}
+        key={`eddy${key}`}
+      />
+    ));
 
-  // render array of hydraulics based on selected water level
-  const hydraulicArray = props.data.hydraulics
-    .filter(
-      (element) =>
-      filterRange(props.level, element.range)
-    )
-    .map((element, key) => {
-      return (
-        <Hydraulic
-          hydraulics={element}
-          key={`hydraulic${key}`}
-        />
-      );
-    });
+  const hydraulicArray = rapid.hydraulics
+    .filter((hydraulic) => filterRange(level, hydraulic.range))
+    .map((hydraulic, key) => (
+      <Hydraulic
+        name={hydraulic.name}
+        desc={hydraulic.desc}
+        x={hydraulic.x}
+        y={hydraulic.y}
+        width={hydraulic.width}
+        height={hydraulic.height}
+        rotation={hydraulic.rotation}
+        key={`hydraulic${key}`}
+      />
+    ));
 
   // render array of symbols, except caution, based on selected water level
-  const symbolArray = props.data.symbols
-    .filter((element) => element.type !== "Caution")
-    .map((element, key) => {
-      return (
-        <Symbol
-          symbols={element}
-          key={`symbol${key}`}
-        />
-      );
+  const symbolArray = rapid.symbols
+    .filter((symbol) => symbol.type !== "Caution")
+    .map((symbol, key) => {
+      return <Symbol symbols={symbol} key={`symbol${key}`} />;
     });
 
-
   // render array of lines based on selected water level
-
   return (
     <>
       <svg
@@ -96,9 +100,11 @@ const Features = (props) => {
   );
 };
 
-export default Features;
-
 Features.propTypes = {
+  /** The current water level */
   level: PropTypes.number.isRequired,
-  data: PropTypes.object.isRequired,
+  /** The rapid data object */
+  rapid: PropTypes.object.isRequired,
 };
+
+export default Features;
