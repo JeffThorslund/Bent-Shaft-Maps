@@ -47,3 +47,21 @@
     fill-opacity: 1;
   }
 }
+
+.popover {
+  .name {
+    text-align: center;
+    font-size: 24px;
+  }
+  .desc {
+    font-size: 20px;
+  }
+}
+
+.symbol {
+  fill: black;
+  fill-opacity: 0.8;
+  &:hover {
+    fill-opacity: 1;
+  }
+}

@@ -69,7 +69,15 @@ const Features = ({ level, rapid }) => {
   const symbolArray = rapid.symbols
     .filter((symbol) => symbol.type !== "Caution")
     .map((symbol, key) => {
-      return <Symbol symbols={symbol} key={`symbol${key}`} />;
+      return (
+        <Symbol
+          type={symbol.type}
+          desc={symbol.desc}
+          top={symbol.top}
+          left={symbol.left}
+          key={`symbol${key}`}
+        />
+      );
     });
 
   // render array of lines based on selected water level
