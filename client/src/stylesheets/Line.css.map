@@ -1,9 +1,0 @@
-{
-    "version": 3,
-    "mappings": "AAAA,AAAA,WAAW,CAAC;EACV,YAAY,EAAE,GAAG;EACjB,MAAM,EAAE,wBAAwB;CACjC;;AAED,AAAA,WAAW,AAAA,MAAM,CAAC;EAChB,YAAY,EAAE,IAAI;EAClB,MAAM,EAAE,KAAK;CACd",
-    "sources": [
-        "../components/rapid/Line.scss"
-    ],
-    "names": [],
-    "file": "Line.css"
-}

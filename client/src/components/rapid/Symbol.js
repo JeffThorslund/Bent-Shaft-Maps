@@ -1,9 +1,9 @@
 import React from "react";
-import "../../stylesheets/Symbol.css";
-const Symbol = (props) => {
+import PropTypes from "prop-types";
 
-  const { type, desc, top, left } = props.symbols;
+/** A symbol to be displayed on the map */
 
+const Symbol = ({ type, desc, top, left }) => {
   const symbolOptions = [
     {
       type: "Portage",
@@ -23,29 +23,28 @@ const Symbol = (props) => {
     },
   ];
 
-  let index;
-  for (let i = 0; i < symbolOptions.length; i++) {
-    if (symbolOptions[i].type === type) {
-      index = i;
-      break;
-    }
-  }
-  const symbol = symbolOptions[index].path;
+  const symbol = symbolOptions.find((symbol) => symbol.type === type).path;
 
   return (
-    <>
-      <g
-        id={type}
-        className="symbol"
-        onClick={() => {
-          props.displayData(type, desc);
-        }}
-        transform={`translate(${left},${top}) scale(-0.10 0.12)`}
-      >
-        {symbol}
-      </g>
-    </>
+    <g
+      id={type}
+      className="symbol"
+      transform={`translate(${left},${top}) scale(-0.10 0.12)`}
+    >
+      {symbol}
+    </g>
   );
+};
+
+Symbol.propTypes = {
+  /** The type of symbol. Options: Portage */
+  type: PropTypes.string.isRequired,
+  /** Description of the symbol */
+  desc: PropTypes.string.isRequired,
+  /** Placement from the top of the viewport */
+  top: PropTypes.number.isRequired,
+  /** Placement from the left of the viewport */
+  left: PropTypes.number.isRequired,
 };
 
 export default Symbol;

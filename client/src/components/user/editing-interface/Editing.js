@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import ReactDOM, { render } from "react-dom";
-import "../../../stylesheets/Editing.css"
 
 export default class Container extends Component {
   state = {

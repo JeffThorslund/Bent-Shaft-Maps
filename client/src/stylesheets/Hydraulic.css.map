@@ -1,9 +1,0 @@
-{
-    "version": 3,
-    "mappings": "AAAA,AACE,UADQ,CACR,IAAI,CAAC;EACH,IAAI,EAAE,KAAK;EACX,YAAY,EAAE,GAAG;CAClB;;AAGH,AACE,UADQ,AAAA,MAAM,CACd,IAAI,CAAC;EACH,IAAI,EAAE,KAAK;EACX,YAAY,EAAE,CAAC;CAChB",
-    "sources": [
-        "../components/rapid/Hydraulic.scss"
-    ],
-    "names": [],
-    "file": "Hydraulic.css"
-}
