@@ -9,7 +9,6 @@ const Symbol = ({ type, desc, top, left }) => {
       type: "Portage",
       path: (
         <path
-          data-tip
           data-tip={`<div>
           <div class="name">${type}</div>
           <div class="desc">${desc}</div>
