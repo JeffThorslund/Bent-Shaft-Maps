@@ -51,7 +51,6 @@ const River = ({ river, url, match }) => {
           river={river}
           url={url}
           level={level}
-          selectLevel={setLevel}
           key={`rapid${index}`}
         />
       );

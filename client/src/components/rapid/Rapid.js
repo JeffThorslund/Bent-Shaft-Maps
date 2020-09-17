@@ -16,7 +16,14 @@ import findRapidFromId from "../../tools/findRapidFromId";
 
 const Rapid = ({ rapid, river, url, level }) => {
   const arrowArray = rapid.arrows.map((arrow, key) => (
-    <NextRapid arrows={arrow} url={url} key={`arrow${key}`} river={river} />
+    <NextRapid
+      linkId={arrow.linkId}
+      bottom={arrow.bottom}
+      right={arrow.right}
+      url={url}
+      key={`arrow${key}`}
+      river={river}
+    />
   ));
 
   rapid.arrows.forEach((arrow) => {
