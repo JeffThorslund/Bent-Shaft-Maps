@@ -14,7 +14,6 @@ const Line = ({ name, desc, vector, x, y }) => {
     <g className="line" transform={`translate(${x},${y})`}>
       <path
         d={vector}
-        data-tip
         data-tip={`<div>
             <div class="name">${name}</div>
             <div class="desc">${desc}</div>
