@@ -1,8 +1,9 @@
-@import "./typography";
-@import "./themes";
-@import "./variables";
+@import "./abstracts/variables";
+@import "./abstracts/bootstrap-ext";
 
-@import "../../node_modules/bootstrap/scss/bootstrap.scss";
+@import "./vendors/bootstrap";
+
+@import "./base/typography";
 
 @import "./components/slider";
 @import "./components//buttons";
