@@ -35,9 +35,9 @@ Line.propTypes = {
   /** path vector of the line. */
   vector: PropTypes.string.isRequired,
   /** x coordinate of the line. */
-  x: PropTypes.string.isRequired,
+  x: PropTypes.number.isRequired,
   /** y coordinate of the line. */
-  y: PropTypes.string.isRequired,
+  y: PropTypes.number.isRequired,
 };
 
 export default Line;

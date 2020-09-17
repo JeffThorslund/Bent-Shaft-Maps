@@ -19,7 +19,7 @@ const Slider = ({ min, max, units, level, setLevel }) => {
         value={level}
         step={1}
         orient="vertical"
-        onChange={(e) => setLevel(e.target.value)}
+        onChange={(e) => setLevel(Number(e.target.value))}
       />
     </Form>
   );

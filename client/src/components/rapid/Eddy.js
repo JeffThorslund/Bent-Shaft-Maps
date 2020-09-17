@@ -26,9 +26,9 @@ Eddy.propTypes = {
   /** Vector path of eddy */
   vector: PropTypes.string.isRequired,
   /** X placement of eddy */
-  x: PropTypes.string.isRequired,
+  x: PropTypes.number.isRequired,
   /** Y position of eddy */
-  y: PropTypes.string.isRequired,
+  y: PropTypes.number.isRequired,
 };
 
 export default Eddy;
