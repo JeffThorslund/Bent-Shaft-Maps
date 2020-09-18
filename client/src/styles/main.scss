@@ -1,5 +1,6 @@
 @import "./abstracts/variables";
 @import "./abstracts/bootstrap-ext";
+@import "./abstracts/mixins";
 
 @import "./vendors/bootstrap";
 
@@ -8,6 +9,8 @@
 @import "./components/slider";
 @import "./components//buttons";
 @import "./components/features";
+@import "./components/river-card";
+@import "./components/header";
 
 @import "./pages/home";
 @import "./pages/loading";

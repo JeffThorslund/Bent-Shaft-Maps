@@ -52,7 +52,7 @@ const RiverCardContainer = ({ rivers }) => {
             classResult={river.class}
             nameResult={substrings.name}
             locationResult={substrings.location}
-            key={`${river.name, index}`}
+            key={`${(river.name, index)}`}
           />
         );
       });
@@ -64,7 +64,6 @@ const RiverCardContainer = ({ rivers }) => {
         value={value}
         placeholder="Search for a river, town, province or state!"
       />
-
       {RiverCards !== null && RiverCards.length > 0 ? (
         <CardColumns>{RiverCards}</CardColumns>
       ) : (

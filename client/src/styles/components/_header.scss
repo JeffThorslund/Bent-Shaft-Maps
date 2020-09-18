@@ -1,0 +1,12 @@
+.header {
+  h1 {
+    @include header-thick;
+  }
+  h2 {
+    @include header-thin;
+  }
+
+  .kayak-header-logo {
+    width: 3rem;
+  }
+}

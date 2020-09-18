@@ -1,5 +1,5 @@
 import React from "react";
-import { Route } from "react-router-dom";
+import { Route, Router } from "react-router-dom";
 import PropTypes from "prop-types";
 
 import Container from "react-bootstrap/Container";
@@ -14,11 +14,14 @@ import RiverCardContainer from "./RiverCardContainer";
 const Home = (props) => {
   return (
     <Route>
-      <Navigation />
-      <Container>
-        <Header />
-        <RiverCardContainer {...props} />
-      </Container>
+      <div className="vh-100 home">
+        <Navigation />
+        <Container>
+          <Header />
+          <RiverCardContainer {...props} />
+        </Container>
+        
+      </div>
     </Route>
   );
 };

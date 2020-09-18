@@ -1,0 +1,21 @@
+@use "sass:color";
+
+.river-card {
+  background-color: $color-beta;
+  color: $color-alpha;
+  transition: background-color 0.1s ease-in-out, color 0.1s ease-in-out;
+
+  #selected {
+    font-weight: 700;
+    color: color.scale($color-epsilon, $lightness: 50%);
+  }
+
+  &:hover {
+    background-color: $color-epsilon;
+    color: $color-delta;
+
+    #selected {
+      color: color.scale($color-delta, $lightness: 10%);
+    }
+  }
+}
