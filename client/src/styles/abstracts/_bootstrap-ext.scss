@@ -5,7 +5,7 @@
 /* TYPOGRAPHY */
 
 $enable-responsive-font-sizes: true;
-$headings-font-family: "Alegreya Sans SC", sans-serif;
+$font-family-sans-serif: "Lato", sans-serif;
 
 /* SPACING */
 
@@ -16,6 +16,21 @@ $spacer: 1.2rem;
 $link-color: black;
 $link-hover-decoration: none;
 
+/* CARD */
+
+$card-border-radius: 5px;
+
 /* COLOURS */
 
-$eddy: #ff5964;
+$theme-colors: ();
+
+$theme-colors: map-merge(
+  (
+    "color-alpha": $color-alpha,
+    "color-beta": $color-beta,
+    "color-gamma": $color-gamma,
+    "color-delta": $color-delta,
+    "color-epsilon": $color-epsilon,
+  ),
+  $theme-colors
+);

@@ -11,7 +11,7 @@ import PropTypes from "prop-types";
 const RiverCard = ({ nameResult, locationResult, classResult, riverName }) => {
   return (
     <Link to={`/${paramCase(riverName)}`}>
-      <Card className="p-3">
+      <Card className="p-3 river-card">
         <Card.Title
           id="name"
           dangerouslySetInnerHTML={{ __html: nameResult }}
