@@ -8,6 +8,7 @@ import InfoCard from "./InfoCard";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
+import CardColumns from "react-bootstrap/CardColumns";
 
 const ImageCache = require("react-preload").ImageCache;
 
@@ -38,7 +39,7 @@ const Introduction = ({ river, url }) => {
   });
 
   return (
-    <Container fluid className="introduction">
+    <Container fluid className="introduction vh-100 d-flex flex-column">
       <Row className="justify-content-center header p-2">
         <Col className="d-flex flex-column align-items-center">
           <h1 className="text-center">
@@ -51,7 +52,11 @@ const Introduction = ({ river, url }) => {
           />
         </Col>
       </Row>
-      <Row className="footer">{InfoCards}</Row>
+      <Row className="footer flex-grow-1">
+        <div>
+          <CardColumns className="p-2">{InfoCards}</CardColumns>
+        </div>
+      </Row>
     </Container>
   );
 };
