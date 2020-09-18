@@ -49,6 +49,7 @@ const Introduction = ({ river, url }) => {
           <GeneralButton
             to={`${url}/${paramCase(river.rapids[0].name)}`}
             text="Click to Continue"
+            className='introduction-continue-button m-2'
           />
         </Col>
       </Row>
