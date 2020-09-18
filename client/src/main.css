@@ -10659,6 +10659,19 @@ h3 {
   padding: 0px;
 }
 
+.introduction-continue-button {
+  background-color: #3d435a;
+  border: none;
+  font-size: 1.3rem;
+  padding: 1rem 1.5rem;
+}
+.introduction-continue-button:active {
+  background-color: #4d5471;
+}
+.introduction-continue-button:hover {
+  background-color: #2d3142;
+}
+
 .Features {
   position: absolute;
   height: 100vh;

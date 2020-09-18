@@ -1,5 +1,22 @@
+@use "sass:color";
+
 .map-label-button {
   font-size: 2vh;
   margin: 0px;
   padding: 0px;
+}
+
+.introduction-continue-button {
+  background-color: color.scale($color-delta, $lightness: 10%);
+  border: none;
+  font-size: 1.3rem;
+  padding: 1rem 1.5rem;
+
+  &:active {
+    background-color: color.scale($color-delta, $lightness: 20%);
+  }
+
+  &:hover {
+    background-color: $color-delta;
+  }
 }
