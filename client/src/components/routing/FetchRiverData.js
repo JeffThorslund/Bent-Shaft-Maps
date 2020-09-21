@@ -3,7 +3,9 @@ import { BrowserRouter as Router } from "react-router-dom";
 import GlobalRouter from "./GlobalRouter";
 
 /**
- * Fetches and stores river data from database. Wraps whole application in a React Router.
+ * Fetches an array of all the rivers in the database. 
+ * Stores this river data in state. 
+ * Wraps whole application in a React Router.
  */
 
 const FetchRiverData = () => {
@@ -13,8 +15,7 @@ const FetchRiverData = () => {
     fetch("/api/getData")
       .then((response) => response.json())
       .then((data) => {
-        let filtered = data.filter((river) => river.name !== "Template River");
-        setRivers(filtered);
+        setRivers(data);
       })
       .catch((err) => console.log(err));
   }, []);
