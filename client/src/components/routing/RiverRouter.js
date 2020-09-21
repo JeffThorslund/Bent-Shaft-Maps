@@ -1,19 +1,24 @@
 import React from "react";
 import { Switch, Route, useRouteMatch } from "react-router-dom";
-import River from "../river/River";
-import Introduction from "../river/Introduction";
+import SectionRouter from "./SectionRouter";
+import { paramCase } from "change-case";
 
-export default function RiverRouter({river}) {
-  let { path, url } = useRouteMatch();
+const RiverRouter = ({ rivers }) => {
+  
+  let { url, path } = useRouteMatch();
 
   return (
     <Switch>
       <Route exact path={path}>
-        <Introduction river={river} url={url} />
+        <h1>Welcome to {url}</h1>
+        <h2>These are your options:</h2>
+        {rivers.map((river) => {
+          return <h3>{paramCase(river.name)}</h3>;
+        })}
       </Route>
-      <Route path={`${path}/:id`}>
-        <River river={river} url={url} />
-      </Route>
+      <Route path={`${path}/:river_path`} children={<SectionRouter rivers={rivers} />} />
     </Switch>
   );
-}
+};
+
+export default RiverRouter;

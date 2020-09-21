@@ -3,7 +3,7 @@ import FetchRiverData from "./components/routing/FetchRiverData"
 import "./main.css"
 
 /**
- * Renders the application and bring in stylesheet.
+ * Renders the entire application and imports the stylesheet.
  */
 
 const App = () => <FetchRiverData />;

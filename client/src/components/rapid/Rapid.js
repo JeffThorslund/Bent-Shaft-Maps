@@ -14,13 +14,12 @@ import findRapidFromId from "../../tools/findRapidFromId";
  * The Rapid container that holds all components related to an individual rapid
  */
 
-const Rapid = ({ rapid, river, url, level }) => {
+const Rapid = ({ rapid, river, level }) => {
   const arrowArray = rapid.arrows.map((arrow, key) => (
     <NextRapid
       linkId={arrow.linkId}
       bottom={arrow.bottom}
       right={arrow.right}
-      url={url}
       key={`arrow${key}`}
       river={river}
     />
@@ -62,8 +61,6 @@ Rapid.propTypes = {
   rapid: PropTypes.object.isRequired,
   /** The current water level */
   level: PropTypes.number.isRequired,
-  /** The current URL */
-  url: PropTypes.string.isRequired,
 };
 
 export default Rapid;

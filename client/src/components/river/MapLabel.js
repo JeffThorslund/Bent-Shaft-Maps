@@ -6,7 +6,6 @@ import { useHistory } from "react-router-dom";
 /** A label on the overview navigation map */
 
 const MapLabel = ({
-  url,
   name,
   mapLabel,
   toggleMap
@@ -29,7 +28,7 @@ const MapLabel = ({
       <text
         x={x2 + 1}
         y={y2 + 1}
-        onClick={() => handleClick(`${url}/${paramCase(name)}`)}
+        onClick={() => handleClick(`${paramCase(name)}`)}
         class="map-label"
       >
         {name}
