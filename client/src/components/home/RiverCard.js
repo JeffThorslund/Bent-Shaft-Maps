@@ -23,10 +23,13 @@ const RiverCard = ({
 
   return (
     <Link to={`maps/${paramCase(riverName)}/${paramCase(sectionName)}`}>
-      <Card className="p-3 river-card">
+      <Card className="px-3 py-2 river-card">
         <Card.Title
-          dangerouslySetInnerHTML={{ __html: highlightValue(riverName, value) }}
+          dangerouslySetInnerHTML={{
+            __html: highlightValue(riverName, value),
+          }}
         />
+
         <Card.Subtitle
           dangerouslySetInnerHTML={{
             __html: highlightValue(sectionName, value),
@@ -40,7 +43,9 @@ const RiverCard = ({
           className="pb-1"
         />
         <Card.Subtitle
-          dangerouslySetInnerHTML={{ __html: highlightValue(className, value) }}
+          dangerouslySetInnerHTML={{
+            __html: `Class ${highlightValue(className, value)}`,
+          }}
           className="pb-1"
         />
       </Card>

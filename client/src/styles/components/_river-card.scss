@@ -11,8 +11,7 @@
   }
 
   &:hover {
-    background-color: $color-epsilon;
-    color: $color-delta;
+    background-color: color.scale($color-beta, $lightness: -10%);
 
     #selected {
       color: color.scale($color-delta, $lightness: 10%);
