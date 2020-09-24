@@ -10747,8 +10747,7 @@ h3 {
   color: #f7c1aa;
 }
 .river-card:hover {
-  background-color: #ef8354;
-  color: #2d3142;
+  background-color: #475469;
 }
 .river-card:hover #selected {
   color: #3d435a;
