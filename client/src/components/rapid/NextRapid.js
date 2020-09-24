@@ -9,7 +9,7 @@ import GeneralButton from "../general/GeneralButton";
  * Button to navigate to a connected rapid in the river.
  */
 
-const NextRapid = ({ linkId, bottom, right, url, river }) => {
+const NextRapid = ({ linkId, bottom, right, river }) => {
   const style = {
     position: "absolute",
     bottom: `${bottom}vh`,
@@ -20,7 +20,7 @@ const NextRapid = ({ linkId, bottom, right, url, river }) => {
 
   return (
     <GeneralButton
-      to={`${url}/${paramCase(nextRapidName)}`}
+      to={`${paramCase(nextRapidName)}`}
       text={nextRapidName}
       style={style}
       variant="dark"
@@ -35,8 +35,6 @@ NextRapid.propTypes = {
   bottom: PropTypes.number.isRequired,
   /** The absolute position of the tab from the right of the viewport */
   right: PropTypes.number.isRequired,
-  /** The base url of the current rapid */
-  url: PropTypes.string.isRequired,
 };
 
 export default NextRapid;

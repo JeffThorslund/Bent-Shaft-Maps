@@ -7,7 +7,7 @@ import Card from "react-bootstrap/Card";
 
 const DoesNotExistCard = () => {
   return (
-    <Card body>
+    <Card body className="river-card">
       <Card.Title className="main">
         This River Does Not Exist! 
       </Card.Title>

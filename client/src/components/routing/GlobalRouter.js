@@ -1,38 +1,22 @@
 import React from "react";
 import { Switch, Route } from "react-router-dom";
-import { paramCase } from "change-case";
 
 import Home from "../home/Home";
 import RiverRouter from "./RiverRouter";
 import ImageUpload from "../home/ImageUpload";
-import Editing from "../user/editing-interface/Editing";
 import UserRouter from "../user/UserRouter";
 import PrivacyPolicy from "../user/PrivacyPolicy";
 
 /**
- * Router that creates all possible routes
- * www.bentshaftmaps.com/<path>
- * @param {array} rivers - dataset of all rivers in database
+ * Creates all routes of base url.
+ * Shows <Home /> by default.
+ * Creates user login route, privacy policy route, and image upload interface route.
+ * Creates route with variable url for differentiation at the river level.
  */
 
 const GlobalRouter = ({ rivers }) => {
-  // Create a route for each river
-  let routeArray = rivers
-    ? rivers.map((river) => {
-        return (
-          <Route path={`/${paramCase(river.name)}`} key={`river${river.id}`}>
-            <RiverRouter river={river} />
-          </Route>
-        );
-      })
-    : [];
-
   return (
     <Switch>
-      <Route exact path="/user-edit" key="user-edit">
-        <Editing />
-      </Route>
-
       <Route exact path="/" key="home">
         <Home rivers={rivers} />
       </Route>
@@ -50,7 +34,9 @@ const GlobalRouter = ({ rivers }) => {
           <ImageUpload />
         </Route>
       )}
-      {routeArray}
+
+      {rivers ? <Route path="/maps" children={<RiverRouter rivers={rivers}/>} /> : null }
+
     </Switch>
   );
 };
