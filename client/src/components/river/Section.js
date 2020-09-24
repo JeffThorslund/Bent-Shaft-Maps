@@ -2,6 +2,7 @@ import React, { useLayoutEffect, useState } from "react";
 import PropTypes from "prop-types";
 import { withRouter } from "react-router-dom";
 import { paramCase } from "change-case";
+import { useRouteMatch, useParams } from "react-router-dom";
 
 import Modal from "react-bootstrap/Modal";
 
@@ -12,12 +13,21 @@ import MobileAlert from "./MobileAlert";
 import Slider from "./Slider";
 
 /**
- * Container that displays all information specific to a single river.
+ * Container that displays all information specific to a single section.
  * This includes the level slider and the overview map.
  * Chooses which rapid should be displayed and renders the corresponding Rapid.js.
  */
 
-const River = ({ river, url, match }) => {
+const Section = ({ section }) => {
+  let { url, path } = useRouteMatch();
+  let { rapid_path } = useParams();
+
+  console.table({
+    SectionUrl: url,
+    SectionPath: path,
+    SectionParams: rapid_path,
+  });
+
   const [level, setLevel] = useState(0);
   const [mapIsShowing, setMapIsShowing] = useState(false);
   const [isMobileAlertActive, setIsMobileAlertActive] = useState(false);
@@ -43,27 +53,20 @@ const River = ({ river, url, match }) => {
   };
 
   // Create Rapid Instance
-  const rapidInstance = river.rapids.map((rapid, index) => {
-    if (match.params.id === paramCase(rapid.name)) {
-      return (
-        <Rapid
-          rapid={rapid}
-          river={river}
-          url={url}
-          level={level}
-          key={`rapid${index}`}
-        />
-      );
-    }
-    return null;
-  });
+  const rapid = section.rapids.find(
+    (rapid) => rapid_path === paramCase(rapid.name)
+  );
 
   return (
     <>
       {isMobileAlertActive && window.screen.height > window.screen.width ? (
         <MobileAlert setIsMobileAlertActive={setIsMobileAlertActive} />
       ) : (
-        rapidInstance
+        <Rapid
+          rapid={rapid}
+          river={section}
+          level={level}
+        />
       )}
 
       <Modal
@@ -72,14 +75,14 @@ const River = ({ river, url, match }) => {
         onHide={toggleMap}
         centered
       >
-        <Map url={url} toggleMap={toggleMap} river={river} />
+        <Map url={url} toggleMap={toggleMap} river={section} />
       </Modal>
 
       <div id="slider-position">
         <Slider
-          min={river.level.levelMin}
-          max={river.level.levelMax}
-          units={river.level.levelUnits}
+          min={section.level.levelMin}
+          max={section.level.levelMax}
+          units={section.level.levelUnits}
           level={level}
           setLevel={setLevel}
         />
@@ -96,13 +99,9 @@ const River = ({ river, url, match }) => {
   );
 };
 
-River.propTypes = {
-  /** River data object */
-  river: PropTypes.object.isRequired,
-  /** Url to match. This is how rapid is identified. */
-  url: PropTypes.string.isRequired,
-  /** Automatically passed by router. */
-  match: PropTypes.object.isRequired,
+Section.propTypes = {
+  /** Section data object */
+  section: PropTypes.object.isRequired,
 };
 
-export default withRouter(River);
+export default withRouter(Section);

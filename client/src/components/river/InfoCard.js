@@ -6,7 +6,7 @@ import Card from "react-bootstrap/Card";
 
 const InfoCard = ({ title, body, link }) => {
   return (
-    <Card body className="m-2">
+    <Card body>
       <Card.Title>{title}</Card.Title>
       <Card.Text>{body}</Card.Text>
       {link && (

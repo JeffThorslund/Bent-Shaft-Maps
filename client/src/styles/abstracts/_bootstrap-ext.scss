@@ -1,0 +1,36 @@
+/*
+ * Extension of default Bootstrap variables 
+/*
+
+/* TYPOGRAPHY */
+
+$enable-responsive-font-sizes: true;
+$font-family-sans-serif: "Lato", sans-serif;
+
+/* SPACING */
+
+$spacer: 1.2rem;
+
+/* LINKS */
+
+$link-color: black;
+$link-hover-decoration: none;
+
+/* CARD */
+
+$card-border-radius: 5px;
+
+/* COLOURS */
+
+$theme-colors: ();
+
+$theme-colors: map-merge(
+  (
+    "color-alpha": $color-alpha,
+    "color-beta": $color-beta,
+    "color-gamma": $color-gamma,
+    "color-delta": $color-delta,
+    "color-epsilon": $color-epsilon,
+  ),
+  $theme-colors
+);

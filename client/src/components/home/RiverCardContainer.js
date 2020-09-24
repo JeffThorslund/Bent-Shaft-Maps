@@ -16,46 +16,39 @@ const RiverCardContainer = ({ rivers }) => {
     setValue(e.target.value);
   };
 
-  //Terms that will be searched
-  const searchRiverProps = ["name", "location"];
-
-  let RiverCards =
+  let riverCardData =
     rivers &&
-    //Remove rivers that do not match search query
     rivers
-      .filter((river) => {
-        if (value.length === 0) return true;
-        for (let searchRiverProp of searchRiverProps) {
-          if (
-            river[searchRiverProp].toUpperCase().indexOf(value.toUpperCase()) >
-            -1
-          )
-            return true;
-        }
-        return false;
+      .map((river) => {
+        return river.sections.map((section) => {
+          return {
+            riverName: river.name,
+            sectionName: section.section,
+            locationName: section.location,
+            className: section.class,
+          };
+        });
       })
-      //Replace search query with bold span
-      .map((river, index) => {
-        let substrings = {};
-        for (let i = 0; i < searchRiverProps.length; i++) {
-          substrings[searchRiverProps[i]] = river[searchRiverProps[i]].replace(
-            new RegExp(value, "i"),
-            (match) => {
-              return `<span id='selected'>${match}</span>`;
-            }
-          );
-        }
+      .flat();
 
-        return (
-          <RiverCard
-            riverName={river.name}
-            classResult={river.class}
-            nameResult={substrings.name}
-            locationResult={substrings.location}
-            key={`${river.name, index}`}
-          />
-        );
-      });
+  let RiverCards = riverCardData
+    ? riverCardData
+        .filter((card) => {
+          if (value.length === 0) return true;
+
+          for (const [key, result] of Object.entries(card)) {
+            if (result.toUpperCase().indexOf(value.toUpperCase()) > -1)
+              return true;
+          }
+
+          return false;
+        })
+        .map((card, index) => {
+          return (
+            <RiverCard {...card} value={value} key={`RiverCard${index}`} />
+          );
+        })
+    : null;
 
   return (
     <>
@@ -64,7 +57,6 @@ const RiverCardContainer = ({ rivers }) => {
         value={value}
         placeholder="Search for a river, town, province or state!"
       />
-
       {RiverCards !== null && RiverCards.length > 0 ? (
         <CardColumns>{RiverCards}</CardColumns>
       ) : (

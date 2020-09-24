@@ -1,12 +1,16 @@
-@import "./typography";
-@import "./themes";
-@import "./variables";
+@import "./abstracts/variables";
+@import "./abstracts/bootstrap-ext";
+@import "./abstracts/mixins";
 
-@import "../../node_modules/bootstrap/scss/bootstrap.scss";
+@import "./vendors/bootstrap";
+
+@import "./base/typography";
 
 @import "./components/slider";
 @import "./components//buttons";
 @import "./components/features";
+@import "./components/river-card";
+@import "./components/header";
 
 @import "./pages/home";
 @import "./pages/loading";
