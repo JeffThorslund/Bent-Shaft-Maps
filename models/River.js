@@ -1,70 +1,56 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
-//Create River Schema
-const RiverSchema = new Schema({
-  name: {
-    type: "String",
-    required: true
-  },
-  id: {
-    type: "String",
-    required: true
-  },
-  desc: {
-    type: "String",
-    required: true
-  },
-  info: {
-    type: "String",
-    required: true
-  },
-  location: {
-    type: "String",
-    required: true
-  },
-  class: {
-    type: "String",
-    required: true
-  },
-  putIn: {
-    type: "String",
-    required: true
-  },
-  takeOut: {
-    type: "String",
-    required: true
-  },
+//Rapid Schema
+const RapidSchema = new Schema({
+name: String,
+id: String,
+desc: [
+  {
+    text: String,
+    range: [Number]
+  }
+],
+riverMap: String,
+hydraulics: Array,
+eddys: Array,
+lines: Array,
+symbols: Array,
+arrows: Array,
+mapLabel: [[Number], [Number]]
+})
+
+//Section Schema
+const SectionSchema = new Schema({
+  name: String,
+  id: String,
+  desc: String,
+  overViewMap: String,
+  access: String,
+  location: String,
+  class: String,
+  putIn: String,
+  takeOut: String,
+  sponsors: [
+    {
+      logo: String,
+      link: String,
+    },
+  ],
+  contributors: [String],
   level: {
-    defaultLevel: {
-      type: "Number",
-      required: true
-    },
-    levelUnits: {
-      type: "String",
-      required: true
-    },
-    levelMin: {
-      type: "Number",
-      required: true
-    },
-    levelMax: {
-      type: "Number",
-      required: true
-    },
+    defaultLevel: Number,
+    levelUnits: String,
+    levelRange: [Number],
   },
-  sponsors: {
-    type: ["Mixed"],
-  },
-  contributors: {
-    type: ["String"],
-  },
-  rapids: {
-    type: ["Mixed"],
-  },
+  rapids: [RapidSchema]
 });
 
-const AnySchema = new Schema({ name: {} });
+//River Schema
+const RiverSchema = new Schema({
+  name: String,
+  sections: [SectionSchema],
+});
 
-
-module.exports = Any = mongoose.model("River", AnySchema);
+//River
+exports.River = River = mongoose.model("River", RiverSchema);

@@ -16,7 +16,7 @@ const SectionRouter = ({ rivers }) => {
         <h1>Welcome to {river_path}</h1>
         <h2>These are your options:</h2>
         {river.sections.map((section, index) => {
-          return <h3 key={index}>{paramCase(section.section)}</h3>;
+          return <h3 key={index}>{paramCase(section.name)}</h3>;
         })}
       </Route>
       

@@ -9,7 +9,7 @@ const RapidRouter = ({ sections }) => {
   let { section_path } = useParams();
 
   let section = sections.find(
-    (section) => paramCase(section.section) === section_path
+    (section) => paramCase(section.name) === section_path
   );
 
   return (

@@ -44,7 +44,7 @@ const Introduction = ({ river, url }) => {
         <Col className="d-flex flex-column align-items-center">
           <h1 className="text-center">
             Welcome to the <br />
-            {river.section}
+            {river.name}
           </h1>
           <GeneralButton
             to={`${url}/${paramCase(river.rapids[0].name)}`}
