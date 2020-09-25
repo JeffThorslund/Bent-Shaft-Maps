@@ -12,7 +12,7 @@ const FetchRiverData = () => {
   const [rivers, setRivers] = useState(null);
   
   useEffect(() => {
-    fetch("/api/getData")
+    fetch("/api/getRivers")
       .then((response) => response.json())
       .then((data) => {
         setRivers(data);

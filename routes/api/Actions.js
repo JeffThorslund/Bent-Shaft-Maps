@@ -4,14 +4,14 @@ const router = express.Router();
 const sendMail = require("../../modules/sendMail");
 
 //River Model
-const Any = require("../../models/River");
+const { River } = require("../../models/River");
 
-// @route  POST api/getData
+// @route  Get api/getData
 // @desc   Pulls all data from database
 // @access Public
 
-router.get("/getData", (req, res, next) => {
-  Any.find().then((riv) => res.json(riv));
+router.get("/getRivers", (req, res, next) => {
+  River.find().then((riv) => res.json(riv));
 });
 
 // @route  POST api/sendMail

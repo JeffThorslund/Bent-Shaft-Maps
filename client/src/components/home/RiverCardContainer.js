@@ -23,7 +23,7 @@ const RiverCardContainer = ({ rivers }) => {
         return river.sections.map((section) => {
           return {
             riverName: river.name,
-            sectionName: section.section,
+            sectionName: section.name,
             locationName: section.location,
             className: section.class,
           };
