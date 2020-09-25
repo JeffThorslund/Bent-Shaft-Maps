@@ -1,1 +1,96 @@
-<mxfile host="app.diagrams.net" modified="2020-09-25T19:57:18.419Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.121 Safari/537.36" version="13.7.5" etag="J11AD5CXC2dJxl4Uu7p_" type="github"><diagram id="ItuifjqRIwDzFbKC9WBl">UzV2zq1wL0osyPDNT0nNUTV2VTV2LsrPL4GwciucU3NyVI0MMlNUjV1UjYwMgFjVyA2HrCFY1qAgsSg1rwSLBiADYTaQg2Y1AA==</diagram></mxfile>
+<mxfile host="app.diagrams.net" modified="2020-09-25T20:27:25.459Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.121 Safari/537.36" etag="pqn0vZckUkntjr8lxeLT" version="13.7.5" type="github">
+  <diagram id="ItuifjqRIwDzFbKC9WBl" name="Page-1">
+    <mxGraphModel dx="1185" dy="635" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="52mvo-1do-57cpNClRD--32" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="52mvo-1do-57cpNClRD--2" target="52mvo-1do-57cpNClRD--22">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="52mvo-1do-57cpNClRD--2" value="Add Content" style="rounded=1;whiteSpace=wrap;html=1;glass=0;" vertex="1" parent="1">
+          <mxGeometry x="10" y="10" width="120" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="52mvo-1do-57cpNClRD--7" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="52mvo-1do-57cpNClRD--3" target="52mvo-1do-57cpNClRD--6">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="52mvo-1do-57cpNClRD--3" value="Add New River" style="rounded=0;whiteSpace=wrap;html=1;shadow=0;fillColor=#ffe6cc;strokeColor=#d79b00;" vertex="1" parent="1">
+          <mxGeometry x="200" y="10" width="110" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="52mvo-1do-57cpNClRD--34" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="52mvo-1do-57cpNClRD--6" target="52mvo-1do-57cpNClRD--9">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="52mvo-1do-57cpNClRD--6" value="&lt;font style=&quot;font-size: 12px&quot;&gt;name&lt;br&gt;desc&lt;br&gt;&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="350" y="17.5" width="120" height="45" as="geometry" />
+        </mxCell>
+        <mxCell id="52mvo-1do-57cpNClRD--35" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="52mvo-1do-57cpNClRD--9" target="52mvo-1do-57cpNClRD--11">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="52mvo-1do-57cpNClRD--9" value="Add New Section" style="whiteSpace=wrap;html=1;rounded=0;strokeColor=#d79b00;fillColor=#ffe6cc;" vertex="1" parent="1">
+          <mxGeometry x="250" y="160" width="110" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="52mvo-1do-57cpNClRD--37" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="52mvo-1do-57cpNClRD--11" target="52mvo-1do-57cpNClRD--13">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="485" y="275" />
+              <mxPoint x="485" y="380" />
+              <mxPoint x="320" y="380" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="52mvo-1do-57cpNClRD--11" value="name&lt;br&gt;desc&lt;br&gt;overviewMap&lt;br&gt;access&lt;br&gt;location&lt;br&gt;class&lt;br&gt;putIn&lt;br&gt;takeOut&lt;br&gt;levelRange&lt;br&gt;sponsors" style="whiteSpace=wrap;html=1;rounded=0;strokeColor=#6c8ebf;fillColor=#dae8fc;" vertex="1" parent="1">
+          <mxGeometry x="420" y="170" width="120" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="52mvo-1do-57cpNClRD--16" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="52mvo-1do-57cpNClRD--13" target="52mvo-1do-57cpNClRD--15">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="52mvo-1do-57cpNClRD--13" value="Add New Rapid" style="whiteSpace=wrap;html=1;rounded=0;strokeColor=#d79b00;fillColor=#ffe6cc;" vertex="1" parent="1">
+          <mxGeometry x="260" y="420" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="52mvo-1do-57cpNClRD--15" value="name&lt;br&gt;desc&lt;br&gt;riverMap&lt;br&gt;map label" style="whiteSpace=wrap;html=1;rounded=0;strokeColor=#6c8ebf;fillColor=#dae8fc;" vertex="1" parent="1">
+          <mxGeometry x="470" y="430" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="52mvo-1do-57cpNClRD--24" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="52mvo-1do-57cpNClRD--22" target="52mvo-1do-57cpNClRD--3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="52mvo-1do-57cpNClRD--25" value="No" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="52mvo-1do-57cpNClRD--24">
+          <mxGeometry x="-0.1463" y="-2" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="52mvo-1do-57cpNClRD--42" value="Yes" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="52mvo-1do-57cpNClRD--22" target="52mvo-1do-57cpNClRD--41">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="52mvo-1do-57cpNClRD--22" value="Does River Exist?" style="rhombus;whiteSpace=wrap;html=1;rounded=0;shadow=0;glass=0;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
+          <mxGeometry x="20" y="70" width="130" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="52mvo-1do-57cpNClRD--33" value="No" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="52mvo-1do-57cpNClRD--27" target="52mvo-1do-57cpNClRD--9">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="52mvo-1do-57cpNClRD--45" value="Yes" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.458;entryY=0.028;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="52mvo-1do-57cpNClRD--27" target="52mvo-1do-57cpNClRD--44">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="52mvo-1do-57cpNClRD--27" value="Does Section Exist?" style="rhombus;whiteSpace=wrap;html=1;rounded=0;shadow=0;glass=0;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
+          <mxGeometry x="10" y="270" width="150" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="52mvo-1do-57cpNClRD--40" value="No" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="52mvo-1do-57cpNClRD--30" target="52mvo-1do-57cpNClRD--13">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="52mvo-1do-57cpNClRD--30" value="Does Rapid Exist?" style="rhombus;whiteSpace=wrap;html=1;rounded=0;shadow=0;glass=0;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
+          <mxGeometry x="15" y="500" width="150" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="52mvo-1do-57cpNClRD--43" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="52mvo-1do-57cpNClRD--41" target="52mvo-1do-57cpNClRD--27">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="52mvo-1do-57cpNClRD--41" value="Select River" style="rounded=0;whiteSpace=wrap;html=1;shadow=0;glass=0;fillColor=#ffe6cc;strokeColor=#d79b00;" vertex="1" parent="1">
+          <mxGeometry x="25" y="170" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="52mvo-1do-57cpNClRD--46" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="52mvo-1do-57cpNClRD--44" target="52mvo-1do-57cpNClRD--30">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="52mvo-1do-57cpNClRD--44" value="Select Section" style="rounded=0;whiteSpace=wrap;html=1;shadow=0;glass=0;fillColor=#ffe6cc;strokeColor=#d79b00;" vertex="1" parent="1">
+          <mxGeometry x="30" y="380" width="120" height="60" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
