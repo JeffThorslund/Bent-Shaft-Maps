@@ -21,9 +21,11 @@ const GlobalRouter = ({ rivers }) => {
         <Home rivers={rivers} />
       </Route>
 
-      <Route path="/user" key="user">
-        <UserRouter />
-      </Route>
+      {rivers && (
+        <Route path="/user" key="user">
+          <UserRouter rivers={rivers} />
+        </Route>
+      )}
 
       <Route path="/privacy-policy" key="privacy-policy">
         <PrivacyPolicy />
@@ -35,8 +37,9 @@ const GlobalRouter = ({ rivers }) => {
         </Route>
       )}
 
-      {rivers ? <Route path="/maps" children={<RiverRouter rivers={rivers}/>} /> : null }
-
+      {rivers ? (
+        <Route path="/maps" children={<RiverRouter rivers={rivers} />} />
+      ) : null}
     </Switch>
   );
 };

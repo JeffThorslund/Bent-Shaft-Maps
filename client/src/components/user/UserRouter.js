@@ -6,7 +6,7 @@ import axios from "axios";
 import Dashboard from "./dashboard/Dashboard";
 import AuthInterface from "./authentication/AuthInterface";
 
-const UserRouter = () => {
+const UserRouter = ({rivers}) => {
   //DEFINE STATE FOR TOKEN AND USER
   const [userData, setUserData] = useState({
     token: undefined,
@@ -100,7 +100,7 @@ const UserRouter = () => {
         handleLogin(e, user);
       })
       .catch((error) => {
-        alert(error.response.data);
+        alert(error.response);
       });
   };
 
@@ -120,7 +120,7 @@ const UserRouter = () => {
         </Route>
 
         <Route path={`${path}/dashboard`}>
-          <Dashboard />
+          <Dashboard rivers={rivers}/>
         </Route>
       </Switch>
     </UserContext.Provider>

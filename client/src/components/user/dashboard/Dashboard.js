@@ -1,32 +1,46 @@
-import React, { useContext } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import UserContext from "../UserContext";
 import Navigation from "./Navigation";
-import Contributions from "./contribution/Contributions";
-import RiverDisplay from "./river-display/RiverDisplay";
+import CreationNavigation from "./CreationNavigation";
+import Container from "react-bootstrap/Container";
+import EditRiver from "./pages/EditRiver";
+import { Formik, Form, Field, ErrorMessage } from "formik";
+import { config } from "../../../config";
 
 /**
  * User Home Page
  */
 
-const UserHome = () => {
+const Dashboard = ({ rivers }) => {
   const { userData } = useContext(UserContext);
+
   let user = userData.user;
 
   return user ? (
-    <div className="container-fluid vh-100">
-      <div className="h-100 d-flex flex-column">
-        <Navigation user={user} />
-        <div className="row flex-grow-1">
-          <div className="col-3 border">
-            <Contributions />
-          </div>
-          <div className="col-9 border">
-            <RiverDisplay />
-          </div>
+    <div className="vh-100">
+      <Navigation user={user} />
+      <Container fluid>
+        <CreationNavigation />
+        <div>
+          <Formik
+            initialValues={rivers}
+            onSubmit={(values, { setSubmitting }) => {
+              setTimeout(() => {
+                alert(JSON.stringify(values, null, 2));
+                setSubmitting(false);
+              }, 400);
+            }}
+          >
+            {({ isSubmitting }) => (
+              <Form>
+                <EditRiver config={config} rivers={rivers} />
+              </Form>
+            )}
+          </Formik>
         </div>
-      </div>
+      </Container>
     </div>
   ) : null;
 };
 
-export default UserHome;
+export default Dashboard;
