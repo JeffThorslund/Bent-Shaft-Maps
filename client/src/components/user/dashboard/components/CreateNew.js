@@ -1,8 +1,9 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { Formik, Form, Field, ErrorMessage } from "formik";
+import Button from "react-bootstrap/Button";
 
-const CreateNew = ({ rivers, fieldProps }) => {
+const CreateNew = ({ values, fieldProps }) => {
   const fields = fieldProps
     .filter((field) => {
       return field.renderfield;
@@ -11,7 +12,7 @@ const CreateNew = ({ rivers, fieldProps }) => {
     .map((field, i) => {
       return (
         <Field
-          name={`[${rivers.length}]${field.name}`}
+          name={`[${values.length - 1}]${field.name}`}
           placeholder={field.placeholder}
           type="text"
           key={i}
@@ -22,7 +23,8 @@ const CreateNew = ({ rivers, fieldProps }) => {
   return (
     <div>
       <h1>Create a new river</h1>
-      {fields}
+      <div>{fields}</div>
+      <Button>Create River</Button>
     </div>
   );
 };

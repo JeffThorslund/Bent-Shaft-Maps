@@ -23,7 +23,7 @@ const Dashboard = ({ rivers }) => {
         <CreationNavigation />
         <div>
           <Formik
-            initialValues={rivers}
+            initialValues={[...rivers, {}]}
             onSubmit={(values, { setSubmitting }) => {
               setTimeout(() => {
                 alert(JSON.stringify(values, null, 2));
@@ -31,9 +31,9 @@ const Dashboard = ({ rivers }) => {
               }, 400);
             }}
           >
-            {({ isSubmitting }) => (
+            {({ isSubmitting, values }) => (
               <Form>
-                <EditRiver config={config} rivers={rivers} />
+                <EditRiver config={config} values={values} />
               </Form>
             )}
           </Formik>
