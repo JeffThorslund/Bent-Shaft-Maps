@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import CreateAndEditFields from "../components/CreateAndEditFields";
-import EditSection from "./EditSection"
+import EditSection from "./EditSection";
 
-const EditRiver = ({ config, values, children }) => {
+const EditRiver = ({ config, values }) => {
   const [riverIndex, setRiverIndex] = useState(values.length - 1);
   const [next, setNext] = useState(false);
   const path = `[${riverIndex}]`;
@@ -22,8 +22,8 @@ const EditRiver = ({ config, values, children }) => {
       ) : (
         <EditSection
           config={config.sections.type[0]}
-          values={values[0].sections}
-          path={`[0].sections`}
+          values={values[riverIndex].sections}
+          path={`[${riverIndex}].sections`}
         />
       )}
     </>

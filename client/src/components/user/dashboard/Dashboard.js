@@ -6,8 +6,7 @@ import Container from "react-bootstrap/Container";
 //import SplitEdit from "./pages/SplitEdit";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import { config } from "../../../config";
-import EditRiver from "./pages/EditRiver";
-import EditSection from "./pages/EditSection";
+import CreateAndEditFields from "./components/CreateAndEditFields";
 
 /**
  * User Home Page
@@ -15,19 +14,52 @@ import EditSection from "./pages/EditSection";
 
 const Dashboard = ({ rivers }) => {
   const { userData } = useContext(UserContext);
-  const fatty = " Hellol";
   let user = userData.user;
+  console.log(rivers)
   return user ? (
     <div className="vh-100">
       <Navigation user={user} />
       <Container fluid>
         <CreationNavigation />
 
-        <Formik initialValues={[...rivers, { name: "" }]}>
+        <Formik
+          initialValues={{
+            rivers: rivers,
+          }}
+        >
           {({ values }) => {
+            const nextOverride = [0, 0, 1];
+
             return (
               <Form>
-                <EditRiver config={config} values={values} path="" />
+                <CreateAndEditFields
+                  config={config}
+                  //This should be like this from the beginning.
+                  values={values}
+                  topic="rivers"
+                  path={null}
+                >
+                  {({ config, prevIndex, path, values }) => (
+                    <CreateAndEditFields
+                      config={config}
+                      values={values}
+                      topic="sections"
+                      path={`${path}.section[${prevIndex}]`}
+                    >
+                      {({ config, prevIndex, path, values }) => (
+                        <CreateAndEditFields
+                          config={config}
+                          values={values}
+                          topic="rapids"
+                          path={`${path}.rapids[${prevIndex}]`}
+                        >
+                          Hello
+                        </CreateAndEditFields>
+                      )}
+                    </CreateAndEditFields>
+                  )}
+                </CreateAndEditFields>
+                {/* <EditRiver config={config} values={values} path="" /> */}
               </Form>
             );
           }}
