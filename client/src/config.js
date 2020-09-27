@@ -6,9 +6,9 @@ const config = {
     type: [
       {
         name: { type: String, renderField: true },
-        id: { type: String, renderField: true },
+        id: { type: String, renderField: false },
         desc: { type: String, renderField: true },
-        overViewMap: { type: String, renderField: true },
+        overViewMap: { type: String, renderField: false },
         access: { type: String, renderField: true },
         location: { type: String, renderField: true },
         class: { type: String, renderField: true },
