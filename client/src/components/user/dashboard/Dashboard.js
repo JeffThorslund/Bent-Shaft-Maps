@@ -3,9 +3,10 @@ import UserContext from "../UserContext";
 import Navigation from "./Navigation";
 import CreationNavigation from "./CreationNavigation";
 import Container from "react-bootstrap/Container";
-import EditRiver from "./pages/EditRiver";
+//import SplitEdit from "./pages/SplitEdit";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import { config } from "../../../config";
+import EditRiver from "./pages/EditRiver";
 
 /**
  * User Home Page
@@ -13,6 +14,15 @@ import { config } from "../../../config";
 
 const Dashboard = ({ rivers }) => {
   const { userData } = useContext(UserContext);
+  const [step, setStep] = useState(0);
+
+  const [trace, setTrace] = useState({
+    riverIndex: null,
+    sectionIndex: null,
+    rapidIndex: null,
+    featureType: null,
+    featureIndex: null,
+  });
 
   let user = userData.user;
 
@@ -20,7 +30,7 @@ const Dashboard = ({ rivers }) => {
     <div className="vh-100">
       <Navigation user={user} />
       <Container fluid>
-        <CreationNavigation />
+        <CreationNavigation setStep={setStep} />
         <div>
           <Formik
             initialValues={[...rivers, {}]}
@@ -31,11 +41,23 @@ const Dashboard = ({ rivers }) => {
               }, 400);
             }}
           >
-            {({ isSubmitting, values }) => (
-              <Form>
-                <EditRiver config={config} values={values} />
-              </Form>
-            )}
+            {({ isSubmitting, values }) => {
+              return (
+                <Form>
+                  {
+                    [
+                      <EditRiver
+                        config={config}
+                        values={values}
+                        setStep={setStep}
+                        trace={trace}
+                        setTrace={setTrace}
+                      />,
+                    ][step]
+                  }
+                </Form>
+              );
+            }}
           </Formik>
         </div>
       </Container>
