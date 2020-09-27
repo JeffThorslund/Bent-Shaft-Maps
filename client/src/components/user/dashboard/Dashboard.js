@@ -36,21 +36,21 @@ const Dashboard = ({ rivers }) => {
                   config={{ rivers: [config] }}
                   values={values}
                   topic="rivers"
-                  path={null}
+                  prevPath=""
                 >
-                  {({ config, prevIndex, path, values }) => (
+                  {({ config, values, prevPath }) => (
                     <CreateAndEditFields
                       config={config}
                       values={values}
                       topic="sections"
-                      path={`${path}.section[${prevIndex}]`}
+                      prevPath={prevPath}
                     >
-                      {({ config, prevIndex, path, values }) => (
+                      {({ config, values, prevPath }) => (
                         <CreateAndEditFields
                           config={config}
                           values={values}
                           topic="rapids"
-                          path={`${path}.rapids[${prevIndex}]`}
+                          prevPath={prevPath}
                         >
                           Hello
                         </CreateAndEditFields>

@@ -4,9 +4,11 @@ import Button from "react-bootstrap/Button";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 
-const CreateAndEditFields = ({ config, values, topic, path, children }) => {
+const CreateAndEditFields = ({ config, values, topic, children, prevPath }) => {
   const [index, setIndex] = useState(null);
   const [next, setNext] = useState(false);
+  
+  const path = `${prevPath}${topic}[${index}]`
 
   console.log(config[topic]);
 
@@ -33,6 +35,7 @@ const CreateAndEditFields = ({ config, values, topic, path, children }) => {
       <div>
         {topic}:{index}
       </div>
+      <div>path: {path}</div>
       {!next ? (
         <Row className="d-flex flex-row">
           <Col>
@@ -48,8 +51,7 @@ const CreateAndEditFields = ({ config, values, topic, path, children }) => {
         children({
           config: config[topic][0],
           values: values[topic][index],
-          prevIndex: index,
-          path: path,
+          prevPath: path,
         })
       )}
     </>
