@@ -15,7 +15,7 @@ import CreateAndEditFields from "./components/CreateAndEditFields";
 const Dashboard = ({ rivers }) => {
   const { userData } = useContext(UserContext);
   let user = userData.user;
-  console.log(rivers)
+
   return user ? (
     <div className="vh-100">
       <Navigation user={user} />
@@ -33,8 +33,7 @@ const Dashboard = ({ rivers }) => {
             return (
               <Form>
                 <CreateAndEditFields
-                  config={config}
-                  //This should be like this from the beginning.
+                  config={{ rivers: [config] }}
                   values={values}
                   topic="rivers"
                   path={null}

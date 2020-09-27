@@ -5,26 +5,20 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 
 const CreateAndEditFields = ({ config, values, topic, path, children }) => {
-  console.log(values);
-
   const [index, setIndex] = useState(null);
   const [next, setNext] = useState(false);
 
-  console.log(values);
-  console.log(values[topic]);
-  console.log(values[topic][index]);
+  console.log(config[topic]);
 
-  // const fields = Object.entries(config[topic])
-  //   .filter(([_, value]) => value.renderField)
-  //   .map(([key, _], i) => {
-  //     //console.log(`${path}.${key}`);
-
-  //     return (
-  //       <div key={i}>
-  //         <Field name={`${path}.${key}`} placeholder={key} type="text" />
-  //       </div>
-  //     );
-  //   });
+  const fields = Object.entries(config[topic][0])
+    .filter(([_, value]) => value.renderField)
+    .map(([key, _], i) => {
+      return (
+        <div key={i}>
+          <Field name={`${path}.${key}`} placeholder={key} type="text" />
+        </div>
+      );
+    });
 
   const tags = values[topic].map((item, i) => {
     return (
@@ -34,24 +28,31 @@ const CreateAndEditFields = ({ config, values, topic, path, children }) => {
     );
   });
 
-  tags.push("robby");
-
-  return !next ? (
-    <Row className="d-flex flex-row">
-      <Col>
-        <h1>Edit Existing {topic}</h1>
-        {tags}
-        {/* {fields} */}
-        <Button onClick={() => setNext(true)}>Save Changes</Button>
-      </Col>
-    </Row>
-  ) : (
-    children({
-      config: config[topic],
-      values: values[topic][index],
-      prevIndex: index,
-      path: path,
-    })
+  return (
+    <>
+      <div>
+        {topic}:{index}
+      </div>
+      {!next ? (
+        <Row className="d-flex flex-row">
+          <Col>
+            <h1>Edit Existing {topic}</h1>
+            {tags}
+            {fields}
+            {index !== null && (
+              <Button onClick={() => setNext(true)}>Save Changes</Button>
+            )}
+          </Col>
+        </Row>
+      ) : (
+        children({
+          config: config[topic][0],
+          values: values[topic][index],
+          prevIndex: index,
+          path: path,
+        })
+      )}
+    </>
   );
 };
 
