@@ -27,13 +27,12 @@ const Dashboard = ({ rivers }) => {
             rivers: rivers,
           }}
         >
-          {({ values }) => {
-            const nextOverride = [0, 0, 1];
-
+          {({ values, setFieldValue }) => {
             return (
               <Form>
                 <CreateAndEditFields
                   config={{ rivers: [config] }}
+                  setFieldValue={setFieldValue}
                   values={values}
                   topic="rivers"
                   prevPath=""
@@ -52,7 +51,7 @@ const Dashboard = ({ rivers }) => {
                           topic="rapids"
                           prevPath={prevPath}
                         >
-                          Hello
+                          {() => "Hello"}
                         </CreateAndEditFields>
                       )}
                     </CreateAndEditFields>
