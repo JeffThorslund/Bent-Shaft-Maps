@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import Button from "react-bootstrap/Button";
 
-const CreateNew = ({ values, fieldProps }) => {
+const CreateNew = ({ values, fieldProps, setTrace }) => {
   const fields = fieldProps
     .filter((field) => {
       return field.renderfield;
@@ -22,9 +22,17 @@ const CreateNew = ({ values, fieldProps }) => {
 
   return (
     <div>
-      <h1>Create a new river</h1>
+      <h1>Create a new</h1>
       <div>{fields}</div>
-      <Button>Create River</Button>
+      <Button
+        onClick={() =>
+          setTrace((prev) => {
+            return { ...prev, riverIndex: values.length - 1 };
+          })
+        }
+      >
+        Create River
+      </Button>
     </div>
   );
 };

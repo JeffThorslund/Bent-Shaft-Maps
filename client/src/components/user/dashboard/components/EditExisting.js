@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import Button from "react-bootstrap/Button";
 
-const EditExisting = ({ values, fieldProps }) => {
+const EditExisting = ({ values, fieldProps, setStep, topic }) => {
   const [selected, setSelected] = useState(null);
 
   const tags = values
@@ -19,7 +19,7 @@ const EditExisting = ({ values, fieldProps }) => {
 
   return (
     <div>
-      <h1>Edit an existing river</h1>
+      <h1>Edit an existing {topic}</h1>
       <div className="pb-3">{tags}</div>
       {selected !== null ? (
         <div className="pb-3">
@@ -27,7 +27,9 @@ const EditExisting = ({ values, fieldProps }) => {
           <div>{field}</div>
         </div>
       ) : null}
-      <Button>Save and Continue</Button>
+      <Button onClick={() => setStep((prev) => prev.step + 1)}>
+        Save and Continue
+      </Button>
     </div>
   );
 };

@@ -3,14 +3,14 @@ import PropTypes from "prop-types";
 import ButtonGroup from "react-bootstrap/ButtonGroup";
 import Button from "react-bootstrap/Button";
 
-const CreationNavigation = (props) => {
+const CreationNavigation = ({ setStep }) => {
   const config = ["River", "Section", "Rapid", "Map Labels"];
 
   return (
     <ButtonGroup className="w-100">
       {config.map((label, i) => {
         return (
-          <Button variant="outline-secondary" key={i}>
+          <Button onClick={()=>setStep(i)} variant="outline-secondary" key={i}>
             {i + 1}. {label}
           </Button>
         );

@@ -4,7 +4,7 @@ import CreateNew from "../components/CreateNew";
 import EditExisting from "../components/EditExisting";
 import Form from "react-bootstrap/Form";
 
-const EditRiver = ({ config, values, setStep, trace, setTrace }) => {
+const SplitEdit = ({ config, values, setStep, topic }) => {
   const fieldProps = Object.entries(config).map(([key, value]) => {
     return { name: key, placeholder: key, renderfield: value.renderfield };
   });
@@ -15,18 +15,18 @@ const EditRiver = ({ config, values, setStep, trace, setTrace }) => {
         values={values}
         fieldProps={fieldProps}
         setStep={setStep}
-        setTrace={setTrace}
+        topic={topic}
       />
       <EditExisting
         values={values}
         fieldProps={fieldProps}
         setStep={setStep}
-        setTrace={setTrace}
+        topic={topic}
       />
     </div>
   );
 };
 
-EditRiver.propTypes = {};
+SplitEdit.propTypes = {};
 
-export default EditRiver;
+export default SplitEdit;
