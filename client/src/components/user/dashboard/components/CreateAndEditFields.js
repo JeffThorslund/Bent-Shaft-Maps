@@ -4,13 +4,18 @@ import Button from "react-bootstrap/Button";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 
-const CreateAndEditFields = ({ config, values, topic, children, prevPath }) => {
+const CreateAndEditFields = ({
+  config,
+  values,
+  topic,
+  children,
+  prevPath,
+  setFieldValue,
+}) => {
   const [index, setIndex] = useState(null);
   const [next, setNext] = useState(false);
-  
-  const path = `${prevPath}${topic}[${index}]`
 
-  console.log(config[topic]);
+  const path = `${prevPath}${topic}[${index}]`;
 
   const fields = Object.entries(config[topic][0])
     .filter(([_, value]) => value.renderField)
@@ -41,9 +46,16 @@ const CreateAndEditFields = ({ config, values, topic, children, prevPath }) => {
           <Col>
             <h1>Edit Existing {topic}</h1>
             {tags}
-            {fields}
+
+            <Button onClick={() => setFieldValue("rivers[0].name", "Thotawa")}>
+              Add New
+            </Button>
+
             {index !== null && (
-              <Button onClick={() => setNext(true)}>Save Changes</Button>
+              <>
+                {fields}
+                <Button onClick={() => setNext(true)}>Save Changes</Button>
+              </>
             )}
           </Col>
         </Row>
