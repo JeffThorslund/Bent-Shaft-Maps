@@ -4,7 +4,7 @@ import CreateAndEditFields from "../components/CreateAndEditFields";
 import Form from "react-bootstrap/Form";
 
 const EditRiver = ({ config, values, path }) => {
-  const [sectionIndex, setSectionIndex] = useState(values.length-1);
+  const [sectionIndex, setSectionIndex] = useState(0);
   const [next, setNext] = useState(false);
 
   return (
@@ -12,11 +12,11 @@ const EditRiver = ({ config, values, path }) => {
       {!next ? (
         <CreateAndEditFields
           values={values}
-          config={config}
           topic="Section"
           index={sectionIndex}
           setIndex={setSectionIndex}
           setNext={setNext}
+          config={config}
           path={`${path}[${sectionIndex}].`}
         />
       ) : (
