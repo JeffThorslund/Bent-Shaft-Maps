@@ -6,24 +6,30 @@ import Col from "react-bootstrap/Col";
 
 const CreateAndEditFields = ({
   values,
+  config,
   topic,
-  fieldProps,
   index,
   setIndex,
   setNext,
+  path
 }) => {
   const fields = (index) =>
-    fieldProps
-      .filter((field) => field.renderField)
-      .map((field, i) => (
-        <div key={i}>
-          <Field
-            name={`[${index}]${field.name}`}
-            placeholder={field.placeholder}
-            type="text"
-          />
-        </div>
-      ));
+    Object.entries(config)
+      .filter(([_, value]) => value.renderField)
+      .map(([key, _], i) => {
+
+        console.log(`${path}${key}`)
+
+        return (
+          <div key={i}>
+            <Field
+              name={`${path}${key}`}
+              placeholder={key}
+              type="text"
+            />
+          </div>
+        );
+      });
 
   const tags = values
     .filter((river) => Object.keys(river).length > 1)
@@ -40,12 +46,12 @@ const CreateAndEditFields = ({
       <Col>
         <h1>Create New {topic}</h1>
         {fields(values.length - 1)}
-        <Button onClick={() => setNext(true)}>Create River</Button>
+        <Button onClick={() => setNext(true)}>Create {topic}</Button>
       </Col>
       <Col>
         <h1>Edit Existing {topic}</h1>
         {tags}
-        {index !== null ? (
+        {index < values.length-1 ? (
           <>
             {fields(index)}
             <Button onClick={() => setNext(true)}>Save Changes</Button>

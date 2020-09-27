@@ -7,6 +7,7 @@ import Container from "react-bootstrap/Container";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import { config } from "../../../config";
 import EditRiver from "./pages/EditRiver";
+import EditSection from "./pages/EditSection";
 
 /**
  * User Home Page
@@ -14,31 +15,20 @@ import EditRiver from "./pages/EditRiver";
 
 const Dashboard = ({ rivers }) => {
   const { userData } = useContext(UserContext);
-
+  const fatty = " Hellol";
   let user = userData.user;
-
   return user ? (
     <div className="vh-100">
       <Navigation user={user} />
       <Container fluid>
         <CreationNavigation />
 
-        <Formik
-          initialValues={[...rivers, { name: "" }]}
-          onSubmit={(values, { setSubmitting }) => {
-            setTimeout(() => {
-              alert(JSON.stringify(values, null, 2));
-              setSubmitting(false);
-            }, 400);
-          }}
-        >
-          {({ isSubmitting, values }) => {
+        <Formik initialValues={[...rivers, { name: "" }]}>
+          {({ values }) => {
             return (
               <Form>
-                <EditRiver config={config} values={values} />
-                {/* {JSON.stringify(values)} */}
+                <EditRiver config={config} values={values} path="" />
               </Form>
-              
             );
           }}
         </Formik>

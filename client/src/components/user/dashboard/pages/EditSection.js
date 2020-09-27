@@ -3,24 +3,21 @@ import PropTypes from "prop-types";
 import CreateAndEditFields from "../components/CreateAndEditFields";
 import Form from "react-bootstrap/Form";
 
-const EditRiver = ({ config, values }) => {
-  const [sectionIndex, setSectionIndex] = useState(null);
+const EditRiver = ({ config, values, path }) => {
+  const [sectionIndex, setSectionIndex] = useState(values.length-1);
   const [next, setNext] = useState(false);
-
-  const fieldProps = Object.entries(config).map(([key, value]) => {
-    return { name: key, placeholder: key, renderField: value.renderField };
-  });
 
   return (
     <>
       {!next ? (
         <CreateAndEditFields
           values={values}
+          config={config}
           topic="Section"
-          fieldProps={fieldProps}
           index={sectionIndex}
           setIndex={setSectionIndex}
           setNext={setNext}
+          path={`${path}[${sectionIndex}].`}
         />
       ) : (
         "Next"
