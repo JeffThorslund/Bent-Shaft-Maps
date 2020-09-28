@@ -1,13 +1,13 @@
 import React, { useContext, useState, useEffect } from "react";
 import UserContext from "../UserContext";
-import Navigation from "./Navigation";
+import Navigation from "../Navigation";
 import CreationNavigation from "./CreationNavigation";
 import Container from "react-bootstrap/Container";
 //import SplitEdit from "./pages/SplitEdit";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import { config } from "../../../config";
-import CreateAndEditFields from "./components/CreateAndEditFields";
-import { river, section, rapid } from "./components/newChunks";
+import CreateAndEditFields from "./CreateAndEditFields";
+import { river, section, rapid } from "./newChunks";
 
 /**
  * User Home Page
@@ -38,22 +38,16 @@ const Dashboard = ({ rivers }) => {
                   topic="rivers"
                   newChunk={river}
                 >
-                  {({ config, values, prevPath, setFieldValue }) => (
+                  {(props) => (
                     <CreateAndEditFields
-                      config={config}
-                      setFieldValue={setFieldValue}
-                      values={values}
+                      {...props}
                       topic="sections"
-                      prevPath={prevPath}
                       newChunk={section}
                     >
-                      {({ config, values, prevPath, setFieldValue }) => (
+                      {(props) => (
                         <CreateAndEditFields
-                          config={config}
-                          setFieldValue={setFieldValue}
-                          values={values}
+                          {...props}
                           topic="rapids"
-                          prevPath={prevPath}
                           newChunk={rapid}
                         >
                           {() => "Hello"}
@@ -62,7 +56,6 @@ const Dashboard = ({ rivers }) => {
                     </CreateAndEditFields>
                   )}
                 </CreateAndEditFields>
-                {/* <EditRiver config={config} values={values} path="" /> */}
               </Form>
             );
           }}
