@@ -11,7 +11,7 @@ const { River, SectionSchema } = require("../../models/River");
 // @access Public
 
 router.get("/getRivers", (req, res, next) => {
-  River.find().then((riv) => res.json(riv));
+  River.find({}).then((riv) => res.json(riv));
 });
 
 // @route  POST api/sendMail

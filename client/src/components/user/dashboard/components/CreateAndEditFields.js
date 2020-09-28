@@ -3,19 +3,24 @@ import { Formik, Form, Field, ErrorMessage } from "formik";
 import Button from "react-bootstrap/Button";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
+//import createNewChunk from "./createNewChunk";
+//import { river } from "../../../../config";
 
 const CreateAndEditFields = ({
   config,
   values,
   topic,
   children,
-  prevPath,
+  prevPath = "",
   setFieldValue,
+  newChunk,
 }) => {
   const [index, setIndex] = useState(null);
   const [next, setNext] = useState(false);
 
   const path = `${prevPath}${topic}[${index}]`;
+
+  //console.log(createNewChunk(config, topic));
 
   const fields = Object.entries(config[topic][0])
     .filter(([_, value]) => value.renderField)
@@ -35,6 +40,8 @@ const CreateAndEditFields = ({
     );
   });
 
+  console.log(`${path}${topic}[${values[topic].length}]`, newChunk);
+
   return (
     <>
       <div>
@@ -47,7 +54,11 @@ const CreateAndEditFields = ({
             <h1>Edit Existing {topic}</h1>
             {tags}
 
-            <Button onClick={() => setFieldValue("rivers[0].name", "Thotawa")}>
+            <Button
+              onClick={() =>
+                setFieldValue(`${prevPath}${topic}[${values[topic].length}]`, newChunk)
+              }
+            >
               Add New
             </Button>
 
@@ -64,6 +75,7 @@ const CreateAndEditFields = ({
           config: config[topic][0],
           values: values[topic][index],
           prevPath: path,
+          setFieldValue:setFieldValue
         })
       )}
     </>
