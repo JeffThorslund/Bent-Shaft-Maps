@@ -15,7 +15,7 @@ import PrivacyPolicy from "../user/PrivacyPolicy";
  */
 
 const GlobalRouter = ({ rivers }) => {
-  console.log(rivers)
+
   return (
     <Switch>
       <Route exact path="/" key="home">

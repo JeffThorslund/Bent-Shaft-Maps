@@ -1,5 +1,11 @@
 //This holds the most current shape of the data structure. This is to be references in schema creation and form creation.
 
+const river = (sections = []) => {
+  return { name: { type: String, renderField: true }, sections: sections };
+};
+
+exports.river = river;
+
 const config = {
   name: { type: String, renderField: true },
   sections: [

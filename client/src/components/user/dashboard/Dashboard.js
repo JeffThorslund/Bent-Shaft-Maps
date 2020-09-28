@@ -7,6 +7,7 @@ import Container from "react-bootstrap/Container";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import { config } from "../../../config";
 import CreateAndEditFields from "./components/CreateAndEditFields";
+import { river, section, rapid } from "./components/newChunks";
 
 /**
  * User Home Page
@@ -35,21 +36,25 @@ const Dashboard = ({ rivers }) => {
                   setFieldValue={setFieldValue}
                   values={values}
                   topic="rivers"
-                  prevPath=""
+                  newChunk={river}
                 >
-                  {({ config, values, prevPath }) => (
+                  {({ config, values, prevPath, setFieldValue }) => (
                     <CreateAndEditFields
                       config={config}
+                      setFieldValue={setFieldValue}
                       values={values}
                       topic="sections"
                       prevPath={prevPath}
+                      newChunk={section}
                     >
-                      {({ config, values, prevPath }) => (
+                      {({ config, values, prevPath, setFieldValue }) => (
                         <CreateAndEditFields
                           config={config}
+                          setFieldValue={setFieldValue}
                           values={values}
                           topic="rapids"
                           prevPath={prevPath}
+                          newChunk={rapid}
                         >
                           {() => "Hello"}
                         </CreateAndEditFields>
