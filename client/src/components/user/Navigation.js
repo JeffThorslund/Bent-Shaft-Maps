@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import UserContext from "../UserContext";
+import UserContext from "./UserContext";
 
 function Navigation({ user }) {
   const { handleLogout } = useContext(UserContext);
