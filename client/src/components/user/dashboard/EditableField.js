@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Form from "react-bootstrap/Form";
 import { PencilIcon, CheckIcon } from "@primer/octicons-react";
 
@@ -7,23 +7,10 @@ import { PencilIcon, CheckIcon } from "@primer/octicons-react";
  */
 
 const EditableField = (props) => {
-  const [isEditable, setIsEditable] = useState(false);
-  const handleToggle = () => {};
-
   return (
     <Form.Group controlId="formBasicEmail">
-      <Form.Label>Email address</Form.Label>
-
-      <div className="d-flex flex-row">
-        {isEditable ? <Form.Control {...props} /> : <div> {props.value} </div>}
-        <div
-          onClick={() => {
-            setIsEditable(!isEditable);
-          }}
-        >
-          {isEditable ? <CheckIcon /> : <PencilIcon />}
-        </div>
-      </div>
+      <Form.Label>{props.placeholder}</Form.Label>
+      <Form.Control {...props} />
     </Form.Group>
   );
 };
