@@ -4,6 +4,7 @@ import Button from "react-bootstrap/Button";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import EditableField from "./EditableField";
+import { capitalCase } from "change-case";
 
 const CreateAndEditFields = ({
   config,
@@ -13,6 +14,7 @@ const CreateAndEditFields = ({
   prevPath = "",
   setFieldValue,
   newChunk,
+  subtitle,
 }) => {
   const [index, setIndex] = useState(null);
   const [next, setNext] = useState(false);
@@ -24,7 +26,6 @@ const CreateAndEditFields = ({
     .map(([key, _], i) => {
       return (
         <div key={i}>
-          {/* <EditableField /> */}
           <Field
             name={`${path}.${key}`}
             placeholder={key}
@@ -43,48 +44,40 @@ const CreateAndEditFields = ({
     );
   });
 
-  console.log(`${path}${topic}[${values[topic].length}]`, newChunk);
-
-  return (
-    <>
-      <div>
-        {topic}:{index}
-      </div>
-      <div>path: {path}</div>
-      {!next ? (
-        <Row className="d-flex flex-row">
-          <Col>
-            <h1>Edit Existing {topic}</h1>
-            {tags}
-
-            <Button
-              onClick={() =>
-                setFieldValue(
-                  `${prevPath}${topic}[${values[topic].length}]`,
-                  newChunk
-                )
-              }
-            >
-              Add New
-            </Button>
-
-            {index !== null && (
-              <>
-                {fields}
-                <Button onClick={() => setNext(true)}>Save Changes</Button>
-              </>
-            )}
-          </Col>
-        </Row>
-      ) : (
-        children({
-          config: config[topic][0],
-          values: values[topic][index],
-          prevPath: path,
-          setFieldValue: setFieldValue,
-        })
-      )}
-    </>
+  return !next ? (
+    <Row className="justify-content-center">
+      <Col xs={8}>
+        <h1> {capitalCase(topic)}</h1>
+        <h2> {subtitle}</h2>
+        <div>Select of the following rivers.</div>
+        <div>{tags}</div>
+        <div>OR</div>
+        <Button
+          onClick={() => {
+            setIndex(values[topic].length);
+            setFieldValue(
+              `${prevPath}${topic}[${values[topic].length}]`,
+              newChunk
+            );
+          }}
+        >
+          Add New {capitalCase(topic.slice(0, -1))}
+        </Button>
+        {index !== null && (
+          <div className="border-top">
+            {fields}
+            <Button onClick={() => setNext(true)}>Save Changes</Button>
+          </div>
+        )}
+      </Col>
+    </Row>
+  ) : (
+    children({
+      config: config[topic][0],
+      values: values[topic][index],
+      prevPath: path,
+      setFieldValue: setFieldValue,
+    })
   );
 };
 
