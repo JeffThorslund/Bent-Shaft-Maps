@@ -3,11 +3,9 @@ import UserContext from "../UserContext";
 import Navigation from "../Navigation";
 import CreationNavigation from "./CreationNavigation";
 import Container from "react-bootstrap/Container";
-//import SplitEdit from "./pages/SplitEdit";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import { config } from "../../../config";
 import CreateAndEditFields from "./CreateAndEditFields";
-import { river, section, rapid } from "./newChunks";
 
 /**
  * User Home Page
@@ -36,19 +34,16 @@ const Dashboard = ({ rivers }) => {
                   setFieldValue={setFieldValue}
                   values={values}
                   topic="rivers"
-                  newChunk={river}
+                  nextTopic="sections"
                 >
                   {(props) => (
                     <CreateAndEditFields
                       {...props}
-                      topic="sections"
-                      newChunk={section}
+                      nextTopic="rapids"
                     >
                       {(props) => (
                         <CreateAndEditFields
                           {...props}
-                          topic="rapids"
-                          newChunk={rapid}
                         >
                           {() => "Hello"}
                         </CreateAndEditFields>

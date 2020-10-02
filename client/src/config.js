@@ -1,71 +1,77 @@
 //This holds the most current shape of the data structure. This is to be references in schema creation and form creation.
 
-const river = (sections = []) => {
-  return { name: { type: String, renderField: true }, sections: sections };
-};
-
-exports.river = river;
-
-const config = {
-  name: { type: String, renderField: true },
-  sections: [
-    {
-      name: { type: String, renderField: true },
-      id: { type: String, renderField: false },
-      desc: { type: String, renderField: true },
-      overViewMap: { type: String, renderField: false },
-      access: { type: String, renderField: true },
-      location: { type: String, renderField: true },
-      class: { type: String, renderField: true },
-      putIn: { type: String, renderField: true },
-      takeOut: { type: String, renderField: true },
-      sponsors: [
-        {
-          logo: String,
-          link: String,
-        },
-      ],
-      contributors: [String],
-      level: {
-        defaultLevel: Number,
-        levelUnits: String,
-        levelRange: [Number],
-      },
-      rapids: [
-        {
-          name: { type: String, renderField: true },
-          id: String,
-          desc: [
-            {
-              text: String,
-              range: [Number],
-            },
-          ],
-          riverMap: String,
-          hydraulics: [
-            {
-              name: String,
-              desc: String,
-              y: Number,
-              x: Number,
-              height: Number,
-              width: Number,
-              rotation: Number,
-              range: [Number],
-              id: String,
-            },
-          ],
-          eddys: Array,
-          lines: Array,
-          symbols: Array,
-          arrows: Array,
-          mapLabel: [[Number], [Number]],
-        },
-      ],
-
-      renderField: false,
+const river = (section) => {
+  return {
+    name: {
+      init: "",
+      label: "Enter the name of the river.",
+      placeholder: "Beaver River",
     },
-  ],
+    sections: [section && section],
+  };
 };
 
-exports.config = config;
+const section = (rapid) => {
+  return {
+    name: {
+      init: "",
+      label: "Enter the name of the whitewater section.",
+      placeholder: "Moshier Section",
+    },
+    id: {},
+    desc: {
+      init: "",
+      label: "Describe the whitewater section.",
+      placeholder: "Its a great section.",
+    },
+    overViewMap: {},
+    access: {},
+    location: {},
+    class: {},
+    putIn: {},
+    takeOut: {},
+    sponsors: [
+      {
+        logo: {},
+        link: {},
+      },
+    ],
+    contributors: [],
+    level: {
+      defaultLevel: Number,
+      levelUnits: String,
+      levelRange: [Number],
+    },
+    rapids: [rapid && rapid],
+  };
+};
+
+const rapid = () => {
+  return {
+    name: { type: String, renderField: true },
+    id: String,
+    desc: [
+      {
+        text: String,
+        range: [Number],
+      },
+    ],
+    riverMap: String,
+    hydraulics: [],
+    eddys: Array,
+    lines: Array,
+    symbols: Array,
+    arrows: Array,
+    mapLabel: [[Number], [Number]],
+  };
+};
+
+
+exports.river = river();
+exports.section = section();
+exports.rapid = rapid();
+
+exports.config = river(section(rapid()));
+
+
+

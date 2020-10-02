@@ -9,7 +9,7 @@ import { PencilIcon, CheckIcon } from "@primer/octicons-react";
 const EditableField = (props) => {
   return (
     <Form.Group controlId="formBasicEmail">
-      <Form.Label>{props.placeholder}</Form.Label>
+      <Form.Label>{props.label}</Form.Label>
       <Form.Control {...props} />
     </Form.Group>
   );
