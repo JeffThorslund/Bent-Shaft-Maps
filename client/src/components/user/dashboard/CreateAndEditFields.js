@@ -41,7 +41,6 @@ const CreateAndEditFields = ({
       );
     });
 
-
   const tags = values[topic].map((item, i) => {
     return (
       <div key={i}>
@@ -52,14 +51,11 @@ const CreateAndEditFields = ({
 
   const handleAddNew = (obj) => {
     const initialValues = {};
-
-    console.log(obj)
-
     for (let item in obj) {
-      console.log(obj[item], nextTopic)
+      console.log(obj[item], nextTopic);
       if (obj[item].hasOwnProperty("init")) {
         initialValues[item] = obj[item].init;
-      } else if (item===nextTopic){
+      } else if (item === nextTopic) {
         initialValues[item] = [];
       }
     }
@@ -73,16 +69,22 @@ const CreateAndEditFields = ({
   };
 
   return !next ? (
-    <Row className="justify-content-center">
-      <Col xs={8}>
-        <h1> {capitalCase(topic)}</h1>
-        <h2> {subtitle}</h2>
-        <div>Select of the following rivers.</div>
-        <div>{tags}</div>
-        <div>OR</div>
-        <Button onClick={() => handleAddNew(config[topic][0])}>
-          Add New {capitalCase(topic.slice(0, -1))}
-        </Button>
+    <Row>
+      <Col>
+        <h1 className="text-center"> {capitalCase(topic)}</h1>
+        <div className="text-center"> {subtitle}</div>
+        <Row>
+          <Col>
+            <h2>Select an existing {topic.slice(0, -1)}</h2>
+            <div>{tags}</div>
+          </Col>
+          <Col>
+            <h2>Create a brand new {topic.slice(0, -1)}</h2>
+            <Button onClick={() => handleAddNew(config[topic][0])}>
+              Add New {capitalCase(topic.slice(0, -1))}
+            </Button>
+          </Col>
+        </Row>
         {index !== null && (
           <div className="border-top">
             {fields}
@@ -97,7 +99,7 @@ const CreateAndEditFields = ({
       values: values[topic][index],
       prevPath: path,
       setFieldValue: setFieldValue,
-      topic: nextTopic
+      topic: nextTopic,
     })
   );
 };

@@ -18,9 +18,8 @@ const Dashboard = ({ rivers }) => {
   return user ? (
     <div className="vh-100">
       <Navigation user={user} />
-      <Container fluid>
-        <CreationNavigation />
-
+      <Container>
+        {/* <CreationNavigation /> */}
         <Formik
           initialValues={{
             rivers: rivers,
@@ -35,6 +34,7 @@ const Dashboard = ({ rivers }) => {
                   values={values}
                   topic="rivers"
                   nextTopic="sections"
+                  subtitle="Hello"
                 >
                   {(props) => (
                     <CreateAndEditFields
