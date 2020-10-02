@@ -11245,4 +11245,8 @@ body {
   border-color: var(--ad-Color-sec);
 }
 
+.dashboard {
+  background: linear-gradient(135deg, #ffffff 20%, #bfc0c0 100%);
+}
+
 /*# sourceMappingURL=main.css.map */

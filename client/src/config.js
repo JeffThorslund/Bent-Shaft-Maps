@@ -3,7 +3,7 @@
 const river = (section) => {
   return {
     name: {
-      init: "",
+      init: "Change My Name!",
       label: "Enter the name of the river.",
       placeholder: "Beaver River",
     },
