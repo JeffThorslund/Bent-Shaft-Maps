@@ -5,6 +5,7 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import EditableField from "./EditableField";
 import { capitalCase } from "change-case";
+import { PlusCircleIcon } from "@primer/octicons-react";
 
 const CreateAndEditFields = ({
   config,
@@ -43,48 +44,56 @@ const CreateAndEditFields = ({
 
   const tags = values[topic].map((item, i) => {
     return (
-      <div key={i}>
-        <Button onClick={() => setIndex(i)}>{item.name}</Button>
-      </div>
+      <Button onClick={() => setIndex(i)} key={i} className="m-1">
+        {item.name}
+      </Button>
     );
   });
 
+  tags.push(
+    <Button
+      onClick={() => handleAddNew(config[topic][0])}
+      className="m-1"
+      variant="danger"
+    >
+      Add New {capitalCase(topic.slice(0, -1))}
+    </Button>
+  );
+
   const handleAddNew = (obj) => {
-    const initialValues = {};
-    for (let item in obj) {
-      console.log(obj[item], nextTopic);
-      if (obj[item].hasOwnProperty("init")) {
-        initialValues[item] = obj[item].init;
-      } else if (item === nextTopic) {
-        initialValues[item] = [];
+    if (
+      values[topic][values[topic].length - 1]["name"] !== obj["name"]["init"]
+    ) {
+      const initialValues = {};
+      for (let item in obj) {
+        console.log(obj[item], nextTopic);
+        if (obj[item].hasOwnProperty("init")) {
+          initialValues[item] = obj[item].init;
+        } else if (item === nextTopic) {
+          initialValues[item] = [];
+        }
       }
+
+      setIndex(values[topic].length);
+
+      setFieldValue(
+        `${prevPath}${topic}[${values[topic].length}]`,
+        initialValues
+      );
     }
-
-    setIndex(values[topic].length);
-
-    setFieldValue(
-      `${prevPath}${topic}[${values[topic].length}]`,
-      initialValues
-    );
   };
 
   return !next ? (
-    <Row>
-      <Col>
-        <h1 className="text-center"> {capitalCase(topic)}</h1>
-        <div className="text-center"> {subtitle}</div>
-        <Row>
-          <Col>
-            <h2>Select an existing {topic.slice(0, -1)}</h2>
-            <div>{tags}</div>
-          </Col>
-          <Col>
-            <h2>Create a brand new {topic.slice(0, -1)}</h2>
-            <Button onClick={() => handleAddNew(config[topic][0])}>
-              Add New {capitalCase(topic.slice(0, -1))}
-            </Button>
-          </Col>
-        </Row>
+    <Row className="justify-content-center">
+      <Col xs={6}>
+        <h1 className="text-center pt-2"> {capitalCase(topic)}</h1>
+        <div className="text-center p-2"> {subtitle}</div>
+        <h4>
+          Select an existing {topic.slice(0, -1)} to edit <b>OR</b> add one that
+          does not already exist.
+        </h4>
+        <div>{tags}</div>
+
         {index !== null && (
           <div className="border-top">
             {fields}

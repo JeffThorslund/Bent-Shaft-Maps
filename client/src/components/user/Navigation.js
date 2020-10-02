@@ -4,7 +4,7 @@ import UserContext from "./UserContext";
 function Navigation({ user }) {
   const { handleLogout } = useContext(UserContext);
   return (
-    <div className="navbar navbar-expand-lg navbar-light bg-light">
+    <div className="navbar navbar-expand-lg navbar-light">
       <ul className="navbar-nav mr-auto">
         <li className="nav-item">{user.name}</li>
       </ul>

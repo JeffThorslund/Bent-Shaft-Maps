@@ -16,7 +16,7 @@ const Dashboard = ({ rivers }) => {
   let user = userData.user;
 
   return user ? (
-    <div className="vh-100">
+    <div className="vh-100 dashboard">
       <Navigation user={user} />
       <Container>
         {/* <CreationNavigation /> */}
@@ -34,17 +34,12 @@ const Dashboard = ({ rivers }) => {
                   values={values}
                   topic="rivers"
                   nextTopic="sections"
-                  subtitle="Hello"
+                  subtitle="A river is an entire flowing channel of water. It is NOT the same as a section of whitewater. Make sure not create a new river that already exists."
                 >
                   {(props) => (
-                    <CreateAndEditFields
-                      {...props}
-                      nextTopic="rapids"
-                    >
+                    <CreateAndEditFields {...props} nextTopic="rapids">
                       {(props) => (
-                        <CreateAndEditFields
-                          {...props}
-                        >
+                        <CreateAndEditFields {...props}>
                           {() => "Hello"}
                         </CreateAndEditFields>
                       )}
