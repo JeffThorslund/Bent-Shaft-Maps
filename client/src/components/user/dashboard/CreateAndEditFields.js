@@ -10,10 +10,10 @@ const CreateAndEditFields = ({
   config,
   values,
   topic,
+  nextTopic,
   children,
   prevPath = "",
   setFieldValue,
-  newChunk,
   subtitle,
 }) => {
   const [index, setIndex] = useState(null);
@@ -22,19 +22,25 @@ const CreateAndEditFields = ({
   const path = `${prevPath}${topic}[${index}]`;
 
   const fields = Object.entries(config[topic][0])
-    .filter(([_, value]) => value.renderField)
-    .map(([key, _], i) => {
+    .filter(([_, value]) => {
+      return (
+        value.hasOwnProperty("label") && value.hasOwnProperty("placeholder")
+      );
+    })
+    .map(([key, value], i) => {
       return (
         <div key={i}>
           <Field
             name={`${path}.${key}`}
-            placeholder={key}
+            label={value.label}
+            placeholder={value.placeholder}
             as={EditableField}
             type="text"
           />
         </div>
       );
     });
+
 
   const tags = values[topic].map((item, i) => {
     return (
@@ -44,6 +50,28 @@ const CreateAndEditFields = ({
     );
   });
 
+  const handleAddNew = (obj) => {
+    const initialValues = {};
+
+    console.log(obj)
+
+    for (let item in obj) {
+      console.log(obj[item], nextTopic)
+      if (obj[item].hasOwnProperty("init")) {
+        initialValues[item] = obj[item].init;
+      } else if (item===nextTopic){
+        initialValues[item] = [];
+      }
+    }
+
+    setIndex(values[topic].length);
+
+    setFieldValue(
+      `${prevPath}${topic}[${values[topic].length}]`,
+      initialValues
+    );
+  };
+
   return !next ? (
     <Row className="justify-content-center">
       <Col xs={8}>
@@ -52,15 +80,7 @@ const CreateAndEditFields = ({
         <div>Select of the following rivers.</div>
         <div>{tags}</div>
         <div>OR</div>
-        <Button
-          onClick={() => {
-            setIndex(values[topic].length);
-            setFieldValue(
-              `${prevPath}${topic}[${values[topic].length}]`,
-              newChunk
-            );
-          }}
-        >
+        <Button onClick={() => handleAddNew(config[topic][0])}>
           Add New {capitalCase(topic.slice(0, -1))}
         </Button>
         {index !== null && (
@@ -77,6 +97,7 @@ const CreateAndEditFields = ({
       values: values[topic][index],
       prevPath: path,
       setFieldValue: setFieldValue,
+      topic: nextTopic
     })
   );
 };
