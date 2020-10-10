@@ -3,7 +3,7 @@ import { Field } from "formik";
 import Button from "react-bootstrap/Button";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import EditableField from "./EditableField";
+import { EditableField } from "./FormComponents";
 import { capitalCase } from "change-case";
 import { PlusCircleIcon } from "@primer/octicons-react";
 
@@ -36,7 +36,7 @@ const CreateAndEditFields = ({
             label={value.label}
             placeholder={value.placeholder}
             as={EditableField}
-            type="text"
+            elementType={value.elementType}
           />
         </div>
       );
@@ -55,6 +55,10 @@ const CreateAndEditFields = ({
       onClick={() => handleAddNew(config[topic][0])}
       className="m-1"
       variant="danger"
+      disabled={
+        values[topic][values[topic].length - 1]["name"] ===
+        config[topic][0]["name"]["init"]
+      }
     >
       Add New {capitalCase(topic.slice(0, -1))}
     </Button>
@@ -85,20 +89,46 @@ const CreateAndEditFields = ({
 
   return !next ? (
     <Row className="justify-content-center">
-      <Col xs={6}>
-        <h1 className="text-center pt-2"> {capitalCase(topic)}</h1>
-        <div className="text-center p-2"> {subtitle}</div>
-        <h4>
-          Select an existing {topic.slice(0, -1)} to edit <b>OR</b> add one that
-          does not already exist.
-        </h4>
-        <div>{tags}</div>
+      <Col>
+        <div className="">
+          <h1 className="text-center"> {capitalCase(topic)}</h1>
+          <div className="text-center">
+            <i>{subtitle}</i>
+          </div>
+          <hr />
+        </div>
+
+        <div className="select-tags">
+          <h4 className="text-center">
+            Select an existing {topic.slice(0, -1)} to edit <b>OR</b> add one
+            that does not already exist.
+          </h4>
+          <div>{tags}</div>
+          <hr />
+        </div>
 
         {index !== null && (
-          <div className="border-top">
-            {fields}
-            <Button onClick={() => setNext(true)}>Save Changes</Button>
-          </div>
+          <>
+            <div>
+              {fields}
+              <hr />
+            </div>
+            <div className="pb-2">
+              These changes will be saved to the river database. Do you want to
+              continue?
+            </div>
+            <div>
+              <Button
+                disabled={
+                  values[topic][values[topic].length - 1]["name"] === ""
+                }
+                onClick={() => setNext(true)}
+              >
+                Save Changes
+              </Button>
+              <hr />
+            </div>
+          </>
         )}
       </Col>
     </Row>
