@@ -6,13 +6,12 @@ import { PencilIcon, CheckIcon } from "@primer/octicons-react";
  * A component that can be edited on click by clicking a pencil Icon.
  */
 
-const EditableField = (props) => {
+export const EditableField = (props) => {
   return (
     <Form.Group controlId="formBasicEmail">
       <Form.Label>{props.label}</Form.Label>
-      <Form.Control {...props} />
+      <Form.Control {...props} as={props.elementType} />
     </Form.Group>
   );
 };
 
-export default EditableField;
