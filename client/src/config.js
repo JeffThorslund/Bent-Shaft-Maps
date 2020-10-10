@@ -1,8 +1,8 @@
 //This holds the most current shape of the data structure. This is to be references in schema creation and form creation.
 
 /*
-*  elementTypes -> input, textarea
-*/
+ *  elementTypes -> input, textarea
+ */
 
 const river = (section) => {
   return {
@@ -10,8 +10,9 @@ const river = (section) => {
       init: "Enter a River!",
       label: "Enter the name of the river.",
       placeholder: "Beaver River",
-      elementType: "input"
+      elementType: "input",
     },
+    id: {},
     sections: [section && section],
   };
 };
@@ -22,17 +23,22 @@ const section = (rapid) => {
       init: "",
       label: "Enter the name of the whitewater section.",
       placeholder: "Moshier Section",
-      elementType: "input"
+      elementType: "input",
     },
     id: {},
     desc: {
       init: "",
       label: "Describe the whitewater section.",
       placeholder: "Its a great section.",
-      elementType: "textarea"
+      elementType: "textarea",
     },
     overViewMap: {},
-    access: {},
+    access: {
+      init: "",
+      label: "Describe access to this section of whitewater.",
+      placeholder: "Its got great access.",
+      elementType: "textarea",
+    },
     location: {},
     class: {},
     putIn: {},
@@ -52,7 +58,7 @@ const rapid = () => {
       init: "Enter a Rapid Name",
       label: "Enter the name of the whitewater section.",
       placeholder: "Moshier Section",
-      elementType: "input"
+      elementType: "input",
     },
     id: String,
     desc: [
@@ -71,12 +77,8 @@ const rapid = () => {
   };
 };
 
-
 exports.river = river();
 exports.section = section();
 exports.rapid = rapid();
 
 exports.config = river(section(rapid()));
-
-
-

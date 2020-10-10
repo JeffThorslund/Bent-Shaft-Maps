@@ -47,6 +47,7 @@
     "nodemailer": "^6.4.6",
     "react-facebook-login": "^4.1.1",
     "react-preload": "^0.6.0",
+    "shortid": "^2.2.15",
     "socket.io": "^2.3.0"
   },
   "devDependencies": {
