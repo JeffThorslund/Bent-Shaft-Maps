@@ -6,6 +6,7 @@ import Col from "react-bootstrap/Col";
 import { EditableField } from "./FormComponents";
 import { capitalCase } from "change-case";
 import { PlusCircleIcon } from "@primer/octicons-react";
+import shortid from "shortid";
 
 const CreateAndEditFields = ({
   config,
@@ -65,26 +66,24 @@ const CreateAndEditFields = ({
   );
 
   const handleAddNew = (obj) => {
-    if (
-      values[topic][values[topic].length - 1]["name"] !== obj["name"]["init"]
-    ) {
-      const initialValues = {};
-      for (let item in obj) {
-        console.log(obj[item], nextTopic);
-        if (obj[item].hasOwnProperty("init")) {
-          initialValues[item] = obj[item].init;
-        } else if (item === nextTopic) {
-          initialValues[item] = [];
-        }
+    const initialValues = {};
+    for (let item in obj) {
+      console.log(item);
+      if (obj[item].hasOwnProperty("init")) {
+        initialValues[item] = obj[item].init;
+      } else if (item === "id") {
+        initialValues[item] = `${topic}${shortid.generate()}`;
+      } else if (item === nextTopic) {
+        initialValues[item] = [];
       }
-
-      setIndex(values[topic].length);
-
-      setFieldValue(
-        `${prevPath}${topic}[${values[topic].length}]`,
-        initialValues
-      );
     }
+
+    setIndex(values[topic].length);
+
+    setFieldValue(
+      `${prevPath}${topic}[${values[topic].length}]`,
+      initialValues
+    );
   };
 
   return !next ? (
