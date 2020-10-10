@@ -39,15 +39,43 @@ const section = (rapid) => {
       placeholder: "Its got great access.",
       elementType: "textarea",
     },
-    location: {},
-    class: {},
-    putIn: {},
-    takeOut: {},
-    level: {
-      defaultLevel: Number,
-      levelUnits: String,
-      levelRange: [Number],
+    putIn: {
+      init: "",
+      label: "Describe access to this section of whitewater.",
+      placeholder: "Its got great access.",
+      elementType: "input",
     },
+    takeOut: {
+      init: "",
+      label: "Describe access to this section of whitewater.",
+      placeholder: "Its got great access.",
+      elementType: "input",
+    },
+    level: {
+      elementType: "SetLevel",
+      data: [
+        {
+          controlId: "defaultLevel",
+          label: "Default Level",
+          placeholder: 0,
+        },
+        {
+          controlId: "levelUnits",
+          label: "Level Units",
+          placeholder: "ft",
+        },
+        {
+          controlId: "levelRange",
+          label: "Level Range",
+          placeholder: 0,
+        },
+      ],
+    },
+    // level: {
+    //   defaultLevel: Number,
+    //   levelUnits: String,
+    //   levelRange: [Number],
+    // },
     rapids: [rapid && rapid],
   };
 };

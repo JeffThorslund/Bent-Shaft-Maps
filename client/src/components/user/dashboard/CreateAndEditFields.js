@@ -3,9 +3,8 @@ import { Field } from "formik";
 import Button from "react-bootstrap/Button";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import { EditableField } from "./FormComponents";
+import FormComponents from "./FormComponents";
 import { capitalCase } from "change-case";
-import { PlusCircleIcon } from "@primer/octicons-react";
 import shortid from "shortid";
 
 const CreateAndEditFields = ({
@@ -26,7 +25,7 @@ const CreateAndEditFields = ({
   const fields = Object.entries(config[topic][0])
     .filter(([_, value]) => {
       return (
-        value.hasOwnProperty("label") && value.hasOwnProperty("placeholder")
+        value.hasOwnProperty("elementType")
       );
     })
     .map(([key, value], i) => {
@@ -36,8 +35,8 @@ const CreateAndEditFields = ({
             name={`${path}.${key}`}
             label={value.label}
             placeholder={value.placeholder}
-            as={EditableField}
-            elementType={value.elementType}
+            as={FormComponents[value.elementType]}
+            data={value.data}
           />
         </div>
       );
@@ -87,50 +86,52 @@ const CreateAndEditFields = ({
   };
 
   return !next ? (
-    <Row className="justify-content-center">
-      <Col>
-        <div className="">
-          <h1 className="text-center"> {capitalCase(topic)}</h1>
-          <div className="text-center">
-            <i>{subtitle}</i>
+    <>
+      <Row className="justify-content-center">
+        <Col>
+          <div className="">
+            <h1 className="text-center"> {capitalCase(topic)}</h1>
+            <div className="text-center">
+              <i>{subtitle}</i>
+            </div>
+            <hr />
           </div>
-          <hr />
-        </div>
 
-        <div className="select-tags">
-          <h4 className="text-center">
-            Select an existing {topic.slice(0, -1)} to edit <b>OR</b> add one
-            that does not already exist.
-          </h4>
-          <div>{tags}</div>
-          <hr />
-        </div>
+          <div className="select-tags">
+            <h4 className="text-center">
+              Select an existing {topic.slice(0, -1)} to edit <b>OR</b> add one
+              that does not already exist.
+            </h4>
+            <div>{tags}</div>
+            <hr />
+          </div>
 
-        {index !== null && (
-          <>
-            <div>
-              {fields}
-              <hr />
-            </div>
-            <div className="pb-2">
-              These changes will be saved to the river database. Do you want to
-              continue?
-            </div>
-            <div>
-              <Button
-                disabled={
-                  values[topic][values[topic].length - 1]["name"] === ""
-                }
-                onClick={() => setNext(true)}
-              >
-                Save Changes
-              </Button>
-              <hr />
-            </div>
-          </>
-        )}
-      </Col>
-    </Row>
+          {index !== null && (
+            <>
+              <div>
+                {fields}
+                <hr />
+              </div>
+              <div className="pb-2">
+                These changes will be saved to the river database. Do you want
+                to continue?
+              </div>
+              <div>
+                <Button
+                  disabled={
+                    values[topic][values[topic].length - 1]["name"] === ""
+                  }
+                  onClick={() => setNext(true)}
+                >
+                  Save Changes
+                </Button>
+                <hr />
+              </div>
+            </>
+          )}
+        </Col>
+      </Row>
+    </>
   ) : (
     children({
       config: config[topic][0],
