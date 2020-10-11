@@ -51,31 +51,25 @@ const section = (rapid) => {
       placeholder: "Its got great access.",
       elementType: "input",
     },
-    level: {
-      elementType: "SetLevel",
-      data: [
-        {
-          controlId: "defaultLevel",
-          label: "Default Level",
-          placeholder: 0,
-        },
-        {
-          controlId: "levelUnits",
-          label: "Level Units",
-          placeholder: "ft",
-        },
-        {
-          controlId: "levelRange",
-          label: "Level Range",
-          placeholder: 0,
-        },
-      ],
+    defaultLevel: {
+      init: "",
+      label: "Default Level",
+      placeholder: 0,
+      elementType: "input",
     },
-    // level: {
-    //   defaultLevel: Number,
-    //   levelUnits: String,
-    //   levelRange: [Number],
-    // },
+    levelUnits: {
+      init: "",
+      label: "Units to be used",
+      placeholder: "ft",
+      elementType: "input",
+    },
+    levelRange: {
+      init: "",
+      label: "Units to be used",
+      placeholder: "ft",
+      elementType: "range",
+    },
+
     rapids: [rapid && rapid],
   };
 };
@@ -88,13 +82,13 @@ const rapid = () => {
       placeholder: "Moshier Section",
       elementType: "input",
     },
-    id: String,
-    desc: [
-      {
-        text: String,
-        range: [Number],
-      },
-    ],
+    id: {},
+    desc: {
+      init: "Enter a Rapid Description",
+      label: "Enter the description of the whitewater section.",
+      placeholder: "Moshier Section is noice",
+      elementType: "input",
+    },
     riverMap: String,
     hydraulics: [],
     eddys: Array,

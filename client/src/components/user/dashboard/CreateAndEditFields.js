@@ -1,11 +1,10 @@
 import React, { useState } from "react";
-import { Field } from "formik";
 import Button from "react-bootstrap/Button";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import FormComponents from "./FormComponents";
 import { capitalCase } from "change-case";
 import shortid from "shortid";
+import FormFields from "./FormFields";
 
 const CreateAndEditFields = ({
   config,
@@ -21,26 +20,6 @@ const CreateAndEditFields = ({
   const [next, setNext] = useState(false);
 
   const path = `${prevPath}${topic}[${index}]`;
-
-  const fields = Object.entries(config[topic][0])
-    .filter(([_, value]) => {
-      return (
-        value.hasOwnProperty("elementType")
-      );
-    })
-    .map(([key, value], i) => {
-      return (
-        <div key={i}>
-          <Field
-            name={`${path}.${key}`}
-            label={value.label}
-            placeholder={value.placeholder}
-            as={FormComponents[value.elementType]}
-            data={value.data}
-          />
-        </div>
-      );
-    });
 
   const tags = values[topic].map((item, i) => {
     return (
@@ -108,10 +87,8 @@ const CreateAndEditFields = ({
 
           {index !== null && (
             <>
-              <div>
-                {fields}
-                <hr />
-              </div>
+              <FormFields path={path} config={config} topic={topic} />
+
               <div className="pb-2">
                 These changes will be saved to the river database. Do you want
                 to continue?

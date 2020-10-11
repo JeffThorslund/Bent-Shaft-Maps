@@ -47,7 +47,7 @@ const Rapid = ({ rapid, river, level }) => {
           alt="River Map"
         />
         <Features level={level} rapid={rapid} />
-        <RapidHeader name={rapid.name} description={rapid.desc} level={level} />
+        <RapidHeader name={rapid.name} description={rapid.desc} />
         <div id="arrow-array"> {arrowArray} </div>
       </div>
     </Preload>

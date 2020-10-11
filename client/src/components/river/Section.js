@@ -80,9 +80,9 @@ const Section = ({ section }) => {
 
       <div id="slider-position">
         <Slider
-          min={section.level.levelRange[0]}
-          max={section.level.levelRange[1]}
-          units={section.level.levelUnits}
+          min={section.levelRange[0]}
+          max={section.levelRange[1]}
+          units={section.levelUnits}
           level={level}
           setLevel={setLevel}
         />

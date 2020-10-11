@@ -24,42 +24,7 @@ const EditableTextAreaField = (props) => {
   );
 };
 
-export const SetLevel = (props) => {
-  return props.data.map((field) => {
-    if (field.controlId === "levelRange") {
-      return (
-        <Form.Group controlId={field.controlId}>
-          <Form.Label>{`${field.label} Minimum`}</Form.Label>
-          <Form.Control
-            name={props.name[field.controlId]}
-            placeholder={field.placeholder}
-            as="input"
-          />
-          <Form.Label>{`${field.label} Maximum`}</Form.Label>
-          <Form.Control
-            name={props.name[field.controlId]}
-            placeholder={field.placeholder}
-            as="input"
-          />
-        </Form.Group>
-      );
-    } else {
-      return (
-        <Form.Group controlId={field.controlId}>
-          <Form.Label>{field.label}</Form.Label>
-          <Form.Control
-            name={props.name[field.controlId]}
-            placeholder={field.placeholder}
-            as="input"
-          />
-        </Form.Group>
-      );
-    }
-  });
-};
-
 export default {
   input: EditableTextField,
   textarea: EditableTextAreaField,
-  SetLevel: SetLevel,
 };

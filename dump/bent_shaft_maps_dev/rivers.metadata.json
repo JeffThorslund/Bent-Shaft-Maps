@@ -1,0 +1,1 @@
+{"indexes":[{"v":{"$numberInt":"2"},"key":{"_id":{"$numberInt":"1"}},"name":"_id_","ns":"bent_shaft_maps_dev.rivers"}],"uuid":"2a16a31b28a34131ac5599569695f7d5","collectionName":"rivers"}
