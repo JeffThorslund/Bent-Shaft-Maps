@@ -39,14 +39,6 @@ class ImageUpload extends React.Component {
       </div>
     );
   }
-
-  // if (files) {
-  //   files.forEach(function (file) {
-  //     if (file.isImage) {
-  //       return <img src={`image/${file.filename}`} alt="" />;
-  //     }
-  //   });
-  // }
 }
 
 export default ImageUpload;
