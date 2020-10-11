@@ -1,1 +1,1 @@
-{"indexes":[{"v":{"$numberInt":"2"},"key":{"_id":{"$numberInt":"1"}},"name":"_id_","ns":"bent_shaft_maps_dev.users"}],"uuid":"467ca914aa3e42c2a96c59bf5d679283","collectionName":"users"}
+{"indexes":[{"v":{"$numberInt":"2"},"key":{"_id":{"$numberInt":"1"}},"name":"_id_","ns":"bent_shaft_maps_dev.users"}],"uuid":"19de553e4efb476a9645329aa69f7979","collectionName":"users"}
