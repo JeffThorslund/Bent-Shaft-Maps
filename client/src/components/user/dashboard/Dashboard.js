@@ -1,9 +1,8 @@
-import React, { useContext, useState, useEffect } from "react";
+import React, { useContext } from "react";
 import UserContext from "../UserContext";
 import Navigation from "../Navigation";
-import CreationNavigation from "./CreationNavigation";
 import Container from "react-bootstrap/Container";
-import { Formik, Form, Field, ErrorMessage } from "formik";
+import { Formik, Form } from "formik";
 import { config } from "../../../config";
 import CreateAndEditFields from "./CreateAndEditFields";
 
@@ -19,7 +18,6 @@ const Dashboard = ({ rivers }) => {
     <div className="vh-100 dashboard">
       <Navigation user={user} />
       <Container>
-        {/* <CreationNavigation /> */}
         <Formik
           initialValues={{
             rivers: rivers,
