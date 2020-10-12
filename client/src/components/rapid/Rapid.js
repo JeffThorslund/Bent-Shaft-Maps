@@ -30,10 +30,14 @@ const Rapid = ({ rapid, river, level }) => {
     ImageCache.add(`/api/image/${riverMap}`);
   });
 
+  console.log(river);
+
   return (
     <Preload
       loadingIndicator={<Loading />}
-      images={[`/api/image/${rapid.riverMap}`]}
+      images={[
+        `https://bent-shaft-maps.s3.amazonaws.com/maps/river_W41oYWjV4/section_jswy1FCZu/${rapid.id}.jpg`,
+      ]}
       autoResolveDelay={10000}
       onError={() => alert("preload error")}
       onSuccess={() => console.log("preload success")}
@@ -43,7 +47,7 @@ const Rapid = ({ rapid, river, level }) => {
       <div className="Rapid">
         <Image
           className="basemap"
-          src={`/api/image/${rapid.riverMap}`}
+          src={`https://bent-shaft-maps.s3.amazonaws.com/maps/river_W41oYWjV4/section_jswy1FCZu/${rapid.id}.jpg`}
           alt="River Map"
         />
         <Features level={level} rapid={rapid} />
