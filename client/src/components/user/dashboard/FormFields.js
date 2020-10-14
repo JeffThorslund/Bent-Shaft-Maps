@@ -3,7 +3,7 @@ import { Field } from "formik";
 import FormComponents from "./FormComponents";
 import Form from "react-bootstrap/Form";
 
-const FormFields = ({ path, config, topic }) => {
+const FormFields = ({ path, config, topic, setFieldValue }) => {
   const fields = Object.entries(config[topic][0])
     .filter(([_, value]) => {
       return value.hasOwnProperty("elementType");
@@ -22,6 +22,14 @@ const FormFields = ({ path, config, topic }) => {
           </div>
         ));
       }
+
+      else if (value.elementType === "file") {
+        return <input id="file" name="file" type="file" onChange={(event) => {
+          setFieldValue("file", event.currentTarget.files[0]);
+        }} />
+      }
+
+      
 
       return (
         <div key={i}>

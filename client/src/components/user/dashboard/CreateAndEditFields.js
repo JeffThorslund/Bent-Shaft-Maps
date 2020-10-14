@@ -38,6 +38,7 @@ const CreateAndEditFields = ({
         values[topic][values[topic].length - 1]["name"] ===
         config[topic][0]["name"]["init"]
       }
+      key="uniqueAddNewButton"
     >
       Add New {capitalCase(topic.slice(0, -1))}
     </Button>
@@ -87,7 +88,7 @@ const CreateAndEditFields = ({
 
           {index !== null && (
             <>
-              <FormFields path={path} config={config} topic={topic} />
+              <FormFields path={path} config={config} topic={topic} setFieldValue={setFieldValue}/>
 
               <div className="pb-2">
                 These changes will be saved to the river database. Do you want

@@ -5,6 +5,7 @@ import Container from "react-bootstrap/Container";
 import { Formik, Form } from "formik";
 import { config } from "../../../config";
 import CreateAndEditFields from "./CreateAndEditFields";
+import MapEdit from "./MapEdit";
 
 /**
  * User Home Page
@@ -38,7 +39,7 @@ const Dashboard = ({ rivers }) => {
                     <CreateAndEditFields {...props} nextTopic="rapids">
                       {(props) => (
                         <CreateAndEditFields {...props}>
-                          {() => "Hello"}
+                          {() => <MapEdit rivers={rivers}/>}
                         </CreateAndEditFields>
                       )}
                     </CreateAndEditFields>
