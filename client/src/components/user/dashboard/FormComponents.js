@@ -24,7 +24,16 @@ const EditableTextAreaField = (props) => {
   );
 };
 
+const ImageUpload = (props) => {
+  return (
+    <Form.Group>
+      <Form.File name="hello"/>
+    </Form.Group>
+  );
+};
+
 export default {
   input: EditableTextField,
   textarea: EditableTextAreaField,
+  file: ImageUpload
 };

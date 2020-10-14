@@ -65,7 +65,7 @@ const section = (rapid) => {
     },
     levelRange: {
       init: "",
-      label: "Units to be used",
+      label: "Level Range",
       placeholder: "ft",
       elementType: "range",
     },
@@ -89,7 +89,12 @@ const rapid = () => {
       placeholder: "Moshier Section is noice",
       elementType: "input",
     },
-    riverMap: String,
+    riverMap: {
+      init: "Upload River Map",
+      label: "Enter the description of the whitewater section.",
+      placeholder: "Moshier Section is noice",
+      elementType: "file",
+    },
     hydraulics: [],
     eddys: Array,
     lines: Array,
