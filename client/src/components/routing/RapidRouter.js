@@ -1,6 +1,6 @@
 import React from "react";
 import { Switch, Route, useRouteMatch, useParams } from "react-router-dom";
-import River from "../river/Section";
+import Section from "../river/Section";
 import Introduction from "../river/Introduction";
 import { paramCase } from "change-case";
 
@@ -22,7 +22,7 @@ const RapidRouter = ({ sections }) => {
         />
         <Route
           path={`${path}/:rapid_path`}
-          children={<River section={section} url={url} />}
+          children={<Section section={section}/>}
         />
       </Switch>
     </div>

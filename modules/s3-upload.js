@@ -4,8 +4,8 @@ var fs = require('fs');
 
 // Create S3 service object
 s3 = new AWS.S3({
-   accessKeyId: "***REMOVED***",
-  secretAccessKey: "***REMOVED***",
+   accessKeyId: "",
+  secretAccessKey: "",
   region: "us-east-1",
 });
 
