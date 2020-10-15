@@ -10,6 +10,8 @@ import GlobalRouter from "./GlobalRouter";
 
 const FetchRiverData = () => {
   const [rivers, setRivers] = useState(null);
+
+  console.log()
   
   useEffect(() => {
     fetch("/api/getRivers")

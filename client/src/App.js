@@ -1,11 +1,29 @@
-import React from "react";
-import FetchRiverData from "./components/routing/FetchRiverData"
-import "./main.css"
+import React, { useEffect } from "react";
+import FetchRiverData from "./components/routing/FetchRiverData";
+import "./main.css";
+
+//REDUX
+import { connect } from "react-redux";
+import { startupAction } from "./redux/actions/startupAction";
 
 /**
  * Renders the entire application and imports the stylesheet.
  */
 
-const App = () => <FetchRiverData />;
+const App = ({ startupAction }) => {
+  useEffect(() => {
+    startupAction();
+  }, []);
 
-export default App;
+  return <FetchRiverData />;
+};
+
+const mapStateToProps = (state) => ({
+  ...state,
+});
+
+const mapDispatchToProps = (dispatch) => ({
+  startupAction: () => dispatch(startupAction()),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);
