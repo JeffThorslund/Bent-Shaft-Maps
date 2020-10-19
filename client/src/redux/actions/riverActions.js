@@ -1,17 +1,29 @@
-export const FETCH_RIVERS_BEGIN   = 'FETCH_RIVERS_BEGIN';
-export const FETCH_RIVERS_SUCCESS = 'FETCH_RIVERS_SUCCESS';
-export const FETCH_RIVERS_FAILURE = 'FETCH_RIVERS_FAILURE';
+import axios from "axios";
+
+export const FETCH_RIVERS_BEGIN = "FETCH_RIVERS_BEGIN";
+export const FETCH_RIVERS_SUCCESS = "FETCH_RIVERS_SUCCESS";
+export const FETCH_RIVERS_FAILURE = "FETCH_RIVERS_FAILURE";
 
 export const fetchRiversBegin = () => ({
-  type: FETCH_RIVERS_BEGIN
+  type: FETCH_RIVERS_BEGIN,
 });
 
-export const fetchRiversSuccess = products => ({
+export const fetchRiversSuccess = (products) => ({
   type: FETCH_RIVERS_SUCCESS,
-  payload: { products }
+  payload: { products },
 });
 
-export const fetchRiversFailure = error => ({
+export const fetchRiversFailure = (error) => ({
   type: FETCH_RIVERS_FAILURE,
-  payload: { error }
+  payload: { error },
 });
+
+export const fetchRivers = () => {
+  const request = axios.get("/api/getRivers");
+  return (dispatch) => {
+    request.then(({ data }) => {
+      console.log(data);
+      dispatch({ type: "FETCH_RIVERS", payload: data });
+    });
+  };
+};
