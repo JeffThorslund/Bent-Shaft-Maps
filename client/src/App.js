@@ -4,7 +4,7 @@ import GlobalRouter from "./components/routing/GlobalRouter";
 import "./main.css";
 
 //REDUX
-import { connect, useSelector, useDispatch } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { fetchRivers } from "./redux/actions/startupAction";
 
 /**
@@ -12,7 +12,7 @@ import { fetchRivers } from "./redux/actions/startupAction";
  */
 
 const App = () => {
-  
+
   const dispatch = useDispatch();
   const rivers = useSelector((state) => state.startupReducer.rivers);
 
@@ -28,4 +28,4 @@ const App = () => {
   );
 };
 
-export default connect(null,null)(App);
+export default App;
