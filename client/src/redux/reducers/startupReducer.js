@@ -1,23 +1,11 @@
-/*
- src/reducers/simpleReducer.js
-*/
-
 export default (state = {}, action) => {
   switch (action.type) {
-    case "STARTUP_ACTION":
+    case "FETCH_RIVERS":
       return {
-        result: action.payload,
+        ...state,
+        rivers: action.payload,
       };
 
-      case "FETCH_RIVERS":
-        return {
-          rivers: action.payload,
-        };
-
-    case "TEST_ACTION":
-      return {
-        resulting: "TESTER GOOD",
-      };
     default:
       return state;
   }

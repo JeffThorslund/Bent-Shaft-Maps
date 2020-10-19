@@ -1,13 +1,11 @@
-/*
- src/actions/simpleAction.js
-*/
+import axios from "axios";
 
-export const startupAction = {
-  type: "STARTUP_ACTION",
-  payload: "result_of_startup_action",
-};
-
-export const testAction = {
-  type: "TEST_ACTION",
-  payload: "result_of_test_action",
+export const fetchRivers = () => {
+  const request = axios.get("/api/getRivers");
+  return (dispatch) => {
+    request.then(({ data }) => {
+      console.log(data);
+      dispatch({ type: "FETCH_RIVERS", payload: data });
+    });
+  };
 };
