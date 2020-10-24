@@ -1,57 +1,34 @@
-import React, { useContext } from "react";
-import UserContext from "../UserContext";
+import React, { useEffect } from "react";
 import Navigation from "../Navigation";
-import Container from "react-bootstrap/Container";
-import { Formik, Form } from "formik";
-import { config } from "../../../config";
-import CreateAndEditFields from "./CreateAndEditFields";
-import MapEdit from "./MapEdit";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  selectRiverToEdit,
+  initializeInterfaceIndex,
+} from "../../../redux/actions/editingAction";
 
-/**
- * User Home Page
- */
+const Dashboard = () => {
+  const dispatch = useDispatch();
 
-const Dashboard = ({ rivers }) => {
-  const { userData } = useContext(UserContext);
-  let user = userData.user;
+  useEffect(() => {
+    dispatch(initializeInterfaceIndex());
+  }, []);
 
-  return user ? (
-    <div className="vh-100 dashboard">
-      <Navigation user={user} />
-      <Container>
-        <Formik
-          initialValues={{
-            rivers: rivers,
-          }}
-        >
-          {({ values, setFieldValue }) => {
-            return (
-              <Form>
-                <CreateAndEditFields
-                  config={{ rivers: [config] }}
-                  setFieldValue={setFieldValue}
-                  values={values}
-                  topic="rivers"
-                  nextTopic="sections"
-                  subtitle="A river is an entire flowing channel of water. It is NOT the same as a section of whitewater. Make sure not create a new river that already exists."
-                >
-                  {(props) => (
-                    <CreateAndEditFields {...props} nextTopic="rapids">
-                      {(props) => (
-                        <CreateAndEditFields {...props}>
-                          {() => <MapEdit rivers={rivers}/>}
-                        </CreateAndEditFields>
-                      )}
-                    </CreateAndEditFields>
-                  )}
-                </CreateAndEditFields>
-              </Form>
-            );
-          }}
-        </Formik>
-      </Container>
-    </div>
-  ) : null;
+  let { rivers, interfaceIndex } = useSelector((state) => {
+    return {
+      rivers: state.startupReducer.rivers,
+      interfaceIndex: state.editingReducer.index,
+    };
+  });
+
+  const EditingInterfaces = [<div>Interface 1</div>, <div>Interface 2</div>];
+
+  return (
+    <>
+      <Navigation />
+      {EditingInterfaces[interfaceIndex]}
+      <button onClick={() => dispatch(selectRiverToEdit(1))}>TEST</button>
+    </>
+  );
 };
 
 export default Dashboard;

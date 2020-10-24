@@ -6,7 +6,7 @@ import axios from "axios";
 import Dashboard from "./dashboard/Dashboard";
 import AuthInterface from "./authentication/AuthInterface";
 
-const UserRouter = ({rivers}) => {
+const UserRouter = ({ rivers }) => {
   //DEFINE STATE FOR TOKEN AND USER
   const [userData, setUserData] = useState({
     token: undefined,
@@ -120,7 +120,7 @@ const UserRouter = ({rivers}) => {
         </Route>
 
         <Route path={`${path}/dashboard`}>
-          <Dashboard rivers={rivers}/>
+          <Dashboard rivers={rivers} />
         </Route>
       </Switch>
     </UserContext.Provider>
