@@ -10769,10 +10769,10 @@ h3 {
 
 .item-list {
   border: 2px solid red;
-  transition: max-width 0.5s;
+  max-width: 8rem;
 }
 .item-list:hover {
-  max-width: none;
+  max-width: 100%;
 }
 
 .item {

@@ -1,10 +1,9 @@
 .item-list {
   border: 2px solid red;
-  //max-width: 7rem;
-  transition: max-width 0.5s;
+  max-width: 8rem;
 
   &:hover {
-    max-width: none;
+    max-width: 100%;
   }
 }
 
