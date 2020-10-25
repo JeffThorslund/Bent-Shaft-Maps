@@ -1,10 +1,9 @@
 import React, { useEffect } from "react";
 import Navigation from "../Navigation";
 import { useDispatch, useSelector } from "react-redux";
-import {
-  selectRiverToEdit,
-  initializeInterfaceIndex,
-} from "../../../redux/actions/editingAction";
+import { initializeInterfaceIndex } from "../../../redux/actions/editingAction";
+import EditBasicInfo from "./EditBasicInfo";
+import ItemListGroup from "./ItemListGroup";
 
 const Dashboard = () => {
   const dispatch = useDispatch();
@@ -13,20 +12,45 @@ const Dashboard = () => {
     dispatch(initializeInterfaceIndex());
   }, []);
 
-  let { rivers, interfaceIndex } = useSelector((state) => {
+  let { rivers, editingReducer } = useSelector((state) => {
     return {
       rivers: state.startupReducer.rivers,
-      interfaceIndex: state.editingReducer.index,
+      editingReducer: state.editingReducer,
     };
   });
 
-  const EditingInterfaces = [<div>Interface 1</div>, <div>Interface 2</div>];
+  const createInterfaces = (
+    rivers,
+    { riverIndex, sectionIndex, rapidIndex }
+  ) => {
+    const arr = [];
+
+    arr.push(<EditBasicInfo list={rivers} indexType="riverIndex" />);
+
+    if (typeof rivers[riverIndex] !== "undefined") {
+      arr.push(
+        <EditBasicInfo
+          list={rivers[riverIndex].sections}
+          indexType="sectionIndex"
+        />
+      );
+      if (typeof rivers[riverIndex].sections[sectionIndex] !== "undefined") {
+        arr.push(
+          <EditBasicInfo
+            list={rivers[riverIndex].sections[sectionIndex].rapids}
+            indexType="riverIndex"
+          />
+        );
+      }
+    }
+
+    return arr[arr.length - 1];
+  };
 
   return (
     <>
       <Navigation />
-      {EditingInterfaces[interfaceIndex]}
-      <button onClick={() => dispatch(selectRiverToEdit(1))}>TEST</button>
+      <ItemListGroup rivers={rivers} editingReducer={editingReducer} />
     </>
   );
 };

@@ -1,0 +1,16 @@
+.item-list {
+  border: 2px solid red;
+  //max-width: 7rem;
+  transition: max-width 0.5s;
+
+  &:hover {
+    max-width: none;
+  }
+}
+
+.item {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  cursor: pointer;
+}

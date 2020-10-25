@@ -10767,6 +10767,21 @@ h3 {
   width: 3rem;
 }
 
+.item-list {
+  border: 2px solid red;
+  transition: max-width 0.5s;
+}
+.item-list:hover {
+  max-width: none;
+}
+
+.item {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
 .home {
   background: linear-gradient(135deg, #ffffff 20%, #bfc0c0 100%);
 }
