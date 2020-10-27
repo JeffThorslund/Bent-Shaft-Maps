@@ -1,10 +1,10 @@
 .item-list {
   border: 2px solid red;
-  max-width: 8rem;
+  max-width: 100%;
 
-  &:hover {
-    max-width: 100%;
-  }
+  // &:hover {
+  //   max-width: 100%;
+  // }
 }
 
 .item {

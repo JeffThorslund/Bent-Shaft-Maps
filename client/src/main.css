@@ -10769,9 +10769,6 @@ h3 {
 
 .item-list {
   border: 2px solid red;
-  max-width: 8rem;
-}
-.item-list:hover {
   max-width: 100%;
 }
 

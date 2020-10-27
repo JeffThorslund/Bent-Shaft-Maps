@@ -88,11 +88,14 @@ const ItemListGroup = ({
       type={itemList.type}
       selectedIndex={itemList.selectedIndex}
       selectedFeatureType={itemList.selectedFeatureType}
-      key={`${itemList.action}${i}`}
+      key={i}
     />
   ));
 
   const featureLists = itemLists.splice(3, 3);
+
+
+  
 
   return (
     <div className="d-flex flex-row">

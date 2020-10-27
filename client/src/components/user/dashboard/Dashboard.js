@@ -3,7 +3,7 @@ import Navigation from "../Navigation";
 import { useDispatch, useSelector } from "react-redux";
 import { initializeInterfaceIndex } from "../../../redux/actions/editingAction";
 import ItemListGroup from "./ItemListGroup";
-import EditBasicInfo from "./EditBasicInfo";
+import FormLayouts from "./FormLayouts";
 
 const Dashboard = () => {
   const dispatch = useDispatch();
@@ -24,7 +24,10 @@ const Dashboard = () => {
       <Navigation />
       <div className="d-flex flex-row">
         <ItemListGroup rivers={rivers} editingReducer={editingReducer} />
-        <EditBasicInfo rivers={rivers} editingReducer={editingReducer} />
+
+        <FormLayouts   rivers={rivers}
+          editingReducer={editingReducer} />
+    
       </div>
     </>
   );

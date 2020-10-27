@@ -29,3 +29,6 @@ export const updateFeatureTypeAndIndex = ( index, featureType) => {
     payload: { featureType, index },
   };
 };
+
+
+

@@ -45,6 +45,7 @@ export default (state = {}, action) => {
         featureIndex: action.payload.index,
       };
 
+
     default:
       return state;
   }

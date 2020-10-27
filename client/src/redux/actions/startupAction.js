@@ -8,3 +8,11 @@ export const fetchRivers = () => {
     });
   };
 };
+
+
+export const submitFormValues = () => {
+  return {
+    type: "SUBMIT_FORM_VALUES",
+    payload: "Submitted!",
+  };
+};
