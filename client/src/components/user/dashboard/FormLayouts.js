@@ -5,6 +5,7 @@ import {
   submitRiverFormValues,
   submitSectionFormValues,
 } from "../../../redux/actions/startupAction";
+import { ImageUpload } from "./CustomFormComponents";
 
 const handleSubmit = (e, dispatchedAction) => {
   dispatchedAction();
@@ -40,6 +41,7 @@ const SectionForm = reduxForm({
       <label htmlFor="location">Location</label>
       <Field name="location" component="input" type="text" />
     </div>
+    <ImageUpload />
     <button type="submit">Submit</button>
   </form>
 ));
