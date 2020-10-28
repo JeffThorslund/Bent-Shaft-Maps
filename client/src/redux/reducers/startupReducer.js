@@ -1,3 +1,5 @@
+import produce from "immer";
+
 export default (state = {}, action) => {
   switch (action.type) {
     case "FETCH_RIVERS":
@@ -6,20 +8,23 @@ export default (state = {}, action) => {
         rivers: action.payload,
       };
 
-    case "SUBMIT_FORM_VALUES":
-      return {
-        ...state,
-        rivers: state.rivers.map((item, index) => {
-          if (index !== 0) {
-            return item;
-          }
+    case "SUBMIT_RIVER_FORM_VALUES":
+      return produce(state, ({ rivers }) => {
+        const { values, riverIndex } = action.payload;
+        rivers[riverIndex] = {
+          ...rivers[riverIndex],
+          ...values.river.values,
+        };
+      });
 
-          return {
-            ...item,
-            name: "DOG",
-          };
-        }),
-      };
+    case "SUBMIT_SECTION_FORM_VALUES":
+      return produce(state, ({ rivers }) => {
+        const { values, riverIndex, sectionIndex } = action.payload;
+        rivers[riverIndex].sections[sectionIndex] = {
+          ...rivers[riverIndex].sections[sectionIndex],
+          ...values.section.values,
+        };
+      });
 
     default:
       return state;

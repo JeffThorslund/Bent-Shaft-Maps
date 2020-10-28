@@ -6,13 +6,13 @@ import "./main.css";
 //REDUX
 import { useSelector, useDispatch } from "react-redux";
 import { fetchRivers } from "./redux/actions/startupAction";
+//import { enableAllPlugins } from "immer";
 
 /**
  * Renders the entire application and imports the stylesheet.
  */
 
 const App = () => {
-
   const dispatch = useDispatch();
   const rivers = useSelector((state) => state.startupReducer.rivers);
 
@@ -20,6 +20,8 @@ const App = () => {
     console.log(dispatch);
     fetchRivers()(dispatch);
   }, []);
+
+  //enableAllPlugins();
 
   return (
     <Router>

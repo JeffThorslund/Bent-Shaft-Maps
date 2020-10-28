@@ -9,10 +9,28 @@ export const fetchRivers = () => {
   };
 };
 
-
-export const submitFormValues = () => {
+export const submitRiverFormValues = (values, riverIndex) => {
   return {
-    type: "SUBMIT_FORM_VALUES",
-    payload: "Submitted!",
+    type: "SUBMIT_RIVER_FORM_VALUES",
+    payload: { values, riverIndex },
+  };
+};
+
+export const submitSectionFormValues = (values, riverIndex, sectionIndex) => {
+  return {
+    type: "SUBMIT_SECTION_FORM_VALUES",
+    payload: { values, riverIndex, sectionIndex },
+  };
+};
+
+export const submitRapidFormValues = (
+  values,
+  riverIndex,
+  sectionIndex,
+  rapidIndex
+) => {
+  return {
+    type: "SUBMIT_RAPID_FORM_VALUES",
+    payload: { values, riverIndex, sectionIndex, rapidIndex },
   };
 };

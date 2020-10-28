@@ -1,13 +1,23 @@
 import React from "react";
 import { Field, reduxForm } from "redux-form";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  submitRiverFormValues,
+  submitSectionFormValues,
+} from "../../../redux/actions/startupAction";
+
+const handleSubmit = (e, dispatchedAction) => {
+  dispatchedAction();
+  e.preventDefault();
+};
 
 //River Form Structure
 
 const RiverForm = reduxForm({
   form: "river",
-  keepDirtyOnReinitialize: true
+  keepDirtyOnReinitialize: true,
 })((props) => (
-  <form>
+  <form onSubmit={(e) => handleSubmit(e, props.dispatchedAction)}>
     <div>
       <label htmlFor="name">Name </label>
       <Field name="name" component="input" type="text" />
@@ -21,10 +31,14 @@ const RiverForm = reduxForm({
 const SectionForm = reduxForm({
   form: "section",
 })((props) => (
-  <form>
+  <form onSubmit={(e) => handleSubmit(e, props.dispatchedAction)}>
     <div>
       <label htmlFor="name">Name Section</label>
       <Field name="name" component="input" type="text" />
+    </div>
+    <div>
+      <label htmlFor="location">Location</label>
+      <Field name="location" component="input" type="text" />
     </div>
     <button type="submit">Submit</button>
   </form>
@@ -43,18 +57,33 @@ const FormLayouts = ({
   },
   initialValues,
 }) => {
+  const dispatch = useDispatch();
+  const state = useSelector((state) => state);
+
   if (riverIndex === null) {
     return null;
   }
 
   if (sectionIndex === null) {
-    return <RiverForm initialValues={{ name: rivers[riverIndex].name }} />;
+    return (
+      <RiverForm
+        initialValues={{ name: rivers[riverIndex].name }}
+        dispatchedAction={() =>
+          dispatch(submitRiverFormValues(state.form, riverIndex))
+        }
+      />
+    );
   }
 
   if (rapidIndex === null) {
     return (
       <SectionForm
         initialValues={{ name: rivers[riverIndex].sections[sectionIndex].name }}
+        dispatchedAction={() =>
+          dispatch(
+            submitSectionFormValues(state.form, riverIndex, sectionIndex)
+          )
+        }
       />
     );
   } else {
