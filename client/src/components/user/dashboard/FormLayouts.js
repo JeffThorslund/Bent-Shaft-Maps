@@ -1,15 +1,11 @@
 import React from "react";
-import { Formik, Field, Form } from "formik";
+import { Formik, Field, FieldArray, Form } from "formik";
 import {
   submitRiverFormValues,
   submitSectionFormValues,
 } from "../../../redux/actions/startupAction";
 import { useDispatch, useSelector } from "react-redux";
-
-const handleSubmit = (dispatchedAction, values) => {
-  console.log(values);
-  dispatchedAction(values);
-};
+import { Range } from "./CustomFormComponents";
 
 const RiverForm = ({ initialValues, dispatchedAction }) => (
   <div>
@@ -22,7 +18,7 @@ const RiverForm = ({ initialValues, dispatchedAction }) => (
     >
       <Form>
         <label htmlFor="name">River Name</label>
-        <Field id="name" name="name" placeholder="Jane" />
+        <Field id="name" placeholder="Jane" name="name" />
         <button type="submit">Submit</button>
       </Form>
     </Formik>
@@ -41,6 +37,7 @@ const SectionForm = ({ initialValues, dispatchedAction, dispatch }) => (
       <Form>
         <label htmlFor="name">Section Name</label>
         <Field id="name" name="name" placeholder="Jane" />
+        <Range name="levelRange"/>
         <button type="submit">Submit</button>
       </Form>
     </Formik>
@@ -81,6 +78,7 @@ const FormLayouts = ({
       <SectionForm
         initialValues={{
           name: rivers[riverIndex].sections[sectionIndex].name,
+          levelRange: rivers[riverIndex].sections[sectionIndex].levelRange,
         }}
         dispatchedAction={(values) =>
           dispatch(submitSectionFormValues(values, riverIndex, sectionIndex))
