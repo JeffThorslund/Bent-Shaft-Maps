@@ -1,52 +1,51 @@
 import React from "react";
-import { Field, reduxForm } from "redux-form";
-import { useDispatch, useSelector } from "react-redux";
+import { Formik, Field, Form } from "formik";
 import {
   submitRiverFormValues,
   submitSectionFormValues,
 } from "../../../redux/actions/startupAction";
-import { ImageUpload } from "./CustomFormComponents";
+import { useDispatch, useSelector } from "react-redux";
 
-const handleSubmit = (e, dispatchedAction) => {
-  dispatchedAction();
-  e.preventDefault();
+const handleSubmit = (dispatchedAction, values) => {
+  console.log(values);
+  dispatchedAction(values);
 };
 
-//River Form Structure
+const RiverForm = ({ initialValues, dispatchedAction }) => (
+  <div>
+    <h1>River</h1>
+    <Formik
+      initialValues={initialValues}
+      onSubmit={async (values) => {
+        dispatchedAction(values);
+      }}
+    >
+      <Form>
+        <label htmlFor="name">River Name</label>
+        <Field id="name" name="name" placeholder="Jane" />
+        <button type="submit">Submit</button>
+      </Form>
+    </Formik>
+  </div>
+);
 
-const RiverForm = reduxForm({
-  form: "river",
-  keepDirtyOnReinitialize: true,
-})((props) => (
-  <form onSubmit={(e) => handleSubmit(e, props.dispatchedAction)}>
-    <div>
-      <label htmlFor="name">Name </label>
-      <Field name="name" component="input" type="text" />
-    </div>
-    <button type="submit">Submit</button>
-  </form>
-));
-
-//Section Form Structure
-
-const SectionForm = reduxForm({
-  form: "section",
-})((props) => (
-  <form onSubmit={(e) => handleSubmit(e, props.dispatchedAction)}>
-    <div>
-      <label htmlFor="name">Name Section</label>
-      <Field name="name" component="input" type="text" />
-    </div>
-    <div>
-      <label htmlFor="location">Location</label>
-      <Field name="location" component="input" type="text" />
-    </div>
-    <ImageUpload />
-    <button type="submit">Submit</button>
-  </form>
-));
-
-//component that returns the proper form based on redux state.
+const SectionForm = ({ initialValues, dispatchedAction, dispatch }) => (
+  <div>
+    <h1>Section</h1>
+    <Formik
+      initialValues={initialValues}
+      onSubmit={async (values) => {
+        dispatchedAction(values);
+      }}
+    >
+      <Form>
+        <label htmlFor="name">Section Name</label>
+        <Field id="name" name="name" placeholder="Jane" />
+        <button type="submit">Submit</button>
+      </Form>
+    </Formik>
+  </div>
+);
 
 const FormLayouts = ({
   rivers,
@@ -57,10 +56,8 @@ const FormLayouts = ({
     featureType,
     featureIndex,
   },
-  initialValues,
 }) => {
   const dispatch = useDispatch();
-  const state = useSelector((state) => state);
 
   if (riverIndex === null) {
     return null;
@@ -69,9 +66,11 @@ const FormLayouts = ({
   if (sectionIndex === null) {
     return (
       <RiverForm
-        initialValues={{ name: rivers[riverIndex].name }}
-        dispatchedAction={() =>
-          dispatch(submitRiverFormValues(state.form, riverIndex))
+        initialValues={{
+          name: rivers[riverIndex].name,
+        }}
+        dispatchedAction={(values) =>
+          dispatch(submitRiverFormValues(values, riverIndex))
         }
       />
     );
@@ -80,11 +79,11 @@ const FormLayouts = ({
   if (rapidIndex === null) {
     return (
       <SectionForm
-        initialValues={{ name: rivers[riverIndex].sections[sectionIndex].name }}
-        dispatchedAction={() =>
-          dispatch(
-            submitSectionFormValues(state.form, riverIndex, sectionIndex)
-          )
+        initialValues={{
+          name: rivers[riverIndex].sections[sectionIndex].name,
+        }}
+        dispatchedAction={(values) =>
+          dispatch(submitSectionFormValues(values, riverIndex, sectionIndex))
         }
       />
     );
@@ -94,3 +93,98 @@ const FormLayouts = ({
 };
 
 export default FormLayouts;
+
+// import { useDispatch, useSelector } from "react-redux";
+// import {
+//   submitRiverFormValues,
+//   submitSectionFormValues,
+// } from "../../../redux/actions/startupAction";
+// import { ImageUpload } from "./CustomFormComponents";
+
+// const handleSubmit = (e, dispatchedAction) => {
+//   dispatchedAction();
+//   e.preventDefault();
+// };
+
+// //River Form Structure
+
+// const RiverForm = reduxForm({
+//   form: "river",
+//   keepDirtyOnReinitialize: true,
+// })((props) => (
+//   <form onSubmit={(e) => handleSubmit(e, props.dispatchedAction)}>
+//     <div>
+//       <label htmlFor="name">Name </label>
+//       <Field name="name" component="input" type="text" />
+//     </div>
+//     <button type="submit">Submit</button>
+//   </form>
+// ));
+
+// //Section Form Structure
+
+// const SectionForm = reduxForm({
+//   form: "section",
+// })((props) => (
+//   <form onSubmit={(e) => handleSubmit(e, props.dispatchedAction)}>
+//     <div>
+//       <label htmlFor="name">Name Section</label>
+//       <Field name="name" component="input" type="text" />
+//     </div>
+//     <div>
+//       <label htmlFor="location">Location</label>
+//       <Field name="location" component="input" type="text" />
+//     </div>
+//     <ImageUpload />
+//     <button type="submit">Submit</button>
+//   </form>
+// ));
+
+// //component that returns the proper form based on redux state.
+
+// const FormLayouts = ({
+//   rivers,
+//   editingReducer: {
+//     riverIndex,
+//     sectionIndex,
+//     rapidIndex,
+//     featureType,
+//     featureIndex,
+//   },
+//   initialValues,
+// }) => {
+//   const dispatch = useDispatch();
+//   const state = useSelector((state) => state);
+
+//   if (riverIndex === null) {
+//     return null;
+//   }
+
+//   if (sectionIndex === null) {
+//     return (
+//       <RiverForm
+//         initialValues={{ name: rivers[riverIndex].name }}
+//         dispatchedAction={() =>
+//           dispatch(submitRiverFormValues(state.form, riverIndex))
+//         }
+//       />
+//     );
+//   }
+
+//   if (rapidIndex === null) {
+//     return (
+//       <SectionForm
+//         initialValues={{ name: rivers[riverIndex].sections[sectionIndex].name }}
+//         dispatchedAction={() =>
+//           dispatch(
+//             submitSectionFormValues(state.form, riverIndex, sectionIndex)
+//           )
+//         }
+//       />
+//     );
+//   } else {
+//     return null;
+//   }
+// };
+
+// export default FormLayouts;

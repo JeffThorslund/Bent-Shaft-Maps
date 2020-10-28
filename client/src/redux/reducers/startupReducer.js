@@ -13,7 +13,7 @@ export default (state = {}, action) => {
         const { values, riverIndex } = action.payload;
         rivers[riverIndex] = {
           ...rivers[riverIndex],
-          ...values.river.values,
+          ...values,
         };
       });
 
@@ -22,7 +22,7 @@ export default (state = {}, action) => {
         const { values, riverIndex, sectionIndex } = action.payload;
         rivers[riverIndex].sections[sectionIndex] = {
           ...rivers[riverIndex].sections[sectionIndex],
-          ...values.section.values,
+          ...values,
         };
       });
 
