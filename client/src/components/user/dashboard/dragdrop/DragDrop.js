@@ -18,11 +18,15 @@ const DragDrop = ({ rivers }) => {
 
   useEffect(() => {
     getDimensions();
-    // window.addEventListener("resize", getDimensions);
   }, []);
 
   const tags = rivers[0].sections[0].rapids.map((rapid) => (
-    <PointerTag rapid={rapid} dimensions={dimensions} />
+    <PointerTag
+      rapid={rapid}
+      dimensions={dimensions}
+      defaultPosition={{ x: 10, y: 20 }}
+      getDimensions={getDimensions}
+    />
   ));
 
   return (
@@ -32,14 +36,7 @@ const DragDrop = ({ rivers }) => {
       style={{ position: "relative", height: "900px", width: "1600px" }}
     >
       <div className="background-map h-100 w-100"></div>
-      {/* {tags} */}
-
-      <PointerTag
-        rapid={rivers[0].sections[0].rapids[0]}
-        dimensions={dimensions}
-        getDimensions={getDimensions}
-        defaultPosition={{ x: 10, y: 20 }}
-      />
+      {tags}
     </div>
   );
 };
