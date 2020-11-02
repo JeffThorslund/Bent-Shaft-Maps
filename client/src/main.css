@@ -10779,11 +10779,6 @@ h3 {
   cursor: pointer;
 }
 
-.react-draggable {
-  display: inline-block;
-  position: absolute;
-}
-
 .background-map {
   position: absolute;
   background-image: url("https://bent-shaft-maps.s3.amazonaws.com/maps/river_W41oYWjV4/section_jswy1FCZu/Overview.jpg");
