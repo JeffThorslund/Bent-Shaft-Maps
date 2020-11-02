@@ -6,36 +6,52 @@ const PointerTag = ({
   rapid,
   dimensions = { x: 100, y: 200 },
   getDimensions,
+  defaultPosition,
 }) => {
-  const [coords, setCoords] = useState({ x: 0, y: 0 });
+  //Coordinates in px of tag position. Anti-pattern?
+  const [coords, setCoords] = useState({
+    x: defaultPosition.x,
+    y: defaultPosition.y,
+  });
+
+  //Drag behavior
+  const handleDrag = (e, data) => {
+    let x, y;
+    setCoords((prev) => {
+      
+      //Set x boundaries
+      if (data.x > 0 && data.x < dimensions.x) {
+        x = ((data.x / dimensions.x) * 100).toFixed(2);
+      } else {
+        x = prev.x;
+      }
+      //Set y boundaries
+      if (data.y > 0 && data.y < dimensions.y) {
+        y = ((data.y / dimensions.y) * 100).toFixed(2);
+      } else {
+        y = prev.y;
+      }
+
+      return {
+        x,
+        y,
+      };
+    });
+  };
 
   return (
     <DraggableCore
-      onStart={() => getDimensions()}
-      onDrag={(e, data) => {
-        setCoords((prev) => {
-          let x = prev.x + data.deltaX;
-          let y = prev.y + data.deltaY;
-
-          if (x < 0 || x > dimensions.x) {
-            x = prev.x;
-          }
-
-          if (y < 0 || y > dimensions.y) {
-            y = prev.y;
-          }
-
-          return { x, y };
-        });
-      }}
+      //get new dimensions in case resized
+      onStart={getDimensions}
+      onDrag={handleDrag}
       axis="none"
     >
       <div
         style={{
           position: "absolute",
           color: "red",
-          top: `${(coords.y / dimensions.y) * 100}%`,
-          left: `${(coords.x / dimensions.x) * 100}%`,
+          left: `${coords.x}%`,
+          top: `${coords.y}%`,
         }}
       >
         {coords.x} | {coords.y}

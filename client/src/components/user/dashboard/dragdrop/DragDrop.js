@@ -2,32 +2,24 @@ import React, { useState, useEffect, useRef } from "react";
 import PointerTag from "./PointerTag";
 import Image from "react-bootstrap";
 
-/**
- * x. Create bounding box. Make item draggable around box.
- * 2. Create a grid system that uses current coord system to place in bounding box.
- * 3. Map over array to create many dragabble items, each with different default position.
- * 4. Create pointer and tag component, both draggable and setting values accordingly.
- * 5. Incorperate redux into drag and drop actions to set position of values.
- */
-
 const DragDrop = ({ rivers }) => {
   const refContainer = useRef(null);
+
+  // Parent container dimensions.
   const [dimensions, setDimensions] = useState({ x: 0, y: 0 });
 
+  // Set dimensions based of the parent container.
   const getDimensions = () => {
-      setDimensions({
-        x: refContainer.current.offsetWidth,
-        y: refContainer.current.offsetHeight,
-      });
-    };
+    setDimensions({
+      x: refContainer.current.offsetWidth,
+      y: refContainer.current.offsetHeight,
+    });
+  };
 
-  // useEffect(() => {
-    
-
-  //   getDimensions();
-
-  //   //window.addEventListener("resize", getDimensions);
-  // }, []);
+  useEffect(() => {
+    getDimensions();
+    // window.addEventListener("resize", getDimensions);
+  }, []);
 
   const tags = rivers[0].sections[0].rapids.map((rapid) => (
     <PointerTag rapid={rapid} dimensions={dimensions} />
@@ -45,7 +37,8 @@ const DragDrop = ({ rivers }) => {
       <PointerTag
         rapid={rivers[0].sections[0].rapids[0]}
         dimensions={dimensions}
-        getDimensions = {getDimensions}
+        getDimensions={getDimensions}
+        defaultPosition={{ x: 10, y: 20 }}
       />
     </div>
   );
