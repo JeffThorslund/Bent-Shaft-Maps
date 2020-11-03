@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
 import PointerTag from "./PointerTag";
-import Image from "react-bootstrap";
 
 const DragDrop = ({ rivers }) => {
   const refContainer = useRef(null);

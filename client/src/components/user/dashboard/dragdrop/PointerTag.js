@@ -1,14 +1,27 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef, useCallback } from "react";
 import { useDrag } from "react-dnd";
 import Draggable, { DraggableCore } from "react-draggable";
+import ConnectingLine from "./ConnectingLine";
 
 const PointerTag = ({
   rapid: { mapLabel, name },
   dimensions = { x: 100, y: 200 },
   getDimensions,
-  defaultPosition,
 }) => {
-  const refContainer = useRef(null);
+  const [refs, setRefs] = useState({});
+
+  const measuredRef = useCallback((node) => {
+    if (node !== null) {
+      setRefs((prev) => ({
+        ...prev,
+        [node.className]: {
+          width: node.offsetWidth,
+          height: node.offsetHeight,
+        },
+      }));
+    }
+  }, []);
+
   //Coordinates in px of tag position. Anti-pattern?
 
   const [tagCoords, setTagCoords] = useState({
@@ -22,11 +35,11 @@ const PointerTag = ({
   });
 
   //Drag behavior
-  const handleDrag = (e, data, setter) => {
+  const handleDrag = (e, data, setter, dims) => {
     let x, y;
 
-    let pointerTagWidth = refContainer.current.offsetWidth;
-    let pointerTagHeight = refContainer.current.offsetHeight;
+    let pointerTagWidth = dims.width;
+    let pointerTagHeight = dims.height;
 
     setter((prev) => {
       //Set x boundaries
@@ -54,7 +67,7 @@ const PointerTag = ({
       <DraggableCore
         //get new dimensions in case resized
         onStart={getDimensions}
-        onDrag={(e, data) => handleDrag(e, data, setTagCoords)}
+        onDrag={(e, data) => handleDrag(e, data, setTagCoords, refs.tag)}
         axis="none"
       >
         <div
@@ -64,25 +77,27 @@ const PointerTag = ({
             left: `${tagCoords.x}%`,
             top: `${tagCoords.y}%`,
           }}
-          ref={refContainer}
+          ref={measuredRef}
+          className="tag"
         >
           {name}
         </div>
       </DraggableCore>
-
-      <svg height="100%" width="100%" className="tip-tag-connection-line">
-        <line
-          x1={`${(pointerCoords.x * dimensions.x) / 100}`}
-          y1={`${(pointerCoords.y * dimensions.y) / 100}`}
-          x2={`${(tagCoords.x * dimensions.x) / 100}`}
-          y2={`${(tagCoords.y * dimensions.y) / 100}`}
+      {refs.hasOwnProperty("tag") && refs.hasOwnProperty("pointer") && (
+        <ConnectingLine
+          pointerCoords={pointerCoords}
+          tagCoords={tagCoords}
+          dimensions={dimensions}
+          refs={refs}
         />
-      </svg>
+      )}
 
       <DraggableCore
         //get new dimensions in case resized
         onStart={getDimensions}
-        onDrag={(e, data) => handleDrag(e, data, setPointerCoords)}
+        onDrag={(e, data) =>
+          handleDrag(e, data, setPointerCoords, refs.pointer)
+        }
         axis="none"
       >
         <div
@@ -92,9 +107,10 @@ const PointerTag = ({
             left: `${pointerCoords.x}%`,
             top: `${pointerCoords.y}%`,
           }}
-          ref={refContainer}
+          className="pointer"
+          ref={measuredRef}
         >
-          {name} Tip
+          Pointer
         </div>
       </DraggableCore>
     </div>
