@@ -1,25 +1,19 @@
-import React, { useState, useEffect, useRef, useCallback } from "react";
-import { useDrag } from "react-dnd";
-import Draggable, { DraggableCore } from "react-draggable";
+import React, { useState, useEffect, useRef } from "react";
+import { DraggableCore } from "react-draggable";
 import ConnectingLine from "./ConnectingLine";
 
 const PointerTag = ({
   rapid: { mapLabel, name },
-  dimensions = { x: 100, y: 200 },
-  getDimensions,
+  containerDimensions = { width: 500, height: 500 },
+  getContainerDimensions,
 }) => {
-  const [refs, setRefs] = useState({});
-
-  const measuredRef = useCallback((node) => {
-    if (node !== null) {
-      setRefs((prev) => ({
-        ...prev,
-        [node.className]: {
-          width: node.offsetWidth,
-          height: node.offsetHeight,
-        },
-      }));
-    }
+  const refContainer = useRef(null);
+  const [tagDimensions, setTagDimensions] = useState({});
+  useEffect(() => {
+    setTagDimensions({
+      width: refContainer.current.offsetWidth,
+      height: refContainer.current.offsetHeight,
+    });
   }, []);
 
   //Coordinates in px of tag position. Anti-pattern?
@@ -32,25 +26,28 @@ const PointerTag = ({
   const [pointerCoords, setPointerCoords] = useState({
     x: mapLabel[1][0],
     y: mapLabel[1][1],
-  });
+  }); 
 
   //Drag behavior
-  const handleDrag = (e, data, setter, dims) => {
+  const handleDrag = (e, data, setter, tagDimensions) => {
     let x, y;
-
-    let pointerTagWidth = dims.width;
-    let pointerTagHeight = dims.height;
 
     setter((prev) => {
       //Set x boundaries
-      if (data.x > 0 && data.x + pointerTagWidth < dimensions.x) {
-        x = ((data.x / dimensions.x) * 100).toFixed(2);
+      if (
+        data.x > 0 &&
+        data.x + tagDimensions.width < containerDimensions.width
+      ) {
+        x = ((data.x / containerDimensions.width) * 100);
       } else {
         x = prev.x;
       }
       //Set y boundaries
-      if (data.y > 0 && data.y + pointerTagHeight < dimensions.y) {
-        y = ((data.y / dimensions.y) * 100).toFixed(2);
+      if (
+        data.y > 0 &&
+        data.y + tagDimensions.height < containerDimensions.height
+      ) {
+        y = ((data.y / containerDimensions.height) * 100);
       } else {
         y = prev.y;
       }
@@ -65,9 +62,9 @@ const PointerTag = ({
   return (
     <div>
       <DraggableCore
-        //get new dimensions in case resized
-        onStart={getDimensions}
-        onDrag={(e, data) => handleDrag(e, data, setTagCoords, refs.tag)}
+        //get new containerDimensions in case resized
+        onStart={getContainerDimensions}
+        onDrag={(e, data) => handleDrag(e, data, setTagCoords, tagDimensions)}
         axis="none"
       >
         <div
@@ -77,26 +74,27 @@ const PointerTag = ({
             left: `${tagCoords.x}%`,
             top: `${tagCoords.y}%`,
           }}
-          ref={measuredRef}
+          ref={refContainer}
           className="tag"
         >
           {name}
         </div>
       </DraggableCore>
-      {refs.hasOwnProperty("tag") && refs.hasOwnProperty("pointer") && (
-        <ConnectingLine
-          pointerCoords={pointerCoords}
-          tagCoords={tagCoords}
-          dimensions={dimensions}
-          refs={refs}
-        />
-      )}
+      {tagDimensions.hasOwnProperty("width") &&
+        tagDimensions.hasOwnProperty("height") && (
+          <ConnectingLine
+            pointerCoords={pointerCoords}
+            tagCoords={tagCoords}
+            containerDimensions={containerDimensions}
+            tagDimensions={tagDimensions}
+          />
+        )}
 
       <DraggableCore
-        //get new dimensions in case resized
-        onStart={getDimensions}
+        //get new containerDimensions in case resized
+        onStart={getContainerDimensions}
         onDrag={(e, data) =>
-          handleDrag(e, data, setPointerCoords, refs.pointer)
+          handleDrag(e, data, setPointerCoords, tagDimensions)
         }
         axis="none"
       >
@@ -108,7 +106,6 @@ const PointerTag = ({
             top: `${pointerCoords.y}%`,
           }}
           className="pointer"
-          ref={measuredRef}
         >
           Pointer
         </div>

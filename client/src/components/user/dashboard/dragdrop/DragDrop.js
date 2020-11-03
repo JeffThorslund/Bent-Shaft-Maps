@@ -4,27 +4,29 @@ import PointerTag from "./PointerTag";
 const DragDrop = ({ rivers }) => {
   const refContainer = useRef(null);
 
-  // Parent container dimensions.
-  const [dimensions, setDimensions] = useState({ x: 0, y: 0 });
+  // Parent container containerDimensions.
+  const [containerDimensions, setContainerDimensions] = useState({
+    width: 0,
+    height: 0,
+  });
 
-  // Set dimensions based of the parent container.
-  const getDimensions = () => {
-    setDimensions({
-      x: refContainer.current.offsetWidth,
-      y: refContainer.current.offsetHeight,
+  // Set containerDimensions based of the parent container.
+  const getContainerDimensions = () => {
+    setContainerDimensions({
+      width: refContainer.current.offsetWidth,
+      height: refContainer.current.offsetHeight,
     });
   };
 
   useEffect(() => {
-    getDimensions();
+    getContainerDimensions();
   }, []);
 
   const tags = rivers[0].sections[0].rapids.map((rapid) => (
     <PointerTag
       rapid={rapid}
-      dimensions={dimensions}
-      defaultPosition={{ x: 10, y: 20 }}
-      getDimensions={getDimensions}
+      containerDimensions={containerDimensions}
+      getContainerDimensions={getContainerDimensions}
     />
   ));
 

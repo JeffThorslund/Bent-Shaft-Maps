@@ -3,31 +3,41 @@ import React from "react";
 const ConnectingLine = ({
   pointerCoords,
   tagCoords,
-  dimensions,
-  refs = {},
+  containerDimensions,
+  tagDimensions,
 }) => {
-  console.log((refs.tag.width / dimensions.x) * 100);
 
   const stroke = () => {
-    const coords = {};
+    const coords = {
+      x2: pointerCoords.x,
+      y2: pointerCoords.y,
+    };
 
-    if (
-      pointerCoords.x >
-      tagCoords.x + (refs.tag.width / dimensions.x) * 100
-    ) {
-      coords.x1 = tagCoords.x + (refs.tag.width / dimensions.x) * 100;
-      coords.x2 = pointerCoords.x;
-    } else {
+    let tagDimensionsPercentage = {
+      width: (tagDimensions.width / containerDimensions.width) * 100,
+      height: (tagDimensions.height / containerDimensions.height) * 100,
+    };
+
+    if (pointerCoords.x < tagCoords.x) {
       coords.x1 = tagCoords.x;
-      coords.x2 = pointerCoords.x;
+    } else if (
+      pointerCoords.x > tagCoords.x &&
+      pointerCoords.x < tagCoords.x + tagDimensionsPercentage.width
+    ) {
+      coords.x1 = tagCoords.x + tagDimensionsPercentage.width / 2;
+    } else {
+      coords.x1 = tagCoords.x + tagDimensionsPercentage.width;
     }
 
-    if (pointerCoords.y > tagCoords.y + 5) {
-      coords.y1 = tagCoords.y + 5;
-      coords.y2 = pointerCoords.y;
-    } else {
+    if (pointerCoords.y < tagCoords.y) {
       coords.y1 = tagCoords.y;
-      coords.y2 = pointerCoords.y;
+    } else if (
+      pointerCoords.y > tagCoords.y &&
+      pointerCoords.y < tagCoords.y + tagDimensionsPercentage.height
+    ) {
+      coords.y1 = tagCoords.y + tagDimensionsPercentage.height / 2;
+    } else {
+      coords.y1 = tagCoords.y + tagDimensionsPercentage.height;
     }
 
     return coords;
