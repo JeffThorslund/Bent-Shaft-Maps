@@ -2,30 +2,23 @@ import React, { useEffect } from "react";
 import { BrowserRouter as Router } from "react-router-dom";
 import GlobalRouter from "./components/routing/GlobalRouter";
 import "./main.css";
+import store from "./rematch/store";
 
 //REDUX
-import { useSelector, useDispatch } from "react-redux";
-import { fetchRivers } from "./redux/actions/startupAction";
+import { useSelector } from "react-redux";
 
 /**
  * Renders the entire application and imports the stylesheet.
  */
 
 const App = () => {
-  const dispatch = useDispatch();
-  const rivers = useSelector((state) => state.startupReducer.rivers);
-
   useEffect(() => {
-    fetchRivers()(dispatch);
+    store.dispatch.data.fetchRiversAsync();
   }, []);
 
-  //enableAllPlugins();
+  const rivers = useSelector((state) => state.data.rivers);
 
-  return (
-    <Router>
-      <GlobalRouter rivers={rivers} />
-    </Router>
-  );
+  return <Router>{rivers !== null && <GlobalRouter rivers={rivers} />}</Router>;
 };
 
 export default App;

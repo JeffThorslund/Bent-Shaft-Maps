@@ -6,7 +6,8 @@ import ItemListGroup from "./ItemListGroup";
 import FormLayouts from "./FormLayouts";
 import DragDrop from "./dragdrop/DragDrop";
 
-const Dashboard = () => {
+const Dashboard = ({rivers}) => {
+  
   const dispatch = useDispatch();
 
   useEffect(() => {
