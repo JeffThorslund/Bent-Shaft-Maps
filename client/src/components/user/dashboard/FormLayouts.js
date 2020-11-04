@@ -6,6 +6,7 @@ import {
 } from "../../../redux/actions/startupAction";
 import { useDispatch, useSelector } from "react-redux";
 import { Range } from "./CustomFormComponents";
+import DragDrop from "./dragdrop/DragDrop";
 
 const RiverForm = ({ initialValues, dispatchedAction }) => (
   <div>
@@ -25,7 +26,7 @@ const RiverForm = ({ initialValues, dispatchedAction }) => (
   </div>
 );
 
-const SectionForm = ({ initialValues, dispatchedAction, dispatch }) => (
+const SectionForm = ({ initialValues, dispatchedAction, rivers }) => (
   <div>
     <h1>Section</h1>
     <Formik
@@ -37,7 +38,8 @@ const SectionForm = ({ initialValues, dispatchedAction, dispatch }) => (
       <Form>
         <label htmlFor="name">Section Name</label>
         <Field id="name" name="name" placeholder="Jane" />
-        <Range name="levelRange"/>
+        <Range name="levelRange" />
+        <DragDrop rivers={rivers} />
         <button type="submit">Submit</button>
       </Form>
     </Formik>
@@ -83,6 +85,7 @@ const FormLayouts = ({
         dispatchedAction={(values) =>
           dispatch(submitSectionFormValues(values, riverIndex, sectionIndex))
         }
+        rivers={rivers}
       />
     );
   } else {

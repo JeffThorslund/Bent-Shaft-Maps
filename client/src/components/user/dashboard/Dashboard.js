@@ -26,7 +26,7 @@ const Dashboard = () => {
       <div className="d-flex flex-row flex-grow-1">
         <ItemListGroup rivers={rivers} editingReducer={editingReducer} />
         <FormLayouts rivers={rivers} editingReducer={editingReducer} />
-        <DragDrop rivers={rivers}/>
+        
       </div>
     </div>
   );
