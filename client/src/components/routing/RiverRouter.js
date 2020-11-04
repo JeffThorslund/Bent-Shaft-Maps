@@ -3,7 +3,13 @@ import { Switch, Route, useRouteMatch } from "react-router-dom";
 import SectionRouter from "./SectionRouter";
 import { paramCase } from "change-case";
 
-const RiverRouter = ({ rivers }) => {
+//REDUX
+import { useSelector } from "react-redux";
+
+const RiverRouter = () => {
+
+  //Get rivers from redux store
+  const rivers = useSelector((state) => state.data.rivers);
   
   let { url, path } = useRouteMatch();
 

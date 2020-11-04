@@ -5,16 +5,23 @@ import SearchBar from "../general/SearchBar";
 import RiverCard from "./RiverCard";
 import DoesNotExistCard from "./DoesNotExistCard";
 
+//REDUX
+import { useSelector } from "react-redux";
+
 /**
  * Handles search functionality and river card display.
  */
 
-const RiverCardContainer = ({ rivers }) => {
+const RiverCardContainer = () => {
   //User Search Query
   const [value, setValue] = useState("");
+
   const handleChange = (e) => {
     setValue(e.target.value);
   };
+
+  //Get rivers from redux store
+  const rivers = useSelector((state) => state.data.rivers);
 
   let riverCardData =
     rivers &&

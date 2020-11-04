@@ -12,6 +12,7 @@ import { useSelector } from "react-redux";
  */
 
 const App = () => {
+  
   useEffect(() => {
     store.dispatch.data.fetchRiversAsync();
   }, []);

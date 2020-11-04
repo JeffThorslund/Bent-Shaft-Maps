@@ -10,10 +10,20 @@ export const data = {
       state.rivers = payload;
       return state;
     },
+
     submitRiverFormValues: (state, payload) => {
       const { values, riverIndex } = payload;
       state.rivers[riverIndex] = {
         ...state.rivers[riverIndex],
+        ...values,
+      };
+      return state;
+    },
+
+    submitSectionFormValues: (state, payload) => {
+      const { values, riverIndex, sectionIndex } = payload;
+      state.rivers[riverIndex].sections[sectionIndex] = {
+        ...state.rivers[riverIndex].sections[sectionIndex],
         ...values,
       };
       return state;
@@ -43,7 +53,7 @@ export const indexes = {
   reducers: {
     updateRiverIndex: (state, payload) => ({
       ...state,
-      riverIndex: payload,
+      riverIndex: payload.index,
       sectionIndex: null,
       rapidIndex: null,
       featureType: null,
@@ -52,7 +62,7 @@ export const indexes = {
 
     updateSectionIndex: (state, payload) => ({
       ...state,
-      sectionIndex: payload,
+      sectionIndex: payload.index,
       rapidIndex: null,
       featureType: null,
       featureIndex: null,
@@ -60,15 +70,15 @@ export const indexes = {
 
     updateRapidIndex: (state, payload) => ({
       ...state,
-      rapidIndex: payload,
+      rapidIndex: payload.index,
       featureType: null,
       featureIndex: null,
     }),
 
     updateFeatureTypeAndIndex: (state, payload) => ({
       ...state,
-      featureType: payload.featureType,
-      featureIndex: payload.featureIndex,
+      featureIndex: payload.index,
+      featureType: payload.type,
     }),
   },
 };

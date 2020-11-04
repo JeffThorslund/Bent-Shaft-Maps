@@ -15,11 +15,10 @@ import PrivacyPolicy from "../user/PrivacyPolicy";
  */
 
 const GlobalRouter = ({ rivers }) => {
-
   return (
     <Switch>
       <Route exact path="/" key="home">
-        <Home rivers={rivers} />
+        <Home />
       </Route>
 
       {rivers && (
@@ -32,15 +31,7 @@ const GlobalRouter = ({ rivers }) => {
         <PrivacyPolicy />
       </Route>
 
-      {process.env.NODE_ENV === "development" && (
-        <Route exact path="/imageUpload" key="imageUpload">
-          <ImageUpload />
-        </Route>
-      )}
-
-      {rivers ? (
-        <Route path="/maps" children={<RiverRouter rivers={rivers} />} />
-      ) : null}
+      <Route path="/maps" children={<RiverRouter />} />
     </Switch>
   );
 };

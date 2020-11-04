@@ -1,23 +1,19 @@
 import React from "react";
 import ItemList from "./ItemList";
-import {
-  updateRiverIndex,
-  updateSectionIndex,
-  updateRapidIndex,
-  updateFeatureTypeAndIndex,
-} from "../../../redux/actions/editingAction";
 
 const ItemListGroup = ({
   rivers,
-  editingReducer: {
-    riverIndex,
-    sectionIndex,
-    rapidIndex,
-    featureType,
-    featureIndex,
+  indexes: { riverIndex, sectionIndex, rapidIndex, featureType, featureIndex },
+  indexActions: {
+    updateRiverIndex,
+    updateSectionIndex,
+    updateRapidIndex,
+    updateFeatureTypeAndIndex,
   },
 }) => {
+
   const arr = [];
+
   arr.push({
     list: rivers,
     action: updateRiverIndex,
@@ -93,9 +89,6 @@ const ItemListGroup = ({
   ));
 
   const featureLists = itemLists.splice(3, 3);
-
-
-  
 
   return (
     <div className="d-flex flex-row">
