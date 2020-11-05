@@ -3,7 +3,10 @@ import { DraggableCore } from "react-draggable";
 import ConnectingLine from "./ConnectingLine";
 
 const PointerTag = ({
-  rapid: { mapLabel, name },
+  rapid: {
+    overviewLabel: { pointer, tag },
+    name,
+  },
   containerDimensions = { width: 500, height: 500 },
   getContainerDimensions,
 }) => {
@@ -19,14 +22,14 @@ const PointerTag = ({
   //Coordinates in px of tag position. Anti-pattern?
 
   const [tagCoords, setTagCoords] = useState({
-    x: mapLabel[0][0],
-    y: mapLabel[0][1],
+    x: tag.x,
+    y: tag.y,
   });
 
   const [pointerCoords, setPointerCoords] = useState({
-    x: mapLabel[1][0],
-    y: mapLabel[1][1],
-  }); 
+    x: pointer.x,
+    y: pointer.y,
+  });
 
   //Drag behavior
   const handleDrag = (e, data, setter, tagDimensions) => {
@@ -38,7 +41,7 @@ const PointerTag = ({
         data.x > 0 &&
         data.x + tagDimensions.width < containerDimensions.width
       ) {
-        x = ((data.x / containerDimensions.width) * 100);
+        x = (data.x / containerDimensions.width) * 100;
       } else {
         x = prev.x;
       }
@@ -47,7 +50,7 @@ const PointerTag = ({
         data.y > 0 &&
         data.y + tagDimensions.height < containerDimensions.height
       ) {
-        y = ((data.y / containerDimensions.height) * 100);
+        y = (data.y / containerDimensions.height) * 100;
       } else {
         y = prev.y;
       }
