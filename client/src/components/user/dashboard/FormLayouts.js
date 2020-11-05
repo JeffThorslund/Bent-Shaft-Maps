@@ -1,7 +1,6 @@
 import React from "react";
 import { Formik, Field, FieldArray, Form } from "formik";
-import { Range } from "./CustomFormComponents";
-import DragDrop from "./dragdrop/DragDrop";
+import { Range, Dragger } from "./CustomFormComponents";
 
 const FormLayouts = ({
   rivers,
@@ -76,7 +75,7 @@ const SectionForm = ({ initialValues, dispatchedAction, rivers }) => (
         <label htmlFor="name">Section Name</label>
         <Field id="name" name="name" placeholder="Jane" />
         <Range name="levelRange" />
-        <DragDrop rivers={rivers} />
+        <Dragger />
         <button type="submit">Submit</button>
       </Form>
     </Formik>
