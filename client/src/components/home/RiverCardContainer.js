@@ -12,7 +12,7 @@ import { useSelector } from "react-redux";
  * Handles search functionality and river card display.
  */
 
-const RiverCardContainer = () => {
+const RiverCardContainer = ({ rivers }) => {
   //User Search Query
   const [value, setValue] = useState("");
 
@@ -20,42 +20,30 @@ const RiverCardContainer = () => {
     setValue(e.target.value);
   };
 
-  //Get rivers from redux store
-  const rivers = useSelector((state) => state.data.rivers);
+  let riverCardData = rivers
+    .map((river) => {
+      return river.sections.map((section) => ({
+        riverName: river.name,
+        sectionName: section.name,
+        locationName: section.location,
+        className: section.class,
+      }));
+    })
+    .flat();
 
-  let riverCardData =
-    rivers &&
-    rivers
-      .map((river) => {
-        return river.sections.map((section) => {
-          return {
-            riverName: river.name,
-            sectionName: section.name,
-            locationName: section.location,
-            className: section.class,
-          };
-        });
-      })
-      .flat();
+  let riverCards = riverCardData
+    .filter((card) => {
+      if (value.length === 0) return true;
 
-  let RiverCards = riverCardData
-    ? riverCardData
-        .filter((card) => {
-          if (value.length === 0) return true;
+      for (const [key, result] of Object.entries(card)) {
+        if (result.toUpperCase().indexOf(value.toUpperCase()) > -1) return true;
+      }
 
-          for (const [key, result] of Object.entries(card)) {
-            if (result.toUpperCase().indexOf(value.toUpperCase()) > -1)
-              return true;
-          }
-
-          return false;
-        })
-        .map((card, index) => {
-          return (
-            <RiverCard {...card} value={value} key={`RiverCard${index}`} />
-          );
-        })
-    : null;
+      return false;
+    })
+    .map((card, index) => {
+      return <RiverCard {...card} value={value} key={`RiverCard${index}`} />;
+    });
 
   return (
     <>
@@ -64,8 +52,8 @@ const RiverCardContainer = () => {
         value={value}
         placeholder="Search for a river, town, province or state!"
       />
-      {RiverCards !== null && RiverCards.length > 0 ? (
-        <CardColumns>{RiverCards}</CardColumns>
+      {riverCards !== null && riverCards.length > 0 ? (
+        <CardColumns>{riverCards}</CardColumns>
       ) : (
         <DoesNotExistCard />
       )}

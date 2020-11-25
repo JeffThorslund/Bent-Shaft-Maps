@@ -8,12 +8,12 @@ import RiverCardContainer from "./RiverCardContainer";
  * Holds Navigation Bar, Header, and RiverCardContainer
  */
 
-const Home = () => (
+const Home = ({rivers}) => (
   <div className="vh-100 home">
     <Navigation />
     <Container>
       <Header />
-      <RiverCardContainer />
+      <RiverCardContainer rivers={rivers}/>
     </Container>
   </div>
 );

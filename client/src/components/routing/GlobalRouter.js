@@ -3,7 +3,6 @@ import { Switch, Route } from "react-router-dom";
 
 import Home from "../home/Home";
 import RiverRouter from "./RiverRouter";
-import ImageUpload from "../home/ImageUpload";
 import UserRouter from "../user/UserRouter";
 import PrivacyPolicy from "../user/PrivacyPolicy";
 
@@ -18,7 +17,7 @@ const GlobalRouter = ({ rivers }) => {
   return (
     <Switch>
       <Route exact path="/" key="home">
-        <Home />
+        <Home rivers={rivers}/>
       </Route>
 
       {rivers && (
@@ -31,7 +30,7 @@ const GlobalRouter = ({ rivers }) => {
         <PrivacyPolicy />
       </Route>
 
-      <Route path="/maps" children={<RiverRouter />} />
+      <Route path="/maps" children={<RiverRouter rivers={rivers} />} />
     </Switch>
   );
 };
