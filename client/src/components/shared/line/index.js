@@ -11,12 +11,20 @@ import DraggableNode from "../DraggableNode/index";
 const mockLine =
   "M 100,370 q 140,-100 250,-60 q 150,60 380,15 q 165,-20 380,100 Q 1250,500 1350,650";
 
+const lineData = {
+  cx1: 50,
+  cy1: 50,
+  cx2: 100,
+  cy2: 100,
+};
+
 const Line = ({ name, desc, vector, x, y }) => {
+  const { cx1, cy1, cx2, cy2 } = lineData;
+
   return (
-    <g className="line" transform={`translate(${x},${y})`}>
-      <DraggableNode color="red" cx={50} cy={50} />
-      <DraggableNode color="blue" cx={100} cy={100} />
-    </g>
+    //<g className="line" transform={`translate(${x},${y})`}>
+    <DraggableNode color="red" />
+    // </g>
   );
 };
 
