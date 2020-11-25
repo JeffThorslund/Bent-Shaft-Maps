@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useCallback, useMemo } from "react";
+import useDrag from "./_utils/useDrag";
 
 const DraggableNode = ({
   onDrag = () => {},
@@ -56,6 +57,9 @@ const DraggableNode = ({
       window.removeEventListener("mouseup", handleMouseUp);
     }
   }, [state.isDragging, handleMouseMove]);
+
+
+  console.log(useDrag())
 
   return (
     <circle
