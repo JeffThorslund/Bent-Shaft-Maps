@@ -10,31 +10,32 @@ const DraggableNode = ({
 
   const [state, setState] = useState({
     isDragging: false,
-    origin: POSITION,
-    translation: POSITION,
+    position: POSITION
   });
 
   const handleMouseDown = useCallback(({ clientX, clientY }) => {
+    console.log({ x: clientX, y: clientY });
+
     setState((state) => ({
       ...state,
       isDragging: true,
-      origin: { x: clientX, y: clientY },
+      position: { x: clientX, y: clientY },
     }));
   }, []);
 
   const handleMouseMove = useCallback(
     ({ clientX, clientY }) => {
-      const translation = {
-        x: clientX - state.origin.x,
-        y: clientY - state.origin.y,
+      const position = {
+        x: clientX,
+        y: clientY,
       };
 
       setState((state) => ({
         ...state,
-        translation,
+        position,
       }));
     },
-    [state.origin, id]
+    []
   );
 
   const handleMouseUp = useCallback(() => {
@@ -53,30 +54,18 @@ const DraggableNode = ({
     } else {
       window.removeEventListener("mousemove", handleMouseMove);
       window.removeEventListener("mouseup", handleMouseUp);
-
-      setState((state) => ({ ...state, translation: { x: 0, y: 0 } }));
     }
   }, [state.isDragging, handleMouseMove]);
 
-
-  const styles = useMemo(() => ({
-    cursor: state.isDragging ? '-webkit-grabbing' : '-webkit-grab',
-    transform: `translate(${state.translation.x}px, ${state.translation.y}px)`,
-    transition: state.isDragging ? 'none' : 'transform 500ms',
-    zIndex: state.isDragging ? 2 : 1,
-    position: state.isDragging ? 'absolute' : 'relative'
-  }), [state.isDragging, state.translation]);
-
   return (
     <circle
-      cx={state.translation.x}
-      cy={state.translation.y}
+      cx={state.position.x}
+      cy={state.position.y}
       r="50"
       stroke="black"
       stroke-width="3"
       fill="red"
       onMouseDown={handleMouseDown}
-      style={styles}
     />
   );
 };
