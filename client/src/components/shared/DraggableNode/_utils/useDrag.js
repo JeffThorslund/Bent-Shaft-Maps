@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useCallback, useMemo } from "react";
+import useWindowDimensions from "./useWindowDimensions";
 
 //Takes an original position of node
 
@@ -8,20 +9,23 @@ const useDrag = (position) => {
     position,
   });
 
+  const { height, width } = useWindowDimensions();
+
   const handleMouseDown = useCallback(({ clientX, clientY }) => {
-    console.log({ x: clientX, y: clientY });
+
+    console.log({ x: clientX, y: clientY, height, width })
 
     setState((state) => ({
       ...state,
       isDragging: true,
-      position: { x: clientX, y: clientY },
+      position: { x: clientX/width*100, y: clientY/height*100 },
     }));
   }, []);
 
   const handleMouseMove = useCallback(({ clientX, clientY }) => {
     const position = {
-      x: clientX,
-      y: clientY,
+      x: clientX/width*100,
+      y: clientY/height*100,
     };
 
     setState((state) => ({

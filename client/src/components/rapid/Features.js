@@ -86,7 +86,7 @@ const Features = ({ level, rapid }) => {
       <svg
         className="Features"
         id="vector-container"
-        viewBox="0 0 1600 900"
+        viewBox="0 0 100 100"
         xmlns="http://www.w3.org/2000/svg"
         preserveAspectRatio="none"
       >

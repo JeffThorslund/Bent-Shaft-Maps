@@ -1,18 +1,18 @@
-import React, { useState, useEffect, useCallback, useMemo } from "react";
+import React from "react";
 import useDrag from "./_utils/useDrag";
 
-const DraggableNode = () => {
-  
-  const { x, y, handleMouseDown } = useDrag({ x: 100, y: 100 });
+const DraggableNode = ({color, initialPosition}) => {
+
+  const { x, y, handleMouseDown } = useDrag(initialPosition);
 
   return (
     <circle
       cx={x}
       cy={y}
-      r="50"
+      r="1"
       stroke="black"
       stroke-width="3"
-      fill="red"
+      fill={color}
       onMouseDown={handleMouseDown}
     />
   );
