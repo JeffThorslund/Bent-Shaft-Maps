@@ -30,16 +30,10 @@ export const data = {
     },
 
     changeNodeCoordinates: (state, payload) => {
+      console.log(payload);
 
-
-      
-
-      // const { values, riverIndex, sectionIndex } = payload;
-      // state.rivers[riverIndex].sections[sectionIndex] = {
-      //   ...state.rivers[riverIndex].sections[sectionIndex],
-      //   ...values,
-      // };
-      // return state;
+      state.rivers[0].sections[0].rapids[0].lines[0].vector[payload.index].args = [payload.x, payload.y];
+      return state;
     },
   },
 

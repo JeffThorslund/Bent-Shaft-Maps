@@ -1,7 +1,10 @@
 import React, { useState, useEffect, useCallback, useMemo } from "react";
 import useWindowDimensions from "./useWindowDimensions";
+import store from "../../../../rematch/store";
 
 //Takes an original position of node
+
+const { dispatch } = store;
 
 const useDrag = (position, index) => {
   const [state, setState] = useState({
@@ -12,23 +15,23 @@ const useDrag = (position, index) => {
   const { height, width } = useWindowDimensions();
 
   const handleMouseDown = useCallback(({ clientX, clientY }) => {
+    dispatch.data.changeNodeCoordinates({
+      x: (clientX / width) * 100,
+      y: (clientY / height) * 100,
+      index
+    });
     setState((state) => ({
       ...state,
       isDragging: true,
-      position: { x: (clientX / width) * 100, y: (clientY / height) * 100 },
     }));
   }, []);
 
   const handleMouseMove = useCallback(({ clientX, clientY }) => {
-    const position = {
+    dispatch.data.changeNodeCoordinates({
       x: (clientX / width) * 100,
       y: (clientY / height) * 100,
-    };
-
-    setState((state) => ({
-      ...state,
-      position,
-    }));
+      index 
+    });
   }, []);
 
   const handleMouseUp = useCallback(() => {

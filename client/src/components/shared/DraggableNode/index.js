@@ -3,12 +3,12 @@ import useDrag from "./_utils/useDrag";
 
 const DraggableNode = ({color, node, index}) => {
 
-  const { x, y, handleMouseDown } = useDrag(node, index);
+  const { handleMouseDown } = useDrag(node, index);
 
   return (
     <circle
-      cx={x}
-      cy={y}
+      cx={node.x}
+      cy={node.y}
       r="1"
       stroke="black"
       stroke-width="3"
