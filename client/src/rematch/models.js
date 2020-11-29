@@ -28,6 +28,19 @@ export const data = {
       };
       return state;
     },
+
+    changeNodeCoordinates: (state, payload) => {
+
+
+      
+
+      // const { values, riverIndex, sectionIndex } = payload;
+      // state.rivers[riverIndex].sections[sectionIndex] = {
+      //   ...state.rivers[riverIndex].sections[sectionIndex],
+      //   ...values,
+      // };
+      // return state;
+    },
   },
 
   effects: {

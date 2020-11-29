@@ -1,9 +1,9 @@
 import React from "react";
 import useDrag from "./_utils/useDrag";
 
-const DraggableNode = ({color, initialPosition}) => {
+const DraggableNode = ({color, node, index}) => {
 
-  const { x, y, handleMouseDown } = useDrag(initialPosition);
+  const { x, y, handleMouseDown } = useDrag(node, index);
 
   return (
     <circle

@@ -155,29 +155,28 @@
               {
                 "name": "Thread The Needle",
                 "desc": "A commonly taken line through McCoys. Start center-right coming into the rapid with your boat pointed slightly left. When approaching the Sattlers, paddle towards river left, clip Sattlers and paddle for your life away from Phils",
-                "vector": "M0 22.3326C28.4974 22.3326 207.118 21.0049 247.943 15.4378C268.074 12.6928 306.962 1.25504 359.118 1.25504C408.459 1.25503 634.344 12.9167 683.452 36.8719C732.56 60.8271 830.931 146.009 918.368 324.475",
+                "vector": [
+                  {
+                    "type": "M",
+                    "args": [30, 20]
+                  },
+                  {
+                    "type": "L",
+                    "args": [50, 80]
+                  },
+                  {
+                    "type": "C",
+                    "args": [80, 10, 34, 25, 66, 26]
+                  },
+                  {
+                    "type": "S",
+                    "args": [30, 10, 4, 32]
+                  }         
+                ],
                 "x": 260.55,
                 "y": 460.26,
                 "range": [-100, 100],
                 "id": "line_4dk61"
-              },
-              {
-                "name": "Punch Phils",
-                "desc": "Scout to see the point in phils hole is greening out and turning in to a crashy wave. Follow some upstream bubbles to see where you need to be. Line it up and punch it baby!",
-                "vector": "M0 10.8717C28.4974 10.8717 147.575 10.8717 188.778 10.8717C240.281 10.8717 379.221 8.47622 428.329 3.68519C477.437 -1.10584 635.614 -1.38767 684.722 22.5675C733.83 46.5227 831.443 121.032 918.879 299.498",
-                "x": 260.55,
-                "y": 486.12,
-                "range": [-100, 4],
-                "id": "line_4gonq"
-              },
-              {
-                "name": "Punch Sattlers",
-                "desc": "Line up with Sattlers and gun it right through. You will be clear of Phils Hole on this line.",
-                "vector": "M0 2.10782C90.6809 -0.801291 280.896 2.10782 326.319 2.10782C729.024 2.10782 768.921 75.667 919.779 346.215",
-                "x": 259.91,
-                "y": 438.81,
-                "range": [-100, 100],
-                "id": "line_8tp7g"
               }
             ],
             "symbols": [
@@ -197,14 +196,12 @@
               }
             ],
             "arrows": [
-              
               {
                 "bottom": 25,
                 "right": 2,
                 "id": "arrow_lhud3",
                 "linkId": "rapid_iknw81mXA"
               }
-              
             ],
             "id": "rapid_sDPD0-hef",
             "mapLabel": [
@@ -243,7 +240,6 @@
               }
             ],
             "arrows": [
-              
               {
                 "bottom": "60",
                 "right": 85,

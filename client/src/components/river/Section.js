@@ -22,12 +22,6 @@ const Section = ({ section }) => {
   let { url, path } = useRouteMatch();
   let { rapid_path } = useParams();
 
-  console.table({
-    SectionUrl: url,
-    SectionPath: path,
-    SectionParams: rapid_path,
-  });
-
   const [level, setLevel] = useState(0);
   const [mapIsShowing, setMapIsShowing] = useState(false);
   const [isMobileAlertActive, setIsMobileAlertActive] = useState(false);
@@ -62,11 +56,7 @@ const Section = ({ section }) => {
       {isMobileAlertActive && window.screen.height > window.screen.width ? (
         <MobileAlert setIsMobileAlertActive={setIsMobileAlertActive} />
       ) : (
-        <Rapid
-          rapid={rapid}
-          river={section}
-          level={level}
-        />
+        <Rapid rapid={rapid} river={section} level={level} />
       )}
 
       <Modal
