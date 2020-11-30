@@ -32,7 +32,9 @@ export const data = {
     changeNodeCoordinates: (state, payload) => {
       console.log(payload);
 
-      state.rivers[0].sections[0].rapids[0].lines[0].vector[payload.index].args = [payload.x, payload.y];
+      state.rivers[0].sections[0].rapids[0].lines[0].vector[
+        payload.index
+      ].args = [payload.x, payload.y];
       return state;
     },
   },
