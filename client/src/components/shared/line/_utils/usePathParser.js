@@ -17,6 +17,11 @@ const usePathParser = (pathCommands) => {
 
     const coordStartIndex = coordIndex[pathCommand.type];
 
+    console.log(coordStartIndex, pathCommand.args, {
+      x: pathCommand.args[coordStartIndex],
+      y: pathCommand.args[coordStartIndex + 1],
+    });
+
     nodeList.push({
       x: pathCommand.args[coordStartIndex],
       y: pathCommand.args[coordStartIndex + 1],
@@ -30,7 +35,7 @@ const usePathParser = (pathCommands) => {
     }
   }
 
-  console.log(nodeList, path);
+  //console.log(nodeList, path);
 
   return [nodeList, path];
 };
