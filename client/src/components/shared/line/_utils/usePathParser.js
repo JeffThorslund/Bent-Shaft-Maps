@@ -2,8 +2,6 @@ const usePathParser = (pathCommands) => {
   //This is a dictionary of how to react to different nodes.
   const coordIndex = {
     M: 0,
-    L: 0,
-    C: 4,
     S: 2,
   };
 

@@ -14,7 +14,10 @@ const Line = ({ name, desc, pathCommands, x, y, showNodes = true }) => {
     <g>
       {showNodes &&
         nodes.map((node, i) => (
-          <DraggableNode color="red" node={node} key={i} index={i}/>
+          <>
+            <DraggableNode color="red" node={node} key={i} index={i} />
+            {/*Put midpoint node here*/}
+          </>
         ))}
       <path d={path} stroke="black" />
     </g>
