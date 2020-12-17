@@ -8,17 +8,32 @@ import usePathParser from "./_utils/usePathParser";
  */
 
 const Line = ({ name, desc, pathCommands, x, y, showNodes = true }) => {
-  const [nodes, path] = usePathParser(pathCommands);
+  const [nodes, midpointNodeList, path] = usePathParser(pathCommands);
 
   return (
     <g>
       {showNodes &&
         nodes.map((node, i) => (
-          <>
-            <DraggableNode color="red" node={node} key={i} index={i} />
-            {/*Put midpoint node here*/}
-          </>
+          <DraggableNode
+            color="red"
+            node={node}
+            key={"n" + i}
+            index={i}
+            isEndpointNode={true}
+          />
         ))}
+
+      {showNodes &&
+        midpointNodeList.map((node, i) => (
+          <DraggableNode
+            color="black"
+            node={node}
+            key={"mn" + i}
+            index={i}
+            isEndpointNode={false}
+          />
+        ))}
+
       <path d={path} stroke="black" />
     </g>
   );

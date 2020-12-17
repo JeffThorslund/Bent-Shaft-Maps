@@ -30,12 +30,13 @@ export const data = {
     },
 
     changeNodeCoordinates: (state, payload) => {
-      const line =
-        state.rivers[0].sections[0].rapids[0].lines[0].vector[payload.index]
-          .args;
-      line[line.length - 2] = payload.x;
-      line[line.length - 1] = payload.y;
+      const { isEndpointNode, index, x, y } = payload;
 
+      const line =
+        state.rivers[0].sections[0].rapids[0].lines[0].vector[index].args;
+
+      line[isEndpointNode ? 2 : 0] = x;
+      line[isEndpointNode ? 3 : 1] = y;
       return state;
     },
   },

@@ -6,7 +6,7 @@ import store from "../../../../rematch/store";
 
 const { dispatch } = store;
 
-const useDrag = (position, index) => {
+const useDrag = (position, index, isEndpointNode) => {
   const [state, setState] = useState({
     isDragging: false,
     position,
@@ -18,7 +18,8 @@ const useDrag = (position, index) => {
     dispatch.data.changeNodeCoordinates({
       x: (clientX / width) * 100,
       y: (clientY / height) * 100,
-      index
+      index,
+      isEndpointNode,
     });
     setState((state) => ({
       ...state,
@@ -30,7 +31,8 @@ const useDrag = (position, index) => {
     dispatch.data.changeNodeCoordinates({
       x: (clientX / width) * 100,
       y: (clientY / height) * 100,
-      index 
+      index,
+      isEndpointNode,
     });
   }, []);
 
