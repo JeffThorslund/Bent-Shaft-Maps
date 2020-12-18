@@ -24,5 +24,4 @@ module.exports = {
       components: "src/components/rapid/[A-Z]*.js",
     },
   ],
-  ignore: ["src/components/home/ImageUpload.js"],
 };

@@ -21,7 +21,7 @@ const Map = ({toggleMap, river }) => {
     <>
       <Image
         className="overview-map"
-        src={`/api/image/${river.overviewMap}`}
+        src={`https://bent-shaft-maps.s3.amazonaws.com/maps/river_W41oYWjV4/section_jswy1FCZu/Overview.jpg`}
         alt="River Map"
         rounded
         fluid

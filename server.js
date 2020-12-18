@@ -21,7 +21,6 @@ app.use(bodyParser.json({ limit: "50mb" }));
 
 /*--Use Routes--*/
 app.use("/api", actions);
-app.use("/api", imageUpload);
 app.use("/auth", authorization);
 
 /*--Connect to Mongo--*/
