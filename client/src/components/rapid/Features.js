@@ -7,7 +7,7 @@ import Eddy from "./Eddy";
 import Hydraulic from "./Hydraulic";
 import Symbol from "./Symbol";
 import Popover from "./Popover";
-import filterRange from "../../tools/filterRange";
+import filterRange from "./_utils/filterRange";
 
 /**
  * Holds all interact-able elements of a rapid
