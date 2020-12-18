@@ -11,7 +11,7 @@ const DraggableNode = ({color, node, index, isEndpointNode}) => {
       cy={node.y}
       r="1"
       stroke={color}
-      stroke-width="3"
+      strokeWidth="3"
       fill={color}
       onMouseDown={handleMouseDown}
     />

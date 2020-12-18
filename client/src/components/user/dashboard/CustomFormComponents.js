@@ -1,9 +1,8 @@
 import React, { useState } from "react";
-import { Field } from "formik"; 
-import DragDrop from "./dragdrop/DragDrop"
+import { Field } from "formik";
 
 //A min/max input component.
-export const Range = ({name}) => {
+export const Range = ({ name }) => {
   return (
     <>
       <label htmlFor="levelRange">River Name</label>
@@ -13,6 +12,6 @@ export const Range = ({name}) => {
   );
 };
 
-export const Dragger = ({rivers}) => {
-  return <DragDrop rivers={rivers} />
-}
+export const Dragger = ({ rivers }) => {
+  return null;
+};
