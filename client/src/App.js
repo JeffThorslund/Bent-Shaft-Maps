@@ -15,8 +15,6 @@ import { useSelector } from "react-redux";
 //FLAGS
 const useMock = true;
 
-console.log(process.env.NODE_PATH)
-
 const App = () => {
   useEffect(() => {
     if (useMock === true) {
