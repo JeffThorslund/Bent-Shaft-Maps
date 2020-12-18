@@ -8,14 +8,12 @@ import Image from "react-bootstrap/Image";
 
 const Map = ({toggleMap, river }) => {
   const mapLabelArray = river.rapids
-    //What does this do?
-    .filter((rapid) => Object.keys(rapid.mapLabel).length !== 0)
     .map((rapid, index) => (
       <MapLabel
         name={rapid.name}
-        mapLabel={rapid.mapLabel}
+        overviewLabel={rapid.overviewLabel}
         toggleMap={toggleMap}
-        key={`mapLabel${index}`}
+        key={`overviewLabel${index}`}
       />
     ));
 
@@ -23,7 +21,7 @@ const Map = ({toggleMap, river }) => {
     <>
       <Image
         className="overview-map"
-        src={`/api/image/${river.overviewMap}`}
+        src={`https://bent-shaft-maps.s3.amazonaws.com/maps/river_W41oYWjV4/section_jswy1FCZu/Overview.jpg`}
         alt="River Map"
         rounded
         fluid

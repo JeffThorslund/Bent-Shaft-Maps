@@ -2,7 +2,7 @@ import React from "react";
 import { paramCase } from "change-case";
 import PropTypes from "prop-types";
 
-import findRapidFromId from "../../tools/findRapidFromId";
+import findRapidFromId from "./_utils/findRapidFromId";
 import GeneralButton from "../general/GeneralButton";
 
 /**

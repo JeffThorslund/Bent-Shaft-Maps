@@ -6,9 +6,7 @@ import Image from "react-bootstrap/Image";
 
 import NextRapid from "./NextRapid";
 import Features from "./Features";
-import Loading from "../general/Loading";
 import RapidHeader from "./RapidHeader";
-import findRapidFromId from "../../tools/findRapidFromId";
 
 /**
  * The Rapid container that holds all components related to an individual rapid
@@ -24,11 +22,6 @@ const Rapid = ({ rapid, river, level }) => {
       river={river}
     />
   ));
-
-  // rapid.arrows.forEach((arrow) => {
-  //   let riverMap = findRapidFromId(arrow.linkId, river).riverMap;
-  //   ImageCache.add(`/api/image/${riverMap}`);
-  // });
 
   return (
     <div className="Rapid">

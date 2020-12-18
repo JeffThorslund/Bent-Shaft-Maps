@@ -15,6 +15,7 @@ const RiverCard = ({
   className,
   value,
 }) => {
+  
   const highlightValue = (name, value) => {
     return name.replace(new RegExp(value, "i"), (match) => {
       return `<span id='selected'>${match}</span>`;

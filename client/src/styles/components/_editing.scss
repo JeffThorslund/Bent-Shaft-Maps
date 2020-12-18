@@ -1,0 +1,38 @@
+.item-list {
+  border: 2px solid red;
+  max-width: 100%;
+
+  // &:hover {
+  //   max-width: 100%;
+  // }
+}
+
+.item {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+// .react-draggable {
+//   display: inline-block;
+//   //left: 100px;
+//   position: absolute;
+// }
+
+.background-map {
+  position: absolute;
+  background-image: url("https://bent-shaft-maps.s3.amazonaws.com/maps/river_W41oYWjV4/section_jswy1FCZu/Overview.jpg");
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  z-index: -2;
+}
+
+.tip-tag-connection-line {
+  position: absolute;
+  z-index: -1;
+  stroke-width: 1px;
+  stroke: black;
+}

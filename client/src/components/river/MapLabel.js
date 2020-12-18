@@ -7,11 +7,9 @@ import { useHistory } from "react-router-dom";
 
 const MapLabel = ({
   name,
-  mapLabel,
+  overviewLabel: {pointer, tag},
   toggleMap
 }) => {
-
-  const [[x1,y1],[x2,y2]] = mapLabel
 
   let history = useHistory();
   const handleClick = (to) => {
@@ -23,11 +21,11 @@ const MapLabel = ({
     <g>
       <polyline
         className="pointer"
-        points={`${x1}, ${y1} ${x2}, ${y2}`}
+        points={`${pointer.x}, ${pointer.y} ${tag.x}, ${tag.y}`}
       />
       <text
-        x={x2 + 1}
-        y={y2 + 1}
+        x={pointer.y + 1}
+        y={tag.y + 1}
         onClick={() => handleClick(`${paramCase(name)}`)}
         class="map-label"
       >
@@ -47,7 +45,7 @@ MapLabel.propTypes = {
   /** The name of the rapid, to be used in the navigation */
   name: PropTypes.string.isRequired,
   /** The coordinates of the position of the label and pointer */
-  mapLabel: PropTypes.arrayOf(PropTypes.arrayOf(PropTypes.number)).isRequired,
+  overviewLabel: PropTypes.arrayOf(PropTypes.arrayOf(PropTypes.number)).isRequired,
   /** Turns off the map when clicked */
   toggleMap: PropTypes.func.isRequired,
 };

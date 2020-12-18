@@ -2,12 +2,12 @@ import React, { useRef, useEffect } from "react";
 import PropTypes from "prop-types";
 import ReactTooltip from "react-tooltip";
 
-import Line from "./Line";
+import Line from "../shared/line";
 import Eddy from "./Eddy";
 import Hydraulic from "./Hydraulic";
 import Symbol from "./Symbol";
 import Popover from "./Popover";
-import filterRange from "../../tools/filterRange";
+import filterRange from "./_utils/filterRange";
 
 /**
  * Holds all interact-able elements of a rapid
@@ -30,10 +30,11 @@ const Features = ({ level, rapid }) => {
       <Line
         name={line.name}
         desc={line.desc}
-        vector={line.vector}
+        pathCommands={line.vector}
         x={line.x}
         y={line.y}
         key={`line${key}`}
+        showNodes={false}
       />
     ));
 
@@ -86,7 +87,7 @@ const Features = ({ level, rapid }) => {
       <svg
         className="Features"
         id="vector-container"
-        viewBox="0 0 1600 900"
+        viewBox="0 0 100 100"
         xmlns="http://www.w3.org/2000/svg"
         preserveAspectRatio="none"
       >

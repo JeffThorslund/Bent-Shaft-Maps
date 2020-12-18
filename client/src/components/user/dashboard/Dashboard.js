@@ -1,57 +1,26 @@
-import React, { useContext } from "react";
-import UserContext from "../UserContext";
+import React, { useEffect } from "react";
 import Navigation from "../Navigation";
-import Container from "react-bootstrap/Container";
-import { Formik, Form } from "formik";
-import { config } from "../../../config";
-import CreateAndEditFields from "./CreateAndEditFields";
-import MapEdit from "./MapEdit";
+import { useSelector } from "react-redux";
+import ItemListGroup from "./ItemListGroup";
+import FormLayouts from "./FormLayouts";
+import store from "../../../rematch/store";
 
-/**
- * User Home Page
- */
+const Dashboard = () => {
 
-const Dashboard = ({ rivers }) => {
-  const { userData } = useContext(UserContext);
-  let user = userData.user;
+  const props = {
+    rivers: useSelector((state) => state.data.rivers),
+    indexes: useSelector((state) => state.indexes),
+  };
 
-  return user ? (
-    <div className="vh-100 dashboard">
-      <Navigation user={user} />
-      <Container>
-        <Formik
-          initialValues={{
-            rivers: rivers,
-          }}
-        >
-          {({ values, setFieldValue }) => {
-            return (
-              <Form>
-                <CreateAndEditFields
-                  config={{ rivers: [config] }}
-                  setFieldValue={setFieldValue}
-                  values={values}
-                  topic="rivers"
-                  nextTopic="sections"
-                  subtitle="A river is an entire flowing channel of water. It is NOT the same as a section of whitewater. Make sure not create a new river that already exists."
-                >
-                  {(props) => (
-                    <CreateAndEditFields {...props} nextTopic="rapids">
-                      {(props) => (
-                        <CreateAndEditFields {...props}>
-                          {() => <MapEdit rivers={rivers}/>}
-                        </CreateAndEditFields>
-                      )}
-                    </CreateAndEditFields>
-                  )}
-                </CreateAndEditFields>
-              </Form>
-            );
-          }}
-        </Formik>
-      </Container>
+  return (
+    <div className="d-flex flex-column min-vh-100">
+      <Navigation />
+      <div className="d-flex flex-row flex-grow-1">
+        <ItemListGroup {...props} indexActions={store.dispatch.indexes} />
+        <FormLayouts {...props} submissionActions={store.dispatch.data} />
+      </div>
     </div>
-  ) : null;
+  );
 };
 
 export default Dashboard;

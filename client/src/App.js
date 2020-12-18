@@ -1,31 +1,32 @@
 import React, { useEffect } from "react";
 import { BrowserRouter as Router } from "react-router-dom";
-import GlobalRouter from "./components/routing/GlobalRouter";
+import GlobalRouter from "./components/routes/GlobalRouter";
 import "./main.css";
+import store from "./rematch/store";
+import { mockRivers } from "./mockRivers.js";
 
 //REDUX
-import { useSelector, useDispatch } from "react-redux";
-import { fetchRivers } from "./redux/actions/startupAction";
+import { useSelector } from "react-redux";
 
 /**
  * Renders the entire application and imports the stylesheet.
  */
 
+//FLAGS
+const useMock = true;
+
 const App = () => {
-
-  const dispatch = useDispatch();
-  const rivers = useSelector((state) => state.startupReducer.rivers);
-
   useEffect(() => {
-    console.log(dispatch);
-    fetchRivers()(dispatch);
+    if (useMock === true) {
+      store.dispatch.data.fetchRivers(mockRivers);
+    } else {
+      store.dispatch.data.fetchRiversAsync();
+    }
   }, []);
 
-  return (
-    <Router>
-      <GlobalRouter rivers={rivers} />
-    </Router>
-  );
+  const rivers = useSelector((state) => state.data.rivers);
+
+  return <Router>{rivers !== null && <GlobalRouter rivers={rivers} />}</Router>;
 };
 
 export default App;

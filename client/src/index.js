@@ -2,13 +2,14 @@ import React from "react";
 import ReactDOM from "react-dom";
 import App from "./App";
 
+
 //REDUX
 import { Provider } from "react-redux";
-import configureStore from "./redux/store";
+import store from "./rematch/store";
 
 ReactDOM.render(
   <React.StrictMode>
-    <Provider store={configureStore()}>
+    <Provider store={store}>
       <App />
     </Provider>
   </React.StrictMode>,

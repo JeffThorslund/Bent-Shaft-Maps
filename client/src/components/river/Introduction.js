@@ -15,7 +15,6 @@ const ImageCache = require("react-preload").ImageCache;
 /** Introduction page that is visited before redirection to the first rapid of the river. */
 
 const Introduction = ({ river, url }) => {
-  ImageCache.add(`/api/image/${river.rapids[0].riverMap}`);
 
   const infoCardsConfig = [
     {
