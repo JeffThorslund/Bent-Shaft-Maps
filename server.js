@@ -8,7 +8,6 @@ require("dotenv").config();
 
 /*--Import Routes--*/
 const actions = require("./routes/api/Actions");
-const imageUpload = require("./routes/api/ImageUpload");
 const authorization = require("./routes/auth/Authorization")
 
 /*--Server--*/
