@@ -3,7 +3,7 @@ import { BrowserRouter as Router } from "react-router-dom";
 import GlobalRouter from "./components/routing/GlobalRouter";
 import "./main.css";
 import store from "./rematch/store";
-import mockRivers from "./mockRivers.json";
+import { mockRivers } from "./mockRivers.js";
 
 //REDUX
 import { useSelector } from "react-redux";

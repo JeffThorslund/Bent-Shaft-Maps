@@ -1,0 +1,267 @@
+export const mockRivers = [
+  {
+    _id: "5f835a1909a4b536d9553fc2",
+    name: "hottawa",
+    id: "river_W41oYWjV4",
+    sections: [
+      {
+        name: "Whitewater Region",
+        id: "section_jswy1FCZu",
+        desc:
+          "The Ottawa River is one of the most popular freestyle rivers in the world, offering many playboating opportunities at almost all water levels. Though the runnability of each rapid varies with water levels, there is a runnable route down the river at all water levels.",
+        overviewMap: "78afa65c8aedfe7c1c228577d206c422Overview.jpg",
+        access:
+          "The put-in located on McCoy Chute Trail, with a clear parking area. There is access to clean outhouses. There are several takeout options. Owl rafting provides a free takeout but requires a significant flatwater section after the rapids. RiverRun has a takeout that costs 15$.",
+        location: "Beachburg, Ontario",
+        class: "III",
+        putIn: "https://goo.gl/maps/ycePkRuAsvY6EnDR9",
+        takeOut: "https://goo.gl/maps/zvRRRfpDGq9Eh1WdA",
+        defaultLevel: 0,
+        levelUnits: "ft",
+        levelRange: [-100, 100],
+        rapids: [
+          {
+            name: "McCoys Chute",
+            desc: "Description of this rapid",
+            riverMap: "27c21e72b765b6a562875d41b4cc285aMcCoys.jpg",
+            hydraulics: [
+              {
+                name: "Phil's Hole",
+                desc:
+                  "Phil's Hole is the first hole on the Ottawa River at the top of McCoys. It is munchiest between 4' to 8'. Below 4' and above 8' a punchable tounge opens up in the center of the hole. Scouting provides a clear view of the rapid.",
+                y: 463.55,
+                x: 589.11,
+                height: 58.73,
+                width: 13.44,
+                rotation: 1,
+                range: [-10, 13],
+                id: "hydraulic_0bn43",
+              },
+              {
+                name: "Sattler's Hole",
+                desc:
+                  "This wave is at the center of the river. Make sure to clip it when threading the needle!",
+                y: 408,
+                x: 505.3,
+                height: 70.97,
+                width: 13.44,
+                rotation: 1,
+                range: [-10, 13],
+                id: "hydraulic_phdvk",
+              },
+              {
+                name: "Horse Shoe (Right Side)",
+                desc:
+                  "Best spin and cartwheel location between 4 and 2. Below 2, it is very sticky and more and more shallow.",
+                y: 651.94,
+                x: 1081.06,
+                height: 42.72,
+                width: 15.7,
+                rotation: 71.32,
+                range: [-100, 5],
+                id: "hydraulic_kbzyk",
+              },
+              {
+                name: "Horse Shoe (Left Side)",
+                desc: "Optimal cartwheel location below 0 ft.",
+                y: 625.94,
+                x: 1174.86,
+                height: 42.72,
+                width: 15.7,
+                rotation: 71.32,
+                range: [-100, 8],
+                id: "hydraulic_u8sq2",
+              },
+              {
+                name: "Baby Face",
+                desc:
+                  "A great beginner wave. Prime spot for flat spinning and blunting around 0 or 1- ft.",
+                y: 685.65,
+                x: 1148.9,
+                height: 42.72,
+                width: 11.02,
+                rotation: 68.5,
+                range: [-100, 2],
+                id: "hydraulic_qjq2d",
+              },
+              {
+                name: "Corner Wave",
+                desc:
+                  "This is a fantastic surfing spinning, and blunting spot at most levels. There is an eddy right behind it that can be caught with a quick recovery after a surf.",
+                y: 470.79,
+                x: 920.32,
+                height: 90.52,
+                width: 13.44,
+                rotation: -2,
+                range: [-100, 6],
+                id: "hydraulic_h837s",
+              },
+              {
+                name: "6/8",
+                desc: "Near football eddy.",
+                y: 367.83,
+                x: 790.9,
+                height: 57.31,
+                width: 13.44,
+                rotation: -5.6,
+                range: [6, 8],
+                id: "hydraulic_az6ir",
+              },
+              {
+                name: "Hero Wave",
+                desc:
+                  "A surf wave right above Phil's Hole. Mess this up and you are going straight into Phils. Sometimes a hard wave to catch, much easier in a long boat.",
+                y: 490,
+                x: 540,
+                height: 25.97,
+                width: 10.44,
+                rotation: -16,
+                range: [4, 8],
+                id: "hydraulic_838xg",
+              },
+            ],
+            eddys: [
+              {
+                name: "Football Eddy",
+                desc:
+                  "A large eddy that can sometimes collect gear and swimmmers. This can sometimes be hard to get out of.",
+                vector:
+                  "M57.7367 100.472C112.332 100.472 150.868 97.0028 157.209 77.01C164.801 53.0702 161.941 37.64 106.045 30.2237C36.1735 20.9535 8.56346 41.3981 12.9053 63.0286C17.2471 84.6591 30.113 100.472 57.7367 100.472Z",
+                x: 725,
+                y: 250,
+                range: [-10, 10],
+                id: "eddy_v1tm8",
+              },
+              {
+                name: "Baby Face Lineup",
+                desc:
+                  "This is where you lineup to surf Baby Face. Remember to wait your turn!",
+                vector:
+                  "M22.9304 64.2715C42.747 103.103 71.7515 101.303 83.3053 93.7738C97.14 84.7583 102.113 75.7178 76.7682 48.66C45.0867 14.8377 22.5248 13.7363 15.7227 26.5483C8.92069 39.3604 14.6745 48.0937 22.9304 64.2715Z",
+                x: 1165.1,
+                y: 640.17,
+                range: [-10, 10],
+                id: "eddy_h9ys0",
+              },
+              {
+                name: "Corner Wave Eddy",
+                desc: "This is where you lineup to surf Corner Wave",
+                vector:
+                  "M22.5982 52.6418C36.1714 61.2413 56.4562 71.1586 71.8079 89.7043C78.7111 98.0437 86.4498 66.0895 63.9065 38.5161C35.7272 4.04936 18.0886 11.4521 15.4976 21.2681C12.9067 31.084 8.04205 43.4195 22.5982 52.6418Z",
+                x: 935,
+                y: 512,
+                range: [-10, 10],
+                id: "eddy_qjglu",
+              },
+            ],
+            lines: [
+              {
+                name: "Thread The Needle",
+                desc:
+                  "A commonly taken line through McCoys. Start center-right coming into the rapid with your boat pointed slightly left. When approaching the Sattlers, paddle towards river left, clip Sattlers and paddle for your life away from Phils",
+                vector: [
+                  {
+                    type: "M",
+                    args: [30, 20],
+                  },
+                  {
+                    type: "S",
+                    args: [40, 20, 60, 30],
+                  },
+                  {
+                    type: "S",
+                    args: [45, 40, 70, 40],
+                  },
+                ],
+                x: 260.55,
+                y: 460.26,
+                range: [-100, 100],
+                id: "line_4dk61",
+              },
+            ],
+            symbols: [
+              {
+                type: "Caution",
+                desc:
+                  "There is no safe way to navigate this rapid at this water level.",
+                top: 200,
+                left: 200,
+                id: "symbol_oj898",
+              },
+              {
+                type: "Portage",
+                desc:
+                  "This rapid has a very easy portage. Follow the clear trail to the end of the rapid, or stop along the way for clear views of Phil's Hole, Sattlers Hole and other features on this rapid.",
+                top: 650,
+                left: 200,
+                id: "symbol_1qevm",
+              },
+            ],
+            arrows: [
+              {
+                bottom: 25,
+                right: 2,
+                id: "arrow_lhud3",
+                linkId: "rapid_iknw81mXA",
+              },
+            ],
+            id: "rapid_sDPD0-hef",
+            mapLabel: [
+              [10, 55],
+              [12, 30],
+            ],
+            overviewLabel: {
+              pointer: { x: 40, y: 40 },
+              tag: { x: 50, y: 50 },
+            },
+          },
+          {
+            name: "Magical Mystery Tour",
+            desc: "Description of this rapid",
+            riverMap: "40e27279441ff4c9892ac5b1ecae6dc7MagicalMysteryTour.jpg",
+            hydraulics: [],
+            eddys: [],
+            lines: [
+              // {
+              //   "name": "Chill Out",
+              //   "desc": "Stay in the middle of the channel, as the edges of the river can have caught branches and logs.",
+              //   "vector": "M 100,370q 140,-100 250,-60q 150, 60 380, 15q 165, -20 380, 100Q 1250,500 1350,650",
+              //   "range": [10, 100],
+              //   "x": null,
+              //   "y": null,
+              //   "id": "line_3nbgc"
+              // }
+            ],
+            symbols: [
+              {
+                type: "Caution",
+                desc:
+                  "There is no safe way to navigate this rapid at this water level.",
+                top: 240,
+                left: 150,
+                id: "symbol_ui5s9",
+              },
+            ],
+            arrows: [
+              {
+                bottom: "60",
+                right: 85,
+                id: "arrow_r1ou7",
+                linkId: "rapid_sDPD0-hef",
+              },
+            ],
+            mapLabel: [
+              [100, 20],
+              [40, 10],
+            ],
+            id: "rapid_iknw81mXA",
+            overviewLabel: {
+              pointer: { x: 40, y: 40 },
+              tag: { x: 50, y: 50 },
+            },
+          },
+        ],
+      },
+    ],
+  },
+];
