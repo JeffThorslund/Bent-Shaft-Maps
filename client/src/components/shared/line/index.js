@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import DraggableNode from "../DraggableNode";
+import Node from "../node";
 import usePathParser from "./_utils/usePathParser";
 
 /**
@@ -14,7 +14,7 @@ const Line = ({ name, desc, pathCommands, x, y, showNodes = true }) => {
     <g>
       {showNodes &&
         nodes.map((node, i) => (
-          <DraggableNode
+          <Node
             color="red"
             node={node}
             key={"n" + i}
@@ -25,7 +25,7 @@ const Line = ({ name, desc, pathCommands, x, y, showNodes = true }) => {
 
       {showNodes &&
         midpointNodeList.map((node, i) => (
-          <DraggableNode
+          <Node
             color="black"
             node={node}
             key={"mn" + i}

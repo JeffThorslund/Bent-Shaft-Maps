@@ -1,7 +1,7 @@
 import React from "react";
 import useDrag from "./_utils/useDrag";
 
-const DraggableNode = ({color, node, index, isEndpointNode}) => {
+const Node = ({color, node, index, isEndpointNode}) => {
 
   const { handleMouseDown } = useDrag(node, index, isEndpointNode);
 
@@ -18,4 +18,4 @@ const DraggableNode = ({color, node, index, isEndpointNode}) => {
   );
 };
 
-export default DraggableNode;
+export default Node;
