@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import Navigation from "../Navigation";
 import { useSelector } from "react-redux";
 import ItemListGroup from "./ItemListGroup";
@@ -6,7 +6,6 @@ import FormLayouts from "./FormLayouts";
 import store from "../../../rematch/store";
 
 const Dashboard = () => {
-
   const props = {
     rivers: useSelector((state) => state.data.rivers),
     indexes: useSelector((state) => state.indexes),

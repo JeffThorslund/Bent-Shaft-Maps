@@ -4,7 +4,7 @@
 
 const findRapidFromId = (linkId, allData) => {
   for (let rapid of allData.rapids) {
-    if (linkId == rapid.id) {
+    if (linkId === rapid.id) {
       return rapid;
     }
   }

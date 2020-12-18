@@ -44,7 +44,7 @@ const UserRouter = () => {
           });
     };
     checkLoggedIn();
-  }, []);
+  });
 
   //HANDLE LOGIN
   const handleLogin = (e, userEntry) => {
@@ -120,7 +120,7 @@ const UserRouter = () => {
         </Route>
 
         <Route path={`${path}/dashboard`}>
-          <Dashboard  />
+          <Dashboard />
         </Route>
       </Switch>
     </UserContext.Provider>

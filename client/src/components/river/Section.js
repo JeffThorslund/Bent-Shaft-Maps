@@ -19,7 +19,7 @@ import Slider from "./Slider";
  */
 
 const Section = ({ section }) => {
-  let { url, path } = useRouteMatch();
+  let { url } = useRouteMatch();
   let { rapid_path } = useParams();
 
   const [level, setLevel] = useState(0);

@@ -1,6 +1,5 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { Preload, ImageCache } from "react-preload";
 
 import Image from "react-bootstrap/Image";
 

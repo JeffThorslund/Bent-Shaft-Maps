@@ -10,12 +10,9 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import CardColumns from "react-bootstrap/CardColumns";
 
-const ImageCache = require("react-preload").ImageCache;
-
 /** Introduction page that is visited before redirection to the first rapid of the river. */
 
 const Introduction = ({ river, url }) => {
-
   const infoCardsConfig = [
     {
       id: "desc",
@@ -48,7 +45,7 @@ const Introduction = ({ river, url }) => {
           <GeneralButton
             to={`${url}/${paramCase(river.rapids[0].name)}`}
             text="Click to Continue"
-            className='introduction-continue-button m-2'
+            className="introduction-continue-button m-2"
           />
         </Col>
       </Row>
