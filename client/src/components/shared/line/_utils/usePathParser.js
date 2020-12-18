@@ -38,8 +38,6 @@ const usePathParser = (pathCommands) => {
     }
   }
 
-  console.log(midpointNodeList);
-
   return [nodeList, midpointNodeList, path];
 };
 
