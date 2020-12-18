@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { BrowserRouter as Router } from "react-router-dom";
-import GlobalRouter from "./components/routing/GlobalRouter";
+import GlobalRouter from "./components/routes/GlobalRouter";
 import "./main.css";
 import store from "./rematch/store";
 import { mockRivers } from "./mockRivers.js";
