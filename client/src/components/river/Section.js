@@ -20,6 +20,7 @@ import Slider from "./Slider";
 
 const Section = ({ section }) => {
   let { url } = useRouteMatch();
+  console.log(typeof url);
   let { rapid_path } = useParams();
 
   const [level, setLevel] = useState(0);
