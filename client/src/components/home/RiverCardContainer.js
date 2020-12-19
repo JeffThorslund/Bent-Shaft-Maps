@@ -14,7 +14,7 @@ const RiverCardContainer = ({ rivers }) => {
   const handleChange = (e) => {
     setValue(e.target.value);
   };
-
+  //Getting data from { rivers } for Card rendering and Search engine
   let riverCardData = rivers
     .map((river) => {
       return river.sections.map((section) => ({
@@ -28,9 +28,10 @@ const RiverCardContainer = ({ rivers }) => {
 
   let riverCards = riverCardData
     .filter((card) => {
+      //If Search Bar is empty => all Cards
       if (value.length === 0) return true;
-
-      for (const [result] of Object.entries(card)) {
+      //Iterrate through each Card values => Cards containing Search Query
+      for (const result of Object.values(card)) {
         if (result.toUpperCase().indexOf(value.toUpperCase()) > -1) return true;
       }
 

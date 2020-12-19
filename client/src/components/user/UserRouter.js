@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import UserContext from "./UserContext";
 import { Switch, Route, useRouteMatch, useHistory } from "react-router-dom";
 import axios from "axios";
@@ -15,7 +15,7 @@ const UserRouter = () => {
 
   //DEFINE HISTORY FUNCS AND PATH
   let history = useHistory();
-  const login = () => history.push(`/user/dashboard`);
+  const login = useCallback(() => history.push(`/user/dashboard`), [history]);
   const logout = () => history.push(`/user`);
   const { path } = useRouteMatch();
 
@@ -44,7 +44,7 @@ const UserRouter = () => {
           });
     };
     checkLoggedIn();
-  });
+  }, [login]);
 
   //HANDLE LOGIN
   const handleLogin = (e, userEntry) => {
