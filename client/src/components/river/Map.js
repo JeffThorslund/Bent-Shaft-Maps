@@ -6,10 +6,9 @@ import Image from "react-bootstrap/Image";
 
 /** Map with selectable tags for each rapid that will navigate user to rapid*/
 
-const Map = ({ toggleMap, river, url }) => {
+const Map = ({ toggleMap, river }) => {
   const mapLabelArray = river.rapids.map((rapid, index) => (
     <MapLabel
-      url={url}
       name={rapid.name}
       overviewLabel={rapid.overviewLabel}
       toggleMap={toggleMap}

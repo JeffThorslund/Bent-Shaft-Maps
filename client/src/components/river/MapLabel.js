@@ -35,8 +35,6 @@ export default MapLabel;
 MapLabel.defaultProps = {};
 
 MapLabel.propTypes = {
-  /** The base url */
-  url: PropTypes.string.isRequired,
   /** The name of the rapid, to be used in the navigation */
   name: PropTypes.string.isRequired,
   /** The coordinates of the position of the label and pointer */
