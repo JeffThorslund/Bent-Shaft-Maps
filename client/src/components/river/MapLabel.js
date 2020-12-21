@@ -5,12 +5,7 @@ import { useHistory } from "react-router-dom";
 
 /** A label on the overview navigation map */
 
-const MapLabel = ({
-  name,
-  overviewLabel: {pointer, tag},
-  toggleMap
-}) => {
-
+const MapLabel = ({ name, overviewLabel: { pointer, tag }, toggleMap }) => {
   let history = useHistory();
   const handleClick = (to) => {
     toggleMap();
@@ -27,7 +22,7 @@ const MapLabel = ({
         x={pointer.y + 1}
         y={tag.y + 1}
         onClick={() => handleClick(`${paramCase(name)}`)}
-        class="map-label"
+        className="map-label"
       >
         {name}
       </text>
@@ -40,12 +35,11 @@ export default MapLabel;
 MapLabel.defaultProps = {};
 
 MapLabel.propTypes = {
-  /** The base url */
-  url: PropTypes.string.isRequired,
   /** The name of the rapid, to be used in the navigation */
   name: PropTypes.string.isRequired,
   /** The coordinates of the position of the label and pointer */
-  overviewLabel: PropTypes.arrayOf(PropTypes.arrayOf(PropTypes.number)).isRequired,
+  overviewLabel: PropTypes.objectOf(PropTypes.objectOf(PropTypes.number))
+    .isRequired,
   /** Turns off the map when clicked */
   toggleMap: PropTypes.func.isRequired,
 };

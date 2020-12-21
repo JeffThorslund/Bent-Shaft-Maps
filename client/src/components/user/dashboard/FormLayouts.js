@@ -1,5 +1,5 @@
 import React from "react";
-import { Formik, Field, FieldArray, Form } from "formik";
+import { Formik, Field, Form } from "formik";
 import { Range, Dragger } from "./CustomFormComponents";
 
 const FormLayouts = ({

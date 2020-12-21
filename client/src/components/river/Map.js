@@ -6,16 +6,15 @@ import Image from "react-bootstrap/Image";
 
 /** Map with selectable tags for each rapid that will navigate user to rapid*/
 
-const Map = ({toggleMap, river }) => {
-  const mapLabelArray = river.rapids
-    .map((rapid, index) => (
-      <MapLabel
-        name={rapid.name}
-        overviewLabel={rapid.overviewLabel}
-        toggleMap={toggleMap}
-        key={`overviewLabel${index}`}
-      />
-    ));
+const Map = ({ toggleMap, river }) => {
+  const mapLabelArray = river.rapids.map((rapid, index) => (
+    <MapLabel
+      name={rapid.name}
+      overviewLabel={rapid.overviewLabel}
+      toggleMap={toggleMap}
+      key={`overviewLabel${index}`}
+    />
+  ));
 
   return (
     <>
@@ -27,7 +26,7 @@ const Map = ({toggleMap, river }) => {
         fluid
       />
 
-<svg
+      <svg
         viewBox="0 0 160 90"
         height="100%"
         width="100%"
@@ -35,9 +34,8 @@ const Map = ({toggleMap, river }) => {
         preserveAspectRatio="none"
         className="label-svg"
       >
-
         {mapLabelArray}
-        </svg>
+      </svg>
     </>
   );
 };

@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback, useMemo } from "react";
+import { useState, useEffect, useCallback } from "react";
 import useWindowDimensions from "./useWindowDimensions";
 import store from "../../../../rematch/store";
 
@@ -14,27 +14,33 @@ const useDrag = (position, index, isEndpointNode) => {
 
   const { height, width } = useWindowDimensions();
 
-  const handleMouseDown = useCallback(({ clientX, clientY }) => {
-    dispatch.data.changeNodeCoordinates({
-      x: (clientX / width) * 100,
-      y: (clientY / height) * 100,
-      index,
-      isEndpointNode,
-    });
-    setState((state) => ({
-      ...state,
-      isDragging: true,
-    }));
-  }, []);
+  const handleMouseDown = useCallback(
+    ({ clientX, clientY }) => {
+      dispatch.data.changeNodeCoordinates({
+        x: (clientX / width) * 100,
+        y: (clientY / height) * 100,
+        index,
+        isEndpointNode,
+      });
+      setState((state) => ({
+        ...state,
+        isDragging: true,
+      }));
+    },
+    [height, width, index, isEndpointNode]
+  );
 
-  const handleMouseMove = useCallback(({ clientX, clientY }) => {
-    dispatch.data.changeNodeCoordinates({
-      x: (clientX / width) * 100,
-      y: (clientY / height) * 100,
-      index,
-      isEndpointNode,
-    });
-  }, []);
+  const handleMouseMove = useCallback(
+    ({ clientX, clientY }) => {
+      dispatch.data.changeNodeCoordinates({
+        x: (clientX / width) * 100,
+        y: (clientY / height) * 100,
+        index,
+        isEndpointNode,
+      });
+    },
+    [height, width, index, isEndpointNode]
+  );
 
   const handleMouseUp = useCallback(() => {
     setState((state) => ({
@@ -51,7 +57,7 @@ const useDrag = (position, index, isEndpointNode) => {
       window.removeEventListener("mousemove", handleMouseMove);
       window.removeEventListener("mouseup", handleMouseUp);
     }
-  }, [state.isDragging, handleMouseMove]);
+  }, [state.isDragging, handleMouseMove, handleMouseUp]);
 
   return {
     x: state.position.x,

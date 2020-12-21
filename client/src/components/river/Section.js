@@ -2,7 +2,7 @@ import React, { useLayoutEffect, useState } from "react";
 import PropTypes from "prop-types";
 import { withRouter } from "react-router-dom";
 import { paramCase } from "change-case";
-import { useRouteMatch, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 
 import Modal from "react-bootstrap/Modal";
 
@@ -19,7 +19,6 @@ import Slider from "./Slider";
  */
 
 const Section = ({ section }) => {
-  let { url, path } = useRouteMatch();
   let { rapid_path } = useParams();
 
   const [level, setLevel] = useState(0);
@@ -65,7 +64,7 @@ const Section = ({ section }) => {
         onHide={toggleMap}
         centered
       >
-        <Map url={url} toggleMap={toggleMap} river={section} />
+        <Map toggleMap={toggleMap} river={section} />
       </Modal>
 
       <div id="slider-position">

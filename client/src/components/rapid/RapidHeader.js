@@ -1,6 +1,4 @@
 import React from "react";
-import PropTypes from "prop-types";
-import filterRange from "./_utils/filterRange";
 
 /** The title pf the rapid that shows a name and description based on water level. */
 

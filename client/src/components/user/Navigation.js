@@ -10,7 +10,7 @@ function Navigation({ user = { name: "none" } }) {
       </ul>
       <ul className="navbar-nav">
         <li className="nav-item" onClick={handleLogout}>
-          <a className="nav-link">Log Out</a>
+          <div className="nav-link">Log Out</div>
         </li>
       </ul>
     </div>

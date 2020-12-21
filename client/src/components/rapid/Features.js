@@ -34,7 +34,7 @@ const Features = ({ level, rapid }) => {
         x={line.x}
         y={line.y}
         key={`line${key}`}
-        showNodes={false}
+        showNodes={true}
       />
     ));
 

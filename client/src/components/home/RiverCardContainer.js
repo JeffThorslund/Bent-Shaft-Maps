@@ -5,12 +5,7 @@ import SearchBar from "../general/SearchBar";
 import RiverCard from "./RiverCard";
 import DoesNotExistCard from "./DoesNotExistCard";
 
-//REDUX
-import { useSelector } from "react-redux";
-
-/**
- * Handles search functionality and river card display.
- */
+/* Handles search functionality and river card display */
 
 const RiverCardContainer = ({ rivers }) => {
   //User Search Query
@@ -19,7 +14,7 @@ const RiverCardContainer = ({ rivers }) => {
   const handleChange = (e) => {
     setValue(e.target.value);
   };
-
+  //Getting data from { rivers } for Card rendering and Search engine
   let riverCardData = rivers
     .map((river) => {
       return river.sections.map((section) => ({
@@ -33,9 +28,10 @@ const RiverCardContainer = ({ rivers }) => {
 
   let riverCards = riverCardData
     .filter((card) => {
+      //If Search Bar is empty => all Cards
       if (value.length === 0) return true;
-
-      for (const [key, result] of Object.entries(card)) {
+      //Iterrate through each Card values => Cards containing Search Query
+      for (const result of Object.values(card)) {
         if (result.toUpperCase().indexOf(value.toUpperCase()) > -1) return true;
       }
 
@@ -64,6 +60,6 @@ const RiverCardContainer = ({ rivers }) => {
 export default RiverCardContainer;
 
 RiverCardContainer.propTypes = {
-  /** Array of all river objects in the database */
+  /* Array of all river objects in the database */
   rivers: PropTypes.arrayOf(PropTypes.object),
 };
