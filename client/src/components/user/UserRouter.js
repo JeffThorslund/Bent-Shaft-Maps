@@ -78,7 +78,7 @@ const UserRouter = () => {
   //HANDLE REGISTER
   const handleRegister = (userEntry) => {
     axios
-      .post("/auth/register", { userEntry })
+      .post("/auth/register", userEntry)
       .then((response) => {
         const user = {
           email: response.data.user.email,
