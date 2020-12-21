@@ -65,8 +65,14 @@ function AuthInterface() {
 
   return (
     <div className="container-fluid row">
-      <AuthForm formData={loginFormData} />
-      <AuthForm formData={registerFormData} />
+      <AuthForm
+        formData={loginFormData}
+        handleAuth={(data) => handleLogin(data)}
+      />
+      <AuthForm
+        formData={registerFormData}
+        handleAuth={(data) => handleRegister(data)}
+      />
     </div>
   );
 }

@@ -1,17 +1,11 @@
 import React from "react";
 import { useForm } from "react-hook-form";
 
-const AuthForm = ({ formData: { title, fields, buttons } }) => {
+const AuthForm = ({ formData: { title, fields, buttons }, handleAuth }) => {
   const { register, handleSubmit } = useForm();
 
   const onSubmit = (data) => {
-    console.log(data);
-    // DATA OUTPUT
-    // {
-    // name: "test",
-    // email: "test@tester.com",
-    // password: "testtest",
-    // }
+    handleAuth(data);
   };
 
   //   Input Groups
