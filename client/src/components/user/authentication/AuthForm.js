@@ -16,8 +16,8 @@ const AuthForm = ({ formData: { title, fields, buttons }, handleAuth }) => {
     </div>
   ));
 
-  //   Buttons
-  const button = buttons.map((button, index) => (
+  //   Submit Buttons
+  const submit = buttons.map((button, index) => (
     <button
       className={`btn mr-3 ${button.varient}`}
       key={index}
@@ -31,7 +31,7 @@ const AuthForm = ({ formData: { title, fields, buttons }, handleAuth }) => {
     <form onSubmit={handleSubmit(onSubmit)} className="col form">
       <h1>{title}</h1>
       {inputs}
-      {button}
+      {submit}
     </form>
   );
 };

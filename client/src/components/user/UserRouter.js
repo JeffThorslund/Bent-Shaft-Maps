@@ -78,8 +78,9 @@ const UserRouter = () => {
   //HANDLE REGISTER
   const handleRegister = (userEntry) => {
     axios
-      .post("/auth/register", userEntry)
+      .post("/auth/register", { userEntry })
       .then((response) => {
+        console.log(response);
         const user = {
           email: response.data.user.email,
           password: response.data.user.password,
@@ -87,7 +88,8 @@ const UserRouter = () => {
         handleLogin(user);
       })
       .catch((error) => {
-        alert(error.response);
+        console.log(error);
+        // alert(error.response);
       });
   };
 

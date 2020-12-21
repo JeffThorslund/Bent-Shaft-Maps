@@ -32,7 +32,7 @@ function AuthInterface() {
       },
     },
   };
-
+  // Submit Buttons
   const { register, login, forgot } = {
     register: {
       varient: "btn-primary",
@@ -51,12 +51,12 @@ function AuthInterface() {
     },
   };
 
+  // Form Data
   const registerFormData = {
     title: "Register",
     fields: [name, email, password],
     buttons: [register],
   };
-
   const loginFormData = {
     title: "Login",
     fields: [email, password],
