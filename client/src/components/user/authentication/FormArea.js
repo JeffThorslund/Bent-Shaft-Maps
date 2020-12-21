@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 
-const FormArea = ({ formData, children }) => {
-  const { title, fieldData, buttonData } = formData;
+const FormArea = ({ formData: { title, fieldData, buttonData }, children }) => {
 
   //Login Input Fields
   const [userEntry, setUserEntry] = useState({});
@@ -23,11 +22,7 @@ const FormArea = ({ formData, children }) => {
   const fields = fieldData.map((field) => {
     const name = field.attributes.name;
     return (
-      <div
-        className="form-group"
-        controlId={field.controlId}
-        key={field.controlId}
-      >
+      <div className="form-group" key={field.controlId}>
         <div className="form-label">{field.formLabel}</div>
         <div
           className="form-control"

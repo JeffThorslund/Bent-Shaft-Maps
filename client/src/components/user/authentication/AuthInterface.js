@@ -39,6 +39,7 @@ function AuthInterface() {
     ],
     buttonData: [
       {
+        id: "registerButton",
         varient: "btn-primary",
         type: "submit",
         value: "Register",
