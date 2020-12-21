@@ -1,6 +1,5 @@
 import React, { useContext } from "react";
 import AuthForm from "./AuthForm";
-
 import UserContext from "../UserContext";
 
 function AuthInterface() {
@@ -39,21 +38,16 @@ function AuthInterface() {
       varient: "btn-primary",
       type: "submit",
       value: "Register",
-      handleClick: handleRegister,
     },
     login: {
       varient: "btn-primary",
       type: "submit",
       value: "Login",
-      handleClick: handleLogin,
     },
     forgot: {
       varient: "btn-outline-primary",
       type: "submit",
       value: "Forgot My Password",
-      handleClick: () => {
-        alert("You forgot.");
-      },
     },
   };
 
