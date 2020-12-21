@@ -35,6 +35,7 @@ const Features = ({ level, rapid }) => {
         y={line.y}
         key={`line${key}`}
         showNodes={true}
+        isTestEnv={false}
       />
     ));
 

@@ -1,8 +1,11 @@
 import React from "react";
 import { Table } from "react-bootstrap";
 import Line from "../shared/line";
+import { useSelector } from "react-redux";
 
 const TestEnvironment = () => {
+  const { lines } = useSelector((state) => state.testEnvironment);
+
   return (
     <>
       <Table striped bordered hover>
@@ -36,22 +39,9 @@ const TestEnvironment = () => {
         xmlns="http://www.w3.org/2000/svg"
         preserveAspectRatio="none"
       >
-        <Line
-          pathCommands={[
-            {
-              type: "M",
-              args: [30, 20],
-            },
-            {
-              type: "S",
-              args: [40, 20, 60, 30],
-            },
-            {
-              type: "S",
-              args: [45, 40, 70, 40],
-            },
-          ]}
-        />
+        {lines.map((line, i) => (
+          <Line pathCommands={line} key={i} isTestEnv={true} />
+        ))}
       </svg>
     </>
   );
