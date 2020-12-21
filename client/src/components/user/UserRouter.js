@@ -80,7 +80,6 @@ const UserRouter = () => {
     axios
       .post("/auth/register", { userEntry })
       .then((response) => {
-        console.log(response);
         const user = {
           email: response.data.user.email,
           password: response.data.user.password,
