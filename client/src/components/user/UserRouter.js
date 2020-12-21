@@ -88,8 +88,7 @@ const UserRouter = () => {
         handleLogin(user);
       })
       .catch((error) => {
-        console.log(error);
-        // alert(error.response);
+        alert(error.response);
       });
   };
 

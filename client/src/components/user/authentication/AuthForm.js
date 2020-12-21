@@ -3,7 +3,7 @@ import { useForm } from "react-hook-form";
 
 const AuthForm = ({ formData: { title, fields, buttons }, handleAuth }) => {
   const { register, handleSubmit } = useForm();
-
+  // Submit Callback
   const onSubmit = (data) => {
     handleAuth(data);
   };
@@ -12,7 +12,11 @@ const AuthForm = ({ formData: { title, fields, buttons }, handleAuth }) => {
   const inputs = fields.map((field, index) => (
     <div key={index} className="form-group">
       <label className="form-label">{field.label}</label>
-      <input ref={register} className="form-control" {...field.attributes} />
+      <input
+        ref={register({ required: true })}
+        className="form-control"
+        {...field.attributes}
+      />
     </div>
   ));
 
