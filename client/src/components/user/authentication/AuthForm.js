@@ -1,7 +1,11 @@
 import React from "react";
 import { useForm } from "react-hook-form";
 
-const AuthForm = ({ formData: { title, fields, buttons }, handleAuth }) => {
+const AuthForm = ({
+  formData: { title, fields, buttons },
+  handleAuth,
+  children,
+}) => {
   const { register, handleSubmit } = useForm();
   // Submit Callback
   const onSubmit = (data) => {
@@ -36,6 +40,7 @@ const AuthForm = ({ formData: { title, fields, buttons }, handleAuth }) => {
       <h1>{title}</h1>
       {inputs}
       {submit}
+      {children}
     </form>
   );
 };

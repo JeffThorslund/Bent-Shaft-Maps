@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import AuthForm from "./AuthForm";
 import UserContext from "../UserContext";
+import LoginTests from "./LoginTests";
 
 function AuthInterface() {
   const { handleLogin, handleRegister } = useContext(UserContext);
@@ -68,7 +69,9 @@ function AuthInterface() {
       <AuthForm
         formData={loginFormData}
         handleAuth={(data) => handleLogin(data)}
-      />
+      >
+        <LoginTests />
+      </AuthForm>
       <AuthForm
         formData={registerFormData}
         handleAuth={(data) => handleRegister(data)}
