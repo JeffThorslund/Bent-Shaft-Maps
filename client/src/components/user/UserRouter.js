@@ -47,20 +47,15 @@ const UserRouter = () => {
   }, [login]);
 
   //HANDLE LOGIN
-  const handleLogin = (e, userEntry) => {
-    e.preventDefault();
-
-    const { email, password } = userEntry;
+  const handleLogin = (userEntry) => {
     axios
-      .post("/auth/login", {
-        email: email,
-        password: password,
-      })
+      .post("/auth/login", userEntry)
       .then((response) => {
         const token = response.headers["auth-token"];
+        const { name, email } = response.data;
         setUserData({
           token: token,
-          user: { name: response.data.name, email: response.data.email },
+          user: { name: name, email: email },
         });
         localStorage.setItem("auth-token", token);
         login();
@@ -81,23 +76,15 @@ const UserRouter = () => {
   };
 
   //HANDLE REGISTER
-  const handleRegister = (e, userEntry) => {
-    e.preventDefault();
-    const { name, email, password } = userEntry;
-
+  const handleRegister = (userEntry) => {
     axios
-      .post("/auth/register", {
-        email: email,
-        password: password,
-
-        name: name,
-      })
+      .post("/auth/register", userEntry)
       .then((response) => {
         const user = {
           email: response.data.user.email,
-          password: password,
+          password: response.data.user.password,
         };
-        handleLogin(e, user);
+        handleLogin(user);
       })
       .catch((error) => {
         alert(error.response);
