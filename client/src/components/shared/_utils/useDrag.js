@@ -1,12 +1,12 @@
 import { useState, useEffect, useCallback } from "react";
 import useWindowDimensions from "./useWindowDimensions";
-import store from "../../../../rematch/store";
+import store from "../../../rematch/store";
 
 //Takes an original position of node
 
 const { dispatch } = store;
 
-const useDrag = (position, index, isEndpointNode) => {
+const useDrag = (position, index, isTestEnv, isEndpointNode) => {
   const [state, setState] = useState({
     isDragging: false,
     position,
@@ -14,32 +14,36 @@ const useDrag = (position, index, isEndpointNode) => {
 
   const { height, width } = useWindowDimensions();
 
+  const dispatchLocation = isTestEnv ? "testEnvironment" : "data";
+
   const handleMouseDown = useCallback(
     ({ clientX, clientY }) => {
-      dispatch.data.changeNodeCoordinates({
+      dispatch[dispatchLocation].changeNodeCoordinates({
         x: (clientX / width) * 100,
         y: (clientY / height) * 100,
         index,
         isEndpointNode,
+        isTestEnv: true,
       });
       setState((state) => ({
         ...state,
         isDragging: true,
       }));
     },
-    [height, width, index, isEndpointNode]
+    [height, width, index, isEndpointNode, dispatchLocation]
   );
 
   const handleMouseMove = useCallback(
     ({ clientX, clientY }) => {
-      dispatch.data.changeNodeCoordinates({
+      dispatch[dispatchLocation].changeNodeCoordinates({
         x: (clientX / width) * 100,
         y: (clientY / height) * 100,
         index,
         isEndpointNode,
+        isTestEnv: true,
       });
     },
-    [height, width, index, isEndpointNode]
+    [height, width, index, isEndpointNode, dispatchLocation]
   );
 
   const handleMouseUp = useCallback(() => {

@@ -2,7 +2,7 @@ import React, { useRef, useEffect } from "react";
 import PropTypes from "prop-types";
 import ReactTooltip from "react-tooltip";
 
-import Line from "../shared/line";
+import Line from "../shared/Line";
 import Eddy from "./Eddy";
 import Hydraulic from "./Hydraulic";
 import Symbol from "./Symbol";
@@ -35,6 +35,7 @@ const Features = ({ level, rapid }) => {
         y={line.y}
         key={`line${key}`}
         showNodes={true}
+        isTestEnv={false}
       />
     ));
 

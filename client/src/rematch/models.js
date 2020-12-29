@@ -93,3 +93,40 @@ export const indexes = {
     }),
   },
 };
+
+//Test environment allows us to style, and work on elements without impacting map.
+
+export const testEnvironment = {
+  state: {
+    lines: [
+      [
+        {
+          type: "M",
+          args: [30, 20],
+        },
+        {
+          type: "S",
+          args: [40, 20, 60, 30],
+        },
+        {
+          type: "S",
+          args: [45, 40, 70, 40],
+        },
+      ],
+    ],
+    eddys: [],
+    hydraulics: [],
+  },
+  reducers: {
+    changeNodeCoordinates: (state, payload) => {
+      const { isEndpointNode, index, x, y } = payload;
+
+      const line = state.lines[0][index].args;
+
+      line[isEndpointNode ? 2 : 0] = x;
+      line[isEndpointNode ? 3 : 1] = y;
+
+      return state;
+    },
+  },
+};

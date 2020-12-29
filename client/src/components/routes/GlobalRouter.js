@@ -5,6 +5,7 @@ import Home from "../home/Home";
 import RiverRouter from "./RiverRouter";
 import UserRouter from "../user/UserRouter";
 import PrivacyPolicy from "../user/PrivacyPolicy";
+import TestEnvironment from "../test-environment/TestEnvironment";
 
 /**
  * Creates all routes of base url.
@@ -17,7 +18,7 @@ const GlobalRouter = ({ rivers }) => {
   return (
     <Switch>
       <Route exact path="/" key="home">
-        <Home rivers={rivers}/>
+        <Home rivers={rivers} />
       </Route>
 
       {rivers && (
@@ -31,6 +32,8 @@ const GlobalRouter = ({ rivers }) => {
       </Route>
 
       <Route path="/maps" children={<RiverRouter rivers={rivers} />} />
+
+      <Route path="/test-env" children={<TestEnvironment />} />
     </Switch>
   );
 };

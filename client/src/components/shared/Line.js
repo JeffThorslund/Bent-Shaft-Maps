@@ -1,12 +1,12 @@
 import React from "react";
-import Node from "../node";
+import Node from "./Node";
 import usePathParser from "./_utils/usePathParser";
 
 /**
  * A line represents a safe route to navigate the river at a specific water level
  */
 
-const Line = ({ name, desc, pathCommands, x, y, showNodes = true }) => {
+const Line = ({ name, desc, isTestEnv, pathCommands, x, y, showNodes = true }) => {
   const [nodes, midpointNodeList, path] = usePathParser(pathCommands);
 
   return (
@@ -19,6 +19,7 @@ const Line = ({ name, desc, pathCommands, x, y, showNodes = true }) => {
             key={"n" + i}
             index={i}
             isEndpointNode={true}
+            isTestEnv={isTestEnv}
           />
         ))}
 
@@ -30,10 +31,11 @@ const Line = ({ name, desc, pathCommands, x, y, showNodes = true }) => {
             key={"mn" + i}
             index={i}
             isEndpointNode={false}
+            isTestEnv={isTestEnv}
           />
         ))}
 
-      <path d={path} stroke="black" />
+      <path d={path} stroke="black" fill="none"/>
     </g>
   );
 };
