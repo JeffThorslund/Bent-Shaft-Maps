@@ -1,5 +1,5 @@
 import React from "react";
-import Node from "../node";
+import Node from "./Node";
 import usePathParser from "./_utils/usePathParser";
 
 /**

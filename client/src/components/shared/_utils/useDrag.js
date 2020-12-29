@@ -1,6 +1,6 @@
 import { useState, useEffect, useCallback } from "react";
 import useWindowDimensions from "./useWindowDimensions";
-import store from "../../../../rematch/store";
+import store from "../../../rematch/store";
 
 //Takes an original position of node
 
