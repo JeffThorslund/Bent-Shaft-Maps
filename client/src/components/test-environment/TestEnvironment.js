@@ -1,5 +1,4 @@
 import React from "react";
-import { Table } from "react-bootstrap";
 import Line from "../shared/Line";
 import { useSelector } from "react-redux";
 
