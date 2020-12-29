@@ -33,13 +33,15 @@ const LoginTests = () => {
     },
   ].map((cred) => {
     return (
-      <div
+      <button
         className="btn btn-secondary m-1"
-        onClick={(e) => handleLogin(e, cred)}
+        onClick={() =>
+          handleLogin({ email: cred.email, password: cred.password })
+        }
         key={cred.type}
       >
         {cred.type}
-      </div>
+      </button>
     );
   });
 
