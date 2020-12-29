@@ -35,7 +35,7 @@ const Line = ({ name, desc, isTestEnv, pathCommands, x, y, showNodes = true }) =
           />
         ))}
 
-      <path d={path} stroke="black" />
+      <path d={path} stroke="black" fill="none"/>
     </g>
   );
 };
