@@ -1,101 +1,81 @@
 import React, { useContext } from "react";
-import FormArea from "./FormArea";
-import LoginTests from "./LoginTests";
-
+import AuthForm from "./AuthForm";
 import UserContext from "../UserContext";
+import LoginTests from "./LoginTests";
 
 function AuthInterface() {
   const { handleLogin, handleRegister } = useContext(UserContext);
-  const registrationFormData = {
+
+  //Input Fields
+  const { name, email, password } = {
+    name: {
+      label: "Name",
+      attributes: {
+        name: "name",
+        type: "text",
+        placeholder: "Enter Name",
+      },
+    },
+    email: {
+      label: "Email",
+      attributes: {
+        name: "email",
+        type: "email",
+        placeholder: "Enter Email",
+      },
+    },
+    password: {
+      label: "Password",
+      attributes: {
+        name: "password",
+        type: "password",
+        placeholder: "Create Password",
+      },
+    },
+  };
+  // Submit Buttons
+  const { register, login, forgot } = {
+    register: {
+      varient: "btn-primary",
+      type: "submit",
+      value: "Register",
+    },
+    login: {
+      varient: "btn-primary",
+      type: "submit",
+      value: "Login",
+    },
+    forgot: {
+      varient: "btn-outline-primary",
+      type: "submit",
+      value: "Forgot My Password",
+    },
+  };
+
+  // Form Data
+  const registerFormData = {
     title: "Register",
-    fieldData: [
-      {
-        controlId: "formRegisterBasicName",
-        formLabel: "Name",
-        attributes: {
-          name: "name",
-          type: "text",
-          placeholder: "Enter Name",
-        },
-      },
-      {
-        controlId: "formRegisterBasicEmail",
-        formLabel: "Email",
-        attributes: {
-          name: "email",
-          type: "email",
-          placeholder: "Enter Email",
-        },
-      },
-      {
-        controlId: "formRegisterBasicPassword",
-        formLabel: "Password",
-        attributes: {
-          name: "password",
-          type: "password",
-          placeholder: "Create Password",
-        },
-      },
-    ],
-    buttonData: [
-      {
-        id: "registerButton",
-        varient: "btn-primary",
-        type: "submit",
-        value: "Register",
-        handleClick: handleRegister,
-      },
-    ],
+    fields: [name, email, password],
+    buttons: [register],
   };
   const loginFormData = {
     title: "Login",
-    fieldData: [
-      {
-        controlId: "formLoginBasicEmail",
-        formLabel: "Email",
-        attributes: {
-          name: "email",
-          type: "email",
-          placeholder: "Enter Email",
-        },
-      },
-      {
-        controlId: "formLoginBasicPassword",
-        formLabel: "Password",
-        attributes: {
-          name: "password",
-          type: "password",
-          placeholder: "Create Password",
-        },
-      },
-    ],
-    buttonData: [
-      {
-        id: "loginButton",
-        varient: "btn-primary",
-        type: "submit",
-        value: "Login",
-        handleClick: handleLogin,
-      },
-      {
-        id: "forgotMyPasswordButton",
-        varient: "btn-outline-primary",
-        type: "submit",
-        value: "Forgot My Password",
-        handleClick: () => {
-          alert("You forgot.");
-        },
-      },
-    ],
+    fields: [email, password],
+    buttons: [login, forgot],
   };
+
   return (
-    <div className="container-fluid">
-      <div className="row">
-        <FormArea formData={loginFormData}>
-          <LoginTests />
-        </FormArea>
-        <FormArea formData={registrationFormData} />
-      </div>
+    <div className="container-fluid row">
+      <AuthForm
+        formData={loginFormData}
+        handleAuth={(data) => handleLogin(data)}
+      >
+        <LoginTests />
+      </AuthForm>
+      <AuthForm
+        formData={registerFormData}
+        handleAuth={(data) => handleRegister(data)}
+      />
     </div>
   );
 }
