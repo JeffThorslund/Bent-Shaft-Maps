@@ -5,11 +5,6 @@ export default class Container extends Component {
   state = {
     w: 1600,
     h: 800,
-    grid: {
-      show: false,
-      snap: false,
-      size: 50,
-    },
     ctrl: false,
     points: [
       { x: 100, y: 300 },
@@ -34,7 +29,7 @@ export default class Container extends Component {
     draggedPoint: false,
     draggedQuadratic: false,
     draggedCubic: false,
-    closePath: false,
+    closePath: true,
   };
 
   componentWillMount() {
@@ -47,10 +42,10 @@ export default class Container extends Component {
     document.removeEventListener("keyup");
   }
 
+  //Check if number is positive
   positiveNumber(n) {
     n = parseInt(n);
     if (isNaN(n) || n < 0) n = 0;
-
     return n;
   }
 
@@ -70,34 +65,6 @@ export default class Container extends Component {
     this.setState({ h: v });
   };
 
-  setGridSize = (e) => {
-    let grid = this.state.grid;
-    let v = this.positiveNumber(e.target.value);
-    let min = 1;
-    let max = Math.min(this.state.w, this.state.h);
-
-    if (v < min) v = min;
-    if (v >= max) v = max / 2;
-
-    grid.size = v;
-
-    this.setState({ grid });
-  };
-
-  setGridSnap = (e) => {
-    let grid = this.state.grid;
-    grid.snap = e.target.checked;
-
-    this.setState({ grid });
-  };
-
-  setGridShow = (e) => {
-    let grid = this.state.grid;
-    grid.show = e.target.checked;
-
-    this.setState({ grid });
-  };
-
   setClosePath = (e) => {
     this.setState({ closePath: e.target.checked });
   };
@@ -106,11 +73,6 @@ export default class Container extends Component {
     const rect = ReactDOM.findDOMNode(this.refs.svg).getBoundingClientRect();
     let x = Math.round(e.pageX - rect.left);
     let y = Math.round(e.pageY - rect.top);
-
-    if (this.state.grid.snap) {
-      x = this.state.grid.size * Math.round(x / this.state.grid.size);
-      y = this.state.grid.size * Math.round(y / this.state.grid.size);
-    }
 
     return { x, y };
   };
@@ -130,16 +92,6 @@ export default class Container extends Component {
             y: points[active].y,
           };
           break;
-        case "q":
-          points[active] = {
-            x: points[active].x,
-            y: points[active].y,
-            q: {
-              x: (points[active].x + points[active - 1].x) / 2,
-              y: (points[active].y + points[active - 1].y) / 2,
-            },
-          };
-          break;
         case "c":
           points[active] = {
             x: points[active].x,
@@ -154,19 +106,6 @@ export default class Container extends Component {
                 y: (points[active].y + points[active - 1].y) / 2,
               },
             ],
-          };
-          break;
-        case "a":
-          points[active] = {
-            x: points[active].x,
-            y: points[active].y,
-            a: {
-              rx: 50,
-              ry: 50,
-              rot: 0,
-              laf: 1,
-              sf: 1,
-            },
           };
           break;
       }
@@ -410,9 +349,6 @@ export default class Container extends Component {
             setPointType={this.setPointType}
             setWidth={this.setWidth}
             setHeight={this.setHeight}
-            setGridSize={this.setGridSize}
-            setGridSnap={this.setGridSnap}
-            setGridShow={this.setGridShow}
             setClosePath={this.setClosePath}
           />
           <Result path={this.generatePath()} />
@@ -467,7 +403,6 @@ class SVG extends Component {
       path,
       w,
       h,
-      grid,
       points,
       activePoint,
       addPoint,
@@ -532,7 +467,6 @@ class SVG extends Component {
         onClick={(e) => addPoint(e)}
         onMouseMove={(e) => handleMouseMove(e)}
       >
-        <Grid w={w} h={h} grid={grid} />
         <path className="ad-Path" d={path} />
         <g className="ad-Points">{circles}</g>
       </svg>
@@ -615,60 +549,16 @@ function Point(props) {
   );
 }
 
-function Grid(props) {
-  const { show, snap, size } = props.grid;
-
-  let grid = [];
-
-  for (let i = 1; i < props.w / size; i++) {
-    grid.push(<line x1={i * size} y1={0} x2={i * size} y2={props.h} />);
-  }
-
-  for (let i = 1; i < props.h / size; i++) {
-    grid.push(<line x1={0} y1={i * size} x2={props.w} y2={i * size} />);
-  }
-
-  return <g className={"ad-Grid" + (!show ? "  is-hidden" : "")}>{grid}</g>;
-}
-
 /**
  * Controls
  */
 
 function Controls(props) {
   const active = props.points[props.activePoint];
-  const step = props.grid.snap ? props.grid.size : 1;
 
   let params = [];
 
-  if (active.q) {
-    params.push(
-      <div className="ad-Controls-container">
-        <Control
-          name="Control point X position"
-          type="range"
-          min={0}
-          max={props.w}
-          step={step}
-          value={active.q.x}
-          onChange={(e) => props.setQuadraticPosition("x", e)}
-        />
-      </div>
-    );
-    params.push(
-      <div className="ad-Controls-container">
-        <Control
-          name="Control point Y position"
-          type="range"
-          min={0}
-          max={props.h}
-          step={step}
-          value={active.q.y}
-          onChange={(e) => props.setQuadraticPosition("y", e)}
-        />
-      </div>
-    );
-  } else if (active.c) {
+  if (active.c) {
     params.push(
       <div className="ad-Controls-container">
         <Control
@@ -676,7 +566,6 @@ function Controls(props) {
           type="range"
           min={0}
           max={props.w}
-          step={step}
           value={active.c[0].x}
           onChange={(e) => props.setCubicPosition("x", 0, e)}
         />
@@ -689,7 +578,6 @@ function Controls(props) {
           type="range"
           min={0}
           max={props.h}
-          step={step}
           value={active.c[0].y}
           onChange={(e) => props.setCubicPosition("y", 0, e)}
         />
@@ -702,7 +590,6 @@ function Controls(props) {
           type="range"
           min={0}
           max={props.w}
-          step={step}
           value={active.c[1].x}
           onChange={(e) => props.setCubicPosition("x", 1, e)}
         />
@@ -715,69 +602,8 @@ function Controls(props) {
           type="range"
           min={0}
           max={props.h}
-          step={step}
           value={active.c[1].y}
           onChange={(e) => props.setCubicPosition("y", 1, e)}
-        />
-      </div>
-    );
-  } else if (active.a) {
-    params.push(
-      <div className="ad-Controls-container">
-        <Control
-          name="X Radius"
-          type="range"
-          min={0}
-          max={props.w}
-          step={step}
-          value={active.a.rx}
-          onChange={(e) => props.setArcParam("rx", e)}
-        />
-      </div>
-    );
-    params.push(
-      <div className="ad-Controls-container">
-        <Control
-          name="Y Radius"
-          type="range"
-          min={0}
-          max={props.h}
-          step={step}
-          value={active.a.ry}
-          onChange={(e) => props.setArcParam("ry", e)}
-        />
-      </div>
-    );
-    params.push(
-      <div className="ad-Controls-container">
-        <Control
-          name="Rotation"
-          type="range"
-          min={0}
-          max={360}
-          step={1}
-          value={active.a.rot}
-          onChange={(e) => props.setArcParam("rot", e)}
-        />
-      </div>
-    );
-    params.push(
-      <div className="ad-Controls-container">
-        <Control
-          name="Large arc sweep flag"
-          type="checkbox"
-          checked={active.a.laf}
-          onChange={(e) => props.setArcParam("laf", e)}
-        />
-      </div>
-    );
-    params.push(
-      <div className="ad-Controls-container">
-        <Control
-          name="Sweep flag"
-          type="checkbox"
-          checked={active.a.sf}
-          onChange={(e) => props.setArcParam("sf", e)}
         />
       </div>
     );
@@ -807,26 +633,7 @@ function Controls(props) {
           onChange={(e) => props.setClosePath(e)}
         />
       </div>
-      <div className="ad-Controls-container">
-        <Control
-          name="Grid size"
-          type="text"
-          value={props.grid.size}
-          onChange={(e) => props.setGridSize(e)}
-        />
-        <Control
-          name="Snap grid"
-          type="checkbox"
-          checked={props.grid.snap}
-          onChange={(e) => props.setGridSnap(e)}
-        />
-        <Control
-          name="Show grid"
-          type="checkbox"
-          checked={props.grid.show}
-          onChange={(e) => props.setGridShow(e)}
-        />
-      </div>
+      <div className="ad-Controls-container"></div>
       <div className="ad-Controls-container">
         <Control
           type="button"
@@ -864,7 +671,6 @@ function Controls(props) {
           type="range"
           min={0}
           max={props.w}
-          step={step}
           value={active.x}
           onChange={(e) => props.setPointPosition("x", e)}
         />
@@ -875,7 +681,6 @@ function Controls(props) {
           type="range"
           min={0}
           max={props.h}
-          step={step}
           value={active.y}
           onChange={(e) => props.setPointPosition("y", e)}
         />
@@ -1000,7 +805,6 @@ function Range(props) {
         type="range"
         min={props.min}
         max={props.max}
-        step={props.step}
         value={props.value}
         onChange={props.onChange}
       />
