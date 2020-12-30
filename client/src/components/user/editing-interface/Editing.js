@@ -274,7 +274,6 @@ export default class Container extends Component {
               {...this.state}
               addPoint={this.addPoint}
               setDraggedPoint={this.setDraggedPoint}
-              setDraggedQuadratic={this.setDraggedQuadratic}
               setDraggedCubic={this.setDraggedCubic}
               handleMouseMove={this.handleMouseMove}
             />
@@ -300,7 +299,6 @@ class SVG extends Component {
       addPoint,
       handleMouseMove,
       setDraggedPoint,
-      setDraggedQuadratic,
       setDraggedCubic,
     } = this.props;
 

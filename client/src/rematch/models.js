@@ -100,40 +100,60 @@ export const testEnvironment = {
   state: {
     lines: [
       [
-        { x: 100, y: 300 },
+        { x: 50, y: 30 },
         {
-          x: 500,
-          y: 300,
+          x: 20,
+          y: 20,
           c: [
-            { x: 450, y: 550 },
-            { x: 450, y: 50 },
+            { x: 45, y: 55 },
+            { x: 45, y: 5 },
           ],
         },
       ],
     ],
     eddys: [],
     hydraulics: [],
+    closePath: true,
+    activePoint: 0,
+    draggedPoint: false,
+    draggedCubic: false,
   },
   reducers: {
     changeNodeCoordinates: (state, payload) => {
       const { x, y, pointType, index } = payload;
 
-      const line = state.lines[0][index]
+      const line = state.lines[0][index];
 
       if (pointType === "M") {
         line.fx = x;
         line.fy = y;
-      }
-
-      else if (pointType === "C") {
+      } else if (pointType === "C") {
         line.fx = x;
         line.fy = y;
-      }
-
-      else {
+      } else {
         line.b1x = x;
         line.b1y = y;
       }
+
+      return state;
+    },
+    setClosePath: (state, payload) => {
+      return (state.closePath = payload.e.target.checked);
+    },
+    setDraggedPoint: (state, payload) => {
+      state.activePoint = payload.index;
+      state.draggedPoint = true;
+      return state;
+    },
+    setDraggedCubic: (state, payload) => {
+      console.log(payload);
+    },
+    setPointCoords: (state, payload) => {
+      const points = state.lines[0];
+      const active = state.activePoint;
+
+      points[active].x = payload.coords.x;
+      points[active].y = payload.coords.y;
 
       return state;
     },
