@@ -1,44 +1,50 @@
-const usePathParser = (pathCommands) => {
+const usePathParser = (lines) => {
   /**
    * Outputs svg path string and list of node coordinates.
    */
 
-  //This is a dictionary of how to react to different nodes.
-  const coordIndex = {
-    M: 0,
-    S: 2,
-  };
-
   //Define variables
-  let midpointNodeList = [];
+  let bezier1Nodes = [];
+  let bezier2Nodes = [];
   let nodeList = [];
   let path = "";
 
   //Loop through nodes
-  for (let pathCommand of pathCommands) {
-    path = path.concat(pathCommand.type);
-
-    const coordStartIndex = coordIndex[pathCommand.type];
-
+  for (let [i, line] of lines.entries()) {
     nodeList.push({
-      x: pathCommand.args[coordStartIndex],
-      y: pathCommand.args[coordStartIndex + 1],
+      x: line.fx,
+      y: line.fy,
+      pointType: "f", 
+      i
     });
 
-    midpointNodeList.push({
-      x: pathCommand.args[0],
-      y: pathCommand.args[1],
-    });
+    if (line.type === "C") {
+      bezier1Nodes.push({
+        x: line.b1x,
+        y: line.b1y,
+        pointType: "b1",
+        i
+      });
 
-    for (const [i, argument] of pathCommand.args.entries()) {
-      if (i > 0 && i % 2 === 0) {
-        path = path + ",";
-      }
-      path = path + " " + argument;
+      bezier2Nodes.push({
+        x: line.b2x,
+        y: line.b2y,
+        pointType: "b2",
+        i
+      });
     }
+
+    path = path.concat(line.type);
+
+    // for (const [i, argument] of line.args.entries()) {
+    //   if (i > 0 && i % 2 === 0) {
+    //     path = path + ",";
+    //   }
+    //   path = path + " " + argument;
+    // }
   }
 
-  return [nodeList, midpointNodeList, path];
+  return [nodeList, bezier1Nodes, bezier2Nodes, "M 10,50"];
 };
 
 export default usePathParser;

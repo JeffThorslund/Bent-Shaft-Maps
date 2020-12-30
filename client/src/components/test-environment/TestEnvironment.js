@@ -16,7 +16,7 @@ const TestEnvironment = () => {
         preserveAspectRatio="none"
       >
         {lines.map((line, i) => (
-          <Line pathCommands={line} key={i} isTestEnv={true} />
+          <Line line={line} environment={"testEnvironment"} key={i} />
         ))}
       </svg>
     </>

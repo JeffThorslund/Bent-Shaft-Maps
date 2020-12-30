@@ -102,16 +102,24 @@ export const testEnvironment = {
       [
         {
           type: "M",
-          args: [30, 20],
+          args: [10, 50],
+          fx: 10, 
+          fy: 50 
         },
         {
-          type: "S",
-          args: [40, 20, 60, 30],
+          type: "C",
+          args: [25, 80, 75, 75, 50, 50],
+          b1x: 25,
+          b1y: 80,
+          b2x: 75,
+          b2y: 75,
+          fx: 50,
+          fy: 50
         },
-        {
-          type: "S",
-          args: [45, 40, 70, 40],
-        },
+        // {
+        //   type: "C",
+        //   args: [35, 90, 85, 85, 60, 60],
+        // },
       ],
     ],
     eddys: [],
@@ -119,12 +127,24 @@ export const testEnvironment = {
   },
   reducers: {
     changeNodeCoordinates: (state, payload) => {
-      const { isEndpointNode, index, x, y } = payload;
+      const { x, y, pointType, index } = payload;
 
-      const line = state.lines[0][index].args;
+      const line = state.lines[0][index]
 
-      line[isEndpointNode ? 2 : 0] = x;
-      line[isEndpointNode ? 3 : 1] = y;
+      if (pointType === "M") {
+        line.fx = x;
+        line.fy = y;
+      }
+
+      else if (pointType === "C") {
+        line.fx = x;
+        line.fy = y;
+      }
+
+      else {
+        line.b1x = x;
+        line.b1y = y;
+      }
 
       return state;
     },

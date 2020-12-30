@@ -2,48 +2,44 @@ import { useState, useEffect, useCallback } from "react";
 import useWindowDimensions from "./useWindowDimensions";
 import store from "../../../rematch/store";
 
-//Takes an original position of node
+//Takes an original node of node
 
 const { dispatch } = store;
 
-const useDrag = (position, index, isTestEnv, isEndpointNode) => {
+const useDrag = (node, environment) => {
   const [state, setState] = useState({
     isDragging: false,
-    position,
+    node,
   });
 
   const { height, width } = useWindowDimensions();
 
-  const dispatchLocation = isTestEnv ? "testEnvironment" : "data";
-
   const handleMouseDown = useCallback(
     ({ clientX, clientY }) => {
-      dispatch[dispatchLocation].changeNodeCoordinates({
+      dispatch[environment].changeNodeCoordinates({
         x: (clientX / width) * 100,
         y: (clientY / height) * 100,
-        index,
-        isEndpointNode,
-        isTestEnv: true,
+        pointType: node.pointType,
+        index: node.i,
       });
       setState((state) => ({
         ...state,
         isDragging: true,
       }));
     },
-    [height, width, index, isEndpointNode, dispatchLocation]
+    [height, width, environment]
   );
 
   const handleMouseMove = useCallback(
     ({ clientX, clientY }) => {
-      dispatch[dispatchLocation].changeNodeCoordinates({
+      dispatch[environment].changeNodeCoordinates({
         x: (clientX / width) * 100,
         y: (clientY / height) * 100,
-        index,
-        isEndpointNode,
-        isTestEnv: true,
+        pointType: node.pointType,
+        index: node.i,
       });
     },
-    [height, width, index, isEndpointNode, dispatchLocation]
+    [height, width, environment]
   );
 
   const handleMouseUp = useCallback(() => {
@@ -64,8 +60,8 @@ const useDrag = (position, index, isTestEnv, isEndpointNode) => {
   }, [state.isDragging, handleMouseMove, handleMouseUp]);
 
   return {
-    x: state.position.x,
-    y: state.position.y,
+    x: state.node.x,
+    y: state.node.y,
     handleMouseDown,
   };
 };
