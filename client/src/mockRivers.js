@@ -45,17 +45,22 @@ export const mockRivers = [
                 desc:
                   "A commonly taken line through McCoys. Start center-right coming into the rapid with your boat pointed slightly left. When approaching the Sattlers, paddle towards river left, clip Sattlers and paddle for your life away from Phils",
                 vector: [
+                  { x: 50, y: 30 },
                   {
-                    type: "M",
-                    args: [30, 20],
+                    x: 20,
+                    y: 20,
+                    c: [
+                      { x: 45, y: 55 },
+                      { x: 45, y: 5 },
+                    ],
                   },
                   {
-                    type: "S",
-                    args: [40, 20, 60, 30],
-                  },
-                  {
-                    type: "S",
-                    args: [45, 40, 70, 40],
+                    x: 30,
+                    y: 30,
+                    c: [
+                      { x: 45, y: 55 },
+                      { x: 45, y: 5 },
+                    ],
                   },
                 ],
                 x: 260.55,

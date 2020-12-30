@@ -370,14 +370,18 @@ function Cubic(props) {
       />
       <circle
         className="ad-Anchor-point"
-        onMouseDown={(e) => props.setDraggedCubic(props.index, 0)}
+        onMouseDown={(e) =>
+          props.setDraggedCubic({ index: props.index, anchor: 0 })
+        }
         cx={props.x1}
         cy={props.y1}
         r={6}
       />
       <circle
         className="ad-Anchor-point"
-        onMouseDown={(e) => props.setDraggedCubic(props.index, 1)}
+        onMouseDown={(e) =>
+          props.setDraggedCubic({ index: props.index, anchor: 1 })
+        }
         cx={props.x2}
         cy={props.y2}
         r={6}

@@ -1,4 +1,5 @@
 import React from "react";
+import store from "../../rematch/store"
 
 /**
  * 
@@ -6,7 +7,8 @@ import React from "react";
  * @param {*} props 
  */
 
-const Cubic = (props) => {
+const Cubic = ({index, ...props}) => {
+    const { dispatch } = store;
   return (
     <g className="ad-Anchor">
       <line
@@ -25,14 +27,14 @@ const Cubic = (props) => {
       />
       <circle
         className="ad-Anchor-point"
-        onMouseDown={(e) => props.setDraggedCubic(props.index, 0)}
+        onMouseDown={(e) => dispatch.testEnvironment.setDraggedCubic({ index, anchor: 0 })}
         cx={props.x1}
         cy={props.y1}
         r={1}
       />
       <circle
         className="ad-Anchor-point"
-        onMouseDown={(e) => props.setDraggedCubic(props.index, 1)}
+        onMouseDown={(e) => dispatch.testEnvironment.setDraggedCubic({ index, anchor: 1 })}
         cx={props.x2}
         cy={props.y2}
         r={1}

@@ -109,6 +109,14 @@ export const testEnvironment = {
             { x: 45, y: 5 },
           ],
         },
+        {
+          x: 30,
+          y: 30,
+          c: [
+            { x: 45, y: 55 },
+            { x: 45, y: 5 },
+          ],
+        },
       ],
     ],
     eddys: [],
@@ -146,7 +154,9 @@ export const testEnvironment = {
       return state;
     },
     setDraggedCubic: (state, payload) => {
-      console.log(payload);
+      state.activePoint = payload.index;
+      state.draggedCubic = payload.anchor;
+      return state;
     },
     setPointCoords: (state, payload) => {
       const points = state.lines[0];
@@ -155,6 +165,21 @@ export const testEnvironment = {
       points[active].x = payload.coords.x;
       points[active].y = payload.coords.y;
 
+      return state;
+    },
+    setCubicCoords: (state, payload) => {
+      const points = state.lines[0];
+      const active = state.activePoint;
+
+      points[active].c[payload.anchor].x = payload.coords.x;
+      points[active].c[payload.anchor].y = payload.coords.y;
+
+      return state
+    },
+
+    cancelDragging: (state, payload) => {
+      state.draggedPoint = false;
+      state.draggedCubic = false;
       return state;
     },
   },

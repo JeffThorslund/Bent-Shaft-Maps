@@ -9,18 +9,18 @@ import store from "../../rematch/store";
 
 const TestEnvironment = () => {
   const { dispatch } = store;
-  const { lines } = useSelector((state) => state.testEnvironment);
+  const { lines, draggedPoint, draggedCubic } = useSelector(
+    (state) => state.testEnvironment
+  );
 
   const coords = useMousePosition();
 
   const handleMouseMove = (e) => {
-    if (/*this.state.draggedPoint*/ true) {
-      //this.setPointCoords(this.getMouseCoords(e));
+    if (draggedPoint) {
       dispatch.testEnvironment.setPointCoords({ coords });
+    } else if (draggedCubic !== false) {
+      dispatch.testEnvironment.setCubicCoords({ coords, anchor: draggedCubic });
     }
-    // else if (this.state.draggedCubic !== false) {
-    //   this.setCubicCoords(this.getMouseCoords(e), this.state.draggedCubic);
-    // }
   };
 
   return (
@@ -31,6 +31,7 @@ const TestEnvironment = () => {
       xmlns="http://www.w3.org/2000/svg"
       preserveAspectRatio="none"
       onMouseMove={(e) => handleMouseMove(e)}
+      onMouseUp={() => dispatch.testEnvironment.cancelDragging()}
     >
       <text x="20" y="35" fill={"black"}>
         Hi
@@ -56,9 +57,9 @@ const TestEnvironment = () => {
                     y1={p.c[0].y}
                     x2={p.c[1].x}
                     y2={p.c[1].y}
-                    setDraggedCubic={() =>
-                      dispatch.testEnvironment.setDraggedCubic({ index: i })
-                    }
+                    // setDraggedCubic={() =>
+                    //   dispatch.testEnvironment.setDraggedCubic({ index: i })
+                    // }
                   />
                 );
               }
@@ -68,9 +69,9 @@ const TestEnvironment = () => {
                     index={i}
                     x={p.x}
                     y={p.y}
-                    setDraggedPoint={() =>
-                      dispatch.testEnvironment.setDraggedPoint({ index: i })
-                    }
+                    // setDraggedPoint={() =>
+                    //   dispatch.testEnvironment.setDraggedPoint({ index: i })
+                    // }
                   />
                   {anchors}
                 </>
