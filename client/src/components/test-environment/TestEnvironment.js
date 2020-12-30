@@ -8,7 +8,8 @@ const TestEnvironment = () => {
 
   return (
     <>
-      <svg
+      hello
+      {/* <svg
         className="Features"
         id="vector-container"
         viewBox="0 0 100 100"
@@ -18,7 +19,7 @@ const TestEnvironment = () => {
         {lines.map((line, i) => (
           <Line line={line} environment={"testEnvironment"} key={i} />
         ))}
-      </svg>
+      </svg> */}
     </>
   );
 };

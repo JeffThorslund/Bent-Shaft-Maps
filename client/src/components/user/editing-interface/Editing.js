@@ -126,18 +126,6 @@ export default class Container extends Component {
     this.setPointCoords(coords);
   };
 
-  setQuadraticPosition = (coord, e) => {
-    let coords = this.state.points[this.state.activePoint].q;
-    let v = this.positiveNumber(e.target.value);
-
-    if (coord === "x" && v > this.state.w) v = this.state.w;
-    if (coord === "y" && v > this.state.h) v = this.state.h;
-
-    coords[coord] = v;
-
-    this.setQuadraticCoords(coords);
-  };
-
   setCubicPosition = (coord, anchor, e) => {
     let coords = this.state.points[this.state.activePoint].c[anchor];
     let v = this.positiveNumber(e.target.value);
@@ -160,32 +148,6 @@ export default class Container extends Component {
     this.setState({ points });
   };
 
-  setQuadraticCoords = (coords) => {
-    const points = this.state.points;
-    const active = this.state.activePoint;
-
-    points[active].q.x = coords.x;
-    points[active].q.y = coords.y;
-
-    this.setState({ points });
-  };
-
-  setArcParam = (param, e) => {
-    const points = this.state.points;
-    const active = this.state.activePoint;
-    let v;
-
-    if (["laf", "sf"].indexOf(param) > -1) {
-      v = e.target.checked ? 1 : 0;
-    } else {
-      v = this.positiveNumber(e.target.value);
-    }
-
-    points[active].a[param] = v;
-
-    this.setState({ points });
-  };
-
   setCubicCoords = (coords, anchor) => {
     const points = this.state.points;
     const active = this.state.activePoint;
@@ -201,15 +163,6 @@ export default class Container extends Component {
       this.setState({
         activePoint: index,
         draggedPoint: true,
-      });
-    }
-  };
-
-  setDraggedQuadratic = (index) => {
-    if (!this.state.ctrl) {
-      this.setState({
-        activePoint: index,
-        draggedQuadratic: true,
       });
     }
   };
@@ -263,8 +216,6 @@ export default class Container extends Component {
     if (!this.state.ctrl) {
       if (this.state.draggedPoint) {
         this.setPointCoords(this.getMouseCoords(e));
-      } else if (this.state.draggedQuadratic) {
-        this.setQuadraticCoords(this.getMouseCoords(e));
       } else if (this.state.draggedCubic !== false) {
         this.setCubicCoords(this.getMouseCoords(e), this.state.draggedCubic);
       }
@@ -287,15 +238,9 @@ export default class Container extends Component {
       if (i === 0) {
         // first point
         d += "M ";
-      } else if (p.q) {
-        // quadratic
-        d += `Q ${p.q.x} ${p.q.y} `;
       } else if (p.c) {
         // cubic
         d += `C ${p.c[0].x} ${p.c[0].y} ${p.c[1].x} ${p.c[1].y} `;
-      } else if (p.a) {
-        // arc
-        d += `A ${p.a.rx} ${p.a.ry} ${p.a.rot} ${p.a.laf} ${p.a.sf} `;
       } else {
         d += "L ";
       }
@@ -334,63 +279,10 @@ export default class Container extends Component {
               handleMouseMove={this.handleMouseMove}
             />
           </div>
-          <Foot />
-        </div>
-
-        <div className="ad-Container-controls">
-          <Controls
-            {...this.state}
-            reset={this.reset}
-            removeActivePoint={this.removeActivePoint}
-            setPointPosition={this.setPointPosition}
-            setQuadraticPosition={this.setQuadraticPosition}
-            setCubicPosition={this.setCubicPosition}
-            setArcParam={this.setArcParam}
-            setPointType={this.setPointType}
-            setWidth={this.setWidth}
-            setHeight={this.setHeight}
-            setClosePath={this.setClosePath}
-          />
-          <Result path={this.generatePath()} />
         </div>
       </div>
     );
   }
-}
-
-function Foot(props) {
-  return (
-    <div className="ad-Foot">
-      <ul className="ad-Foot-list">
-        <li className="ad-Foot-item">
-          <span className="ad-Foot-highlight">Click</span> to select a point
-        </li>
-        <li className="ad-Foot-item">
-          <span className="ad-Foot-highlight">Ctrl + Click</span> to add a point
-        </li>
-      </ul>
-      <div className="ad-Foot-meta">
-        <a href="https://twitter.com/a_dugois">Follow me on Twitter</a>
-        <br />
-        or{" "}
-        <a href="http://anthonydugois.com/svg-path-builder/">
-          check the online version
-        </a>
-      </div>
-    </div>
-  );
-}
-
-function Result(props) {
-  return (
-    <div className="ad-Result">
-      <textarea
-        className="ad-Result-textarea"
-        value={props.path}
-        onFocus={(e) => e.target.select()}
-      />
-    </div>
-  );
 }
 
 /**
@@ -415,20 +307,7 @@ class SVG extends Component {
     let circles = points.map((p, i, a) => {
       let anchors = [];
 
-      if (p.q) {
-        anchors.push(
-          <Quadratic
-            index={i}
-            p1x={a[i - 1].x}
-            p1y={a[i - 1].y}
-            p2x={p.x}
-            p2y={p.y}
-            x={p.q.x}
-            y={p.q.y}
-            setDraggedQuadratic={setDraggedQuadratic}
-          />
-        );
-      } else if (p.c) {
+      if (p.c) {
         anchors.push(
           <Cubic
             index={i}
@@ -509,34 +388,6 @@ function Cubic(props) {
   );
 }
 
-function Quadratic(props) {
-  return (
-    <g className="ad-Anchor">
-      <line
-        className="ad-Anchor-line"
-        x1={props.p1x}
-        y1={props.p1y}
-        x2={props.x}
-        y2={props.y}
-      />
-      <line
-        className="ad-Anchor-line"
-        x1={props.x}
-        y1={props.y}
-        x2={props.p2x}
-        y2={props.p2y}
-      />
-      <circle
-        className="ad-Anchor-point"
-        onMouseDown={(e) => props.setDraggedQuadratic(props.index)}
-        cx={props.x}
-        cy={props.y}
-        r={6}
-      />
-    </g>
-  );
-}
-
 function Point(props) {
   return (
     <circle
@@ -546,275 +397,6 @@ function Point(props) {
       cy={props.y}
       r={8}
     />
-  );
-}
-
-/**
- * Controls
- */
-
-function Controls(props) {
-  const active = props.points[props.activePoint];
-
-  let params = [];
-
-  if (active.c) {
-    params.push(
-      <div className="ad-Controls-container">
-        <Control
-          name="First control point X position"
-          type="range"
-          min={0}
-          max={props.w}
-          value={active.c[0].x}
-          onChange={(e) => props.setCubicPosition("x", 0, e)}
-        />
-      </div>
-    );
-    params.push(
-      <div className="ad-Controls-container">
-        <Control
-          name="First control point Y position"
-          type="range"
-          min={0}
-          max={props.h}
-          value={active.c[0].y}
-          onChange={(e) => props.setCubicPosition("y", 0, e)}
-        />
-      </div>
-    );
-    params.push(
-      <div className="ad-Controls-container">
-        <Control
-          name="Second control point X position"
-          type="range"
-          min={0}
-          max={props.w}
-          value={active.c[1].x}
-          onChange={(e) => props.setCubicPosition("x", 1, e)}
-        />
-      </div>
-    );
-    params.push(
-      <div className="ad-Controls-container">
-        <Control
-          name="Second control point Y position"
-          type="range"
-          min={0}
-          max={props.h}
-          value={active.c[1].y}
-          onChange={(e) => props.setCubicPosition("y", 1, e)}
-        />
-      </div>
-    );
-  }
-
-  return (
-    <div className="ad-Controls">
-      <h3 className="ad-Controls-title">Parameters</h3>
-
-      <div className="ad-Controls-container">
-        <Control
-          name="Width"
-          type="text"
-          value={props.w}
-          onChange={(e) => props.setWidth(e)}
-        />
-        <Control
-          name="Height"
-          type="text"
-          value={props.h}
-          onChange={(e) => props.setHeight(e)}
-        />
-        <Control
-          name="Close path"
-          type="checkbox"
-          value={props.closePath}
-          onChange={(e) => props.setClosePath(e)}
-        />
-      </div>
-      <div className="ad-Controls-container"></div>
-      <div className="ad-Controls-container">
-        <Control
-          type="button"
-          action="reset"
-          value="Reset path"
-          onClick={(e) => props.reset(e)}
-        />
-      </div>
-
-      <h3 className="ad-Controls-title">Selected point</h3>
-
-      {props.activePoint !== 0 && (
-        <div className="ad-Controls-container">
-          <Control
-            name="Point type"
-            type="choices"
-            id="pointType"
-            choices={[
-              {
-                name: "L",
-                value: "l",
-                checked: !active.q && !active.c && !active.a,
-              },
-              { name: "Q", value: "q", checked: !!active.q },
-              { name: "C", value: "c", checked: !!active.c },
-              { name: "A", value: "a", checked: !!active.a },
-            ]}
-            onChange={(e) => props.setPointType(e)}
-          />
-        </div>
-      )}
-      <div className="ad-Controls-container">
-        <Control
-          name="Point X position"
-          type="range"
-          min={0}
-          max={props.w}
-          value={active.x}
-          onChange={(e) => props.setPointPosition("x", e)}
-        />
-      </div>
-      <div className="ad-Controls-container">
-        <Control
-          name="Point Y position"
-          type="range"
-          min={0}
-          max={props.h}
-          value={active.y}
-          onChange={(e) => props.setPointPosition("y", e)}
-        />
-      </div>
-
-      {params}
-
-      {props.activePoint !== 0 && (
-        <div className="ad-Controls-container">
-          <Control
-            type="button"
-            action="delete"
-            value="Remove this point"
-            onClick={(e) => props.removeActivePoint(e)}
-          />
-        </div>
-      )}
-    </div>
-  );
-}
-
-function Control(props) {
-  const { name, type, ..._props } = props;
-
-  let control = "",
-    label = "";
-
-  switch (type) {
-    case "range":
-      control = <Range {..._props} />;
-      break;
-    case "text":
-      control = <Text {..._props} />;
-      break;
-    case "checkbox":
-      control = <Checkbox {..._props} />;
-      break;
-    case "button":
-      control = <Button {..._props} />;
-      break;
-    case "choices":
-      control = <Choices {..._props} />;
-      break;
-  }
-
-  if (name) {
-    label = <label className="ad-Control-label">{name}</label>;
-  }
-
-  return (
-    <div className="ad-Control">
-      {label}
-      {control}
-    </div>
-  );
-}
-
-function Choices(props) {
-  let choices = props.choices.map((c, i) => {
-    return (
-      <label className="ad-Choice">
-        <input
-          className="ad-Choice-input"
-          type="radio"
-          value={c.value}
-          checked={c.checked}
-          name={props.id}
-          onChange={props.onChange}
-        />
-        <div className="ad-Choice-fake">{c.name}</div>
-      </label>
-    );
-  });
-
-  return <div className="ad-Choices">{choices}</div>;
-}
-
-function Button(props) {
-  return (
-    <button
-      className={
-        "ad-Button" + (props.action ? "  ad-Button--" + props.action : "")
-      }
-      type="button"
-      onClick={props.onClick}
-    >
-      {props.value}
-    </button>
-  );
-}
-
-function Checkbox(props) {
-  return (
-    <label className="ad-Checkbox">
-      <input
-        className="ad-Checkbox-input"
-        type="checkbox"
-        onChange={props.onChange}
-        checked={props.checked}
-      />
-      <div className="ad-Checkbox-fake" />
-    </label>
-  );
-}
-
-function Text(props) {
-  return (
-    <input
-      className="ad-Text"
-      type="text"
-      value={props.value}
-      onChange={props.onChange}
-    />
-  );
-}
-
-function Range(props) {
-  return (
-    <div className="ad-Range">
-      <input
-        className="ad-Range-input"
-        type="range"
-        min={props.min}
-        max={props.max}
-        value={props.value}
-        onChange={props.onChange}
-      />
-      <input
-        className="ad-Range-text  ad-Text"
-        type="text"
-        value={props.value}
-        onChange={props.onChange}
-      />
-    </div>
   );
 }
 
