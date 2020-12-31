@@ -127,24 +127,6 @@ export const testEnvironment = {
     draggedCubic: false,
   },
   reducers: {
-    changeNodeCoordinates: (state, payload) => {
-      const { x, y, pointType, index } = payload;
-
-      const line = state.lines[0][index];
-
-      if (pointType === "M") {
-        line.fx = x;
-        line.fy = y;
-      } else if (pointType === "C") {
-        line.fx = x;
-        line.fy = y;
-      } else {
-        line.b1x = x;
-        line.b1y = y;
-      }
-
-      return state;
-    },
     setClosePath: (state, payload) => {
       return (state.closePath = payload.e.target.checked);
     },
@@ -176,7 +158,6 @@ export const testEnvironment = {
 
       return state
     },
-
     cancelDragging: (state, payload) => {
       state.draggedPoint = false;
       state.draggedCubic = false;
