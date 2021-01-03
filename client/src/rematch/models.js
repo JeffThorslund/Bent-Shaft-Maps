@@ -50,6 +50,16 @@ export const data = {
   },
 };
 
+export const editing = {
+  state: { rivers: null },
+
+  reducers: {
+    fetchRivers: (state, payload) => {
+      state.rivers = payload;
+      return state;
+    },
+  },
+};
 //Control indexes of editing platform.
 //Use an effect that snowballs actions so I am not repeating null a million times.
 
@@ -99,66 +109,85 @@ export const indexes = {
 export const testEnvironment = {
   state: {
     lines: [
-      [
-        { x: 50, y: 30 },
-        {
-          x: 20,
-          y: 20,
-          c: [
-            { x: 45, y: 55 },
-            { x: 45, y: 5 },
-          ],
-        },
-        {
-          x: 30,
-          y: 30,
-          c: [
-            { x: 45, y: 55 },
-            { x: 45, y: 5 },
-          ],
-        },
-      ],
+      {
+        name: "Thread The Needle",
+        desc:
+          "A commonly taken line through McCoys. Start center-right coming into the rapid with your boat pointed slightly left. When approaching the Sattlers, paddle towards river left, clip Sattlers and paddle for your life away from Phils",
+        vector: [
+          { x: 50, y: 30 },
+          {
+            x: 20,
+            y: 20,
+            c: [
+              { x: 45, y: 55 },
+              { x: 45, y: 5 },
+            ],
+          },
+        ],
+        x: 260.55,
+        y: 460.26,
+        range: [-100, 100],
+        id: "line_4dk61",
+      },
+      {
+        name: "Thread The Needle",
+        desc:
+          "A commonly taken line through McCoys. Start center-right coming into the rapid with your boat pointed slightly left. When approaching the Sattlers, paddle towards river left, clip Sattlers and paddle for your life away from Phils",
+        vector: [
+          { x: 43, y: 68 },
+          {
+            x: 40,
+            y: 40,
+            c: [
+              { x: 85, y: 75 },
+              { x: 98, y: 90 },
+            ],
+          },
+        ],
+        x: 260.55,
+        y: 460.26,
+        range: [-100, 100],
+        id: "line_4dk61",
+      },
     ],
     eddys: [],
     hydraulics: [],
     closePath: true,
+    activeLine: 0,
     activePoint: 0,
     draggedPoint: false,
     draggedCubic: false,
   },
   reducers: {
-    setClosePath: (state, payload) => {
-      return (state.closePath = payload.e.target.checked);
-    },
     setDraggedPoint: (state, payload) => {
-      state.activePoint = payload.index;
+      state.activeLine = payload.lineIndex;
+      state.activePoint = payload.pointIndex;
       state.draggedPoint = true;
       return state;
     },
     setDraggedCubic: (state, payload) => {
-      state.activePoint = payload.index;
+      state.activeLine = payload.lineIndex;
+      state.activePoint = payload.pointIndex;
       state.draggedCubic = payload.anchor;
       return state;
     },
     setPointCoords: (state, payload) => {
-      const points = state.lines[0];
-      const active = state.activePoint;
-
-      points[active].x = payload.coords.x;
-      points[active].y = payload.coords.y;
-
+      const activePoint = state.activePoint;
+      const activeLine = state.activeLine;
+      state.lines[activeLine].vector[activePoint].x = payload.coords.x;
+      state.lines[activeLine].vector[activePoint].y = payload.coords.y;
       return state;
     },
     setCubicCoords: (state, payload) => {
-      const points = state.lines[0];
-      const active = state.activePoint;
-
-      points[active].c[payload.anchor].x = payload.coords.x;
-      points[active].c[payload.anchor].y = payload.coords.y;
-
-      return state
+      const activePoint = state.activePoint;
+      const activeLine = state.activeLine;
+      state.lines[activeLine].vector[activePoint].c[payload.anchor].x =
+        payload.coords.x;
+      state.lines[activeLine].vector[activePoint].c[payload.anchor].y =
+        payload.coords.y;
+      return state;
     },
-    cancelDragging: (state, payload) => {
+    cancelDragging: (state) => {
       state.draggedPoint = false;
       state.draggedCubic = false;
       return state;

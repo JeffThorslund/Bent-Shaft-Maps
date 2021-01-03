@@ -8,12 +8,12 @@ import store from "../../rematch/store";
  * @param {number} y - The y coord position of the point on a 100x100 layout.
  */
 
-const Point = ({ x, y, index }) => {
+const Point = ({ lineIndex, x, y, pointIndex, reducers }) => {
   const { dispatch } = store;
   return (
     <circle
       className="ad-Point"
-      onMouseDown={(e) => dispatch.testEnvironment.setDraggedPoint({ index })}
+      onMouseDown={(e) => reducers.setDraggedPoint({ lineIndex, pointIndex })}
       cx={x}
       cy={y}
       r={1}

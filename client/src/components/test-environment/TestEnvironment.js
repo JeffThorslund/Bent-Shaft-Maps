@@ -6,18 +6,19 @@ import Point from "../shared/Point";
 import Cubic from "../shared/Cubic";
 import { buildPath, useDrag, useMousePosition } from "../shared/_utils";
 import store from "../../rematch/store";
-import SVG from "../shared/SVG"
+import SVG from "../shared/SVG";
+import Features from "../shared/Features";
 
 const TestEnvironment = () => {
-
-  const environment = "testEnvironment"
-  
   const { dispatch } = store;
-    const { lines, draggedPoint, draggedCubic } = useSelector(
-      (state) => state.testEnvironment
-    );
 
-  return <SVG environment={"testEnvironment"}/>
+  const rapid = useSelector(
+    (state) => state.testEnvironment
+  );
+
+  const level = 0
+
+  return <Features rapid={rapid} level={level} reducers={dispatch.testEnvironment}/>;
 };
 
 export default TestEnvironment;

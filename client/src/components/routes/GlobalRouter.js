@@ -6,7 +6,7 @@ import RiverRouter from "./RiverRouter";
 import UserRouter from "../user/UserRouter";
 import PrivacyPolicy from "../user/PrivacyPolicy";
 import TestEnvironment from "../test-environment/TestEnvironment";
-import Editing from "../user/editing-interface/Editing"
+import Editing from "../user/editing-interface/Editing";
 
 /**
  * Creates all routes of base url.

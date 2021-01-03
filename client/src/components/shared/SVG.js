@@ -9,36 +9,36 @@ import store from "../../rematch/store";
 import { useRef, useEffect } from "react";
 import PropTypes from "prop-types";
 import ReactTooltip from "react-tooltip";
-import Eddy from "./Eddy";
-import Hydraulic from "./Hydraulic";
-import Symbol from "./Symbol";
-import Popover from "./Popover";
-import filterRange from "./_utils/filterRange";
+import Popover from "../rapid/Popover";
 
-const SVG = ({ level, rapid }) => {
-    
+const SVG = ({ lines, reducers }) => {
+  const { dispatch } = store;
+  const { draggedPoint, draggedCubic } = useSelector(
+    (state) => state.testEnvironment
+  );
 
-    const mounted = useRef();
+  const mounted = useRef();
 
-    useEffect(() => {
-        if (!mounted.current) {
-          mounted.current = true;
-        } else {
-          ReactTooltip.rebuild();
-        }
-      });
-  
-    const coords = useMousePosition();
-  
-    const handleMouseMove = (e) => {
-      if (draggedPoint) {
-        dispatch.testEnvironment.setPointCoords({ coords });
-      } else if (draggedCubic !== false) {
-        dispatch.testEnvironment.setCubicCoords({ coords, anchor: draggedCubic });
-      }
-    };
-  
-    return (
+  useEffect(() => {
+    if (!mounted.current) {
+      mounted.current = true;
+    } else {
+      ReactTooltip.rebuild();
+    }
+  });
+
+  const coords = useMousePosition();
+
+  const handleMouseMove = (e) => {
+    if (draggedPoint) {
+      reducers.setPointCoords({ coords });
+    } else if (draggedCubic !== false) {
+      reducers.setCubicCoords({ coords, anchor: draggedCubic });
+    }
+  };
+
+  return (
+    <>
       <svg
         className="Features"
         id="vector-container"
@@ -46,15 +46,17 @@ const SVG = ({ level, rapid }) => {
         xmlns="http://www.w3.org/2000/svg"
         preserveAspectRatio="none"
         onMouseMove={(e) => handleMouseMove(e)}
-        onMouseUp={() => dispatch.testEnvironment.cancelDragging()}
+        onMouseUp={() => reducers.cancelDragging()}
       >
         <g>
-          {lines.map((line) => (
-            <Line line={line} />
+          {lines.map((line, i) => (
+            <Line line={line.vector} lineIndex={i} reducers={reducers} />
           ))}
         </g>
       </svg>
-    );
-}
+      <Popover />
+    </>
+  );
+};
 
-export default SVG
+export default SVG;

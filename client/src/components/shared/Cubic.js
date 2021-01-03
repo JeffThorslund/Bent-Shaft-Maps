@@ -1,14 +1,14 @@
 import React from "react";
-import store from "../../rematch/store"
+import store from "../../rematch/store";
 
 /**
- * 
- * 
- * @param {*} props 
+ *
+ *
+ * @param {*} props
  */
 
-const Cubic = ({index, ...props}) => {
-    const { dispatch } = store;
+const Cubic = ({ lineIndex, pointIndex, reducers, ...props }) => {
+  const { dispatch } = store;
   return (
     <g className="ad-Anchor">
       <line
@@ -27,20 +27,24 @@ const Cubic = ({index, ...props}) => {
       />
       <circle
         className="ad-Anchor-point"
-        onMouseDown={(e) => dispatch.testEnvironment.setDraggedCubic({ index, anchor: 0 })}
+        onMouseDown={(e) =>
+          reducers.setDraggedCubic({ lineIndex, pointIndex, anchor: 0 })
+        }
         cx={props.x1}
         cy={props.y1}
         r={1}
       />
       <circle
         className="ad-Anchor-point"
-        onMouseDown={(e) => dispatch.testEnvironment.setDraggedCubic({ index, anchor: 1 })}
+        onMouseDown={(e) =>
+         reducers.setDraggedCubic({ lineIndex, pointIndex, anchor: 1 })
+        }
         cx={props.x2}
         cy={props.y2}
         r={1}
       />
     </g>
   );
-}
+};
 
 export default Cubic;
