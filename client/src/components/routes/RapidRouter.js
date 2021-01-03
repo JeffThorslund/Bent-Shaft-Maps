@@ -4,7 +4,7 @@ import Section from "../river/Section";
 import Introduction from "../river/Introduction";
 import { paramCase } from "change-case";
 
-const RapidRouter = ({ sections }) => {
+const RapidRouter = ({ sections, riverId }) => {
   let { url, path } = useRouteMatch();
   let { section_path } = useParams();
 
@@ -22,7 +22,7 @@ const RapidRouter = ({ sections }) => {
         />
         <Route
           path={`${path}/:rapid_path`}
-          children={<Section section={section}/>}
+          children={<Section riverId={riverId} section={section}/>}
         />
       </Switch>
     </div>

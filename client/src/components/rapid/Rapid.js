@@ -12,7 +12,7 @@ import store from "../../rematch/store";
  * The Rapid container that holds all components related to an individual rapid
  */
 
-const Rapid = ({ rapid, river, level }) => {
+const Rapid = ({ riverId, sectionId, rapid, section, level }) => {
   const { dispatch } = store;
 
   const arrowArray = rapid.arrows.map((arrow, key) => (
@@ -21,15 +21,17 @@ const Rapid = ({ rapid, river, level }) => {
       bottom={arrow.bottom}
       right={arrow.right}
       key={`arrow${key}`}
-      river={river}
+      section={section}
     />
   ));
+
+  console.log(`https://bent-shaft-maps.s3.amazonaws.com/maps/${riverId}/${sectionId}/${rapid.id}.jpg`)
 
   return (
     <div className="Rapid">
       <Image
         className="basemap"
-        src={`https://bent-shaft-maps.s3.amazonaws.com/maps/river_W41oYWjV4/section_jswy1FCZu/${rapid.id}.jpg`}
+        src={`https://bent-shaft-maps.s3.amazonaws.com/maps/${riverId}/${sectionId}/${rapid.id}`}
         alt="River Map"
       />
       <Features
@@ -45,10 +47,7 @@ const Rapid = ({ rapid, river, level }) => {
 };
 
 Rapid.propTypes = {
-  /** The river data object */
-  river: PropTypes.object.isRequired,
-  /** A single rapid object */
-  rapid: PropTypes.object.isRequired,
+
   /** The current water level */
   level: PropTypes.number.isRequired,
 };
