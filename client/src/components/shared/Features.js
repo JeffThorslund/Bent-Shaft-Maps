@@ -1,25 +1,14 @@
-import React, { useRef, useEffect } from "react";
+import React from "react";
 import PropTypes from "prop-types";
-import ReactTooltip from "react-tooltip";
-
-import Eddy from "../rapid/Eddy";
-import Hydraulic from "../rapid/Hydraulic";
-import Symbol from "../rapid/Symbol";
-import Popover from "../rapid/Popover";
-import filterRange from "../rapid/_utils/filterRange";
-
 import SVG from "./SVG";
 
 /**
  * Holds all interact-able elements of a rapid
  */
 
-const Features = ({ level, rapid, reducers, showHandles }) => {
-
+const Features = ({ rapid, reducers, showHandles }) => {
   return (
-    <>
-      <SVG lines={rapid.lines} reducers={reducers} showHandles={showHandles}/>
-    </>
+    <SVG lines={rapid.lines} reducers={reducers} showHandles={showHandles} />
   );
 };
 

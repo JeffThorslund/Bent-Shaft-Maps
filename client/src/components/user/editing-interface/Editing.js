@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import ReactDOM, { render } from "react-dom";
+import ReactDOM from "react-dom";
 
 export default class Container extends Component {
   state = {
@@ -108,6 +108,9 @@ export default class Container extends Component {
             ],
           };
           break;
+
+        default:
+          return "hi";
       }
 
       this.setState({ points });

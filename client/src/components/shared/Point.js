@@ -1,5 +1,4 @@
 import React from "react";
-import store from "../../rematch/store";
 
 /**
  * A simple display component that displays a circular point.
@@ -9,7 +8,6 @@ import store from "../../rematch/store";
  */
 
 const Point = ({ lineIndex, x, y, pointIndex, reducers }) => {
-  const { dispatch } = store;
   return (
     <circle
       className="ad-Point"

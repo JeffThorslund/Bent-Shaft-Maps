@@ -6,8 +6,6 @@ const useMousePosition = () => {
 
   const { height, width } = useWindowDimensions();
 
-  //console.log(height, width);
-
   const updateMousePosition = (ev) => {
     setMousePosition({
       x: (ev.clientX / width) * 100,
@@ -17,11 +15,9 @@ const useMousePosition = () => {
 
   useEffect(() => {
     window.addEventListener("mousemove", updateMousePosition);
-
     return () => window.removeEventListener("mousemove", updateMousePosition);
-  }, []);
+  });
 
-  //console.log(mousePosition);
   return mousePosition;
 };
 

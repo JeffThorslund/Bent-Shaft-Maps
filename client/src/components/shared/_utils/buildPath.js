@@ -1,5 +1,3 @@
-import React from "react";
-
 function buildPath({ points, closePath }) {
   let d = "";
 

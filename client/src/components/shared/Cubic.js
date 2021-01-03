@@ -1,14 +1,6 @@
 import React from "react";
-import store from "../../rematch/store";
-
-/**
- *
- *
- * @param {*} props
- */
 
 const Cubic = ({ lineIndex, pointIndex, reducers, ...props }) => {
-  const { dispatch } = store;
   return (
     <g className="ad-Anchor">
       <line

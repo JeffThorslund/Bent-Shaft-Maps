@@ -1,18 +1,12 @@
 import React from "react";
-import { Table } from "react-bootstrap";
 import Line from "../rapid/Line";
 import { useSelector } from "react-redux";
-import Point from "../shared/Point";
-import Cubic from "../shared/Cubic";
-import { buildPath, useDrag, useMousePosition } from "../shared/_utils";
-import store from "../../rematch/store";
+import { useMousePosition } from "../shared/_utils";
 import { useRef, useEffect } from "react";
-import PropTypes from "prop-types";
 import ReactTooltip from "react-tooltip";
 import Popover from "../rapid/Popover";
 
 const SVG = ({ lines, reducers, showHandles }) => {
-  const { dispatch } = store;
   const { draggedPoint, draggedCubic } = useSelector(
     (state) => state.testEnvironment
   );
@@ -55,6 +49,7 @@ const SVG = ({ lines, reducers, showHandles }) => {
               lineIndex={i}
               reducers={reducers}
               showHandles={showHandles}
+              key={i}
             />
           ))}
         </g>
