@@ -13,13 +13,13 @@ const TestEnvironment = () => {
 
   return (
     <>
-      <Image
+      {/* <Image
         className="basemap"
         src={
           "https://bent-shaft-maps.s3.amazonaws.com/test-environment/rapid_sDPD0-hex.jpg"
         }
         alt="River Map"
-      />
+      /> */}
       <Features
         rapid={rapid}
         level={level}

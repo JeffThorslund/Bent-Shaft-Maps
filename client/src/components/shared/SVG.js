@@ -1,5 +1,5 @@
 import React from "react";
-import Line from "../rapid/Line";
+import Line from "./Line";
 import { useSelector } from "react-redux";
 import { useMousePosition } from "../shared/_utils";
 import { useRef, useEffect } from "react";

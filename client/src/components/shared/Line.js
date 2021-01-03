@@ -1,7 +1,7 @@
 import React from "react";
-import { buildPath } from "../shared/_utils";
-import Point from "../shared/Point";
-import Cubic from "../shared/Cubic";
+import { buildPath } from "./_utils";
+import Point from "./Point";
+import Cubic from "./Cubic";
 
 /**
  * A line represents a safe route to navigate the river at a specific water level
