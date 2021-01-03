@@ -25,13 +25,11 @@ const Rapid = ({ riverId, sectionId, rapid, section, level }) => {
     />
   ));
 
-  console.log(`https://bent-shaft-maps.s3.amazonaws.com/maps/${riverId}/${sectionId}/${rapid.id}.jpg`)
-
   return (
     <div className="Rapid">
       <Image
         className="basemap"
-        src={`https://bent-shaft-maps.s3.amazonaws.com/maps/${riverId}/${sectionId}/${rapid.id}`}
+        src={`https://bent-shaft-maps.s3.amazonaws.com/maps/${riverId}/${sectionId}/${rapid.id}.jpg`}
         alt="River Map"
       />
       <Features
