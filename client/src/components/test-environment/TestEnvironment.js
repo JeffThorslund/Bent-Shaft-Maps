@@ -2,7 +2,7 @@ import React from "react";
 import { useSelector } from "react-redux";
 import store from "../../rematch/store";
 import Features from "../shared/Features";
-import Image from "react-bootstrap/Image"
+//import Image from "react-bootstrap/Image";
 
 const TestEnvironment = () => {
   const { dispatch } = store;
