@@ -14,11 +14,11 @@ import SVG from "./SVG";
  * Holds all interact-able elements of a rapid
  */
 
-const Features = ({ level, rapid, reducers }) => {
+const Features = ({ level, rapid, reducers, showHandles }) => {
 
   return (
     <>
-      <SVG lines={rapid.lines} reducers={reducers}/>
+      <SVG lines={rapid.lines} reducers={reducers} showHandles={showHandles}/>
     </>
   );
 };

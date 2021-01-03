@@ -7,7 +7,7 @@ import Cubic from "../shared/Cubic";
  * A line represents a safe route to navigate the river at a specific water level
  */
 
-const Line = ({ line, lineIndex, reducers }) => {
+const Line = ({ line, lineIndex, reducers, showHandles }) => {
   console.log(line);
   return (
     <>
@@ -15,7 +15,7 @@ const Line = ({ line, lineIndex, reducers }) => {
         className="ad-Path"
         d={buildPath({ points: line, closePath: false })}
       />
-      {line.map((p, i, a) => {
+      {showHandles && line.map((p, i, a) => {
         let anchors = [];
         if (p.c) {
           anchors.push(

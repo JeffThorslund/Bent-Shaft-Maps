@@ -12,13 +12,18 @@ import Features from "../shared/Features";
 const TestEnvironment = () => {
   const { dispatch } = store;
 
-  const rapid = useSelector(
-    (state) => state.testEnvironment
+  const rapid = useSelector((state) => state.testEnvironment);
+
+  const level = 0;
+
+  return (
+    <Features
+      rapid={rapid}
+      level={level}
+      reducers={dispatch.testEnvironment}
+      showHandles={true}
+    />
   );
-
-  const level = 0
-
-  return <Features rapid={rapid} level={level} reducers={dispatch.testEnvironment}/>;
 };
 
 export default TestEnvironment;

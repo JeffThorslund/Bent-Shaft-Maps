@@ -11,7 +11,7 @@ import PropTypes from "prop-types";
 import ReactTooltip from "react-tooltip";
 import Popover from "../rapid/Popover";
 
-const SVG = ({ lines, reducers }) => {
+const SVG = ({ lines, reducers, showHandles }) => {
   const { dispatch } = store;
   const { draggedPoint, draggedCubic } = useSelector(
     (state) => state.testEnvironment
@@ -50,7 +50,12 @@ const SVG = ({ lines, reducers }) => {
       >
         <g>
           {lines.map((line, i) => (
-            <Line line={line.vector} lineIndex={i} reducers={reducers} />
+            <Line
+              line={line.vector}
+              lineIndex={i}
+              reducers={reducers}
+              showHandles={showHandles}
+            />
           ))}
         </g>
       </svg>
