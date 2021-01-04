@@ -8,7 +8,7 @@ require("dotenv").config();
 
 /*--Import Routes--*/
 const actions = require("./routes/api/Actions");
-const authorization = require("./routes/auth/Authorization")
+const authorization = require("./routes/auth/Authorization");
 
 /*--Server--*/
 const app = express();
@@ -24,18 +24,24 @@ app.use("/api", actions);
 app.use("/auth", authorization);
 
 /*--Connect to Mongo--*/
-mongoose
-  .connect(process.env.MONGO_URI, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-  })
-  .then(() => console.log("MongoDB Connected"))
-  .catch((err) => console.log(err));
-
+const mongoURI = process.env.MONGO_URI;
+if (mongoURI) {
+	mongoose
+		.connect(mongoURI, {
+			useNewUrlParser: true,
+			useUnifiedTopology: true,
+		})
+		.then(() => console.log("MongoDB Connected"))
+		.catch((err) => console.log(err));
+} else {
+	console.log(
+		"\u001b[1;31m No connection string detected - using local data set"
+	);
+}
 app.use(express.static(path.join(__dirname, "client/build")));
 
 app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname + "/client/build/index.html"));
+	res.sendFile(path.join(__dirname + "/client/build/index.html"));
 });
 
 const port = process.env.PORT || 5000;
