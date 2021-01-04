@@ -9,14 +9,14 @@ import GeneralButton from "../general/GeneralButton";
  * Button to navigate to a connected rapid in the river.
  */
 
-const NextRapid = ({ linkId, bottom, right, river }) => {
+const NextRapid = ({ linkId, bottom, right, section }) => {
   const style = {
     position: "absolute",
     bottom: `${bottom}vh`,
     right: `${right}vw`,
   };
 
-  const nextRapidName = findRapidFromId(linkId, river).name;
+  const nextRapidName = findRapidFromId(linkId, section).name;
 
   return (
     <GeneralButton

@@ -1,42 +1,55 @@
 import React from "react";
-import Node from "./Node";
-import usePathParser from "./_utils/usePathParser";
+import { buildPath } from "./_utils";
+import Point from "./Point";
+import Cubic from "./Cubic";
 
 /**
  * A line represents a safe route to navigate the river at a specific water level
  */
 
-const Line = ({ name, desc, isTestEnv, pathCommands, x, y, showNodes = true }) => {
-  const [nodes, midpointNodeList, path] = usePathParser(pathCommands);
-
+const Line = ({ line, lineIndex, reducers, showHandles }) => {
   return (
-    <g>
-      {showNodes &&
-        nodes.map((node, i) => (
-          <Node
-            color="red"
-            node={node}
-            key={"n" + i}
-            index={i}
-            isEndpointNode={true}
-            isTestEnv={isTestEnv}
-          />
-        ))}
-
-      {showNodes &&
-        midpointNodeList.map((node, i) => (
-          <Node
-            color="black"
-            node={node}
-            key={"mn" + i}
-            index={i}
-            isEndpointNode={false}
-            isTestEnv={isTestEnv}
-          />
-        ))}
-
-      <path d={path} stroke="black" fill="none"/>
-    </g>
+    <>
+      <path
+        className="ad-Path"
+        d={buildPath({ points: line, closePath: false })}
+      />
+      {showHandles &&
+        line.map((p, i, a) => {
+          let anchors = [];
+          if (p.c) {
+            anchors.push(
+              <Cubic
+                lineIndex={lineIndex}
+                pointIndex={i}
+                reducers={reducers}
+                p1x={a[i - 1].x}
+                p1y={a[i - 1].y}
+                p2x={p.x}
+                p2y={p.y}
+                x1={p.c[0].x}
+                y1={p.c[0].y}
+                x2={p.c[1].x}
+                y2={p.c[1].y}
+                key={i}
+              />
+            );
+          }
+          return (
+            <React.Fragment key={i}>
+              <Point
+                lineIndex={lineIndex}
+                pointIndex={i}
+                reducers={reducers}
+                x={p.x}
+                y={p.y}
+                key={i}
+              />
+              {anchors}
+            </React.Fragment>
+          );
+        })}
+    </>
   );
 };
 

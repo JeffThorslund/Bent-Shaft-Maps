@@ -22,7 +22,7 @@ const SectionRouter = ({ rivers }) => {
       
         <Route
           path={`${path}/:section_path`}
-          children={<RapidRouter sections={river.sections} />}
+          children={<RapidRouter riverId={river.id} sections={river.sections} />}
         />
       </Switch>
     </div>
