@@ -19,10 +19,8 @@ const App = () => {
   useEffect(() => {
     if (useMock === true) {
       store.dispatch.data.fetchRivers(mockRivers);
-      store.dispatch.editing.fetchRivers(mockRivers);
     } else {
       store.dispatch.data.fetchRiversAsync();
-      store.dispatch.editing.fetchRiversAsync();
     }
   }, []);
 
