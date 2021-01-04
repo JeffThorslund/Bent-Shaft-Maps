@@ -1,23 +1,31 @@
 import React from "react";
-import Line from "../shared/Line";
 import { useSelector } from "react-redux";
+import store from "../../rematch/store";
+import Features from "../shared/Features";
+//import Image from "react-bootstrap/Image";
 
 const TestEnvironment = () => {
-  const { lines } = useSelector((state) => state.testEnvironment);
+  const { dispatch } = store;
+
+  const rapid = useSelector((state) => state.testEnvironment);
+
+  const level = 0;
 
   return (
     <>
-      <svg
-        className="Features"
-        id="vector-container"
-        viewBox="0 0 100 100"
-        xmlns="http://www.w3.org/2000/svg"
-        preserveAspectRatio="none"
-      >
-        {lines.map((line, i) => (
-          <Line pathCommands={line} key={i} isTestEnv={true} />
-        ))}
-      </svg>
+      {/* <Image
+        className="basemap"
+        src={
+          "https://bent-shaft-maps.s3.amazonaws.com/test-environment/rapid_sDPD0-hex.jpg"
+        }
+        alt="River Map"
+      /> */}
+      <Features
+        rapid={rapid}
+        level={level}
+        reducers={dispatch.testEnvironment}
+        showHandles={true}
+      />
     </>
   );
 };

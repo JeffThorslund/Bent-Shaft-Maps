@@ -18,7 +18,7 @@ import Slider from "./Slider";
  * Chooses which rapid should be displayed and renders the corresponding Rapid.js.
  */
 
-const Section = ({ section }) => {
+const Section = ({ section, riverId }) => {
   let { rapid_path } = useParams();
 
   const [level, setLevel] = useState(0);
@@ -55,7 +55,13 @@ const Section = ({ section }) => {
       {isMobileAlertActive && window.screen.height > window.screen.width ? (
         <MobileAlert setIsMobileAlertActive={setIsMobileAlertActive} />
       ) : (
-        <Rapid rapid={rapid} river={section} level={level} />
+        <Rapid
+          riverId={riverId}
+          sectionId={section.id}
+          rapid={rapid}
+          section={section}
+          level={level}
+        />
       )}
 
       <Modal
