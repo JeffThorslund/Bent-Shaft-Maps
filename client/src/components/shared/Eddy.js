@@ -11,7 +11,7 @@ const Eddy = ({ line, typeIndex, lineIndex, reducers, showHandles }) => {
   return (
     <>
       <path
-        className="ad-Path"
+        className="ad-Path-eddy"
         d={buildPath({ points: line, closePath: true })}
       />
       {showHandles &&

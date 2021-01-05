@@ -177,6 +177,40 @@ export const testEnvironment = {
         range: [-100, 100],
         id: "eddy_4dk61",
       },
+      {
+        name: "Test Eddy",
+        desc: "Three points Eddy",
+        vector: [
+          { x: 60, y: 40 },
+          {
+            x: 90,
+            y: 40,
+            c: [
+              { x: 60, y: 60 },
+              { x: 90, y: 60 },
+            ],
+          },
+          {
+            x: 75,
+            y: 30,
+            c: [
+              { x: 95, y: 5 },
+              { x: 80, y: 20 },
+            ],
+          },
+          {
+            z: 1,
+            c: [
+              { x: 70, y: 20 },
+              { x: 55, y: 5 },
+            ],
+          },
+        ],
+        x: 260.55,
+        y: 460.26,
+        range: [-100, 100],
+        id: "eddy_4dk62",
+      },
     ],
     hydraulics: [],
     closePath: true,
