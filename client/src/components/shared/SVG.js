@@ -5,6 +5,7 @@ import { useMousePosition } from "../shared/_utils";
 import { useRef, useEffect } from "react";
 import ReactTooltip from "react-tooltip";
 import Popover from "../rapid/Popover";
+import Eddy from "./Eddy";
 
 const SVG = ({ lines, eddys, reducers, showHandles }) => {
   const { draggedPoint, draggedCubic } = useSelector(
@@ -56,7 +57,7 @@ const SVG = ({ lines, eddys, reducers, showHandles }) => {
         </g>
         <g>
           {eddys.map((eddy, i) => (
-            <Line
+            <Eddy
               line={eddy.vector}
               typeIndex={1}
               lineIndex={i}

@@ -155,13 +155,20 @@ export const testEnvironment = {
         name: "Test Eddy",
         desc: "Two points Eddy",
         vector: [
-          { x: 25, y: 25 },
+          { x: 5, y: 75 },
           {
-            x: 45,
-            y: 45,
+            x: 35,
+            y: 75,
             c: [
-              { x: 55, y: 55 },
-              { x: 35, y: 35 },
+              { x: 5, y: 95 },
+              { x: 35, y: 95 },
+            ],
+          },
+          {
+            z: 1,
+            c: [
+              { x: 35, y: 60 },
+              { x: 5, y: 60 },
             ],
           },
         ],
