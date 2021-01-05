@@ -1,11 +1,10 @@
 import React from "react";
-import Line from "./Line";
 import { useSelector } from "react-redux";
 import { useMousePosition } from "../shared/_utils";
 import { useRef, useEffect } from "react";
 import ReactTooltip from "react-tooltip";
 import Popover from "../rapid/Popover";
-import Eddy from "./Eddy";
+import Path from "./Path";
 
 const SVG = ({ lines, eddys, reducers, showHandles }) => {
   const { draggedPoint, draggedCubic } = useSelector(
@@ -45,7 +44,7 @@ const SVG = ({ lines, eddys, reducers, showHandles }) => {
       >
         <g>
           {lines.map((line, i) => (
-            <Line
+            <Path
               line={line.vector}
               typeIndex={0}
               lineIndex={i}
@@ -57,7 +56,7 @@ const SVG = ({ lines, eddys, reducers, showHandles }) => {
         </g>
         <g>
           {eddys.map((eddy, i) => (
-            <Eddy
+            <Path
               line={eddy.vector}
               typeIndex={1}
               lineIndex={i}
