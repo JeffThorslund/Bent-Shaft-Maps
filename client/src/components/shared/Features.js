@@ -8,7 +8,12 @@ import SVG from "./SVG";
 
 const Features = ({ rapid, reducers, showHandles }) => {
   return (
-    <SVG lines={rapid.lines} reducers={reducers} showHandles={showHandles} />
+    <SVG
+      lines={rapid.lines}
+      eddys={rapid.eddys}
+      reducers={reducers}
+      showHandles={showHandles}
+    />
   );
 };
 

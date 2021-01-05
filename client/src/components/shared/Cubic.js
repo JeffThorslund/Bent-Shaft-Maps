@@ -1,6 +1,6 @@
 import React from "react";
 
-const Cubic = ({ lineIndex, pointIndex, reducers, ...props }) => {
+const Cubic = ({ typeIndex, lineIndex, pointIndex, reducers, ...props }) => {
   return (
     <g className="ad-Anchor">
       <line
@@ -20,7 +20,12 @@ const Cubic = ({ lineIndex, pointIndex, reducers, ...props }) => {
       <circle
         className="ad-Anchor-point"
         onMouseDown={(e) =>
-          reducers.setDraggedCubic({ lineIndex, pointIndex, anchor: 0 })
+          reducers.setDraggedCubic({
+            lineIndex,
+            pointIndex,
+            typeIndex,
+            anchor: 0,
+          })
         }
         cx={props.x1}
         cy={props.y1}
@@ -29,7 +34,12 @@ const Cubic = ({ lineIndex, pointIndex, reducers, ...props }) => {
       <circle
         className="ad-Anchor-point"
         onMouseDown={(e) =>
-         reducers.setDraggedCubic({ lineIndex, pointIndex, anchor: 1 })
+          reducers.setDraggedCubic({
+            lineIndex,
+            pointIndex,
+            typeIndex,
+            anchor: 1,
+          })
         }
         cx={props.x2}
         cy={props.y2}

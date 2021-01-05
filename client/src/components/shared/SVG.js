@@ -6,7 +6,7 @@ import { useRef, useEffect } from "react";
 import ReactTooltip from "react-tooltip";
 import Popover from "../rapid/Popover";
 
-const SVG = ({ lines, reducers, showHandles }) => {
+const SVG = ({ lines, eddys, reducers, showHandles }) => {
   const { draggedPoint, draggedCubic } = useSelector(
     (state) => state.testEnvironment
   );
@@ -46,10 +46,23 @@ const SVG = ({ lines, reducers, showHandles }) => {
           {lines.map((line, i) => (
             <Line
               line={line.vector}
+              typeIndex={0}
               lineIndex={i}
               reducers={reducers}
               showHandles={showHandles}
-              key={i}
+              key={line.id}
+            />
+          ))}
+        </g>
+        <g>
+          {eddys.map((eddy, i) => (
+            <Line
+              line={eddy.vector}
+              typeIndex={1}
+              lineIndex={i}
+              reducers={reducers}
+              showHandles={showHandles}
+              key={eddy.id}
             />
           ))}
         </g>

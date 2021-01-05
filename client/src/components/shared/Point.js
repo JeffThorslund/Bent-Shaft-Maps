@@ -7,11 +7,13 @@ import React from "react";
  * @param {number} y - The y coord position of the point on a 100x100 layout.
  */
 
-const Point = ({ lineIndex, x, y, pointIndex, reducers }) => {
+const Point = ({ typeIndex, lineIndex, x, y, pointIndex, reducers }) => {
   return (
     <circle
       className="ad-Point"
-      onMouseDown={(e) => reducers.setDraggedPoint({ lineIndex, pointIndex })}
+      onMouseDown={(e) =>
+        reducers.setDraggedPoint({ lineIndex, pointIndex, typeIndex })
+      }
       cx={x}
       cy={y}
       r={1}

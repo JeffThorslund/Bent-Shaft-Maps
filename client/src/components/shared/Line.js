@@ -7,7 +7,7 @@ import Cubic from "./Cubic";
  * A line represents a safe route to navigate the river at a specific water level
  */
 
-const Line = ({ line, lineIndex, reducers, showHandles }) => {
+const Line = ({ line, typeIndex, lineIndex, reducers, showHandles }) => {
   return (
     <>
       <path
@@ -20,6 +20,7 @@ const Line = ({ line, lineIndex, reducers, showHandles }) => {
           if (p.c) {
             anchors.push(
               <Cubic
+                typeIndex={typeIndex}
                 lineIndex={lineIndex}
                 pointIndex={i}
                 reducers={reducers}
@@ -38,6 +39,7 @@ const Line = ({ line, lineIndex, reducers, showHandles }) => {
           return (
             <React.Fragment key={i}>
               <Point
+                typeIndex={typeIndex}
                 lineIndex={lineIndex}
                 pointIndex={i}
                 reducers={reducers}
