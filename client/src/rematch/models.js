@@ -1,4 +1,5 @@
 import axios from "axios";
+import { useMousePosition } from "../components/shared/_utils/useKeyPress";
 
 //Data that is loaded into the app
 
@@ -190,6 +191,33 @@ export const testEnvironment = {
     cancelDragging: (state) => {
       state.draggedPoint = false;
       state.draggedCubic = false;
+      return state;
+    },
+    addPoint: (state, payload) => {
+      const { coords } = payload;
+      const { activeLine } = state;
+      const vectorLength = state.lines[activeLine].vector.length - 1;
+      const lastPointCoords = state.lines[activeLine].vector[vectorLength];
+
+      state.lines[activeLine].vector.push({
+        x: coords.x,
+        y: coords.y,
+        c: [
+          {
+            x: (lastPointCoords.x + coords.x) / 2,
+            y: (lastPointCoords.y + coords.y) / 2,
+          },
+          {
+            x: (lastPointCoords.x + coords.x) / 2,
+            y: (lastPointCoords.y + coords.y) / 2,
+          },
+        ],
+      });
+
+      return state;
+    },
+    removePoint: (state, payload) => {
+      state.lines[payload.lineIndex].vector.splice(payload.pointIndex, 1);
       return state;
     },
   },

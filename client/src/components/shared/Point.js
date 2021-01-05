@@ -1,4 +1,6 @@
 import React from "react";
+import { useSelector } from "react-redux";
+import { useMousePosition, useKeyPress } from "../shared/_utils";
 
 /**
  * A simple display component that displays a circular point.
@@ -8,10 +10,16 @@ import React from "react";
  */
 
 const Point = ({ lineIndex, x, y, pointIndex, reducers }) => {
+  const isCtrlPressed = useKeyPress("Control");
   return (
     <circle
       className="ad-Point"
-      onMouseDown={(e) => reducers.setDraggedPoint({ lineIndex, pointIndex })}
+      onMouseDown={(e) => {
+        isCtrlPressed
+          ? reducers.removePoint({ lineIndex, pointIndex })
+          : reducers.setDraggedPoint({ lineIndex, pointIndex });
+        e.stopPropagation();
+      }}
       cx={x}
       cy={y}
       r={1}
