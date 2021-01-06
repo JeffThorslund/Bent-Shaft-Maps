@@ -282,7 +282,18 @@ export const testEnvironment = {
       return state;
     },
     removePoint: (state, payload) => {
-      state.lines[payload.lineIndex].vector.splice(payload.pointIndex, 1);
+      if (state.lines[payload.lineIndex].vector.length === 1) {
+        state.lines.splice(payload.lineIndex, 1);
+      } else {
+        if (payload.pointIndex === 0) {
+          state.lines[payload.lineIndex].vector[1] = {
+            x: state.lines[payload.lineIndex].vector[1].x,
+            y: state.lines[payload.lineIndex].vector[1].y,
+          };
+        }
+        state.lines[payload.lineIndex].vector.splice(payload.pointIndex, 1);
+      }
+
       return state;
     },
   },
