@@ -1,4 +1,4 @@
-.Features {
+.svg-wrapper {
   position: absolute;
   height: 100vh;
   width: 100vw;
@@ -6,62 +6,40 @@
   left: 0px;
 }
 
-.clickable {
-  cursor: pointer;
-  -webkit-tap-highlight-color: transparent;
-  -webkit-touch-callout: none;
-  -webkit-user-select: none;
-  -khtml-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
+.line {
+  fill: none;
+  stroke: #555;
+  stroke-width: 0.5px;
+  stroke-linecap: round;
 }
 
 .eddy {
-  stroke: $eddy;
-  fill: $eddy;
-  fill-opacity: 0.37;
-  stroke-width: 4;
+  fill: green;
+  fill-opacity: 0.2;
+  stroke: #555;
+  stroke-dasharray: 2px;
+  stroke-width: 0.5px;
   stroke-linecap: round;
-  stroke-dasharray: 7;
-  &:hover {
-    fill-opacity: 0.6;
-  }
 }
 
-.line {
-  stroke-width: 8px;
-  stroke: rgba(136, 136, 136, 0.5);
-  &:hover {
-    stroke-width: 10px;
-    stroke: black;
-  }
+.bezier-anchor {
+  cursor: pointer;
+  fill: #888;
+  stroke: #888;
+  stroke-width: 1px;
 }
 
-.hydraulic {
-  fill: white;
-  fill-opacity: 0.7;
-
-  &:hover {
-    fill: white;
-    fill-opacity: 1;
-  }
+.anchor-line {
+  stroke: #888;
+  stroke-width: 0.5px;
+  stroke-linecap: round;
+  stroke-dasharray: 2px;
 }
 
-.popover {
-  .name {
-    text-align: center;
-    font-size: 24px;
-  }
-  .desc {
-    font-size: 20px;
-  }
-}
-
-.symbol {
-  fill: black;
-  fill-opacity: 0.8;
-  &:hover {
-    fill-opacity: 1;
-  }
+.point {
+  cursor: pointer;
+  fill: #fff;
+  stroke: #555;
+  stroke-width: 2px;
+  transition: fill 0.2s;
 }
