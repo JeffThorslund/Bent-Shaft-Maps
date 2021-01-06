@@ -1,5 +1,4 @@
 import axios from "axios";
-import { useMousePosition } from "../components/shared/_utils/useKeyPress";
 
 //Data that is loaded into the app
 

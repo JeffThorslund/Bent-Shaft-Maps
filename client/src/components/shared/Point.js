@@ -1,6 +1,5 @@
 import React from "react";
-import { useSelector } from "react-redux";
-import { useMousePosition, useKeyPress } from "../shared/_utils";
+import { useKeyPress } from "../shared/_utils";
 
 /**
  * A simple display component that displays a circular point.
