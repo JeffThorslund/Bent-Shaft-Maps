@@ -1,3 +1,11 @@
+/* SCSS HEX */
+/* SCSS HEX */
+$international-orange-engineering: #ba2d0bff;
+$honeydew: #d5f2e3ff;
+$ocean-green: #73ba9bff;
+$british-racing-green: #003e1fff;
+$dark-jungle-green: #01110aff;
+
 .svg-wrapper {
   position: absolute;
   height: 100vh;
@@ -6,17 +14,21 @@
   left: 0px;
 }
 
+%path {
+  stroke: $dark-jungle-green;
+}
+
 .line {
+  @extend %path;
   fill: none;
-  stroke: #555;
   stroke-width: 0.5px;
   stroke-linecap: round;
 }
 
 .eddy {
-  fill: green;
-  fill-opacity: 0.2;
-  stroke: #555;
+  @extend %path;
+  fill: $ocean-green;
+  fill-opacity: 0.4;
   stroke-dasharray: 2px;
   stroke-width: 0.5px;
   stroke-linecap: round;
@@ -38,8 +50,6 @@
 
 .point {
   cursor: pointer;
-  fill: #fff;
-  stroke: #555;
+  stroke: $dark-jungle-green;
   stroke-width: 2px;
-  transition: fill 0.2s;
 }

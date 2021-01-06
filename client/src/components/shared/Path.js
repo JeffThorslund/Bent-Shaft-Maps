@@ -69,6 +69,7 @@ const Path = ({ line, typeIndex, lineIndex, reducers, areHandlesVisible }) => {
             </React.Fragment>
           );
         })}
+        
     </>
   );
 };
