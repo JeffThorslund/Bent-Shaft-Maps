@@ -258,5 +258,43 @@ export const testEnvironment = {
       state.draggedCubic = false;
       return state;
     },
+    addPoint: (state, payload) => {
+      const { coords } = payload;
+      const { activeLine } = state;
+      const lastPointIndex = state.lines[activeLine].vector.length - 1;
+      const lastPointCoords = state.lines[activeLine].vector[lastPointIndex];
+
+      state.lines[activeLine].vector.push({
+        x: coords.x,
+        y: coords.y,
+        c: [
+          {
+            x: (lastPointCoords.x + coords.x) / 2,
+            y: (lastPointCoords.y + coords.y) / 2,
+          },
+          {
+            x: (lastPointCoords.x + coords.x) / 2,
+            y: (lastPointCoords.y + coords.y) / 2,
+          },
+        ],
+      });
+
+      return state;
+    },
+    removePoint: (state, payload) => {
+      if (state.lines[payload.lineIndex].vector.length === 1) {
+        state.lines.splice(payload.lineIndex, 1);
+      } else {
+        if (payload.pointIndex === 0) {
+          state.lines[payload.lineIndex].vector[1] = {
+            x: state.lines[payload.lineIndex].vector[1].x,
+            y: state.lines[payload.lineIndex].vector[1].y,
+          };
+        }
+        state.lines[payload.lineIndex].vector.splice(payload.pointIndex, 1);
+      }
+
+      return state;
+    },
   },
 };

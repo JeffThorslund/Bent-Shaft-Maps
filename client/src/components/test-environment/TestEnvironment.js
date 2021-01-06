@@ -7,7 +7,7 @@ import { useToggle } from "../_utils";
 
 const TestEnvironment = () => {
   const { dispatch } = store;
-  const [areHandlesVisible, setAreHandlesVisible] = useToggle(false);
+  const [areHandlesVisible, setAreHandlesVisible] = useToggle(true);
   const rapid = useSelector((state) => state.testEnvironment);
   const level = 0;
 
@@ -19,7 +19,10 @@ const TestEnvironment = () => {
         reducers={dispatch.testEnvironment}
         areHandlesVisible={areHandlesVisible}
       />
-      <ToolBar setAreHandlesVisible={setAreHandlesVisible} />
+      <ToolBar
+        areHandlesVisible={areHandlesVisible}
+        setAreHandlesVisible={setAreHandlesVisible}
+      />
     </>
   );
 };

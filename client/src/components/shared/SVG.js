@@ -1,9 +1,6 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import { useMousePosition } from "../shared/_utils";
-import { useRef, useEffect } from "react";
-import ReactTooltip from "react-tooltip";
-import Popover from "../rapid/Popover";
+import { useMousePosition, useKeyPress } from "../shared/_utils";
 import Path from "./Path";
 
 const SVG = ({ lines, eddys, reducers, areHandlesVisible }) => {
@@ -11,36 +8,29 @@ const SVG = ({ lines, eddys, reducers, areHandlesVisible }) => {
     (state) => state.testEnvironment
   );
 
-  const mounted = useRef();
-
-  useEffect(() => {
-    if (!mounted.current) {
-      mounted.current = true;
-    } else {
-      ReactTooltip.rebuild();
-    }
-  });
-
   const coords = useMousePosition();
+  const isCtrlPressed = useKeyPress("Control");
 
-  const handleMouseMove = (e) => {
+  const handleMouseMove = () => {
     if (draggedPoint) {
       reducers.setPointCoords({ coords });
     } else if (draggedCubic !== false) {
       reducers.setCubicCoords({ coords, anchor: draggedCubic });
-    }
+    } else return;
   };
 
   return (
-    <>
+    
       <svg
-        className="Features"
+        className="svg-wrapper"
         id="vector-container"
         viewBox="0 0 100 100"
         xmlns="http://www.w3.org/2000/svg"
         preserveAspectRatio="none"
-        onMouseMove={(e) => handleMouseMove(e)}
+        onMouseMove={() => handleMouseMove()}
         onMouseUp={() => reducers.cancelDragging()}
+        onMouseDown={(e) => isCtrlPressed && reducers.addPoint({ coords })}
+        tabIndex="0"
       >
         <g>
           {lines.map((line, i) => (
@@ -67,8 +57,8 @@ const SVG = ({ lines, eddys, reducers, areHandlesVisible }) => {
           ))}
         </g>
       </svg>
-      <Popover />
-    </>
+    
+    
   );
 };
 
