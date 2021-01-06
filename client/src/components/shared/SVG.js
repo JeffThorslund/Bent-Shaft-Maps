@@ -6,7 +6,7 @@ import ReactTooltip from "react-tooltip";
 import Popover from "../rapid/Popover";
 import Path from "./Path";
 
-const SVG = ({ lines, eddys, reducers, showHandles }) => {
+const SVG = ({ lines, eddys, reducers, areHandlesVisible }) => {
   const { draggedPoint, draggedCubic } = useSelector(
     (state) => state.testEnvironment
   );
@@ -49,7 +49,7 @@ const SVG = ({ lines, eddys, reducers, showHandles }) => {
               typeIndex={0}
               lineIndex={i}
               reducers={reducers}
-              showHandles={showHandles}
+              areHandlesVisible={areHandlesVisible}
               key={line.id}
             />
           ))}
@@ -61,7 +61,7 @@ const SVG = ({ lines, eddys, reducers, showHandles }) => {
               typeIndex={1}
               lineIndex={i}
               reducers={reducers}
-              showHandles={showHandles}
+              areHandlesVisible={areHandlesVisible}
               key={eddy.id}
             />
           ))}

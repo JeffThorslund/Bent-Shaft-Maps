@@ -7,14 +7,14 @@ import Cubic from "./Cubic";
  * A line represents a safe route to navigate the river at a specific water level
  */
 
-const Path = ({ line, typeIndex, lineIndex, reducers, showHandles }) => {
+const Path = ({ line, typeIndex, lineIndex, reducers, areHandlesVisible }) => {
   return (
     <>
       <path
         className={typeIndex ? "ad-Path-eddy" : "ad-Path"}
         d={buildPath({ points: line, closePath: typeIndex })}
       />
-      {showHandles &&
+      {areHandlesVisible &&
         line.map((p, i, a) => {
           let anchors = [];
           if (p.z) {
