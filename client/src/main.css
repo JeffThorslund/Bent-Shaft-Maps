@@ -11013,6 +11013,15 @@ body {
   stroke-linecap: round;
 }
 
+.ad-Path-eddy {
+  fill: green;
+  fill-opacity: 0.2;
+  stroke: #555;
+  stroke-dasharray: 2px;
+  stroke-width: 1px;
+  stroke-linecap: round;
+}
+
 .ad-Point {
   cursor: pointer;
   fill: #fff;

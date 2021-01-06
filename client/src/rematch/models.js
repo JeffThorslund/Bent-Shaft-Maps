@@ -148,12 +148,74 @@ export const testEnvironment = {
         x: 260.55,
         y: 460.26,
         range: [-100, 100],
-        id: "line_4dk61",
+        id: "line_4dk62",
       },
     ],
-    eddys: [],
+    eddys: [
+      {
+        name: "Test Eddy",
+        desc: "Two points Eddy",
+        vector: [
+          { x: 5, y: 75 },
+          {
+            x: 35,
+            y: 75,
+            c: [
+              { x: 5, y: 95 },
+              { x: 35, y: 95 },
+            ],
+          },
+          {
+            z: 1,
+            c: [
+              { x: 35, y: 60 },
+              { x: 5, y: 60 },
+            ],
+          },
+        ],
+        x: 260.55,
+        y: 460.26,
+        range: [-100, 100],
+        id: "eddy_4dk61",
+      },
+      {
+        name: "Test Eddy",
+        desc: "Three points Eddy",
+        vector: [
+          { x: 60, y: 40 },
+          {
+            x: 90,
+            y: 40,
+            c: [
+              { x: 60, y: 60 },
+              { x: 90, y: 60 },
+            ],
+          },
+          {
+            x: 75,
+            y: 30,
+            c: [
+              { x: 95, y: 5 },
+              { x: 80, y: 20 },
+            ],
+          },
+          {
+            z: 1,
+            c: [
+              { x: 70, y: 20 },
+              { x: 55, y: 5 },
+            ],
+          },
+        ],
+        x: 260.55,
+        y: 460.26,
+        range: [-100, 100],
+        id: "eddy_4dk62",
+      },
+    ],
     hydraulics: [],
     closePath: true,
+    activeType: 1,
     activeLine: 0,
     activePoint: 0,
     draggedPoint: false,
@@ -161,12 +223,14 @@ export const testEnvironment = {
   },
   reducers: {
     setDraggedPoint: (state, payload) => {
+      state.activeType = payload.typeIndex;
       state.activeLine = payload.lineIndex;
       state.activePoint = payload.pointIndex;
       state.draggedPoint = true;
       return state;
     },
     setDraggedCubic: (state, payload) => {
+      state.activeType = payload.typeIndex;
       state.activeLine = payload.lineIndex;
       state.activePoint = payload.pointIndex;
       state.draggedCubic = payload.anchor;
@@ -175,16 +239,18 @@ export const testEnvironment = {
     setPointCoords: (state, payload) => {
       const activePoint = state.activePoint;
       const activeLine = state.activeLine;
-      state.lines[activeLine].vector[activePoint].x = payload.coords.x;
-      state.lines[activeLine].vector[activePoint].y = payload.coords.y;
+      const target = state.activeType === 0 ? state.lines : state.eddys;
+      target[activeLine].vector[activePoint].x = payload.coords.x;
+      target[activeLine].vector[activePoint].y = payload.coords.y;
       return state;
     },
     setCubicCoords: (state, payload) => {
       const activePoint = state.activePoint;
       const activeLine = state.activeLine;
-      state.lines[activeLine].vector[activePoint].c[payload.anchor].x =
+      const target = state.activeType === 0 ? state.lines : state.eddys;
+      target[activeLine].vector[activePoint].c[payload.anchor].x =
         payload.coords.x;
-      state.lines[activeLine].vector[activePoint].c[payload.anchor].y =
+      target[activeLine].vector[activePoint].c[payload.anchor].y =
         payload.coords.y;
       return state;
     },
