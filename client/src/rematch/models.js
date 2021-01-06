@@ -261,8 +261,8 @@ export const testEnvironment = {
     addPoint: (state, payload) => {
       const { coords } = payload;
       const { activeLine } = state;
-      const vectorLength = state.lines[activeLine].vector.length - 1;
-      const lastPointCoords = state.lines[activeLine].vector[vectorLength];
+      const lastPointIndex = state.lines[activeLine].vector.length - 1;
+      const lastPointCoords = state.lines[activeLine].vector[lastPointIndex];
 
       state.lines[activeLine].vector.push({
         x: coords.x,
