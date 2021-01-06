@@ -19,7 +19,7 @@ const TestEnvironment = () => {
         reducers={dispatch.testEnvironment}
         areHandlesVisible={areHandlesVisible}
       />
-      <ToolBar toggleHandles={setAreHandlesVisible} />
+      <ToolBar setAreHandlesVisible={setAreHandlesVisible} />
     </>
   );
 };
