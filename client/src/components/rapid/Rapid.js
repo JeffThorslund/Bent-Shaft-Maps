@@ -36,7 +36,7 @@ const Rapid = ({ riverId, sectionId, rapid, section, level }) => {
         level={level}
         rapid={rapid}
         reducers={dispatch.testEnvironment}
-        showHandles={false}
+        areHandlesVisible={false}
       />
       <RapidHeader name={rapid.name} description={rapid.desc} />
       <div id="arrow-array"> {arrowArray} </div>

@@ -7,19 +7,38 @@ import Cubic from "./Cubic";
  * A line represents a safe route to navigate the river at a specific water level
  */
 
-const Line = ({ line, lineIndex, reducers, showHandles }) => {
+const Path = ({ line, typeIndex, lineIndex, reducers, areHandlesVisible }) => {
   return (
     <>
       <path
-        className="ad-Path"
-        d={buildPath({ points: line, closePath: false })}
+        className={typeIndex ? "ad-Path-eddy" : "ad-Path"}
+        d={buildPath({ points: line, closePath: typeIndex })}
       />
-      {showHandles &&
+      {areHandlesVisible &&
         line.map((p, i, a) => {
           let anchors = [];
-          if (p.c) {
+          if (p.z) {
             anchors.push(
               <Cubic
+                lineIndex={lineIndex}
+                pointIndex={i}
+                reducers={reducers}
+                p1x={a[i - 1].x}
+                p1y={a[i - 1].y}
+                p2x={a[0].x}
+                p2y={a[0].y}
+                x1={p.c[0].x}
+                y1={p.c[0].y}
+                x2={p.c[1].x}
+                y2={p.c[1].y}
+                key={i}
+              />
+            );
+            return <React.Fragment key={i}>{anchors}</React.Fragment>;
+          } else if (p.c) {
+            anchors.push(
+              <Cubic
+                typeIndex={typeIndex}
                 lineIndex={lineIndex}
                 pointIndex={i}
                 reducers={reducers}
@@ -38,6 +57,7 @@ const Line = ({ line, lineIndex, reducers, showHandles }) => {
           return (
             <React.Fragment key={i}>
               <Point
+                typeIndex={typeIndex}
                 lineIndex={lineIndex}
                 pointIndex={i}
                 reducers={reducers}
@@ -53,4 +73,4 @@ const Line = ({ line, lineIndex, reducers, showHandles }) => {
   );
 };
 
-export default Line;
+export default Path;

@@ -6,9 +6,14 @@ import SVG from "./SVG";
  * Holds all interact-able elements of a rapid
  */
 
-const Features = ({ rapid, reducers, showHandles }) => {
+const Features = ({ rapid, reducers, areHandlesVisible }) => {
   return (
-    <SVG lines={rapid.lines} reducers={reducers} showHandles={showHandles} />
+    <SVG
+      lines={rapid.lines}
+      eddys={rapid.eddys}
+      reducers={reducers}
+      areHandlesVisible={areHandlesVisible}
+    />
   );
 };
 
