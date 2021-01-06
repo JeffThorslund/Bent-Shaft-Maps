@@ -1,4 +1,12 @@
-.Features {
+/* SCSS HEX */
+/* SCSS HEX */
+$international-orange-engineering: #ba2d0bff;
+$honeydew: #d5f2e3ff;
+$ocean-green: #73ba9bff;
+$british-racing-green: #003e1fff;
+$dark-jungle-green: #01110aff;
+
+.svg-wrapper {
   position: absolute;
   height: 100vh;
   width: 100vw;
@@ -6,62 +14,42 @@
   left: 0px;
 }
 
-.clickable {
-  cursor: pointer;
-  -webkit-tap-highlight-color: transparent;
-  -webkit-touch-callout: none;
-  -webkit-user-select: none;
-  -khtml-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-}
-
-.eddy {
-  stroke: $eddy;
-  fill: $eddy;
-  fill-opacity: 0.37;
-  stroke-width: 4;
-  stroke-linecap: round;
-  stroke-dasharray: 7;
-  &:hover {
-    fill-opacity: 0.6;
-  }
+%path {
+  stroke: $dark-jungle-green;
 }
 
 .line {
-  stroke-width: 8px;
-  stroke: rgba(136, 136, 136, 0.5);
-  &:hover {
-    stroke-width: 10px;
-    stroke: black;
-  }
+  @extend %path;
+  fill: none;
+  stroke-width: 0.5px;
+  stroke-linecap: round;
 }
 
-.hydraulic {
-  fill: white;
-  fill-opacity: 0.7;
-
-  &:hover {
-    fill: white;
-    fill-opacity: 1;
-  }
+.eddy {
+  @extend %path;
+  fill: $ocean-green;
+  fill-opacity: 0.4;
+  stroke-dasharray: 2px;
+  stroke-width: 0.5px;
+  stroke-linecap: round;
 }
 
-.popover {
-  .name {
-    text-align: center;
-    font-size: 24px;
-  }
-  .desc {
-    font-size: 20px;
-  }
+.bezier-anchor {
+  cursor: pointer;
+  fill: #888;
+  stroke: #888;
+  stroke-width: 1px;
 }
 
-.symbol {
-  fill: black;
-  fill-opacity: 0.8;
-  &:hover {
-    fill-opacity: 1;
-  }
+.anchor-line {
+  stroke: #888;
+  stroke-width: 0.5px;
+  stroke-linecap: round;
+  stroke-dasharray: 2px;
+}
+
+.point {
+  cursor: pointer;
+  stroke: $dark-jungle-green;
+  stroke-width: 2px;
 }

@@ -11,7 +11,7 @@ const Path = ({ line, typeIndex, lineIndex, reducers, areHandlesVisible }) => {
   return (
     <>
       <path
-        className={typeIndex ? "ad-Path-eddy" : "ad-Path"}
+        className={typeIndex ? "eddy" : "line"}
         d={buildPath({ points: line, closePath: typeIndex })}
       />
       {areHandlesVisible &&
@@ -69,6 +69,7 @@ const Path = ({ line, typeIndex, lineIndex, reducers, areHandlesVisible }) => {
             </React.Fragment>
           );
         })}
+        
     </>
   );
 };

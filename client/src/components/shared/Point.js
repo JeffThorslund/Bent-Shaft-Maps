@@ -12,7 +12,7 @@ const Point = ({ typeIndex, lineIndex, x, y, pointIndex, reducers }) => {
   const isCtrlPressed = useKeyPress("Control");
   return (
     <circle
-      className="ad-Point"
+      className="point"
       onMouseDown={(e) => {
         isCtrlPressed
           ? reducers.removePoint({ lineIndex, pointIndex })

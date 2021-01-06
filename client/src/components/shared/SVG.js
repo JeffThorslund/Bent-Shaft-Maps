@@ -22,7 +22,7 @@ const SVG = ({ lines, eddys, reducers, areHandlesVisible }) => {
   return (
     
       <svg
-        className="Features"
+        className="svg-wrapper"
         id="vector-container"
         viewBox="0 0 100 100"
         xmlns="http://www.w3.org/2000/svg"
