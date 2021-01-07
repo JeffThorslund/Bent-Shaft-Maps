@@ -39,6 +39,7 @@ const Features = ({ rapid, reducers, areHandlesVisible }) => {
           // HYDRAULICS
           default:
             console.log("And many more");
+            return null;
         }
       })}
     </SVG>
