@@ -7,9 +7,9 @@ import Cubic from "./Cubic";
  * A line represents a safe route to navigate the river at a specific water level
  */
 
-const Path = ({
+const Eddy = ({
   line,
-  featureType,
+  featureType = "eddy",
   lineIndex,
   reducers,
   areHandlesVisible,
@@ -20,7 +20,7 @@ const Path = ({
         className={featureType}
         d={buildPath({
           points: line,
-          closePath: featureType === "eddy" ? true : false,
+          closePath: true,
         })}
       />
       {areHandlesVisible.value &&
@@ -83,4 +83,4 @@ const Path = ({
   );
 };
 
-export default Path;
+export default Eddy;

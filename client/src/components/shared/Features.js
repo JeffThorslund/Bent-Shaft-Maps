@@ -1,31 +1,49 @@
 import React from "react";
 import PropTypes from "prop-types";
 import SVG from "./SVG";
-import Path from "./Path";
+import Line from "./Line";
+import Eddy from "./Eddy";
 
 /**
  * Holds all interact-able elements of a rapid. It should make an array of SVG elements to pass down.
  */
 
 const Features = ({ rapid, reducers, areHandlesVisible }) => {
+  const { lines, eddys, hydraulics } = rapid;
   return (
     <SVG reducers={reducers}>
-      {[
-        { features: rapid.lines, featureType: "line" },
-        { features: rapid.eddys, featureType: "eddy" },
-        //{ features: rapid.hydraulics, featureType: "hydraulic" },
-      ].map(({ features, featureType }) =>
-        features.map((feature, i) => (
-          <Path
-            line={feature.vector}
-            featureType={featureType}
-            lineIndex={i}
-            reducers={reducers}
-            areHandlesVisible={areHandlesVisible}
-            key={feature.id}
-          />
-        ))
-      )}
+      {[lines, eddys, hydraulics].map((features) => {
+        switch (features) {
+          // LINES
+          case lines:
+            return features.map((line, i) => (
+              <Line
+                line={line.vector}
+                lineIndex={i}
+                reducers={reducers}
+                areHandlesVisible={areHandlesVisible}
+                key={line.id}
+              />
+            ));
+          // EDDYS
+          case eddys:
+            return features.map((eddy, i) => (
+              <Eddy
+                line={eddy.vector}
+                lineIndex={i}
+                reducers={reducers}
+                areHandlesVisible={areHandlesVisible}
+                key={eddy.id}
+              />
+            ));
+          // HYDRAULICS
+          case hydraulics:
+            console.log("Gotta make <Hydraulics />");
+            break;
+          default:
+            console.log("And many more");
+        }
+      })}
     </SVG>
   );
 };
