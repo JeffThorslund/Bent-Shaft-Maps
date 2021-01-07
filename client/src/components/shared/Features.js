@@ -7,23 +7,18 @@ import Path from "./Path";
  * Holds all interact-able elements of a rapid. It should make an array of SVG elements to pass down.
  */
 
-const Features = ({
-  rapid,
-  reducers,
-  areHandlesVisible,
-}) => {
+const Features = ({ rapid, reducers, areHandlesVisible }) => {
   return (
     <SVG reducers={reducers}>
       {[
         { features: rapid.lines, featureType: "line" },
         { features: rapid.eddys, featureType: "eddy" },
         //{ features: rapid.hydraulics, featureType: "hydraulic" },
-      ].map(({ features, featureType }, typeIndex) =>
+      ].map(({ features, featureType }) =>
         features.map((feature, i) => (
           <Path
             line={feature.vector}
             featureType={featureType}
-            typeIndex={typeIndex}
             lineIndex={i}
             reducers={reducers}
             areHandlesVisible={areHandlesVisible}

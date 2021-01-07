@@ -222,14 +222,14 @@ export const testEnvironment = {
   },
   reducers: {
     setDraggedPoint: (state, payload) => {
-      state.activeType = payload.typeIndex;
+      state.activeType = payload.featureType;
       state.activeLine = payload.lineIndex;
       state.activePoint = payload.pointIndex;
       state.draggedPoint = true;
       return state;
     },
     setDraggedCubic: (state, payload) => {
-      state.activeType = payload.typeIndex;
+      state.activeType = payload.featureType;
       state.activeLine = payload.lineIndex;
       state.activePoint = payload.pointIndex;
       state.draggedCubic = payload.anchor;
@@ -238,7 +238,14 @@ export const testEnvironment = {
     setPointCoords: (state, payload) => {
       const activePoint = state.activePoint;
       const activeLine = state.activeLine;
-      const target = state.activeType === 0 ? state.lines : state.eddys;
+      const target =
+        state.activeType === "line"
+          ? state.lines
+          : state.activeType === "eddy"
+          ? state.eddys
+          : state.activeType === "hydraulic"
+          ? state.hydraulics
+          : "";
       target[activeLine].vector[activePoint].x = payload.coords.x;
       target[activeLine].vector[activePoint].y = payload.coords.y;
       return state;
@@ -246,7 +253,14 @@ export const testEnvironment = {
     setCubicCoords: (state, payload) => {
       const activePoint = state.activePoint;
       const activeLine = state.activeLine;
-      const target = state.activeType === 0 ? state.lines : state.eddys;
+      const target =
+        state.activeType === "line"
+          ? state.lines
+          : state.activeType === "eddy"
+          ? state.eddys
+          : state.activeType === "hydraulic"
+          ? state.hydraulics
+          : "";
       target[activeLine].vector[activePoint].c[payload.anchor].x =
         payload.coords.x;
       target[activeLine].vector[activePoint].c[payload.anchor].y =

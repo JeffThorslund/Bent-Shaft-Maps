@@ -13,7 +13,6 @@ const Path = ({
   lineIndex,
   reducers,
   areHandlesVisible,
-  typeIndex
 }) => {
   return (
     <>
@@ -30,6 +29,7 @@ const Path = ({
           if (p.z) {
             anchors.push(
               <Cubic
+                featureType={featureType}
                 lineIndex={lineIndex}
                 pointIndex={i}
                 reducers={reducers}
@@ -48,7 +48,7 @@ const Path = ({
           } else if (p.c) {
             anchors.push(
               <Cubic
-                typeIndex={typeIndex}
+                featureType={featureType}
                 lineIndex={lineIndex}
                 pointIndex={i}
                 reducers={reducers}
@@ -67,7 +67,7 @@ const Path = ({
           return (
             <React.Fragment key={i}>
               <Point
-                typeIndex={typeIndex}
+                featureType={featureType}
                 lineIndex={lineIndex}
                 pointIndex={i}
                 reducers={reducers}
