@@ -9,10 +9,10 @@ import Eddy from "./Eddy";
  */
 
 const Features = ({ rapid, reducers, areHandlesVisible }) => {
-  const { lines, eddys, hydraulics } = rapid;
+  const { lines, eddys /*hydraulics*/ } = rapid;
   return (
     <SVG reducers={reducers}>
-      {[lines, eddys, hydraulics].map((features) => {
+      {[lines, eddys /*hydraulics*/].map((features) => {
         switch (features) {
           // LINES
           case lines:
@@ -37,9 +37,6 @@ const Features = ({ rapid, reducers, areHandlesVisible }) => {
               />
             ));
           // HYDRAULICS
-          case hydraulics:
-            console.log("Gotta make <Hydraulics />");
-            break;
           default:
             console.log("And many more");
         }
