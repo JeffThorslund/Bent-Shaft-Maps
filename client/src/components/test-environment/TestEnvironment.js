@@ -6,8 +6,13 @@ import ToolBar from "./toolbar/ToolBar";
 import { useToggle } from "../_utils";
 
 const TestEnvironment = () => {
+  
+  //Set your prefered /test-env settings below
+  const areHandlesVisible = useToggle(true);
+  const areLinesVisible = useToggle(true);
+  const areEddysVisible = useToggle(true);
+
   const { dispatch } = store;
-  const [areHandlesVisible, setAreHandlesVisible] = useToggle(true);
   const rapid = useSelector((state) => state.testEnvironment);
   const level = 0;
 
@@ -18,10 +23,13 @@ const TestEnvironment = () => {
         level={level}
         reducers={dispatch.testEnvironment}
         areHandlesVisible={areHandlesVisible}
+        areLinesVisible={areLinesVisible}
+        areEddysVisible={areEddysVisible}
       />
       <ToolBar
         areHandlesVisible={areHandlesVisible}
-        setAreHandlesVisible={setAreHandlesVisible}
+        areLinesVisible={areLinesVisible}
+        areEddysVisible={areEddysVisible}
       />
     </>
   );

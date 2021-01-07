@@ -6,13 +6,14 @@ import SVG from "./SVG";
  * Holds all interact-able elements of a rapid
  */
 
-const Features = ({ rapid, reducers, areHandlesVisible }) => {
+const Features = ({ rapid, reducers, areHandlesVisible, areLinesVisible, areEddysVisible }) => {
   return (
     <SVG
-      lines={rapid.lines}
-      eddys={rapid.eddys}
-      reducers={reducers}
+      lines={areLinesVisible.value ? rapid.lines : []}
+      eddys={areEddysVisible.value ? rapid.eddys: []}
       areHandlesVisible={areHandlesVisible}
+      reducers={reducers}
+      
     />
   );
 };

@@ -14,7 +14,7 @@ const Path = ({ line, typeIndex, lineIndex, reducers, areHandlesVisible }) => {
         className={typeIndex ? "eddy" : "line"}
         d={buildPath({ points: line, closePath: typeIndex })}
       />
-      {areHandlesVisible &&
+      {areHandlesVisible.value &&
         line.map((p, i, a) => {
           let anchors = [];
           if (p.z) {
@@ -69,7 +69,6 @@ const Path = ({ line, typeIndex, lineIndex, reducers, areHandlesVisible }) => {
             </React.Fragment>
           );
         })}
-        
     </>
   );
 };

@@ -5,7 +5,7 @@ const useToggle = (initialValue = false) => {
   const toggle = React.useCallback(() => {
     setValue((v) => !v);
   }, []);
-  return [value, toggle];
-}
+  return { value, set: toggle };
+};
 
-export default useToggle
+export default useToggle;
