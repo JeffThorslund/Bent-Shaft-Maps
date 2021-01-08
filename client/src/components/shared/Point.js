@@ -8,7 +8,7 @@ import { useKeyPress } from "../shared/_utils";
  * @param {number} y - The y coord position of the point on a 100x100 layout.
  */
 
-const Point = ({ typeIndex, lineIndex, x, y, pointIndex, reducers }) => {
+const Point = ({ featureType, lineIndex, x, y, pointIndex, reducers }) => {
   const isCtrlPressed = useKeyPress("Control");
   return (
     <circle
@@ -16,7 +16,7 @@ const Point = ({ typeIndex, lineIndex, x, y, pointIndex, reducers }) => {
       onMouseDown={(e) => {
         isCtrlPressed
           ? reducers.removePoint({ lineIndex, pointIndex })
-          : reducers.setDraggedPoint({ lineIndex, pointIndex, typeIndex });
+          : reducers.setDraggedPoint({ lineIndex, pointIndex, featureType });
         e.stopPropagation();
       }}
       cx={x}

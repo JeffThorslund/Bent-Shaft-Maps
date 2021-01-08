@@ -1,6 +1,6 @@
 import React from "react";
 
-const Cubic = ({ typeIndex, lineIndex, pointIndex, reducers, ...props }) => {
+const Cubic = ({ featureType, lineIndex, pointIndex, reducers, ...props }) => {
   return (
     <g className="ad-Anchor">
       <line
@@ -23,7 +23,7 @@ const Cubic = ({ typeIndex, lineIndex, pointIndex, reducers, ...props }) => {
           reducers.setDraggedCubic({
             lineIndex,
             pointIndex,
-            typeIndex,
+            featureType,
             anchor: 0,
           })
         }
@@ -37,7 +37,7 @@ const Cubic = ({ typeIndex, lineIndex, pointIndex, reducers, ...props }) => {
           reducers.setDraggedCubic({
             lineIndex,
             pointIndex,
-            typeIndex,
+            featureType,
             anchor: 1,
           })
         }
