@@ -8,40 +8,28 @@ import Eddy from "./Eddy";
  * Holds all interact-able elements of a rapid. It should make an array of SVG elements to pass down.
  */
 
-const Features = ({ rapid, reducers, areHandlesVisible }) => {
-  const { lines, eddys /*hydraulics*/ } = rapid;
+const Features = ({ rapid, reducers, areHandlesVisible, areLinesVisible, areEddysVisible }) => {
+  const { lines, eddys } = rapid;
   return (
     <SVG reducers={reducers}>
-      {[lines, eddys /*hydraulics*/].map((features) => {
-        switch (features) {
-          // LINES
-          case lines:
-            return features.map((line, i) => (
-              <Line
-                line={line.vector}
-                lineIndex={i}
-                reducers={reducers}
-                areHandlesVisible={areHandlesVisible}
-                key={line.id}
-              />
-            ));
-          // EDDYS
-          case eddys:
-            return features.map((eddy, i) => (
-              <Eddy
-                line={eddy.vector}
-                lineIndex={i}
-                reducers={reducers}
-                areHandlesVisible={areHandlesVisible}
-                key={eddy.id}
-              />
-            ));
-          // HYDRAULICS
-          default:
-            console.log("And many more");
-            return null;
-        }
-      })}
+      {areLinesVisible.value && lines.map((line, i) => (
+        <Line
+          line={line.vector}
+          lineIndex={i}
+          reducers={reducers}
+          areHandlesVisible={areHandlesVisible}
+          key={line.id}
+        />
+      ))}
+      {areEddysVisible.value && eddys.map((eddy, i) => (
+        <Eddy
+          line={eddy.vector}
+          lineIndex={i}
+          reducers={reducers}
+          areHandlesVisible={areHandlesVisible}
+          key={eddy.id}
+        />
+      ))}
     </SVG>
   );
 };
