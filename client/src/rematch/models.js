@@ -259,7 +259,7 @@ export const testEnvironment = {
     addPoint: (state, payload) => {
       const { coords } = payload;
       const { activeLine, activeType, lines, eddys } = state;
-
+      // Adds point to LINE
       if (activeType === "line") {
         const lastPointIndex = lines[activeLine].vector.length - 1;
         const lastPointCoords = lines[activeLine].vector[lastPointIndex];
@@ -278,15 +278,26 @@ export const testEnvironment = {
             },
           ],
         });
+        // Adds point to EDDY
       } else if (activeType === "eddy") {
+        const l = eddys[activeLine].vector.length; //Length of vector array
+        const lastPointCubics = eddys[activeLine].vector[l - 2].c;
         eddys[activeLine].vector.splice(-2, 0, {
           x: coords.x,
           y: coords.y,
           c: [
-            { x: coords.x - 20, y: coords.y - 20 },
-            { x: coords.x + 20, y: coords.y + 20 },
+            lastPointCubics[0],
+            {
+              x: (lastPointCubics[0].x + coords.x) / 2,
+              y: (lastPointCubics[0].y + coords.y) / 2,
+            },
           ],
         });
+        const prevPointCubics = eddys[activeLine].vector[l - 1].c;
+        prevPointCubics[0] = {
+          x: (prevPointCubics[1].x + coords.x) / 2,
+          y: (prevPointCubics[1].y + coords.y) / 2,
+        };
       }
       return state;
     },
