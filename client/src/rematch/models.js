@@ -222,7 +222,8 @@ export const testEnvironment = {
   },
   reducers: {
     setActiveType: (state, payload) => {
-      state.activeType = payload;
+      state.activeType = payload.featureType;
+      state.activeLine = payload.lineIndex;
       return state;
     },
     setDraggedPoint: (state, payload) => {

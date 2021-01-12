@@ -17,7 +17,7 @@ const Line = ({
   return (
     <>
       <path
-        onMouseOver={() => reducers.setActiveType(featureType)}
+        onMouseOver={() => reducers.setActiveType({ featureType, lineIndex })}
         className={featureType}
         d={buildPath({
           points: line,
