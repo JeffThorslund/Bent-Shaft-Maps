@@ -214,7 +214,7 @@ export const testEnvironment = {
     ],
     hydraulics: [],
     closePath: true,
-    activeType: 1,
+    activeType: "",
     activeLine: 0,
     activePoint: 0,
     draggedPoint: false,
@@ -236,31 +236,15 @@ export const testEnvironment = {
       return state;
     },
     setPointCoords: (state, payload) => {
-      const activePoint = state.activePoint;
-      const activeLine = state.activeLine;
-      const target =
-        state.activeType === "line"
-          ? state.lines
-          : state.activeType === "eddy"
-          ? state.eddys
-          : state.activeType === "hydraulic"
-          ? state.hydraulics
-          : "";
+      const { activePoint, activeLine, activeType } = state;
+      const target = activeType === "line" ? state.lines : state.eddys;
       target[activeLine].vector[activePoint].x = payload.coords.x;
       target[activeLine].vector[activePoint].y = payload.coords.y;
       return state;
     },
     setCubicCoords: (state, payload) => {
-      const activePoint = state.activePoint;
-      const activeLine = state.activeLine;
-      const target =
-        state.activeType === "line"
-          ? state.lines
-          : state.activeType === "eddy"
-          ? state.eddys
-          : state.activeType === "hydraulic"
-          ? state.hydraulics
-          : "";
+      const { activePoint, activeLine, activeType } = state;
+      const target = activeType === "line" ? state.lines : state.eddys;
       target[activeLine].vector[activePoint].c[payload.anchor].x =
         payload.coords.x;
       target[activeLine].vector[activePoint].c[payload.anchor].y =
@@ -274,25 +258,36 @@ export const testEnvironment = {
     },
     addPoint: (state, payload) => {
       const { coords } = payload;
-      const { activeLine } = state;
-      const lastPointIndex = state.lines[activeLine].vector.length - 1;
-      const lastPointCoords = state.lines[activeLine].vector[lastPointIndex];
+      const { activeLine, activeType, lines, eddys } = state;
 
-      state.lines[activeLine].vector.push({
-        x: coords.x,
-        y: coords.y,
-        c: [
-          {
-            x: (lastPointCoords.x + coords.x) / 2,
-            y: (lastPointCoords.y + coords.y) / 2,
-          },
-          {
-            x: (lastPointCoords.x + coords.x) / 2,
-            y: (lastPointCoords.y + coords.y) / 2,
-          },
-        ],
-      });
+      if (activeType === "line") {
+        const lastPointIndex = lines[activeLine].vector.length - 1;
+        const lastPointCoords = lines[activeLine].vector[lastPointIndex];
 
+        lines[activeLine].vector.push({
+          x: coords.x,
+          y: coords.y,
+          c: [
+            {
+              x: (lastPointCoords.x + coords.x) / 2,
+              y: (lastPointCoords.y + coords.y) / 2,
+            },
+            {
+              x: (lastPointCoords.x + coords.x) / 2,
+              y: (lastPointCoords.y + coords.y) / 2,
+            },
+          ],
+        });
+      } else if (activeType === "eddy") {
+        eddys[activeLine].vector.splice(-2, 0, {
+          x: coords.x,
+          y: coords.y,
+          c: [
+            { x: coords.x - 20, y: coords.y - 20 },
+            { x: coords.x + 20, y: coords.y + 20 },
+          ],
+        });
+      }
       return state;
     },
     removePoint: (state, payload) => {
