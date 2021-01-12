@@ -214,13 +214,18 @@ export const testEnvironment = {
     ],
     hydraulics: [],
     closePath: true,
-    activeType: 1,
+    activeType: "",
     activeLine: 0,
     activePoint: 0,
     draggedPoint: false,
     draggedCubic: false,
   },
   reducers: {
+    setActiveType: (state, payload) => {
+      state.activeType = payload.featureType;
+      state.activeLine = payload.lineIndex;
+      return state;
+    },
     setDraggedPoint: (state, payload) => {
       state.activeType = payload.featureType;
       state.activeLine = payload.lineIndex;
@@ -236,31 +241,15 @@ export const testEnvironment = {
       return state;
     },
     setPointCoords: (state, payload) => {
-      const activePoint = state.activePoint;
-      const activeLine = state.activeLine;
-      const target =
-        state.activeType === "line"
-          ? state.lines
-          : state.activeType === "eddy"
-          ? state.eddys
-          : state.activeType === "hydraulic"
-          ? state.hydraulics
-          : "";
+      const { activePoint, activeLine, activeType } = state;
+      const target = activeType === "line" ? state.lines : state.eddys;
       target[activeLine].vector[activePoint].x = payload.coords.x;
       target[activeLine].vector[activePoint].y = payload.coords.y;
       return state;
     },
     setCubicCoords: (state, payload) => {
-      const activePoint = state.activePoint;
-      const activeLine = state.activeLine;
-      const target =
-        state.activeType === "line"
-          ? state.lines
-          : state.activeType === "eddy"
-          ? state.eddys
-          : state.activeType === "hydraulic"
-          ? state.hydraulics
-          : "";
+      const { activePoint, activeLine, activeType } = state;
+      const target = activeType === "line" ? state.lines : state.eddys;
       target[activeLine].vector[activePoint].c[payload.anchor].x =
         payload.coords.x;
       target[activeLine].vector[activePoint].c[payload.anchor].y =
@@ -274,40 +263,80 @@ export const testEnvironment = {
     },
     addPoint: (state, payload) => {
       const { coords } = payload;
-      const { activeLine } = state;
-      const lastPointIndex = state.lines[activeLine].vector.length - 1;
-      const lastPointCoords = state.lines[activeLine].vector[lastPointIndex];
+      const { activeLine, activeType, lines, eddys } = state;
+      // Adds point to LINE
+      if (activeType === "line") {
+        const lastPointIndex = lines[activeLine].vector.length - 1;
+        const lastPointCoords = lines[activeLine].vector[lastPointIndex];
 
-      state.lines[activeLine].vector.push({
-        x: coords.x,
-        y: coords.y,
-        c: [
-          {
-            x: (lastPointCoords.x + coords.x) / 2,
-            y: (lastPointCoords.y + coords.y) / 2,
-          },
-          {
-            x: (lastPointCoords.x + coords.x) / 2,
-            y: (lastPointCoords.y + coords.y) / 2,
-          },
-        ],
-      });
-
+        lines[activeLine].vector.push({
+          x: coords.x,
+          y: coords.y,
+          c: [
+            {
+              x: (lastPointCoords.x + coords.x) / 2,
+              y: (lastPointCoords.y + coords.y) / 2,
+            },
+            {
+              x: (lastPointCoords.x + coords.x) / 2,
+              y: (lastPointCoords.y + coords.y) / 2,
+            },
+          ],
+        });
+        // Adds point to EDDY
+      } else if (activeType === "eddy") {
+        const l = eddys[activeLine].vector.length; //Length of vector array
+        const lastPointCubics = eddys[activeLine].vector[l - 2].c;
+        eddys[activeLine].vector.splice(-2, 0, {
+          x: coords.x,
+          y: coords.y,
+          c: [
+            lastPointCubics[0],
+            {
+              x: (lastPointCubics[0].x + coords.x) / 2,
+              y: (lastPointCubics[0].y + coords.y) / 2,
+            },
+          ],
+        });
+        const prevPointCubics = eddys[activeLine].vector[l - 1].c;
+        prevPointCubics[0] = {
+          x: (prevPointCubics[1].x + coords.x) / 2,
+          y: (prevPointCubics[1].y + coords.y) / 2,
+        };
+      }
       return state;
     },
     removePoint: (state, payload) => {
-      if (state.lines[payload.lineIndex].vector.length === 1) {
-        state.lines.splice(payload.lineIndex, 1);
-      } else {
-        if (payload.pointIndex === 0) {
-          state.lines[payload.lineIndex].vector[1] = {
-            x: state.lines[payload.lineIndex].vector[1].x,
-            y: state.lines[payload.lineIndex].vector[1].y,
-          };
+      const { activeType, lines, eddys } = state;
+      const { lineIndex, pointIndex } = payload;
+      if (activeType === "line") {
+        const target = lines[lineIndex].vector;
+        if (target.length === 1) {
+          lines.splice(lineIndex, 1);
+        } else {
+          if (pointIndex === 0) {
+            target[1] = {
+              x: target[1].x,
+              y: target[1].y,
+            };
+          }
+          lines[lineIndex].vector.splice(pointIndex, 1);
         }
-        state.lines[payload.lineIndex].vector.splice(payload.pointIndex, 1);
+      } else if (activeType === "eddy") {
+        const target = eddys[lineIndex].vector;
+        if (target.length > 3) {
+          if (pointIndex === 0) {
+            const preservedCubic = target[1].c[1];
+            target[1].c = null;
+            target.splice(0, 1);
+            target[target.length - 1].c[1] = preservedCubic;
+          } else {
+            const preservedCubic = target[pointIndex].c[0];
+            target.splice(pointIndex, 1);
+            target[pointIndex].c[0] = preservedCubic;
+          }
+        }
       }
-
       return state;
     },
   },
