@@ -321,12 +321,14 @@ export const testEnvironment = {
         const target = eddys[lineIndex].vector;
         if (target.length > 3) {
           if (pointIndex === 0) {
+            const preservedCubic = target[1].c[1];
             target[1].c = null;
             target.splice(0, 1);
-            // } else if (pointIndex === target.length - 1) {
-            //   target.splice(pointIndex - 1, 1);
+            target[target.length - 1].c[1] = preservedCubic;
           } else {
+            const preservedCubic = target[pointIndex].c[0];
             target.splice(pointIndex, 1);
+            target[pointIndex].c[0] = preservedCubic;
           }
         }
       }
