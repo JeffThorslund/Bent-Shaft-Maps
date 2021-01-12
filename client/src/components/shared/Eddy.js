@@ -17,6 +17,7 @@ const Eddy = ({
   return (
     <>
       <path
+        onMouseOver={() => reducers.setActiveType(featureType)}
         className={featureType}
         d={buildPath({
           points: line,
