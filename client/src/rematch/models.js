@@ -310,19 +310,19 @@ export const testEnvironment = {
       const { activeType, lines, eddys } = state;
       const { lineIndex, pointIndex } = payload;
       if (activeType === "line") {
-        if (lines[lineIndex].vector.length === 1) {
+        const target = lines[lineIndex].vector;
+        if (target.length === 1) {
           lines.splice(lineIndex, 1);
         } else {
           if (pointIndex === 0) {
-            lines[lineIndex].vector[1] = {
-              x: lines[lineIndex].vector[1].x,
-              y: lines[lineIndex].vector[1].y,
+            target[1] = {
+              x: target[1].x,
+              y: target[1].y,
             };
           }
           lines[lineIndex].vector.splice(pointIndex, 1);
         }
       } else if (activeType === "eddy") {
-        // only if more than 2 points
         const target = eddys[lineIndex].vector;
         if (target.length > 3) {
           if (pointIndex === 0) {
