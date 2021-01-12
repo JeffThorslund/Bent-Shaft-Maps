@@ -302,18 +302,34 @@ export const testEnvironment = {
       return state;
     },
     removePoint: (state, payload) => {
-      if (state.lines[payload.lineIndex].vector.length === 1) {
-        state.lines.splice(payload.lineIndex, 1);
-      } else {
-        if (payload.pointIndex === 0) {
-          state.lines[payload.lineIndex].vector[1] = {
-            x: state.lines[payload.lineIndex].vector[1].x,
-            y: state.lines[payload.lineIndex].vector[1].y,
-          };
+      const { activeType, lines, eddys } = state;
+      const { lineIndex, pointIndex } = payload;
+      if (activeType === "line") {
+        if (lines[lineIndex].vector.length === 1) {
+          lines.splice(lineIndex, 1);
+        } else {
+          if (pointIndex === 0) {
+            lines[lineIndex].vector[1] = {
+              x: lines[lineIndex].vector[1].x,
+              y: lines[lineIndex].vector[1].y,
+            };
+          }
+          lines[lineIndex].vector.splice(pointIndex, 1);
         }
-        state.lines[payload.lineIndex].vector.splice(payload.pointIndex, 1);
+      } else if (activeType === "eddy") {
+        // only if more than 2 points
+        const target = eddys[lineIndex].vector;
+        if (target.length > 3) {
+          if (pointIndex === 0) {
+            target[1].c = null;
+            target.splice(0, 1);
+            // } else if (pointIndex === target.length - 1) {
+            //   target.splice(pointIndex - 1, 1);
+          } else {
+            target.splice(pointIndex, 1);
+          }
+        }
       }
-
       return state;
     },
   },
