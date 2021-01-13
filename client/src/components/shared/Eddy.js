@@ -15,7 +15,7 @@ const Eddy = ({
   areHandlesVisible,
 }) => {
   return (
-    <>
+    <svg>
       <path
         onMouseOver={() => reducers.setActiveType({ featureType, lineIndex })}
         className={featureType}
@@ -67,7 +67,7 @@ const Eddy = ({
             </React.Fragment>
           );
         })}
-    </>
+    </svg>
   );
 };
 
