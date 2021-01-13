@@ -9,45 +9,46 @@ import Eddy from "./Eddy";
  */
 
 const Features = ({
-	rapid,
-	reducers,
-	areHandlesVisible,
-	areLinesVisible,
-	areEddysVisible,
+  rapid,
+  reducers,
+  areHandlesVisible,
+  areLinesVisible,
+  areEddysVisible,
 }) => {
-	const { lines, eddys } = rapid;
-	return (
-		<SVG reducers={reducers}>
-			{areLinesVisible.value &&
-				lines.map((line, i) => (
-					<Line
-						position={line.position}
-						line={line.vector}
-						lineIndex={i}
-						reducers={reducers}
-						areHandlesVisible={areHandlesVisible}
-						key={line.id}
-					/>
-				))}
-			{areEddysVisible.value &&
-				eddys.map((eddy, i) => (
-					<Eddy
-						line={eddy.vector}
-						lineIndex={i}
-						reducers={reducers}
-						areHandlesVisible={areHandlesVisible}
-						key={eddy.id}
-					/>
-				))}
-		</SVG>
-	);
+  const { lines, eddys } = rapid;
+  return (
+    <SVG reducers={reducers}>
+      {areLinesVisible.value &&
+        lines.map((line, i) => (
+          <Line
+            position={line.position}
+            line={line.vector}
+            lineIndex={i}
+            reducers={reducers}
+            areHandlesVisible={areHandlesVisible}
+            key={line.id}
+          />
+        ))}
+      {areEddysVisible.value &&
+        eddys.map((eddy, i) => (
+          <Eddy
+            position={eddy.position}
+            line={eddy.vector}
+            lineIndex={i}
+            reducers={reducers}
+            areHandlesVisible={areHandlesVisible}
+            key={eddy.id}
+          />
+        ))}
+    </SVG>
+  );
 };
 
 Features.propTypes = {
-	/** The current water level */
-	level: PropTypes.number.isRequired,
-	/** The rapid data object */
-	rapid: PropTypes.object.isRequired,
+  /** The current water level */
+  level: PropTypes.number.isRequired,
+  /** The rapid data object */
+  rapid: PropTypes.object.isRequired,
 };
 
 export default Features;

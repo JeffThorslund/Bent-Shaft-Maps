@@ -176,8 +176,10 @@ export const testEnvironment = {
             ],
           },
         ],
-        x: 260.55,
-        y: 460.26,
+        position: {
+          x: 0,
+          y: 0,
+        },
         range: [-100, 100],
         id: "eddy_4dk61",
       },
@@ -210,8 +212,10 @@ export const testEnvironment = {
             ],
           },
         ],
-        x: 260.55,
-        y: 460.26,
+        position: {
+          x: 0,
+          y: 0,
+        },
         range: [-100, 100],
         id: "eddy_4dk62",
       },
@@ -246,38 +250,42 @@ export const testEnvironment = {
       state.draggedCubic = payload.anchor;
       return state;
     },
-    setPointCoords: (state, payload) => {
-      const { activePoint, activeLine, activeType } = state;
-      const target = activeType === "line" ? state.lines : state.eddys;
-      target[activeLine].vector[activePoint].x = payload.coords.x;
-      target[activeLine].vector[activePoint].y = payload.coords.y;
-      return state;
-    },
-    setCubicCoords: (state, payload) => {
-      const { activePoint, activeLine, activeType } = state;
-      const target = activeType === "line" ? state.lines : state.eddys;
-      target[activeLine].vector[activePoint].c[payload.anchor].x =
-        payload.coords.x;
-      target[activeLine].vector[activePoint].c[payload.anchor].y =
-        payload.coords.y;
-      return state;
-    },
     setDraggedFeature: (state, payload) => {
       state.offset = payload.offset;
       state.draggedFeature = true;
       return state;
     },
+    setPointCoords: (state, payload) => {
+      const { activePoint, activeLine, activeType } = state;
+      const target = activeType === "line" ? state.lines : state.eddys;
+      const { x, y } = target[activeLine].position;
+      target[activeLine].vector[activePoint].x = payload.coords.x - x;
+      target[activeLine].vector[activePoint].y = payload.coords.y - y;
+      return state;
+    },
+    setCubicCoords: (state, payload) => {
+      const { activePoint, activeLine, activeType } = state;
+      const target = activeType === "line" ? state.lines : state.eddys;
+      const { x, y } = target[activeLine].position;
+      target[activeLine].vector[activePoint].c[payload.anchor].x =
+        payload.coords.x - x;
+      target[activeLine].vector[activePoint].c[payload.anchor].y =
+        payload.coords.y - y;
+      return state;
+    },
     setFeatureCoords: (state, payload) => {
-      const { activeLine, offset } = state;
+      const { activeLine, offset, activeType } = state;
       const { coords } = payload;
-      state.lines[activeLine].position.x = coords.x - offset.x;
-      state.lines[activeLine].position.y = coords.y - offset.y;
+      const target = activeType === "line" ? state.lines : state.eddys;
+      target[activeLine].position.x = coords.x - offset.x;
+      target[activeLine].position.y = coords.y - offset.y;
       return state;
     },
     cancelDragging: (state) => {
       state.draggedPoint = false;
       state.draggedCubic = false;
       state.draggedFeature = false;
+      state.offset = null;
       return state;
     },
     addPoint: (state, payload) => {

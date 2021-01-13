@@ -1,5 +1,5 @@
 import React from "react";
-import { buildPath } from "./_utils";
+import { buildPath, useMousePosition } from "./_utils";
 import Point from "./Point";
 import Cubic from "./Cubic";
 
@@ -8,14 +8,28 @@ import Cubic from "./Cubic";
  */
 
 const Eddy = ({
+  position,
   line,
   featureType = "eddy",
   lineIndex,
   reducers,
   areHandlesVisible,
 }) => {
+  const coords = useMousePosition();
   return (
-    <svg>
+    <svg
+      className="draggable"
+      x={position.x}
+      y={position.y}
+      onMouseDown={(e) => {
+        const offset = {
+          x: coords.x - position.x,
+          y: coords.y - position.y,
+        };
+        reducers.setDraggedFeature({ offset });
+        e.stopPropagation();
+      }}
+    >
       <path
         onMouseOver={() => reducers.setActiveType({ featureType, lineIndex })}
         className={featureType}
