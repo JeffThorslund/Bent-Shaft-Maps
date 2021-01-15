@@ -8,7 +8,6 @@ import Cubic from "./Cubic";
  */
 
 const Line = ({
-  position,
   line,
   featureType = "line",
   lineIndex,
@@ -17,16 +16,10 @@ const Line = ({
 }) => {
   const coords = useMousePosition();
   return (
-    <svg
+    <g
       className="draggable"
-      x={position.x}
-      y={position.y}
       onMouseDown={(e) => {
-        const offset = {
-          x: coords.x - position.x,
-          y: coords.y - position.y,
-        };
-        reducers.setDraggedFeature({ offset });
+        reducers.setDraggedFeature(coords);
         e.stopPropagation();
       }}
     >
@@ -75,7 +68,7 @@ const Line = ({
             </React.Fragment>
           );
         })}
-    </svg>
+    </g>
   );
 };
 

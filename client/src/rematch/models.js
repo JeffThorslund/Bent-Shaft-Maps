@@ -124,35 +124,31 @@ export const testEnvironment = {
             ],
           },
         ],
-        position: {
-          x: 0,
-          y: 0,
-        },
         range: [-100, 100],
         id: "line_4dk61",
       },
-      {
-        name: "Thread The Needle",
-        desc:
-          "A commonly taken line through McCoys. Start center-right coming into the rapid with your boat pointed slightly left. When approaching the Sattlers, paddle towards river left, clip Sattlers and paddle for your life away from Phils",
-        vector: [
-          { x: 43, y: 68 },
-          {
-            x: 40,
-            y: 40,
-            c: [
-              { x: 85, y: 75 },
-              { x: 98, y: 90 },
-            ],
-          },
-        ],
-        position: {
-          x: 0,
-          y: 0,
-        },
-        range: [-100, 100],
-        id: "line_4dk62",
-      },
+      // {
+      //   name: "Thread The Needle",
+      //   desc:
+      //     "A commonly taken line through McCoys. Start center-right coming into the rapid with your boat pointed slightly left. When approaching the Sattlers, paddle towards river left, clip Sattlers and paddle for your life away from Phils",
+      //   vector: [
+      //     { x: 43, y: 68 },
+      //     {
+      //       x: 40,
+      //       y: 40,
+      //       c: [
+      //         { x: 85, y: 75 },
+      //         { x: 98, y: 90 },
+      //       ],
+      //     },
+      //   ],
+      //   position: {
+      //     x: 0,
+      //     y: 0,
+      //   },
+      //   range: [-100, 100],
+      //   id: "line_4dk62",
+      // },
     ],
     eddys: [
       {
@@ -251,34 +247,63 @@ export const testEnvironment = {
       return state;
     },
     setDraggedFeature: (state, payload) => {
-      state.offset = payload.offset;
+      const { activeType, activeLine, lines, eddys } = state;
+      const { x, y } = payload;
+      const target =
+        activeType === "line"
+          ? lines[activeLine].vector
+          : eddys[activeLine].vector;
+      state.offset = target.map((point) => {
+        const offsetPoint = point.c
+          ? {
+              x: x - point.x,
+              y: y - point.y,
+              c: [
+                { x: x - point.c[0].x, y: y - point.c[0].y },
+                { x: x - point.c[1].x, y: y - point.c[1].y },
+              ],
+            }
+          : {
+              x: x - point.x,
+              y: y - point.y,
+            };
+
+        return offsetPoint;
+      });
       state.draggedFeature = true;
       return state;
     },
     setPointCoords: (state, payload) => {
       const { activePoint, activeLine, activeType } = state;
       const target = activeType === "line" ? state.lines : state.eddys;
-      const { x, y } = target[activeLine].position;
-      target[activeLine].vector[activePoint].x = payload.coords.x - x;
-      target[activeLine].vector[activePoint].y = payload.coords.y - y;
+      target[activeLine].vector[activePoint].x = payload.coords.x;
+      target[activeLine].vector[activePoint].y = payload.coords.y;
       return state;
     },
     setCubicCoords: (state, payload) => {
       const { activePoint, activeLine, activeType } = state;
       const target = activeType === "line" ? state.lines : state.eddys;
-      const { x, y } = target[activeLine].position;
       target[activeLine].vector[activePoint].c[payload.anchor].x =
-        payload.coords.x - x;
+        payload.coords.x;
       target[activeLine].vector[activePoint].c[payload.anchor].y =
-        payload.coords.y - y;
+        payload.coords.y;
       return state;
     },
     setFeatureCoords: (state, payload) => {
-      const { activeLine, offset, activeType } = state;
+      const { activeLine, offset, lines } = state;
       const { coords } = payload;
-      const target = activeType === "line" ? state.lines : state.eddys;
-      target[activeLine].position.x = coords.x - offset.x;
-      target[activeLine].position.y = coords.y - offset.y;
+      lines[activeLine].vector.forEach((point, index) => {
+        if (point.c) {
+          point.c[0].x = coords.x - offset[index].c[0].x;
+          point.c[0].y = coords.y - offset[index].c[0].y;
+          point.c[1].x = coords.x - offset[index].c[1].x;
+          point.c[1].y = coords.y - offset[index].c[1].y;
+        }
+        if (!point.z) {
+          point.x = coords.x - offset[index].x;
+          point.y = coords.y - offset[index].y;
+        }
+      });
       return state;
     },
     cancelDragging: (state) => {
