@@ -29,7 +29,7 @@ const Features = ({
             key={line.id}
           />
         ))}
-      {/*areEddysVisible.value &&
+      {areEddysVisible.value &&
         eddys.map((eddy, i) => (
           <Eddy
             position={eddy.position}
@@ -39,7 +39,7 @@ const Features = ({
             areHandlesVisible={areHandlesVisible}
             key={eddy.id}
           />
-        ))*/}
+        ))}
     </SVG>
   );
 };

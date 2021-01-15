@@ -127,28 +127,28 @@ export const testEnvironment = {
         range: [-100, 100],
         id: "line_4dk61",
       },
-      // {
-      //   name: "Thread The Needle",
-      //   desc:
-      //     "A commonly taken line through McCoys. Start center-right coming into the rapid with your boat pointed slightly left. When approaching the Sattlers, paddle towards river left, clip Sattlers and paddle for your life away from Phils",
-      //   vector: [
-      //     { x: 43, y: 68 },
-      //     {
-      //       x: 40,
-      //       y: 40,
-      //       c: [
-      //         { x: 85, y: 75 },
-      //         { x: 98, y: 90 },
-      //       ],
-      //     },
-      //   ],
-      //   position: {
-      //     x: 0,
-      //     y: 0,
-      //   },
-      //   range: [-100, 100],
-      //   id: "line_4dk62",
-      // },
+      {
+        name: "Thread The Needle",
+        desc:
+          "A commonly taken line through McCoys. Start center-right coming into the rapid with your boat pointed slightly left. When approaching the Sattlers, paddle towards river left, clip Sattlers and paddle for your life away from Phils",
+        vector: [
+          { x: 43, y: 68 },
+          {
+            x: 40,
+            y: 40,
+            c: [
+              { x: 85, y: 75 },
+              { x: 98, y: 90 },
+            ],
+          },
+        ],
+        position: {
+          x: 0,
+          y: 0,
+        },
+        range: [-100, 100],
+        id: "line_4dk62",
+      },
     ],
     eddys: [
       {
@@ -254,21 +254,28 @@ export const testEnvironment = {
           ? lines[activeLine].vector
           : eddys[activeLine].vector;
       state.offset = target.map((point) => {
-        const offsetPoint = point.c
-          ? {
-              x: x - point.x,
-              y: y - point.y,
-              c: [
-                { x: x - point.c[0].x, y: y - point.c[0].y },
-                { x: x - point.c[1].x, y: y - point.c[1].y },
-              ],
-            }
-          : {
-              x: x - point.x,
-              y: y - point.y,
-            };
-
-        return offsetPoint;
+        if (point.z) {
+          return {
+            c: [
+              { x: x - point.c[0].x, y: y - point.c[0].y },
+              { x: x - point.c[1].x, y: y - point.c[1].y },
+            ],
+          };
+        } else if (!point.c) {
+          return {
+            x: x - point.x,
+            y: y - point.y,
+          };
+        } else {
+          return {
+            x: x - point.x,
+            y: y - point.y,
+            c: [
+              { x: x - point.c[0].x, y: y - point.c[0].y },
+              { x: x - point.c[1].x, y: y - point.c[1].y },
+            ],
+          };
+        }
       });
       state.draggedFeature = true;
       return state;
@@ -290,9 +297,13 @@ export const testEnvironment = {
       return state;
     },
     setFeatureCoords: (state, payload) => {
-      const { activeLine, offset, lines } = state;
+      const { activeLine, activeType, offset, lines, eddys } = state;
       const { coords } = payload;
-      lines[activeLine].vector.forEach((point, index) => {
+      const target =
+        activeType === "line"
+          ? lines[activeLine].vector
+          : eddys[activeLine].vector;
+      target.forEach((point, index) => {
         if (point.c) {
           point.c[0].x = coords.x - offset[index].c[0].x;
           point.c[0].y = coords.y - offset[index].c[0].y;
