@@ -142,10 +142,6 @@ export const testEnvironment = {
             ],
           },
         ],
-        position: {
-          x: 0,
-          y: 0,
-        },
         range: [-100, 100],
         id: "line_4dk62",
       },
@@ -172,10 +168,6 @@ export const testEnvironment = {
             ],
           },
         ],
-        position: {
-          x: 0,
-          y: 0,
-        },
         range: [-100, 100],
         id: "eddy_4dk61",
       },
@@ -208,10 +200,6 @@ export const testEnvironment = {
             ],
           },
         ],
-        position: {
-          x: 0,
-          y: 0,
-        },
         range: [-100, 100],
         id: "eddy_4dk62",
       },
@@ -248,18 +236,24 @@ export const testEnvironment = {
     },
     setDraggedFeature: (state, payload) => {
       const { activeType, activeLine, lines, eddys } = state;
+      //Mouse Coordinates
       const { x, y } = payload;
       const target =
         activeType === "line"
           ? lines[activeLine].vector
           : eddys[activeLine].vector;
+      // Calculates Cubics Offset
+      function cubicsOffset(data) {
+        return [
+          { x: x - data.c[0].x, y: y - data.c[0].y },
+          { x: x - data.c[1].x, y: y - data.c[1].y },
+        ];
+      }
+      // Itterates through an array of points & Checks the point type => Offset data
       state.offset = target.map((point) => {
         if (point.z) {
           return {
-            c: [
-              { x: x - point.c[0].x, y: y - point.c[0].y },
-              { x: x - point.c[1].x, y: y - point.c[1].y },
-            ],
+            c: cubicsOffset(point),
           };
         } else if (!point.c) {
           return {
@@ -270,10 +264,7 @@ export const testEnvironment = {
           return {
             x: x - point.x,
             y: y - point.y,
-            c: [
-              { x: x - point.c[0].x, y: y - point.c[0].y },
-              { x: x - point.c[1].x, y: y - point.c[1].y },
-            ],
+            c: cubicsOffset(point),
           };
         }
       });
@@ -298,21 +289,23 @@ export const testEnvironment = {
     },
     setFeatureCoords: (state, payload) => {
       const { activeLine, activeType, offset, lines, eddys } = state;
-      const { coords } = payload;
+      //Mouse Coordinates
+      const { x, y } = payload;
       const target =
         activeType === "line"
           ? lines[activeLine].vector
           : eddys[activeLine].vector;
       target.forEach((point, index) => {
+        const off = offset[index];
         if (point.c) {
-          point.c[0].x = coords.x - offset[index].c[0].x;
-          point.c[0].y = coords.y - offset[index].c[0].y;
-          point.c[1].x = coords.x - offset[index].c[1].x;
-          point.c[1].y = coords.y - offset[index].c[1].y;
+          point.c[0].x = x - off.c[0].x;
+          point.c[0].y = y - off.c[0].y;
+          point.c[1].x = x - off.c[1].x;
+          point.c[1].y = y - off.c[1].y;
         }
         if (!point.z) {
-          point.x = coords.x - offset[index].x;
-          point.y = coords.y - offset[index].y;
+          point.x = x - off.x;
+          point.y = y - off.y;
         }
       });
       return state;
