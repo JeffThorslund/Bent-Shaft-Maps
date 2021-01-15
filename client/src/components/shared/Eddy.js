@@ -8,7 +8,6 @@ import Cubic from "./Cubic";
  */
 
 const Eddy = ({
-  position,
   line,
   featureType = "eddy",
   lineIndex,

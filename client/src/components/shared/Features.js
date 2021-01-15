@@ -21,7 +21,6 @@ const Features = ({
       {areLinesVisible.value &&
         lines.map((line, i) => (
           <Line
-            position={line.position}
             line={line.vector}
             lineIndex={i}
             reducers={reducers}
@@ -32,7 +31,6 @@ const Features = ({
       {areEddysVisible.value &&
         eddys.map((eddy, i) => (
           <Eddy
-            position={eddy.position}
             line={eddy.vector}
             lineIndex={i}
             reducers={reducers}
