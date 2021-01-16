@@ -215,6 +215,55 @@ export const testEnvironment = {
 		offset: null,
 	},
 	reducers: {
+		addFeature: (state, payload) => {
+			const { type, coords } = payload;
+			const target = type === "line" ? state.lines : state.eddys;
+			if (type === "line") {
+				target.push({
+					name: "",
+					desc: "",
+					vector: [
+						{ x: 60, y: 40 },
+						{
+							x: 30,
+							y: 30,
+							c: [
+								{ x: 55, y: 60 },
+								{ x: 55, y: 10 },
+							],
+						},
+					],
+					range: [-100, 100],
+					id: "line_4dk63",
+				});
+			} else if (type === "eddy") {
+				target.push({
+					name: "",
+					desc: "",
+					vector: [
+						{ x: 10, y: 80 },
+						{
+							x: 40,
+							y: 80,
+							c: [
+								{ x: 10, y: 100 },
+								{ x: 40, y: 100 },
+							],
+						},
+						{
+							z: 1,
+							c: [
+								{ x: 40, y: 65 },
+								{ x: 10, y: 65 },
+							],
+						},
+					],
+					range: [-100, 100],
+					id: "eddy_4dk63",
+				});
+			}
+			return state;
+		},
 		removeFeature: (state) => {
 			const { activeType, activeLine, eddys, lines } = state;
 			const target = activeType === "line" ? lines : eddys;

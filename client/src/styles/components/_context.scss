@@ -1,0 +1,15 @@
+.context {
+	position: absolute;
+	z-index: 100;
+	width: 150px;
+
+	box-shadow: 3px 3px 3px grey;
+
+	.btn {
+		margin: 5px 5px;
+	}
+
+	&.hide {
+		display: none;
+	}
+}
