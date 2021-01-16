@@ -248,39 +248,40 @@ export const testEnvironment = {
       return state;
     },
     setDraggedFeature: (state, payload) => {
-      const { activeType, activeLine, lines, eddys } = state;
+      const { activeType, activeLine, lines, eddys, hydraulics } = state;
       //Mouse Coordinates
       const { x, y } = payload;
+
       const target =
         activeType === "line"
           ? lines[activeLine].vector
-          : eddys[activeLine].vector;
+          : activeType === "eddy"
+          ? eddys[activeLine].vector
+          : activeType === "hydraulic"
+          ? hydraulics[activeLine].vector
+          : null;
+
       // Calculates Cubics Offset
-      function cubicsOffset(data) {
-        return [
-          { x: x - data.c[0].x, y: y - data.c[0].y },
-          { x: x - data.c[1].x, y: y - data.c[1].y },
-        ];
-      }
+      const cubicsOffset = (data) => [
+        { x: x - data.c[0].x, y: y - data.c[0].y },
+        { x: x - data.c[1].x, y: y - data.c[1].y },
+      ];
+
       // Itterates through an array of points & Checks the point type => Offset data
-      state.offset = target.map((point) => {
-        if (point.z) {
-          return {
-            c: cubicsOffset(point),
-          };
-        } else if (!point.c) {
-          return {
-            x: x - point.x,
-            y: y - point.y,
-          };
-        } else {
-          return {
-            x: x - point.x,
-            y: y - point.y,
-            c: cubicsOffset(point),
-          };
-        }
-      });
+      state.offset = target.map((point) =>
+        point.hasOwnProperty("z")
+          ? { c: cubicsOffset(point) }
+          : point.hasOwnProperty("c")
+          ? {
+              x: x - point.x,
+              y: y - point.y,
+              c: cubicsOffset(point),
+            }
+          : {
+              x: x - point.x,
+              y: y - point.y,
+            }
+      );
       state.draggedFeature = true;
       return state;
     },
@@ -307,13 +308,25 @@ export const testEnvironment = {
       return state;
     },
     setFeatureCoords: (state, payload) => {
-      const { activeLine, activeType, offset, lines, eddys } = state;
+      const {
+        activeLine,
+        activeType,
+        offset,
+        lines,
+        eddys,
+        hydraulics,
+      } = state;
       //Mouse Coordinates
       const { x, y } = payload;
+
       const target =
         activeType === "line"
           ? lines[activeLine].vector
-          : eddys[activeLine].vector;
+          : activeType === "eddy"
+          ? eddys[activeLine].vector
+          : activeType === "hydraulic"
+          ? hydraulics[activeLine].vector
+          : null;
       target.forEach((point, index) => {
         const off = offset[index];
         if (point.c) {
