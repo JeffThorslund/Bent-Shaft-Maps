@@ -22,6 +22,11 @@ const Hydraulic = ({
         e.stopPropagation();
       }}
     >
+      <path
+        onMouseOver={() => reducers.setActiveType({ featureType, lineIndex })}
+        className={featureType}
+        d={`M ${line[0].x} ${line[0].y} L ${line[1].x} ${line[1].y}`}
+      />
       {areHandlesVisible.value &&
         line.map((p, i) => (
           <Point

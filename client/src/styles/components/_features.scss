@@ -36,6 +36,13 @@ $dark-jungle-green: #01110aff;
 	stroke-linecap: round;
 }
 
+.hydraulic {
+	@extend %path;
+	fill: none;
+	stroke-width: 2px;
+	stroke-linecap: round;
+}
+
 .bezier-anchor {
 	cursor: pointer;
 	fill: #888;
