@@ -10686,6 +10686,10 @@ h3 {
   stroke: #01110aff;
 }
 
+.draggable {
+  cursor: move;
+}
+
 .line {
   fill: none;
   stroke-width: 0.5px;

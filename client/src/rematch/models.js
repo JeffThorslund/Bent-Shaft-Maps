@@ -124,8 +124,6 @@ export const testEnvironment = {
             ],
           },
         ],
-        x: 260.55,
-        y: 460.26,
         range: [-100, 100],
         id: "line_4dk61",
       },
@@ -144,8 +142,6 @@ export const testEnvironment = {
             ],
           },
         ],
-        x: 260.55,
-        y: 460.26,
         range: [-100, 100],
         id: "line_4dk62",
       },
@@ -172,8 +168,6 @@ export const testEnvironment = {
             ],
           },
         ],
-        x: 260.55,
-        y: 460.26,
         range: [-100, 100],
         id: "eddy_4dk61",
       },
@@ -206,8 +200,6 @@ export const testEnvironment = {
             ],
           },
         ],
-        x: 260.55,
-        y: 460.26,
         range: [-100, 100],
         id: "eddy_4dk62",
       },
@@ -219,9 +211,12 @@ export const testEnvironment = {
     activePoint: 0,
     draggedPoint: false,
     draggedCubic: false,
+    draggedFeature: false,
+    offset: null,
   },
   reducers: {
     setActiveType: (state, payload) => {
+      if (state.draggedFeature) return state;
       state.activeType = payload.featureType;
       state.activeLine = payload.lineIndex;
       return state;
@@ -240,6 +235,43 @@ export const testEnvironment = {
       state.draggedCubic = payload.anchor;
       return state;
     },
+    setDraggedFeature: (state, payload) => {
+      const { activeType, activeLine, lines, eddys } = state;
+      //Mouse Coordinates
+      const { x, y } = payload;
+      const target =
+        activeType === "line"
+          ? lines[activeLine].vector
+          : eddys[activeLine].vector;
+      // Calculates Cubics Offset
+      function cubicsOffset(data) {
+        return [
+          { x: x - data.c[0].x, y: y - data.c[0].y },
+          { x: x - data.c[1].x, y: y - data.c[1].y },
+        ];
+      }
+      // Itterates through an array of points & Checks the point type => Offset data
+      state.offset = target.map((point) => {
+        if (point.z) {
+          return {
+            c: cubicsOffset(point),
+          };
+        } else if (!point.c) {
+          return {
+            x: x - point.x,
+            y: y - point.y,
+          };
+        } else {
+          return {
+            x: x - point.x,
+            y: y - point.y,
+            c: cubicsOffset(point),
+          };
+        }
+      });
+      state.draggedFeature = true;
+      return state;
+    },
     setPointCoords: (state, payload) => {
       const { activePoint, activeLine, activeType } = state;
       const target = activeType === "line" ? state.lines : state.eddys;
@@ -256,9 +288,34 @@ export const testEnvironment = {
         payload.coords.y;
       return state;
     },
+    setFeatureCoords: (state, payload) => {
+      const { activeLine, activeType, offset, lines, eddys } = state;
+      //Mouse Coordinates
+      const { x, y } = payload;
+      const target =
+        activeType === "line"
+          ? lines[activeLine].vector
+          : eddys[activeLine].vector;
+      target.forEach((point, index) => {
+        const off = offset[index];
+        if (point.c) {
+          point.c[0].x = x - off.c[0].x;
+          point.c[0].y = y - off.c[0].y;
+          point.c[1].x = x - off.c[1].x;
+          point.c[1].y = y - off.c[1].y;
+        }
+        if (!point.z) {
+          point.x = x - off.x;
+          point.y = y - off.y;
+        }
+      });
+      return state;
+    },
     cancelDragging: (state) => {
       state.draggedPoint = false;
       state.draggedCubic = false;
+      state.draggedFeature = false;
+      state.offset = null;
       return state;
     },
     addPoint: (state, payload) => {

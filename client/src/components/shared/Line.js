@@ -1,5 +1,5 @@
 import React from "react";
-import { buildPath } from "./_utils";
+import { buildPath, useMousePosition } from "./_utils";
 import Point from "./Point";
 import Cubic from "./Cubic";
 
@@ -14,8 +14,15 @@ const Line = ({
   reducers,
   areHandlesVisible,
 }) => {
+  const coords = useMousePosition();
   return (
-    <>
+    <g
+      className="draggable"
+      onMouseDown={(e) => {
+        reducers.setDraggedFeature(coords);
+        e.stopPropagation();
+      }}
+    >
       <path
         onMouseOver={() => reducers.setActiveType({ featureType, lineIndex })}
         className={featureType}
@@ -61,7 +68,7 @@ const Line = ({
             </React.Fragment>
           );
         })}
-    </>
+    </g>
   );
 };
 

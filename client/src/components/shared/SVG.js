@@ -2,11 +2,8 @@ import React from "react";
 import { useSelector } from "react-redux";
 import { useMousePosition, useKeyPress } from "../shared/_utils";
 
-const SVG = ({
-  reducers,
-  children,
-}) => {
-  const { draggedPoint, draggedCubic } = useSelector(
+const SVG = ({ reducers, children }) => {
+  const { draggedPoint, draggedCubic, draggedFeature } = useSelector(
     (state) => state.testEnvironment
   );
 
@@ -18,9 +15,10 @@ const SVG = ({
       reducers.setPointCoords({ coords });
     } else if (draggedCubic !== false) {
       reducers.setCubicCoords({ coords, anchor: draggedCubic });
+    } else if (draggedFeature) {
+      reducers.setFeatureCoords(coords);
     } else return;
   };
-
   return (
     <svg
       className="svg-wrapper"
