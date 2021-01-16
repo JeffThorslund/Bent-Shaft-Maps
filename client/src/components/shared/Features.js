@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import SVG from "./SVG";
 import Line from "./Line";
 import Eddy from "./Eddy";
+import Hydraulic from "./Hydraulic";
 
 /**
  * Holds all interact-able elements of a rapid. It should make an array of SVG elements to pass down.
@@ -14,8 +15,9 @@ const Features = ({
   areHandlesVisible,
   areLinesVisible,
   areEddysVisible,
+  areHydraulicsVisible,
 }) => {
-  const { lines, eddys } = rapid;
+  const { lines, eddys, hydraulics } = rapid;
   return (
     <SVG reducers={reducers}>
       {areLinesVisible.value &&
@@ -36,6 +38,16 @@ const Features = ({
             reducers={reducers}
             areHandlesVisible={areHandlesVisible}
             key={eddy.id}
+          />
+        ))}
+      {areHydraulicsVisible.value &&
+        hydraulics.map((hydraulic, i) => (
+          <Hydraulic
+            line={hydraulic.vector}
+            lineIndex={i}
+            reducers={reducers}
+            areHandlesVisible={areHandlesVisible}
+            key={hydraulic.id}
           />
         ))}
     </SVG>

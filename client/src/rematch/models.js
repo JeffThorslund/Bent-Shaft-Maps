@@ -204,7 +204,19 @@ export const testEnvironment = {
         id: "eddy_4dk62",
       },
     ],
-    hydraulics: [],
+    hydraulics: [
+      {
+        name: "test-wave",
+        vector: [
+          {
+            x: 30,
+            y: 40,
+          },
+          { x: 50, y: 60 },
+        ],
+        id: "an_id_asdijfasldfjawerwe",
+      },
+    ],
     closePath: true,
     activeType: "",
     activeLine: 0,
@@ -274,7 +286,13 @@ export const testEnvironment = {
     },
     setPointCoords: (state, payload) => {
       const { activePoint, activeLine, activeType } = state;
-      const target = activeType === "line" ? state.lines : state.eddys;
+
+      const target = {
+        line: state.lines,
+        eddy: state.eddys,
+        hydraulic: state.hydraulics,
+      }[activeType];
+
       target[activeLine].vector[activePoint].x = payload.coords.x;
       target[activeLine].vector[activePoint].y = payload.coords.y;
       return state;

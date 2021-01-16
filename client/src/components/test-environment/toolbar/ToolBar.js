@@ -25,6 +25,12 @@ const ToolBar = (props) => (
         checked={props.areEddysVisible.value}
         onChange={props.areEddysVisible.set}
       />
+       <Form.Check
+        type={"checkbox"}
+        label={"Show Hydraulics"}
+        checked={props.areHydraulicsVisible.value}
+        onChange={props.areHydraulicsVisible.set}
+      />
     </div>
   </Form>
 );

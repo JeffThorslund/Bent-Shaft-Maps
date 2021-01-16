@@ -11,6 +11,7 @@ const TestEnvironment = () => {
   const areHandlesVisible = useToggle(true);
   const areLinesVisible = useToggle(true);
   const areEddysVisible = useToggle(true);
+  const areHydraulicsVisible = useToggle(true);
 
   const { dispatch } = store;
   const rapid = useSelector((state) => state.testEnvironment);
@@ -25,11 +26,13 @@ const TestEnvironment = () => {
         areHandlesVisible={areHandlesVisible}
         areLinesVisible={areLinesVisible}
         areEddysVisible={areEddysVisible}
+        areHydraulicsVisible={areHydraulicsVisible}
       />
       <ToolBar
         areHandlesVisible={areHandlesVisible}
         areLinesVisible={areLinesVisible}
         areEddysVisible={areEddysVisible}
+        areHydraulicsVisible={areHydraulicsVisible}
       />
     </>
   );
