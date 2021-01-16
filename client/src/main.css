@@ -10687,7 +10687,15 @@ h3 {
 }
 
 .draggable {
-  cursor: move;
+  cursor: grab;
+}
+
+.draggable:active {
+  cursor: grabbing;
+}
+
+.remove {
+  cursor: no-drop;
 }
 
 .line {
