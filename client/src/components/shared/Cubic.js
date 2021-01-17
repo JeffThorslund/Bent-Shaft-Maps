@@ -50,7 +50,7 @@ const Cubic = ({
 					x={props.x1}
 					y={props.y1}
 				>
-					{`${pointIndex}/0`}
+					{`${pointIndex}|0`}
 				</text>
 			</g>
 			<g>
@@ -78,7 +78,7 @@ const Cubic = ({
 					x={props.x2}
 					y={props.y2}
 				>
-					{`${pointIndex}/1`}
+					{`${pointIndex}|1`}
 				</text>
 			</g>
 		</g>

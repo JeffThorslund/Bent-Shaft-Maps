@@ -26,12 +26,14 @@ const ContextMenu = (props) => {
 				<input
 					className="form-control"
 					ref={register}
+					required={true}
 					name="name"
 					placeholder="Name"
 				/>
 				<textarea
 					className="form-control"
 					ref={register}
+					required={true}
 					rows={10}
 					name="desc"
 					placeholder="Description..."
