@@ -222,9 +222,8 @@ export const testEnvironment = {
 				name,
 				desc,
 			} = payload;
-			const target = type === "line" ? state.lines : state.eddys;
 			if (type === "line") {
-				target.push({
+				state.lines.push({
 					name: name,
 					desc: desc,
 					vector: [
@@ -242,7 +241,7 @@ export const testEnvironment = {
 					id: `${type}_d${x[0]}`,
 				});
 			} else if (type === "eddy") {
-				target.push({
+				state.eddys.push({
 					name: name,
 					desc: desc,
 					vector: [

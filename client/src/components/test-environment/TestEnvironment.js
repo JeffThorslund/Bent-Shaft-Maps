@@ -7,7 +7,7 @@ import { useToggle } from "../_utils";
 import ContextMenu from "./toolbar/ContextMenu";
 
 const TestEnvironment = () => {
-	const [menu, setMenu] = useState({ show: false });
+	const [menu, setMenu] = useState(false);
 	//Set your prefered /test-env settings below
 	const areHandlesVisible = useToggle(true);
 	const areLinesVisible = useToggle(true);
@@ -18,10 +18,10 @@ const TestEnvironment = () => {
 	const level = 0;
 
 	return (
-		<div onContextMenu={(e) => setMenu({ show: true, x: e.pageX, y: e.pageY })}>
+		<div>
 			<ContextMenu
-				state={menu}
-				close={() => setMenu({ show: false })}
+				show={menu}
+				close={() => setMenu(false)}
 				reducers={dispatch.testEnvironment}
 			/>
 			<Features
@@ -36,6 +36,7 @@ const TestEnvironment = () => {
 				areHandlesVisible={areHandlesVisible}
 				areLinesVisible={areLinesVisible}
 				areEddysVisible={areEddysVisible}
+				toggleMenu={() => setMenu(true)}
 			/>
 		</div>
 	);

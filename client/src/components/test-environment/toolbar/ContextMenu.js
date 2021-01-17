@@ -6,7 +6,6 @@ import { useMousePosition } from "../../shared/_utils";
 const ContextMenu = (props) => {
 	const [type, setType] = useState("");
 	const { register, handleSubmit } = useForm({});
-	const { show, x, y } = props.state;
 	const coords = useMousePosition();
 	const onSubmit = (data) => {
 		data.type = type;
@@ -15,10 +14,7 @@ const ContextMenu = (props) => {
 		props.close();
 	};
 	return (
-		<Card
-			className={show ? "context" : "context hide"}
-			style={{ top: y, left: x }}
-		>
+		<Card className={props.show ? "context" : "context hide"}>
 			<form onSubmit={handleSubmit(onSubmit)}>
 				<label className="form-label">Add New Feature</label>
 				<input
@@ -49,7 +45,7 @@ const ContextMenu = (props) => {
 					Add Eddy
 				</Button>
 				<Button variant="outline-danger" onClick={() => props.close()}>
-					Cancel
+					Close
 				</Button>
 			</form>
 		</Card>
