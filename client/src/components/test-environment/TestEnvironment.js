@@ -18,11 +18,12 @@ const TestEnvironment = () => {
 	const level = 0;
 
 	return (
-		<div
-			onContextMenu={(e) => setMenu({ show: true, x: e.pageX, y: e.pageY })}
-			onClick={() => setMenu({ show: false })}
-		>
-			<ContextMenu state={menu} reducers={dispatch.testEnvironment} />
+		<div onContextMenu={(e) => setMenu({ show: true, x: e.pageX, y: e.pageY })}>
+			<ContextMenu
+				state={menu}
+				close={() => setMenu({ show: false })}
+				reducers={dispatch.testEnvironment}
+			/>
 			<Features
 				rapid={rapid}
 				level={level}

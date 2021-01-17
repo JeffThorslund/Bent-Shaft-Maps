@@ -10792,13 +10792,14 @@ h3 {
 }
 
 .context {
+  text-align: center;
   position: absolute;
   z-index: 100;
-  width: 150px;
+  width: 400px;
   box-shadow: 3px 3px 3px grey;
 }
 .context .btn {
-  margin: 5px 5px;
+  width: 100px;
 }
 .context.hide {
   display: none;

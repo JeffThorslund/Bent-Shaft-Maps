@@ -219,12 +219,14 @@ export const testEnvironment = {
 			const {
 				type,
 				coords: { x, y },
+				name,
+				desc,
 			} = payload;
 			const target = type === "line" ? state.lines : state.eddys;
 			if (type === "line") {
 				target.push({
-					name: "",
-					desc: "",
+					name: name,
+					desc: desc,
 					vector: [
 						{ x: x - 5, y: y },
 						{
@@ -237,12 +239,12 @@ export const testEnvironment = {
 						},
 					],
 					range: [-100, 100],
-					id: `${type}_x${x}y${y}`,
+					id: `${type}_d${x[0]}`,
 				});
 			} else if (type === "eddy") {
 				target.push({
-					name: "",
-					desc: "",
+					name: name,
+					desc: desc,
 					vector: [
 						{ x: x - 5, y: y },
 						{
@@ -262,7 +264,7 @@ export const testEnvironment = {
 						},
 					],
 					range: [-100, 100],
-					id: `${type}_x${x}y${y}`,
+					id: `${type}_d${x}`,
 				});
 			}
 			return state;
