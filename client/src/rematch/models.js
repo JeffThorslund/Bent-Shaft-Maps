@@ -216,50 +216,53 @@ export const testEnvironment = {
 	},
 	reducers: {
 		addFeature: (state, payload) => {
-			const { type, coords } = payload;
+			const {
+				type,
+				coords: { x, y },
+			} = payload;
 			const target = type === "line" ? state.lines : state.eddys;
 			if (type === "line") {
 				target.push({
 					name: "",
 					desc: "",
 					vector: [
-						{ x: 60, y: 40 },
+						{ x: x - 5, y: y },
 						{
-							x: 30,
-							y: 30,
+							x: x + 5,
+							y: y,
 							c: [
-								{ x: 55, y: 60 },
-								{ x: 55, y: 10 },
+								{ x: x - 8, y: y },
+								{ x: x + 8, y: y },
 							],
 						},
 					],
 					range: [-100, 100],
-					id: "line_4dk63",
+					id: `${type}_x${x}y${y}`,
 				});
 			} else if (type === "eddy") {
 				target.push({
 					name: "",
 					desc: "",
 					vector: [
-						{ x: 10, y: 80 },
+						{ x: x - 5, y: y },
 						{
-							x: 40,
-							y: 80,
+							x: x + 5,
+							y: y,
 							c: [
-								{ x: 10, y: 100 },
-								{ x: 40, y: 100 },
+								{ x: x - 5, y: y + 10 },
+								{ x: x + 5, y: y + 10 },
 							],
 						},
 						{
 							z: 1,
 							c: [
-								{ x: 40, y: 65 },
-								{ x: 10, y: 65 },
+								{ x: x + 5, y: y - 10 },
+								{ x: x - 5, y: y - 10 },
 							],
 						},
 					],
 					range: [-100, 100],
-					id: "eddy_4dk63",
+					id: `${type}_x${x}y${y}`,
 				});
 			}
 			return state;

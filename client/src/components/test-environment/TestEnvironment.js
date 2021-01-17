@@ -17,18 +17,10 @@ const TestEnvironment = () => {
 	const rapid = useSelector((state) => state.testEnvironment);
 	const level = 0;
 
-	const openContextMenu = (e) => {
-		setMenu({ show: true, x: e.pageX, y: e.pageY });
-	};
-
-	const closeContextMenu = () => {
-		setMenu({ show: false });
-	};
-
 	return (
 		<div
-			onContextMenu={(e) => openContextMenu(e)}
-			onClick={() => closeContextMenu()}
+			onContextMenu={(e) => setMenu({ show: true, x: e.pageX, y: e.pageY })}
+			onClick={() => setMenu({ show: false })}
 		>
 			<ContextMenu state={menu} reducers={dispatch.testEnvironment} />
 			<Features
