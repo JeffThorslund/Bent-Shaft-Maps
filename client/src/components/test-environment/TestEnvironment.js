@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { useSelector } from "react-redux";
 import store from "../../rematch/store";
 import Features from "../shared/Features";
@@ -7,12 +7,12 @@ import { useToggle } from "../_utils";
 import ContextMenu from "./toolbar/ContextMenu";
 
 const TestEnvironment = () => {
-	const [menu, setMenu] = useState(false);
 	//Set your prefered /test-env settings below
 	const areHandlesVisible = useToggle(true);
 	const areLinesVisible = useToggle(true);
 	const areEddysVisible = useToggle(true);
 	const areIndexVisible = useToggle(true);
+	const isMenuVisible = useToggle(false);
 
 	const { dispatch } = store;
 	const rapid = useSelector((state) => state.testEnvironment);
@@ -21,8 +21,8 @@ const TestEnvironment = () => {
 	return (
 		<div>
 			<ContextMenu
-				show={menu}
-				close={() => setMenu(false)}
+				show={isMenuVisible.value}
+				isMenuVisible={() => isMenuVisible.set()}
 				reducers={dispatch.testEnvironment}
 			/>
 			<Features
@@ -39,7 +39,7 @@ const TestEnvironment = () => {
 				areLinesVisible={areLinesVisible}
 				areEddysVisible={areEddysVisible}
 				areIndexVisible={areIndexVisible}
-				toggleMenu={() => setMenu(true)}
+				isMenuVisible={isMenuVisible}
 			/>
 		</div>
 	);

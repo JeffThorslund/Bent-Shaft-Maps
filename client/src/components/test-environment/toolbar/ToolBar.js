@@ -35,7 +35,7 @@ const ToolBar = (props) => (
 		<Button
 			variant="primary"
 			style={{ position: "absolute", top: 140, width: 139 }}
-			onClick={() => props.toggleMenu()}
+			onClick={() => props.isMenuVisible.set()}
 		>
 			Add Feature
 		</Button>

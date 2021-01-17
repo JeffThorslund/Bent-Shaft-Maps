@@ -4,14 +4,20 @@ import { Card, Button } from "react-bootstrap";
 import { useMousePosition } from "../../shared/_utils";
 
 const ContextMenu = (props) => {
-	const [type, setType] = useState("");
-	const { register, handleSubmit } = useForm({});
 	const coords = useMousePosition();
+	// Differ Feature Type to Create
+	const [type, setType] = useState("");
+	// Form Handler
+	const { register, handleSubmit } = useForm({});
+	// Handle Info Submition
 	const onSubmit = (data) => {
+		// Compose Payload for Reducer
 		data.type = type;
 		data.coords = coords;
+		// Send Data
 		props.reducers.addFeature(data);
-		props.close();
+		// Close Menu
+		props.isMenuVisible();
 	};
 	return (
 		<Card className={props.show ? "context" : "context hide"}>
@@ -44,7 +50,10 @@ const ContextMenu = (props) => {
 				>
 					Add Eddy
 				</Button>
-				<Button variant="outline-danger" onClick={() => props.close()}>
+				<Button
+					variant="outline-danger"
+					onClick={(e) => props.isMenuVisible(e)}
+				>
 					Close
 				</Button>
 			</form>
