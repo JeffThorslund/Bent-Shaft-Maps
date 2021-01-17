@@ -1,6 +1,14 @@
 import React from "react";
 
-const Cubic = ({ featureType, lineIndex, pointIndex, reducers, ...props }) => {
+const Cubic = ({
+	featureType,
+	lineIndex,
+	pointIndex,
+	reducers,
+	areIndexVisible,
+	...props
+}) => {
+	const visibility = areIndexVisible.value ? "visible" : "hidden";
 	return (
 		<g className="ad-Anchor">
 			<line
@@ -33,6 +41,7 @@ const Cubic = ({ featureType, lineIndex, pointIndex, reducers, ...props }) => {
 					r={1}
 				/>
 				<text
+					visibility={visibility}
 					fontSize={"1px"}
 					strokeWidth={"0.01"}
 					fill="white"
@@ -60,6 +69,7 @@ const Cubic = ({ featureType, lineIndex, pointIndex, reducers, ...props }) => {
 					r={1}
 				/>
 				<text
+					visibility={visibility}
 					fontSize={"1px"}
 					strokeWidth={"0.01"}
 					fill="white"

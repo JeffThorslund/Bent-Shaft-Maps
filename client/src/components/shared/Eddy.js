@@ -13,6 +13,7 @@ const Eddy = ({
 	lineIndex,
 	reducers,
 	areHandlesVisible,
+	areIndexVisible,
 }) => {
 	const isCtrlPressed = useKeyPress("Control");
 	const coords = useMousePosition();
@@ -41,6 +42,7 @@ const Eddy = ({
 					const p2y = p.z ? a[0].y : p.y;
 					const point = p.z ? null : (
 						<Point
+							areIndexVisible={areIndexVisible}
 							featureType={featureType}
 							lineIndex={lineIndex}
 							pointIndex={i}
@@ -54,6 +56,7 @@ const Eddy = ({
 					if (p.c) {
 						anchors.push(
 							<Cubic
+								areIndexVisible={areIndexVisible}
 								featureType={featureType}
 								lineIndex={lineIndex}
 								pointIndex={i}

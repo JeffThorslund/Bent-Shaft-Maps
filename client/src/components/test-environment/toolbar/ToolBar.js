@@ -25,10 +25,16 @@ const ToolBar = (props) => (
 				checked={props.areEddysVisible.value}
 				onChange={props.areEddysVisible.set}
 			/>
+			<Form.Check
+				type={"checkbox"}
+				label={"Show Index"}
+				checked={props.areIndexVisible.value}
+				onChange={props.areIndexVisible.set}
+			/>
 		</div>
 		<Button
 			variant="primary"
-			style={{ position: "absolute", top: 120, width: 139 }}
+			style={{ position: "absolute", top: 140, width: 139 }}
 			onClick={() => props.toggleMenu()}
 		>
 			Add Feature

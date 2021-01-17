@@ -13,6 +13,7 @@ const Line = ({
 	lineIndex,
 	reducers,
 	areHandlesVisible,
+	areIndexVisible,
 }) => {
 	const isCtrlPressed = useKeyPress("Control");
 	const coords = useMousePosition();
@@ -40,6 +41,7 @@ const Line = ({
 					if (p.c) {
 						anchors.push(
 							<Cubic
+								areIndexVisible={areIndexVisible}
 								featureType={featureType}
 								lineIndex={lineIndex}
 								pointIndex={i}
@@ -59,6 +61,7 @@ const Line = ({
 					return (
 						<React.Fragment key={i}>
 							<Point
+								areIndexVisible={areIndexVisible}
 								featureType={featureType}
 								lineIndex={lineIndex}
 								pointIndex={i}

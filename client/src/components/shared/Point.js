@@ -8,8 +8,17 @@ import { useKeyPress } from "../shared/_utils";
  * @param {number} y - The y coord position of the point on a 100x100 layout.
  */
 
-const Point = ({ featureType, lineIndex, x, y, pointIndex, reducers }) => {
+const Point = ({
+	featureType,
+	lineIndex,
+	x,
+	y,
+	pointIndex,
+	reducers,
+	areIndexVisible,
+}) => {
 	const isCtrlPressed = useKeyPress("Control");
+	const visibility = areIndexVisible.value ? "visible" : "hidden";
 	return (
 		<g>
 			<circle
@@ -25,6 +34,7 @@ const Point = ({ featureType, lineIndex, x, y, pointIndex, reducers }) => {
 				r={1}
 			/>
 			<text
+				visibility={visibility}
 				fontSize={"2px"}
 				strokeWidth={"0.01"}
 				fill="white"
