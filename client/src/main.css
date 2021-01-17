@@ -10682,7 +10682,7 @@ h3 {
   left: 0px;
 }
 
-.hydraulic, .eddy, .line {
+.eddy, .line {
   stroke: #01110aff;
 }
 
@@ -10706,7 +10706,6 @@ h3 {
 
 .hydraulic {
   fill: none;
-  stroke-width: 2px;
   stroke-linecap: round;
 }
 

@@ -37,9 +37,7 @@ $dark-jungle-green: #01110aff;
 }
 
 .hydraulic {
-	@extend %path;
 	fill: none;
-	stroke-width: 2px;
 	stroke-linecap: round;
 }
 
