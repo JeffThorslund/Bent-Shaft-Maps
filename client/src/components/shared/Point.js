@@ -9,21 +9,33 @@ import { useKeyPress } from "../shared/_utils";
  */
 
 const Point = ({ featureType, lineIndex, x, y, pointIndex, reducers }) => {
-  const isCtrlPressed = useKeyPress("Control");
-  return (
-    <circle
-      className="point"
-      onMouseDown={(e) => {
-        isCtrlPressed
-          ? reducers.removePoint({ lineIndex, pointIndex })
-          : reducers.setDraggedPoint({ lineIndex, pointIndex, featureType });
-        e.stopPropagation();
-      }}
-      cx={x}
-      cy={y}
-      r={1}
-    />
-  );
+	const isCtrlPressed = useKeyPress("Control");
+	return (
+		<g>
+			<circle
+				className="point"
+				onMouseDown={(e) => {
+					isCtrlPressed
+						? reducers.removePoint({ lineIndex, pointIndex })
+						: reducers.setDraggedPoint({ lineIndex, pointIndex, featureType });
+					e.stopPropagation();
+				}}
+				cx={x}
+				cy={y}
+				r={1}
+			/>
+			<text
+				fontSize={"2px"}
+				strokeWidth={"0.01"}
+				fill="white"
+				stroke="white"
+				x={x - 1.5}
+				y={y + 0.5}
+			>
+				{pointIndex}
+			</text>
+		</g>
+	);
 };
 
 export default Point;
