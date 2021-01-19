@@ -14,9 +14,12 @@ const Point = ({ featureType, lineIndex, x, y, pointIndex, reducers }) => {
     <circle
       className="point"
       onMouseDown={(e) => {
-        isCtrlPressed
-          ? reducers.removePoint({ lineIndex, pointIndex })
-          : reducers.setDraggedPoint({ lineIndex, pointIndex, featureType });
+        if (isCtrlPressed) {
+          reducers.removePoint({ lineIndex, pointIndex });
+        } else {
+          reducers.setDraggedPoint({ lineIndex, pointIndex, featureType });
+        }
+
         e.stopPropagation();
       }}
       cx={x}

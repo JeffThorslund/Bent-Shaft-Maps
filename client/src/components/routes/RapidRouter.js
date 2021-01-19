@@ -6,7 +6,7 @@ import Introduction from '../river/Introduction';
 
 const RapidRouter = ({ sections, riverId }) => {
   const { url, path } = useRouteMatch();
-  const { sectionPath } = useParams();
+  const sectionPath = useParams().section_path;
 
   const section = sections.find(
     (singleSection) => paramCase(singleSection.name) === sectionPath

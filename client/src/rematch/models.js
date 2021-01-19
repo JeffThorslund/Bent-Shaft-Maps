@@ -42,10 +42,10 @@ export const data = {
   },
 
   effects: {
-    async fetchRiversAsync(payload, rootState) {
+    async fetchRiversAsync() {
       const response = await axios.get('/api/getRivers');
-      const data = await response.data;
-      this.fetchRivers(data);
+      const rivers = await response.data;
+      this.fetchRivers(rivers);
     },
   },
 };
@@ -244,10 +244,10 @@ export const testEnvironment = {
           ? lines[activeLine].vector
           : eddys[activeLine].vector;
       // Calculates Cubics Offset
-      function cubicsOffset(data) {
+      function cubicsOffset(vector) {
         return [
-          { x: x - data.c[0].x, y: y - data.c[0].y },
-          { x: x - data.c[1].x, y: y - data.c[1].y },
+          { x: x - vector.c[0].x, y: y - vector.c[0].y },
+          { x: x - vector.c[1].x, y: y - vector.c[1].y },
         ];
       }
       // Itterates through an array of points & Checks the point type => Offset data

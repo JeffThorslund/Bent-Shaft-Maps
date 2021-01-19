@@ -24,8 +24,7 @@ const UserRouter = () => {
     const checkLoggedIn = async () => {
       // Get token from local storage, gets null if does not exist
       const token = localStorage.getItem('auth-token');
-
-      token &&
+      if (token) {
         axios
           .get('/auth/verify', {
             params: {
@@ -42,6 +41,7 @@ const UserRouter = () => {
           .catch((error) => {
             console.log(error.response.data);
           });
+      }
     };
     checkLoggedIn();
   }, [login]);

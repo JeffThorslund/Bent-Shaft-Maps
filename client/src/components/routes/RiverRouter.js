@@ -15,10 +15,9 @@ const RiverRouter = ({ rivers }) => {
           <h3 key={i}>{paramCase(river.name)}</h3>
         ))}
       </Route>
-      <Route
-        path={`${path}/:river_path`}
-        children={<SectionRouter rivers={rivers} />}
-      />
+      <Route path={`${path}/:river_path`}>
+        <SectionRouter rivers={rivers} />
+      </Route>
     </Switch>
   );
 };

@@ -6,7 +6,6 @@ import RiverRouter from './RiverRouter';
 import UserRouter from '../user/UserRouter';
 import PrivacyPolicy from '../user/PrivacyPolicy';
 import TestEnvironment from '../test-environment/TestEnvironment';
-import Editing from '../user/editing-interface/Editing';
 
 /**
  * Creates all routes of base url.
@@ -37,10 +36,6 @@ const GlobalRouter = ({ rivers }) => (
 
     <Route path="/test-env">
       <TestEnvironment />
-    </Route>
-
-    <Route path="/editing">
-      <Editing />
     </Route>
   </Switch>
 );

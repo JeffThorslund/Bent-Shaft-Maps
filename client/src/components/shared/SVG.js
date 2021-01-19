@@ -17,7 +17,7 @@ const SVG = ({ reducers, children }) => {
       reducers.setCubicCoords({ coords, anchor: draggedCubic });
     } else if (draggedFeature) {
       reducers.setFeatureCoords(coords);
-    } else return;
+    } else return null;
   };
   return (
     <svg

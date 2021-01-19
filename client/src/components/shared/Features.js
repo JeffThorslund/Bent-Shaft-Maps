@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import SVG from './SVG';
 import Line from './Line';
 import Eddy from './Eddy';
@@ -16,6 +15,7 @@ const Features = ({
   areEddysVisible,
 }) => {
   const { lines, eddys } = rapid;
+  console.log(areLinesVisible);
   return (
     <SVG reducers={reducers}>
       {areLinesVisible.value &&
@@ -40,13 +40,6 @@ const Features = ({
         ))}
     </SVG>
   );
-};
-
-Features.propTypes = {
-  /** The current water level */
-  level: PropTypes.number.isRequired,
-  /** The rapid data object */
-  rapid: PropTypes.object.isRequired,
 };
 
 export default Features;

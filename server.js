@@ -4,16 +4,13 @@ const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const express = require('express');
 const path = require('path');
-const http = require('http');
 require('dotenv').config();
-
+/* --Server--*/
+const app = express();
+const http = require('http').createServer(app);
 /* --Import Routes--*/
 const actions = require('./routes/api/Actions');
 const authorization = require('./routes/auth/Authorization');
-
-/* --Server--*/
-const app = express();
-http.createServer(app);
 
 /* --Middleware--*/
 app.use(compression());

@@ -9,7 +9,9 @@ const MapLabel = ({ name, overviewLabel: { pointer, tag }, toggleMap }) => {
   const history = useHistory();
   const handleClick = (to) => {
     toggleMap();
-    to && history.push(to);
+    if (to) {
+      history.push(to);
+    }
   };
 
   return (

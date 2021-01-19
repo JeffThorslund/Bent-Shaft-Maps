@@ -10,4 +10,4 @@ export const Range = ({ name }) => (
   </>
 );
 
-export const Dragger = ({ rivers }) => null;
+export const Dragger = () => null;

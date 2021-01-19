@@ -36,8 +36,15 @@ const RiverCardContainer = ({ rivers }) => {
 
       return false;
     })
-    .map((card, index) => (
-      <RiverCard {...card} value={value} key={`RiverCard${index}`} />
+    .map(({ riverName, sectionName, locationName, className }, index) => (
+      <RiverCard
+        riverName={riverName}
+        sectionName={sectionName}
+        locationName={locationName}
+        className={className}
+        value={value}
+        key={`RiverCard${index}`}
+      />
     ));
 
   return (

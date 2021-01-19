@@ -18,7 +18,7 @@ import Slider from './Slider';
  */
 
 const Section = ({ section, riverId }) => {
-  const { rapid_path } = useParams();
+  const RapidPath = useParams().rapid_path;
 
   const [level, setLevel] = useState(0);
   const [mapIsShowing, setMapIsShowing] = useState(false);
@@ -44,7 +44,7 @@ const Section = ({ section, riverId }) => {
 
   // Create Rapid Instance
   const rapid = section.rapids.find(
-    (rapid) => rapid_path === paramCase(rapid.name)
+    (singleRapid) => RapidPath === paramCase(singleRapid.name)
   );
 
   return (

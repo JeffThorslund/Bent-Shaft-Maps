@@ -34,6 +34,7 @@ const LoginTests = () => {
   ].map((cred) => (
     <button
       className="btn btn-secondary m-1"
+      type="button"
       onClick={() =>
         handleLogin({ email: cred.email, password: cred.password })
       }

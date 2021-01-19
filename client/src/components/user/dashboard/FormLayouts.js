@@ -4,7 +4,7 @@ import { Range, Dragger } from './CustomFormComponents';
 
 const FormLayouts = ({
   rivers,
-  indexes: { riverIndex, sectionIndex, rapidIndex, featureType, featureIndex },
+  indexes: { riverIndex, sectionIndex, rapidIndex },
   submissionActions: { submitRiverFormValues, submitSectionFormValues },
 }) => {
   if (riverIndex === null) {
@@ -61,7 +61,7 @@ const RiverForm = ({ initialValues, dispatchedAction }) => (
   </div>
 );
 
-const SectionForm = ({ initialValues, dispatchedAction, rivers }) => (
+const SectionForm = ({ initialValues, dispatchedAction }) => (
   <div>
     <h1>Section</h1>
     <Formik

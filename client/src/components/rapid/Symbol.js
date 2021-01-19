@@ -22,7 +22,9 @@ const Symbol = ({ type, desc, top, left }) => {
     },
   ];
 
-  const symbol = symbolOptions.find((symbol) => symbol.type === type).path;
+  const symbol = symbolOptions.find(
+    (singleSymbol) => singleSymbol.type === type
+  ).path;
 
   return (
     <g
