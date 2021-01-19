@@ -11,7 +11,9 @@
     "watch-sass": "sass --watch ./client/src/styles:./client/src",
     "dev": "concurrently \"npm run start-server\" \"npm run start-client\" \"npm run test-client\" \"npm run watch-sass\"",
     "full-install": "npm install && cd client && npm install",
-    "heroku-postbuild": "cd client && npm install && npm run build"
+    "heroku-postbuild": "cd client && npm install && npm run build",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix"
   },
   "repository": {
     "type": "git",
@@ -37,6 +39,21 @@
     "mongoose": "^5.9.21"
   },
   "devDependencies": {
-    "nodemon": "^2.0.3"
-  }
+    "babel-eslint": "^10.1.0",
+    "eslint": "^7.18.0",
+    "eslint-config-airbnb": "^18.2.1",
+    "eslint-config-prettier": "^6.15.0",
+    "eslint-config-wesbos": "^1.0.1",
+    "eslint-plugin-html": "^6.1.1",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-jsx-a11y": "^6.4.1",
+    "eslint-plugin-prettier": "^3.3.1",
+    "eslint-plugin-react": "^7.22.0",
+    "eslint-plugin-react-hooks": "^4.2.0",
+    "nodemon": "^2.0.3",
+    "prettier": "^2.2.1"
+  },
+  "eslintConfig": {"extends": [
+    "wesbos"
+  ]}
 }
