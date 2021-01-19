@@ -11,4 +11,5 @@ const SectionSchema = new Schema({
   sections: ['Mixed'],
 });
 
-module.exports = Section = mongoose.model('Section', SectionSchema);
+const Section = mongoose.model('Section', SectionSchema);
+module.exports = Section;

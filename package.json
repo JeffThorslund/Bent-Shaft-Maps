@@ -36,7 +36,8 @@
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "jsonwebtoken": "^8.5.1",
-    "mongoose": "^5.9.21"
+    "mongoose": "^5.9.21",
+    "prop-types": "^15.7.2"
   },
   "devDependencies": {
     "babel-eslint": "^10.1.0",
@@ -54,6 +55,14 @@
     "prettier": "^2.2.1"
   },
   "eslintConfig": {
+    "rules": {
+      "react/prop-types": [
+        0,
+        {
+          "allowForLoopAfterthoughts": true
+        }
+      ]
+    },
     "extends": [
       "wesbos"
     ]

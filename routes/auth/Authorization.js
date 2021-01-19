@@ -28,6 +28,7 @@ router.post('/register', async (req, res) => {
   });
 
   try {
+    // eslint-disable-next-line no-unused-vars
     const savedUser = await user.save();
     res.send({ user });
   } catch (err) {

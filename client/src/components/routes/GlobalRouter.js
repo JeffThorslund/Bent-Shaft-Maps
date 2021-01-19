@@ -31,11 +31,17 @@ const GlobalRouter = ({ rivers }) => (
       <PrivacyPolicy />
     </Route>
 
-    <Route path="/maps" children={<RiverRouter rivers={rivers} />} />
+    <Route path="/maps">
+      <RiverRouter rivers={rivers} />
+    </Route>
 
-    <Route path="/test-env" children={<TestEnvironment />} />
+    <Route path="/test-env">
+      <TestEnvironment />
+    </Route>
 
-    <Route path="/editing" children={<Editing />} />
+    <Route path="/editing">
+      <Editing />
+    </Route>
   </Switch>
 );
 

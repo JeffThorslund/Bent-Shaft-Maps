@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import PropTypes from 'prop-types';
 import CardColumns from 'react-bootstrap/CardColumns';
 import SearchBar from '../general/SearchBar';
 import RiverCard from './RiverCard';
@@ -58,8 +57,3 @@ const RiverCardContainer = ({ rivers }) => {
 };
 
 export default RiverCardContainer;
-
-RiverCardContainer.propTypes = {
-  /* Array of all river objects in the database */
-  rivers: PropTypes.arrayOf(PropTypes.object),
-};

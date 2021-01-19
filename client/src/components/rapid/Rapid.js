@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 
 import Image from 'react-bootstrap/Image';
 
@@ -42,11 +41,6 @@ const Rapid = ({ riverId, sectionId, rapid, section, level }) => {
       <div id="arrow-array"> {arrowArray} </div>
     </div>
   );
-};
-
-Rapid.propTypes = {
-  /** The current water level */
-  level: PropTypes.number.isRequired,
 };
 
 export default Rapid;

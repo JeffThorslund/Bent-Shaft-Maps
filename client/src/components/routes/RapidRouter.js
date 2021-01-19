@@ -6,24 +6,22 @@ import Introduction from '../river/Introduction';
 
 const RapidRouter = ({ sections, riverId }) => {
   const { url, path } = useRouteMatch();
-  const { section_path } = useParams();
+  const { sectionPath } = useParams();
 
   const section = sections.find(
-    (section) => paramCase(section.name) === section_path
+    (singleSection) => paramCase(singleSection.name) === sectionPath
   );
 
   return (
     <div>
       <Switch>
-        <Route
-          exact
-          path={path}
-          children={<Introduction river={section} url={url} />}
-        />
-        <Route
-          path={`${path}/:rapid_path`}
-          children={<Section riverId={riverId} section={section} />}
-        />
+        <Route exact path={path}>
+          <Introduction river={section} url={url} />
+        </Route>
+
+        <Route path={`${path}/:rapid_path`}>
+          <Section riverId={riverId} section={section} />
+        </Route>
       </Switch>
     </div>
   );

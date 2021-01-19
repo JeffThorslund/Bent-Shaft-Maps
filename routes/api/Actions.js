@@ -3,7 +3,7 @@ const express = require('express');
 const router = express.Router();
 
 // River Model
-const { River, SectionSchema } = require('../../models/River');
+const { River } = require('../../models/River');
 
 // @route  Get api/getData
 // @desc   Pulls all data from database

@@ -18,9 +18,6 @@ const Loading = () => {
       'Rigging rafts...',
     ];
 
-    // shuffle the array of phrases
-    shuffleArray(messageDic);
-
     // set the message as the last one
     setMessage(messageDic[messageDic.length - 1]);
 
@@ -29,7 +26,7 @@ const Loading = () => {
     const interval = setInterval(() => {
       setMessage(messageDic[i]);
       if (i < messageDic.length - 1) {
-        i++;
+        i += 1;
       } else {
         i = 0;
       }
@@ -37,13 +34,6 @@ const Loading = () => {
 
     return () => clearInterval(interval);
   }, []);
-
-  const shuffleArray = (array) => {
-    for (let i = array.length - 1; i > 0; i--) {
-      const j = Math.floor(Math.random() * (i + 1));
-      [array[i], array[j]] = [array[j], array[i]];
-    }
-  };
 
   return (
     <div className="d-flex flex-column align-items-center flex-grow Loading">
