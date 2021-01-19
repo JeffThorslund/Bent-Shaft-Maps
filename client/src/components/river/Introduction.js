@@ -12,7 +12,6 @@ import GeneralButton from '../general/GeneralButton';
 /** Introduction page that is visited before redirection to the first rapid of the river. */
 
 const Introduction = ({ river, url }) => {
-  console.log(river);
   const infoCardsConfig = [
     {
       id: 'desc',

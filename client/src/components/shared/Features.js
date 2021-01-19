@@ -15,7 +15,6 @@ const Features = ({
   areEddysVisible,
 }) => {
   const { lines, eddys } = rapid;
-  console.log(areLinesVisible);
   return (
     <SVG reducers={reducers}>
       {areLinesVisible.value &&
