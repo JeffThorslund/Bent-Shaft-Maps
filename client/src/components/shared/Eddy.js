@@ -1,7 +1,7 @@
-import React from "react";
-import { buildPath, useMousePosition } from "./_utils";
-import Point from "./Point";
-import Cubic from "./Cubic";
+import React from 'react';
+import { buildPath, useMousePosition } from './_utils';
+import Point from './Point';
+import Cubic from './Cubic';
 
 /**
  * A line represents a safe route to navigate the river at a specific water level
@@ -9,7 +9,7 @@ import Cubic from "./Cubic";
 
 const Eddy = ({
   line,
-  featureType = "eddy",
+  featureType = 'eddy',
   lineIndex,
   reducers,
   areHandlesVisible,
@@ -33,7 +33,7 @@ const Eddy = ({
       />
       {areHandlesVisible.value &&
         line.map((p, i, a) => {
-          let anchors = [];
+          const anchors = [];
           const p2x = p.z ? a[0].x : p.x;
           const p2y = p.z ? a[0].y : p.y;
           const point = p.z ? null : (

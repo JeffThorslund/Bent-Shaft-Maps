@@ -1,5 +1,5 @@
-import React, { Component } from "react";
-import ReactDOM from "react-dom";
+import React, { Component } from 'react';
+import ReactDOM from 'react-dom';
 
 export default class Container extends Component {
   state = {
@@ -33,16 +33,16 @@ export default class Container extends Component {
   };
 
   componentWillMount() {
-    document.addEventListener("keydown", this.handleKeyDown, false);
-    document.addEventListener("keyup", this.handleKeyUp, false);
+    document.addEventListener('keydown', this.handleKeyDown, false);
+    document.addEventListener('keyup', this.handleKeyUp, false);
   }
 
   componentWillUnmount() {
-    document.removeEventListener("keydown");
-    document.removeEventListener("keyup");
+    document.removeEventListener('keydown');
+    document.removeEventListener('keyup');
   }
 
-  //Check if number is positive
+  // Check if number is positive
   positiveNumber(n) {
     n = parseInt(n);
     if (isNaN(n) || n < 0) n = 0;
@@ -50,16 +50,16 @@ export default class Container extends Component {
   }
 
   setWidth = (e) => {
-    let v = this.positiveNumber(e.target.value),
-      min = 1;
+    let v = this.positiveNumber(e.target.value);
+    const min = 1;
     if (v < min) v = min;
 
     this.setState({ w: v });
   };
 
   setHeight = (e) => {
-    let v = this.positiveNumber(e.target.value),
-      min = 1;
+    let v = this.positiveNumber(e.target.value);
+    const min = 1;
     if (v < min) v = min;
 
     this.setState({ h: v });
@@ -71,28 +71,28 @@ export default class Container extends Component {
 
   getMouseCoords = (e) => {
     const rect = ReactDOM.findDOMNode(this.refs.svg).getBoundingClientRect();
-    let x = Math.round(e.pageX - rect.left);
-    let y = Math.round(e.pageY - rect.top);
+    const x = Math.round(e.pageX - rect.left);
+    const y = Math.round(e.pageY - rect.top);
 
     return { x, y };
   };
 
   setPointType = (e) => {
-    const points = this.state.points;
+    const { points } = this.state;
     const active = this.state.activePoint;
 
     // not the first point
     if (active !== 0) {
-      let v = e.target.value;
+      const v = e.target.value;
 
       switch (v) {
-        case "l":
+        case 'l':
           points[active] = {
             x: points[active].x,
             y: points[active].y,
           };
           break;
-        case "c":
+        case 'c':
           points[active] = {
             x: points[active].x,
             y: points[active].y,
@@ -110,7 +110,7 @@ export default class Container extends Component {
           break;
 
         default:
-          return "hi";
+          return 'hi';
       }
 
       this.setState({ points });
@@ -118,11 +118,11 @@ export default class Container extends Component {
   };
 
   setPointPosition = (coord, e) => {
-    let coords = this.state.points[this.state.activePoint];
+    const coords = this.state.points[this.state.activePoint];
     let v = this.positiveNumber(e.target.value);
 
-    if (coord === "x" && v > this.state.w) v = this.state.w;
-    if (coord === "y" && v > this.state.h) v = this.state.h;
+    if (coord === 'x' && v > this.state.w) v = this.state.w;
+    if (coord === 'y' && v > this.state.h) v = this.state.h;
 
     coords[coord] = v;
 
@@ -130,11 +130,11 @@ export default class Container extends Component {
   };
 
   setCubicPosition = (coord, anchor, e) => {
-    let coords = this.state.points[this.state.activePoint].c[anchor];
+    const coords = this.state.points[this.state.activePoint].c[anchor];
     let v = this.positiveNumber(e.target.value);
 
-    if (coord === "x" && v > this.state.w) v = this.state.w;
-    if (coord === "y" && v > this.state.h) v = this.state.h;
+    if (coord === 'x' && v > this.state.w) v = this.state.w;
+    if (coord === 'y' && v > this.state.h) v = this.state.h;
 
     coords[coord] = v;
 
@@ -142,7 +142,7 @@ export default class Container extends Component {
   };
 
   setPointCoords = (coords) => {
-    const points = this.state.points;
+    const { points } = this.state;
     const active = this.state.activePoint;
 
     points[active].x = coords.x;
@@ -152,7 +152,7 @@ export default class Container extends Component {
   };
 
   setCubicCoords = (coords, anchor) => {
-    const points = this.state.points;
+    const { points } = this.state;
     const active = this.state.activePoint;
 
     points[active].c[anchor].x = coords.x;
@@ -189,8 +189,8 @@ export default class Container extends Component {
 
   addPoint = (e) => {
     if (this.state.ctrl) {
-      let coords = this.getMouseCoords(e);
-      let points = this.state.points;
+      const coords = this.getMouseCoords(e);
+      const { points } = this.state;
 
       points.push(coords);
 
@@ -202,8 +202,8 @@ export default class Container extends Component {
   };
 
   removeActivePoint = (e) => {
-    let points = this.state.points;
-    let active = this.state.activePoint;
+    const { points } = this.state;
+    const active = this.state.activePoint;
 
     if (points.length > 1 && active !== 0) {
       points.splice(active, 1);
@@ -234,31 +234,31 @@ export default class Container extends Component {
   };
 
   generatePath() {
-    let { points, closePath } = this.state;
-    let d = "";
+    const { points, closePath } = this.state;
+    let d = '';
 
     points.forEach((p, i) => {
       if (i === 0) {
         // first point
-        d += "M ";
+        d += 'M ';
       } else if (p.c) {
         // cubic
         d += `C ${p.c[0].x} ${p.c[0].y} ${p.c[1].x} ${p.c[1].y} `;
       } else {
-        d += "L ";
+        d += 'L ';
       }
 
       d += `${p.x} ${p.y} `;
     });
 
-    if (closePath) d += "Z";
+    if (closePath) d += 'Z';
 
     return d;
   }
 
   reset = (e) => {
-    let w = this.state.w,
-      h = this.state.h;
+    const { w } = this.state;
+    const { h } = this.state;
 
     this.setState({
       points: [{ x: w / 2, y: h / 2 }],
@@ -305,8 +305,8 @@ class SVG extends Component {
       setDraggedCubic,
     } = this.props;
 
-    let circles = points.map((p, i, a) => {
-      let anchors = [];
+    const circles = points.map((p, i, a) => {
+      const anchors = [];
 
       if (p.c) {
         anchors.push(
@@ -327,11 +327,9 @@ class SVG extends Component {
 
       return (
         <g
-          className={
-            "ad-PointGroup" +
-            (i === 0 ? "  ad-PointGroup--first" : "") +
-            (activePoint === i ? "  is-active" : "")
-          }
+          className={`ad-PointGroup${i === 0 ? '  ad-PointGroup--first' : ''}${
+            activePoint === i ? '  is-active' : ''
+          }`}
         >
           <Point index={i} x={p.x} y={p.y} setDraggedPoint={setDraggedPoint} />
           {anchors}
@@ -405,4 +403,4 @@ function Point(props) {
   );
 }
 
-//render(<Container />, document.querySelector("#app"));
+// render(<Container />, document.querySelector("#app"));

@@ -1,14 +1,14 @@
-const mongoose = require("mongoose");
-const Schema = mongoose.Schema;
+const mongoose = require('mongoose');
 
-//Create River Schema
+const { Schema } = mongoose;
+
+// Create River Schema
 const SectionSchema = new Schema({
   name: {
-    type: "String",
-    required: true
+    type: 'String',
+    required: true,
   },
-  sections: ["Mixed"]
+  sections: ['Mixed'],
 });
 
-
-module.exports = Section = mongoose.model("Section", SectionSchema);
+module.exports = Section = mongoose.model('Section', SectionSchema);

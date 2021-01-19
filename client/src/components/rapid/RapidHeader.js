@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 
 /** The title pf the rapid that shows a name and description based on water level. */
 

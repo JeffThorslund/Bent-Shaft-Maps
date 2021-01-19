@@ -1,40 +1,40 @@
-import React, { useState, useEffect, useCallback } from "react";
-import UserContext from "./UserContext";
-import { Switch, Route, useRouteMatch, useHistory } from "react-router-dom";
-import axios from "axios";
+import React, { useState, useEffect, useCallback } from 'react';
+import { Switch, Route, useRouteMatch, useHistory } from 'react-router-dom';
+import axios from 'axios';
+import UserContext from './UserContext';
 
-import Dashboard from "./dashboard/Dashboard";
-import AuthInterface from "./authentication/AuthInterface";
+import Dashboard from './dashboard/Dashboard';
+import AuthInterface from './authentication/AuthInterface';
 
 const UserRouter = () => {
-  //DEFINE STATE FOR TOKEN AND USER
+  // DEFINE STATE FOR TOKEN AND USER
   const [userData, setUserData] = useState({
     token: undefined,
     user: undefined,
   });
 
-  //DEFINE HISTORY FUNCS AND PATH
-  let history = useHistory();
+  // DEFINE HISTORY FUNCS AND PATH
+  const history = useHistory();
   const login = useCallback(() => history.push(`/user/dashboard`), [history]);
   const logout = () => history.push(`/user`);
   const { path } = useRouteMatch();
 
-  //CHECK IF USER WAS PREVIOUSLY LOGGED IN
+  // CHECK IF USER WAS PREVIOUSLY LOGGED IN
   useEffect(() => {
     const checkLoggedIn = async () => {
-      //Get token from local storage, gets null if does not exist
-      const token = localStorage.getItem("auth-token");
+      // Get token from local storage, gets null if does not exist
+      const token = localStorage.getItem('auth-token');
 
       token &&
         axios
-          .get("/auth/verify", {
+          .get('/auth/verify', {
             params: {
-              token: token,
+              token,
             },
           })
           .then((response) => {
             setUserData({
-              token: token,
+              token,
               user: { name: response.data.name, email: response.data.email },
             });
             login();
@@ -46,18 +46,18 @@ const UserRouter = () => {
     checkLoggedIn();
   }, [login]);
 
-  //HANDLE LOGIN
+  // HANDLE LOGIN
   const handleLogin = (userEntry) => {
     axios
-      .post("/auth/login", userEntry)
+      .post('/auth/login', userEntry)
       .then((response) => {
-        const token = response.headers["auth-token"];
+        const token = response.headers['auth-token'];
         const { name, email } = response.data;
         setUserData({
-          token: token,
-          user: { name: name, email: email },
+          token,
+          user: { name, email },
         });
-        localStorage.setItem("auth-token", token);
+        localStorage.setItem('auth-token', token);
         login();
       })
       .catch((error) => {
@@ -65,20 +65,20 @@ const UserRouter = () => {
       });
   };
 
-  //HANDLE LOGOUT
+  // HANDLE LOGOUT
   const handleLogout = () => {
     setUserData({
       token: undefined,
       user: undefined,
     });
-    localStorage.removeItem("auth-token");
+    localStorage.removeItem('auth-token');
     logout();
   };
 
-  //HANDLE REGISTER
+  // HANDLE REGISTER
   const handleRegister = (userEntry) => {
     axios
-      .post("/auth/register", userEntry)
+      .post('/auth/register', userEntry)
       .then((response) => {
         const user = {
           email: response.data.user.email,

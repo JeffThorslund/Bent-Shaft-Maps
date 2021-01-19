@@ -1,6 +1,6 @@
-import React from "react";
-import { useSelector } from "react-redux";
-import { useMousePosition, useKeyPress } from "../shared/_utils";
+import React from 'react';
+import { useSelector } from 'react-redux';
+import { useMousePosition, useKeyPress } from './_utils';
 
 const SVG = ({ reducers, children }) => {
   const { draggedPoint, draggedCubic, draggedFeature } = useSelector(
@@ -8,7 +8,7 @@ const SVG = ({ reducers, children }) => {
   );
 
   const coords = useMousePosition();
-  const isCtrlPressed = useKeyPress("Control");
+  const isCtrlPressed = useKeyPress('Control');
 
   const handleMouseMove = () => {
     if (draggedPoint) {

@@ -1,8 +1,8 @@
-import React from "react";
-import PropTypes from "prop-types";
-import SVG from "./SVG";
-import Line from "./Line";
-import Eddy from "./Eddy";
+import React from 'react';
+import PropTypes from 'prop-types';
+import SVG from './SVG';
+import Line from './Line';
+import Eddy from './Eddy';
 
 /**
  * Holds all interact-able elements of a rapid. It should make an array of SVG elements to pass down.

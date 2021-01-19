@@ -1,14 +1,14 @@
-import React from "react";
-import { Switch, Route, useRouteMatch, useParams } from "react-router-dom";
-import Section from "../river/Section";
-import Introduction from "../river/Introduction";
-import { paramCase } from "change-case";
+import React from 'react';
+import { Switch, Route, useRouteMatch, useParams } from 'react-router-dom';
+import { paramCase } from 'change-case';
+import Section from '../river/Section';
+import Introduction from '../river/Introduction';
 
 const RapidRouter = ({ sections, riverId }) => {
-  let { url, path } = useRouteMatch();
-  let { section_path } = useParams();
+  const { url, path } = useRouteMatch();
+  const { section_path } = useParams();
 
-  let section = sections.find(
+  const section = sections.find(
     (section) => paramCase(section.name) === section_path
   );
 
@@ -22,7 +22,7 @@ const RapidRouter = ({ sections, riverId }) => {
         />
         <Route
           path={`${path}/:rapid_path`}
-          children={<Section riverId={riverId} section={section}/>}
+          children={<Section riverId={riverId} section={section} />}
         />
       </Switch>
     </div>

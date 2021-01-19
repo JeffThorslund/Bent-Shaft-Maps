@@ -1,6 +1,6 @@
-import axios from "axios";
+import axios from 'axios';
 
-//Data that is loaded into the app
+// Data that is loaded into the app
 
 export const data = {
   state: { rivers: null },
@@ -43,7 +43,7 @@ export const data = {
 
   effects: {
     async fetchRiversAsync(payload, rootState) {
-      const response = await axios.get("/api/getRivers");
+      const response = await axios.get('/api/getRivers');
       const data = await response.data;
       this.fetchRivers(data);
     },
@@ -60,8 +60,8 @@ export const editing = {
     },
   },
 };
-//Control indexes of editing platform.
-//Use an effect that snowballs actions so I am not repeating null a million times.
+// Control indexes of editing platform.
+// Use an effect that snowballs actions so I am not repeating null a million times.
 
 export const indexes = {
   state: {
@@ -104,15 +104,15 @@ export const indexes = {
   },
 };
 
-//Test environment allows us to style, and work on elements without impacting map.
+// Test environment allows us to style, and work on elements without impacting map.
 
 export const testEnvironment = {
   state: {
     lines: [
       {
-        name: "Thread The Needle",
+        name: 'Thread The Needle',
         desc:
-          "A commonly taken line through McCoys. Start center-right coming into the rapid with your boat pointed slightly left. When approaching the Sattlers, paddle towards river left, clip Sattlers and paddle for your life away from Phils",
+          'A commonly taken line through McCoys. Start center-right coming into the rapid with your boat pointed slightly left. When approaching the Sattlers, paddle towards river left, clip Sattlers and paddle for your life away from Phils',
         vector: [
           { x: 50, y: 30 },
           {
@@ -125,12 +125,12 @@ export const testEnvironment = {
           },
         ],
         range: [-100, 100],
-        id: "line_4dk61",
+        id: 'line_4dk61',
       },
       {
-        name: "Thread The Needle",
+        name: 'Thread The Needle',
         desc:
-          "A commonly taken line through McCoys. Start center-right coming into the rapid with your boat pointed slightly left. When approaching the Sattlers, paddle towards river left, clip Sattlers and paddle for your life away from Phils",
+          'A commonly taken line through McCoys. Start center-right coming into the rapid with your boat pointed slightly left. When approaching the Sattlers, paddle towards river left, clip Sattlers and paddle for your life away from Phils',
         vector: [
           { x: 43, y: 68 },
           {
@@ -143,13 +143,13 @@ export const testEnvironment = {
           },
         ],
         range: [-100, 100],
-        id: "line_4dk62",
+        id: 'line_4dk62',
       },
     ],
     eddys: [
       {
-        name: "Test Eddy",
-        desc: "Two points Eddy",
+        name: 'Test Eddy',
+        desc: 'Two points Eddy',
         vector: [
           { x: 5, y: 75 },
           {
@@ -169,11 +169,11 @@ export const testEnvironment = {
           },
         ],
         range: [-100, 100],
-        id: "eddy_4dk61",
+        id: 'eddy_4dk61',
       },
       {
-        name: "Test Eddy",
-        desc: "Three points Eddy",
+        name: 'Test Eddy',
+        desc: 'Three points Eddy',
         vector: [
           { x: 60, y: 40 },
           {
@@ -201,12 +201,12 @@ export const testEnvironment = {
           },
         ],
         range: [-100, 100],
-        id: "eddy_4dk62",
+        id: 'eddy_4dk62',
       },
     ],
     hydraulics: [],
     closePath: true,
-    activeType: "",
+    activeType: '',
     activeLine: 0,
     activePoint: 0,
     draggedPoint: false,
@@ -237,10 +237,10 @@ export const testEnvironment = {
     },
     setDraggedFeature: (state, payload) => {
       const { activeType, activeLine, lines, eddys } = state;
-      //Mouse Coordinates
+      // Mouse Coordinates
       const { x, y } = payload;
       const target =
-        activeType === "line"
+        activeType === 'line'
           ? lines[activeLine].vector
           : eddys[activeLine].vector;
       // Calculates Cubics Offset
@@ -256,32 +256,32 @@ export const testEnvironment = {
           return {
             c: cubicsOffset(point),
           };
-        } else if (!point.c) {
+        }
+        if (!point.c) {
           return {
             x: x - point.x,
             y: y - point.y,
-          };
-        } else {
-          return {
-            x: x - point.x,
-            y: y - point.y,
-            c: cubicsOffset(point),
           };
         }
+        return {
+          x: x - point.x,
+          y: y - point.y,
+          c: cubicsOffset(point),
+        };
       });
       state.draggedFeature = true;
       return state;
     },
     setPointCoords: (state, payload) => {
       const { activePoint, activeLine, activeType } = state;
-      const target = activeType === "line" ? state.lines : state.eddys;
+      const target = activeType === 'line' ? state.lines : state.eddys;
       target[activeLine].vector[activePoint].x = payload.coords.x;
       target[activeLine].vector[activePoint].y = payload.coords.y;
       return state;
     },
     setCubicCoords: (state, payload) => {
       const { activePoint, activeLine, activeType } = state;
-      const target = activeType === "line" ? state.lines : state.eddys;
+      const target = activeType === 'line' ? state.lines : state.eddys;
       target[activeLine].vector[activePoint].c[payload.anchor].x =
         payload.coords.x;
       target[activeLine].vector[activePoint].c[payload.anchor].y =
@@ -290,10 +290,10 @@ export const testEnvironment = {
     },
     setFeatureCoords: (state, payload) => {
       const { activeLine, activeType, offset, lines, eddys } = state;
-      //Mouse Coordinates
+      // Mouse Coordinates
       const { x, y } = payload;
       const target =
-        activeType === "line"
+        activeType === 'line'
           ? lines[activeLine].vector
           : eddys[activeLine].vector;
       target.forEach((point, index) => {
@@ -322,7 +322,7 @@ export const testEnvironment = {
       const { coords } = payload;
       const { activeLine, activeType, lines, eddys } = state;
       // Adds point to LINE
-      if (activeType === "line") {
+      if (activeType === 'line') {
         const lastPointIndex = lines[activeLine].vector.length - 1;
         const lastPointCoords = lines[activeLine].vector[lastPointIndex];
 
@@ -341,8 +341,8 @@ export const testEnvironment = {
           ],
         });
         // Adds point to EDDY
-      } else if (activeType === "eddy") {
-        const l = eddys[activeLine].vector.length; //Length of vector array
+      } else if (activeType === 'eddy') {
+        const l = eddys[activeLine].vector.length; // Length of vector array
         const lastPointCubics = eddys[activeLine].vector[l - 2].c;
         eddys[activeLine].vector.splice(-2, 0, {
           x: coords.x,
@@ -366,7 +366,7 @@ export const testEnvironment = {
     removePoint: (state, payload) => {
       const { activeType, lines, eddys } = state;
       const { lineIndex, pointIndex } = payload;
-      if (activeType === "line") {
+      if (activeType === 'line') {
         const target = lines[lineIndex].vector;
         if (target.length === 1) {
           lines.splice(lineIndex, 1);
@@ -379,7 +379,7 @@ export const testEnvironment = {
           }
           lines[lineIndex].vector.splice(pointIndex, 1);
         }
-      } else if (activeType === "eddy") {
+      } else if (activeType === 'eddy') {
         const target = eddys[lineIndex].vector;
         if (target.length > 3) {
           if (pointIndex === 0) {

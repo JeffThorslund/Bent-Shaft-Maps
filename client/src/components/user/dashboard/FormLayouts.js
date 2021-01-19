@@ -1,6 +1,6 @@
-import React from "react";
-import { Formik, Field, Form } from "formik";
-import { Range, Dragger } from "./CustomFormComponents";
+import React from 'react';
+import { Formik, Field, Form } from 'formik';
+import { Range, Dragger } from './CustomFormComponents';
 
 const FormLayouts = ({
   rivers,
@@ -37,9 +37,8 @@ const FormLayouts = ({
         rivers={rivers}
       />
     );
-  } else {
-    return null;
   }
+  return null;
 };
 
 export default FormLayouts;

@@ -1,38 +1,31 @@
-import React from "react";
-import PropTypes from "prop-types";
-import { paramCase } from "change-case";
+import React from 'react';
+import PropTypes from 'prop-types';
+import { paramCase } from 'change-case';
 
-import GeneralButton from "../general/GeneralButton";
-import InfoCard from "./InfoCard";
-
-import Container from "react-bootstrap/Container";
-import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
-import CardColumns from "react-bootstrap/CardColumns";
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
+import CardColumns from 'react-bootstrap/CardColumns';
+import InfoCard from './InfoCard';
+import GeneralButton from '../general/GeneralButton';
 
 /** Introduction page that is visited before redirection to the first rapid of the river. */
 
 const Introduction = ({ river, url }) => {
   const infoCardsConfig = [
     {
-      id: "desc",
-      title: "Info",
+      id: 'desc',
+      title: 'Info',
     },
     {
-      id: "access",
-      title: "Access",
+      id: 'access',
+      title: 'Access',
     },
   ];
 
-  const InfoCards = infoCardsConfig.map((card, index) => {
-    return (
-      <InfoCard
-        title={card.title}
-        body={river[card.id]}
-        key={(card.id, index)}
-      />
-    );
-  });
+  const InfoCards = infoCardsConfig.map((card, index) => (
+    <InfoCard title={card.title} body={river[card.id]} key={(card.id, index)} />
+  ));
 
   return (
     <Container fluid className="introduction vh-100 d-flex flex-column">
@@ -61,7 +54,7 @@ const Introduction = ({ river, url }) => {
 Introduction.propTypes = {
   /** River object containing all river data of a specific river */
   river: PropTypes.object.isRequired,
-  /** Url to be used for routing redirection to river*/
+  /** Url to be used for routing redirection to river */
   url: PropTypes.string.isRequired,
 };
 

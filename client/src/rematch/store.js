@@ -1,10 +1,10 @@
-import immerPlugin from '@rematch/immer'
-import { init } from '@rematch/core'
-import * as models from './models'
+import immerPlugin from '@rematch/immer';
+import { init } from '@rematch/core';
+import * as models from './models';
 
 const store = init({
-    models,
-    plugins: [immerPlugin()],
-})
+  models,
+  plugins: [immerPlugin()],
+});
 
-export default store
+export default store;

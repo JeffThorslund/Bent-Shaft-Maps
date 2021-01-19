@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from "react";
-import Kayak from "../../assets/KayakLogo.png";
+import React, { useState, useEffect } from 'react';
+import Kayak from '../../assets/KayakLogo.png';
 
 /**
  * Loading spinner to be displayed during loading and data fetching.
@@ -10,21 +10,21 @@ const Loading = () => {
 
   useEffect(() => {
     const messageDic = [
-      "Stretching shoulders...",
-      "Learning to roll...",
-      "Tightening PFD...",
-      "Running shuttle...",
-      "Packing river snacks...",
-      "Rigging rafts...",
+      'Stretching shoulders...',
+      'Learning to roll...',
+      'Tightening PFD...',
+      'Running shuttle...',
+      'Packing river snacks...',
+      'Rigging rafts...',
     ];
 
-    //shuffle the array of phrases
+    // shuffle the array of phrases
     shuffleArray(messageDic);
 
-    //set the message as the last one
+    // set the message as the last one
     setMessage(messageDic[messageDic.length - 1]);
 
-    //cycles through all messages and restarts at end of list
+    // cycles through all messages and restarts at end of list
     let i = 0;
     const interval = setInterval(() => {
       setMessage(messageDic[i]);

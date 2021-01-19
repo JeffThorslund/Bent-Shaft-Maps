@@ -1,8 +1,8 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import { paramCase } from "change-case";
-import Card from "react-bootstrap/Card";
-import PropTypes from "prop-types";
+import React from 'react';
+import { Link } from 'react-router-dom';
+import { paramCase } from 'change-case';
+import Card from 'react-bootstrap/Card';
+import PropTypes from 'prop-types';
 
 /**
  * A component that displays river name, location and class. On click, links to that river.
@@ -15,12 +15,11 @@ const RiverCard = ({
   className,
   value,
 }) => {
-  
-  const highlightValue = (name, value) => {
-    return name.replace(new RegExp(value, "i"), (match) => {
-      return `<span id='selected'>${match}</span>`;
-    });
-  };
+  const highlightValue = (name, value) =>
+    name.replace(
+      new RegExp(value, 'i'),
+      (match) => `<span id='selected'>${match}</span>`
+    );
 
   return (
     <Link to={`maps/${paramCase(riverName)}/${paramCase(sectionName)}`}>

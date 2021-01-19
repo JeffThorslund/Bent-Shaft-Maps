@@ -53,7 +53,9 @@
     "nodemon": "^2.0.3",
     "prettier": "^2.2.1"
   },
-  "eslintConfig": {"extends": [
-    "wesbos"
-  ]}
+  "eslintConfig": {
+    "extends": [
+      "wesbos"
+    ]
+  }
 }

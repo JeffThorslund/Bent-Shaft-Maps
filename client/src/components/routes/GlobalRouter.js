@@ -1,12 +1,12 @@
-import React from "react";
-import { Switch, Route } from "react-router-dom";
+import React from 'react';
+import { Switch, Route } from 'react-router-dom';
 
-import Home from "../home/Home";
-import RiverRouter from "./RiverRouter";
-import UserRouter from "../user/UserRouter";
-import PrivacyPolicy from "../user/PrivacyPolicy";
-import TestEnvironment from "../test-environment/TestEnvironment";
-import Editing from "../user/editing-interface/Editing";
+import Home from '../home/Home';
+import RiverRouter from './RiverRouter';
+import UserRouter from '../user/UserRouter';
+import PrivacyPolicy from '../user/PrivacyPolicy';
+import TestEnvironment from '../test-environment/TestEnvironment';
+import Editing from '../user/editing-interface/Editing';
 
 /**
  * Creates all routes of base url.
@@ -15,30 +15,28 @@ import Editing from "../user/editing-interface/Editing";
  * Creates route with variable url for differentiation at the river level.
  */
 
-const GlobalRouter = ({ rivers }) => {
-  return (
-    <Switch>
-      <Route exact path="/" key="home">
-        <Home rivers={rivers} />
+const GlobalRouter = ({ rivers }) => (
+  <Switch>
+    <Route exact path="/" key="home">
+      <Home rivers={rivers} />
+    </Route>
+
+    {rivers && (
+      <Route path="/user" key="user">
+        <UserRouter rivers={rivers} />
       </Route>
+    )}
 
-      {rivers && (
-        <Route path="/user" key="user">
-          <UserRouter rivers={rivers} />
-        </Route>
-      )}
+    <Route path="/privacy-policy" key="privacy-policy">
+      <PrivacyPolicy />
+    </Route>
 
-      <Route path="/privacy-policy" key="privacy-policy">
-        <PrivacyPolicy />
-      </Route>
+    <Route path="/maps" children={<RiverRouter rivers={rivers} />} />
 
-      <Route path="/maps" children={<RiverRouter rivers={rivers} />} />
+    <Route path="/test-env" children={<TestEnvironment />} />
 
-      <Route path="/test-env" children={<TestEnvironment />} />
-
-      <Route path="/editing" children={<Editing />} />
-    </Switch>
-  );
-};
+    <Route path="/editing" children={<Editing />} />
+  </Switch>
+);
 
 export default GlobalRouter;

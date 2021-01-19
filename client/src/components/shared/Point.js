@@ -1,5 +1,5 @@
-import React from "react";
-import { useKeyPress } from "../shared/_utils";
+import React from 'react';
+import { useKeyPress } from './_utils';
 
 /**
  * A simple display component that displays a circular point.
@@ -9,7 +9,7 @@ import { useKeyPress } from "../shared/_utils";
  */
 
 const Point = ({ featureType, lineIndex, x, y, pointIndex, reducers }) => {
-  const isCtrlPressed = useKeyPress("Control");
+  const isCtrlPressed = useKeyPress('Control');
   return (
     <circle
       className="point"

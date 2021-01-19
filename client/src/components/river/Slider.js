@@ -1,29 +1,27 @@
-import React from "react";
-import Form from "react-bootstrap/Form";
-import PropTypes from "prop-types";
+import React from 'react';
+import Form from 'react-bootstrap/Form';
+import PropTypes from 'prop-types';
 
 /** Adjusts and displays the water level of the river */
 
-const Slider = ({ min, max, units, level, setLevel }) => {
-  return (
-    <Form className="d-flex">
-      <Form.Label className="range-value">
-        <span>{level}</span>
-        <span>{units}</span>
-      </Form.Label>
-      <Form.Control
-        className="custom-range pl-2"
-        type="range"
-        min={min}
-        max={max}
-        value={level}
-        step={1}
-        orient="vertical"
-        onChange={(e) => setLevel(Number(e.target.value))}
-      />
-    </Form>
-  );
-};
+const Slider = ({ min, max, units, level, setLevel }) => (
+  <Form className="d-flex">
+    <Form.Label className="range-value">
+      <span>{level}</span>
+      <span>{units}</span>
+    </Form.Label>
+    <Form.Control
+      className="custom-range pl-2"
+      type="range"
+      min={min}
+      max={max}
+      value={level}
+      step={1}
+      orient="vertical"
+      onChange={(e) => setLevel(Number(e.target.value))}
+    />
+  </Form>
+);
 
 Slider.propTypes = {
   /** The lowest selectable value of the slider */
