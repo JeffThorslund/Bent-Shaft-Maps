@@ -1,10 +1,9 @@
-import React from "react";
-import PropTypes from "prop-types";
-import MapLabel from "./MapLabel";
+import React from 'react';
+import PropTypes from 'prop-types';
+import Image from 'react-bootstrap/Image';
+import MapLabel from './MapLabel';
 
-import Image from "react-bootstrap/Image";
-
-/** Map with selectable tags for each rapid that will navigate user to rapid*/
+/** Map with selectable tags for each rapid that will navigate user to rapid */
 
 const Map = ({ toggleMap, river }) => {
   const mapLabelArray = river.rapids.map((rapid, index) => (
@@ -20,7 +19,7 @@ const Map = ({ toggleMap, river }) => {
     <>
       <Image
         className="overview-map"
-        src={`https://bent-shaft-maps.s3.amazonaws.com/maps/river_W41oYWjV4/section_jswy1FCZu/Overview.jpg`}
+        src="https://bent-shaft-maps.s3.amazonaws.com/maps/river_W41oYWjV4/section_jswy1FCZu/Overview.jpg"
         alt="River Map"
         rounded
         fluid

@@ -1,16 +1,15 @@
-import React, { useLayoutEffect, useState } from "react";
-import PropTypes from "prop-types";
-import { withRouter } from "react-router-dom";
-import { paramCase } from "change-case";
-import { useParams } from "react-router-dom";
+import React, { useLayoutEffect, useState } from 'react';
+import PropTypes from 'prop-types';
+import { withRouter, useParams } from 'react-router-dom';
+import { paramCase } from 'change-case';
 
-import Modal from "react-bootstrap/Modal";
+import Modal from 'react-bootstrap/Modal';
 
-import Rapid from "../rapid/Rapid";
-import Map from "./Map";
-import GeneralButton from "../general/GeneralButton";
-import MobileAlert from "./MobileAlert";
-import Slider from "./Slider";
+import Rapid from '../rapid/Rapid';
+import Map from './Map';
+import GeneralButton from '../general/GeneralButton';
+import MobileAlert from './MobileAlert';
+import Slider from './Slider';
 
 /**
  * Container that displays all information specific to a single section.
@@ -19,35 +18,33 @@ import Slider from "./Slider";
  */
 
 const Section = ({ section, riverId }) => {
-  let { rapid_path } = useParams();
+  const RapidPath = useParams().rapid_path;
 
   const [level, setLevel] = useState(0);
   const [mapIsShowing, setMapIsShowing] = useState(false);
   const [isMobileAlertActive, setIsMobileAlertActive] = useState(false);
 
-  //If on mobile, and in portrait mode, tell user to flip phone sideways
+  // If on mobile, and in portrait mode, tell user to flip phone sideways
   useLayoutEffect(() => {
     const shouldMobileAlertRender = () => {
-      let isMobile = /(android|bb\d+|meego).+mobile|avantgo|bada\/|blackberry|blazer|compal|elaine|fennec|hiptop|iemobile|ip(hone|od)|iris|kindle|lge |maemo|midp|mmp|mobile.+firefox|netfront|opera m(ob|in)i|palm( os)?|phone|p(ixi|re)\/|plucker|pocket|psp|series(4|6)0|symbian|treo|up\.(browser|link)|vodafone|wap|windows ce|xda|xiino/i.test(
+      const isMobile = /(android|bb\d+|meego).+mobile|avantgo|bada\/|blackberry|blazer|compal|elaine|fennec|hiptop|iemobile|ip(hone|od)|iris|kindle|lge |maemo|midp|mmp|mobile.+firefox|netfront|opera m(ob|in)i|palm( os)?|phone|p(ixi|re)\/|plucker|pocket|psp|series(4|6)0|symbian|treo|up\.(browser|link)|vodafone|wap|windows ce|xda|xiino/i.test(
         navigator.userAgent
       );
-      let isPortrait = window.screen.height > window.screen.width;
-      setIsMobileAlertActive(isMobile && isPortrait ? true : false);
+      const isPortrait = window.screen.height > window.screen.width;
+      setIsMobileAlertActive(!!(isMobile && isPortrait));
     };
-    window.addEventListener("resize", shouldMobileAlertRender);
+    window.addEventListener('resize', shouldMobileAlertRender);
     shouldMobileAlertRender();
-    return () => window.removeEventListener("resize", shouldMobileAlertRender);
+    return () => window.removeEventListener('resize', shouldMobileAlertRender);
   }, []);
 
   const toggleMap = () => {
-    setMapIsShowing((prevMapIsShowing) => {
-      return !prevMapIsShowing;
-    });
+    setMapIsShowing((prevMapIsShowing) => !prevMapIsShowing);
   };
 
   // Create Rapid Instance
   const rapid = section.rapids.find(
-    (rapid) => rapid_path === paramCase(rapid.name)
+    (singleRapid) => RapidPath === paramCase(singleRapid.name)
   );
 
   return (

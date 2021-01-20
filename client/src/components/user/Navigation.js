@@ -1,7 +1,7 @@
-import React, { useContext } from "react";
-import UserContext from "./UserContext";
+import React, { useContext } from 'react';
+import UserContext from './UserContext';
 
-function Navigation({ user = { name: "none" } }) {
+function Navigation({ user = { name: 'none' } }) {
   const { handleLogout } = useContext(UserContext);
   return (
     <div className="navbar navbar-expand-lg navbar-light">

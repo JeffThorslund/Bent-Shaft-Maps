@@ -1,9 +1,8 @@
-import React from "react";
-import PropTypes from "prop-types";
-import SVG from "./SVG";
-import Line from "./Line";
-import Eddy from "./Eddy";
-import Hydraulic from "./Hydraulic";
+import React from 'react';
+import SVG from './SVG';
+import Line from './Line';
+import Eddy from './Eddy';
+import Hydraulic from './Hydraulic';
 
 /**
  * Holds all interact-able elements of a rapid. It should make an array of SVG elements to pass down.
@@ -52,13 +51,6 @@ const Features = ({
         ))}
     </SVG>
   );
-};
-
-Features.propTypes = {
-  /** The current water level */
-  level: PropTypes.number.isRequired,
-  /** The rapid data object */
-  rapid: PropTypes.object.isRequired,
 };
 
 export default Features;

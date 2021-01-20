@@ -1,5 +1,5 @@
 function buildPath({ points, closePath }) {
-  let d = "";
+  let d = '';
 
   points.forEach((p, i, a) => {
     if (i === 0) {
@@ -18,7 +18,7 @@ function buildPath({ points, closePath }) {
     // d += ${p.x} ${p.y} ;
   });
 
-  if (closePath) d += "Z";
+  if (closePath) d += 'Z';
 
   return d;
 }
