@@ -1,6 +1,6 @@
-import React, { useState } from "react";
-import { useMousePosition } from "./_utils";
-import Point from "./Point";
+import React, { useState } from 'react';
+import { useMousePosition } from './_utils';
+import Point from './Point';
 
 /**
  * A line represents a safe route to navigate the river at a specific water level
@@ -8,7 +8,7 @@ import Point from "./Point";
 
 const Hydraulic = ({
   line,
-  featureType = "hydraulic",
+  featureType = 'hydraulic',
   lineIndex,
   reducers,
   areHandlesVisible,
@@ -34,9 +34,7 @@ const Hydraulic = ({
     },
   ];
 
-  const normalMagnitude = Math.sqrt(
-    Math.pow(perpSetup[0].x, 2) + Math.pow(perpSetup[1].y, 2)
-  );
+  const normalMagnitude = Math.sqrt(perpSetup[0].x ** 2 + perpSetup[1].y ** 2);
 
   const perp = perpSetup.map((point) => ({
     x: ((point.x / normalMagnitude) * width) / 2 + center.x,
@@ -59,7 +57,15 @@ const Hydraulic = ({
         stroke="red"
       />
       {perp.map((point) => (
-        <circle cx={point.x} cy={point.y} r="2" />
+        <circle
+          cx={point.x}
+          cy={point.y}
+          r="2"
+          onMouseDown={(e) => {
+            reducers.setDraggedHydraulicWidth({ featureType, lineIndex });
+            e.stopPropagation();
+          }}
+        />
       ))}
 
       {areHandlesVisible.value &&

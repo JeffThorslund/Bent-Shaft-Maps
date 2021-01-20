@@ -223,6 +223,7 @@ export const testEnvironment = {
     activePoint: 0,
     draggedPoint: false,
     draggedCubic: false,
+    draggedHydraulicWidth: false,
     draggedFeature: false,
     offset: null,
   },
@@ -247,19 +248,16 @@ export const testEnvironment = {
       state.draggedCubic = payload.anchor;
       return state;
     },
+    setDraggedHydraulicWidth: (state, payload) => {
+      state.activeType = payload.featureType;
+      state.activeLine = payload.lineIndex;
+      state.draggedHydraulicWidth = true;
+      return state;
+    },
     setDraggedFeature: (state, payload) => {
       const { activeType, activeLine, lines, eddys, hydraulics } = state;
       // Mouse Coordinates
       const { x, y } = payload;
-
-      // const target =
-      //   activeType === 'line'
-      //     ? lines[activeLine].vector
-      //     : activeType === 'eddy'
-      //     ? eddys[activeLine].vector
-      //     : activeType === 'hydraulic'
-      //     ? hydraulics[activeLine].vector
-      //     : null;
 
       const target = {
         line: lines[activeLine],
@@ -360,6 +358,7 @@ export const testEnvironment = {
     cancelDragging: (state) => {
       state.draggedPoint = false;
       state.draggedCubic = false;
+      state.draggedHydraulicWidth = false;
       state.draggedFeature = false;
       state.offset = null;
       return state;

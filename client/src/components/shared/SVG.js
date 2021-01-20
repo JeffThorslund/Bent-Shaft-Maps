@@ -15,7 +15,12 @@ const SVG = ({ reducers, children }) => {
       reducers.setPointCoords({ coords });
     } else if (draggedCubic !== false) {
       reducers.setCubicCoords({ coords, anchor: draggedCubic });
-    } else if (draggedFeature) {
+    }
+
+    // else if (draggedCubic !== false) {
+    //   reducers.setCubicCoords({ coords, anchor: draggedCubic });
+    // }
+    else if (draggedFeature) {
       reducers.setFeatureCoords(coords);
     } else return null;
   };
