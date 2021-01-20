@@ -307,6 +307,12 @@ export const testEnvironment = {
         payload.coords.y;
       return state;
     },
+    setHydraulicCoords: (state, payload) => {
+
+      console.log(payload)
+
+
+    },
     setFeatureCoords: (state, payload) => {
       const {
         activeLine,
