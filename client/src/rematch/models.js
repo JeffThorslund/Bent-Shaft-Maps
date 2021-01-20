@@ -251,7 +251,7 @@ export const testEnvironment = {
     setDraggedHydraulicWidth: (state, payload) => {
       state.activeType = payload.featureType;
       state.activeLine = payload.lineIndex;
-      state.draggedHydraulicWidth = true;
+      state.draggedHydraulicWidth = payload.pointIndex;
       return state;
     },
     setDraggedFeature: (state, payload) => {

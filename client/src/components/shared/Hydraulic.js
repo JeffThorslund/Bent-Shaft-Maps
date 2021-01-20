@@ -56,13 +56,17 @@ const Hydraulic = ({
         strokeWidth={width}
         stroke="red"
       />
-      {perp.map((point) => (
+      {perp.map((point, i) => (
         <circle
           cx={point.x}
           cy={point.y}
           r="2"
           onMouseDown={(e) => {
-            reducers.setDraggedHydraulicWidth({ featureType, lineIndex });
+            reducers.setDraggedHydraulicWidth({
+              featureType,
+              lineIndex,
+              pointIndex: i,
+            });
             e.stopPropagation();
           }}
         />
