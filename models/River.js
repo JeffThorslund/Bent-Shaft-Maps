@@ -1,8 +1,9 @@
-const mongoose = require("mongoose");
-const Schema = mongoose.Schema;
+const mongoose = require('mongoose');
 
-//River Schema
+const { Schema } = mongoose;
+
 const RiverSchema = new Schema({});
 
-//River
-exports.River = River = mongoose.model("River", RiverSchema);
+const River = mongoose.model('River', RiverSchema);
+
+exports.River = River;

@@ -1,12 +1,11 @@
-import React from "react";
-import PropTypes from "prop-types";
+import React from 'react';
 
-import Image from "react-bootstrap/Image";
+import Image from 'react-bootstrap/Image';
 
-import NextRapid from "./NextRapid";
-import Features from "../shared/Features";
-import RapidHeader from "./RapidHeader";
-import store from "../../rematch/store";
+import NextRapid from './NextRapid';
+import Features from '../shared/Features';
+import RapidHeader from './RapidHeader';
+import store from '../../rematch/store';
 
 /**
  * The Rapid container that holds all components related to an individual rapid
@@ -37,17 +36,13 @@ const Rapid = ({ riverId, sectionId, rapid, section, level }) => {
         rapid={rapid}
         reducers={dispatch.testEnvironment}
         areHandlesVisible={false}
+        areLinesVisible={false}
+        areEddysVisible={false}
       />
       <RapidHeader name={rapid.name} description={rapid.desc} />
       <div id="arrow-array"> {arrowArray} </div>
     </div>
   );
-};
-
-Rapid.propTypes = {
-
-  /** The current water level */
-  level: PropTypes.number.isRequired,
 };
 
 export default Rapid;

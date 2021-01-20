@@ -1,5 +1,5 @@
-import React from "react";
-import ItemList from "./ItemList";
+import React from 'react';
+import ItemList from './ItemList';
 
 const ItemListGroup = ({
   rivers,
@@ -11,34 +11,33 @@ const ItemListGroup = ({
     updateFeatureTypeAndIndex,
   },
 }) => {
-
   const arr = [];
 
   arr.push({
     list: rivers,
     action: updateRiverIndex,
-    title: "River",
+    title: 'River',
     selectedIndex: riverIndex,
   });
 
-  if (typeof rivers[riverIndex] !== "undefined") {
+  if (typeof rivers[riverIndex] !== 'undefined') {
     arr.push({
       list: rivers[riverIndex].sections,
       action: updateSectionIndex,
-      title: "Section",
+      title: 'Section',
       selectedIndex: sectionIndex,
     });
 
-    if (typeof rivers[riverIndex].sections[sectionIndex] !== "undefined") {
+    if (typeof rivers[riverIndex].sections[sectionIndex] !== 'undefined') {
       arr.push({
         list: rivers[riverIndex].sections[sectionIndex].rapids,
         action: updateRapidIndex,
-        title: "Rapid",
+        title: 'Rapid',
         selectedIndex: rapidIndex,
       });
       if (
         typeof rivers[riverIndex].sections[sectionIndex].rapids[rapidIndex] !==
-        "undefined"
+        'undefined'
       ) {
         arr.push(
           {
@@ -46,8 +45,8 @@ const ItemListGroup = ({
               rivers[riverIndex].sections[sectionIndex].rapids[rapidIndex]
                 .hydraulics,
             action: updateFeatureTypeAndIndex,
-            title: "Hydraulic",
-            type: "hydraulics",
+            title: 'Hydraulic',
+            type: 'hydraulics',
             selectedIndex: featureIndex,
             selectedFeatureType: featureType,
           },
@@ -56,8 +55,8 @@ const ItemListGroup = ({
               rivers[riverIndex].sections[sectionIndex].rapids[rapidIndex]
                 .eddys,
             action: updateFeatureTypeAndIndex,
-            title: "Eddy",
-            type: "eddys",
+            title: 'Eddy',
+            type: 'eddys',
             selectedIndex: featureIndex,
             selectedFeatureType: featureType,
           },
@@ -66,8 +65,8 @@ const ItemListGroup = ({
               rivers[riverIndex].sections[sectionIndex].rapids[rapidIndex]
                 .lines,
             action: updateFeatureTypeAndIndex,
-            title: "Line",
-            type: "lines",
+            title: 'Line',
+            type: 'lines',
             selectedIndex: featureIndex,
             selectedFeatureType: featureType,
           }

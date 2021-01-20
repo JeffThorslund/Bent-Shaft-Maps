@@ -1,13 +1,12 @@
-import React from "react";
-import { useSelector } from "react-redux";
-import store from "../../rematch/store";
-import Features from "../shared/Features";
-import ToolBar from "./toolbar/ToolBar";
-import { useToggle } from "../_utils";
+import React from 'react';
+import { useSelector } from 'react-redux';
+import store from '../../rematch/store';
+import Features from '../shared/Features';
+import ToolBar from './toolbar/ToolBar';
+import { useToggle } from '../_utils';
 
 const TestEnvironment = () => {
-  
-  //Set your prefered /test-env settings below
+  // Set your prefered /test-env settings below
   const areHandlesVisible = useToggle(true);
   const areLinesVisible = useToggle(true);
   const areEddysVisible = useToggle(true);

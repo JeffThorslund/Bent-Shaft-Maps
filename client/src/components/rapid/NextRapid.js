@@ -1,9 +1,9 @@
-import React from "react";
-import { paramCase } from "change-case";
-import PropTypes from "prop-types";
+import React from 'react';
+import { paramCase } from 'change-case';
+import PropTypes from 'prop-types';
 
-import findRapidFromId from "./_utils/findRapidFromId";
-import GeneralButton from "../general/GeneralButton";
+import findRapidFromId from './_utils/findRapidFromId';
+import GeneralButton from '../general/GeneralButton';
 
 /**
  * Button to navigate to a connected rapid in the river.
@@ -11,7 +11,7 @@ import GeneralButton from "../general/GeneralButton";
 
 const NextRapid = ({ linkId, bottom, right, section }) => {
   const style = {
-    position: "absolute",
+    position: 'absolute',
     bottom: `${bottom}vh`,
     right: `${right}vw`,
   };
