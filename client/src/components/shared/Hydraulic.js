@@ -51,7 +51,7 @@ const Hydraulic = ({
         className={featureType}
         d={`M ${line[0].x} ${line[0].y} L ${line[1].x} ${line[1].y}`}
         strokeWidth={width}
-        stroke="red"
+        stroke="CadetBlue"
       />
 
       {quarter.map((point, i) => (
