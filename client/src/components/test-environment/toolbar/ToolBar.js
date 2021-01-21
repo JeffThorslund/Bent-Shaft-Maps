@@ -47,7 +47,7 @@ const ToolBar = ({
     </div>
     <Button
       variant="primary"
-      style={{ position: 'absolute', top: 140, width: 139 }}
+      style={{ zIndex: '1' }}
       onClick={() => isMenuVisible.set()}
     >
       Add Feature
