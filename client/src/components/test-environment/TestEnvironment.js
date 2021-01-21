@@ -9,8 +9,9 @@ import ContextMenu from './toolbar/ContextMenu';
 const TestEnvironment = () => {
   // Set your prefered /test-env settings below
   const areHandlesVisible = useToggle(true);
-  const areLinesVisible = useToggle(true);
-  const areEddysVisible = useToggle(true);
+  const areLinesVisible = useToggle(0);
+  const areEddysVisible = useToggle(0);
+  const areHydraulicsVisible = useToggle(true);
   const areIndexVisible = useToggle(true);
   const isMenuVisible = useToggle(false);
 
@@ -32,12 +33,14 @@ const TestEnvironment = () => {
         areHandlesVisible={areHandlesVisible}
         areLinesVisible={areLinesVisible}
         areEddysVisible={areEddysVisible}
+        areHydraulicsVisible={areHydraulicsVisible}
         areIndexVisible={areIndexVisible}
       />
       <ToolBar
         areHandlesVisible={areHandlesVisible}
         areLinesVisible={areLinesVisible}
         areEddysVisible={areEddysVisible}
+        areHydraulicsVisible={areHydraulicsVisible}
         areIndexVisible={areIndexVisible}
         isMenuVisible={isMenuVisible}
       />

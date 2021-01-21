@@ -204,13 +204,28 @@ export const testEnvironment = {
         id: 'eddy_4dk62',
       },
     ],
-    hydraulics: [],
+    hydraulics: [
+      {
+        name: 'test-wave',
+        vector: [
+          {
+            x: 30,
+            y: 40,
+          },
+          { x: 50, y: 60 },
+        ],
+
+        width: 5,
+        id: 'an_id_asdijfasldfjawerwe',
+      },
+    ],
     closePath: true,
     activeType: '',
     activeLine: 0,
     activePoint: 0,
     draggedPoint: false,
     draggedCubic: false,
+    draggedHydraulic: false,
     draggedFeature: false,
     offset: null,
   },
@@ -265,12 +280,49 @@ export const testEnvironment = {
           range: [-100, 100],
           id: `${type}_d${x}`,
         });
+      } else if (type === 'hydraulic') {
+        state.hydraulics.push({
+          name,
+          desc,
+          vector: [
+            {
+              x: 30,
+              y: 40,
+            },
+            { x: 50, y: 60 },
+          ],
+          width: 5,
+          range: [-100, 100],
+          id: `${type}_d${x}`,
+        });
       }
       return state;
     },
     removeFeature: (state) => {
-      const { activeType, activeLine, eddys, lines } = state;
-      const target = activeType === 'line' ? lines : eddys;
+      const { activeType, activeLine, eddys, lines, hydraulics } = state;
+
+      // const target = {
+      //   line: lines[activeLine],
+      //   eddy: eddys[activeLine],
+      //   hydraulic: hydraulics[activeLine],
+      // }[activeType]
+
+      const target = {
+        line: lines,
+        eddy: eddys,
+        hydraulic: hydraulics,
+      }[activeType];
+
+      // if (activeType === 'line') {
+      //   target = lines;
+      // } else if (activeType === 'eddy') {
+      //   target = eddys;
+      // } else if (activeType === 'hydraulic') {
+      //   target = hydraulics;
+      // } else {
+      //   target = null;
+      // }
+
       target.splice(activeLine, 1);
       return state;
     },
@@ -294,38 +346,49 @@ export const testEnvironment = {
       state.draggedCubic = payload.anchor;
       return state;
     },
+    setHydraulicWidth: (state, payload) => {
+      const { lineIndex, pointIndex } = payload;
+
+      if (pointIndex === 0 && state.hydraulics[lineIndex].width > 1) {
+        state.hydraulics[lineIndex].width -= 1;
+      }
+
+      if (pointIndex === 1 && state.hydraulics[lineIndex].width >= 1) {
+        state.hydraulics[lineIndex].width += 1;
+      }
+
+      return state;
+    },
     setDraggedFeature: (state, payload) => {
-      const { activeType, activeLine, lines, eddys } = state;
+      const { activeType, activeLine, lines, eddys, hydraulics } = state;
       // Mouse Coordinates
       const { x, y } = payload;
-      const target =
-        activeType === 'line'
-          ? lines[activeLine].vector
-          : eddys[activeLine].vector;
+
+      const target = {
+        line: lines[activeLine],
+        eddy: eddys[activeLine],
+        hydraulic: hydraulics[activeLine],
+      }[activeType].vector;
+
       // Calculates Cubics Offset
-      function cubicsOffset(vector) {
-        return [
-          { x: x - vector.c[0].x, y: y - vector.c[0].y },
-          { x: x - vector.c[1].x, y: y - vector.c[1].y },
-        ];
-      }
+      const cubicsOffset = (point) => [
+        { x: x - point.c[0].x, y: y - point.c[0].y },
+        { x: x - point.c[1].x, y: y - point.c[1].y },
+      ];
+
       // Itterates through an array of points & Checks the point type => Offset data
       state.offset = target.map((point) => {
-        if (point.z) {
-          return {
-            c: cubicsOffset(point),
-          };
-        }
-        if (!point.c) {
+        if (Object.prototype.hasOwnProperty.call(point, 'z'))
+          return { c: cubicsOffset(point) };
+        if (Object.prototype.hasOwnProperty.call(point, 'c'))
           return {
             x: x - point.x,
             y: y - point.y,
+            c: cubicsOffset(point),
           };
-        }
         return {
           x: x - point.x,
           y: y - point.y,
-          c: cubicsOffset(point),
         };
       });
       state.draggedFeature = true;
@@ -333,28 +396,44 @@ export const testEnvironment = {
     },
     setPointCoords: (state, payload) => {
       const { activePoint, activeLine, activeType } = state;
-      const target = activeType === 'line' ? state.lines : state.eddys;
+
+      const target = {
+        line: state.lines,
+        eddy: state.eddys,
+        hydraulic: state.hydraulics,
+      }[activeType];
+
       target[activeLine].vector[activePoint].x = payload.coords.x;
       target[activeLine].vector[activePoint].y = payload.coords.y;
       return state;
     },
     setCubicCoords: (state, payload) => {
-      const { activePoint, activeLine, activeType } = state;
+      const { activePoint, activeLine, activeType, draggedCubic } = state;
       const target = activeType === 'line' ? state.lines : state.eddys;
-      target[activeLine].vector[activePoint].c[payload.anchor].x =
+      target[activeLine].vector[activePoint].c[draggedCubic].x =
         payload.coords.x;
-      target[activeLine].vector[activePoint].c[payload.anchor].y =
+      target[activeLine].vector[activePoint].c[draggedCubic].y =
         payload.coords.y;
       return state;
     },
+
     setFeatureCoords: (state, payload) => {
-      const { activeLine, activeType, offset, lines, eddys } = state;
+      const {
+        activeLine,
+        activeType,
+        offset,
+        lines,
+        eddys,
+        hydraulics,
+      } = state;
       // Mouse Coordinates
       const { x, y } = payload;
-      const target =
-        activeType === 'line'
-          ? lines[activeLine].vector
-          : eddys[activeLine].vector;
+
+      const target = {
+        line: lines[activeLine],
+        eddy: eddys[activeLine],
+        hydraulic: hydraulics[activeLine],
+      }[activeType].vector;
       target.forEach((point, index) => {
         const off = offset[index];
         if (point.c) {
@@ -373,6 +452,7 @@ export const testEnvironment = {
     cancelDragging: (state) => {
       state.draggedPoint = false;
       state.draggedCubic = false;
+      state.draggedHydraulic = false;
       state.draggedFeature = false;
       state.offset = null;
       return state;

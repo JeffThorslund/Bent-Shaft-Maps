@@ -6,13 +6,14 @@ const SVG = ({ reducers, children }) => {
   const { draggedPoint, draggedCubic, draggedFeature } = useSelector(
     (state) => state.testEnvironment
   );
+
   const coords = useMousePosition();
   const isCtrlPressed = useKeyPress('Control');
   const handleMouseMove = () => {
     if (draggedPoint) {
       reducers.setPointCoords({ coords });
     } else if (draggedCubic !== false) {
-      reducers.setCubicCoords({ coords, anchor: draggedCubic });
+      reducers.setCubicCoords({ coords });
     } else if (draggedFeature) {
       reducers.setFeatureCoords(coords);
     } else return null;

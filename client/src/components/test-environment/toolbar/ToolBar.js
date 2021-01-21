@@ -3,6 +3,7 @@ import { Form, Button } from 'react-bootstrap';
 
 const ToolBar = ({
   areHandlesVisible,
+  areHydraulicsVisible,
   areLinesVisible,
   areEddysVisible,
   areIndexVisible,
@@ -33,6 +34,12 @@ const ToolBar = ({
       />
       <Form.Check
         type="checkbox"
+        label="Show Hydraulics"
+        checked={areHydraulicsVisible.value}
+        onChange={areHydraulicsVisible.set}
+      />
+      <Form.Check
+        type="checkbox"
         label="Show Index"
         checked={areIndexVisible.value}
         onChange={areIndexVisible.set}
@@ -40,7 +47,7 @@ const ToolBar = ({
     </div>
     <Button
       variant="primary"
-      style={{ position: 'absolute', top: 140, width: 139 }}
+      style={{ zIndex: '1' }}
       onClick={() => isMenuVisible.set()}
     >
       Add Feature
