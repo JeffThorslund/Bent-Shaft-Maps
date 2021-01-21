@@ -214,6 +214,7 @@ export const testEnvironment = {
           },
           { x: 50, y: 60 },
         ],
+        width: 5,
         id: 'an_id_asdijfasldfjawerwe',
       },
     ],
@@ -223,7 +224,7 @@ export const testEnvironment = {
     activePoint: 0,
     draggedPoint: false,
     draggedCubic: false,
-    draggedHydraulicWidth: false,
+    draggedHydraulic: false,
     draggedFeature: false,
     offset: null,
   },
@@ -248,10 +249,10 @@ export const testEnvironment = {
       state.draggedCubic = payload.anchor;
       return state;
     },
-    setDraggedHydraulicWidth: (state, payload) => {
+    setDraggedHydraulic: (state, payload) => {
       state.activeType = payload.featureType;
       state.activeLine = payload.lineIndex;
-      state.draggedHydraulicWidth = payload.pointIndex;
+      state.draggedHydraulic = payload.pointIndex;
       return state;
     },
     setDraggedFeature: (state, payload) => {
@@ -303,16 +304,63 @@ export const testEnvironment = {
       return state;
     },
     setCubicCoords: (state, payload) => {
-      const { activePoint, activeLine, activeType } = state;
+      const { activePoint, activeLine, activeType, draggedCubic } = state;
       const target = activeType === 'line' ? state.lines : state.eddys;
-      target[activeLine].vector[activePoint].c[payload.anchor].x =
+      target[activeLine].vector[activePoint].c[draggedCubic].x =
         payload.coords.x;
-      target[activeLine].vector[activePoint].c[payload.anchor].y =
+      target[activeLine].vector[activePoint].c[draggedCubic].y =
         payload.coords.y;
       return state;
     },
     setHydraulicCoords: (state, payload) => {
-      console.log(payload);
+      const { activePoint, activeLine, activeType, draggedHydraulic } = state;
+      const { coords } = payload;
+      const line = state.hydraulics[activeLine].vector;
+      const { width } = state.hydraulics[activeLine];
+
+      const center = {
+        x: (line[1].x + line[0].x) / 2,
+        y: (line[1].y + line[0].y) / 2,
+      };
+
+      const perpSetup = [
+        {
+          x: -(line[1].y - line[0].y),
+          y: line[1].x - line[0].x,
+        },
+        {
+          x: line[1].y - line[0].y,
+          y: -(line[1].x - line[0].x),
+        },
+      ];
+
+      const normalMagnitude = Math.sqrt(
+        perpSetup[0].x ** 2 + perpSetup[1].y ** 2
+      );
+
+      const perp = perpSetup.map((point) => ({
+        x: ((point.x / normalMagnitude) * width) / 2 + center.x,
+        y: ((point.y / normalMagnitude) * width) / 2 + center.y,
+      }));
+
+      // NOW IT GETS TRICKY :D
+      // Following this: https://www.ck12.org/book/ck-12-college-precalculus/section/9.6/
+
+      const u = [
+        {
+          x: coords.x,
+          y: coords.y,
+        },
+        {
+          x: perp[draggedHydraulic].x,
+          y: perp[draggedHydraulic].y,
+        },
+      ];
+      const v = perp;
+
+      // YOU NEED TO DRAW LINES IN HYDRAULIC TO FIGURE THIS OUT
+
+      return state;
     },
     setFeatureCoords: (state, payload) => {
       const {
@@ -358,7 +406,7 @@ export const testEnvironment = {
     cancelDragging: (state) => {
       state.draggedPoint = false;
       state.draggedCubic = false;
-      state.draggedHydraulicWidth = false;
+      state.draggedHydraulic = false;
       state.draggedFeature = false;
       state.offset = null;
       return state;

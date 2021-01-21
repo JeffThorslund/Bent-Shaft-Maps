@@ -12,8 +12,8 @@ const Hydraulic = ({
   lineIndex,
   reducers,
   areHandlesVisible,
+  width,
 }) => {
-  const [width, setWidth] = useState(5);
   const coords = useMousePosition();
 
   // Find handle coordinates
@@ -62,7 +62,7 @@ const Hydraulic = ({
           cy={point.y}
           r="2"
           onMouseDown={(e) => {
-            reducers.setDraggedHydraulicWidth({
+            reducers.setDraggedHydraulic({
               featureType,
               lineIndex,
               pointIndex: i,

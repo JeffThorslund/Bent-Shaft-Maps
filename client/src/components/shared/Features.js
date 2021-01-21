@@ -43,6 +43,7 @@ const Features = ({
         hydraulics.map((hydraulic, i) => (
           <Hydraulic
             line={hydraulic.vector}
+            width={hydraulic.width}
             lineIndex={i}
             reducers={reducers}
             areHandlesVisible={areHandlesVisible}

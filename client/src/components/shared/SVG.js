@@ -3,9 +3,12 @@ import { useSelector } from 'react-redux';
 import { useMousePosition, useKeyPress } from './_utils';
 
 const SVG = ({ reducers, children }) => {
-  const { draggedPoint, draggedCubic, draggedFeature } = useSelector(
-    (state) => state.testEnvironment
-  );
+  const {
+    draggedPoint,
+    draggedCubic,
+    draggedHydraulic,
+    draggedFeature,
+  } = useSelector((state) => state.testEnvironment);
 
   const coords = useMousePosition();
   const isCtrlPressed = useKeyPress('Control');
@@ -14,13 +17,10 @@ const SVG = ({ reducers, children }) => {
     if (draggedPoint) {
       reducers.setPointCoords({ coords });
     } else if (draggedCubic !== false) {
-      reducers.setCubicCoords({ coords, anchor: draggedCubic });
-    }
-
-    // else if (draggedCubic !== false) {
-    //   reducers.setCubicCoords({ coords, anchor: draggedCubic });
-    // }
-    else if (draggedFeature) {
+      reducers.setCubicCoords({ coords });
+    } else if (draggedHydraulic !== false) {
+      reducers.setHydraulicCoords({ coords });
+    } else if (draggedFeature) {
       reducers.setFeatureCoords(coords);
     } else return null;
   };
