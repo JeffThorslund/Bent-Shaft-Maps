@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useMousePosition, useKeyPress } from './_utils';
 import Point from './Point';
 
@@ -33,24 +33,6 @@ const Hydraulic = ({
     { x: (line[1].x + center.x) / 2, y: (line[1].y + center.y) / 2 },
   ];
 
-  const perpSetup = [
-    {
-      x: -(line[1].y - line[0].y),
-      y: line[1].x - line[0].x,
-    },
-    {
-      x: line[1].y - line[0].y,
-      y: -(line[1].x - line[0].x),
-    },
-  ];
-
-  const normalMagnitude = Math.sqrt(perpSetup[0].x ** 2 + perpSetup[1].y ** 2);
-
-  const perp = perpSetup.map((point) => ({
-    x: ((point.x / normalMagnitude) * width) / 2 + center.x,
-    y: ((point.y / normalMagnitude) * width) / 2 + center.y,
-  }));
-
   return (
     <g
       className={isCtrlPressed ? 'remove' : 'draggable'}
@@ -82,6 +64,7 @@ const Hydraulic = ({
             });
             e.stopPropagation();
           }}
+          key={i}
         >
           <circle cx={point.x} cy={point.y} r="2" fillOpacity={0.4} />
           <text

@@ -3,12 +3,9 @@ import { useSelector } from 'react-redux';
 import { useMousePosition, useKeyPress } from './_utils';
 
 const SVG = ({ reducers, children }) => {
-  const {
-    draggedPoint,
-    draggedCubic,
-    draggedHydraulic,
-    draggedFeature,
-  } = useSelector((state) => state.testEnvironment);
+  const { draggedPoint, draggedCubic, draggedFeature } = useSelector(
+    (state) => state.testEnvironment
+  );
 
   const coords = useMousePosition();
   const isCtrlPressed = useKeyPress('Control');
