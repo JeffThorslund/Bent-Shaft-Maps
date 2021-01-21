@@ -12,6 +12,7 @@ const Hydraulic = ({
   lineIndex,
   reducers,
   areHandlesVisible,
+  areIndexVisible,
   width,
 }) => {
   const coords = useMousePosition();
@@ -75,6 +76,7 @@ const Hydraulic = ({
       {areHandlesVisible.value &&
         line.map((p, i) => (
           <Point
+            areIndexVisible={areIndexVisible}
             featureType={featureType}
             lineIndex={lineIndex}
             pointIndex={i}

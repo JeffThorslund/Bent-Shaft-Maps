@@ -12,7 +12,6 @@ const SVG = ({ reducers, children }) => {
 
   const coords = useMousePosition();
   const isCtrlPressed = useKeyPress('Control');
-
   const handleMouseMove = () => {
     if (draggedPoint) {
       reducers.setPointCoords({ coords });
@@ -24,6 +23,7 @@ const SVG = ({ reducers, children }) => {
       reducers.setFeatureCoords(coords);
     } else return null;
   };
+
   return (
     <svg
       className="svg-wrapper"

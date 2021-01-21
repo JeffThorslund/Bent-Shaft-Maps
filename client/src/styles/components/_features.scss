@@ -18,7 +18,15 @@ $dark-jungle-green: #01110aff;
 	stroke: $dark-jungle-green;
 }
 .draggable {
-	cursor: move;
+	cursor: grab;
+}
+
+.draggable:active {
+	cursor: grabbing;
+}
+
+.remove {
+	cursor: no-drop;
 }
 .line {
 	@extend %path;

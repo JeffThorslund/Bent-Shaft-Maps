@@ -1,0 +1,18 @@
+.context {
+	text-align: center;
+	position: absolute;
+	top: 4.8px;
+	left: 150px;
+	z-index: 100;
+	width: 400px;
+
+	box-shadow: 3px 3px 3px grey;
+
+	.btn {
+		width: 100px;
+	}
+
+	&.hide {
+		display: none;
+	}
+}

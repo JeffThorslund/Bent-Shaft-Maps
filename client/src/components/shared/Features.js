@@ -15,6 +15,7 @@ const Features = ({
   areLinesVisible,
   areEddysVisible,
   areHydraulicsVisible,
+  areIndexVisible,
 }) => {
   const { lines, eddys, hydraulics } = rapid;
   return (
@@ -26,6 +27,7 @@ const Features = ({
             lineIndex={i}
             reducers={reducers}
             areHandlesVisible={areHandlesVisible}
+            areIndexVisible={areIndexVisible}
             key={line.id}
           />
         ))}
@@ -36,6 +38,7 @@ const Features = ({
             lineIndex={i}
             reducers={reducers}
             areHandlesVisible={areHandlesVisible}
+            areIndexVisible={areIndexVisible}
             key={eddy.id}
           />
         ))}
@@ -47,6 +50,7 @@ const Features = ({
             lineIndex={i}
             reducers={reducers}
             areHandlesVisible={areHandlesVisible}
+            areIndexVisible={areIndexVisible}
             key={hydraulic.id}
           />
         ))}
