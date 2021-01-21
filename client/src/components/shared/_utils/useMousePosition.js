@@ -1,5 +1,5 @@
-import { useState, useEffect } from "react";
-import { useWindowDimensions } from "../_utils";
+import { useState, useEffect } from 'react';
+import { useWindowDimensions } from '.';
 
 const useMousePosition = () => {
   const [mousePosition, setMousePosition] = useState({ x: null, y: null });
@@ -14,8 +14,8 @@ const useMousePosition = () => {
   };
 
   useEffect(() => {
-    window.addEventListener("mousemove", updateMousePosition);
-    return () => window.removeEventListener("mousemove", updateMousePosition);
+    window.addEventListener('mousemove', updateMousePosition);
+    return () => window.removeEventListener('mousemove', updateMousePosition);
   });
 
   return mousePosition;

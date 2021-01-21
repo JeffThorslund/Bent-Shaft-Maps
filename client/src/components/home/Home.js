@@ -1,19 +1,19 @@
-import React from "react";
-import Container from "react-bootstrap/Container";
-import Navigation from "../general/Navigation";
-import Header from "./Header";
-import RiverCardContainer from "./RiverCardContainer";
+import React from 'react';
+import Container from 'react-bootstrap/Container';
+import Navigation from '../general/Navigation';
+import Header from './Header';
+import RiverCardContainer from './RiverCardContainer';
 
 /**
  * Holds Navigation Bar, Header, and RiverCardContainer
  */
 
-const Home = ({rivers}) => (
+const Home = ({ rivers }) => (
   <div className="vh-100 home">
     <Navigation />
     <Container>
       <Header />
-      <RiverCardContainer rivers={rivers}/>
+      <RiverCardContainer rivers={rivers} />
     </Container>
   </div>
 );

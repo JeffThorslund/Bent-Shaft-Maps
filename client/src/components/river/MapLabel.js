@@ -1,15 +1,17 @@
-import React from "react";
-import PropTypes from "prop-types";
-import { paramCase } from "change-case";
-import { useHistory } from "react-router-dom";
+import React from 'react';
+import PropTypes from 'prop-types';
+import { paramCase } from 'change-case';
+import { useHistory } from 'react-router-dom';
 
 /** A label on the overview navigation map */
 
 const MapLabel = ({ name, overviewLabel: { pointer, tag }, toggleMap }) => {
-  let history = useHistory();
+  const history = useHistory();
   const handleClick = (to) => {
     toggleMap();
-    to && history.push(to);
+    if (to) {
+      history.push(to);
+    }
   };
 
   return (

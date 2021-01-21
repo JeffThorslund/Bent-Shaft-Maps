@@ -1,45 +1,51 @@
-import React, { useState } from "react";
-import PropTypes from "prop-types";
-import CardColumns from "react-bootstrap/CardColumns";
-import SearchBar from "../general/SearchBar";
-import RiverCard from "./RiverCard";
-import DoesNotExistCard from "./DoesNotExistCard";
+import React, { useState } from 'react';
+import CardColumns from 'react-bootstrap/CardColumns';
+import SearchBar from '../general/SearchBar';
+import RiverCard from './RiverCard';
+import DoesNotExistCard from './DoesNotExistCard';
 
 /* Handles search functionality and river card display */
 
 const RiverCardContainer = ({ rivers }) => {
-  //User Search Query
-  const [value, setValue] = useState("");
+  // User Search Query
+  const [value, setValue] = useState('');
 
   const handleChange = (e) => {
     setValue(e.target.value);
   };
-  //Getting data from { rivers } for Card rendering and Search engine
-  let riverCardData = rivers
-    .map((river) => {
-      return river.sections.map((section) => ({
+  // Getting data from { rivers } for Card rendering and Search engine
+  const riverCardData = rivers
+    .map((river) =>
+      river.sections.map((section) => ({
         riverName: river.name,
         sectionName: section.name,
         locationName: section.location,
         className: section.class,
-      }));
-    })
+      }))
+    )
     .flat();
 
-  let riverCards = riverCardData
+  const riverCards = riverCardData
     .filter((card) => {
-      //If Search Bar is empty => all Cards
+      // If Search Bar is empty => all Cards
       if (value.length === 0) return true;
-      //Iterrate through each Card values => Cards containing Search Query
+      // Iterrate through each Card values => Cards containing Search Query
       for (const result of Object.values(card)) {
         if (result.toUpperCase().indexOf(value.toUpperCase()) > -1) return true;
       }
 
       return false;
     })
-    .map((card, index) => {
-      return <RiverCard {...card} value={value} key={`RiverCard${index}`} />;
-    });
+    .map(({ riverName, sectionName, locationName, className }, index) => (
+      <RiverCard
+        riverName={riverName}
+        sectionName={sectionName}
+        locationName={locationName}
+        className={className}
+        value={value}
+        key={`RiverCard${index}`}
+      />
+    ));
 
   return (
     <>
@@ -58,8 +64,3 @@ const RiverCardContainer = ({ rivers }) => {
 };
 
 export default RiverCardContainer;
-
-RiverCardContainer.propTypes = {
-  /* Array of all river objects in the database */
-  rivers: PropTypes.arrayOf(PropTypes.object),
-};

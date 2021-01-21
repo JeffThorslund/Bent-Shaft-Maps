@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 
 const ItemList = ({
   list,
@@ -16,8 +16,8 @@ const ItemList = ({
         onClick={() => action({ index, type })}
         className={`${
           index === selectedIndex && type === selectedFeatureType
-            ? "font-weight-bold"
-            : "font-weight-normal"
+            ? 'font-weight-bold'
+            : 'font-weight-normal'
         } item`}
       >
         {item.name}
