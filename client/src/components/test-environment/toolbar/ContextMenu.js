@@ -52,6 +52,13 @@ const ContextMenu = ({ show, reducers, isMenuVisible }) => {
         >
           Add Eddy
         </Button>
+        <Button
+          type="submit"
+          variant="outline-primary"
+          onClick={() => setType('hydraulic')}
+        >
+          Add Hydraulic
+        </Button>
         <Button variant="outline-danger" onClick={(e) => isMenuVisible(e)}>
           Close
         </Button>

@@ -214,11 +214,7 @@ export const testEnvironment = {
           },
           { x: 50, y: 60 },
         ],
-        vectorHelpers: {
-          u: null,
-          v: null,
-          w: null,
-        },
+
         width: 5,
         id: 'an_id_asdijfasldfjawerwe',
       },
@@ -284,12 +280,49 @@ export const testEnvironment = {
           range: [-100, 100],
           id: `${type}_d${x}`,
         });
+      } else if (type === 'hydraulic') {
+        state.hydraulics.push({
+          name,
+          desc,
+          vector: [
+            {
+              x: 30,
+              y: 40,
+            },
+            { x: 50, y: 60 },
+          ],
+          width: 5,
+          range: [-100, 100],
+          id: `${type}_d${x}`,
+        });
       }
       return state;
     },
     removeFeature: (state) => {
-      const { activeType, activeLine, eddys, lines } = state;
-      const target = activeType === 'line' ? lines : eddys;
+      const { activeType, activeLine, eddys, lines, hydraulics } = state;
+
+      // const target = {
+      //   line: lines[activeLine],
+      //   eddy: eddys[activeLine],
+      //   hydraulic: hydraulics[activeLine],
+      // }[activeType]
+
+      const target = {
+        line: lines,
+        eddy: eddys,
+        hydraulic: hydraulics,
+      }[activeType];
+
+      // if (activeType === 'line') {
+      //   target = lines;
+      // } else if (activeType === 'eddy') {
+      //   target = eddys;
+      // } else if (activeType === 'hydraulic') {
+      //   target = hydraulics;
+      // } else {
+      //   target = null;
+      // }
+
       target.splice(activeLine, 1);
       return state;
     },

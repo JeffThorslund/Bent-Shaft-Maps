@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useMousePosition } from './_utils';
+import { useMousePosition, useKeyPress } from './_utils';
 import Point from './Point';
 
 /**
@@ -14,8 +14,8 @@ const Hydraulic = ({
   areHandlesVisible,
   areIndexVisible,
   width,
-  vectorHelpers: { u, v, w },
 }) => {
+  const isCtrlPressed = useKeyPress('Control');
   const coords = useMousePosition();
 
   // Find handle coordinates
@@ -53,9 +53,14 @@ const Hydraulic = ({
 
   return (
     <g
-      className="draggable"
+      className={isCtrlPressed ? 'remove' : 'draggable'}
       onMouseDown={(e) => {
-        reducers.setDraggedFeature(coords);
+        if (isCtrlPressed) {
+          reducers.removeFeature();
+        } else {
+          reducers.setDraggedFeature(coords);
+        }
+
         e.stopPropagation();
       }}
     >

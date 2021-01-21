@@ -47,7 +47,6 @@ const Features = ({
           <Hydraulic
             line={hydraulic.vector}
             width={hydraulic.width}
-            vectorHelpers={hydraulic.vectorHelpers}
             lineIndex={i}
             reducers={reducers}
             areHandlesVisible={areHandlesVisible}
