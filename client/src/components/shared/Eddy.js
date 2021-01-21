@@ -1,5 +1,5 @@
 import React from 'react';
-import { buildPath, useMousePosition } from './_utils';
+import { buildPath, useMousePosition, useKeyPress } from './_utils';
 import Point from './Point';
 import Cubic from './Cubic';
 
@@ -13,13 +13,19 @@ const Eddy = ({
   lineIndex,
   reducers,
   areHandlesVisible,
+  areIndexVisible,
 }) => {
+  const isCtrlPressed = useKeyPress('Control');
   const coords = useMousePosition();
   return (
     <g
-      className="draggable"
+      className={isCtrlPressed ? 'remove' : 'draggable'}
       onMouseDown={(e) => {
-        reducers.setDraggedFeature(coords);
+        if (isCtrlPressed) {
+          reducers.removeFeature();
+        } else {
+          reducers.setDraggedFeature(coords);
+        }
         e.stopPropagation();
       }}
     >
@@ -38,6 +44,7 @@ const Eddy = ({
           const p2y = p.z ? a[0].y : p.y;
           const point = p.z ? null : (
             <Point
+              areIndexVisible={areIndexVisible}
               featureType={featureType}
               lineIndex={lineIndex}
               pointIndex={i}
@@ -51,6 +58,7 @@ const Eddy = ({
           if (p.c) {
             anchors.push(
               <Cubic
+                areIndexVisible={areIndexVisible}
                 featureType={featureType}
                 lineIndex={lineIndex}
                 pointIndex={i}

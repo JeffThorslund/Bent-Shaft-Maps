@@ -1,5 +1,5 @@
 import React from 'react';
-import { buildPath, useMousePosition } from './_utils';
+import { buildPath, useKeyPress, useMousePosition } from './_utils';
 import Point from './Point';
 import Cubic from './Cubic';
 
@@ -13,13 +13,19 @@ const Line = ({
   lineIndex,
   reducers,
   areHandlesVisible,
+  areIndexVisible,
 }) => {
+  const isCtrlPressed = useKeyPress('Control');
   const coords = useMousePosition();
   return (
     <g
-      className="draggable"
+      className={isCtrlPressed ? 'remove' : 'draggable'}
       onMouseDown={(e) => {
-        reducers.setDraggedFeature(coords);
+        if (isCtrlPressed) {
+          reducers.removeFeature();
+        } else {
+          reducers.setDraggedFeature(coords);
+        }
         e.stopPropagation();
       }}
     >
@@ -37,6 +43,7 @@ const Line = ({
           if (p.c) {
             anchors.push(
               <Cubic
+                areIndexVisible={areIndexVisible}
                 featureType={featureType}
                 lineIndex={lineIndex}
                 pointIndex={i}
@@ -56,6 +63,7 @@ const Line = ({
           return (
             <React.Fragment key={i}>
               <Point
+                areIndexVisible={areIndexVisible}
                 featureType={featureType}
                 lineIndex={lineIndex}
                 pointIndex={i}

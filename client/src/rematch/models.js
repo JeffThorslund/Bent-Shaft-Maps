@@ -215,6 +215,65 @@ export const testEnvironment = {
     offset: null,
   },
   reducers: {
+    addFeature: (state, payload) => {
+      const {
+        type,
+        coords: { x, y },
+        name,
+        desc,
+      } = payload;
+      if (type === 'line') {
+        state.lines.push({
+          name,
+          desc,
+          vector: [
+            { x: x - 5, y },
+            {
+              x: x + 5,
+              y,
+              c: [
+                { x: x - 8, y },
+                { x: x + 8, y },
+              ],
+            },
+          ],
+          range: [-100, 100],
+          id: `${type}_d${x[0]}`,
+        });
+      } else if (type === 'eddy') {
+        state.eddys.push({
+          name,
+          desc,
+          vector: [
+            { x: x - 5, y },
+            {
+              x: x + 5,
+              y,
+              c: [
+                { x: x - 5, y: y + 10 },
+                { x: x + 5, y: y + 10 },
+              ],
+            },
+            {
+              z: 1,
+              c: [
+                { x: x + 5, y: y - 10 },
+                { x: x - 5, y: y - 10 },
+              ],
+            },
+          ],
+          range: [-100, 100],
+          id: `${type}_d${x}`,
+        });
+      }
+      return state;
+    },
+    removeFeature: (state) => {
+      const { activeType, activeLine, eddys, lines } = state;
+      const target = activeType === 'line' ? lines : eddys;
+      target.splice(activeLine, 1);
+      return state;
+    },
     setActiveType: (state, payload) => {
       if (state.draggedFeature) return state;
       state.activeType = payload.featureType;

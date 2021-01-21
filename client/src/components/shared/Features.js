@@ -13,6 +13,7 @@ const Features = ({
   areHandlesVisible,
   areLinesVisible,
   areEddysVisible,
+  areIndexVisible,
 }) => {
   const { lines, eddys } = rapid;
   return (
@@ -24,6 +25,7 @@ const Features = ({
             lineIndex={i}
             reducers={reducers}
             areHandlesVisible={areHandlesVisible}
+            areIndexVisible={areIndexVisible}
             key={line.id}
           />
         ))}
@@ -34,6 +36,7 @@ const Features = ({
             lineIndex={i}
             reducers={reducers}
             areHandlesVisible={areHandlesVisible}
+            areIndexVisible={areIndexVisible}
             key={eddy.id}
           />
         ))}
