@@ -14,6 +14,7 @@ const Hydraulic = ({
   areHandlesVisible,
   areIndexVisible,
   width,
+  vectorHelpers: { u, v, w },
 }) => {
   const coords = useMousePosition();
 
@@ -23,6 +24,14 @@ const Hydraulic = ({
     x: (line[1].x + line[0].x) / 2,
     y: (line[1].y + line[0].y) / 2,
   };
+
+  const quarter = [
+    {
+      x: (line[0].x + center.x) / 2,
+      y: (line[0].y + center.y) / 2,
+    },
+    { x: (line[1].x + center.x) / 2, y: (line[1].y + center.y) / 2 },
+  ];
 
   const perpSetup = [
     {
@@ -57,20 +66,29 @@ const Hydraulic = ({
         strokeWidth={width}
         stroke="red"
       />
-      {perp.map((point, i) => (
-        <circle
-          cx={point.x}
-          cy={point.y}
-          r="2"
+
+      {quarter.map((point, i) => (
+        <g
           onMouseDown={(e) => {
-            reducers.setDraggedHydraulic({
+            reducers.setHydraulicWidth({
               featureType,
               lineIndex,
               pointIndex: i,
             });
             e.stopPropagation();
           }}
-        />
+        >
+          <circle cx={point.x} cy={point.y} r="2" fillOpacity={0.4} />
+          <text
+            x={point.x - 1}
+            y={point.y + 1}
+            fill="white"
+            fontSize="2px"
+            style={{ userSelect: 'none' }}
+          >
+            {i ? '+' : '-'}
+          </text>
+        </g>
       ))}
 
       {areHandlesVisible.value &&

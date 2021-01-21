@@ -214,6 +214,11 @@ export const testEnvironment = {
           },
           { x: 50, y: 60 },
         ],
+        vectorHelpers: {
+          u: null,
+          v: null,
+          w: null,
+        },
         width: 5,
         id: 'an_id_asdijfasldfjawerwe',
       },
@@ -308,10 +313,17 @@ export const testEnvironment = {
       state.draggedCubic = payload.anchor;
       return state;
     },
-    setDraggedHydraulic: (state, payload) => {
-      state.activeType = payload.featureType;
-      state.activeLine = payload.lineIndex;
-      state.draggedHydraulic = payload.pointIndex;
+    setHydraulicWidth: (state, payload) => {
+      const { lineIndex, pointIndex } = payload;
+
+      if (pointIndex === 0 && state.hydraulics[lineIndex].width > 1) {
+        state.hydraulics[lineIndex].width -= 1;
+      }
+
+      if (pointIndex === 1 && state.hydraulics[lineIndex].width >= 1) {
+        state.hydraulics[lineIndex].width += 1;
+      }
+
       return state;
     },
     setDraggedFeature: (state, payload) => {
@@ -371,56 +383,7 @@ export const testEnvironment = {
         payload.coords.y;
       return state;
     },
-    setHydraulicCoords: (state, payload) => {
-      const { activePoint, activeLine, activeType, draggedHydraulic } = state;
-      const { coords } = payload;
-      const line = state.hydraulics[activeLine].vector;
-      const { width } = state.hydraulics[activeLine];
 
-      const center = {
-        x: (line[1].x + line[0].x) / 2,
-        y: (line[1].y + line[0].y) / 2,
-      };
-
-      const perpSetup = [
-        {
-          x: -(line[1].y - line[0].y),
-          y: line[1].x - line[0].x,
-        },
-        {
-          x: line[1].y - line[0].y,
-          y: -(line[1].x - line[0].x),
-        },
-      ];
-
-      const normalMagnitude = Math.sqrt(
-        perpSetup[0].x ** 2 + perpSetup[1].y ** 2
-      );
-
-      const perp = perpSetup.map((point) => ({
-        x: ((point.x / normalMagnitude) * width) / 2 + center.x,
-        y: ((point.y / normalMagnitude) * width) / 2 + center.y,
-      }));
-
-      // NOW IT GETS TRICKY :D
-      // Following this: https://www.ck12.org/book/ck-12-college-precalculus/section/9.6/
-
-      const u = [
-        {
-          x: coords.x,
-          y: coords.y,
-        },
-        {
-          x: perp[draggedHydraulic].x,
-          y: perp[draggedHydraulic].y,
-        },
-      ];
-      const v = perp;
-
-      // YOU NEED TO DRAW LINES IN HYDRAULIC TO FIGURE THIS OUT
-
-      return state;
-    },
     setFeatureCoords: (state, payload) => {
       const {
         activeLine,
@@ -432,15 +395,6 @@ export const testEnvironment = {
       } = state;
       // Mouse Coordinates
       const { x, y } = payload;
-
-      // const target =
-      //   activeType === 'line'
-      //     ? lines[activeLine].vector
-      //     : activeType === 'eddy'
-      //     ? eddys[activeLine].vector
-      //     : activeType === 'hydraulic'
-      //     ? hydraulics[activeLine].vector
-      //     : null;
 
       const target = {
         line: lines[activeLine],

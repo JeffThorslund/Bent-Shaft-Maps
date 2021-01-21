@@ -17,8 +17,6 @@ const SVG = ({ reducers, children }) => {
       reducers.setPointCoords({ coords });
     } else if (draggedCubic !== false) {
       reducers.setCubicCoords({ coords });
-    } else if (draggedHydraulic !== false) {
-      reducers.setHydraulicCoords({ coords });
     } else if (draggedFeature) {
       reducers.setFeatureCoords(coords);
     } else return null;
