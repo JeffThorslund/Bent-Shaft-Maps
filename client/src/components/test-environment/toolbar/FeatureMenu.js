@@ -1,59 +1,66 @@
 import React, { useState } from 'react';
+// UTILS
 import { useForm } from 'react-hook-form';
-import { Card, Button } from 'react-bootstrap';
 import { useMousePosition } from '../../shared/_utils';
+// COMPONENTS
+import { Card, Button } from 'react-bootstrap';
 
 const FeatureMenu = ({ show, reducers, isMenuVisible }) => {
-  const coords = useMousePosition();
-  const [type, setType] = useState('');
   const { register, handleSubmit } = useForm({});
+  const [type, setType] = useState('');
+  const coords = useMousePosition();
+
   const onSubmit = (data) => {
     data.type = type;
     data.coords = coords;
     reducers.addFeature(data);
     isMenuVisible();
   };
+
   return (
     <Card className={show ? 'context' : 'context hide'}>
       <form onSubmit={handleSubmit(onSubmit)}>
         <label className="form-label">Add New Feature</label>
-        <input
+        <input // Name
           className="form-control"
-          ref={register}
-          required
           name="name"
           placeholder="Name"
-        />
-        <textarea
-          className="form-control"
           ref={register}
           required
-          rows={10}
+        />
+        <textarea // Description
+          className="form-control"
           name="desc"
           placeholder="Description..."
+          rows={10}
+          ref={register}
+          required
         />
-        <Button
+        <Button // Line
           type="submit"
           variant="outline-primary"
           onClick={() => setType('line')}
         >
           Add Line
         </Button>
-        <Button
+        <Button // Eddy
           type="submit"
           variant="outline-primary"
           onClick={() => setType('eddy')}
         >
           Add Eddy
         </Button>
-        <Button
+        <Button // Hydraulic
           type="submit"
           variant="outline-primary"
           onClick={() => setType('hydraulic')}
         >
           Add Hydraulic
         </Button>
-        <Button variant="outline-danger" onClick={(e) => isMenuVisible(e)}>
+        <Button // Close
+          variant="outline-danger"
+          onClick={(e) => isMenuVisible(e)}
+        >
           Close
         </Button>
       </form>

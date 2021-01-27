@@ -1,18 +1,21 @@
 import React from 'react';
+// REDUX
 import { useSelector } from 'react-redux';
 import store from '../../rematch/store';
+// UTILS
+import { useToggle } from '../_utils';
+// COMPONENTS
 import Features from '../shared/Features';
 import ToolBar from './toolbar/ToolBar';
-import { useToggle } from '../_utils';
 
 const TestEnvironment = () => {
   // Set your prefered /test-env settings below
-  const areHandlesVisible = useToggle(true);
-  const areLinesVisible = useToggle(0);
-  const areEddysVisible = useToggle(0);
+  const areLinesVisible = useToggle(false);
+  const areEddysVisible = useToggle(false);
   const areHydraulicsVisible = useToggle(true);
   const areIndexVisible = useToggle(true);
-
+  const areHandlesVisible = useToggle(true);
+  
   const { dispatch } = store;
   const rapid = useSelector((state) => state.testEnvironment);
   const level = 0;
