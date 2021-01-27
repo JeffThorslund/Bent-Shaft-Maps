@@ -1,21 +1,32 @@
 import React from 'react';
+// UTILS
 import { useSelector } from 'react-redux';
 import { useMousePosition, useKeyPress } from './_utils';
 
-const SVG = ({ reducers, children }) => {
+const SVG = ({
+  children,
+  reducers: {
+    setPointCoords,
+    setCubicCoords,
+    setFeatureCoords,
+    cancelDragging,
+    addPoint,
+  },
+}) => {
   const { draggedPoint, draggedCubic, draggedFeature } = useSelector(
     (state) => state.testEnvironment
   );
 
   const coords = useMousePosition();
   const isCtrlPressed = useKeyPress('Control');
+
   const handleMouseMove = () => {
     if (draggedPoint) {
-      reducers.setPointCoords({ coords });
+      setPointCoords(coords);
     } else if (draggedCubic !== false) {
-      reducers.setCubicCoords({ coords });
+      setCubicCoords(coords);
     } else if (draggedFeature) {
-      reducers.setFeatureCoords(coords);
+      setFeatureCoords(coords);
     } else return null;
   };
 
@@ -27,8 +38,8 @@ const SVG = ({ reducers, children }) => {
       xmlns="http://www.w3.org/2000/svg"
       preserveAspectRatio="none"
       onMouseMove={() => handleMouseMove()}
-      onMouseUp={() => reducers.cancelDragging()}
-      onMouseDown={() => isCtrlPressed && reducers.addPoint({ coords })}
+      onMouseUp={() => cancelDragging()}
+      onMouseDown={() => isCtrlPressed && addPoint(coords)}
       tabIndex="0"
     >
       {children}

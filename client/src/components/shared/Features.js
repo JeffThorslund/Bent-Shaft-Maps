@@ -1,4 +1,5 @@
 import React from 'react';
+// Components
 import SVG from './SVG';
 import Line from './Line';
 import Eddy from './Eddy';
@@ -18,6 +19,7 @@ const Features = ({
   areIndexVisible,
 }) => {
   const { lines, eddys, hydraulics } = rapid;
+
   return (
     <SVG reducers={reducers}>
       {areLinesVisible.value &&

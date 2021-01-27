@@ -396,6 +396,7 @@ export const testEnvironment = {
     },
     setPointCoords: (state, payload) => {
       const { activePoint, activeLine, activeType } = state;
+      const { x, y } = payload;
 
       const target = {
         line: state.lines,
@@ -403,17 +404,16 @@ export const testEnvironment = {
         hydraulic: state.hydraulics,
       }[activeType];
 
-      target[activeLine].vector[activePoint].x = payload.coords.x;
-      target[activeLine].vector[activePoint].y = payload.coords.y;
+      target[activeLine].vector[activePoint].x = x;
+      target[activeLine].vector[activePoint].y = y;
       return state;
     },
     setCubicCoords: (state, payload) => {
       const { activePoint, activeLine, activeType, draggedCubic } = state;
+      const { x, y } = payload;
       const target = activeType === 'line' ? state.lines : state.eddys;
-      target[activeLine].vector[activePoint].c[draggedCubic].x =
-        payload.coords.x;
-      target[activeLine].vector[activePoint].c[draggedCubic].y =
-        payload.coords.y;
+      target[activeLine].vector[activePoint].c[draggedCubic].x = x;
+      target[activeLine].vector[activePoint].c[draggedCubic].y = y;
       return state;
     },
 
@@ -426,7 +426,6 @@ export const testEnvironment = {
         eddys,
         hydraulics,
       } = state;
-      // Mouse Coordinates
       const { x, y } = payload;
 
       const target = {
@@ -434,6 +433,7 @@ export const testEnvironment = {
         eddy: eddys[activeLine],
         hydraulic: hydraulics[activeLine],
       }[activeType].vector;
+
       target.forEach((point, index) => {
         const off = offset[index];
         if (point.c) {
@@ -458,7 +458,7 @@ export const testEnvironment = {
       return state;
     },
     addPoint: (state, payload) => {
-      const { coords } = payload;
+      const { x, y } = payload;
       const { activeLine, activeType, lines, eddys } = state;
       // Adds point to LINE
       if (activeType === 'line') {
@@ -466,16 +466,16 @@ export const testEnvironment = {
         const lastPointCoords = lines[activeLine].vector[lastPointIndex];
 
         lines[activeLine].vector.push({
-          x: coords.x,
-          y: coords.y,
+          x,
+          y,
           c: [
             {
-              x: (lastPointCoords.x + coords.x) / 2,
-              y: (lastPointCoords.y + coords.y) / 2,
+              x: (lastPointCoords.x + x) / 2,
+              y: (lastPointCoords.y + y) / 2,
             },
             {
-              x: (lastPointCoords.x + coords.x) / 2,
-              y: (lastPointCoords.y + coords.y) / 2,
+              x: (lastPointCoords.x + x) / 2,
+              y: (lastPointCoords.y + y) / 2,
             },
           ],
         });
@@ -484,20 +484,20 @@ export const testEnvironment = {
         const l = eddys[activeLine].vector.length; // Length of vector array
         const lastPointCubics = eddys[activeLine].vector[l - 2].c;
         eddys[activeLine].vector.splice(-2, 0, {
-          x: coords.x,
-          y: coords.y,
+          x,
+          y,
           c: [
             lastPointCubics[0],
             {
-              x: (lastPointCubics[0].x + coords.x) / 2,
-              y: (lastPointCubics[0].y + coords.y) / 2,
+              x: (lastPointCubics[0].x + x) / 2,
+              y: (lastPointCubics[0].y + y) / 2,
             },
           ],
         });
         const prevPointCubics = eddys[activeLine].vector[l - 1].c;
         prevPointCubics[0] = {
-          x: (prevPointCubics[1].x + coords.x) / 2,
-          y: (prevPointCubics[1].y + coords.y) / 2,
+          x: (prevPointCubics[1].x + x) / 2,
+          y: (prevPointCubics[1].y + y) / 2,
         };
       }
       return state;
