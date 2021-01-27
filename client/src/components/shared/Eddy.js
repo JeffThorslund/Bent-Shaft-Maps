@@ -1,5 +1,7 @@
 import React from 'react';
+// UTILS
 import { buildPath, useMousePosition, useKeyPress } from './_utils';
+// COMPONENTS
 import Point from './Point';
 import Cubic from './Cubic';
 
@@ -8,47 +10,54 @@ import Cubic from './Cubic';
  */
 
 const Eddy = ({
-  line,
   featureType = 'eddy',
-  lineIndex,
-  reducers,
   areHandlesVisible,
   areIndexVisible,
+  lineIndex,
+  reducers,
+  vector,
 }) => {
+  const {
+    removeFeature,
+    setDraggedFeature,
+    setActiveType,
+    setDraggedCubic,
+    removePoint,
+    setDraggedPoint,
+  } = reducers;
+
   const isCtrlPressed = useKeyPress('Control');
   const coords = useMousePosition();
+
   return (
     <g
       className={isCtrlPressed ? 'remove' : 'draggable'}
       onMouseDown={(e) => {
         if (isCtrlPressed) {
-          reducers.removeFeature();
+          removeFeature();
         } else {
-          reducers.setDraggedFeature(coords);
+          setDraggedFeature(coords);
         }
-        e.stopPropagation();
       }}
     >
       <path
-        onMouseOver={() => reducers.setActiveType({ featureType, lineIndex })}
         className={featureType}
-        d={buildPath({
-          points: line,
-          closePath: true,
-        })}
+        onMouseOver={() => setActiveType({ featureType, lineIndex })}
+        d={buildPath({ points: vector, closePath: true })}
       />
       {areHandlesVisible.value &&
-        line.map((p, i, a) => {
+        vector.map((p, i, a) => {
           const anchors = [];
           const p2x = p.z ? a[0].x : p.x;
           const p2y = p.z ? a[0].y : p.y;
           const point = p.z ? null : (
             <Point
               areIndexVisible={areIndexVisible}
+              setDraggedPoint={setDraggedPoint}
+              removePoint={removePoint}
               featureType={featureType}
               lineIndex={lineIndex}
               pointIndex={i}
-              reducers={reducers}
               x={p.x}
               y={p.y}
               key={i}
@@ -59,10 +68,10 @@ const Eddy = ({
             anchors.push(
               <Cubic
                 areIndexVisible={areIndexVisible}
+                setDraggedCubic={setDraggedCubic}
                 featureType={featureType}
                 lineIndex={lineIndex}
                 pointIndex={i}
-                reducers={reducers}
                 p1x={a[i - 1].x}
                 p1y={a[i - 1].y}
                 p2x={p2x}

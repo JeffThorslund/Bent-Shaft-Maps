@@ -1,5 +1,7 @@
 import React from 'react';
+// UTILS
 import { buildPath, useKeyPress, useMousePosition } from './_utils';
+// COMPONENTS
 import Point from './Point';
 import Cubic from './Cubic';
 
@@ -8,46 +10,52 @@ import Cubic from './Cubic';
  */
 
 const Line = ({
-  line,
   featureType = 'line',
-  lineIndex,
-  reducers,
   areHandlesVisible,
   areIndexVisible,
+  lineIndex,
+  reducers,
+  vector,
 }) => {
+  const {
+    setActiveType,
+    setDraggedFeature,
+    removeFeature,
+    setDraggedCubic,
+    removePoint,
+    setDraggedPoint,
+  } = reducers;
+
   const isCtrlPressed = useKeyPress('Control');
   const coords = useMousePosition();
+
   return (
     <g
       className={isCtrlPressed ? 'remove' : 'draggable'}
-      onMouseDown={(e) => {
+      onMouseDown={() => {
         if (isCtrlPressed) {
-          reducers.removeFeature();
+          removeFeature();
         } else {
-          reducers.setDraggedFeature(coords);
+          setDraggedFeature(coords);
         }
-        e.stopPropagation();
       }}
     >
       <path
-        onMouseOver={() => reducers.setActiveType({ featureType, lineIndex })}
         className={featureType}
-        d={buildPath({
-          points: line,
-          closePath: false,
-        })}
+        onMouseOver={() => setActiveType({ featureType, lineIndex })}
+        d={buildPath({ points: vector, closePath: false })}
       />
       {areHandlesVisible.value &&
-        line.map((p, i, a) => {
+        vector.map((p, i, a) => {
           const anchors = [];
           if (p.c) {
             anchors.push(
               <Cubic
                 areIndexVisible={areIndexVisible}
+                setDraggedCubic={setDraggedCubic}
                 featureType={featureType}
                 lineIndex={lineIndex}
                 pointIndex={i}
-                reducers={reducers}
                 p1x={a[i - 1].x}
                 p1y={a[i - 1].y}
                 p2x={p.x}
@@ -62,17 +70,18 @@ const Line = ({
           }
           return (
             <React.Fragment key={i}>
+              {anchors}
               <Point
                 areIndexVisible={areIndexVisible}
+                setDraggedPoint={setDraggedPoint}
+                removePoint={removePoint}
                 featureType={featureType}
                 lineIndex={lineIndex}
                 pointIndex={i}
-                reducers={reducers}
                 x={p.x}
                 y={p.y}
                 key={i}
               />
-              {anchors}
             </React.Fragment>
           );
         })}

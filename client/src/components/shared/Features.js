@@ -25,22 +25,22 @@ const Features = ({
       {areLinesVisible.value &&
         lines.map((line, i) => (
           <Line
-            line={line.vector}
-            lineIndex={i}
-            reducers={reducers}
             areHandlesVisible={areHandlesVisible}
             areIndexVisible={areIndexVisible}
+            vector={line.vector}
+            reducers={reducers}
+            lineIndex={i}
             key={line.id}
           />
         ))}
       {areEddysVisible.value &&
         eddys.map((eddy, i) => (
           <Eddy
-            line={eddy.vector}
-            lineIndex={i}
-            reducers={reducers}
             areHandlesVisible={areHandlesVisible}
             areIndexVisible={areIndexVisible}
+            vector={eddy.vector}
+            reducers={reducers}
+            lineIndex={i}
             key={eddy.id}
           />
         ))}
