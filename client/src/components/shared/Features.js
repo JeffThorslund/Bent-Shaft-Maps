@@ -47,12 +47,12 @@ const Features = ({
       {areHydraulicsVisible.value &&
         hydraulics.map((hydraulic, i) => (
           <Hydraulic
+            areHandlesVisible={areHandlesVisible}
+            areIndexVisible={areIndexVisible}
             line={hydraulic.vector}
             width={hydraulic.width}
             lineIndex={i}
             reducers={reducers}
-            areHandlesVisible={areHandlesVisible}
-            areIndexVisible={areIndexVisible}
             key={hydraulic.id}
           />
         ))}
