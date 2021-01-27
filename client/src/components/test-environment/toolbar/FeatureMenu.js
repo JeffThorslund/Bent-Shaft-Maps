@@ -3,20 +3,14 @@ import { useForm } from 'react-hook-form';
 import { Card, Button } from 'react-bootstrap';
 import { useMousePosition } from '../../shared/_utils';
 
-const ContextMenu = ({ show, reducers, isMenuVisible }) => {
+const FeatureMenu = ({ show, reducers, isMenuVisible }) => {
   const coords = useMousePosition();
-  // Differ Feature Type to Create
   const [type, setType] = useState('');
-  // Form Handler
   const { register, handleSubmit } = useForm({});
-  // Handle Info Submition
   const onSubmit = (data) => {
-    // Compose Payload for Reducer
     data.type = type;
     data.coords = coords;
-    // Send Data
     reducers.addFeature(data);
-    // Close Menu
     isMenuVisible();
   };
   return (
@@ -67,4 +61,4 @@ const ContextMenu = ({ show, reducers, isMenuVisible }) => {
   );
 };
 
-export default ContextMenu;
+export default FeatureMenu;

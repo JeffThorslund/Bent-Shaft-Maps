@@ -4,7 +4,6 @@ import store from '../../rematch/store';
 import Features from '../shared/Features';
 import ToolBar from './toolbar/ToolBar';
 import { useToggle } from '../_utils';
-import ContextMenu from './toolbar/ContextMenu';
 
 const TestEnvironment = () => {
   // Set your prefered /test-env settings below
@@ -13,7 +12,6 @@ const TestEnvironment = () => {
   const areEddysVisible = useToggle(0);
   const areHydraulicsVisible = useToggle(true);
   const areIndexVisible = useToggle(true);
-  const isMenuVisible = useToggle(false);
 
   const { dispatch } = store;
   const rapid = useSelector((state) => state.testEnvironment);
@@ -21,11 +19,6 @@ const TestEnvironment = () => {
 
   return (
     <div>
-      <ContextMenu
-        show={isMenuVisible.value}
-        isMenuVisible={() => isMenuVisible.set()}
-        reducers={dispatch.testEnvironment}
-      />
       <Features
         rapid={rapid}
         level={level}
@@ -42,7 +35,7 @@ const TestEnvironment = () => {
         areEddysVisible={areEddysVisible}
         areHydraulicsVisible={areHydraulicsVisible}
         areIndexVisible={areIndexVisible}
-        isMenuVisible={isMenuVisible}
+        reducers={dispatch.testEnvironment}
       />
     </div>
   );
