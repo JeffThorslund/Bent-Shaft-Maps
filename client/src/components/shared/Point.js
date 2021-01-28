@@ -3,7 +3,7 @@ import React from 'react';
 import { useKeyPress, textAttributes, circleAttributes } from './_utils';
 
 /**
- * A simple display component that displays a circular point.
+ * A simple display component that displays a circular point
  */
 
 const Point = ({
