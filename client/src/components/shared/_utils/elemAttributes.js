@@ -1,18 +1,19 @@
 const textAttributes = (flag, x, y) => ({
+  style: { userSelect: 'none' },
   visibility: flag ? 'visible' : 'hidden',
   textAnchor: 'middle',
   strokeWidth: '0.01',
-  fontSize: '1px',
+  fontSize: '1.5px',
   stroke: 'white',
   fill: 'white',
   x,
   y,
 });
 
-const circleAttributes = (x, y, className, callback) => ({
+const circleAttributes = (x, y, r, className, callback) => ({
   className,
   onMouseDown: callback,
-  r: 1,
+  r,
   cx: x,
   cy: y,
 });

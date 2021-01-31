@@ -10,12 +10,12 @@ import ToolBar from './toolbar/ToolBar';
 
 const TestEnvironment = () => {
   // Set your prefered /test-env settings below
-  const areLinesVisible = useToggle(false);
-  const areEddysVisible = useToggle(false);
+  const areLinesVisible = useToggle(true);
+  const areEddysVisible = useToggle(true);
   const areHydraulicsVisible = useToggle(true);
-  const areIndexVisible = useToggle(true);
+  const areIndexVisible = useToggle(false);
   const areHandlesVisible = useToggle(true);
-  
+
   const { dispatch } = store;
   const rapid = useSelector((state) => state.testEnvironment);
   const level = 0;

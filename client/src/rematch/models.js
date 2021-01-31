@@ -214,7 +214,6 @@ export const testEnvironment = {
           },
           { x: 50, y: 60 },
         ],
-
         width: 5,
         id: 'an_id_asdijfasldfjawerwe',
       },

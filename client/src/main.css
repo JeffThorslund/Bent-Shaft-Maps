@@ -10732,6 +10732,7 @@ h3 {
 }
 
 .hydraulic {
+  stroke: cadetblue;
   fill: none;
   stroke-linecap: round;
 }
@@ -10754,6 +10755,10 @@ h3 {
   cursor: pointer;
   stroke: #01110aff;
   stroke-width: 2px;
+}
+
+.width-anchor {
+  opacity: 0.4;
 }
 
 .river-card {

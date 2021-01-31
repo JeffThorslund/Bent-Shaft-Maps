@@ -49,10 +49,10 @@ const Features = ({
           <Hydraulic
             areHandlesVisible={areHandlesVisible}
             areIndexVisible={areIndexVisible}
-            line={hydraulic.vector}
+            vector={hydraulic.vector}
             width={hydraulic.width}
-            lineIndex={i}
             reducers={reducers}
+            lineIndex={i}
             key={hydraulic.id}
           />
         ))}

@@ -12,24 +12,22 @@ const Point = ({
   removePoint,
   featureType,
   lineIndex,
-  pointIndex,
-  x,
-  y,
+  coords: { p, i },
 }) => {
   const isCtrlPressed = useKeyPress('Control');
 
   const handleMouseDown = () => {
     if (isCtrlPressed) {
-      removePoint({ lineIndex, pointIndex });
+      removePoint({ lineIndex, pointIndex: i });
     } else {
-      setDraggedPoint({ lineIndex, pointIndex, featureType });
+      setDraggedPoint({ lineIndex, pointIndex: i, featureType });
     }
   };
 
   return (
     <>
-      <circle {...circleAttributes(x, y, 'point', () => handleMouseDown())} />
-      <text {...textAttributes(areIndexVisible.value, x, y)}>{pointIndex}</text>
+      <circle {...circleAttributes(p.x, p.y, 1, 'point', handleMouseDown)} />
+      <text {...textAttributes(areIndexVisible.value, p.x, p.y)}>{i}</text>
     </>
   );
 };
