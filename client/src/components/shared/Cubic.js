@@ -2,13 +2,7 @@ import React from 'react';
 // UTILS
 import { textAttributes, circleAttributes, lineAttributes } from './_utils';
 
-const Cubic = ({
-  coords: { p, i, a },
-  areIndexVisible,
-  setDraggedCubic,
-  featureType,
-  lineIndex,
-}) => {
+const Cubic = ({ coords: { p, i, a }, areIndexVisible, setDraggedCubic, featureType, lineIndex }) => {
   const handleDrag = (anchor) => {
     setDraggedCubic({ lineIndex, pointIndex: i, featureType, anchor });
   };
@@ -24,15 +18,11 @@ const Cubic = ({
 
   return (
     <g className="ad-Anchor">
-      <circle
-        {...circleAttributes(x1, y1, 1, 'bezier-anchor', () => handleDrag(0))}
-      />
+      <circle {...circleAttributes(x1, y1, 1, 'bezier-anchor', () => handleDrag(0))} />
       <line {...lineAttributes('anchor-line', p1x, p1y, x1, y1)} />
       <text {...textAttributes(areIndexVisible.value, x1, y1)}>{`${i}|0`}</text>
 
-      <circle
-        {...circleAttributes(x2, y2, 1, 'bezier-anchor', () => handleDrag(1))}
-      />
+      <circle {...circleAttributes(x2, y2, 1, 'bezier-anchor', () => handleDrag(1))} />
       <line {...lineAttributes('anchor-line', p2x, p2y, x2, y2)} />
       <text {...textAttributes(areIndexVisible.value, x2, y2)}>{`${i}|1`}</text>
     </g>
