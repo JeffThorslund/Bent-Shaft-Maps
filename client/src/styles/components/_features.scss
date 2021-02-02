@@ -7,64 +7,69 @@ $british-racing-green: #003e1fff;
 $dark-jungle-green: #01110aff;
 
 .svg-wrapper {
-	position: absolute;
-	height: 100vh;
-	width: 100vw;
-	top: 0px;
-	left: 0px;
+  position: absolute;
+  height: 100vh;
+  width: 100vw;
+  top: 0px;
+  left: 0px;
 }
 
 %path {
-	stroke: $dark-jungle-green;
+  stroke: $dark-jungle-green;
 }
 .draggable {
-	cursor: grab;
+  cursor: grab;
 }
 
 .draggable:active {
-	cursor: grabbing;
+  cursor: grabbing;
 }
 
 .remove {
-	cursor: no-drop;
+  cursor: no-drop;
 }
 .line {
-	@extend %path;
-	fill: none;
-	stroke-width: 0.5px;
-	stroke-linecap: round;
+  @extend %path;
+  fill: none;
+  stroke-width: 0.5px;
+  stroke-linecap: round;
 }
 
 .eddy {
-	@extend %path;
-	fill: $ocean-green;
-	fill-opacity: 0.4;
-	stroke-dasharray: 2px;
-	stroke-width: 0.5px;
-	stroke-linecap: round;
+  @extend %path;
+  fill: $ocean-green;
+  fill-opacity: 0.4;
+  stroke-dasharray: 2px;
+  stroke-width: 0.5px;
+  stroke-linecap: round;
 }
 
 .hydraulic {
-	fill: none;
-	stroke-linecap: round;
+  stroke: cadetblue;
+  fill: none;
+  stroke-linecap: round;
 }
 
 .bezier-anchor {
-	cursor: pointer;
-	fill: #888;
-	stroke: #888;
-	stroke-width: 1px;
+  cursor: pointer;
+  fill: #888;
+  stroke: #888;
+  stroke-width: 1px;
 }
 
 .anchor-line {
-	stroke: #888;
-	stroke-width: 0.5px;
-	stroke-linecap: round;
-	stroke-dasharray: 2px;
+  stroke: #888;
+  stroke-width: 0.5px;
+  stroke-linecap: round;
+  stroke-dasharray: 2px;
 }
 
 .point {
-	cursor: pointer;
-	stroke: $dark-jungle-green;
-	stroke-width: 2px;
+  cursor: pointer;
+  stroke: $dark-jungle-green;
+  stroke-width: 2px;
+}
+
+.width-anchor {
+  opacity: 0.4;
 }

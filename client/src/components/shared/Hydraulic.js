@@ -1,5 +1,8 @@
 import React from 'react';
-import { useMousePosition, useKeyPress } from './_utils';
+// UTILS
+import { circleAttributes, textAttributes } from './_utils';
+// COMPONENTS
+import FeatureShell from './FeatureShell';
 import Point from './Point';
 
 /**
@@ -7,92 +10,78 @@ import Point from './Point';
  */
 
 const Hydraulic = ({
-  line,
   featureType = 'hydraulic',
-  lineIndex,
-  reducers,
   areHandlesVisible,
   areIndexVisible,
+  lineIndex,
+  vector,
   width,
+  reducers: {
+    setDraggedFeature,
+    removeFeature,
+    setActiveType,
+    setHydraulicWidth,
+    setDraggedPoint,
+    removePoint,
+  },
 }) => {
-  const isCtrlPressed = useKeyPress('Control');
-  const coords = useMousePosition();
-
   // Find handle coordinates
-
-  const center = {
-    x: (line[1].x + line[0].x) / 2,
-    y: (line[1].y + line[0].y) / 2,
-  };
+  const x0 = vector[0].x,
+    y0 = vector[0].y,
+    x1 = vector[1].x,
+    y1 = vector[1].y;
 
   const quarter = [
     {
-      x: (line[0].x + center.x) / 2,
-      y: (line[0].y + center.y) / 2,
+      x: (x0 + (x1 + x0) / 2) / 2,
+      y: (y0 + (y1 + y0) / 2) / 2,
     },
-    { x: (line[1].x + center.x) / 2, y: (line[1].y + center.y) / 2 },
+    {
+      x: (x1 + (x1 + x0) / 2) / 2,
+      y: (y1 + (y1 + y0) / 2) / 2,
+    },
   ];
 
-  return (
-    <g
-      className={isCtrlPressed ? 'remove' : 'draggable'}
-      onMouseDown={(e) => {
-        if (isCtrlPressed) {
-          reducers.removeFeature();
-        } else {
-          reducers.setDraggedFeature(coords);
-        }
-
-        e.stopPropagation();
-      }}
-    >
-      <path
-        onMouseOver={() => reducers.setActiveType({ featureType, lineIndex })}
-        className={featureType}
-        d={`M ${line[0].x} ${line[0].y} L ${line[1].x} ${line[1].y}`}
-        strokeWidth={width}
-        stroke="CadetBlue"
+  const anchors = quarter.map(({ x, y }, i) => (
+    <g key={i}>
+      <circle
+        {...circleAttributes(x, y, 2, 'width-anchor', () =>
+          setHydraulicWidth({ lineIndex, pointIndex: i })
+        )}
       />
-
-      {quarter.map((point, i) => (
-        <g
-          onMouseDown={(e) => {
-            reducers.setHydraulicWidth({
-              featureType,
-              lineIndex,
-              pointIndex: i,
-            });
-            e.stopPropagation();
-          }}
-          key={i}
-        >
-          <circle cx={point.x} cy={point.y} r="2" fillOpacity={0.4} />
-          <text
-            x={point.x - 1}
-            y={point.y + 1}
-            fill="white"
-            fontSize="2px"
-            style={{ userSelect: 'none' }}
-          >
-            {i ? '+' : '-'}
-          </text>
-        </g>
-      ))}
-
-      {areHandlesVisible.value &&
-        line.map((p, i) => (
-          <Point
-            areIndexVisible={areIndexVisible}
-            featureType={featureType}
-            lineIndex={lineIndex}
-            pointIndex={i}
-            reducers={reducers}
-            x={p.x}
-            y={p.y}
-            key={i}
-          />
-        ))}
+      <text {...textAttributes(true, x, y)}>{i ? '+' : '-'}</text>
     </g>
+  ));
+
+  const points = vector.map((p, i) => (
+    <Point
+      areIndexVisible={areIndexVisible}
+      featureType={featureType}
+      lineIndex={lineIndex}
+      setDraggedPoint={setDraggedPoint}
+      removePoint={removePoint}
+      coords={{ p, i }}
+      key={i}
+    />
+  ));
+
+  return (
+    <FeatureShell
+      setDraggedFeature={setDraggedFeature}
+      removeFeature={removeFeature}
+      children={
+        <>
+          <path
+            onMouseOver={() => setActiveType({ featureType, lineIndex })}
+            d={`M ${x0} ${y0} L ${x1} ${y1}`}
+            className={featureType}
+            strokeWidth={width}
+          />
+          {areHandlesVisible.value && anchors}
+          {areHandlesVisible.value && points}
+        </>
+      }
+    />
   );
 };
 

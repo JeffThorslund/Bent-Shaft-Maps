@@ -1,83 +1,77 @@
 import React from 'react';
-import { buildPath, useKeyPress, useMousePosition } from './_utils';
+// UTILS
+import { buildPath } from './_utils';
+// COMPONENTS
 import Point from './Point';
 import Cubic from './Cubic';
+import FeatureShell from './FeatureShell';
 
 /**
  * A line represents a safe route to navigate the river at a specific water level
  */
 
 const Line = ({
-  line,
   featureType = 'line',
-  lineIndex,
-  reducers,
   areHandlesVisible,
   areIndexVisible,
-}) => {
-  const isCtrlPressed = useKeyPress('Control');
-  const coords = useMousePosition();
-  return (
-    <g
-      className={isCtrlPressed ? 'remove' : 'draggable'}
-      onMouseDown={(e) => {
-        if (isCtrlPressed) {
-          reducers.removeFeature();
-        } else {
-          reducers.setDraggedFeature(coords);
-        }
-        e.stopPropagation();
-      }}
-    >
-      <path
-        onMouseOver={() => reducers.setActiveType({ featureType, lineIndex })}
-        className={featureType}
-        d={buildPath({
-          points: line,
-          closePath: false,
-        })}
-      />
-      {areHandlesVisible.value &&
-        line.map((p, i, a) => {
-          const anchors = [];
-          if (p.c) {
-            anchors.push(
-              <Cubic
+  lineIndex,
+  vector,
+  reducers: {
+    setDraggedFeature,
+    setDraggedCubic,
+    setDraggedPoint,
+    removeFeature,
+    setActiveType,
+    removePoint,
+  },
+}) => (
+  <FeatureShell
+    setDraggedFeature={setDraggedFeature}
+    removeFeature={removeFeature}
+    children={
+      <>
+        <path
+          onMouseOver={() => setActiveType({ featureType, lineIndex })}
+          className={featureType}
+          d={buildPath(vector)}
+        />
+        {areHandlesVisible.value &&
+          vector.map((p, i, a) => {
+            const anchors = [];
+            const point = p.z ? null : (
+              <Point
                 areIndexVisible={areIndexVisible}
+                setDraggedPoint={setDraggedPoint}
+                removePoint={removePoint}
                 featureType={featureType}
                 lineIndex={lineIndex}
-                pointIndex={i}
-                reducers={reducers}
-                p1x={a[i - 1].x}
-                p1y={a[i - 1].y}
-                p2x={p.x}
-                p2y={p.y}
-                x1={p.c[0].x}
-                y1={p.c[0].y}
-                x2={p.c[1].x}
-                y2={p.c[1].y}
+                coords={{ p, i }}
                 key={i}
               />
             );
-          }
-          return (
-            <React.Fragment key={i}>
-              <Point
-                areIndexVisible={areIndexVisible}
-                featureType={featureType}
-                lineIndex={lineIndex}
-                pointIndex={i}
-                reducers={reducers}
-                x={p.x}
-                y={p.y}
-                key={i}
-              />
-              {anchors}
-            </React.Fragment>
-          );
-        })}
-    </g>
-  );
-};
+
+            if (p.c) {
+              anchors.push(
+                <Cubic
+                  areIndexVisible={areIndexVisible}
+                  setDraggedCubic={setDraggedCubic}
+                  featureType={featureType}
+                  lineIndex={lineIndex}
+                  coords={{ p, i, a }}
+                  key={i}
+                />
+              );
+            }
+            return (
+              <React.Fragment key={i}>
+                {anchors}
+                {point}
+              </React.Fragment>
+            );
+          })}
+      </>
+    }
+  />
+);
 
 export default Line;

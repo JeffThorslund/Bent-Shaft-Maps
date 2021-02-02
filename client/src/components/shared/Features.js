@@ -1,4 +1,5 @@
 import React from 'react';
+// Components
 import SVG from './SVG';
 import Line from './Line';
 import Eddy from './Eddy';
@@ -18,39 +19,40 @@ const Features = ({
   areIndexVisible,
 }) => {
   const { lines, eddys, hydraulics } = rapid;
+
   return (
     <SVG reducers={reducers}>
       {areLinesVisible.value &&
         lines.map((line, i) => (
           <Line
-            line={line.vector}
-            lineIndex={i}
-            reducers={reducers}
             areHandlesVisible={areHandlesVisible}
             areIndexVisible={areIndexVisible}
+            vector={line.vector}
+            reducers={reducers}
+            lineIndex={i}
             key={line.id}
           />
         ))}
       {areEddysVisible.value &&
         eddys.map((eddy, i) => (
           <Eddy
-            line={eddy.vector}
-            lineIndex={i}
-            reducers={reducers}
             areHandlesVisible={areHandlesVisible}
             areIndexVisible={areIndexVisible}
+            vector={eddy.vector}
+            reducers={reducers}
+            lineIndex={i}
             key={eddy.id}
           />
         ))}
       {areHydraulicsVisible.value &&
         hydraulics.map((hydraulic, i) => (
           <Hydraulic
-            line={hydraulic.vector}
-            width={hydraulic.width}
-            lineIndex={i}
-            reducers={reducers}
             areHandlesVisible={areHandlesVisible}
             areIndexVisible={areIndexVisible}
+            vector={hydraulic.vector}
+            width={hydraulic.width}
+            reducers={reducers}
+            lineIndex={i}
             key={hydraulic.id}
           />
         ))}
