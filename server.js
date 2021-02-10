@@ -10,6 +10,7 @@ const app = express();
 const http = require('http').createServer(app);
 /* --Import Routes--*/
 const actions = require('./routes/api/Actions');
+const events = require("./routes/api/Events")
 const authorization = require('./routes/auth/Authorization');
 
 /* --Middleware--*/
@@ -19,6 +20,7 @@ app.use(bodyParser.json({ limit: '50mb' }));
 
 /* --Use Routes--*/
 app.use('/api', actions);
+app.use('/api', events);
 app.use('/auth', authorization);
 
 /* --Connect to Mongo--*/
